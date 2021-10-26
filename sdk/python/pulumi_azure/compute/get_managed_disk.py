@@ -217,7 +217,6 @@ class AwaitableGetManagedDiskResult(GetManagedDiskResult):
 def get_managed_disk(name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      tags: Optional[Mapping[str, str]] = None,
-                     zones: Optional[Sequence[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedDiskResult:
     """
     Use this data source to access information about an existing Managed Disk.
@@ -237,13 +236,11 @@ def get_managed_disk(name: Optional[str] = None,
     :param str name: Specifies the name of the Managed Disk.
     :param str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
     :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
-    :param Sequence[str] zones: A list of Availability Zones where the Managed Disk exists.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
-    __args__['zones'] = zones
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -273,7 +270,6 @@ def get_managed_disk(name: Optional[str] = None,
 def get_managed_disk_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                            zones: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedDiskResult]:
     """
     Use this data source to access information about an existing Managed Disk.
@@ -293,6 +289,5 @@ def get_managed_disk_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Specifies the name of the Managed Disk.
     :param str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
     :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
-    :param Sequence[str] zones: A list of Availability Zones where the Managed Disk exists.
     """
     ...

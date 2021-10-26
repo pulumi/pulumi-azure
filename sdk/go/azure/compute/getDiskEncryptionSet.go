@@ -30,6 +30,8 @@ type LookupDiskEncryptionSetArgs struct {
 
 // A collection of values returned by getDiskEncryptionSet.
 type LookupDiskEncryptionSetResult struct {
+	// Is the Azure Disk Encryption Set Key automatically rotated to latest version?
+	AutoKeyRotationEnabled bool `pulumi:"autoKeyRotationEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location where the Disk Encryption Set exists.
@@ -74,6 +76,11 @@ func (o LookupDiskEncryptionSetResultOutput) ToLookupDiskEncryptionSetResultOutp
 
 func (o LookupDiskEncryptionSetResultOutput) ToLookupDiskEncryptionSetResultOutputWithContext(ctx context.Context) LookupDiskEncryptionSetResultOutput {
 	return o
+}
+
+// Is the Azure Disk Encryption Set Key automatically rotated to latest version?
+func (o LookupDiskEncryptionSetResultOutput) AutoKeyRotationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDiskEncryptionSetResult) bool { return v.AutoKeyRotationEnabled }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

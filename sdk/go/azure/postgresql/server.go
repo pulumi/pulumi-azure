@@ -35,7 +35,7 @@ import (
 // 		_, err = postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
 // 			Location:                     exampleResourceGroup.Location,
 // 			ResourceGroupName:            exampleResourceGroup.Name,
-// 			AdministratorLogin:           pulumi.String("psqladminun"),
+// 			AdministratorLogin:           pulumi.String("psqladmin"),
 // 			AdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 // 			SkuName:                      pulumi.String("GP_Gen5_4"),
 // 			Version:                      pulumi.String("9.6"),

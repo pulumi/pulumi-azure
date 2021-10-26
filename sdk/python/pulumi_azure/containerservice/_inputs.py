@@ -33,6 +33,7 @@ __all__ = [
     'KubernetesClusterAddonProfileKubeDashboardArgs',
     'KubernetesClusterAddonProfileOmsAgentArgs',
     'KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs',
+    'KubernetesClusterAddonProfileOpenServiceMeshArgs',
     'KubernetesClusterAutoScalerProfileArgs',
     'KubernetesClusterDefaultNodePoolArgs',
     'KubernetesClusterDefaultNodePoolKubeletConfigArgs',
@@ -1184,7 +1185,8 @@ class KubernetesClusterAddonProfileArgs:
                  http_application_routing: Optional[pulumi.Input['KubernetesClusterAddonProfileHttpApplicationRoutingArgs']] = None,
                  ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterAddonProfileIngressApplicationGatewayArgs']] = None,
                  kube_dashboard: Optional[pulumi.Input['KubernetesClusterAddonProfileKubeDashboardArgs']] = None,
-                 oms_agent: Optional[pulumi.Input['KubernetesClusterAddonProfileOmsAgentArgs']] = None):
+                 oms_agent: Optional[pulumi.Input['KubernetesClusterAddonProfileOmsAgentArgs']] = None,
+                 open_service_mesh: Optional[pulumi.Input['KubernetesClusterAddonProfileOpenServiceMeshArgs']] = None):
         """
         :param pulumi.Input['KubernetesClusterAddonProfileAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
         :param pulumi.Input['KubernetesClusterAddonProfileAzurePolicyArgs'] azure_policy: A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
@@ -1192,6 +1194,7 @@ class KubernetesClusterAddonProfileArgs:
         :param pulumi.Input['KubernetesClusterAddonProfileIngressApplicationGatewayArgs'] ingress_application_gateway: An `ingress_application_gateway` block as defined below.
         :param pulumi.Input['KubernetesClusterAddonProfileKubeDashboardArgs'] kube_dashboard: A `kube_dashboard` block as defined below.
         :param pulumi.Input['KubernetesClusterAddonProfileOmsAgentArgs'] oms_agent: A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+        :param pulumi.Input['KubernetesClusterAddonProfileOpenServiceMeshArgs'] open_service_mesh: An `open_service_mesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         """
         if aci_connector_linux is not None:
             pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
@@ -1205,6 +1208,8 @@ class KubernetesClusterAddonProfileArgs:
             pulumi.set(__self__, "kube_dashboard", kube_dashboard)
         if oms_agent is not None:
             pulumi.set(__self__, "oms_agent", oms_agent)
+        if open_service_mesh is not None:
+            pulumi.set(__self__, "open_service_mesh", open_service_mesh)
 
     @property
     @pulumi.getter(name="aciConnectorLinux")
@@ -1277,6 +1282,18 @@ class KubernetesClusterAddonProfileArgs:
     @oms_agent.setter
     def oms_agent(self, value: Optional[pulumi.Input['KubernetesClusterAddonProfileOmsAgentArgs']]):
         pulumi.set(self, "oms_agent", value)
+
+    @property
+    @pulumi.getter(name="openServiceMesh")
+    def open_service_mesh(self) -> Optional[pulumi.Input['KubernetesClusterAddonProfileOpenServiceMeshArgs']]:
+        """
+        An `open_service_mesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+        """
+        return pulumi.get(self, "open_service_mesh")
+
+    @open_service_mesh.setter
+    def open_service_mesh(self, value: Optional[pulumi.Input['KubernetesClusterAddonProfileOpenServiceMeshArgs']]):
+        pulumi.set(self, "open_service_mesh", value)
 
 
 @pulumi.input_type
@@ -1679,6 +1696,28 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs:
     @user_assigned_identity_id.setter
     def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
+
+
+@pulumi.input_type
+class KubernetesClusterAddonProfileOpenServiceMeshArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] enabled: Is Open Service Mesh enabled?
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Is Open Service Mesh enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type
@@ -4956,14 +4995,18 @@ class RegistryEncryptionArgs:
 class RegistryGeoreplicationArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
+                 regional_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] location: A location where the container registry should be geo-replicated.
+        :param pulumi.Input[bool] regional_endpoint_enabled: Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to this replication location.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
         """
         pulumi.set(__self__, "location", location)
+        if regional_endpoint_enabled is not None:
+            pulumi.set(__self__, "regional_endpoint_enabled", regional_endpoint_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone_redundancy_enabled is not None:
@@ -4980,6 +5023,18 @@ class RegistryGeoreplicationArgs:
     @location.setter
     def location(self, value: pulumi.Input[str]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="regionalEndpointEnabled")
+    def regional_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+        """
+        return pulumi.get(self, "regional_endpoint_enabled")
+
+    @regional_endpoint_enabled.setter
+    def regional_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "regional_endpoint_enabled", value)
 
     @property
     @pulumi.getter

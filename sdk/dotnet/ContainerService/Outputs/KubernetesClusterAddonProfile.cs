@@ -37,6 +37,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
         /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileOmsAgent? OmsAgent;
+        /// <summary>
+        /// An `open_service_mesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+        /// </summary>
+        public readonly Outputs.KubernetesClusterAddonProfileOpenServiceMesh? OpenServiceMesh;
 
         [OutputConstructor]
         private KubernetesClusterAddonProfile(
@@ -50,7 +54,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             Outputs.KubernetesClusterAddonProfileKubeDashboard? kubeDashboard,
 
-            Outputs.KubernetesClusterAddonProfileOmsAgent? omsAgent)
+            Outputs.KubernetesClusterAddonProfileOmsAgent? omsAgent,
+
+            Outputs.KubernetesClusterAddonProfileOpenServiceMesh? openServiceMesh)
         {
             AciConnectorLinux = aciConnectorLinux;
             AzurePolicy = azurePolicy;
@@ -58,6 +64,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             IngressApplicationGateway = ingressApplicationGateway;
             KubeDashboard = kubeDashboard;
             OmsAgent = omsAgent;
+            OpenServiceMesh = openServiceMesh;
         }
     }
 }

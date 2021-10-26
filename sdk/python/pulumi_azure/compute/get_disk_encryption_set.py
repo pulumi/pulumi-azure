@@ -20,7 +20,10 @@ class GetDiskEncryptionSetResult:
     """
     A collection of values returned by getDiskEncryptionSet.
     """
-    def __init__(__self__, id=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, auto_key_rotation_enabled=None, id=None, location=None, name=None, resource_group_name=None, tags=None):
+        if auto_key_rotation_enabled and not isinstance(auto_key_rotation_enabled, bool):
+            raise TypeError("Expected argument 'auto_key_rotation_enabled' to be a bool")
+        pulumi.set(__self__, "auto_key_rotation_enabled", auto_key_rotation_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -36,6 +39,14 @@ class GetDiskEncryptionSetResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="autoKeyRotationEnabled")
+    def auto_key_rotation_enabled(self) -> bool:
+        """
+        Is the Azure Disk Encryption Set Key automatically rotated to latest version?
+        """
+        return pulumi.get(self, "auto_key_rotation_enabled")
 
     @property
     @pulumi.getter
@@ -78,6 +89,7 @@ class AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
         if False:
             yield self
         return GetDiskEncryptionSetResult(
+            auto_key_rotation_enabled=self.auto_key_rotation_enabled,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -105,6 +117,7 @@ def get_disk_encryption_set(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getDiskEncryptionSet:getDiskEncryptionSet', __args__, opts=opts, typ=GetDiskEncryptionSetResult).value
 
     return AwaitableGetDiskEncryptionSetResult(
+        auto_key_rotation_enabled=__ret__.auto_key_rotation_enabled,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,

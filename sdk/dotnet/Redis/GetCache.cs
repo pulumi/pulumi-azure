@@ -63,14 +63,6 @@ namespace Pulumi.Azure.Redis
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        [Input("zones")]
-        private List<string>? _zones;
-        public List<string> Zones
-        {
-            get => _zones ?? (_zones = new List<string>());
-            set => _zones = value;
-        }
-
         public GetCacheArgs()
         {
         }

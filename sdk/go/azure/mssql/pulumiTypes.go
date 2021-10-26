@@ -1539,6 +1539,8 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.Str
 }
 
 type ServerAzureadAdministrator struct {
+	// (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
+	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
 	// (Required)  The login username of the Azure AD Administrator of this SQL Server.
 	LoginUsername string `pulumi:"loginUsername"`
 	// (Required) The object id of the Azure AD Administrator of this SQL Server.
@@ -1559,6 +1561,8 @@ type ServerAzureadAdministratorInput interface {
 }
 
 type ServerAzureadAdministratorArgs struct {
+	// (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
+	AzureadAuthenticationOnly pulumi.BoolPtrInput `pulumi:"azureadAuthenticationOnly"`
 	// (Required)  The login username of the Azure AD Administrator of this SQL Server.
 	LoginUsername pulumi.StringInput `pulumi:"loginUsername"`
 	// (Required) The object id of the Azure AD Administrator of this SQL Server.
@@ -1644,6 +1648,11 @@ func (o ServerAzureadAdministratorOutput) ToServerAzureadAdministratorPtrOutputW
 	}).(ServerAzureadAdministratorPtrOutput)
 }
 
+// (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
+func (o ServerAzureadAdministratorOutput) AzureadAuthenticationOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServerAzureadAdministrator) *bool { return v.AzureadAuthenticationOnly }).(pulumi.BoolPtrOutput)
+}
+
 // (Required)  The login username of the Azure AD Administrator of this SQL Server.
 func (o ServerAzureadAdministratorOutput) LoginUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerAzureadAdministrator) string { return v.LoginUsername }).(pulumi.StringOutput)
@@ -1681,6 +1690,16 @@ func (o ServerAzureadAdministratorPtrOutput) Elem() ServerAzureadAdministratorOu
 		var ret ServerAzureadAdministrator
 		return ret
 	}).(ServerAzureadAdministratorOutput)
+}
+
+// (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
+func (o ServerAzureadAdministratorPtrOutput) AzureadAuthenticationOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerAzureadAdministrator) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AzureadAuthenticationOnly
+	}).(pulumi.BoolPtrOutput)
 }
 
 // (Required)  The login username of the Azure AD Administrator of this SQL Server.

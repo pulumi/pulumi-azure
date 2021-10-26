@@ -135,7 +135,6 @@ class AwaitableGetPublicIpPrefixResult(GetPublicIpPrefixResult):
 
 def get_public_ip_prefix(name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
-                         zones: Optional[Sequence[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIpPrefixResult:
     """
     Use this data source to access information about an existing Public IP Prefix.
@@ -159,7 +158,6 @@ def get_public_ip_prefix(name: Optional[str] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['zones'] = zones
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -181,7 +179,6 @@ def get_public_ip_prefix(name: Optional[str] = None,
 @_utilities.lift_output_func(get_public_ip_prefix)
 def get_public_ip_prefix_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                zones: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIpPrefixResult]:
     """
     Use this data source to access information about an existing Public IP Prefix.

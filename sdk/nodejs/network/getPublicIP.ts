@@ -83,7 +83,6 @@ export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions):
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "tags": args.tags,
-        "zones": args.zones,
     }, opts);
 }
 
@@ -103,7 +102,6 @@ export interface GetPublicIPArgs {
      * A mapping of tags to assigned to the resource.
      */
     tags?: {[key: string]: string};
-    zones?: string[];
 }
 
 /**
@@ -174,5 +172,4 @@ export interface GetPublicIPOutputArgs {
      * A mapping of tags to assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.PostgreSql.Outputs
         /// </summary>
         public readonly string Mode;
         /// <summary>
-        /// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+        /// The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
         /// </summary>
         public readonly string? StandbyAvailabilityZone;
 

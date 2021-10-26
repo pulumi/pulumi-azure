@@ -580,6 +580,8 @@ class ServerAzureadAdministrator(dict):
             suggest = "login_username"
         elif key == "objectId":
             suggest = "object_id"
+        elif key == "azureadAuthenticationOnly":
+            suggest = "azuread_authentication_only"
         elif key == "tenantId":
             suggest = "tenant_id"
 
@@ -597,14 +599,18 @@ class ServerAzureadAdministrator(dict):
     def __init__(__self__, *,
                  login_username: str,
                  object_id: str,
+                 azuread_authentication_only: Optional[bool] = None,
                  tenant_id: Optional[str] = None):
         """
         :param str login_username: (Required)  The login username of the Azure AD Administrator of this SQL Server.
         :param str object_id: (Required) The object id of the Azure AD Administrator of this SQL Server.
+        :param bool azuread_authentication_only: (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administrator_login`).
         :param str tenant_id: (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
         """
         pulumi.set(__self__, "login_username", login_username)
         pulumi.set(__self__, "object_id", object_id)
+        if azuread_authentication_only is not None:
+            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
@@ -623,6 +629,14 @@ class ServerAzureadAdministrator(dict):
         (Required) The object id of the Azure AD Administrator of this SQL Server.
         """
         return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="azureadAuthenticationOnly")
+    def azuread_authentication_only(self) -> Optional[bool]:
+        """
+        (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administrator_login`).
+        """
+        return pulumi.get(self, "azuread_authentication_only")
 
     @property
     @pulumi.getter(name="tenantId")

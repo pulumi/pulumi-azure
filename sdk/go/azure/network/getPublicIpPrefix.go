@@ -51,8 +51,7 @@ type LookupPublicIpPrefixArgs struct {
 	// Specifies the name of the public IP prefix.
 	Name string `pulumi:"name"`
 	// Specifies the name of the resource group.
-	ResourceGroupName string   `pulumi:"resourceGroupName"`
-	Zones             []string `pulumi:"zones"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getPublicIpPrefix.
@@ -89,8 +88,7 @@ type LookupPublicIpPrefixOutputArgs struct {
 	// Specifies the name of the public IP prefix.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the resource group.
-	ResourceGroupName pulumi.StringInput      `pulumi:"resourceGroupName"`
-	Zones             pulumi.StringArrayInput `pulumi:"zones"`
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 func (LookupPublicIpPrefixOutputArgs) ElementType() reflect.Type {

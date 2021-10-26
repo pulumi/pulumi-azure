@@ -26,7 +26,7 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// </summary>
         public readonly string? PrivateConnectionResourceAlias;
         /// <summary>
-        /// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
+        /// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
         /// </summary>
         public readonly string? PrivateConnectionResourceId;
         /// <summary>

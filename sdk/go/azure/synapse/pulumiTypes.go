@@ -615,6 +615,162 @@ func (o SparkPoolLibraryRequirementPtrOutput) Filename() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type SparkPoolSparkConfig struct {
+	// The contents of a spark configuration.
+	Content string `pulumi:"content"`
+	// The name of the file where the spark configuration `content` will be stored.
+	Filename string `pulumi:"filename"`
+}
+
+// SparkPoolSparkConfigInput is an input type that accepts SparkPoolSparkConfigArgs and SparkPoolSparkConfigOutput values.
+// You can construct a concrete instance of `SparkPoolSparkConfigInput` via:
+//
+//          SparkPoolSparkConfigArgs{...}
+type SparkPoolSparkConfigInput interface {
+	pulumi.Input
+
+	ToSparkPoolSparkConfigOutput() SparkPoolSparkConfigOutput
+	ToSparkPoolSparkConfigOutputWithContext(context.Context) SparkPoolSparkConfigOutput
+}
+
+type SparkPoolSparkConfigArgs struct {
+	// The contents of a spark configuration.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The name of the file where the spark configuration `content` will be stored.
+	Filename pulumi.StringInput `pulumi:"filename"`
+}
+
+func (SparkPoolSparkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkPoolSparkConfig)(nil)).Elem()
+}
+
+func (i SparkPoolSparkConfigArgs) ToSparkPoolSparkConfigOutput() SparkPoolSparkConfigOutput {
+	return i.ToSparkPoolSparkConfigOutputWithContext(context.Background())
+}
+
+func (i SparkPoolSparkConfigArgs) ToSparkPoolSparkConfigOutputWithContext(ctx context.Context) SparkPoolSparkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolSparkConfigOutput)
+}
+
+func (i SparkPoolSparkConfigArgs) ToSparkPoolSparkConfigPtrOutput() SparkPoolSparkConfigPtrOutput {
+	return i.ToSparkPoolSparkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i SparkPoolSparkConfigArgs) ToSparkPoolSparkConfigPtrOutputWithContext(ctx context.Context) SparkPoolSparkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolSparkConfigOutput).ToSparkPoolSparkConfigPtrOutputWithContext(ctx)
+}
+
+// SparkPoolSparkConfigPtrInput is an input type that accepts SparkPoolSparkConfigArgs, SparkPoolSparkConfigPtr and SparkPoolSparkConfigPtrOutput values.
+// You can construct a concrete instance of `SparkPoolSparkConfigPtrInput` via:
+//
+//          SparkPoolSparkConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkPoolSparkConfigPtrInput interface {
+	pulumi.Input
+
+	ToSparkPoolSparkConfigPtrOutput() SparkPoolSparkConfigPtrOutput
+	ToSparkPoolSparkConfigPtrOutputWithContext(context.Context) SparkPoolSparkConfigPtrOutput
+}
+
+type sparkPoolSparkConfigPtrType SparkPoolSparkConfigArgs
+
+func SparkPoolSparkConfigPtr(v *SparkPoolSparkConfigArgs) SparkPoolSparkConfigPtrInput {
+	return (*sparkPoolSparkConfigPtrType)(v)
+}
+
+func (*sparkPoolSparkConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkPoolSparkConfig)(nil)).Elem()
+}
+
+func (i *sparkPoolSparkConfigPtrType) ToSparkPoolSparkConfigPtrOutput() SparkPoolSparkConfigPtrOutput {
+	return i.ToSparkPoolSparkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *sparkPoolSparkConfigPtrType) ToSparkPoolSparkConfigPtrOutputWithContext(ctx context.Context) SparkPoolSparkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolSparkConfigPtrOutput)
+}
+
+type SparkPoolSparkConfigOutput struct{ *pulumi.OutputState }
+
+func (SparkPoolSparkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkPoolSparkConfig)(nil)).Elem()
+}
+
+func (o SparkPoolSparkConfigOutput) ToSparkPoolSparkConfigOutput() SparkPoolSparkConfigOutput {
+	return o
+}
+
+func (o SparkPoolSparkConfigOutput) ToSparkPoolSparkConfigOutputWithContext(ctx context.Context) SparkPoolSparkConfigOutput {
+	return o
+}
+
+func (o SparkPoolSparkConfigOutput) ToSparkPoolSparkConfigPtrOutput() SparkPoolSparkConfigPtrOutput {
+	return o.ToSparkPoolSparkConfigPtrOutputWithContext(context.Background())
+}
+
+func (o SparkPoolSparkConfigOutput) ToSparkPoolSparkConfigPtrOutputWithContext(ctx context.Context) SparkPoolSparkConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkPoolSparkConfig) *SparkPoolSparkConfig {
+		return &v
+	}).(SparkPoolSparkConfigPtrOutput)
+}
+
+// The contents of a spark configuration.
+func (o SparkPoolSparkConfigOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkPoolSparkConfig) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The name of the file where the spark configuration `content` will be stored.
+func (o SparkPoolSparkConfigOutput) Filename() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkPoolSparkConfig) string { return v.Filename }).(pulumi.StringOutput)
+}
+
+type SparkPoolSparkConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (SparkPoolSparkConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkPoolSparkConfig)(nil)).Elem()
+}
+
+func (o SparkPoolSparkConfigPtrOutput) ToSparkPoolSparkConfigPtrOutput() SparkPoolSparkConfigPtrOutput {
+	return o
+}
+
+func (o SparkPoolSparkConfigPtrOutput) ToSparkPoolSparkConfigPtrOutputWithContext(ctx context.Context) SparkPoolSparkConfigPtrOutput {
+	return o
+}
+
+func (o SparkPoolSparkConfigPtrOutput) Elem() SparkPoolSparkConfigOutput {
+	return o.ApplyT(func(v *SparkPoolSparkConfig) SparkPoolSparkConfig {
+		if v != nil {
+			return *v
+		}
+		var ret SparkPoolSparkConfig
+		return ret
+	}).(SparkPoolSparkConfigOutput)
+}
+
+// The contents of a spark configuration.
+func (o SparkPoolSparkConfigPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkPoolSparkConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the file where the spark configuration `content` will be stored.
+func (o SparkPoolSparkConfigPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkPoolSparkConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
 type SqlPoolRestore struct {
 	// Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
 	PointInTime string `pulumi:"pointInTime"`
@@ -769,6 +925,103 @@ func (o SqlPoolRestorePtrOutput) SourceDatabaseId() pulumi.StringPtrOutput {
 		}
 		return &v.SourceDatabaseId
 	}).(pulumi.StringPtrOutput)
+}
+
+type SqlPoolVulnerabilityAssessmentBaselineBaseline struct {
+	// Specifies a list of rule baseline result.
+	Results []string `pulumi:"results"`
+}
+
+// SqlPoolVulnerabilityAssessmentBaselineBaselineInput is an input type that accepts SqlPoolVulnerabilityAssessmentBaselineBaselineArgs and SqlPoolVulnerabilityAssessmentBaselineBaselineOutput values.
+// You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentBaselineBaselineInput` via:
+//
+//          SqlPoolVulnerabilityAssessmentBaselineBaselineArgs{...}
+type SqlPoolVulnerabilityAssessmentBaselineBaselineInput interface {
+	pulumi.Input
+
+	ToSqlPoolVulnerabilityAssessmentBaselineBaselineOutput() SqlPoolVulnerabilityAssessmentBaselineBaselineOutput
+	ToSqlPoolVulnerabilityAssessmentBaselineBaselineOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentBaselineBaselineOutput
+}
+
+type SqlPoolVulnerabilityAssessmentBaselineBaselineArgs struct {
+	// Specifies a list of rule baseline result.
+	Results pulumi.StringArrayInput `pulumi:"results"`
+}
+
+func (SqlPoolVulnerabilityAssessmentBaselineBaselineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolVulnerabilityAssessmentBaselineBaseline)(nil)).Elem()
+}
+
+func (i SqlPoolVulnerabilityAssessmentBaselineBaselineArgs) ToSqlPoolVulnerabilityAssessmentBaselineBaselineOutput() SqlPoolVulnerabilityAssessmentBaselineBaselineOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentBaselineBaselineOutputWithContext(context.Background())
+}
+
+func (i SqlPoolVulnerabilityAssessmentBaselineBaselineArgs) ToSqlPoolVulnerabilityAssessmentBaselineBaselineOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentBaselineBaselineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentBaselineBaselineOutput)
+}
+
+// SqlPoolVulnerabilityAssessmentBaselineBaselineArrayInput is an input type that accepts SqlPoolVulnerabilityAssessmentBaselineBaselineArray and SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput values.
+// You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentBaselineBaselineArrayInput` via:
+//
+//          SqlPoolVulnerabilityAssessmentBaselineBaselineArray{ SqlPoolVulnerabilityAssessmentBaselineBaselineArgs{...} }
+type SqlPoolVulnerabilityAssessmentBaselineBaselineArrayInput interface {
+	pulumi.Input
+
+	ToSqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput() SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput
+	ToSqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutputWithContext(context.Context) SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput
+}
+
+type SqlPoolVulnerabilityAssessmentBaselineBaselineArray []SqlPoolVulnerabilityAssessmentBaselineBaselineInput
+
+func (SqlPoolVulnerabilityAssessmentBaselineBaselineArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlPoolVulnerabilityAssessmentBaselineBaseline)(nil)).Elem()
+}
+
+func (i SqlPoolVulnerabilityAssessmentBaselineBaselineArray) ToSqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput() SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput {
+	return i.ToSqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutputWithContext(context.Background())
+}
+
+func (i SqlPoolVulnerabilityAssessmentBaselineBaselineArray) ToSqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput)
+}
+
+type SqlPoolVulnerabilityAssessmentBaselineBaselineOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolVulnerabilityAssessmentBaselineBaselineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolVulnerabilityAssessmentBaselineBaseline)(nil)).Elem()
+}
+
+func (o SqlPoolVulnerabilityAssessmentBaselineBaselineOutput) ToSqlPoolVulnerabilityAssessmentBaselineBaselineOutput() SqlPoolVulnerabilityAssessmentBaselineBaselineOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentBaselineBaselineOutput) ToSqlPoolVulnerabilityAssessmentBaselineBaselineOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentBaselineBaselineOutput {
+	return o
+}
+
+// Specifies a list of rule baseline result.
+func (o SqlPoolVulnerabilityAssessmentBaselineBaselineOutput) Results() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SqlPoolVulnerabilityAssessmentBaselineBaseline) []string { return v.Results }).(pulumi.StringArrayOutput)
+}
+
+type SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlPoolVulnerabilityAssessmentBaselineBaseline)(nil)).Elem()
+}
+
+func (o SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput) ToSqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput() SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput) ToSqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput {
+	return o
+}
+
+func (o SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput) Index(i pulumi.IntInput) SqlPoolVulnerabilityAssessmentBaselineBaselineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlPoolVulnerabilityAssessmentBaselineBaseline {
+		return vs[0].([]SqlPoolVulnerabilityAssessmentBaselineBaseline)[vs[1].(int)]
+	}).(SqlPoolVulnerabilityAssessmentBaselineBaselineOutput)
 }
 
 type SqlPoolVulnerabilityAssessmentRecurringScans struct {
@@ -2136,8 +2389,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolAutoScalePtrInput)(nil)).Elem(), SparkPoolAutoScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolLibraryRequirementInput)(nil)).Elem(), SparkPoolLibraryRequirementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolLibraryRequirementPtrInput)(nil)).Elem(), SparkPoolLibraryRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolSparkConfigInput)(nil)).Elem(), SparkPoolSparkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolSparkConfigPtrInput)(nil)).Elem(), SparkPoolSparkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolRestoreInput)(nil)).Elem(), SqlPoolRestoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolRestorePtrInput)(nil)).Elem(), SqlPoolRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolVulnerabilityAssessmentBaselineBaselineInput)(nil)).Elem(), SqlPoolVulnerabilityAssessmentBaselineBaselineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolVulnerabilityAssessmentBaselineBaselineArrayInput)(nil)).Elem(), SqlPoolVulnerabilityAssessmentBaselineBaselineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRecurringScansInput)(nil)).Elem(), SqlPoolVulnerabilityAssessmentRecurringScansArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRecurringScansPtrInput)(nil)).Elem(), SqlPoolVulnerabilityAssessmentRecurringScansArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminInput)(nil)).Elem(), WorkspaceAadAdminArgs{})
@@ -2162,8 +2419,12 @@ func init() {
 	pulumi.RegisterOutputType(SparkPoolAutoScalePtrOutput{})
 	pulumi.RegisterOutputType(SparkPoolLibraryRequirementOutput{})
 	pulumi.RegisterOutputType(SparkPoolLibraryRequirementPtrOutput{})
+	pulumi.RegisterOutputType(SparkPoolSparkConfigOutput{})
+	pulumi.RegisterOutputType(SparkPoolSparkConfigPtrOutput{})
 	pulumi.RegisterOutputType(SqlPoolRestoreOutput{})
 	pulumi.RegisterOutputType(SqlPoolRestorePtrOutput{})
+	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentBaselineBaselineOutput{})
+	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRecurringScansOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminOutput{})

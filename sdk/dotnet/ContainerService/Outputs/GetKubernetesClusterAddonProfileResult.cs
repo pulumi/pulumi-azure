@@ -33,6 +33,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// A `oms_agent` block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileOmsAgentResult> OmsAgents;
+        /// <summary>
+        /// An `open_service_mesh` block.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileOpenServiceMeshResult> OpenServiceMeshes;
 
         [OutputConstructor]
         private GetKubernetesClusterAddonProfileResult(
@@ -44,13 +48,16 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableArray<Outputs.GetKubernetesClusterAddonProfileKubeDashboardResult> kubeDashboards,
 
-            ImmutableArray<Outputs.GetKubernetesClusterAddonProfileOmsAgentResult> omsAgents)
+            ImmutableArray<Outputs.GetKubernetesClusterAddonProfileOmsAgentResult> omsAgents,
+
+            ImmutableArray<Outputs.GetKubernetesClusterAddonProfileOpenServiceMeshResult> openServiceMeshes)
         {
             AzurePolicies = azurePolicies;
             HttpApplicationRoutings = httpApplicationRoutings;
             IngressApplicationGateways = ingressApplicationGateways;
             KubeDashboards = kubeDashboards;
             OmsAgents = omsAgents;
+            OpenServiceMeshes = openServiceMeshes;
         }
     }
 }

@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Iot
     ///             IothubId = exampleIoTHub.Id,
     ///             AllowRule = new Azure.Iot.Inputs.SecurityDeviceGroupAllowRuleArgs
     ///             {
-    ///                 ConnectionToIpNotAlloweds = 
+    ///                 ConnectionToIpsNotAlloweds = 
     ///                 {
     ///                     "10.0.0.0/24",
     ///                 },

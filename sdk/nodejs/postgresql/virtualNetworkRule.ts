@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         backupRetentionDays: 7,
  *         geoRedundantBackup: "Disabled",
  *     },
- *     administratorLogin: "psqladminun",
+ *     administratorLogin: "psqladmin",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     version: "9.5",
  *     sslEnforcement: "Enabled",

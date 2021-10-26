@@ -18,6 +18,7 @@ class DiskEncryptionSetArgs:
                  identity: pulumi.Input['DiskEncryptionSetIdentityArgs'],
                  key_vault_key_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -26,6 +27,7 @@ class DiskEncryptionSetArgs:
         :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: A `identity` block defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Disk Encryption Set.
@@ -33,6 +35,8 @@ class DiskEncryptionSetArgs:
         pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if auto_key_rotation_enabled is not None:
+            pulumi.set(__self__, "auto_key_rotation_enabled", auto_key_rotation_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -77,6 +81,18 @@ class DiskEncryptionSetArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="autoKeyRotationEnabled")
+    def auto_key_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        """
+        return pulumi.get(self, "auto_key_rotation_enabled")
+
+    @auto_key_rotation_enabled.setter
+    def auto_key_rotation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_key_rotation_enabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -116,6 +132,7 @@ class DiskEncryptionSetArgs:
 @pulumi.input_type
 class _DiskEncryptionSetState:
     def __init__(__self__, *,
+                 auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['DiskEncryptionSetIdentityArgs']] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -124,6 +141,7 @@ class _DiskEncryptionSetState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DiskEncryptionSet resources.
+        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
         :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: A `identity` block defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
         :param pulumi.Input[str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
@@ -131,6 +149,8 @@ class _DiskEncryptionSetState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Disk Encryption Set.
         """
+        if auto_key_rotation_enabled is not None:
+            pulumi.set(__self__, "auto_key_rotation_enabled", auto_key_rotation_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if key_vault_key_id is not None:
@@ -143,6 +163,18 @@ class _DiskEncryptionSetState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="autoKeyRotationEnabled")
+    def auto_key_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        """
+        return pulumi.get(self, "auto_key_rotation_enabled")
+
+    @auto_key_rotation_enabled.setter
+    def auto_key_rotation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_key_rotation_enabled", value)
 
     @property
     @pulumi.getter
@@ -222,6 +254,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -300,6 +333,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: A `identity` block defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
         :param pulumi.Input[str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
@@ -397,6 +431,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -415,6 +450,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DiskEncryptionSetArgs.__new__(DiskEncryptionSetArgs)
 
+            __props__.__dict__["auto_key_rotation_enabled"] = auto_key_rotation_enabled
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
@@ -437,6 +473,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -450,6 +487,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: A `identity` block defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
         :param pulumi.Input[str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
@@ -461,6 +499,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         __props__ = _DiskEncryptionSetState.__new__(_DiskEncryptionSetState)
 
+        __props__.__dict__["auto_key_rotation_enabled"] = auto_key_rotation_enabled
         __props__.__dict__["identity"] = identity
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         __props__.__dict__["location"] = location
@@ -468,6 +507,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         return DiskEncryptionSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoKeyRotationEnabled")
+    def auto_key_rotation_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        """
+        return pulumi.get(self, "auto_key_rotation_enabled")
 
     @property
     @pulumi.getter

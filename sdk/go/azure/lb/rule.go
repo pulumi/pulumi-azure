@@ -82,8 +82,10 @@ import (
 type Rule struct {
 	pulumi.CustomResourceState
 
-	// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	// Deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
 	BackendAddressPoolId pulumi.StringOutput `pulumi:"backendAddressPoolId"`
+	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	BackendAddressPoolIds pulumi.StringArrayOutput `pulumi:"backendAddressPoolIds"`
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort pulumi.IntOutput `pulumi:"backendPort"`
 	// Is snat enabled for this Load Balancer Rule? Default `false`.
@@ -160,8 +162,10 @@ func GetRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Rule resources.
 type ruleState struct {
-	// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	// Deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
 	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
+	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	BackendAddressPoolIds []string `pulumi:"backendAddressPoolIds"`
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort *int `pulumi:"backendPort"`
 	// Is snat enabled for this Load Balancer Rule? Default `false`.
@@ -192,8 +196,10 @@ type ruleState struct {
 }
 
 type RuleState struct {
-	// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	// Deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
 	BackendAddressPoolId pulumi.StringPtrInput
+	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	BackendAddressPoolIds pulumi.StringArrayInput
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort pulumi.IntPtrInput
 	// Is snat enabled for this Load Balancer Rule? Default `false`.
@@ -228,8 +234,10 @@ func (RuleState) ElementType() reflect.Type {
 }
 
 type ruleArgs struct {
-	// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	// Deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
 	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
+	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	BackendAddressPoolIds []string `pulumi:"backendAddressPoolIds"`
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort int `pulumi:"backendPort"`
 	// Is snat enabled for this Load Balancer Rule? Default `false`.
@@ -260,8 +268,10 @@ type ruleArgs struct {
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
-	// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	// Deprecated: This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
 	BackendAddressPoolId pulumi.StringPtrInput
+	// A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	BackendAddressPoolIds pulumi.StringArrayInput
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort pulumi.IntInput
 	// Is snat enabled for this Load Balancer Rule? Default `false`.

@@ -59,10 +59,27 @@ export interface GetVirtualMachineResult {
     readonly id: string;
     /**
      * A `identity` block as defined below.
+     * *
      */
     readonly identities: outputs.compute.GetVirtualMachineIdentity[];
     readonly location: string;
     readonly name: string;
+    /**
+     * The Primary Private IP Address assigned to this Virtual Machine.
+     */
+    readonly privateIpAddress: string;
+    /**
+     * A list of Private IP Addresses assigned to this Virtual Machine.
+     */
+    readonly privateIpAddresses: string[];
+    /**
+     * The Primary Public IP Address assigned to this Virtual Machine.
+     */
+    readonly publicIpAddress: string;
+    /**
+     * A list of the Public IP Addresses assigned to this Virtual Machine.
+     */
+    readonly publicIpAddresses: string[];
     readonly resourceGroupName: string;
 }
 

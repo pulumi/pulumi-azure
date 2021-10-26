@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * const exampleFlexibleServer = new azure.mysql.FlexibleServer("exampleFlexibleServer", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     administratorLogin: "psqladminun",
+ *     administratorLogin: "psqladmin",
  *     administratorPassword: "H@Sh1CoR3!",
  *     backupRetentionDays: 7,
  *     delegatedSubnetId: exampleSubnet.id,

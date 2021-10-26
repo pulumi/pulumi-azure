@@ -177,7 +177,7 @@ class FlexibleServerDatabase(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             version="12",
-            administrator_login="psqladminun",
+            administrator_login="psqladmin",
             administrator_password="H@Sh1CoR3!",
             storage_mb=32768,
             sku_name="GP_Standard_D4s_v3")
@@ -222,7 +222,7 @@ class FlexibleServerDatabase(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             version="12",
-            administrator_login="psqladminun",
+            administrator_login="psqladmin",
             administrator_password="H@Sh1CoR3!",
             storage_mb=32768,
             sku_name="GP_Standard_D4s_v3")

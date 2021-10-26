@@ -14343,15 +14343,14 @@ func (o SlotLogsHttpLogsFileSystemPtrOutput) RetentionInMb() pulumi.IntPtrOutput
 }
 
 type SlotSiteConfig struct {
-	// Are Managed Identity Credential used for Azure Container Registry pull
+	// Are Managed Identity Credentials used for Azure Container Registry pull
 	AcrUseManagedIdentityCredentials *bool `pulumi:"acrUseManagedIdentityCredentials"`
 	// If using User Managed Identity, the User Managed Identity Client Id
 	AcrUserManagedIdentityClientId *string `pulumi:"acrUserManagedIdentityClientId"`
-	// Should the app be loaded at all times? Defaults to `false`.
+	// Should the slot be loaded at all times? Defaults to `false`.
 	AlwaysOn *bool `pulumi:"alwaysOn"`
 	// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
-	AppCommandLine *string `pulumi:"appCommandLine"`
-	// The name of the slot to automatically swap to during deployment
+	AppCommandLine   *string `pulumi:"appCommandLine"`
 	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors *SlotSiteConfigCors `pulumi:"cors"`
@@ -14359,44 +14358,52 @@ type SlotSiteConfig struct {
 	DefaultDocuments []string `pulumi:"defaultDocuments"`
 	// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
-	FtpsState              *string `pulumi:"ftpsState"`
-	HealthCheckPath        *string `pulumi:"healthCheckPath"`
+	// State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+	FtpsState *string `pulumi:"ftpsState"`
+	// The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
+	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// A list of objects representing ip restrictions as defined below.
 	IpRestrictions []SlotSiteConfigIpRestriction `pulumi:"ipRestrictions"`
-	// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+	// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
 	JavaContainer *string `pulumi:"javaContainer"`
 	// The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
 	JavaContainerVersion *string `pulumi:"javaContainerVersion"`
 	// The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
-	JavaVersion    *string `pulumi:"javaVersion"`
+	JavaVersion *string `pulumi:"javaVersion"`
+	// Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
 	// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
 	LocalMysqlEnabled *bool `pulumi:"localMysqlEnabled"`
 	// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
 	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
 	// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-	MinTlsVersion   *string `pulumi:"minTlsVersion"`
-	NumberOfWorkers *int    `pulumi:"numberOfWorkers"`
-	// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	// The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `perSiteScaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
+	// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
 	PhpVersion *string `pulumi:"phpVersion"`
 	// The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
 	PythonVersion *string `pulumi:"pythonVersion"`
 	// Is Remote Debugging Enabled? Defaults to `false`.
 	RemoteDebuggingEnabled *bool `pulumi:"remoteDebuggingEnabled"`
 	// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
-	RemoteDebuggingVersion *string                          `pulumi:"remoteDebuggingVersion"`
-	ScmIpRestrictions      []SlotSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
+	RemoteDebuggingVersion *string `pulumi:"remoteDebuggingVersion"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	ScmIpRestrictions []SlotSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-	ScmType                 *string `pulumi:"scmType"`
-	ScmUseMainIpRestriction *bool   `pulumi:"scmUseMainIpRestriction"`
+	ScmType *string `pulumi:"scmType"`
+	// IP security restrictions for scm to use main. Defaults to false.
+	ScmUseMainIpRestriction *bool `pulumi:"scmUseMainIpRestriction"`
 	// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
-	VnetRouteAllEnabled   *bool `pulumi:"vnetRouteAllEnabled"`
+	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+	VnetRouteAllEnabled *bool `pulumi:"vnetRouteAllEnabled"`
 	// Should WebSockets be enabled?
-	WebsocketsEnabled *bool   `pulumi:"websocketsEnabled"`
-	WindowsFxVersion  *string `pulumi:"windowsFxVersion"`
+	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
+	// The Windows Docker container image (`DOCKER|<user/image:tag>`)
+	WindowsFxVersion *string `pulumi:"windowsFxVersion"`
 }
 
 // SlotSiteConfigInput is an input type that accepts SlotSiteConfigArgs and SlotSiteConfigOutput values.
@@ -14411,15 +14418,14 @@ type SlotSiteConfigInput interface {
 }
 
 type SlotSiteConfigArgs struct {
-	// Are Managed Identity Credential used for Azure Container Registry pull
+	// Are Managed Identity Credentials used for Azure Container Registry pull
 	AcrUseManagedIdentityCredentials pulumi.BoolPtrInput `pulumi:"acrUseManagedIdentityCredentials"`
 	// If using User Managed Identity, the User Managed Identity Client Id
 	AcrUserManagedIdentityClientId pulumi.StringPtrInput `pulumi:"acrUserManagedIdentityClientId"`
-	// Should the app be loaded at all times? Defaults to `false`.
+	// Should the slot be loaded at all times? Defaults to `false`.
 	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
 	// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
-	AppCommandLine pulumi.StringPtrInput `pulumi:"appCommandLine"`
-	// The name of the slot to automatically swap to during deployment
+	AppCommandLine   pulumi.StringPtrInput `pulumi:"appCommandLine"`
 	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors SlotSiteConfigCorsPtrInput `pulumi:"cors"`
@@ -14427,44 +14433,52 @@ type SlotSiteConfigArgs struct {
 	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
 	// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
-	FtpsState              pulumi.StringPtrInput `pulumi:"ftpsState"`
-	HealthCheckPath        pulumi.StringPtrInput `pulumi:"healthCheckPath"`
+	// State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
+	// The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
+	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
 	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
 	// A list of objects representing ip restrictions as defined below.
 	IpRestrictions SlotSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
-	// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+	// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
 	JavaContainer pulumi.StringPtrInput `pulumi:"javaContainer"`
 	// The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
 	JavaContainerVersion pulumi.StringPtrInput `pulumi:"javaContainerVersion"`
 	// The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
-	JavaVersion    pulumi.StringPtrInput `pulumi:"javaVersion"`
+	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
+	// Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
 	LocalMysqlEnabled pulumi.BoolPtrInput `pulumi:"localMysqlEnabled"`
 	// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
 	ManagedPipelineMode pulumi.StringPtrInput `pulumi:"managedPipelineMode"`
 	// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-	MinTlsVersion   pulumi.StringPtrInput `pulumi:"minTlsVersion"`
-	NumberOfWorkers pulumi.IntPtrInput    `pulumi:"numberOfWorkers"`
-	// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	// The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `perSiteScaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+	NumberOfWorkers pulumi.IntPtrInput `pulumi:"numberOfWorkers"`
+	// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
 	PhpVersion pulumi.StringPtrInput `pulumi:"phpVersion"`
 	// The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
 	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
 	// Is Remote Debugging Enabled? Defaults to `false`.
 	RemoteDebuggingEnabled pulumi.BoolPtrInput `pulumi:"remoteDebuggingEnabled"`
 	// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
-	RemoteDebuggingVersion pulumi.StringPtrInput                    `pulumi:"remoteDebuggingVersion"`
-	ScmIpRestrictions      SlotSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
+	RemoteDebuggingVersion pulumi.StringPtrInput `pulumi:"remoteDebuggingVersion"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	ScmIpRestrictions SlotSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-	ScmType                 pulumi.StringPtrInput `pulumi:"scmType"`
-	ScmUseMainIpRestriction pulumi.BoolPtrInput   `pulumi:"scmUseMainIpRestriction"`
+	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
+	// IP security restrictions for scm to use main. Defaults to false.
+	ScmUseMainIpRestriction pulumi.BoolPtrInput `pulumi:"scmUseMainIpRestriction"`
 	// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
-	VnetRouteAllEnabled   pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
+	// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+	VnetRouteAllEnabled pulumi.BoolPtrInput `pulumi:"vnetRouteAllEnabled"`
 	// Should WebSockets be enabled?
-	WebsocketsEnabled pulumi.BoolPtrInput   `pulumi:"websocketsEnabled"`
-	WindowsFxVersion  pulumi.StringPtrInput `pulumi:"windowsFxVersion"`
+	WebsocketsEnabled pulumi.BoolPtrInput `pulumi:"websocketsEnabled"`
+	// The Windows Docker container image (`DOCKER|<user/image:tag>`)
+	WindowsFxVersion pulumi.StringPtrInput `pulumi:"windowsFxVersion"`
 }
 
 func (SlotSiteConfigArgs) ElementType() reflect.Type {
@@ -14544,7 +14558,7 @@ func (o SlotSiteConfigOutput) ToSlotSiteConfigPtrOutputWithContext(ctx context.C
 	}).(SlotSiteConfigPtrOutput)
 }
 
-// Are Managed Identity Credential used for Azure Container Registry pull
+// Are Managed Identity Credentials used for Azure Container Registry pull
 func (o SlotSiteConfigOutput) AcrUseManagedIdentityCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *bool { return v.AcrUseManagedIdentityCredentials }).(pulumi.BoolPtrOutput)
 }
@@ -14554,7 +14568,7 @@ func (o SlotSiteConfigOutput) AcrUserManagedIdentityClientId() pulumi.StringPtrO
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.AcrUserManagedIdentityClientId }).(pulumi.StringPtrOutput)
 }
 
-// Should the app be loaded at all times? Defaults to `false`.
+// Should the slot be loaded at all times? Defaults to `false`.
 func (o SlotSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
 }
@@ -14564,7 +14578,6 @@ func (o SlotSiteConfigOutput) AppCommandLine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.AppCommandLine }).(pulumi.StringPtrOutput)
 }
 
-// The name of the slot to automatically swap to during deployment
 func (o SlotSiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
 }
@@ -14584,10 +14597,12 @@ func (o SlotSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.DotnetFrameworkVersion }).(pulumi.StringPtrOutput)
 }
 
+// State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 func (o SlotSiteConfigOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
 }
 
+// The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
 func (o SlotSiteConfigOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
 }
@@ -14602,7 +14617,7 @@ func (o SlotSiteConfigOutput) IpRestrictions() SlotSiteConfigIpRestrictionArrayO
 	return o.ApplyT(func(v SlotSiteConfig) []SlotSiteConfigIpRestriction { return v.IpRestrictions }).(SlotSiteConfigIpRestrictionArrayOutput)
 }
 
-// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
 func (o SlotSiteConfigOutput) JavaContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.JavaContainer }).(pulumi.StringPtrOutput)
 }
@@ -14617,6 +14632,7 @@ func (o SlotSiteConfigOutput) JavaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
 }
 
+// Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
 func (o SlotSiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.LinuxFxVersion }).(pulumi.StringPtrOutput)
 }
@@ -14636,11 +14652,12 @@ func (o SlotSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
+// The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `perSiteScaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
 func (o SlotSiteConfigOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *int { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
-// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
 func (o SlotSiteConfigOutput) PhpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.PhpVersion }).(pulumi.StringPtrOutput)
 }
@@ -14660,6 +14677,7 @@ func (o SlotSiteConfigOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.RemoteDebuggingVersion }).(pulumi.StringPtrOutput)
 }
 
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 func (o SlotSiteConfigOutput) ScmIpRestrictions() SlotSiteConfigScmIpRestrictionArrayOutput {
 	return o.ApplyT(func(v SlotSiteConfig) []SlotSiteConfigScmIpRestriction { return v.ScmIpRestrictions }).(SlotSiteConfigScmIpRestrictionArrayOutput)
 }
@@ -14669,6 +14687,7 @@ func (o SlotSiteConfigOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.ScmType }).(pulumi.StringPtrOutput)
 }
 
+// IP security restrictions for scm to use main. Defaults to false.
 func (o SlotSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolPtrOutput)
 }
@@ -14678,6 +14697,7 @@ func (o SlotSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
 }
 
+// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
 func (o SlotSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *bool { return v.VnetRouteAllEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -14687,6 +14707,7 @@ func (o SlotSiteConfigOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *bool { return v.WebsocketsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Windows Docker container image (`DOCKER|<user/image:tag>`)
 func (o SlotSiteConfigOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.WindowsFxVersion }).(pulumi.StringPtrOutput)
 }
@@ -14715,7 +14736,7 @@ func (o SlotSiteConfigPtrOutput) Elem() SlotSiteConfigOutput {
 	}).(SlotSiteConfigOutput)
 }
 
-// Are Managed Identity Credential used for Azure Container Registry pull
+// Are Managed Identity Credentials used for Azure Container Registry pull
 func (o SlotSiteConfigPtrOutput) AcrUseManagedIdentityCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *bool {
 		if v == nil {
@@ -14735,7 +14756,7 @@ func (o SlotSiteConfigPtrOutput) AcrUserManagedIdentityClientId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should the app be loaded at all times? Defaults to `false`.
+// Should the slot be loaded at all times? Defaults to `false`.
 func (o SlotSiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *bool {
 		if v == nil {
@@ -14755,7 +14776,6 @@ func (o SlotSiteConfigPtrOutput) AppCommandLine() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the slot to automatically swap to during deployment
 func (o SlotSiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *string {
 		if v == nil {
@@ -14795,6 +14815,7 @@ func (o SlotSiteConfigPtrOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 func (o SlotSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *string {
 		if v == nil {
@@ -14804,6 +14825,7 @@ func (o SlotSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
 func (o SlotSiteConfigPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *string {
 		if v == nil {
@@ -14833,7 +14855,7 @@ func (o SlotSiteConfigPtrOutput) IpRestrictions() SlotSiteConfigIpRestrictionArr
 	}).(SlotSiteConfigIpRestrictionArrayOutput)
 }
 
-// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
 func (o SlotSiteConfigPtrOutput) JavaContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *string {
 		if v == nil {
@@ -14863,6 +14885,7 @@ func (o SlotSiteConfigPtrOutput) JavaVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
 func (o SlotSiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *string {
 		if v == nil {
@@ -14902,6 +14925,7 @@ func (o SlotSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `perSiteScaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
 func (o SlotSiteConfigPtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *int {
 		if v == nil {
@@ -14911,7 +14935,7 @@ func (o SlotSiteConfigPtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
 func (o SlotSiteConfigPtrOutput) PhpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *string {
 		if v == nil {
@@ -14951,6 +14975,7 @@ func (o SlotSiteConfigPtrOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 func (o SlotSiteConfigPtrOutput) ScmIpRestrictions() SlotSiteConfigScmIpRestrictionArrayOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) []SlotSiteConfigScmIpRestriction {
 		if v == nil {
@@ -14970,6 +14995,7 @@ func (o SlotSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// IP security restrictions for scm to use main. Defaults to false.
 func (o SlotSiteConfigPtrOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *bool {
 		if v == nil {
@@ -14989,6 +15015,7 @@ func (o SlotSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
 func (o SlotSiteConfigPtrOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *bool {
 		if v == nil {
@@ -15008,6 +15035,7 @@ func (o SlotSiteConfigPtrOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The Windows Docker container image (`DOCKER|<user/image:tag>`)
 func (o SlotSiteConfigPtrOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *string {
 		if v == nil {

@@ -52,7 +52,7 @@ class FlexibleServerArgs:
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[str] zone: The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] zone: The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_login is not None:
@@ -298,7 +298,7 @@ class FlexibleServerArgs:
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
         """
         return pulumi.get(self, "zone")
 
@@ -353,7 +353,7 @@ class _FlexibleServerState:
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[str] zone: The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] zone: The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
         """
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
@@ -645,7 +645,7 @@ class _FlexibleServerState:
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
         """
         return pulumi.get(self, "zone")
 
@@ -715,7 +715,7 @@ class FlexibleServer(pulumi.CustomResource):
             version="12",
             delegated_subnet_id=example_subnet.id,
             private_dns_zone_id=example_zone.id,
-            administrator_login="psqladminun",
+            administrator_login="psqladmin",
             administrator_password="H@Sh1CoR3!",
             storage_mb=32768,
             sku_name="GP_Standard_D4s_v3",
@@ -749,7 +749,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[str] zone: The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] zone: The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
         """
         ...
     @overload
@@ -794,7 +794,7 @@ class FlexibleServer(pulumi.CustomResource):
             version="12",
             delegated_subnet_id=example_subnet.id,
             private_dns_zone_id=example_zone.id,
-            administrator_login="psqladminun",
+            administrator_login="psqladmin",
             administrator_password="H@Sh1CoR3!",
             storage_mb=32768,
             sku_name="GP_Standard_D4s_v3",
@@ -935,7 +935,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[int] storage_mb: The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
         :param pulumi.Input[str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[str] zone: The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[str] zone: The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1128,7 +1128,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter
     def zone(self) -> pulumi.Output[str]:
         """
-        The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
         """
         return pulumi.get(self, "zone")
 

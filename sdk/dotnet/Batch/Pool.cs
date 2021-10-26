@@ -179,6 +179,12 @@ namespace Pulumi.Azure.Batch
         public Output<Outputs.PoolFixedScale?> FixedScale { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.PoolIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("maxTasksPerNode")]
@@ -324,6 +330,12 @@ namespace Pulumi.Azure.Batch
         public Input<Inputs.PoolFixedScaleArgs>? FixedScale { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.PoolIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("maxTasksPerNode")]
@@ -434,6 +446,12 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("fixedScale")]
         public Input<Inputs.PoolFixedScaleGetArgs>? FixedScale { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.PoolIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.

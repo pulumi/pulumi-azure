@@ -224,7 +224,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
                 backup_retention_days=7,
                 geo_redundant_backup="Disabled",
             ),
-            administrator_login="psqladminun",
+            administrator_login="psqladmin",
             administrator_login_password="H@Sh1CoR3!",
             version="9.5",
             ssl_enforcement="Enabled")
@@ -287,7 +287,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
                 backup_retention_days=7,
                 geo_redundant_backup="Disabled",
             ),
-            administrator_login="psqladminun",
+            administrator_login="psqladmin",
             administrator_login_password="H@Sh1CoR3!",
             version="9.5",
             ssl_enforcement="Enabled")

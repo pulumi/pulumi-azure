@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class SlotSiteConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Are Managed Identity Credential used for Azure Container Registry pull
+        /// Are Managed Identity Credentials used for Azure Container Registry pull
         /// </summary>
         [Input("acrUseManagedIdentityCredentials")]
         public Input<bool>? AcrUseManagedIdentityCredentials { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? AcrUserManagedIdentityClientId { get; set; }
 
         /// <summary>
-        /// Should the app be loaded at all times? Defaults to `false`.
+        /// Should the slot be loaded at all times? Defaults to `false`.
         /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
@@ -36,9 +36,6 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("appCommandLine")]
         public Input<string>? AppCommandLine { get; set; }
 
-        /// <summary>
-        /// The name of the slot to automatically swap to during deployment
-        /// </summary>
         [Input("autoSwapSlotName")]
         public Input<string>? AutoSwapSlotName { get; set; }
 
@@ -66,9 +63,15 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("dotnetFrameworkVersion")]
         public Input<string>? DotnetFrameworkVersion { get; set; }
 
+        /// <summary>
+        /// State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        /// </summary>
         [Input("ftpsState")]
         public Input<string>? FtpsState { get; set; }
 
+        /// <summary>
+        /// The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
+        /// </summary>
         [Input("healthCheckPath")]
         public Input<string>? HealthCheckPath { get; set; }
 
@@ -91,7 +94,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+        /// The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
         /// </summary>
         [Input("javaContainer")]
         public Input<string>? JavaContainer { get; set; }
@@ -108,6 +111,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }
 
+        /// <summary>
+        /// Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+        /// </summary>
         [Input("linuxFxVersion")]
         public Input<string>? LinuxFxVersion { get; set; }
 
@@ -129,11 +135,14 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
 
+        /// <summary>
+        /// The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `per_site_scaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/en-us/azure/app-service/manage-scale-per-app).
+        /// </summary>
         [Input("numberOfWorkers")]
         public Input<int>? NumberOfWorkers { get; set; }
 
         /// <summary>
-        /// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+        /// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
         /// </summary>
         [Input("phpVersion")]
         public Input<string>? PhpVersion { get; set; }
@@ -158,6 +167,10 @@ namespace Pulumi.Azure.AppService.Inputs
 
         [Input("scmIpRestrictions")]
         private InputList<Inputs.SlotSiteConfigScmIpRestrictionArgs>? _scmIpRestrictions;
+
+        /// <summary>
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        /// </summary>
         public InputList<Inputs.SlotSiteConfigScmIpRestrictionArgs> ScmIpRestrictions
         {
             get => _scmIpRestrictions ?? (_scmIpRestrictions = new InputList<Inputs.SlotSiteConfigScmIpRestrictionArgs>());
@@ -170,6 +183,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
 
+        /// <summary>
+        /// IP security restrictions for scm to use main. Defaults to false.
+        /// </summary>
         [Input("scmUseMainIpRestriction")]
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
@@ -179,6 +195,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }
 
+        /// <summary>
+        /// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        /// </summary>
         [Input("vnetRouteAllEnabled")]
         public Input<bool>? VnetRouteAllEnabled { get; set; }
 
@@ -188,6 +207,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("websocketsEnabled")]
         public Input<bool>? WebsocketsEnabled { get; set; }
 
+        /// <summary>
+        /// The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+        /// </summary>
         [Input("windowsFxVersion")]
         public Input<string>? WindowsFxVersion { get; set; }
 

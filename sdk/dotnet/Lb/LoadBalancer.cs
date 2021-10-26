@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Lb
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Lb
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

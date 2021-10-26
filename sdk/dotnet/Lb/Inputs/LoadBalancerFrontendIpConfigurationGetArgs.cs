@@ -20,6 +20,12 @@ namespace Pulumi.Azure.Lb.Inputs
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
+        /// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        /// </summary>
+        [Input("gatewayLoadBalancerFrontendIpConfigurationId")]
+        public Input<string>? GatewayLoadBalancerFrontendIpConfigurationId { get; set; }
+
+        /// <summary>
         /// The id of the Frontend IP Configuration.
         /// </summary>
         [Input("id")]

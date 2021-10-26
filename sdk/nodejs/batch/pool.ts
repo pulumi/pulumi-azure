@@ -150,6 +150,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly fixedScale!: pulumi.Output<outputs.batch.PoolFixedScale | undefined>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.batch.PoolIdentity | undefined>;
+    /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
     public readonly maxTasksPerNode!: pulumi.Output<number | undefined>;
@@ -206,6 +210,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["containerConfiguration"] = state ? state.containerConfiguration : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["fixedScale"] = state ? state.fixedScale : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["maxTasksPerNode"] = state ? state.maxTasksPerNode : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -239,6 +244,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["containerConfiguration"] = args ? args.containerConfiguration : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["fixedScale"] = args ? args.fixedScale : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["maxTasksPerNode"] = args ? args.maxTasksPerNode : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -285,6 +291,10 @@ export interface PoolState {
      * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
     fixedScale?: pulumi.Input<inputs.batch.PoolFixedScale>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.batch.PoolIdentity>;
     /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
@@ -352,6 +362,10 @@ export interface PoolArgs {
      * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
     fixedScale?: pulumi.Input<inputs.batch.PoolFixedScale>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.batch.PoolIdentity>;
     /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */

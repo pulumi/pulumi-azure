@@ -1221,7 +1221,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mysql_active_directory_administrator": {
 				Tok: azureResource(azureMySQL, "ActiveDirectoryAdministrator"),
 			},
-			"azurerm_mysql_flexible_server": {Tok: azureResource(azureMySQL, "FlexibleServer")},
+			"azurerm_mysql_flexible_server":               {Tok: azureResource(azureMySQL, "FlexibleServer")},
+			"azurerm_mysql_flexible_server_configuration": {Tok: azureResource(azureMySQL, "FlexibleServerConfiguration")},
 
 			// Postgress SQL
 			"azurerm_postgresql_configuration": {
@@ -1481,14 +1482,17 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_subnet_nat_gateway_association":         {Tok: azureResource(azureNetwork, "SubnetNatGatewayAssociation")},
 			"azurerm_subnet_service_endpoint_storage_policy": {Tok: azureResource(azureNetwork, "SubnetServiceEndpointStoragePolicy")},
 			"azurerm_point_to_site_vpn_gateway":              {Tok: azureResource(azureNetwork, "PointToPointVpnGateway")},
-			"azurerm_virtual_hub":                            {Tok: azureResource(azureNetwork, "VirtualHub")},
-			"azurerm_virtual_hub_connection":                 {Tok: azureResource(azureNetwork, "VirtualHubConnection")},
-			"azurerm_virtual_hub_ip":                         {Tok: azureResource(azureNetwork, "VirtualHubIp")},
-			"azurerm_virtual_hub_route_table":                {Tok: azureResource(azureNetwork, "VirtualHubRouteTable")},
-			"azurerm_virtual_hub_security_partner_provider":  {Tok: azureResource(azureNetwork, "SecurityPartnerProvider")},
-			"azurerm_virtual_hub_bgp_connection":             {Tok: azureResource(azureNetwork, "BgpConnection")},
-			"azurerm_vpn_gateway":                            {Tok: azureResource(azureNetwork, "VpnGateway")},
-			"azurerm_vpn_gateway_connection":                 {Tok: azureResource(azureNetwork, "VpnGatewayConnection")},
+
+			"azurerm_virtual_hub":                           {Tok: azureResource(azureNetwork, "VirtualHub")},
+			"azurerm_virtual_hub_connection":                {Tok: azureResource(azureNetwork, "VirtualHubConnection")},
+			"azurerm_virtual_hub_ip":                        {Tok: azureResource(azureNetwork, "VirtualHubIp")},
+			"azurerm_virtual_hub_route_table":               {Tok: azureResource(azureNetwork, "VirtualHubRouteTable")},
+			"azurerm_virtual_hub_security_partner_provider": {Tok: azureResource(azureNetwork, "SecurityPartnerProvider")},
+			"azurerm_virtual_hub_bgp_connection":            {Tok: azureResource(azureNetwork, "BgpConnection")},
+			"azurerm_virtual_hub_route_table_route":         {Tok: azureResource(azureNetwork, "VirtualHubRouteTableRoute")},
+
+			"azurerm_vpn_gateway":            {Tok: azureResource(azureNetwork, "VpnGateway")},
+			"azurerm_vpn_gateway_connection": {Tok: azureResource(azureNetwork, "VpnGatewayConnection")},
 			"azurerm_vpn_server_configuration": {
 				Tok: azureResource(azureNetwork, "VpnServerConfiguration"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1889,23 +1893,24 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_blueprint_assignment": {Tok: azureResource(azureBlueprint, "Assignment")},
 
 			// Synapse
-			"azurerm_synapse_workspace":                          {Tok: azureResource(azureSynapse, "Workspace")},
-			"azurerm_synapse_firewall_rule":                      {Tok: azureResource(azureSynapse, "FirewallRule")},
-			"azurerm_synapse_spark_pool":                         {Tok: azureResource(azureSynapse, "SparkPool")},
-			"azurerm_synapse_sql_pool":                           {Tok: azureResource(azureSynapse, "SqlPool")},
-			"azurerm_synapse_role_assignment":                    {Tok: azureResource(azureSynapse, "RoleAssignment")},
-			"azurerm_synapse_managed_private_endpoint":           {Tok: azureResource(azureSynapse, "ManagedPrivateEndpoint")},
-			"azurerm_synapse_private_link_hub":                   {Tok: azureResource(azureSynapse, "PrivateLinkHub")},
-			"azurerm_synapse_integration_runtime_self_hosted":    {Tok: azureResource(azureSynapse, "IntegrationRuntimeSelfHosted")},
-			"azurerm_synapse_integration_runtime_azure":          {Tok: azureResource(azureSynapse, "IntegrationRuntimeAzure")},
-			"azurerm_synapse_linked_service":                     {Tok: azureResource(azureSynapse, "LinkedService")},
-			"azurerm_synapse_sql_pool_security_alert_policy":     {Tok: azureResource(azureSynapse, "SqlPoolSecurityAlertPolicy")},
-			"azurerm_synapse_sql_pool_vulnerability_assessment":  {Tok: azureResource(azureSynapse, "SqlPoolVulnerabilityAssessment")},
-			"azurerm_synapse_workspace_security_alert_policy":    {Tok: azureResource(azureSynapse, "WorkspaceSecurityAlertPolicy")},
-			"azurerm_synapse_workspace_vulnerability_assessment": {Tok: azureResource(azureSynapse, "WorkspaceVulnerabilityAssessment")},
-			"azurerm_synapse_workspace_key":                      {Tok: azureResource(azureSynapse, "WorkspaceKey")},
-			"azurerm_synapse_sql_pool_extended_auditing_policy":  {Tok: azureResource(azureSynapse, "SqlPoolExtendedAuditingPolicy")},
-			"azurerm_synapse_workspace_extended_auditing_policy": {Tok: azureResource(azureSynapse, "WorkspaceExtendedAuditingPolicy")},
+			"azurerm_synapse_workspace":                                  {Tok: azureResource(azureSynapse, "Workspace")},
+			"azurerm_synapse_firewall_rule":                              {Tok: azureResource(azureSynapse, "FirewallRule")},
+			"azurerm_synapse_spark_pool":                                 {Tok: azureResource(azureSynapse, "SparkPool")},
+			"azurerm_synapse_sql_pool":                                   {Tok: azureResource(azureSynapse, "SqlPool")},
+			"azurerm_synapse_role_assignment":                            {Tok: azureResource(azureSynapse, "RoleAssignment")},
+			"azurerm_synapse_managed_private_endpoint":                   {Tok: azureResource(azureSynapse, "ManagedPrivateEndpoint")},
+			"azurerm_synapse_private_link_hub":                           {Tok: azureResource(azureSynapse, "PrivateLinkHub")},
+			"azurerm_synapse_integration_runtime_self_hosted":            {Tok: azureResource(azureSynapse, "IntegrationRuntimeSelfHosted")},
+			"azurerm_synapse_integration_runtime_azure":                  {Tok: azureResource(azureSynapse, "IntegrationRuntimeAzure")},
+			"azurerm_synapse_linked_service":                             {Tok: azureResource(azureSynapse, "LinkedService")},
+			"azurerm_synapse_sql_pool_security_alert_policy":             {Tok: azureResource(azureSynapse, "SqlPoolSecurityAlertPolicy")},
+			"azurerm_synapse_sql_pool_vulnerability_assessment":          {Tok: azureResource(azureSynapse, "SqlPoolVulnerabilityAssessment")},
+			"azurerm_synapse_workspace_security_alert_policy":            {Tok: azureResource(azureSynapse, "WorkspaceSecurityAlertPolicy")},
+			"azurerm_synapse_workspace_vulnerability_assessment":         {Tok: azureResource(azureSynapse, "WorkspaceVulnerabilityAssessment")},
+			"azurerm_synapse_workspace_key":                              {Tok: azureResource(azureSynapse, "WorkspaceKey")},
+			"azurerm_synapse_sql_pool_extended_auditing_policy":          {Tok: azureResource(azureSynapse, "SqlPoolExtendedAuditingPolicy")},
+			"azurerm_synapse_workspace_extended_auditing_policy":         {Tok: azureResource(azureSynapse, "WorkspaceExtendedAuditingPolicy")},
+			"azurerm_synapse_sql_pool_vulnerability_assessment_baseline": {Tok: azureResource(azureSynapse, "SqlPoolVulnerabilityAssessmentBaseline")},
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},

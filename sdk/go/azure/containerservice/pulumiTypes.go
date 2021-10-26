@@ -2455,6 +2455,8 @@ type KubernetesClusterAddonProfile struct {
 	KubeDashboard *KubernetesClusterAddonProfileKubeDashboard `pulumi:"kubeDashboard"`
 	// A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
 	OmsAgent *KubernetesClusterAddonProfileOmsAgent `pulumi:"omsAgent"`
+	// An `openServiceMesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+	OpenServiceMesh *KubernetesClusterAddonProfileOpenServiceMesh `pulumi:"openServiceMesh"`
 }
 
 // KubernetesClusterAddonProfileInput is an input type that accepts KubernetesClusterAddonProfileArgs and KubernetesClusterAddonProfileOutput values.
@@ -2481,6 +2483,8 @@ type KubernetesClusterAddonProfileArgs struct {
 	KubeDashboard KubernetesClusterAddonProfileKubeDashboardPtrInput `pulumi:"kubeDashboard"`
 	// A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
 	OmsAgent KubernetesClusterAddonProfileOmsAgentPtrInput `pulumi:"omsAgent"`
+	// An `openServiceMesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+	OpenServiceMesh KubernetesClusterAddonProfileOpenServiceMeshPtrInput `pulumi:"openServiceMesh"`
 }
 
 func (KubernetesClusterAddonProfileArgs) ElementType() reflect.Type {
@@ -2598,6 +2602,13 @@ func (o KubernetesClusterAddonProfileOutput) OmsAgent() KubernetesClusterAddonPr
 	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOmsAgent { return v.OmsAgent }).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
 }
 
+// An `openServiceMesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+func (o KubernetesClusterAddonProfileOutput) OpenServiceMesh() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOpenServiceMesh {
+		return v.OpenServiceMesh
+	}).(KubernetesClusterAddonProfileOpenServiceMeshPtrOutput)
+}
+
 type KubernetesClusterAddonProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfilePtrOutput) ElementType() reflect.Type {
@@ -2680,6 +2691,16 @@ func (o KubernetesClusterAddonProfilePtrOutput) OmsAgent() KubernetesClusterAddo
 		}
 		return v.OmsAgent
 	}).(KubernetesClusterAddonProfileOmsAgentPtrOutput)
+}
+
+// An `openServiceMesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+func (o KubernetesClusterAddonProfilePtrOutput) OpenServiceMesh() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileOpenServiceMesh {
+		if v == nil {
+			return nil
+		}
+		return v.OpenServiceMesh
+	}).(KubernetesClusterAddonProfileOpenServiceMeshPtrOutput)
 }
 
 type KubernetesClusterAddonProfileAciConnectorLinux struct {
@@ -3934,6 +3955,143 @@ func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) Index(
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
 		return vs[0].([]KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)[vs[1].(int)]
 	}).(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput)
+}
+
+type KubernetesClusterAddonProfileOpenServiceMesh struct {
+	// Is Open Service Mesh enabled?
+	Enabled bool `pulumi:"enabled"`
+}
+
+// KubernetesClusterAddonProfileOpenServiceMeshInput is an input type that accepts KubernetesClusterAddonProfileOpenServiceMeshArgs and KubernetesClusterAddonProfileOpenServiceMeshOutput values.
+// You can construct a concrete instance of `KubernetesClusterAddonProfileOpenServiceMeshInput` via:
+//
+//          KubernetesClusterAddonProfileOpenServiceMeshArgs{...}
+type KubernetesClusterAddonProfileOpenServiceMeshInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileOpenServiceMeshOutput() KubernetesClusterAddonProfileOpenServiceMeshOutput
+	ToKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(context.Context) KubernetesClusterAddonProfileOpenServiceMeshOutput
+}
+
+type KubernetesClusterAddonProfileOpenServiceMeshArgs struct {
+	// Is Open Service Mesh enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (KubernetesClusterAddonProfileOpenServiceMeshArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
+}
+
+func (i KubernetesClusterAddonProfileOpenServiceMeshArgs) ToKubernetesClusterAddonProfileOpenServiceMeshOutput() KubernetesClusterAddonProfileOpenServiceMeshOutput {
+	return i.ToKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAddonProfileOpenServiceMeshArgs) ToKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOpenServiceMeshOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOpenServiceMeshOutput)
+}
+
+func (i KubernetesClusterAddonProfileOpenServiceMeshArgs) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutput() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
+	return i.ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAddonProfileOpenServiceMeshArgs) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOpenServiceMeshOutput).ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterAddonProfileOpenServiceMeshPtrInput is an input type that accepts KubernetesClusterAddonProfileOpenServiceMeshArgs, KubernetesClusterAddonProfileOpenServiceMeshPtr and KubernetesClusterAddonProfileOpenServiceMeshPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterAddonProfileOpenServiceMeshPtrInput` via:
+//
+//          KubernetesClusterAddonProfileOpenServiceMeshArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterAddonProfileOpenServiceMeshPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutput() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput
+	ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(context.Context) KubernetesClusterAddonProfileOpenServiceMeshPtrOutput
+}
+
+type kubernetesClusterAddonProfileOpenServiceMeshPtrType KubernetesClusterAddonProfileOpenServiceMeshArgs
+
+func KubernetesClusterAddonProfileOpenServiceMeshPtr(v *KubernetesClusterAddonProfileOpenServiceMeshArgs) KubernetesClusterAddonProfileOpenServiceMeshPtrInput {
+	return (*kubernetesClusterAddonProfileOpenServiceMeshPtrType)(v)
+}
+
+func (*kubernetesClusterAddonProfileOpenServiceMeshPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
+}
+
+func (i *kubernetesClusterAddonProfileOpenServiceMeshPtrType) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutput() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
+	return i.ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterAddonProfileOpenServiceMeshPtrType) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOpenServiceMeshPtrOutput)
+}
+
+type KubernetesClusterAddonProfileOpenServiceMeshOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAddonProfileOpenServiceMeshOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
+}
+
+func (o KubernetesClusterAddonProfileOpenServiceMeshOutput) ToKubernetesClusterAddonProfileOpenServiceMeshOutput() KubernetesClusterAddonProfileOpenServiceMeshOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileOpenServiceMeshOutput) ToKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOpenServiceMeshOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileOpenServiceMeshOutput) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutput() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
+	return o.ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterAddonProfileOpenServiceMeshOutput) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileOpenServiceMesh) *KubernetesClusterAddonProfileOpenServiceMesh {
+		return &v
+	}).(KubernetesClusterAddonProfileOpenServiceMeshPtrOutput)
+}
+
+// Is Open Service Mesh enabled?
+func (o KubernetesClusterAddonProfileOpenServiceMeshOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOpenServiceMesh) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type KubernetesClusterAddonProfileOpenServiceMeshPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAddonProfileOpenServiceMeshPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
+}
+
+func (o KubernetesClusterAddonProfileOpenServiceMeshPtrOutput) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutput() KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileOpenServiceMeshPtrOutput) ToKubernetesClusterAddonProfileOpenServiceMeshPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOpenServiceMeshPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileOpenServiceMeshPtrOutput) Elem() KubernetesClusterAddonProfileOpenServiceMeshOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileOpenServiceMesh) KubernetesClusterAddonProfileOpenServiceMesh {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterAddonProfileOpenServiceMesh
+		return ret
+	}).(KubernetesClusterAddonProfileOpenServiceMeshOutput)
+}
+
+// Is Open Service Mesh enabled?
+func (o KubernetesClusterAddonProfileOpenServiceMeshPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileOpenServiceMesh) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type KubernetesClusterAutoScalerProfile struct {
@@ -10410,6 +10568,8 @@ func (o RegistryEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 type RegistryGeoreplication struct {
 	// A location where the container registry should be geo-replicated.
 	Location string `pulumi:"location"`
+	// Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+	RegionalEndpointEnabled *bool `pulumi:"regionalEndpointEnabled"`
 	// A mapping of tags to assign to this replication location.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
@@ -10430,6 +10590,8 @@ type RegistryGeoreplicationInput interface {
 type RegistryGeoreplicationArgs struct {
 	// A location where the container registry should be geo-replicated.
 	Location pulumi.StringInput `pulumi:"location"`
+	// Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+	RegionalEndpointEnabled pulumi.BoolPtrInput `pulumi:"regionalEndpointEnabled"`
 	// A mapping of tags to assign to this replication location.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
@@ -10490,6 +10652,11 @@ func (o RegistryGeoreplicationOutput) ToRegistryGeoreplicationOutputWithContext(
 // A location where the container registry should be geo-replicated.
 func (o RegistryGeoreplicationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+func (o RegistryGeoreplicationOutput) RegionalEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RegistryGeoreplication) *bool { return v.RegionalEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A mapping of tags to assign to this replication location.
@@ -11504,6 +11671,8 @@ type GetKubernetesClusterAddonProfile struct {
 	KubeDashboards []GetKubernetesClusterAddonProfileKubeDashboard `pulumi:"kubeDashboards"`
 	// A `omsAgent` block.
 	OmsAgents []GetKubernetesClusterAddonProfileOmsAgent `pulumi:"omsAgents"`
+	// An `openServiceMesh` block.
+	OpenServiceMeshes []GetKubernetesClusterAddonProfileOpenServiceMesh `pulumi:"openServiceMeshes"`
 }
 
 // GetKubernetesClusterAddonProfileInput is an input type that accepts GetKubernetesClusterAddonProfileArgs and GetKubernetesClusterAddonProfileOutput values.
@@ -11528,6 +11697,8 @@ type GetKubernetesClusterAddonProfileArgs struct {
 	KubeDashboards GetKubernetesClusterAddonProfileKubeDashboardArrayInput `pulumi:"kubeDashboards"`
 	// A `omsAgent` block.
 	OmsAgents GetKubernetesClusterAddonProfileOmsAgentArrayInput `pulumi:"omsAgents"`
+	// An `openServiceMesh` block.
+	OpenServiceMeshes GetKubernetesClusterAddonProfileOpenServiceMeshArrayInput `pulumi:"openServiceMeshes"`
 }
 
 func (GetKubernetesClusterAddonProfileArgs) ElementType() reflect.Type {
@@ -11614,6 +11785,13 @@ func (o GetKubernetesClusterAddonProfileOutput) OmsAgents() GetKubernetesCluster
 	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileOmsAgent {
 		return v.OmsAgents
 	}).(GetKubernetesClusterAddonProfileOmsAgentArrayOutput)
+}
+
+// An `openServiceMesh` block.
+func (o GetKubernetesClusterAddonProfileOutput) OpenServiceMeshes() GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileOpenServiceMesh {
+		return v.OpenServiceMeshes
+	}).(GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput)
 }
 
 type GetKubernetesClusterAddonProfileArrayOutput struct{ *pulumi.OutputState }
@@ -12435,6 +12613,103 @@ func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) Ind
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
 		return vs[0].([]GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput)
+}
+
+type GetKubernetesClusterAddonProfileOpenServiceMesh struct {
+	// Is Role Based Access Control enabled?
+	Enabled bool `pulumi:"enabled"`
+}
+
+// GetKubernetesClusterAddonProfileOpenServiceMeshInput is an input type that accepts GetKubernetesClusterAddonProfileOpenServiceMeshArgs and GetKubernetesClusterAddonProfileOpenServiceMeshOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAddonProfileOpenServiceMeshInput` via:
+//
+//          GetKubernetesClusterAddonProfileOpenServiceMeshArgs{...}
+type GetKubernetesClusterAddonProfileOpenServiceMeshInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAddonProfileOpenServiceMeshOutput() GetKubernetesClusterAddonProfileOpenServiceMeshOutput
+	ToGetKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(context.Context) GetKubernetesClusterAddonProfileOpenServiceMeshOutput
+}
+
+type GetKubernetesClusterAddonProfileOpenServiceMeshArgs struct {
+	// Is Role Based Access Control enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (GetKubernetesClusterAddonProfileOpenServiceMeshArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAddonProfileOpenServiceMeshArgs) ToGetKubernetesClusterAddonProfileOpenServiceMeshOutput() GetKubernetesClusterAddonProfileOpenServiceMeshOutput {
+	return i.ToGetKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAddonProfileOpenServiceMeshArgs) ToGetKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOpenServiceMeshOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOpenServiceMeshOutput)
+}
+
+// GetKubernetesClusterAddonProfileOpenServiceMeshArrayInput is an input type that accepts GetKubernetesClusterAddonProfileOpenServiceMeshArray and GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAddonProfileOpenServiceMeshArrayInput` via:
+//
+//          GetKubernetesClusterAddonProfileOpenServiceMeshArray{ GetKubernetesClusterAddonProfileOpenServiceMeshArgs{...} }
+type GetKubernetesClusterAddonProfileOpenServiceMeshArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput() GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput
+	ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput
+}
+
+type GetKubernetesClusterAddonProfileOpenServiceMeshArray []GetKubernetesClusterAddonProfileOpenServiceMeshInput
+
+func (GetKubernetesClusterAddonProfileOpenServiceMeshArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAddonProfileOpenServiceMeshArray) ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput() GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput {
+	return i.ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAddonProfileOpenServiceMeshArray) ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput)
+}
+
+type GetKubernetesClusterAddonProfileOpenServiceMeshOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAddonProfileOpenServiceMeshOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAddonProfileOpenServiceMeshOutput) ToGetKubernetesClusterAddonProfileOpenServiceMeshOutput() GetKubernetesClusterAddonProfileOpenServiceMeshOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileOpenServiceMeshOutput) ToGetKubernetesClusterAddonProfileOpenServiceMeshOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOpenServiceMeshOutput {
+	return o
+}
+
+// Is Role Based Access Control enabled?
+func (o GetKubernetesClusterAddonProfileOpenServiceMeshOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOpenServiceMesh) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileOpenServiceMesh)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput) ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput() GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput) ToGetKubernetesClusterAddonProfileOpenServiceMeshArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileOpenServiceMeshOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileOpenServiceMesh {
+		return vs[0].([]GetKubernetesClusterAddonProfileOpenServiceMesh)[vs[1].(int)]
+	}).(GetKubernetesClusterAddonProfileOpenServiceMeshOutput)
 }
 
 type GetKubernetesClusterAgentPoolProfile struct {
@@ -14149,6 +14424,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgentPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileOmsAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput)(nil)).Elem(), KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileOpenServiceMeshInput)(nil)).Elem(), KubernetesClusterAddonProfileOpenServiceMeshArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileOpenServiceMeshPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileOpenServiceMeshArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAutoScalerProfileInput)(nil)).Elem(), KubernetesClusterAutoScalerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAutoScalerProfilePtrInput)(nil)).Elem(), KubernetesClusterAutoScalerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolArgs{})
@@ -14233,6 +14510,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgentArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileOmsAgentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput)(nil)).Elem(), GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileOpenServiceMeshInput)(nil)).Elem(), GetKubernetesClusterAddonProfileOpenServiceMeshArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileOpenServiceMeshArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileOpenServiceMeshArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAgentPoolProfileInput)(nil)).Elem(), GetKubernetesClusterAgentPoolProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAgentPoolProfileArrayInput)(nil)).Elem(), GetKubernetesClusterAgentPoolProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAgentPoolProfileUpgradeSettingInput)(nil)).Elem(), GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs{})
@@ -14307,6 +14586,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOpenServiceMeshOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOpenServiceMeshPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolOutput{})
@@ -14391,6 +14672,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOpenServiceMeshOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOpenServiceMeshArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileUpgradeSettingOutput{})

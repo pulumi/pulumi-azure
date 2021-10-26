@@ -36,7 +36,7 @@ import (
 // 			ResourceGroupName:     exampleResourceGroup.Name,
 // 			Location:              exampleResourceGroup.Location,
 // 			Version:               pulumi.String("12"),
-// 			AdministratorLogin:    pulumi.String("psqladminun"),
+// 			AdministratorLogin:    pulumi.String("psqladmin"),
 // 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
 // 			StorageMb:             pulumi.Int(32768),
 // 			SkuName:               pulumi.String("GP_Standard_D4s_v3"),

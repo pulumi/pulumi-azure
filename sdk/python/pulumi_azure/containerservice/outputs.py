@@ -34,6 +34,7 @@ __all__ = [
     'KubernetesClusterAddonProfileKubeDashboard',
     'KubernetesClusterAddonProfileOmsAgent',
     'KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity',
+    'KubernetesClusterAddonProfileOpenServiceMesh',
     'KubernetesClusterAutoScalerProfile',
     'KubernetesClusterDefaultNodePool',
     'KubernetesClusterDefaultNodePoolKubeletConfig',
@@ -76,6 +77,7 @@ __all__ = [
     'GetKubernetesClusterAddonProfileKubeDashboardResult',
     'GetKubernetesClusterAddonProfileOmsAgentResult',
     'GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityResult',
+    'GetKubernetesClusterAddonProfileOpenServiceMeshResult',
     'GetKubernetesClusterAgentPoolProfileResult',
     'GetKubernetesClusterAgentPoolProfileUpgradeSettingResult',
     'GetKubernetesClusterIdentityResult',
@@ -1140,6 +1142,8 @@ class KubernetesClusterAddonProfile(dict):
             suggest = "kube_dashboard"
         elif key == "omsAgent":
             suggest = "oms_agent"
+        elif key == "openServiceMesh":
+            suggest = "open_service_mesh"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterAddonProfile. Access the value via the '{suggest}' property getter instead.")
@@ -1158,7 +1162,8 @@ class KubernetesClusterAddonProfile(dict):
                  http_application_routing: Optional['outputs.KubernetesClusterAddonProfileHttpApplicationRouting'] = None,
                  ingress_application_gateway: Optional['outputs.KubernetesClusterAddonProfileIngressApplicationGateway'] = None,
                  kube_dashboard: Optional['outputs.KubernetesClusterAddonProfileKubeDashboard'] = None,
-                 oms_agent: Optional['outputs.KubernetesClusterAddonProfileOmsAgent'] = None):
+                 oms_agent: Optional['outputs.KubernetesClusterAddonProfileOmsAgent'] = None,
+                 open_service_mesh: Optional['outputs.KubernetesClusterAddonProfileOpenServiceMesh'] = None):
         """
         :param 'KubernetesClusterAddonProfileAciConnectorLinuxArgs' aci_connector_linux: A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
         :param 'KubernetesClusterAddonProfileAzurePolicyArgs' azure_policy: A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
@@ -1166,6 +1171,7 @@ class KubernetesClusterAddonProfile(dict):
         :param 'KubernetesClusterAddonProfileIngressApplicationGatewayArgs' ingress_application_gateway: An `ingress_application_gateway` block as defined below.
         :param 'KubernetesClusterAddonProfileKubeDashboardArgs' kube_dashboard: A `kube_dashboard` block as defined below.
         :param 'KubernetesClusterAddonProfileOmsAgentArgs' oms_agent: A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+        :param 'KubernetesClusterAddonProfileOpenServiceMeshArgs' open_service_mesh: An `open_service_mesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         """
         if aci_connector_linux is not None:
             pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
@@ -1179,6 +1185,8 @@ class KubernetesClusterAddonProfile(dict):
             pulumi.set(__self__, "kube_dashboard", kube_dashboard)
         if oms_agent is not None:
             pulumi.set(__self__, "oms_agent", oms_agent)
+        if open_service_mesh is not None:
+            pulumi.set(__self__, "open_service_mesh", open_service_mesh)
 
     @property
     @pulumi.getter(name="aciConnectorLinux")
@@ -1227,6 +1235,14 @@ class KubernetesClusterAddonProfile(dict):
         A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
         """
         return pulumi.get(self, "oms_agent")
+
+    @property
+    @pulumi.getter(name="openServiceMesh")
+    def open_service_mesh(self) -> Optional['outputs.KubernetesClusterAddonProfileOpenServiceMesh']:
+        """
+        An `open_service_mesh` block as defined below. For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
+        """
+        return pulumi.get(self, "open_service_mesh")
 
 
 @pulumi.output_type
@@ -1663,6 +1679,24 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity(dict):
         The ID of a user assigned identity.
         """
         return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class KubernetesClusterAddonProfileOpenServiceMesh(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        """
+        :param bool enabled: Is Open Service Mesh enabled?
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Is Open Service Mesh enabled?
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -4871,7 +4905,9 @@ class RegistryGeoreplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "zoneRedundancyEnabled":
+        if key == "regionalEndpointEnabled":
+            suggest = "regional_endpoint_enabled"
+        elif key == "zoneRedundancyEnabled":
             suggest = "zone_redundancy_enabled"
 
         if suggest:
@@ -4887,14 +4923,18 @@ class RegistryGeoreplication(dict):
 
     def __init__(__self__, *,
                  location: str,
+                 regional_endpoint_enabled: Optional[bool] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  zone_redundancy_enabled: Optional[bool] = None):
         """
         :param str location: A location where the container registry should be geo-replicated.
+        :param bool regional_endpoint_enabled: Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
         :param Mapping[str, str] tags: A mapping of tags to assign to this replication location.
         :param bool zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
         """
         pulumi.set(__self__, "location", location)
+        if regional_endpoint_enabled is not None:
+            pulumi.set(__self__, "regional_endpoint_enabled", regional_endpoint_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone_redundancy_enabled is not None:
@@ -4907,6 +4947,14 @@ class RegistryGeoreplication(dict):
         A location where the container registry should be geo-replicated.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="regionalEndpointEnabled")
+    def regional_endpoint_enabled(self) -> Optional[bool]:
+        """
+        Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+        """
+        return pulumi.get(self, "regional_endpoint_enabled")
 
     @property
     @pulumi.getter
@@ -5231,19 +5279,22 @@ class GetKubernetesClusterAddonProfileResult(dict):
                  http_application_routings: Sequence['outputs.GetKubernetesClusterAddonProfileHttpApplicationRoutingResult'],
                  ingress_application_gateways: Sequence['outputs.GetKubernetesClusterAddonProfileIngressApplicationGatewayResult'],
                  kube_dashboards: Sequence['outputs.GetKubernetesClusterAddonProfileKubeDashboardResult'],
-                 oms_agents: Sequence['outputs.GetKubernetesClusterAddonProfileOmsAgentResult']):
+                 oms_agents: Sequence['outputs.GetKubernetesClusterAddonProfileOmsAgentResult'],
+                 open_service_meshes: Sequence['outputs.GetKubernetesClusterAddonProfileOpenServiceMeshResult']):
         """
         :param Sequence['GetKubernetesClusterAddonProfileAzurePolicyArgs'] azure_policies: A `azure_policy` block.
         :param Sequence['GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs'] http_application_routings: A `http_application_routing` block.
         :param Sequence['GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs'] ingress_application_gateways: An `ingress_application_gateway` block.
         :param Sequence['GetKubernetesClusterAddonProfileKubeDashboardArgs'] kube_dashboards: A `kube_dashboard` block.
         :param Sequence['GetKubernetesClusterAddonProfileOmsAgentArgs'] oms_agents: A `oms_agent` block.
+        :param Sequence['GetKubernetesClusterAddonProfileOpenServiceMeshArgs'] open_service_meshes: An `open_service_mesh` block.
         """
         pulumi.set(__self__, "azure_policies", azure_policies)
         pulumi.set(__self__, "http_application_routings", http_application_routings)
         pulumi.set(__self__, "ingress_application_gateways", ingress_application_gateways)
         pulumi.set(__self__, "kube_dashboards", kube_dashboards)
         pulumi.set(__self__, "oms_agents", oms_agents)
+        pulumi.set(__self__, "open_service_meshes", open_service_meshes)
 
     @property
     @pulumi.getter(name="azurePolicies")
@@ -5284,6 +5335,14 @@ class GetKubernetesClusterAddonProfileResult(dict):
         A `oms_agent` block.
         """
         return pulumi.get(self, "oms_agents")
+
+    @property
+    @pulumi.getter(name="openServiceMeshes")
+    def open_service_meshes(self) -> Sequence['outputs.GetKubernetesClusterAddonProfileOpenServiceMeshResult']:
+        """
+        An `open_service_mesh` block.
+        """
+        return pulumi.get(self, "open_service_meshes")
 
 
 @pulumi.output_type
@@ -5542,6 +5601,24 @@ class GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityResult(dict):
         The ID of the User Assigned Identity assigned to the Kubelets.
         """
         return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class GetKubernetesClusterAddonProfileOpenServiceMeshResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        """
+        :param bool enabled: Is Role Based Access Control enabled?
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Is Role Based Access Control enabled?
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

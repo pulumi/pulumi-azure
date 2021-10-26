@@ -9,12 +9,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccountIdentityArgs',
     'AccountKeyVaultReferenceArgs',
     'PoolAutoScaleArgs',
     'PoolCertificateArgs',
     'PoolContainerConfigurationArgs',
     'PoolContainerConfigurationContainerRegistryArgs',
     'PoolFixedScaleArgs',
+    'PoolIdentityArgs',
     'PoolNetworkConfigurationArgs',
     'PoolNetworkConfigurationEndpointConfigurationArgs',
     'PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs',
@@ -29,6 +31,76 @@ __all__ = [
     'GetPoolStartTaskUserIdentityArgs',
     'GetPoolStartTaskUserIdentityAutoUserArgs',
 ]
+
+@pulumi.input_type
+class AccountIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+        :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+        :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The identity type of the Batch Account. Possible values are `SystemAssigned` and `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of user assigned identity ids. Required if `type` is `UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID for the Service Principal associated with the system assigned identity of this Batch Account.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID for the Service Principal associated with the system assigned identity of this Batch Account.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
 
 @pulumi.input_type
 class AccountKeyVaultReferenceArgs:
@@ -334,6 +406,43 @@ class PoolFixedScaleArgs:
     @target_low_priority_nodes.setter
     def target_low_priority_nodes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_low_priority_nodes", value)
+
+
+@pulumi.input_type
+class PoolIdentityArgs:
+    def __init__(__self__, *,
+                 identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user assigned identity ids.
+        :param pulumi.Input[str] type: The identity type of the Batch Account. Only possible values is `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of user assigned identity ids.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The identity type of the Batch Account. Only possible values is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

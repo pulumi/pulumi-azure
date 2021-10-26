@@ -13,6 +13,12 @@ namespace Pulumi.Azure.MSSql.Inputs
     public sealed class ServerAzureadAdministratorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administrator_login`).
+        /// </summary>
+        [Input("azureadAuthenticationOnly")]
+        public Input<bool>? AzureadAuthenticationOnly { get; set; }
+
+        /// <summary>
         /// (Required)  The login username of the Azure AD Administrator of this SQL Server.
         /// </summary>
         [Input("loginUsername", required: true)]

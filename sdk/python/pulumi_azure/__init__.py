@@ -4216,6 +4216,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mysql/flexibleServerConfiguration",
+  "fqn": "pulumi_azure.mysql",
+  "classes": {
+   "azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration": "FlexibleServerConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mysql/server",
   "fqn": "pulumi_azure.mysql",
   "classes": {
@@ -4700,6 +4708,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/virtualHubRouteTable:VirtualHubRouteTable": "VirtualHubRouteTable"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/virtualHubRouteTableRoute",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/virtualHubRouteTableRoute:VirtualHubRouteTableRoute": "VirtualHubRouteTableRoute"
   }
  },
  {
@@ -5964,6 +5980,14 @@ _utilities.register(
   "fqn": "pulumi_azure.synapse",
   "classes": {
    "azure:synapse/sqlPoolVulnerabilityAssessment:SqlPoolVulnerabilityAssessment": "SqlPoolVulnerabilityAssessment"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "synapse/sqlPoolVulnerabilityAssessmentBaseline",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/sqlPoolVulnerabilityAssessmentBaseline:SqlPoolVulnerabilityAssessmentBaseline": "SqlPoolVulnerabilityAssessmentBaseline"
   }
  },
  {

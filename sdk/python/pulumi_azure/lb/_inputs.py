@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'BackendAddressPoolBackendAddressArgs',
+    'BackendAddressPoolTunnelInterfaceArgs',
     'LoadBalancerFrontendIpConfigurationArgs',
     'OutboundRuleFrontendIpConfigurationArgs',
 ]
@@ -59,10 +60,78 @@ class BackendAddressPoolBackendAddressArgs:
 
 
 @pulumi.input_type
+class BackendAddressPoolTunnelInterfaceArgs:
+    def __init__(__self__, *,
+                 identifier: pulumi.Input[int],
+                 port: pulumi.Input[int],
+                 protocol: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] identifier: The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+        :param pulumi.Input[int] port: The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+        :param pulumi.Input[str] protocol: The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
+        :param pulumi.Input[str] type: The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+        """
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[int]:
+        """
+        The unique identifier of this Gateway Lodbalancer Tunnel Interface.
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[int]):
+        pulumi.set(self, "identifier", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class LoadBalancerFrontendIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 gateway_load_balancer_frontend_ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -78,6 +147,7 @@ class LoadBalancerFrontendIpConfigurationArgs:
         :param pulumi.Input[str] name: Specifies the name of the frontend ip configuration.
         :param pulumi.Input[str] availability_zone: A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Availability Zone can only be updated whenever the name of the front end ip configuration changes. Defaults to `Zone-Redundant`. 
                `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
+        :param pulumi.Input[str] gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
         :param pulumi.Input[str] id: The id of the Frontend IP Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inbound_nat_rules: The list of IDs of inbound rules that use this frontend IP.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_rules: The list of IDs of load balancing rules that use this frontend IP.
@@ -92,6 +162,8 @@ class LoadBalancerFrontendIpConfigurationArgs:
         pulumi.set(__self__, "name", name)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if gateway_load_balancer_frontend_ip_configuration_id is not None:
+            pulumi.set(__self__, "gateway_load_balancer_frontend_ip_configuration_id", gateway_load_balancer_frontend_ip_configuration_id)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if inbound_nat_rules is not None:
@@ -142,6 +214,18 @@ class LoadBalancerFrontendIpConfigurationArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="gatewayLoadBalancerFrontendIpConfigurationId")
+    def gateway_load_balancer_frontend_ip_configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        """
+        return pulumi.get(self, "gateway_load_balancer_frontend_ip_configuration_id")
+
+    @gateway_load_balancer_frontend_ip_configuration_id.setter
+    def gateway_load_balancer_frontend_ip_configuration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_load_balancer_frontend_ip_configuration_id", value)
 
     @property
     @pulumi.getter

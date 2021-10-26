@@ -80,7 +80,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        /// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serviceLevel")]
         public Output<string> ServiceLevel { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        /// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceLevel", required: true)]
         public Input<string> ServiceLevel { get; set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        /// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceLevel")]
         public Input<string>? ServiceLevel { get; set; }

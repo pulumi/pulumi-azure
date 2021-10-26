@@ -20,7 +20,10 @@ class NatPoolArgs:
                  loadbalancer_id: pulumi.Input[str],
                  protocol: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 floating_ip_enabled: Optional[pulumi.Input[bool]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tcp_reset_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a NatPool resource.
         :param pulumi.Input[int] backend_port: The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
@@ -30,7 +33,10 @@ class NatPoolArgs:
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        :param pulumi.Input[bool] floating_ip_enabled: Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
         :param pulumi.Input[str] name: Specifies the name of the NAT pool.
+        :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
@@ -39,8 +45,14 @@ class NatPoolArgs:
         pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if floating_ip_enabled is not None:
+            pulumi.set(__self__, "floating_ip_enabled", floating_ip_enabled)
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tcp_reset_enabled is not None:
+            pulumi.set(__self__, "tcp_reset_enabled", tcp_reset_enabled)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -127,6 +139,30 @@ class NatPoolArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="floatingIpEnabled")
+    def floating_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        """
+        return pulumi.get(self, "floating_ip_enabled")
+
+    @floating_ip_enabled.setter
+    def floating_ip_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "floating_ip_enabled", value)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @idle_timeout_in_minutes.setter
+    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_timeout_in_minutes", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -138,32 +174,52 @@ class NatPoolArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="tcpResetEnabled")
+    def tcp_reset_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        """
+        return pulumi.get(self, "tcp_reset_enabled")
+
+    @tcp_reset_enabled.setter
+    def tcp_reset_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tcp_reset_enabled", value)
+
 
 @pulumi.input_type
 class _NatPoolState:
     def __init__(__self__, *,
                  backend_port: Optional[pulumi.Input[int]] = None,
+                 floating_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  frontend_ip_configuration_name: Optional[pulumi.Input[str]] = None,
                  frontend_port_end: Optional[pulumi.Input[int]] = None,
                  frontend_port_start: Optional[pulumi.Input[int]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None):
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tcp_reset_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering NatPool resources.
         :param pulumi.Input[int] backend_port: The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
+        :param pulumi.Input[bool] floating_ip_enabled: Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
         :param pulumi.Input[int] frontend_port_end: The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+        :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
         :param pulumi.Input[str] name: Specifies the name of the NAT pool.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         """
         if backend_port is not None:
             pulumi.set(__self__, "backend_port", backend_port)
+        if floating_ip_enabled is not None:
+            pulumi.set(__self__, "floating_ip_enabled", floating_ip_enabled)
         if frontend_ip_configuration_id is not None:
             pulumi.set(__self__, "frontend_ip_configuration_id", frontend_ip_configuration_id)
         if frontend_ip_configuration_name is not None:
@@ -172,6 +228,8 @@ class _NatPoolState:
             pulumi.set(__self__, "frontend_port_end", frontend_port_end)
         if frontend_port_start is not None:
             pulumi.set(__self__, "frontend_port_start", frontend_port_start)
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if loadbalancer_id is not None:
             pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
         if name is not None:
@@ -180,6 +238,8 @@ class _NatPoolState:
             pulumi.set(__self__, "protocol", protocol)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tcp_reset_enabled is not None:
+            pulumi.set(__self__, "tcp_reset_enabled", tcp_reset_enabled)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -192,6 +252,18 @@ class _NatPoolState:
     @backend_port.setter
     def backend_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backend_port", value)
+
+    @property
+    @pulumi.getter(name="floatingIpEnabled")
+    def floating_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        """
+        return pulumi.get(self, "floating_ip_enabled")
+
+    @floating_ip_enabled.setter
+    def floating_ip_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "floating_ip_enabled", value)
 
     @property
     @pulumi.getter(name="frontendIpConfigurationId")
@@ -237,6 +309,18 @@ class _NatPoolState:
     @frontend_port_start.setter
     def frontend_port_start(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "frontend_port_start", value)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @idle_timeout_in_minutes.setter
+    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_timeout_in_minutes", value)
 
     @property
     @pulumi.getter(name="loadbalancerId")
@@ -286,6 +370,18 @@ class _NatPoolState:
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
 
+    @property
+    @pulumi.getter(name="tcpResetEnabled")
+    def tcp_reset_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        """
+        return pulumi.get(self, "tcp_reset_enabled")
+
+    @tcp_reset_enabled.setter
+    def tcp_reset_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tcp_reset_enabled", value)
+
 
 class NatPool(pulumi.CustomResource):
     @overload
@@ -293,13 +389,16 @@ class NatPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_port: Optional[pulumi.Input[int]] = None,
+                 floating_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_ip_configuration_name: Optional[pulumi.Input[str]] = None,
                  frontend_port_end: Optional[pulumi.Input[int]] = None,
                  frontend_port_start: Optional[pulumi.Input[int]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tcp_reset_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a Load Balancer NAT pool.
@@ -347,13 +446,16 @@ class NatPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] backend_port: The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
+        :param pulumi.Input[bool] floating_ip_enabled: Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
         :param pulumi.Input[int] frontend_port_end: The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+        :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
         :param pulumi.Input[str] name: Specifies the name of the NAT pool.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         """
         ...
     @overload
@@ -420,13 +522,16 @@ class NatPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_port: Optional[pulumi.Input[int]] = None,
+                 floating_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_ip_configuration_name: Optional[pulumi.Input[str]] = None,
                  frontend_port_end: Optional[pulumi.Input[int]] = None,
                  frontend_port_start: Optional[pulumi.Input[int]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tcp_reset_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -442,6 +547,7 @@ class NatPool(pulumi.CustomResource):
             if backend_port is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_port'")
             __props__.__dict__["backend_port"] = backend_port
+            __props__.__dict__["floating_ip_enabled"] = floating_ip_enabled
             if frontend_ip_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'frontend_ip_configuration_name'")
             __props__.__dict__["frontend_ip_configuration_name"] = frontend_ip_configuration_name
@@ -451,6 +557,7 @@ class NatPool(pulumi.CustomResource):
             if frontend_port_start is None and not opts.urn:
                 raise TypeError("Missing required property 'frontend_port_start'")
             __props__.__dict__["frontend_port_start"] = frontend_port_start
+            __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
             if loadbalancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'loadbalancer_id'")
             __props__.__dict__["loadbalancer_id"] = loadbalancer_id
@@ -461,6 +568,7 @@ class NatPool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tcp_reset_enabled"] = tcp_reset_enabled
             __props__.__dict__["frontend_ip_configuration_id"] = None
         super(NatPool, __self__).__init__(
             'azure:lb/natPool:NatPool',
@@ -473,14 +581,17 @@ class NatPool(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             backend_port: Optional[pulumi.Input[int]] = None,
+            floating_ip_enabled: Optional[pulumi.Input[bool]] = None,
             frontend_ip_configuration_id: Optional[pulumi.Input[str]] = None,
             frontend_ip_configuration_name: Optional[pulumi.Input[str]] = None,
             frontend_port_end: Optional[pulumi.Input[int]] = None,
             frontend_port_start: Optional[pulumi.Input[int]] = None,
+            idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
             loadbalancer_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'NatPool':
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            tcp_reset_enabled: Optional[pulumi.Input[bool]] = None) -> 'NatPool':
         """
         Get an existing NatPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -489,27 +600,33 @@ class NatPool(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] backend_port: The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
+        :param pulumi.Input[bool] floating_ip_enabled: Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
         :param pulumi.Input[int] frontend_port_end: The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+        :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
         :param pulumi.Input[str] name: Specifies the name of the NAT pool.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _NatPoolState.__new__(_NatPoolState)
 
         __props__.__dict__["backend_port"] = backend_port
+        __props__.__dict__["floating_ip_enabled"] = floating_ip_enabled
         __props__.__dict__["frontend_ip_configuration_id"] = frontend_ip_configuration_id
         __props__.__dict__["frontend_ip_configuration_name"] = frontend_ip_configuration_name
         __props__.__dict__["frontend_port_end"] = frontend_port_end
         __props__.__dict__["frontend_port_start"] = frontend_port_start
+        __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
         __props__.__dict__["loadbalancer_id"] = loadbalancer_id
         __props__.__dict__["name"] = name
         __props__.__dict__["protocol"] = protocol
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["tcp_reset_enabled"] = tcp_reset_enabled
         return NatPool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -519,6 +636,14 @@ class NatPool(pulumi.CustomResource):
         The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
         """
         return pulumi.get(self, "backend_port")
+
+    @property
+    @pulumi.getter(name="floatingIpEnabled")
+    def floating_ip_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        """
+        return pulumi.get(self, "floating_ip_enabled")
 
     @property
     @pulumi.getter(name="frontendIpConfigurationId")
@@ -548,6 +673,14 @@ class NatPool(pulumi.CustomResource):
         The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         """
         return pulumi.get(self, "frontend_port_start")
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="loadbalancerId")
@@ -580,4 +713,12 @@ class NatPool(pulumi.CustomResource):
         The name of the resource group in which to create the resource.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="tcpResetEnabled")
+    def tcp_reset_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        """
+        return pulumi.get(self, "tcp_reset_enabled")
 

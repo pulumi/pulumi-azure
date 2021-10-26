@@ -86,14 +86,18 @@ type NatPool struct {
 	pulumi.CustomResourceState
 
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort               pulumi.IntOutput    `pulumi:"backendPort"`
-	FrontendIpConfigurationId pulumi.StringOutput `pulumi:"frontendIpConfigurationId"`
+	BackendPort pulumi.IntOutput `pulumi:"backendPort"`
+	// Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+	FloatingIpEnabled         pulumi.BoolPtrOutput `pulumi:"floatingIpEnabled"`
+	FrontendIpConfigurationId pulumi.StringOutput  `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringOutput `pulumi:"frontendIpConfigurationName"`
 	// The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
 	FrontendPortEnd pulumi.IntOutput `pulumi:"frontendPortEnd"`
 	// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
 	FrontendPortStart pulumi.IntOutput `pulumi:"frontendPortStart"`
+	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
+	IdleTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
 	// Specifies the name of the NAT pool.
@@ -102,6 +106,8 @@ type NatPool struct {
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+	TcpResetEnabled pulumi.BoolPtrOutput `pulumi:"tcpResetEnabled"`
 }
 
 // NewNatPool registers a new resource with the given unique name, arguments, and options.
@@ -155,7 +161,9 @@ func GetNatPool(ctx *pulumi.Context,
 // Input properties used for looking up and filtering NatPool resources.
 type natPoolState struct {
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort               *int    `pulumi:"backendPort"`
+	BackendPort *int `pulumi:"backendPort"`
+	// Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+	FloatingIpEnabled         *bool   `pulumi:"floatingIpEnabled"`
 	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName *string `pulumi:"frontendIpConfigurationName"`
@@ -163,6 +171,8 @@ type natPoolState struct {
 	FrontendPortEnd *int `pulumi:"frontendPortEnd"`
 	// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
 	FrontendPortStart *int `pulumi:"frontendPortStart"`
+	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
 	// Specifies the name of the NAT pool.
@@ -171,11 +181,15 @@ type natPoolState struct {
 	Protocol *string `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+	TcpResetEnabled *bool `pulumi:"tcpResetEnabled"`
 }
 
 type NatPoolState struct {
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort               pulumi.IntPtrInput
+	BackendPort pulumi.IntPtrInput
+	// Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+	FloatingIpEnabled         pulumi.BoolPtrInput
 	FrontendIpConfigurationId pulumi.StringPtrInput
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringPtrInput
@@ -183,6 +197,8 @@ type NatPoolState struct {
 	FrontendPortEnd pulumi.IntPtrInput
 	// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
 	FrontendPortStart pulumi.IntPtrInput
+	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
+	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId pulumi.StringPtrInput
 	// Specifies the name of the NAT pool.
@@ -191,6 +207,8 @@ type NatPoolState struct {
 	Protocol pulumi.StringPtrInput
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName pulumi.StringPtrInput
+	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+	TcpResetEnabled pulumi.BoolPtrInput
 }
 
 func (NatPoolState) ElementType() reflect.Type {
@@ -200,12 +218,16 @@ func (NatPoolState) ElementType() reflect.Type {
 type natPoolArgs struct {
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort int `pulumi:"backendPort"`
+	// Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+	FloatingIpEnabled *bool `pulumi:"floatingIpEnabled"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName string `pulumi:"frontendIpConfigurationName"`
 	// The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
 	FrontendPortEnd int `pulumi:"frontendPortEnd"`
 	// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
 	FrontendPortStart int `pulumi:"frontendPortStart"`
+	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
 	// Specifies the name of the NAT pool.
@@ -214,18 +236,24 @@ type natPoolArgs struct {
 	Protocol string `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+	TcpResetEnabled *bool `pulumi:"tcpResetEnabled"`
 }
 
 // The set of arguments for constructing a NatPool resource.
 type NatPoolArgs struct {
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort pulumi.IntInput
+	// Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+	FloatingIpEnabled pulumi.BoolPtrInput
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringInput
 	// The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
 	FrontendPortEnd pulumi.IntInput
 	// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
 	FrontendPortStart pulumi.IntInput
+	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
+	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId pulumi.StringInput
 	// Specifies the name of the NAT pool.
@@ -234,6 +262,8 @@ type NatPoolArgs struct {
 	Protocol pulumi.StringInput
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName pulumi.StringInput
+	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+	TcpResetEnabled pulumi.BoolPtrInput
 }
 
 func (NatPoolArgs) ElementType() reflect.Type {

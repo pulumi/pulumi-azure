@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     backupRetentionDays: 7,
  *     geoRedundantBackupEnabled: false,
  *     autoGrowEnabled: true,
- *     administratorLogin: "psqladminun",
+ *     administratorLogin: "psqladmin",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     version: "9.5",
  *     sslEnforcementEnabled: true,
@@ -91,7 +91,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleSecret = new azure.keyvault.Secret("exampleSecret", {
- *     value: pulumi.interpolate`Server=${exampleServer.name}.postgres.database.azure.com;Database=${exampleDatabase.name};Port=5432;User Id=psqladminun@${exampleServer.name};Password=H@Sh1CoR3!;Ssl Mode=Require;`,
+ *     value: pulumi.interpolate`Server=${exampleServer.name}.postgres.database.azure.com;Database=${exampleDatabase.name};Port=5432;User Id=psqladmin@${exampleServer.name};Password=H@Sh1CoR3!;Ssl Mode=Require;`,
  *     keyVaultId: exampleKeyVault.id,
  * });
  * const exampleBackupPolicyPostgresql = new azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql", {

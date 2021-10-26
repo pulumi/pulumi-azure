@@ -63,6 +63,18 @@ namespace Pulumi.Azure.Iot
     public partial class SecuritySolution : Pulumi.CustomResource
     {
         /// <summary>
+        /// A `additional_workspace` block as defined below.
+        /// </summary>
+        [Output("additionalWorkspaces")]
+        public Output<ImmutableArray<Outputs.SecuritySolutionAdditionalWorkspace>> AdditionalWorkspaces { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+        /// </summary>
+        [Output("disabledDataSources")]
+        public Output<ImmutableArray<string>> DisabledDataSources { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Display Name for this Iot Security Solution.
         /// </summary>
         [Output("displayName")]
@@ -186,6 +198,30 @@ namespace Pulumi.Azure.Iot
 
     public sealed class SecuritySolutionArgs : Pulumi.ResourceArgs
     {
+        [Input("additionalWorkspaces")]
+        private InputList<Inputs.SecuritySolutionAdditionalWorkspaceArgs>? _additionalWorkspaces;
+
+        /// <summary>
+        /// A `additional_workspace` block as defined below.
+        /// </summary>
+        public InputList<Inputs.SecuritySolutionAdditionalWorkspaceArgs> AdditionalWorkspaces
+        {
+            get => _additionalWorkspaces ?? (_additionalWorkspaces = new InputList<Inputs.SecuritySolutionAdditionalWorkspaceArgs>());
+            set => _additionalWorkspaces = value;
+        }
+
+        [Input("disabledDataSources")]
+        private InputList<string>? _disabledDataSources;
+
+        /// <summary>
+        /// A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+        /// </summary>
+        public InputList<string> DisabledDataSources
+        {
+            get => _disabledDataSources ?? (_disabledDataSources = new InputList<string>());
+            set => _disabledDataSources = value;
+        }
+
         /// <summary>
         /// Specifies the Display Name for this Iot Security Solution.
         /// </summary>
@@ -295,6 +331,30 @@ namespace Pulumi.Azure.Iot
 
     public sealed class SecuritySolutionState : Pulumi.ResourceArgs
     {
+        [Input("additionalWorkspaces")]
+        private InputList<Inputs.SecuritySolutionAdditionalWorkspaceGetArgs>? _additionalWorkspaces;
+
+        /// <summary>
+        /// A `additional_workspace` block as defined below.
+        /// </summary>
+        public InputList<Inputs.SecuritySolutionAdditionalWorkspaceGetArgs> AdditionalWorkspaces
+        {
+            get => _additionalWorkspaces ?? (_additionalWorkspaces = new InputList<Inputs.SecuritySolutionAdditionalWorkspaceGetArgs>());
+            set => _additionalWorkspaces = value;
+        }
+
+        [Input("disabledDataSources")]
+        private InputList<string>? _disabledDataSources;
+
+        /// <summary>
+        /// A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+        /// </summary>
+        public InputList<string> DisabledDataSources
+        {
+            get => _disabledDataSources ?? (_disabledDataSources = new InputList<string>());
+            set => _disabledDataSources = value;
+        }
+
         /// <summary>
         /// Specifies the Display Name for this Iot Security Solution.
         /// </summary>

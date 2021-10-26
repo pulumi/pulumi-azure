@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *     version: "12",
  *     delegatedSubnetId: exampleSubnet.id,
  *     privateDnsZoneId: exampleZone.id,
- *     administratorLogin: "psqladminun",
+ *     administratorLogin: "psqladmin",
  *     administratorPassword: "H@Sh1CoR3!",
  *     storageMb: 32768,
  *     skuName: "GP_Standard_D4s_v3",
@@ -173,7 +173,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly version!: pulumi.Output<string>;
     /**
-     * The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
      */
     public readonly zone!: pulumi.Output<string>;
 
@@ -332,7 +332,7 @@ export interface FlexibleServerState {
      */
     version?: pulumi.Input<string>;
     /**
-     * The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
      */
     zone?: pulumi.Input<string>;
 }
@@ -410,7 +410,7 @@ export interface FlexibleServerArgs {
      */
     version?: pulumi.Input<string>;
     /**
-     * The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
      */
     zone?: pulumi.Input<string>;
 }

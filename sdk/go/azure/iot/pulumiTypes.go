@@ -1557,12 +1557,20 @@ func (o IotHubDpsSkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type SecurityDeviceGroupAllowRule struct {
-	// Specifies which Ip is not allowed to be connected to in current device group.
+	// Specifies which IP is not allowed to be connected to in current device group for inbound connection.
+	ConnectionFromIpsNotAlloweds []string `pulumi:"connectionFromIpsNotAlloweds"`
+	// Deprecated: This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	ConnectionToIpNotAlloweds []string `pulumi:"connectionToIpNotAlloweds"`
-	// Specifies which local user is not allowed to Login in current device group.
+	// Specifies which IP is not allowed to be connected to in current device group for outbound connection.
+	ConnectionToIpsNotAlloweds []string `pulumi:"connectionToIpsNotAlloweds"`
+	// Deprecated: This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	LocalUserNotAlloweds []string `pulumi:"localUserNotAlloweds"`
-	// Specifies which process is not allowed to be executed in current device group.
+	// Specifies which local user is not allowed to Login in current device group.
+	LocalUsersNotAlloweds []string `pulumi:"localUsersNotAlloweds"`
+	// Deprecated: This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	ProcessNotAlloweds []string `pulumi:"processNotAlloweds"`
+	// Specifies which process is not allowed to be executed in current device group.
+	ProcessesNotAlloweds []string `pulumi:"processesNotAlloweds"`
 }
 
 // SecurityDeviceGroupAllowRuleInput is an input type that accepts SecurityDeviceGroupAllowRuleArgs and SecurityDeviceGroupAllowRuleOutput values.
@@ -1577,12 +1585,20 @@ type SecurityDeviceGroupAllowRuleInput interface {
 }
 
 type SecurityDeviceGroupAllowRuleArgs struct {
-	// Specifies which Ip is not allowed to be connected to in current device group.
+	// Specifies which IP is not allowed to be connected to in current device group for inbound connection.
+	ConnectionFromIpsNotAlloweds pulumi.StringArrayInput `pulumi:"connectionFromIpsNotAlloweds"`
+	// Deprecated: This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	ConnectionToIpNotAlloweds pulumi.StringArrayInput `pulumi:"connectionToIpNotAlloweds"`
-	// Specifies which local user is not allowed to Login in current device group.
+	// Specifies which IP is not allowed to be connected to in current device group for outbound connection.
+	ConnectionToIpsNotAlloweds pulumi.StringArrayInput `pulumi:"connectionToIpsNotAlloweds"`
+	// Deprecated: This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	LocalUserNotAlloweds pulumi.StringArrayInput `pulumi:"localUserNotAlloweds"`
-	// Specifies which process is not allowed to be executed in current device group.
+	// Specifies which local user is not allowed to Login in current device group.
+	LocalUsersNotAlloweds pulumi.StringArrayInput `pulumi:"localUsersNotAlloweds"`
+	// Deprecated: This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	ProcessNotAlloweds pulumi.StringArrayInput `pulumi:"processNotAlloweds"`
+	// Specifies which process is not allowed to be executed in current device group.
+	ProcessesNotAlloweds pulumi.StringArrayInput `pulumi:"processesNotAlloweds"`
 }
 
 func (SecurityDeviceGroupAllowRuleArgs) ElementType() reflect.Type {
@@ -1662,19 +1678,39 @@ func (o SecurityDeviceGroupAllowRuleOutput) ToSecurityDeviceGroupAllowRulePtrOut
 	}).(SecurityDeviceGroupAllowRulePtrOutput)
 }
 
-// Specifies which Ip is not allowed to be connected to in current device group.
+// Specifies which IP is not allowed to be connected to in current device group for inbound connection.
+func (o SecurityDeviceGroupAllowRuleOutput) ConnectionFromIpsNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.ConnectionFromIpsNotAlloweds }).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 func (o SecurityDeviceGroupAllowRuleOutput) ConnectionToIpNotAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.ConnectionToIpNotAlloweds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies which local user is not allowed to Login in current device group.
+// Specifies which IP is not allowed to be connected to in current device group for outbound connection.
+func (o SecurityDeviceGroupAllowRuleOutput) ConnectionToIpsNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.ConnectionToIpsNotAlloweds }).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 func (o SecurityDeviceGroupAllowRuleOutput) LocalUserNotAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.LocalUserNotAlloweds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies which process is not allowed to be executed in current device group.
+// Specifies which local user is not allowed to Login in current device group.
+func (o SecurityDeviceGroupAllowRuleOutput) LocalUsersNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.LocalUsersNotAlloweds }).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 func (o SecurityDeviceGroupAllowRuleOutput) ProcessNotAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.ProcessNotAlloweds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies which process is not allowed to be executed in current device group.
+func (o SecurityDeviceGroupAllowRuleOutput) ProcessesNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityDeviceGroupAllowRule) []string { return v.ProcessesNotAlloweds }).(pulumi.StringArrayOutput)
 }
 
 type SecurityDeviceGroupAllowRulePtrOutput struct{ *pulumi.OutputState }
@@ -1701,7 +1737,17 @@ func (o SecurityDeviceGroupAllowRulePtrOutput) Elem() SecurityDeviceGroupAllowRu
 	}).(SecurityDeviceGroupAllowRuleOutput)
 }
 
-// Specifies which Ip is not allowed to be connected to in current device group.
+// Specifies which IP is not allowed to be connected to in current device group for inbound connection.
+func (o SecurityDeviceGroupAllowRulePtrOutput) ConnectionFromIpsNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionFromIpsNotAlloweds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: This property has been renamed to `connection_to_ips_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 func (o SecurityDeviceGroupAllowRulePtrOutput) ConnectionToIpNotAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
 		if v == nil {
@@ -1711,7 +1757,17 @@ func (o SecurityDeviceGroupAllowRulePtrOutput) ConnectionToIpNotAlloweds() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies which local user is not allowed to Login in current device group.
+// Specifies which IP is not allowed to be connected to in current device group for outbound connection.
+func (o SecurityDeviceGroupAllowRulePtrOutput) ConnectionToIpsNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionToIpsNotAlloweds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: This property has been renamed to `local_users_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 func (o SecurityDeviceGroupAllowRulePtrOutput) LocalUserNotAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
 		if v == nil {
@@ -1721,13 +1777,33 @@ func (o SecurityDeviceGroupAllowRulePtrOutput) LocalUserNotAlloweds() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies which process is not allowed to be executed in current device group.
+// Specifies which local user is not allowed to Login in current device group.
+func (o SecurityDeviceGroupAllowRulePtrOutput) LocalUsersNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalUsersNotAlloweds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Deprecated: This property has been renamed to `processes_not_allowed` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 func (o SecurityDeviceGroupAllowRulePtrOutput) ProcessNotAlloweds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
 		if v == nil {
 			return nil
 		}
 		return v.ProcessNotAlloweds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies which process is not allowed to be executed in current device group.
+func (o SecurityDeviceGroupAllowRulePtrOutput) ProcessesNotAlloweds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityDeviceGroupAllowRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessesNotAlloweds
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -1853,6 +1929,112 @@ func (o SecurityDeviceGroupRangeRuleArrayOutput) Index(i pulumi.IntInput) Securi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityDeviceGroupRangeRule {
 		return vs[0].([]SecurityDeviceGroupRangeRule)[vs[1].(int)]
 	}).(SecurityDeviceGroupRangeRuleOutput)
+}
+
+type SecuritySolutionAdditionalWorkspace struct {
+	// A list of data types which sent to workspace. Possible values are `Alerts` and `RawEvents`.
+	DataTypes []string `pulumi:"dataTypes"`
+	// The resource ID of the Log Analytics Workspace.
+	WorkspaceId string `pulumi:"workspaceId"`
+}
+
+// SecuritySolutionAdditionalWorkspaceInput is an input type that accepts SecuritySolutionAdditionalWorkspaceArgs and SecuritySolutionAdditionalWorkspaceOutput values.
+// You can construct a concrete instance of `SecuritySolutionAdditionalWorkspaceInput` via:
+//
+//          SecuritySolutionAdditionalWorkspaceArgs{...}
+type SecuritySolutionAdditionalWorkspaceInput interface {
+	pulumi.Input
+
+	ToSecuritySolutionAdditionalWorkspaceOutput() SecuritySolutionAdditionalWorkspaceOutput
+	ToSecuritySolutionAdditionalWorkspaceOutputWithContext(context.Context) SecuritySolutionAdditionalWorkspaceOutput
+}
+
+type SecuritySolutionAdditionalWorkspaceArgs struct {
+	// A list of data types which sent to workspace. Possible values are `Alerts` and `RawEvents`.
+	DataTypes pulumi.StringArrayInput `pulumi:"dataTypes"`
+	// The resource ID of the Log Analytics Workspace.
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+}
+
+func (SecuritySolutionAdditionalWorkspaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecuritySolutionAdditionalWorkspace)(nil)).Elem()
+}
+
+func (i SecuritySolutionAdditionalWorkspaceArgs) ToSecuritySolutionAdditionalWorkspaceOutput() SecuritySolutionAdditionalWorkspaceOutput {
+	return i.ToSecuritySolutionAdditionalWorkspaceOutputWithContext(context.Background())
+}
+
+func (i SecuritySolutionAdditionalWorkspaceArgs) ToSecuritySolutionAdditionalWorkspaceOutputWithContext(ctx context.Context) SecuritySolutionAdditionalWorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionAdditionalWorkspaceOutput)
+}
+
+// SecuritySolutionAdditionalWorkspaceArrayInput is an input type that accepts SecuritySolutionAdditionalWorkspaceArray and SecuritySolutionAdditionalWorkspaceArrayOutput values.
+// You can construct a concrete instance of `SecuritySolutionAdditionalWorkspaceArrayInput` via:
+//
+//          SecuritySolutionAdditionalWorkspaceArray{ SecuritySolutionAdditionalWorkspaceArgs{...} }
+type SecuritySolutionAdditionalWorkspaceArrayInput interface {
+	pulumi.Input
+
+	ToSecuritySolutionAdditionalWorkspaceArrayOutput() SecuritySolutionAdditionalWorkspaceArrayOutput
+	ToSecuritySolutionAdditionalWorkspaceArrayOutputWithContext(context.Context) SecuritySolutionAdditionalWorkspaceArrayOutput
+}
+
+type SecuritySolutionAdditionalWorkspaceArray []SecuritySolutionAdditionalWorkspaceInput
+
+func (SecuritySolutionAdditionalWorkspaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecuritySolutionAdditionalWorkspace)(nil)).Elem()
+}
+
+func (i SecuritySolutionAdditionalWorkspaceArray) ToSecuritySolutionAdditionalWorkspaceArrayOutput() SecuritySolutionAdditionalWorkspaceArrayOutput {
+	return i.ToSecuritySolutionAdditionalWorkspaceArrayOutputWithContext(context.Background())
+}
+
+func (i SecuritySolutionAdditionalWorkspaceArray) ToSecuritySolutionAdditionalWorkspaceArrayOutputWithContext(ctx context.Context) SecuritySolutionAdditionalWorkspaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionAdditionalWorkspaceArrayOutput)
+}
+
+type SecuritySolutionAdditionalWorkspaceOutput struct{ *pulumi.OutputState }
+
+func (SecuritySolutionAdditionalWorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecuritySolutionAdditionalWorkspace)(nil)).Elem()
+}
+
+func (o SecuritySolutionAdditionalWorkspaceOutput) ToSecuritySolutionAdditionalWorkspaceOutput() SecuritySolutionAdditionalWorkspaceOutput {
+	return o
+}
+
+func (o SecuritySolutionAdditionalWorkspaceOutput) ToSecuritySolutionAdditionalWorkspaceOutputWithContext(ctx context.Context) SecuritySolutionAdditionalWorkspaceOutput {
+	return o
+}
+
+// A list of data types which sent to workspace. Possible values are `Alerts` and `RawEvents`.
+func (o SecuritySolutionAdditionalWorkspaceOutput) DataTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecuritySolutionAdditionalWorkspace) []string { return v.DataTypes }).(pulumi.StringArrayOutput)
+}
+
+// The resource ID of the Log Analytics Workspace.
+func (o SecuritySolutionAdditionalWorkspaceOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v SecuritySolutionAdditionalWorkspace) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+type SecuritySolutionAdditionalWorkspaceArrayOutput struct{ *pulumi.OutputState }
+
+func (SecuritySolutionAdditionalWorkspaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecuritySolutionAdditionalWorkspace)(nil)).Elem()
+}
+
+func (o SecuritySolutionAdditionalWorkspaceArrayOutput) ToSecuritySolutionAdditionalWorkspaceArrayOutput() SecuritySolutionAdditionalWorkspaceArrayOutput {
+	return o
+}
+
+func (o SecuritySolutionAdditionalWorkspaceArrayOutput) ToSecuritySolutionAdditionalWorkspaceArrayOutputWithContext(ctx context.Context) SecuritySolutionAdditionalWorkspaceArrayOutput {
+	return o
+}
+
+func (o SecuritySolutionAdditionalWorkspaceArrayOutput) Index(i pulumi.IntInput) SecuritySolutionAdditionalWorkspaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecuritySolutionAdditionalWorkspace {
+		return vs[0].([]SecuritySolutionAdditionalWorkspace)[vs[1].(int)]
+	}).(SecuritySolutionAdditionalWorkspaceOutput)
 }
 
 type SecuritySolutionRecommendationsEnabled struct {
@@ -2564,6 +2746,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityDeviceGroupAllowRulePtrInput)(nil)).Elem(), SecurityDeviceGroupAllowRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityDeviceGroupRangeRuleInput)(nil)).Elem(), SecurityDeviceGroupRangeRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityDeviceGroupRangeRuleArrayInput)(nil)).Elem(), SecurityDeviceGroupRangeRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionAdditionalWorkspaceInput)(nil)).Elem(), SecuritySolutionAdditionalWorkspaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionAdditionalWorkspaceArrayInput)(nil)).Elem(), SecuritySolutionAdditionalWorkspaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionRecommendationsEnabledInput)(nil)).Elem(), SecuritySolutionRecommendationsEnabledArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionRecommendationsEnabledPtrInput)(nil)).Elem(), SecuritySolutionRecommendationsEnabledArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentStorageInput)(nil)).Elem(), TimeSeriesInsightsGen2EnvironmentStorageArgs{})
@@ -2594,6 +2778,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityDeviceGroupAllowRulePtrOutput{})
 	pulumi.RegisterOutputType(SecurityDeviceGroupRangeRuleOutput{})
 	pulumi.RegisterOutputType(SecurityDeviceGroupRangeRuleArrayOutput{})
+	pulumi.RegisterOutputType(SecuritySolutionAdditionalWorkspaceOutput{})
+	pulumi.RegisterOutputType(SecuritySolutionAdditionalWorkspaceArrayOutput{})
 	pulumi.RegisterOutputType(SecuritySolutionRecommendationsEnabledOutput{})
 	pulumi.RegisterOutputType(SecuritySolutionRecommendationsEnabledPtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsGen2EnvironmentStorageOutput{})

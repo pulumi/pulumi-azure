@@ -80,7 +80,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+     * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
      */
     public readonly serviceLevel!: pulumi.Output<string>;
     /**
@@ -162,7 +162,7 @@ export interface PoolState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+     * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
      */
     serviceLevel?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface PoolArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+     * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
      */
     serviceLevel: pulumi.Input<string>;
     /**

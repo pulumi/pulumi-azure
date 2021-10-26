@@ -72,7 +72,7 @@ type Pool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
 	SizeInTb pulumi.IntOutput `pulumi:"sizeInTb"`
@@ -129,7 +129,7 @@ type poolState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel *string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
 	SizeInTb *int `pulumi:"sizeInTb"`
@@ -146,7 +146,7 @@ type PoolState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringPtrInput
 	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
 	SizeInTb pulumi.IntPtrInput
@@ -167,7 +167,7 @@ type poolArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
 	SizeInTb int `pulumi:"sizeInTb"`
@@ -185,7 +185,7 @@ type PoolArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringInput
 	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
 	SizeInTb pulumi.IntInput

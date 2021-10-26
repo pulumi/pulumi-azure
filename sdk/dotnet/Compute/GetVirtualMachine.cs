@@ -75,10 +75,27 @@ namespace Pulumi.Azure.Compute
         public readonly string Id;
         /// <summary>
         /// A `identity` block as defined below.
+        /// *
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualMachineIdentityResult> Identities;
         public readonly string Location;
         public readonly string Name;
+        /// <summary>
+        /// The Primary Private IP Address assigned to this Virtual Machine.
+        /// </summary>
+        public readonly string PrivateIpAddress;
+        /// <summary>
+        /// A list of Private IP Addresses assigned to this Virtual Machine.
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateIpAddresses;
+        /// <summary>
+        /// The Primary Public IP Address assigned to this Virtual Machine.
+        /// </summary>
+        public readonly string PublicIpAddress;
+        /// <summary>
+        /// A list of the Public IP Addresses assigned to this Virtual Machine.
+        /// </summary>
+        public readonly ImmutableArray<string> PublicIpAddresses;
         public readonly string ResourceGroupName;
 
         [OutputConstructor]
@@ -91,12 +108,24 @@ namespace Pulumi.Azure.Compute
 
             string name,
 
+            string privateIpAddress,
+
+            ImmutableArray<string> privateIpAddresses,
+
+            string publicIpAddress,
+
+            ImmutableArray<string> publicIpAddresses,
+
             string resourceGroupName)
         {
             Id = id;
             Identities = identities;
             Location = location;
             Name = name;
+            PrivateIpAddress = privateIpAddress;
+            PrivateIpAddresses = privateIpAddresses;
+            PublicIpAddress = publicIpAddress;
+            PublicIpAddresses = publicIpAddresses;
             ResourceGroupName = resourceGroupName;
         }
     }

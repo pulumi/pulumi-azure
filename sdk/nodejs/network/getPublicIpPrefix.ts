@@ -32,7 +32,6 @@ export function getPublicIpPrefix(args: GetPublicIpPrefixArgs, opts?: pulumi.Inv
     return pulumi.runtime.invoke("azure:network/getPublicIpPrefix:getPublicIpPrefix", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "zones": args.zones,
     }, opts);
 }
 
@@ -48,7 +47,6 @@ export interface GetPublicIpPrefixArgs {
      * Specifies the name of the resource group.
      */
     resourceGroupName: string;
-    zones?: string[];
 }
 
 /**
@@ -103,5 +101,4 @@ export interface GetPublicIpPrefixOutputArgs {
      * Specifies the name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -60,18 +60,6 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        [Input("zones")]
-        private List<string>? _zones;
-
-        /// <summary>
-        /// The availability zones in which the Azure Firewall is created.
-        /// </summary>
-        public List<string> Zones
-        {
-            get => _zones ?? (_zones = new List<string>());
-            set => _zones = value;
-        }
-
         public GetFirewallArgs()
         {
         }

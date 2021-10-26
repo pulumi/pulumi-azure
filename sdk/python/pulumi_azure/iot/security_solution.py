@@ -18,6 +18,8 @@ class SecuritySolutionArgs:
                  display_name: pulumi.Input[str],
                  iothub_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  resource_group_name: pulumi.Input[str],
+                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]] = None,
+                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  events_to_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -33,6 +35,8 @@ class SecuritySolutionArgs:
         :param pulumi.Input[str] display_name: Specifies the Display Name for this Iot Security Solution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iothub_ids: Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]] additional_workspaces: A `additional_workspace` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_data_sources: A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
         :param pulumi.Input[bool] enabled: Is the Iot Security Solution enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events_to_exports: A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -47,6 +51,10 @@ class SecuritySolutionArgs:
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "iothub_ids", iothub_ids)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if additional_workspaces is not None:
+            pulumi.set(__self__, "additional_workspaces", additional_workspaces)
+        if disabled_data_sources is not None:
+            pulumi.set(__self__, "disabled_data_sources", disabled_data_sources)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if events_to_exports is not None:
@@ -103,6 +111,30 @@ class SecuritySolutionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="additionalWorkspaces")
+    def additional_workspaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]]:
+        """
+        A `additional_workspace` block as defined below.
+        """
+        return pulumi.get(self, "additional_workspaces")
+
+    @additional_workspaces.setter
+    def additional_workspaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]]):
+        pulumi.set(self, "additional_workspaces", value)
+
+    @property
+    @pulumi.getter(name="disabledDataSources")
+    def disabled_data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+        """
+        return pulumi.get(self, "disabled_data_sources")
+
+    @disabled_data_sources.setter
+    def disabled_data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "disabled_data_sources", value)
 
     @property
     @pulumi.getter
@@ -228,6 +260,8 @@ class SecuritySolutionArgs:
 @pulumi.input_type
 class _SecuritySolutionState:
     def __init__(__self__, *,
+                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]] = None,
+                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  events_to_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -243,6 +277,8 @@ class _SecuritySolutionState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering SecuritySolution resources.
+        :param pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]] additional_workspaces: A `additional_workspace` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_data_sources: A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
         :param pulumi.Input[str] display_name: Specifies the Display Name for this Iot Security Solution.
         :param pulumi.Input[bool] enabled: Is the Iot Security Solution enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events_to_exports: A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
@@ -257,6 +293,10 @@ class _SecuritySolutionState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        if additional_workspaces is not None:
+            pulumi.set(__self__, "additional_workspaces", additional_workspaces)
+        if disabled_data_sources is not None:
+            pulumi.set(__self__, "disabled_data_sources", disabled_data_sources)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if enabled is not None:
@@ -283,6 +323,30 @@ class _SecuritySolutionState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="additionalWorkspaces")
+    def additional_workspaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]]:
+        """
+        A `additional_workspace` block as defined below.
+        """
+        return pulumi.get(self, "additional_workspaces")
+
+    @additional_workspaces.setter
+    def additional_workspaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]]):
+        pulumi.set(self, "additional_workspaces", value)
+
+    @property
+    @pulumi.getter(name="disabledDataSources")
+    def disabled_data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+        """
+        return pulumi.get(self, "disabled_data_sources")
+
+    @disabled_data_sources.setter
+    def disabled_data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "disabled_data_sources", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -446,6 +510,8 @@ class SecuritySolution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecuritySolutionAdditionalWorkspaceArgs']]]]] = None,
+                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  events_to_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -494,6 +560,8 @@ class SecuritySolution(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecuritySolutionAdditionalWorkspaceArgs']]]] additional_workspaces: A `additional_workspace` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_data_sources: A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
         :param pulumi.Input[str] display_name: Specifies the Display Name for this Iot Security Solution.
         :param pulumi.Input[bool] enabled: Is the Iot Security Solution enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events_to_exports: A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
@@ -561,6 +629,8 @@ class SecuritySolution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecuritySolutionAdditionalWorkspaceArgs']]]]] = None,
+                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  events_to_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -586,6 +656,8 @@ class SecuritySolution(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecuritySolutionArgs.__new__(SecuritySolutionArgs)
 
+            __props__.__dict__["additional_workspaces"] = additional_workspaces
+            __props__.__dict__["disabled_data_sources"] = disabled_data_sources
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
@@ -615,6 +687,8 @@ class SecuritySolution(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecuritySolutionAdditionalWorkspaceArgs']]]]] = None,
+            disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             events_to_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -635,6 +709,8 @@ class SecuritySolution(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecuritySolutionAdditionalWorkspaceArgs']]]] additional_workspaces: A `additional_workspace` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_data_sources: A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
         :param pulumi.Input[str] display_name: Specifies the Display Name for this Iot Security Solution.
         :param pulumi.Input[bool] enabled: Is the Iot Security Solution enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events_to_exports: A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
@@ -653,6 +729,8 @@ class SecuritySolution(pulumi.CustomResource):
 
         __props__ = _SecuritySolutionState.__new__(_SecuritySolutionState)
 
+        __props__.__dict__["additional_workspaces"] = additional_workspaces
+        __props__.__dict__["disabled_data_sources"] = disabled_data_sources
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["events_to_exports"] = events_to_exports
@@ -667,6 +745,22 @@ class SecuritySolution(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         return SecuritySolution(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="additionalWorkspaces")
+    def additional_workspaces(self) -> pulumi.Output[Optional[Sequence['outputs.SecuritySolutionAdditionalWorkspace']]]:
+        """
+        A `additional_workspace` block as defined below.
+        """
+        return pulumi.get(self, "additional_workspaces")
+
+    @property
+    @pulumi.getter(name="disabledDataSources")
+    def disabled_data_sources(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
+        """
+        return pulumi.get(self, "disabled_data_sources")
 
     @property
     @pulumi.getter(name="displayName")

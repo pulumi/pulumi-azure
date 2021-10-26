@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class NetworkInterfaceIpConfiguration
     {
         /// <summary>
+        /// The Frontend IP Configuration ID of a Gateway Sku Load Balancer.
+        /// </summary>
+        public readonly string? GatewayLoadBalancerFrontendIpConfigurationId;
+        /// <summary>
         /// A name used for this IP Configuration.
         /// </summary>
         public readonly string Name;
@@ -44,6 +48,8 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private NetworkInterfaceIpConfiguration(
+            string? gatewayLoadBalancerFrontendIpConfigurationId,
+
             string name,
 
             bool? primary,
@@ -58,6 +64,7 @@ namespace Pulumi.Azure.Network.Outputs
 
             string? subnetId)
         {
+            GatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
             Name = name;
             Primary = primary;
             PrivateIpAddress = privateIpAddress;

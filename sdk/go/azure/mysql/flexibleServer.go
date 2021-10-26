@@ -85,7 +85,7 @@ import (
 // 		_, err = mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
 // 			ResourceGroupName:     exampleResourceGroup.Name,
 // 			Location:              exampleResourceGroup.Location,
-// 			AdministratorLogin:    pulumi.String("psqladminun"),
+// 			AdministratorLogin:    pulumi.String("psqladmin"),
 // 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
 // 			BackupRetentionDays:   pulumi.Int(7),
 // 			DelegatedSubnetId:     exampleSubnet.ID(),

@@ -36,6 +36,9 @@ import * as utilities from "../utilities";
  *         {
  *             name: "MongoDBv3.4",
  *         },
+ *         {
+ *             name: "EnableMongo",
+ *         },
  *     ],
  *     consistencyPolicy: {
  *         consistencyLevel: "BoundedStaleness",

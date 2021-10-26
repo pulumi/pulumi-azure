@@ -72,7 +72,7 @@ type IntegrationRuntimeRule struct {
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -129,7 +129,7 @@ type integrationRuntimeRuleState struct {
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -152,7 +152,7 @@ type IntegrationRuntimeRuleState struct {
 	DataFactoryName pulumi.StringPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
@@ -179,7 +179,7 @@ type integrationRuntimeRuleArgs struct {
 	DataFactoryName string `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -203,7 +203,7 @@ type IntegrationRuntimeRuleArgs struct {
 	DataFactoryName pulumi.StringInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput

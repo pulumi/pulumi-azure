@@ -76,9 +76,13 @@ export class Rule extends pulumi.CustomResource {
     }
 
     /**
-     * A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+     * @deprecated This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
      */
     public readonly backendAddressPoolId!: pulumi.Output<string>;
+    /**
+     * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+     */
+    public readonly backendAddressPoolIds!: pulumi.Output<string[]>;
     /**
      * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
@@ -147,6 +151,7 @@ export class Rule extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RuleState | undefined;
             inputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
+            inputs["backendAddressPoolIds"] = state ? state.backendAddressPoolIds : undefined;
             inputs["backendPort"] = state ? state.backendPort : undefined;
             inputs["disableOutboundSnat"] = state ? state.disableOutboundSnat : undefined;
             inputs["enableFloatingIp"] = state ? state.enableFloatingIp : undefined;
@@ -182,6 +187,7 @@ export class Rule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
+            inputs["backendAddressPoolIds"] = args ? args.backendAddressPoolIds : undefined;
             inputs["backendPort"] = args ? args.backendPort : undefined;
             inputs["disableOutboundSnat"] = args ? args.disableOutboundSnat : undefined;
             inputs["enableFloatingIp"] = args ? args.enableFloatingIp : undefined;
@@ -209,9 +215,13 @@ export class Rule extends pulumi.CustomResource {
  */
 export interface RuleState {
     /**
-     * A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+     * @deprecated This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
      */
     backendAddressPoolId?: pulumi.Input<string>;
+    /**
+     * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+     */
+    backendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
@@ -272,9 +282,13 @@ export interface RuleState {
  */
 export interface RuleArgs {
     /**
-     * A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+     * @deprecated This property has been deprecated by `backend_address_pool_ids` and will be removed in the next major version of the provider
      */
     backendAddressPoolId?: pulumi.Input<string>;
+    /**
+     * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+     */
+    backendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */

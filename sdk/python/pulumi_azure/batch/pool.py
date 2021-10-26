@@ -25,6 +25,7 @@ class PoolArgs:
                  container_configuration: Optional[pulumi.Input['PoolContainerConfigurationArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fixed_scale: Optional[pulumi.Input['PoolFixedScaleArgs']] = None,
+                 identity: Optional[pulumi.Input['PoolIdentityArgs']] = None,
                  max_tasks_per_node: Optional[pulumi.Input[int]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -43,6 +44,7 @@ class PoolArgs:
         :param pulumi.Input['PoolContainerConfigurationArgs'] container_configuration: The container configuration used in the pool's VMs.
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
         :param pulumi.Input['PoolFixedScaleArgs'] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
+        :param pulumi.Input['PoolIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
@@ -64,6 +66,8 @@ class PoolArgs:
             pulumi.set(__self__, "display_name", display_name)
         if fixed_scale is not None:
             pulumi.set(__self__, "fixed_scale", fixed_scale)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if max_tasks_per_node is not None:
             pulumi.set(__self__, "max_tasks_per_node", max_tasks_per_node)
         if metadata is not None:
@@ -198,6 +202,18 @@ class PoolArgs:
         pulumi.set(self, "fixed_scale", value)
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['PoolIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['PoolIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
     @pulumi.getter(name="maxTasksPerNode")
     def max_tasks_per_node(self) -> Optional[pulumi.Input[int]]:
         """
@@ -276,6 +292,7 @@ class _PoolState:
                  container_configuration: Optional[pulumi.Input['PoolContainerConfigurationArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fixed_scale: Optional[pulumi.Input['PoolFixedScaleArgs']] = None,
+                 identity: Optional[pulumi.Input['PoolIdentityArgs']] = None,
                  max_tasks_per_node: Optional[pulumi.Input[int]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -294,6 +311,7 @@ class _PoolState:
         :param pulumi.Input['PoolContainerConfigurationArgs'] container_configuration: The container configuration used in the pool's VMs.
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
         :param pulumi.Input['PoolFixedScaleArgs'] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
+        :param pulumi.Input['PoolIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
@@ -316,6 +334,8 @@ class _PoolState:
             pulumi.set(__self__, "display_name", display_name)
         if fixed_scale is not None:
             pulumi.set(__self__, "fixed_scale", fixed_scale)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if max_tasks_per_node is not None:
             pulumi.set(__self__, "max_tasks_per_node", max_tasks_per_node)
         if metadata is not None:
@@ -408,6 +428,18 @@ class _PoolState:
     @fixed_scale.setter
     def fixed_scale(self, value: Optional[pulumi.Input['PoolFixedScaleArgs']]):
         pulumi.set(self, "fixed_scale", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['PoolIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['PoolIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="maxTasksPerNode")
@@ -538,6 +570,7 @@ class Pool(pulumi.CustomResource):
                  container_configuration: Optional[pulumi.Input[pulumi.InputType['PoolContainerConfigurationArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fixed_scale: Optional[pulumi.Input[pulumi.InputType['PoolFixedScaleArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['PoolIdentityArgs']]] = None,
                  max_tasks_per_node: Optional[pulumi.Input[int]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -645,6 +678,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PoolContainerConfigurationArgs']] container_configuration: The container configuration used in the pool's VMs.
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
         :param pulumi.Input[pulumi.InputType['PoolFixedScaleArgs']] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
+        :param pulumi.Input[pulumi.InputType['PoolIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
@@ -770,6 +804,7 @@ class Pool(pulumi.CustomResource):
                  container_configuration: Optional[pulumi.Input[pulumi.InputType['PoolContainerConfigurationArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fixed_scale: Optional[pulumi.Input[pulumi.InputType['PoolFixedScaleArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['PoolIdentityArgs']]] = None,
                  max_tasks_per_node: Optional[pulumi.Input[int]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -800,6 +835,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["container_configuration"] = container_configuration
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["fixed_scale"] = fixed_scale
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["max_tasks_per_node"] = max_tasks_per_node
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
@@ -834,6 +870,7 @@ class Pool(pulumi.CustomResource):
             container_configuration: Optional[pulumi.Input[pulumi.InputType['PoolContainerConfigurationArgs']]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             fixed_scale: Optional[pulumi.Input[pulumi.InputType['PoolFixedScaleArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['PoolIdentityArgs']]] = None,
             max_tasks_per_node: Optional[pulumi.Input[int]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -857,6 +894,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PoolContainerConfigurationArgs']] container_configuration: The container configuration used in the pool's VMs.
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
         :param pulumi.Input[pulumi.InputType['PoolFixedScaleArgs']] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
+        :param pulumi.Input[pulumi.InputType['PoolIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
@@ -877,6 +915,7 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["container_configuration"] = container_configuration
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["fixed_scale"] = fixed_scale
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["max_tasks_per_node"] = max_tasks_per_node
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["name"] = name
@@ -936,6 +975,14 @@ class Pool(pulumi.CustomResource):
         A `fixed_scale` block that describes the scale settings when using fixed scale.
         """
         return pulumi.get(self, "fixed_scale")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.PoolIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="maxTasksPerNode")

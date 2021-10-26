@@ -190,7 +190,7 @@ class SecurityDeviceGroup(pulumi.CustomResource):
         example_security_device_group = azure.iot.SecurityDeviceGroup("exampleSecurityDeviceGroup",
             iothub_id=example_io_t_hub.id,
             allow_rule=azure.iot.SecurityDeviceGroupAllowRuleArgs(
-                connection_to_ip_not_alloweds=["10.0.0.0/24"],
+                connection_to_ips_not_alloweds=["10.0.0.0/24"],
             ),
             range_rules=[azure.iot.SecurityDeviceGroupRangeRuleArgs(
                 type="ActiveConnectionsNotInAllowedRange",
@@ -247,7 +247,7 @@ class SecurityDeviceGroup(pulumi.CustomResource):
         example_security_device_group = azure.iot.SecurityDeviceGroup("exampleSecurityDeviceGroup",
             iothub_id=example_io_t_hub.id,
             allow_rule=azure.iot.SecurityDeviceGroupAllowRuleArgs(
-                connection_to_ip_not_alloweds=["10.0.0.0/24"],
+                connection_to_ips_not_alloweds=["10.0.0.0/24"],
             ),
             range_rules=[azure.iot.SecurityDeviceGroupRangeRuleArgs(
                 type="ActiveConnectionsNotInAllowedRange",

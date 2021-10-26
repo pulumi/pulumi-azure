@@ -137,8 +137,7 @@ type GetPublicIPArgs struct {
 	// Specifies the name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assigned to the resource.
-	Tags  map[string]string `pulumi:"tags"`
-	Zones []string          `pulumi:"zones"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getPublicIP.
@@ -185,8 +184,7 @@ type GetPublicIPOutputArgs struct {
 	// Specifies the name of the resource group.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assigned to the resource.
-	Tags  pulumi.StringMapInput   `pulumi:"tags"`
-	Zones pulumi.StringArrayInput `pulumi:"zones"`
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetPublicIPOutputArgs) ElementType() reflect.Type {

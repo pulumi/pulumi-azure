@@ -32,7 +32,6 @@ export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions):
     return pulumi.runtime.invoke("azure:network/getFirewall:getFirewall", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "zones": args.zones,
     }, opts);
 }
 
@@ -48,10 +47,6 @@ export interface GetFirewallArgs {
      * The name of the Resource Group in which the Azure Firewall exists.
      */
     resourceGroupName: string;
-    /**
-     * The availability zones in which the Azure Firewall is created.
-     */
-    zones?: string[];
 }
 
 /**
@@ -126,8 +121,4 @@ export interface GetFirewallOutputArgs {
      * The name of the Resource Group in which the Azure Firewall exists.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The availability zones in which the Azure Firewall is created.
-     */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -111,6 +111,12 @@ namespace Pulumi.Azure.Compute
     public partial class DiskEncryptionSet : Pulumi.CustomResource
     {
         /// <summary>
+        /// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        /// </summary>
+        [Output("autoKeyRotationEnabled")]
+        public Output<bool?> AutoKeyRotationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `identity` block defined below.
         /// </summary>
         [Output("identity")]
@@ -193,6 +199,12 @@ namespace Pulumi.Azure.Compute
     public sealed class DiskEncryptionSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        /// </summary>
+        [Input("autoKeyRotationEnabled")]
+        public Input<bool>? AutoKeyRotationEnabled { get; set; }
+
+        /// <summary>
         /// A `identity` block defined below.
         /// </summary>
         [Input("identity", required: true)]
@@ -241,6 +253,12 @@ namespace Pulumi.Azure.Compute
 
     public sealed class DiskEncryptionSetState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        /// </summary>
+        [Input("autoKeyRotationEnabled")]
+        public Input<bool>? AutoKeyRotationEnabled { get; set; }
+
         /// <summary>
         /// A `identity` block defined below.
         /// </summary>

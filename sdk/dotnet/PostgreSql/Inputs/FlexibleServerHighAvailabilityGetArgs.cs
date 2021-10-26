@@ -19,7 +19,7 @@ namespace Pulumi.Azure.PostgreSql.Inputs
         public Input<string> Mode { get; set; } = null!;
 
         /// <summary>
-        /// The availability zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
+        /// The Availability Zone of the standby Flexible Server. Possible values are `1`, `2` and `3`.
         /// </summary>
         [Input("standbyAvailabilityZone")]
         public Input<string>? StandbyAvailabilityZone { get; set; }

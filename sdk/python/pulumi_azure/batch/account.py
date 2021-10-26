@@ -16,6 +16,7 @@ __all__ = ['AccountArgs', 'Account']
 class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  key_vault_reference: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['AccountKeyVaultReferenceArgs'] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
@@ -35,6 +37,8 @@ class AccountArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if key_vault_reference is not None:
             pulumi.set(__self__, "key_vault_reference", key_vault_reference)
         if location is not None:
@@ -61,6 +65,18 @@ class AccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="keyVaultReference")
@@ -151,6 +167,7 @@ class AccountArgs:
 class _AccountState:
     def __init__(__self__, *,
                  account_endpoint: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  key_vault_reference: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -164,6 +181,7 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[str] account_endpoint: The account endpoint used to interact with the Batch service.
+        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['AccountKeyVaultReferenceArgs'] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
@@ -177,6 +195,8 @@ class _AccountState:
         """
         if account_endpoint is not None:
             pulumi.set(__self__, "account_endpoint", account_endpoint)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if key_vault_reference is not None:
             pulumi.set(__self__, "key_vault_reference", key_vault_reference)
         if location is not None:
@@ -209,6 +229,18 @@ class _AccountState:
     @account_endpoint.setter
     def account_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="keyVaultReference")
@@ -336,6 +368,7 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -380,6 +413,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
@@ -443,6 +477,7 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -463,6 +498,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_reference"] = key_vault_reference
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -487,6 +523,7 @@ class Account(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_endpoint: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
             key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -505,6 +542,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_endpoint: The account endpoint used to interact with the Batch service.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
@@ -521,6 +559,7 @@ class Account(pulumi.CustomResource):
         __props__ = _AccountState.__new__(_AccountState)
 
         __props__.__dict__["account_endpoint"] = account_endpoint
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["key_vault_reference"] = key_vault_reference
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -540,6 +579,14 @@ class Account(pulumi.CustomResource):
         The account endpoint used to interact with the Batch service.
         """
         return pulumi.get(self, "account_endpoint")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.AccountIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="keyVaultReference")
