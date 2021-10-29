@@ -291,6 +291,7 @@ namespace Pulumi.Azure
              {
                 public bool? ForceDelete { get; set; }
                 public bool RollInstancesWhenRequired { get; set; }
+                public bool? ScaleToZeroBeforeDeletion { get; set; }
             }
         }
     }

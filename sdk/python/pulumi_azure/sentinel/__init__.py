@@ -9,6 +9,7 @@ from .alert_rule_fusion import *
 from .alert_rule_machine_learning_behavior_analytics import *
 from .alert_rule_ms_security_incident import *
 from .alert_rule_scheduled import *
+from .authomation_rule import *
 from .data_connector_aws_cloud_trail import *
 from .data_connector_azure_active_directory import *
 from .data_connector_azure_advanced_thread_protection import *

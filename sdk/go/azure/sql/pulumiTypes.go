@@ -1545,7 +1545,7 @@ type SqlServerThreatDetectionPolicy struct {
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// Specifies the number of days to keep in the Threat Detection audit logs.
 	RetentionDays *int `pulumi:"retentionDays"`
-	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+	// The State of the Policy. Possible values are `Enabled` or `Disabled`.
 	State *string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -1573,7 +1573,7 @@ type SqlServerThreatDetectionPolicyArgs struct {
 	EmailAddresses pulumi.StringArrayInput `pulumi:"emailAddresses"`
 	// Specifies the number of days to keep in the Threat Detection audit logs.
 	RetentionDays pulumi.IntPtrInput `pulumi:"retentionDays"`
-	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+	// The State of the Policy. Possible values are `Enabled` or `Disabled`.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
@@ -1678,7 +1678,7 @@ func (o SqlServerThreatDetectionPolicyOutput) RetentionDays() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+// The State of the Policy. Possible values are `Enabled` or `Disabled`.
 func (o SqlServerThreatDetectionPolicyOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -1757,7 +1757,7 @@ func (o SqlServerThreatDetectionPolicyPtrOutput) RetentionDays() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+// The State of the Policy. Possible values are `Enabled` or `Disabled`.
 func (o SqlServerThreatDetectionPolicyPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerThreatDetectionPolicy) *string {
 		if v == nil {

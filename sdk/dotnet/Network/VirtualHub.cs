@@ -61,6 +61,12 @@ namespace Pulumi.Azure.Network
         public Output<string?> AddressPrefix { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the default Route Table in the Virtual Hub.
+        /// </summary>
+        [Output("defaultRouteTableId")]
+        public Output<string> DefaultRouteTableId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -220,6 +226,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("addressPrefix")]
         public Input<string>? AddressPrefix { get; set; }
+
+        /// <summary>
+        /// The ID of the default Route Table in the Virtual Hub.
+        /// </summary>
+        [Input("defaultRouteTableId")]
+        public Input<string>? DefaultRouteTableId { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.

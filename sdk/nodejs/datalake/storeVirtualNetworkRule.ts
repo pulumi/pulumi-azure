@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Allows you to add, update, or remove an Azure Data Lake Store to a subnet of a virtual network.
  *
+ * > **Note:** This resoruce manages an `Azure Data Lake Storage Gen1`, previously known as `Azure Data Lake Store`.
+ *
  * ## Example Usage
  *
  * ```typescript

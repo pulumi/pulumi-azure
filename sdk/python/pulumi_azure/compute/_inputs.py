@@ -1168,6 +1168,7 @@ class LinuxVirtualMachineScaleSetExtensionArgs:
                  type: pulumi.Input[str],
                  type_handler_version: pulumi.Input[str],
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1178,6 +1179,7 @@ class LinuxVirtualMachineScaleSetExtensionArgs:
         :param pulumi.Input[str] type: Specifies the Type of the Extension.
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
@@ -1189,6 +1191,8 @@ class LinuxVirtualMachineScaleSetExtensionArgs:
         pulumi.set(__self__, "type_handler_version", type_handler_version)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if automatic_upgrade_enabled is not None:
+            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if protected_settings is not None:
@@ -1257,6 +1261,18 @@ class LinuxVirtualMachineScaleSetExtensionArgs:
     @auto_upgrade_minor_version.setter
     def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_upgrade_minor_version", value)
+
+    @property
+    @pulumi.getter(name="automaticUpgradeEnabled")
+    def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_upgrade_enabled")
+
+    @automatic_upgrade_enabled.setter
+    def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_upgrade_enabled", value)
 
     @property
     @pulumi.getter(name="forceUpdateTag")
@@ -5683,6 +5699,7 @@ class WindowsVirtualMachineScaleSetExtensionArgs:
                  type: pulumi.Input[str],
                  type_handler_version: pulumi.Input[str],
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -5693,6 +5710,7 @@ class WindowsVirtualMachineScaleSetExtensionArgs:
         :param pulumi.Input[str] type: Specifies the Type of the Extension.
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
@@ -5704,6 +5722,8 @@ class WindowsVirtualMachineScaleSetExtensionArgs:
         pulumi.set(__self__, "type_handler_version", type_handler_version)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if automatic_upgrade_enabled is not None:
+            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if protected_settings is not None:
@@ -5772,6 +5792,18 @@ class WindowsVirtualMachineScaleSetExtensionArgs:
     @auto_upgrade_minor_version.setter
     def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_upgrade_minor_version", value)
+
+    @property
+    @pulumi.getter(name="automaticUpgradeEnabled")
+    def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_upgrade_enabled")
+
+    @automatic_upgrade_enabled.setter
+    def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_upgrade_enabled", value)
 
     @property
     @pulumi.getter(name="forceUpdateTag")

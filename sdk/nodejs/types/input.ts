@@ -54,6 +54,7 @@ export interface ProviderFeaturesVirtualMachine {
 export interface ProviderFeaturesVirtualMachineScaleSet {
     forceDelete?: pulumi.Input<boolean>;
     rollInstancesWhenRequired: pulumi.Input<boolean>;
+    scaleToZeroBeforeDeletion?: pulumi.Input<boolean>;
 }
 export namespace advisor {
 }
@@ -1562,6 +1563,17 @@ export namespace appplatform {
         sizeInGb: pulumi.Input<number>;
     }
 
+    export interface SpringCloudJavaDeploymentQuota {
+        /**
+         * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+         */
+        cpu?: pulumi.Input<string>;
+        /**
+         * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+         */
+        memory?: pulumi.Input<string>;
+    }
+
     export interface SpringCloudServiceConfigServerGitSetting {
         /**
          * A `httpBasicAuth` block as defined below.
@@ -1737,7 +1749,6 @@ export namespace appplatform {
          */
         sampleRate?: pulumi.Input<number>;
     }
-
 }
 
 export namespace appservice {
@@ -5335,6 +5346,10 @@ export namespace compute {
          */
         autoUpgradeMinorVersion?: pulumi.Input<boolean>;
         /**
+         * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+         */
+        automaticUpgradeEnabled?: pulumi.Input<boolean>;
+        /**
          * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
          */
         forceUpdateTag?: pulumi.Input<string>;
@@ -6567,6 +6582,10 @@ export namespace compute {
          * Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
          */
         autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+        /**
+         * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+         */
+        automaticUpgradeEnabled?: pulumi.Input<boolean>;
         /**
          * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
          */
@@ -11396,7 +11415,26 @@ export namespace eventgrid {
 
     export interface GetSystemTopicIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         */
+        identityIds?: string[];
+        /**
+         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+         */
+        principalId?: string;
+        /**
+         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+         */
+        tenantId?: string;
+        /**
+         * Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
+         */
+        type: string;
+    }
+
+    export interface GetSystemTopicIdentityArgs {
+        /**
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -11408,7 +11446,7 @@ export namespace eventgrid {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         * Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
          */
         type: pulumi.Input<string>;
     }
@@ -18792,7 +18830,7 @@ export namespace monitoring {
          */
         direction: pulumi.Input<string>;
         /**
-         * The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+         * The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
          */
         type: pulumi.Input<string>;
         /**
@@ -20072,6 +20110,10 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
+         * Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+         */
+        priority?: pulumi.Input<number>;
+        /**
          * The ID of the associated Redirect Configuration.
          */
         redirectConfigurationId?: pulumi.Input<string>;
@@ -20716,7 +20758,7 @@ export namespace network {
         /**
          * Specify a port for the connection.
          */
-        port?: pulumi.Input<number>;
+        port: pulumi.Input<number>;
         /**
          * Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
          */
@@ -23233,6 +23275,67 @@ export namespace sentinel {
         reopenClosedIncidents?: pulumi.Input<boolean>;
     }
 
+    export interface AuthomationRuleActionIncident {
+        /**
+         * The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+         */
+        classification?: pulumi.Input<string>;
+        /**
+         * The comment why the incident is to be closed.
+         */
+        classificationComment?: pulumi.Input<string>;
+        /**
+         * Specifies a list of labels to add to the incident.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The execution order of this action.
+         */
+        order: pulumi.Input<number>;
+        /**
+         * The object ID of the entity this incident is assigned to.
+         */
+        ownerId?: pulumi.Input<string>;
+        /**
+         * The severity to add to the incident.
+         */
+        severity?: pulumi.Input<string>;
+        /**
+         * The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface AuthomationRuleActionPlaybook {
+        /**
+         * The ID of the Logic App that defines the playbook's logic.
+         */
+        logicAppId: pulumi.Input<string>;
+        /**
+         * The execution order of this action.
+         */
+        order: pulumi.Input<number>;
+        /**
+         * The ID of the Tenant that owns the playbook.
+         */
+        tenantId?: pulumi.Input<string>;
+    }
+
+    export interface AuthomationRuleCondition {
+        /**
+         * The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+         */
+        property: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to use for evaluate the condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
 }
 
 export namespace servicebus {
@@ -23923,7 +24026,7 @@ export namespace sql {
          */
         retentionDays?: pulumi.Input<number>;
         /**
-         * The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+         * The State of the Policy. Possible values are `Enabled` or `Disabled`.
          */
         state?: pulumi.Input<string>;
         /**
@@ -25087,6 +25190,10 @@ export namespace synapse {
          */
         branchName: pulumi.Input<string>;
         /**
+         * The last commit ID.
+         */
+        lastCommitId?: pulumi.Input<string>;
+        /**
          * Specifies the name of the Azure DevOps project.
          */
         projectName: pulumi.Input<string>;
@@ -25128,6 +25235,10 @@ export namespace synapse {
          * Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
          */
         gitUrl?: pulumi.Input<string>;
+        /**
+         * The last commit ID.
+         */
+        lastCommitId?: pulumi.Input<string>;
         /**
          * Specifies the name of the git repository.
          */

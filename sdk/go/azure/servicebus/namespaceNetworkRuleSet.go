@@ -111,6 +111,8 @@ type NamespaceNetworkRuleSet struct {
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayOutput `pulumi:"networkRules"`
 	// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+	TrustedServicesAllowed pulumi.BoolPtrOutput `pulumi:"trustedServicesAllowed"`
 }
 
 // NewNamespaceNetworkRuleSet registers a new resource with the given unique name, arguments, and options.
@@ -158,6 +160,8 @@ type namespaceNetworkRuleSetState struct {
 	NetworkRules []NamespaceNetworkRuleSetNetworkRule `pulumi:"networkRules"`
 	// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+	TrustedServicesAllowed *bool `pulumi:"trustedServicesAllowed"`
 }
 
 type NamespaceNetworkRuleSetState struct {
@@ -171,6 +175,8 @@ type NamespaceNetworkRuleSetState struct {
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayInput
 	// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+	TrustedServicesAllowed pulumi.BoolPtrInput
 }
 
 func (NamespaceNetworkRuleSetState) ElementType() reflect.Type {
@@ -188,6 +194,8 @@ type namespaceNetworkRuleSetArgs struct {
 	NetworkRules []NamespaceNetworkRuleSetNetworkRule `pulumi:"networkRules"`
 	// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+	TrustedServicesAllowed *bool `pulumi:"trustedServicesAllowed"`
 }
 
 // The set of arguments for constructing a NamespaceNetworkRuleSet resource.
@@ -202,6 +210,8 @@ type NamespaceNetworkRuleSetArgs struct {
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayInput
 	// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+	TrustedServicesAllowed pulumi.BoolPtrInput
 }
 
 func (NamespaceNetworkRuleSetArgs) ElementType() reflect.Type {

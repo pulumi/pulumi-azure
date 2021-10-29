@@ -69,6 +69,10 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
     /**
+     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     */
+    public readonly automaticUpgradeEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
      */
     public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
@@ -119,6 +123,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VirtualMachineScaleSetExtensionState | undefined;
             inputs["autoUpgradeMinorVersion"] = state ? state.autoUpgradeMinorVersion : undefined;
+            inputs["automaticUpgradeEnabled"] = state ? state.automaticUpgradeEnabled : undefined;
             inputs["forceUpdateTag"] = state ? state.forceUpdateTag : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["protectedSettings"] = state ? state.protectedSettings : undefined;
@@ -143,6 +148,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualMachineScaleSetId'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            inputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
             inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
@@ -168,6 +174,10 @@ export interface VirtualMachineScaleSetExtensionState {
      * Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
      */
     autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    /**
+     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     */
+    automaticUpgradeEnabled?: pulumi.Input<boolean>;
     /**
      * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
      */
@@ -214,6 +224,10 @@ export interface VirtualMachineScaleSetExtensionArgs {
      * Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
      */
     autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    /**
+     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     */
+    automaticUpgradeEnabled?: pulumi.Input<boolean>;
     /**
      * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
      */

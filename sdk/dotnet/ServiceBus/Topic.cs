@@ -105,6 +105,14 @@ namespace Pulumi.Azure.ServiceBus
         public Output<bool?> EnablePartitioning { get; private set; } = null!;
 
         /// <summary>
+        /// Integer value which controls the maximum size of
+        /// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+        /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// </summary>
+        [Output("maxMessageSizeInKilobytes")]
+        public Output<int> MaxMessageSizeInKilobytes { get; private set; } = null!;
+
+        /// <summary>
         /// Integer value which controls the size of
         /// memory allocated for the topic. For supported values see the "Queue/topic size"
         /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -249,6 +257,14 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? EnablePartitioning { get; set; }
 
         /// <summary>
+        /// Integer value which controls the maximum size of
+        /// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+        /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// </summary>
+        [Input("maxMessageSizeInKilobytes")]
+        public Input<int>? MaxMessageSizeInKilobytes { get; set; }
+
+        /// <summary>
         /// Integer value which controls the size of
         /// memory allocated for the topic. For supported values see the "Queue/topic size"
         /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -348,6 +364,14 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("enablePartitioning")]
         public Input<bool>? EnablePartitioning { get; set; }
+
+        /// <summary>
+        /// Integer value which controls the maximum size of
+        /// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+        /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// </summary>
+        [Input("maxMessageSizeInKilobytes")]
+        public Input<int>? MaxMessageSizeInKilobytes { get; set; }
 
         /// <summary>
         /// Integer value which controls the size of

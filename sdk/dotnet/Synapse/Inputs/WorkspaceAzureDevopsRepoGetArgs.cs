@@ -25,6 +25,12 @@ namespace Pulumi.Azure.Synapse.Inputs
         public Input<string> BranchName { get; set; } = null!;
 
         /// <summary>
+        /// The last commit ID.
+        /// </summary>
+        [Input("lastCommitId")]
+        public Input<string>? LastCommitId { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Azure DevOps project.
         /// </summary>
         [Input("projectName", required: true)]

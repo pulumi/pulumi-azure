@@ -24,7 +24,7 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
-        :param pulumi.Input[str] sku_name: The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+        :param pulumi.Input[str] sku_name: The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         :param pulumi.Input[str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
@@ -57,7 +57,7 @@ class AccountArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+        The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -141,7 +141,7 @@ class _AccountState:
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] scan_endpoint: Scan endpoint.
-        :param pulumi.Input[str] sku_name: The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+        :param pulumi.Input[str] sku_name: The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Purview Account.
         """
         if atlas_kafka_endpoint_primary_connection_string is not None:
@@ -293,7 +293,7 @@ class _AccountState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+        The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -356,7 +356,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
-        :param pulumi.Input[str] sku_name: The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+        :param pulumi.Input[str] sku_name: The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Purview Account.
         """
         ...
@@ -477,7 +477,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] scan_endpoint: Scan endpoint.
-        :param pulumi.Input[str] sku_name: The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+        :param pulumi.Input[str] sku_name: The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Purview Account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -582,7 +582,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+        The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         """
         return pulumi.get(self, "sku_name")
 

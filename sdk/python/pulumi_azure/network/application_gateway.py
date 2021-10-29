@@ -64,7 +64,7 @@ class ApplicationGatewayArgs:
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]] probes: One or more `probe` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]] redirect_configurations: A `redirect_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]] ssl_policies: a `ssl policy` block as defined below.
@@ -346,7 +346,7 @@ class ApplicationGatewayArgs:
     @pulumi.getter(name="redirectConfigurations")
     def redirect_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]]]:
         """
-        A `redirect_configuration` block as defined below.
+        One or more `redirect_configuration` blocks as defined below.
         """
         return pulumi.get(self, "redirect_configurations")
 
@@ -524,7 +524,7 @@ class _ApplicationGatewayState:
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]] probes: One or more `probe` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]] redirect_configurations: A `redirect_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
@@ -782,7 +782,7 @@ class _ApplicationGatewayState:
     @pulumi.getter(name="redirectConfigurations")
     def redirect_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]]]:
         """
-        A `redirect_configuration` block as defined below.
+        One or more `redirect_configuration` blocks as defined below.
         """
         return pulumi.get(self, "redirect_configurations")
 
@@ -1086,7 +1086,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]] probes: One or more `probe` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]] redirect_configurations: A `redirect_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
@@ -1358,7 +1358,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]] probes: One or more `probe` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]] redirect_configurations: A `redirect_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
@@ -1532,7 +1532,7 @@ class ApplicationGateway(pulumi.CustomResource):
     @pulumi.getter(name="redirectConfigurations")
     def redirect_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayRedirectConfiguration']]]:
         """
-        A `redirect_configuration` block as defined below.
+        One or more `redirect_configuration` blocks as defined below.
         """
         return pulumi.get(self, "redirect_configurations")
 

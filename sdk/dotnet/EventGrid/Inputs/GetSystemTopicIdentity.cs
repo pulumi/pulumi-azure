@@ -10,39 +10,39 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventGrid.Inputs
 {
 
-    public sealed class GetSystemTopicIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class GetSystemTopicIdentityArgs : Pulumi.InvokeArgs
     {
         [Input("identityIds")]
-        private InputList<string>? _identityIds;
+        private List<string>? _identityIds;
 
         /// <summary>
-        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
         /// </summary>
-        public InputList<string> IdentityIds
+        public List<string> IdentityIds
         {
-            get => _identityIds ?? (_identityIds = new InputList<string>());
+            get => _identityIds ?? (_identityIds = new List<string>());
             set => _identityIds = value;
         }
 
         /// <summary>
         /// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
         /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
+        [Input("principalId", required: true)]
+        public string PrincipalId { get; set; } = null!;
 
         /// <summary>
         /// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
         /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
+        [Input("tenantId", required: true)]
+        public string TenantId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identity_ids` field.
+        /// Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public string Type { get; set; } = null!;
 
-        public GetSystemTopicIdentityGetArgs()
+        public GetSystemTopicIdentityArgs()
         {
         }
     }

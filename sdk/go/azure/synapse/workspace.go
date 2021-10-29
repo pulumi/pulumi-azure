@@ -87,6 +87,8 @@ type Workspace struct {
 	AadAdmin WorkspaceAadAdminOutput `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrOutput `pulumi:"azureDevopsRepo"`
+	// Subnet ID used for computes in workspace
+	ComputeSubnetId pulumi.StringPtrOutput `pulumi:"computeSubnetId"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
 	// A `customerManagedKey` block as defined below.
@@ -97,6 +99,8 @@ type Workspace struct {
 	GithubRepo WorkspaceGithubRepoPtrOutput `pulumi:"githubRepo"`
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
 	Identities WorkspaceIdentityArrayOutput `pulumi:"identities"`
+	// Allowed Aad Tenant Ids For Linking.
+	LinkingAllowedForAadTenantIds pulumi.StringArrayOutput `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Workspace managed resource group.
@@ -105,6 +109,10 @@ type Workspace struct {
 	ManagedVirtualNetworkEnabled pulumi.BoolPtrOutput `pulumi:"managedVirtualNetworkEnabled"`
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
+	// The ID of purview account.
+	PurviewId pulumi.StringPtrOutput `pulumi:"purviewId"`
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
@@ -164,6 +172,8 @@ type workspaceState struct {
 	AadAdmin *WorkspaceAadAdmin `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
+	// Subnet ID used for computes in workspace
+	ComputeSubnetId *string `pulumi:"computeSubnetId"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// A `customerManagedKey` block as defined below.
@@ -174,6 +184,8 @@ type workspaceState struct {
 	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
 	Identities []WorkspaceIdentity `pulumi:"identities"`
+	// Allowed Aad Tenant Ids For Linking.
+	LinkingAllowedForAadTenantIds []string `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Workspace managed resource group.
@@ -182,6 +194,10 @@ type workspaceState struct {
 	ManagedVirtualNetworkEnabled *bool `pulumi:"managedVirtualNetworkEnabled"`
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	// The ID of purview account.
+	PurviewId *string `pulumi:"purviewId"`
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
@@ -201,6 +217,8 @@ type WorkspaceState struct {
 	AadAdmin WorkspaceAadAdminPtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
+	// Subnet ID used for computes in workspace
+	ComputeSubnetId pulumi.StringPtrInput
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints pulumi.StringMapInput
 	// A `customerManagedKey` block as defined below.
@@ -211,6 +229,8 @@ type WorkspaceState struct {
 	GithubRepo WorkspaceGithubRepoPtrInput
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
 	Identities WorkspaceIdentityArrayInput
+	// Allowed Aad Tenant Ids For Linking.
+	LinkingAllowedForAadTenantIds pulumi.StringArrayInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Workspace managed resource group.
@@ -219,6 +239,10 @@ type WorkspaceState struct {
 	ManagedVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	// The ID of purview account.
+	PurviewId pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
@@ -242,12 +266,16 @@ type workspaceArgs struct {
 	AadAdmin *WorkspaceAadAdmin `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
+	// Subnet ID used for computes in workspace
+	ComputeSubnetId *string `pulumi:"computeSubnetId"`
 	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey *WorkspaceCustomerManagedKey `pulumi:"customerManagedKey"`
 	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
 	DataExfiltrationProtectionEnabled *bool `pulumi:"dataExfiltrationProtectionEnabled"`
 	// A `githubRepo` block as defined below.
 	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
+	// Allowed Aad Tenant Ids For Linking.
+	LinkingAllowedForAadTenantIds []string `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Workspace managed resource group.
@@ -256,6 +284,10 @@ type workspaceArgs struct {
 	ManagedVirtualNetworkEnabled *bool `pulumi:"managedVirtualNetworkEnabled"`
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	// The ID of purview account.
+	PurviewId *string `pulumi:"purviewId"`
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
@@ -276,12 +308,16 @@ type WorkspaceArgs struct {
 	AadAdmin WorkspaceAadAdminPtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
+	// Subnet ID used for computes in workspace
+	ComputeSubnetId pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey WorkspaceCustomerManagedKeyPtrInput
 	// Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
 	DataExfiltrationProtectionEnabled pulumi.BoolPtrInput
 	// A `githubRepo` block as defined below.
 	GithubRepo WorkspaceGithubRepoPtrInput
+	// Allowed Aad Tenant Ids For Linking.
+	LinkingAllowedForAadTenantIds pulumi.StringArrayInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Workspace managed resource group.
@@ -290,6 +326,10 @@ type WorkspaceArgs struct {
 	ManagedVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	// The ID of purview account.
+	PurviewId pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.

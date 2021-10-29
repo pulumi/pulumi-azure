@@ -16,6 +16,7 @@ export * from "./eventGridDataConnection";
 export * from "./eventhubDataConnection";
 export * from "./getCluster";
 export * from "./iotHubDataConnection";
+export * from "./script";
 
 // Import resources to register:
 import { AttachedDatabaseConfiguration } from "./attachedDatabaseConfiguration";
@@ -28,6 +29,7 @@ import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
 import { EventGridDataConnection } from "./eventGridDataConnection";
 import { EventhubDataConnection } from "./eventhubDataConnection";
 import { IotHubDataConnection } from "./iotHubDataConnection";
+import { Script } from "./script";
 
 const _module = {
     version: utilities.getVersion(),
@@ -53,6 +55,8 @@ const _module = {
                 return new EventhubDataConnection(name, <any>undefined, { urn })
             case "azure:kusto/iotHubDataConnection:IotHubDataConnection":
                 return new IotHubDataConnection(name, <any>undefined, { urn })
+            case "azure:kusto/script:Script":
+                return new Script(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -68,3 +72,4 @@ pulumi.runtime.registerResourceModule("azure", "kusto/databasePrincipalAssignmen
 pulumi.runtime.registerResourceModule("azure", "kusto/eventGridDataConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/eventhubDataConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/iotHubDataConnection", _module)
+pulumi.runtime.registerResourceModule("azure", "kusto/script", _module)

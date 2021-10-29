@@ -179,7 +179,7 @@ type ApplicationGateway struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `probe` blocks as defined below.
 	Probes ApplicationGatewayProbeArrayOutput `pulumi:"probes"`
-	// A `redirectConfiguration` block as defined below.
+	// One or more `redirectConfiguration` blocks as defined below.
 	RedirectConfigurations ApplicationGatewayRedirectConfigurationArrayOutput `pulumi:"redirectConfigurations"`
 	// One or more `requestRoutingRule` blocks as defined below.
 	RequestRoutingRules ApplicationGatewayRequestRoutingRuleArrayOutput `pulumi:"requestRoutingRules"`
@@ -295,7 +295,7 @@ type applicationGatewayState struct {
 	Name *string `pulumi:"name"`
 	// One or more `probe` blocks as defined below.
 	Probes []ApplicationGatewayProbe `pulumi:"probes"`
-	// A `redirectConfiguration` block as defined below.
+	// One or more `redirectConfiguration` blocks as defined below.
 	RedirectConfigurations []ApplicationGatewayRedirectConfiguration `pulumi:"redirectConfigurations"`
 	// One or more `requestRoutingRule` blocks as defined below.
 	RequestRoutingRules []ApplicationGatewayRequestRoutingRule `pulumi:"requestRoutingRules"`
@@ -356,7 +356,7 @@ type ApplicationGatewayState struct {
 	Name pulumi.StringPtrInput
 	// One or more `probe` blocks as defined below.
 	Probes ApplicationGatewayProbeArrayInput
-	// A `redirectConfiguration` block as defined below.
+	// One or more `redirectConfiguration` blocks as defined below.
 	RedirectConfigurations ApplicationGatewayRedirectConfigurationArrayInput
 	// One or more `requestRoutingRule` blocks as defined below.
 	RequestRoutingRules ApplicationGatewayRequestRoutingRuleArrayInput
@@ -421,7 +421,7 @@ type applicationGatewayArgs struct {
 	Name *string `pulumi:"name"`
 	// One or more `probe` blocks as defined below.
 	Probes []ApplicationGatewayProbe `pulumi:"probes"`
-	// A `redirectConfiguration` block as defined below.
+	// One or more `redirectConfiguration` blocks as defined below.
 	RedirectConfigurations []ApplicationGatewayRedirectConfiguration `pulumi:"redirectConfigurations"`
 	// One or more `requestRoutingRule` blocks as defined below.
 	RequestRoutingRules []ApplicationGatewayRequestRoutingRule `pulumi:"requestRoutingRules"`
@@ -483,7 +483,7 @@ type ApplicationGatewayArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more `probe` blocks as defined below.
 	Probes ApplicationGatewayProbeArrayInput
-	// A `redirectConfiguration` block as defined below.
+	// One or more `redirectConfiguration` blocks as defined below.
 	RedirectConfigurations ApplicationGatewayRedirectConfigurationArrayInput
 	// One or more `requestRoutingRule` blocks as defined below.
 	RequestRoutingRules ApplicationGatewayRequestRoutingRuleArrayInput

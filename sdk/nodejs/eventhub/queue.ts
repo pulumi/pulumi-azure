@@ -113,6 +113,12 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly maxDeliveryCount!: pulumi.Output<number | undefined>;
     /**
+     * Integer value which controls the maximum size of
+     * a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
+     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     */
+    public readonly maxMessageSizeInKilobytes!: pulumi.Output<number>;
+    /**
      * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
      */
     public readonly maxSizeInMegabytes!: pulumi.Output<number>;
@@ -168,6 +174,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["forwardTo"] = state ? state.forwardTo : undefined;
             inputs["lockDuration"] = state ? state.lockDuration : undefined;
             inputs["maxDeliveryCount"] = state ? state.maxDeliveryCount : undefined;
+            inputs["maxMessageSizeInKilobytes"] = state ? state.maxMessageSizeInKilobytes : undefined;
             inputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
@@ -194,6 +201,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["forwardTo"] = args ? args.forwardTo : undefined;
             inputs["lockDuration"] = args ? args.lockDuration : undefined;
             inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
+            inputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
             inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -257,6 +265,12 @@ export interface QueueState {
      * Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
      */
     maxDeliveryCount?: pulumi.Input<number>;
+    /**
+     * Integer value which controls the maximum size of
+     * a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
+     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     */
+    maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
      * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
      */
@@ -335,6 +349,12 @@ export interface QueueArgs {
      * Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
      */
     maxDeliveryCount?: pulumi.Input<number>;
+    /**
+     * Integer value which controls the maximum size of
+     * a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
+     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     */
+    maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
      * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
      */

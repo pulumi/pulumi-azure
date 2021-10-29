@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Direction;
         /// <summary>
-        /// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+        /// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
         /// </summary>
         public readonly string Type;
         /// <summary>

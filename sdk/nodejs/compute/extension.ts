@@ -137,6 +137,10 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
     /**
+     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     */
+    public readonly automaticUpgradeEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the virtual machine extension peering. Changing
      * this forces a new resource to be created.
      */
@@ -188,6 +192,7 @@ export class Extension extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ExtensionState | undefined;
             inputs["autoUpgradeMinorVersion"] = state ? state.autoUpgradeMinorVersion : undefined;
+            inputs["automaticUpgradeEnabled"] = state ? state.automaticUpgradeEnabled : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["protectedSettings"] = state ? state.protectedSettings : undefined;
             inputs["publisher"] = state ? state.publisher : undefined;
@@ -211,6 +216,7 @@ export class Extension extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            inputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
             inputs["publisher"] = args ? args.publisher : undefined;
@@ -236,6 +242,10 @@ export interface ExtensionState {
      * the latest minor version update to the `typeHandlerVersion` specified.
      */
     autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    /**
+     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     */
+    automaticUpgradeEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the virtual machine extension peering. Changing
      * this forces a new resource to be created.
@@ -284,6 +294,10 @@ export interface ExtensionArgs {
      * the latest minor version update to the `typeHandlerVersion` specified.
      */
     autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    /**
+     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     */
+    automaticUpgradeEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the virtual machine extension peering. Changing
      * this forces a new resource to be created.

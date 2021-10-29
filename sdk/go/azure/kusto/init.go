@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventhubDataConnection{}
 	case "azure:kusto/iotHubDataConnection:IotHubDataConnection":
 		r = &IotHubDataConnection{}
+	case "azure:kusto/script:Script":
+		r = &Script{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -102,6 +104,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"kusto/iotHubDataConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"kusto/script",
 		&module{version},
 	)
 }

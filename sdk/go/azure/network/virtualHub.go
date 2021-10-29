@@ -65,6 +65,8 @@ type VirtualHub struct {
 
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
+	// The ID of the default Route Table in the Virtual Hub.
+	DefaultRouteTableId pulumi.StringOutput `pulumi:"defaultRouteTableId"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Virtual Hub. Changing this forces a new resource to be created.
@@ -115,6 +117,8 @@ func GetVirtualHub(ctx *pulumi.Context,
 type virtualHubState struct {
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix *string `pulumi:"addressPrefix"`
+	// The ID of the default Route Table in the Virtual Hub.
+	DefaultRouteTableId *string `pulumi:"defaultRouteTableId"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Virtual Hub. Changing this forces a new resource to be created.
@@ -134,6 +138,8 @@ type virtualHubState struct {
 type VirtualHubState struct {
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix pulumi.StringPtrInput
+	// The ID of the default Route Table in the Virtual Hub.
+	DefaultRouteTableId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Virtual Hub. Changing this forces a new resource to be created.

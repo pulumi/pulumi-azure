@@ -3011,6 +3011,8 @@ func (o LinuxVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.IntInput)
 type LinuxVirtualMachineScaleSetExtension struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension.
@@ -3043,6 +3045,8 @@ type LinuxVirtualMachineScaleSetExtensionInput interface {
 type LinuxVirtualMachineScaleSetExtensionArgs struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled pulumi.BoolPtrInput `pulumi:"automaticUpgradeEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension.
@@ -3115,6 +3119,11 @@ func (o LinuxVirtualMachineScaleSetExtensionOutput) ToLinuxVirtualMachineScaleSe
 // Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 func (o LinuxVirtualMachineScaleSetExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+func (o LinuxVirtualMachineScaleSetExtensionOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) *bool { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
@@ -14850,6 +14859,8 @@ func (o WindowsVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.IntInpu
 type WindowsVirtualMachineScaleSetExtension struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension.
@@ -14882,6 +14893,8 @@ type WindowsVirtualMachineScaleSetExtensionInput interface {
 type WindowsVirtualMachineScaleSetExtensionArgs struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled pulumi.BoolPtrInput `pulumi:"automaticUpgradeEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension.
@@ -14954,6 +14967,11 @@ func (o WindowsVirtualMachineScaleSetExtensionOutput) ToWindowsVirtualMachineSca
 // Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 func (o WindowsVirtualMachineScaleSetExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+func (o WindowsVirtualMachineScaleSetExtensionOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) *bool { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.

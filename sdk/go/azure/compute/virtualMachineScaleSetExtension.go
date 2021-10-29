@@ -68,6 +68,8 @@ type VirtualMachineScaleSetExtension struct {
 
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled pulumi.BoolPtrOutput `pulumi:"automaticUpgradeEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
@@ -131,6 +133,8 @@ func GetVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 type virtualMachineScaleSetExtensionState struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
@@ -154,6 +158,8 @@ type virtualMachineScaleSetExtensionState struct {
 type VirtualMachineScaleSetExtensionState struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
@@ -181,6 +187,8 @@ func (VirtualMachineScaleSetExtensionState) ElementType() reflect.Type {
 type virtualMachineScaleSetExtensionArgs struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
@@ -205,6 +213,8 @@ type virtualMachineScaleSetExtensionArgs struct {
 type VirtualMachineScaleSetExtensionArgs struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.

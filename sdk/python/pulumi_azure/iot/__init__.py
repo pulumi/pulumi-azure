@@ -25,6 +25,7 @@ from .security_device_group import *
 from .security_solution import *
 from .shared_access_policy import *
 from .time_series_insights_access_policy import *
+from .time_series_insights_event_source_eventhub import *
 from .time_series_insights_event_source_iothub import *
 from .time_series_insights_gen2_environment import *
 from .time_series_insights_reference_data_set import *

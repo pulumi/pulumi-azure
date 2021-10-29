@@ -46,6 +46,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+        /// </summary>
+        public readonly int? Priority;
+        /// <summary>
         /// The ID of the associated Redirect Configuration.
         /// </summary>
         public readonly string? RedirectConfigurationId;
@@ -92,6 +96,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             string name,
 
+            int? priority,
+
             string? redirectConfigurationId,
 
             string? redirectConfigurationName,
@@ -114,6 +120,7 @@ namespace Pulumi.Azure.Network.Outputs
             HttpListenerName = httpListenerName;
             Id = id;
             Name = name;
+            Priority = priority;
             RedirectConfigurationId = redirectConfigurationId;
             RedirectConfigurationName = redirectConfigurationName;
             RewriteRuleSetId = rewriteRuleSetId;

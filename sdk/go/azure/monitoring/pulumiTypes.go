@@ -6944,7 +6944,7 @@ type AutoscaleSettingProfileRuleScaleAction struct {
 	Cooldown string `pulumi:"cooldown"`
 	// The scale direction. Possible values are `Increase` and `Decrease`.
 	Direction string `pulumi:"direction"`
-	// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+	// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
 	Type string `pulumi:"type"`
 	// The number of instances involved in the scaling action. Defaults to `1`.
 	Value int `pulumi:"value"`
@@ -6966,7 +6966,7 @@ type AutoscaleSettingProfileRuleScaleActionArgs struct {
 	Cooldown pulumi.StringInput `pulumi:"cooldown"`
 	// The scale direction. Possible values are `Increase` and `Decrease`.
 	Direction pulumi.StringInput `pulumi:"direction"`
-	// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+	// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The number of instances involved in the scaling action. Defaults to `1`.
 	Value pulumi.IntInput `pulumi:"value"`
@@ -7008,7 +7008,7 @@ func (o AutoscaleSettingProfileRuleScaleActionOutput) Direction() pulumi.StringO
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
 func (o AutoscaleSettingProfileRuleScaleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) string { return v.Type }).(pulumi.StringOutput)
 }

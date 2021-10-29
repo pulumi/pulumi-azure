@@ -43,10 +43,13 @@ namespace Pulumi.Azure.AppPlatform
     ///         var exampleSpringCloudJavaDeployment = new Azure.AppPlatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", new Azure.AppPlatform.SpringCloudJavaDeploymentArgs
     ///         {
     ///             SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///             Cpu = 2,
     ///             InstanceCount = 2,
     ///             JvmOptions = "-XX:+PrintGC",
-    ///             MemoryInGb = 4,
+    ///             Quota = new Azure.AppPlatform.Inputs.SpringCloudJavaDeploymentQuotaArgs
+    ///             {
+    ///                 Cpu = "2",
+    ///                 Memory = "4Gi",
+    ///             },
     ///             RuntimeVersion = "Java_11",
     ///             EnvironmentVariables = 
     ///             {
@@ -71,10 +74,10 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudJavaDeployment : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
+        /// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
         /// </summary>
         [Output("cpu")]
-        public Output<int?> Cpu { get; private set; } = null!;
+        public Output<int> Cpu { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -94,17 +97,20 @@ namespace Pulumi.Azure.AppPlatform
         [Output("jvmOptions")]
         public Output<string?> JvmOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
-        /// </summary>
         [Output("memoryInGb")]
-        public Output<int?> MemoryInGb { get; private set; } = null!;
+        public Output<int> MemoryInGb { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// A `quota` block as defined below.
+        /// </summary>
+        [Output("quota")]
+        public Output<Outputs.SpringCloudJavaDeploymentQuota> Quota { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
@@ -165,7 +171,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudJavaDeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
+        /// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
         /// </summary>
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }
@@ -194,9 +200,6 @@ namespace Pulumi.Azure.AppPlatform
         [Input("jvmOptions")]
         public Input<string>? JvmOptions { get; set; }
 
-        /// <summary>
-        /// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
-        /// </summary>
         [Input("memoryInGb")]
         public Input<int>? MemoryInGb { get; set; }
 
@@ -205,6 +208,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `quota` block as defined below.
+        /// </summary>
+        [Input("quota")]
+        public Input<Inputs.SpringCloudJavaDeploymentQuotaArgs>? Quota { get; set; }
 
         /// <summary>
         /// Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
@@ -226,7 +235,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudJavaDeploymentState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
+        /// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
         /// </summary>
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }
@@ -255,9 +264,6 @@ namespace Pulumi.Azure.AppPlatform
         [Input("jvmOptions")]
         public Input<string>? JvmOptions { get; set; }
 
-        /// <summary>
-        /// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
-        /// </summary>
         [Input("memoryInGb")]
         public Input<int>? MemoryInGb { get; set; }
 
@@ -266,6 +272,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `quota` block as defined below.
+        /// </summary>
+        [Input("quota")]
+        public Input<Inputs.SpringCloudJavaDeploymentQuotaGetArgs>? Quota { get; set; }
 
         /// <summary>
         /// Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.

@@ -81,7 +81,7 @@ __all__ = [
     'GetDomainInboundIpRuleResult',
     'GetDomainInputMappingDefaultValueResult',
     'GetDomainInputMappingFieldResult',
-    'GetSystemTopicIdentity',
+    'GetSystemTopicIdentityResult',
 ]
 
 @pulumi.output_type
@@ -3481,66 +3481,27 @@ class GetDomainInputMappingFieldResult(dict):
 
 
 @pulumi.output_type
-class GetSystemTopicIdentity(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "identityIds":
-            suggest = "identity_ids"
-        elif key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GetSystemTopicIdentity. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GetSystemTopicIdentity.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GetSystemTopicIdentity.__key_warning(key)
-        return super().get(key, default)
-
+class GetSystemTopicIdentityResult(dict):
     def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
                  type: str,
-                 identity_ids: Optional[Sequence[str]] = None,
-                 principal_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None):
+                 identity_ids: Optional[Sequence[str]] = None):
         """
-        :param str type: Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identity_ids` field.
-        :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         :param str principal_id: Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
         :param str tenant_id: Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
+        :param str type: Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
+        :param Sequence[str] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
             pulumi.set(__self__, "identity_ids", identity_ids)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identity_ids` field.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[Sequence[str]]:
-        """
-        Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
-        """
-        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[str]:
+    def principal_id(self) -> str:
         """
         Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
         """
@@ -3548,10 +3509,26 @@ class GetSystemTopicIdentity(dict):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
+    def tenant_id(self) -> str:
         """
         Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
         """
         return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of IDs for User Assigned Managed Identity resources to be assigned.
+        """
+        return pulumi.get(self, "identity_ids")
 
 

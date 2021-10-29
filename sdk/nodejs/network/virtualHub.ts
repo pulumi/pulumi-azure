@@ -68,6 +68,10 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public readonly addressPrefix!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the default Route Table in the Virtual Hub.
+     */
+    public /*out*/ readonly defaultRouteTableId!: pulumi.Output<string>;
+    /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class VirtualHub extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VirtualHubState | undefined;
             inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
+            inputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -130,6 +135,7 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualWanId"] = args ? args.virtualWanId : undefined;
+            inputs["defaultRouteTableId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -146,6 +152,10 @@ export interface VirtualHubState {
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
      */
     addressPrefix?: pulumi.Input<string>;
+    /**
+     * The ID of the default Route Table in the Virtual Hub.
+     */
+    defaultRouteTableId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */

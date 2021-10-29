@@ -9,266 +9,127 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.EventGrid
 {
-    /// <summary>
-    /// Manages an Event Grid System Topic.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "staging" },
-    ///             },
-    ///         });
-    ///         var exampleSystemTopic = new Azure.EventGrid.SystemTopic("exampleSystemTopic", new Azure.EventGrid.SystemTopicArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SourceArmResourceId = exampleAccount.Id,
-    ///             TopicType = "Microsoft.Storage.StorageAccounts",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Event Grid System Topic can be imported using the `resource id`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import azure:eventgrid/getSystemTopic:getSystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
-    /// ```
-    /// </summary>
-    [Obsolete(@"azure.eventgrid.getSystemTopic has been deprecated in favor of azure.eventgrid.SystemTopic")]
-    [AzureResourceType("azure:eventgrid/getSystemTopic:getSystemTopic")]
-    public partial class GetSystemTopic : Pulumi.CustomResource
+    public static class GetSystemTopic
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// Use this data source to access information about an existing EventGrid System Topic
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.EventGrid.GetSystemTopic.InvokeAsync(new Azure.EventGrid.GetSystemTopicArgs
+        ///         {
+        ///             Name = "eventgrid-system-topic",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
-        [Output("identity")]
-        public Output<Outputs.GetSystemTopicIdentity?> Identity { get; private set; } = null!;
-
-        /// <summary>
-        /// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The Metric ARM Resource ID of the Event Grid System Topic.
-        /// </summary>
-        [Output("metricArmResourceId")]
-        public Output<string> MetricArmResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-        /// </summary>
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
-
-        /// <summary>
-        /// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-        /// </summary>
-        [Output("sourceArmResourceId")]
-        public Output<string> SourceArmResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Event Grid System Topic.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-        /// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-        /// </summary>
-        [Output("topicType")]
-        public Output<string> TopicType { get; private set; } = null!;
-
-
-        /// <summary>
-        /// Create a GetSystemTopic resource with the given unique name, arguments, and options.
-        /// </summary>
-        ///
-        /// <param name="name">The unique name of the resource</param>
-        /// <param name="args">The arguments used to populate this resource's properties</param>
-        /// <param name="options">A bag of options that control this resource's behavior</param>
-        public GetSystemTopic(string name, GetSystemTopicArgs args, CustomResourceOptions? options = null)
-            : base("azure:eventgrid/getSystemTopic:getSystemTopic", name, args ?? new GetSystemTopicArgs(), MakeResourceOptions(options, ""))
-        {
-        }
-
-        private GetSystemTopic(string name, Input<string> id, GetSystemTopicState? state = null, CustomResourceOptions? options = null)
-            : base("azure:eventgrid/getSystemTopic:getSystemTopic", name, state, MakeResourceOptions(options, id))
-        {
-        }
-
-        private static CustomResourceOptions MakeResourceOptions(CustomResourceOptions? options, Input<string>? id)
-        {
-            var defaultOptions = new CustomResourceOptions
-            {
-                Version = Utilities.Version,
-            };
-            var merged = CustomResourceOptions.Merge(defaultOptions, options);
-            // Override the ID if one was specified for consistency with other language SDKs.
-            merged.Id = id ?? merged.Id;
-            return merged;
-        }
-        /// <summary>
-        /// Get an existing GetSystemTopic resource's state with the given name, ID, and optional extra
-        /// properties used to qualify the lookup.
-        /// </summary>
-        ///
-        /// <param name="name">The unique name of the resulting resource.</param>
-        /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
-        /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static GetSystemTopic Get(string name, Input<string> id, GetSystemTopicState? state = null, CustomResourceOptions? options = null)
-        {
-            return new GetSystemTopic(name, id, state, options);
-        }
+        public static Task<GetSystemTopicResult> InvokeAsync(GetSystemTopicArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicResult>("azure:eventgrid/getSystemTopic:getSystemTopic", args ?? new GetSystemTopicArgs(), options.WithVersion());
     }
 
-    public sealed class GetSystemTopicArgs : Pulumi.ResourceArgs
+
+    public sealed class GetSystemTopicArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.GetSystemTopicIdentityArgs>? Identity { get; set; }
+        public Inputs.GetSystemTopicIdentityArgs? Identity { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
+        /// The name of the EventGrid System Topic resource.
         /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
+        /// The name of the resource group in which the EventGrid System Topic exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-        /// </summary>
-        [Input("sourceArmResourceId", required: true)]
-        public Input<string> SourceArmResourceId { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Event Grid System Topic.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-        /// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-        /// </summary>
-        [Input("topicType", required: true)]
-        public Input<string> TopicType { get; set; } = null!;
+        public string ResourceGroupName { get; set; } = null!;
 
         public GetSystemTopicArgs()
         {
         }
     }
 
-    public sealed class GetSystemTopicState : Pulumi.ResourceArgs
+
+    [OutputType]
+    public sealed class GetSystemTopicResult
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
-        [Input("identity")]
-        public Input<Inputs.GetSystemTopicIdentityGetArgs>? Identity { get; set; }
-
+        public readonly string Id;
         /// <summary>
-        /// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
+        /// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
         /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
+        public readonly Outputs.GetSystemTopicIdentityResult Identity;
+        public readonly string Location;
         /// <summary>
         /// The Metric ARM Resource ID of the Event Grid System Topic.
         /// </summary>
-        [Input("metricArmResourceId")]
-        public Input<string>? MetricArmResourceId { get; set; }
-
+        public readonly string MetricArmResourceId;
+        public readonly string Name;
+        public readonly string ResourceGroupName;
         /// <summary>
-        /// The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
+        /// The ID of the Event Grid System Topic ARM Source.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
+        public readonly string SourceArmResourceId;
         /// <summary>
-        /// The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
+        /// A mapping of tags which are assigned to the Event Grid System Topic.
         /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
-        /// <summary>
-        /// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-        /// </summary>
-        [Input("sourceArmResourceId")]
-        public Input<string>? SourceArmResourceId { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags which should be assigned to the Event Grid System Topic.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
         /// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
         /// </summary>
-        [Input("topicType")]
-        public Input<string>? TopicType { get; set; }
+        public readonly string TopicType;
 
-        public GetSystemTopicState()
+        [OutputConstructor]
+        private GetSystemTopicResult(
+            string id,
+
+            Outputs.GetSystemTopicIdentityResult identity,
+
+            string location,
+
+            string metricArmResourceId,
+
+            string name,
+
+            string resourceGroupName,
+
+            string sourceArmResourceId,
+
+            ImmutableDictionary<string, string> tags,
+
+            string topicType)
         {
+            Id = id;
+            Identity = identity;
+            Location = location;
+            MetricArmResourceId = metricArmResourceId;
+            Name = name;
+            ResourceGroupName = resourceGroupName;
+            SourceArmResourceId = sourceArmResourceId;
+            Tags = tags;
+            TopicType = topicType;
         }
     }
 }

@@ -20,10 +20,13 @@ class GetVirtualHubResult:
     """
     A collection of values returned by getVirtualHub.
     """
-    def __init__(__self__, address_prefix=None, id=None, location=None, name=None, resource_group_name=None, tags=None, virtual_wan_id=None):
+    def __init__(__self__, address_prefix=None, default_route_table_id=None, id=None, location=None, name=None, resource_group_name=None, tags=None, virtual_wan_id=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
+        if default_route_table_id and not isinstance(default_route_table_id, str):
+            raise TypeError("Expected argument 'default_route_table_id' to be a str")
+        pulumi.set(__self__, "default_route_table_id", default_route_table_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -50,6 +53,14 @@ class GetVirtualHubResult:
         The Address Prefix used for this Virtual Hub.
         """
         return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter(name="defaultRouteTableId")
+    def default_route_table_id(self) -> str:
+        """
+        The ID of the default Route Table in the Virtual Hub.
+        """
+        return pulumi.get(self, "default_route_table_id")
 
     @property
     @pulumi.getter
@@ -101,6 +112,7 @@ class AwaitableGetVirtualHubResult(GetVirtualHubResult):
             yield self
         return GetVirtualHubResult(
             address_prefix=self.address_prefix,
+            default_route_table_id=self.default_route_table_id,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -141,6 +153,7 @@ def get_virtual_hub(name: Optional[str] = None,
 
     return AwaitableGetVirtualHubResult(
         address_prefix=__ret__.address_prefix,
+        default_route_table_id=__ret__.default_route_table_id,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,

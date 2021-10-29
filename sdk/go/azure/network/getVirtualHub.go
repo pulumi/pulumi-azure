@@ -57,6 +57,8 @@ type LookupVirtualHubArgs struct {
 type LookupVirtualHubResult struct {
 	// The Address Prefix used for this Virtual Hub.
 	AddressPrefix string `pulumi:"addressPrefix"`
+	// The ID of the default Route Table in the Virtual Hub.
+	DefaultRouteTableId string `pulumi:"defaultRouteTableId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the Virtual Hub exists.
@@ -108,6 +110,11 @@ func (o LookupVirtualHubResultOutput) ToLookupVirtualHubResultOutputWithContext(
 // The Address Prefix used for this Virtual Hub.
 func (o LookupVirtualHubResultOutput) AddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualHubResult) string { return v.AddressPrefix }).(pulumi.StringOutput)
+}
+
+// The ID of the default Route Table in the Virtual Hub.
+func (o LookupVirtualHubResultOutput) DefaultRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualHubResult) string { return v.DefaultRouteTableId }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

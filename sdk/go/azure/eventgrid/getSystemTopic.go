@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Event Grid System Topic.
+// Use this data source to access information about an existing EventGrid System Topic
 //
 // ## Example Usage
 //
@@ -19,38 +18,16 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/eventgrid"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = eventgrid.NewSystemTopic(ctx, "exampleSystemTopic", &eventgrid.SystemTopicArgs{
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			Location:            exampleResourceGroup.Location,
-// 			SourceArmResourceId: exampleAccount.ID(),
-// 			TopicType:           pulumi.String("Microsoft.Storage.StorageAccounts"),
-// 		})
+// 		_, err := eventgrid.LookupSystemTopic(ctx, &eventgrid.LookupSystemTopicArgs{
+// 			Name:              "eventgrid-system-topic",
+// 			ResourceGroupName: "example-resources",
+// 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -58,349 +35,126 @@ import (
 // 	})
 // }
 // ```
-//
-// ## Import
-//
-// Event Grid System Topic can be imported using the `resource id`, e.g.
-//
-// ```sh
-//  $ pulumi import azure:eventgrid/getSystemTopic:getSystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
-// ```
-//
-// Deprecated: azure.eventgrid.getSystemTopic has been deprecated in favor of azure.eventgrid.SystemTopic
-type GetSystemTopicResource struct {
-	pulumi.CustomResourceState
-
-	// An `identity` block as defined below.
-	Identity GetSystemTopicIdentityPtrOutput `pulumi:"identity"`
-	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The Metric ARM Resource ID of the Event Grid System Topic.
-	MetricArmResourceId pulumi.StringOutput `pulumi:"metricArmResourceId"`
-	// The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-	SourceArmResourceId pulumi.StringOutput `pulumi:"sourceArmResourceId"`
-	// A mapping of tags which should be assigned to the Event Grid System Topic.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-	// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-	TopicType pulumi.StringOutput `pulumi:"topicType"`
-}
-
-// NewGetSystemTopicResource registers a new resource with the given unique name, arguments, and options.
-func NewGetSystemTopicResource(ctx *pulumi.Context,
-	name string, args *GetSystemTopicResourceArgs, opts ...pulumi.ResourceOption) (*GetSystemTopicResource, error) {
-	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
-	}
-
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.SourceArmResourceId == nil {
-		return nil, errors.New("invalid value for required argument 'SourceArmResourceId'")
-	}
-	if args.TopicType == nil {
-		return nil, errors.New("invalid value for required argument 'TopicType'")
-	}
-	var resource GetSystemTopicResource
-	err := ctx.RegisterResource("azure:eventgrid/getSystemTopic:getSystemTopic", name, args, &resource, opts...)
+func LookupSystemTopic(ctx *pulumi.Context, args *LookupSystemTopicArgs, opts ...pulumi.InvokeOption) (*LookupSystemTopicResult, error) {
+	var rv LookupSystemTopicResult
+	err := ctx.Invoke("azure:eventgrid/getSystemTopic:getSystemTopic", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &resource, nil
+	return &rv, nil
 }
 
-// GetGetSystemTopicResource gets an existing GetSystemTopicResource resource's state with the given name, ID, and optional
-// state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetGetSystemTopicResource(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *GetSystemTopicResourceState, opts ...pulumi.ResourceOption) (*GetSystemTopicResource, error) {
-	var resource GetSystemTopicResource
-	err := ctx.ReadResource("azure:eventgrid/getSystemTopic:getSystemTopic", name, id, state, &resource, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return &resource, nil
-}
-
-// Input properties used for looking up and filtering GetSystemTopicResource resources.
-type getSystemTopicResourceState struct {
-	// An `identity` block as defined below.
+// A collection of arguments for invoking getSystemTopic.
+type LookupSystemTopicArgs struct {
+	// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
 	Identity *GetSystemTopicIdentity `pulumi:"identity"`
-	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-	Location *string `pulumi:"location"`
-	// The Metric ARM Resource ID of the Event Grid System Topic.
-	MetricArmResourceId *string `pulumi:"metricArmResourceId"`
-	// The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-	SourceArmResourceId *string `pulumi:"sourceArmResourceId"`
-	// A mapping of tags which should be assigned to the Event Grid System Topic.
-	Tags map[string]string `pulumi:"tags"`
-	// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-	// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-	TopicType *string `pulumi:"topicType"`
-}
-
-type GetSystemTopicResourceState struct {
-	// An `identity` block as defined below.
-	Identity GetSystemTopicIdentityPtrInput
-	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-	Location pulumi.StringPtrInput
-	// The Metric ARM Resource ID of the Event Grid System Topic.
-	MetricArmResourceId pulumi.StringPtrInput
-	// The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-	ResourceGroupName pulumi.StringPtrInput
-	// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-	SourceArmResourceId pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Event Grid System Topic.
-	Tags pulumi.StringMapInput
-	// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-	// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-	TopicType pulumi.StringPtrInput
-}
-
-func (GetSystemTopicResourceState) ElementType() reflect.Type {
-	return reflect.TypeOf((*getSystemTopicResourceState)(nil)).Elem()
-}
-
-type getSystemTopicResourceArgs struct {
-	// An `identity` block as defined below.
-	Identity *GetSystemTopicIdentity `pulumi:"identity"`
-	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-	Location *string `pulumi:"location"`
-	// The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
+	// The name of the EventGrid System Topic resource.
+	Name string `pulumi:"name"`
+	// The name of the resource group in which the EventGrid System Topic exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
+}
+
+// A collection of values returned by getSystemTopic.
+type LookupSystemTopicResult struct {
+	// The provider-assigned unique ID for this managed resource.
+	Id string `pulumi:"id"`
+	// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
+	Identity GetSystemTopicIdentity `pulumi:"identity"`
+	Location string                 `pulumi:"location"`
+	// The Metric ARM Resource ID of the Event Grid System Topic.
+	MetricArmResourceId string `pulumi:"metricArmResourceId"`
+	Name                string `pulumi:"name"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
+	// The ID of the Event Grid System Topic ARM Source.
 	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
-	// A mapping of tags which should be assigned to the Event Grid System Topic.
+	// A mapping of tags which are assigned to the Event Grid System Topic.
 	Tags map[string]string `pulumi:"tags"`
 	// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
 	// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
 	TopicType string `pulumi:"topicType"`
 }
 
-// The set of arguments for constructing a GetSystemTopicResource resource.
-type GetSystemTopicResourceArgs struct {
-	// An `identity` block as defined below.
-	Identity GetSystemTopicIdentityPtrInput
-	// The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-	Location pulumi.StringPtrInput
-	// The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-	ResourceGroupName pulumi.StringInput
-	// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-	SourceArmResourceId pulumi.StringInput
-	// A mapping of tags which should be assigned to the Event Grid System Topic.
-	Tags pulumi.StringMapInput
-	// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-	// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-	TopicType pulumi.StringInput
+func LookupSystemTopicOutput(ctx *pulumi.Context, args LookupSystemTopicOutputArgs, opts ...pulumi.InvokeOption) LookupSystemTopicResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSystemTopicResult, error) {
+			args := v.(LookupSystemTopicArgs)
+			r, err := LookupSystemTopic(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSystemTopicResultOutput)
 }
 
-func (GetSystemTopicResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*getSystemTopicResourceArgs)(nil)).Elem()
+// A collection of arguments for invoking getSystemTopic.
+type LookupSystemTopicOutputArgs struct {
+	// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
+	Identity GetSystemTopicIdentityPtrInput `pulumi:"identity"`
+	// The name of the EventGrid System Topic resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the resource group in which the EventGrid System Topic exists.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
-type GetSystemTopicResourceInput interface {
-	pulumi.Input
-
-	ToGetSystemTopicResourceOutput() GetSystemTopicResourceOutput
-	ToGetSystemTopicResourceOutputWithContext(ctx context.Context) GetSystemTopicResourceOutput
+func (LookupSystemTopicOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSystemTopicArgs)(nil)).Elem()
 }
 
-func (*GetSystemTopicResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSystemTopicResource)(nil))
+// A collection of values returned by getSystemTopic.
+type LookupSystemTopicResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSystemTopicResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSystemTopicResult)(nil)).Elem()
 }
 
-func (i *GetSystemTopicResource) ToGetSystemTopicResourceOutput() GetSystemTopicResourceOutput {
-	return i.ToGetSystemTopicResourceOutputWithContext(context.Background())
-}
-
-func (i *GetSystemTopicResource) ToGetSystemTopicResourceOutputWithContext(ctx context.Context) GetSystemTopicResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSystemTopicResourceOutput)
-}
-
-func (i *GetSystemTopicResource) ToGetSystemTopicResourcePtrOutput() GetSystemTopicResourcePtrOutput {
-	return i.ToGetSystemTopicResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *GetSystemTopicResource) ToGetSystemTopicResourcePtrOutputWithContext(ctx context.Context) GetSystemTopicResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSystemTopicResourcePtrOutput)
-}
-
-type GetSystemTopicResourcePtrInput interface {
-	pulumi.Input
-
-	ToGetSystemTopicResourcePtrOutput() GetSystemTopicResourcePtrOutput
-	ToGetSystemTopicResourcePtrOutputWithContext(ctx context.Context) GetSystemTopicResourcePtrOutput
-}
-
-type getSystemTopicResourcePtrType GetSystemTopicResourceArgs
-
-func (*getSystemTopicResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetSystemTopicResource)(nil))
-}
-
-func (i *getSystemTopicResourcePtrType) ToGetSystemTopicResourcePtrOutput() GetSystemTopicResourcePtrOutput {
-	return i.ToGetSystemTopicResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *getSystemTopicResourcePtrType) ToGetSystemTopicResourcePtrOutputWithContext(ctx context.Context) GetSystemTopicResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSystemTopicResourcePtrOutput)
-}
-
-// GetSystemTopicResourceArrayInput is an input type that accepts GetSystemTopicResourceArray and GetSystemTopicResourceArrayOutput values.
-// You can construct a concrete instance of `GetSystemTopicResourceArrayInput` via:
-//
-//          GetSystemTopicResourceArray{ GetSystemTopicResourceArgs{...} }
-type GetSystemTopicResourceArrayInput interface {
-	pulumi.Input
-
-	ToGetSystemTopicResourceArrayOutput() GetSystemTopicResourceArrayOutput
-	ToGetSystemTopicResourceArrayOutputWithContext(context.Context) GetSystemTopicResourceArrayOutput
-}
-
-type GetSystemTopicResourceArray []GetSystemTopicResourceInput
-
-func (GetSystemTopicResourceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]*GetSystemTopicResource)(nil)).Elem()
-}
-
-func (i GetSystemTopicResourceArray) ToGetSystemTopicResourceArrayOutput() GetSystemTopicResourceArrayOutput {
-	return i.ToGetSystemTopicResourceArrayOutputWithContext(context.Background())
-}
-
-func (i GetSystemTopicResourceArray) ToGetSystemTopicResourceArrayOutputWithContext(ctx context.Context) GetSystemTopicResourceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSystemTopicResourceArrayOutput)
-}
-
-// GetSystemTopicResourceMapInput is an input type that accepts GetSystemTopicResourceMap and GetSystemTopicResourceMapOutput values.
-// You can construct a concrete instance of `GetSystemTopicResourceMapInput` via:
-//
-//          GetSystemTopicResourceMap{ "key": GetSystemTopicResourceArgs{...} }
-type GetSystemTopicResourceMapInput interface {
-	pulumi.Input
-
-	ToGetSystemTopicResourceMapOutput() GetSystemTopicResourceMapOutput
-	ToGetSystemTopicResourceMapOutputWithContext(context.Context) GetSystemTopicResourceMapOutput
-}
-
-type GetSystemTopicResourceMap map[string]GetSystemTopicResourceInput
-
-func (GetSystemTopicResourceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]*GetSystemTopicResource)(nil)).Elem()
-}
-
-func (i GetSystemTopicResourceMap) ToGetSystemTopicResourceMapOutput() GetSystemTopicResourceMapOutput {
-	return i.ToGetSystemTopicResourceMapOutputWithContext(context.Background())
-}
-
-func (i GetSystemTopicResourceMap) ToGetSystemTopicResourceMapOutputWithContext(ctx context.Context) GetSystemTopicResourceMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSystemTopicResourceMapOutput)
-}
-
-type GetSystemTopicResourceOutput struct{ *pulumi.OutputState }
-
-func (GetSystemTopicResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSystemTopicResource)(nil))
-}
-
-func (o GetSystemTopicResourceOutput) ToGetSystemTopicResourceOutput() GetSystemTopicResourceOutput {
+func (o LookupSystemTopicResultOutput) ToLookupSystemTopicResultOutput() LookupSystemTopicResultOutput {
 	return o
 }
 
-func (o GetSystemTopicResourceOutput) ToGetSystemTopicResourceOutputWithContext(ctx context.Context) GetSystemTopicResourceOutput {
+func (o LookupSystemTopicResultOutput) ToLookupSystemTopicResultOutputWithContext(ctx context.Context) LookupSystemTopicResultOutput {
 	return o
 }
 
-func (o GetSystemTopicResourceOutput) ToGetSystemTopicResourcePtrOutput() GetSystemTopicResourcePtrOutput {
-	return o.ToGetSystemTopicResourcePtrOutputWithContext(context.Background())
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSystemTopicResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetSystemTopicResourceOutput) ToGetSystemTopicResourcePtrOutputWithContext(ctx context.Context) GetSystemTopicResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSystemTopicResource) *GetSystemTopicResource {
-		return &v
-	}).(GetSystemTopicResourcePtrOutput)
+// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
+func (o LookupSystemTopicResultOutput) Identity() GetSystemTopicIdentityOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) GetSystemTopicIdentity { return v.Identity }).(GetSystemTopicIdentityOutput)
 }
 
-type GetSystemTopicResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (GetSystemTopicResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetSystemTopicResource)(nil))
+func (o LookupSystemTopicResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-func (o GetSystemTopicResourcePtrOutput) ToGetSystemTopicResourcePtrOutput() GetSystemTopicResourcePtrOutput {
-	return o
+// The Metric ARM Resource ID of the Event Grid System Topic.
+func (o LookupSystemTopicResultOutput) MetricArmResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.MetricArmResourceId }).(pulumi.StringOutput)
 }
 
-func (o GetSystemTopicResourcePtrOutput) ToGetSystemTopicResourcePtrOutputWithContext(ctx context.Context) GetSystemTopicResourcePtrOutput {
-	return o
+func (o LookupSystemTopicResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o GetSystemTopicResourcePtrOutput) Elem() GetSystemTopicResourceOutput {
-	return o.ApplyT(func(v *GetSystemTopicResource) GetSystemTopicResource {
-		if v != nil {
-			return *v
-		}
-		var ret GetSystemTopicResource
-		return ret
-	}).(GetSystemTopicResourceOutput)
+func (o LookupSystemTopicResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-type GetSystemTopicResourceArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSystemTopicResourceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSystemTopicResource)(nil))
+// The ID of the Event Grid System Topic ARM Source.
+func (o LookupSystemTopicResultOutput) SourceArmResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
 }
 
-func (o GetSystemTopicResourceArrayOutput) ToGetSystemTopicResourceArrayOutput() GetSystemTopicResourceArrayOutput {
-	return o
+// A mapping of tags which are assigned to the Event Grid System Topic.
+func (o LookupSystemTopicResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o GetSystemTopicResourceArrayOutput) ToGetSystemTopicResourceArrayOutputWithContext(ctx context.Context) GetSystemTopicResourceArrayOutput {
-	return o
-}
-
-func (o GetSystemTopicResourceArrayOutput) Index(i pulumi.IntInput) GetSystemTopicResourceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSystemTopicResource {
-		return vs[0].([]GetSystemTopicResource)[vs[1].(int)]
-	}).(GetSystemTopicResourceOutput)
-}
-
-type GetSystemTopicResourceMapOutput struct{ *pulumi.OutputState }
-
-func (GetSystemTopicResourceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GetSystemTopicResource)(nil))
-}
-
-func (o GetSystemTopicResourceMapOutput) ToGetSystemTopicResourceMapOutput() GetSystemTopicResourceMapOutput {
-	return o
-}
-
-func (o GetSystemTopicResourceMapOutput) ToGetSystemTopicResourceMapOutputWithContext(ctx context.Context) GetSystemTopicResourceMapOutput {
-	return o
-}
-
-func (o GetSystemTopicResourceMapOutput) MapIndex(k pulumi.StringInput) GetSystemTopicResourceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GetSystemTopicResource {
-		return vs[0].(map[string]GetSystemTopicResource)[vs[1].(string)]
-	}).(GetSystemTopicResourceOutput)
+// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
+// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
+func (o LookupSystemTopicResultOutput) TopicType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.TopicType }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetSystemTopicResourceOutput{})
-	pulumi.RegisterOutputType(GetSystemTopicResourcePtrOutput{})
-	pulumi.RegisterOutputType(GetSystemTopicResourceArrayOutput{})
-	pulumi.RegisterOutputType(GetSystemTopicResourceMapOutput{})
+	pulumi.RegisterOutputType(LookupSystemTopicResultOutput{})
 }

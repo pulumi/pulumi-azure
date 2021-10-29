@@ -78,7 +78,7 @@ export class StaticSite extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+     * Specifies the sku size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
      */
     public readonly skuSize!: pulumi.Output<string | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface StaticSiteState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+     * Specifies the sku size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
      */
     skuSize?: pulumi.Input<string>;
     /**
@@ -187,7 +187,7 @@ export interface StaticSiteArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+     * Specifies the sku size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
      */
     skuSize?: pulumi.Input<string>;
     /**

@@ -1626,6 +1626,7 @@ class ApplicationGatewayRequestRoutingRule(dict):
                  backend_http_settings_name: Optional[str] = None,
                  http_listener_id: Optional[str] = None,
                  id: Optional[str] = None,
+                 priority: Optional[int] = None,
                  redirect_configuration_id: Optional[str] = None,
                  redirect_configuration_name: Optional[str] = None,
                  rewrite_rule_set_id: Optional[str] = None,
@@ -1642,6 +1643,7 @@ class ApplicationGatewayRequestRoutingRule(dict):
         :param str backend_http_settings_name: The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
         :param str http_listener_id: The ID of the associated HTTP Listener.
         :param str id: The ID of the Rewrite Rule Set
+        :param int priority: Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
         :param str redirect_configuration_id: The ID of the associated Redirect Configuration.
         :param str redirect_configuration_name: The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
         :param str rewrite_rule_set_id: The ID of the associated Rewrite Rule Set.
@@ -1664,6 +1666,8 @@ class ApplicationGatewayRequestRoutingRule(dict):
             pulumi.set(__self__, "http_listener_id", http_listener_id)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
         if redirect_configuration_id is not None:
             pulumi.set(__self__, "redirect_configuration_id", redirect_configuration_id)
         if redirect_configuration_name is not None:
@@ -1748,6 +1752,14 @@ class ApplicationGatewayRequestRoutingRule(dict):
         The ID of the Rewrite Rule Set
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+        """
+        return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="redirectConfigurationId")
@@ -4085,15 +4097,22 @@ class FirewallApplicationRuleCollectionRule(dict):
 @pulumi.output_type
 class FirewallApplicationRuleCollectionRuleProtocol(dict):
     def __init__(__self__, *,
-                 type: str,
-                 port: Optional[int] = None):
+                 port: int,
+                 type: str):
         """
-        :param str type: Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
         :param int port: Specify a port for the connection.
+        :param str type: Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
         """
+        pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "type", type)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        Specify a port for the connection.
+        """
+        return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
@@ -4102,14 +4121,6 @@ class FirewallApplicationRuleCollectionRuleProtocol(dict):
         Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[int]:
-        """
-        Specify a port for the connection.
-        """
-        return pulumi.get(self, "port")
 
 
 @pulumi.output_type
@@ -11069,6 +11080,7 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
     def __init__(__self__, *,
                  application_gateway_backend_address_pools_ids: Sequence[str],
                  application_security_group_ids: Sequence[str],
+                 gateway_load_balancer_frontend_ip_configuration_id: str,
                  load_balancer_backend_address_pools_ids: Sequence[str],
                  load_balancer_inbound_nat_rules_ids: Sequence[str],
                  name: str,
@@ -11080,6 +11092,7 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
                  subnet_id: str):
         """
         :param Sequence[str] application_gateway_backend_address_pools_ids: A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
+        :param str gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
         :param Sequence[str] load_balancer_backend_address_pools_ids: A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
         :param Sequence[str] load_balancer_inbound_nat_rules_ids: A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
         :param str name: Specifies the name of the Network Interface.
@@ -11091,6 +11104,7 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
         """
         pulumi.set(__self__, "application_gateway_backend_address_pools_ids", application_gateway_backend_address_pools_ids)
         pulumi.set(__self__, "application_security_group_ids", application_security_group_ids)
+        pulumi.set(__self__, "gateway_load_balancer_frontend_ip_configuration_id", gateway_load_balancer_frontend_ip_configuration_id)
         pulumi.set(__self__, "load_balancer_backend_address_pools_ids", load_balancer_backend_address_pools_ids)
         pulumi.set(__self__, "load_balancer_inbound_nat_rules_ids", load_balancer_inbound_nat_rules_ids)
         pulumi.set(__self__, "name", name)
@@ -11113,6 +11127,14 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
     @pulumi.getter(name="applicationSecurityGroupIds")
     def application_security_group_ids(self) -> Sequence[str]:
         return pulumi.get(self, "application_security_group_ids")
+
+    @property
+    @pulumi.getter(name="gatewayLoadBalancerFrontendIpConfigurationId")
+    def gateway_load_balancer_frontend_ip_configuration_id(self) -> str:
+        """
+        The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
+        """
+        return pulumi.get(self, "gateway_load_balancer_frontend_ip_configuration_id")
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPoolsIds")

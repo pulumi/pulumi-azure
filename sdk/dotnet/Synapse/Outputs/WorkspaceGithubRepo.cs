@@ -26,6 +26,10 @@ namespace Pulumi.Azure.Synapse.Outputs
         /// </summary>
         public readonly string? GitUrl;
         /// <summary>
+        /// The last commit ID.
+        /// </summary>
+        public readonly string? LastCommitId;
+        /// <summary>
         /// Specifies the name of the git repository.
         /// </summary>
         public readonly string RepositoryName;
@@ -42,6 +46,8 @@ namespace Pulumi.Azure.Synapse.Outputs
 
             string? gitUrl,
 
+            string? lastCommitId,
+
             string repositoryName,
 
             string rootFolder)
@@ -49,6 +55,7 @@ namespace Pulumi.Azure.Synapse.Outputs
             AccountName = accountName;
             BranchName = branchName;
             GitUrl = gitUrl;
+            LastCommitId = lastCommitId;
             RepositoryName = repositoryName;
             RootFolder = rootFolder;
         }

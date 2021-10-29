@@ -11,32 +11,32 @@ namespace Pulumi.Azure.EventGrid.Outputs
 {
 
     [OutputType]
-    public sealed class GetSystemTopicIdentity
+    public sealed class GetSystemTopicIdentityResult
     {
         /// <summary>
-        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
         /// </summary>
-        public readonly string? PrincipalId;
+        public readonly string PrincipalId;
         /// <summary>
         /// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
         /// </summary>
-        public readonly string? TenantId;
+        public readonly string TenantId;
         /// <summary>
-        /// Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identity_ids` field.
+        /// Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
-        private GetSystemTopicIdentity(
+        private GetSystemTopicIdentityResult(
             ImmutableArray<string> identityIds,
 
-            string? principalId,
+            string principalId,
 
-            string? tenantId,
+            string tenantId,
 
             string type)
         {

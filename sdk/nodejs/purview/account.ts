@@ -99,7 +99,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly scanEndpoint!: pulumi.Output<string>;
     /**
-     * The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+     * The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -205,7 +205,7 @@ export interface AccountState {
      */
     scanEndpoint?: pulumi.Input<string>;
     /**
-     * The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+     * The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -235,7 +235,7 @@ export interface AccountArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+     * The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
      */
     skuName: pulumi.Input<string>;
     /**

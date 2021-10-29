@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Azure Data Lake Store Firewall Rule.
  *
+ * > **Note:** This resoruce manages an `Azure Data Lake Storage Gen1`, previously known as `Azure Data Lake Store`.
+ *
  * ## Example Usage
  *
  * ```typescript

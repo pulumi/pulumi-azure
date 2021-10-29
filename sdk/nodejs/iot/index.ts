@@ -25,6 +25,7 @@ export * from "./securityDeviceGroup";
 export * from "./securitySolution";
 export * from "./sharedAccessPolicy";
 export * from "./timeSeriesInsightsAccessPolicy";
+export * from "./timeSeriesInsightsEventSourceEventhub";
 export * from "./timeSeriesInsightsEventSourceIothub";
 export * from "./timeSeriesInsightsGen2Environment";
 export * from "./timeSeriesInsightsReferenceDataSet";
@@ -48,6 +49,7 @@ import { SecurityDeviceGroup } from "./securityDeviceGroup";
 import { SecuritySolution } from "./securitySolution";
 import { SharedAccessPolicy } from "./sharedAccessPolicy";
 import { TimeSeriesInsightsAccessPolicy } from "./timeSeriesInsightsAccessPolicy";
+import { TimeSeriesInsightsEventSourceEventhub } from "./timeSeriesInsightsEventSourceEventhub";
 import { TimeSeriesInsightsEventSourceIothub } from "./timeSeriesInsightsEventSourceIothub";
 import { TimeSeriesInsightsGen2Environment } from "./timeSeriesInsightsGen2Environment";
 import { TimeSeriesInsightsReferenceDataSet } from "./timeSeriesInsightsReferenceDataSet";
@@ -89,6 +91,8 @@ const _module = {
                 return new SharedAccessPolicy(name, <any>undefined, { urn })
             case "azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy":
                 return new TimeSeriesInsightsAccessPolicy(name, <any>undefined, { urn })
+            case "azure:iot/timeSeriesInsightsEventSourceEventhub:TimeSeriesInsightsEventSourceEventhub":
+                return new TimeSeriesInsightsEventSourceEventhub(name, <any>undefined, { urn })
             case "azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub":
                 return new TimeSeriesInsightsEventSourceIothub(name, <any>undefined, { urn })
             case "azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment":
@@ -118,6 +122,7 @@ pulumi.runtime.registerResourceModule("azure", "iot/securityDeviceGroup", _modul
 pulumi.runtime.registerResourceModule("azure", "iot/securitySolution", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/sharedAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsAccessPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsEventSourceEventhub", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsEventSourceIothub", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsGen2Environment", _module)
 pulumi.runtime.registerResourceModule("azure", "iot/timeSeriesInsightsReferenceDataSet", _module)

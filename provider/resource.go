@@ -951,6 +951,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: azureResource(azureIot, "TimeSeriesInsightsGen2Environment"),
 			},
 			"azurerm_iot_security_device_group": {Tok: azureResource(azureIot, "SecurityDeviceGroup")},
+			"azurerm_iot_time_series_insights_event_source_eventhub": {
+				Tok: azureResource(azureIot, "TimeSeriesInsightsEventSourceEventhub"),
+			},
 
 			// KeyVault
 			"azurerm_key_vault":                         {Tok: azureResource(azureKeyVault, "KeyVault")},
@@ -1350,6 +1353,20 @@ func Provider() tfbridge.ProviderInfo {
 							return strings.ToLower(name)
 						},
 					}),
+					"ssl_policy": {
+						Name:        "sslPolicies",
+						MaxItemsOne: tfbridge.False(),
+					},
+					"ssl_profile": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"ssl_policy": {
+									Name:        "sslPolicies",
+									MaxItemsOne: tfbridge.False(),
+								},
+							},
+						},
+					},
 				},
 			},
 			"azurerm_application_security_group":            {Tok: azureResource(azureNetwork, "ApplicationSecurityGroup")},
@@ -1684,12 +1701,19 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_reference_input_blob": {
 				Tok: azureResource(azureStreamAnalytics, "ReferenceInputBlob"),
 			},
+			"azurerm_stream_analytics_reference_input_mssql": {
+				Tok: azureResource(azureStreamAnalytics, "ReferenceInputMssql"),
+			},
+			"azurerm_stream_analytics_output_table": {
+				Tok: azureResource(azureStreamAnalytics, "OutputTable"),
+			},
 
 			// Marketplace
 			"azurerm_marketplace_agreement": {Tok: azureResource(azureMarketPlace, "Agreement")},
 
 			// Kusto
 			"azurerm_kusto_cluster":                      {Tok: azureResource(azureKusto, "Cluster")},
+			"azurerm_kusto_script":                       {Tok: azureResource(azureKusto, "Script")},
 			"azurerm_kusto_database":                     {Tok: azureResource(azureKusto, "Database")},
 			"azurerm_kusto_eventhub_data_connection":     {Tok: azureResource(azureKusto, "EventhubDataConnection")},
 			"azurerm_kusto_database_principal":           {Tok: azureResource(azureKusto, "DatabasePrincipal")},
@@ -1885,9 +1909,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule_machine_learning_behavior_analytics": {
 				Tok: azureResource(azureSentinel, "AlertRuleMachineLearningBehaviorAnalytics"),
 			},
+			"azurerm_sentinel_automation_rule": {Tok: azureResource(azureSentinel, "AuthomationRule")},
 
 			// Eventgrid
 			"azurerm_eventgrid_domain_topic": {Tok: azureResource(azureEventGrid, "DomainTopic")},
+			"azurerm_eventgrid_system_topic": {Tok: azureResource(azureEventGrid, "SystemTopic")},
 
 			// Blueprint
 			"azurerm_blueprint_assignment": {Tok: azureResource(azureBlueprint, "Assignment")},
@@ -2209,6 +2235,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iothub_shared_access_policy": {Tok: azureDataSource(azureIot, "getSharedAccessPolicy")},
 			"azurerm_iothub_dps":                  {Tok: azureDataSource(azureIot, "getDps")},
 			"azurerm_eventgrid_topic":             {Tok: azureDataSource(azureEventGrid, "getTopic")},
+			"azurerm_eventgrid_system_topic":      {Tok: azureDataSource(azureEventGrid, "getSystemTopic")},
 			"azurerm_eventgrid_domain_topic":      {Tok: azureDataSource(azureEventGrid, "getDomainTopic")},
 			"azurerm_eventgrid_domain":            {Tok: azureDataSource(azureEventGrid, "getDomain")},
 			"azurerm_disk_encryption_set":         {Tok: azureDataSource(azureCompute, "getDiskEncryptionSet")},
@@ -2277,6 +2304,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_vmware_private_cloud":              {Tok: azureDataSource(azureAvs, "getPrivateCloud")},
 			"azurerm_billing_enrollment_account_scope":  {Tok: azureDataSource(azureBilling, "getEnrollmentAccountScope")},
 			"azurerm_billing_mca_account_scope":         {Tok: azureDataSource(azureBilling, "getMcaAccountScope")},
+			"azurerm_billing_mpa_account_scope":         {Tok: azureDataSource(azureBilling, "getMpaAccountScope")},
 			"azurerm_eventhub_cluster":                  {Tok: azureDataSource(azureEventHub, "getCluster")},
 			"azurerm_spatial_anchors_account":           {Tok: azureDataSource(azureMixedReality, "getSpatialAnchorsAccount")},
 			"azurerm_storage_share":                     {Tok: azureDataSource(azureStorage, "getShare")},
@@ -2545,11 +2573,6 @@ func Provider() tfbridge.ProviderInfo {
 	prov.RenameResourceWithAlias("azurerm_media_services_account",
 		azureResource(azureMediaServices, "Account"),
 		azureResource(azureMedia, "ServiceAccount"), azureMediaServices, azureMedia, nil)
-
-	// fixing an eventgrid resource that was labelled as a datasource
-	prov.RenameResourceWithAlias("azurerm_eventgrid_system_topic",
-		azureResource(azureEventGrid, "getSystemTopic"),
-		azureResource(azureEventGrid, "SystemTopic"), azureEventGrid, azureEventGrid, nil)
 
 	// Deprecated, remove in 3.0.
 	prov.P.ResourcesMap().Set("azurerm_storage_zipblob", prov.P.ResourcesMap().Get("azurerm_storage_blob"))

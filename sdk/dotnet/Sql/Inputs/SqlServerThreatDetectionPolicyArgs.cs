@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Sql.Inputs
         public Input<int>? RetentionDays { get; set; }
 
         /// <summary>
-        /// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+        /// The State of the Policy. Possible values are `Enabled` or `Disabled`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

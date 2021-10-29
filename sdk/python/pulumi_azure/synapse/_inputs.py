@@ -370,6 +370,7 @@ class WorkspaceAzureDevopsRepoArgs:
                  project_name: pulumi.Input[str],
                  repository_name: pulumi.Input[str],
                  root_folder: pulumi.Input[str],
+                 last_commit_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] account_name: Specifies the Azure DevOps account name.
@@ -377,6 +378,7 @@ class WorkspaceAzureDevopsRepoArgs:
         :param pulumi.Input[str] project_name: Specifies the name of the Azure DevOps project.
         :param pulumi.Input[str] repository_name: Specifies the name of the git repository.
         :param pulumi.Input[str] root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
+        :param pulumi.Input[str] last_commit_id: The last commit ID.
         :param pulumi.Input[str] tenant_id: the ID of the tenant for the Azure DevOps account.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -384,6 +386,8 @@ class WorkspaceAzureDevopsRepoArgs:
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "root_folder", root_folder)
+        if last_commit_id is not None:
+            pulumi.set(__self__, "last_commit_id", last_commit_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
@@ -448,6 +452,18 @@ class WorkspaceAzureDevopsRepoArgs:
         pulumi.set(self, "root_folder", value)
 
     @property
+    @pulumi.getter(name="lastCommitId")
+    def last_commit_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last commit ID.
+        """
+        return pulumi.get(self, "last_commit_id")
+
+    @last_commit_id.setter
+    def last_commit_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_commit_id", value)
+
+    @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -505,13 +521,15 @@ class WorkspaceGithubRepoArgs:
                  branch_name: pulumi.Input[str],
                  repository_name: pulumi.Input[str],
                  root_folder: pulumi.Input[str],
-                 git_url: Optional[pulumi.Input[str]] = None):
+                 git_url: Optional[pulumi.Input[str]] = None,
+                 last_commit_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] account_name: Specifies the GitHub account name.
         :param pulumi.Input[str] branch_name: Specifies the collaboration branch of the repository to get code from.
         :param pulumi.Input[str] repository_name: Specifies the name of the git repository.
         :param pulumi.Input[str] root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
         :param pulumi.Input[str] git_url: Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+        :param pulumi.Input[str] last_commit_id: The last commit ID.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "branch_name", branch_name)
@@ -519,6 +537,8 @@ class WorkspaceGithubRepoArgs:
         pulumi.set(__self__, "root_folder", root_folder)
         if git_url is not None:
             pulumi.set(__self__, "git_url", git_url)
+        if last_commit_id is not None:
+            pulumi.set(__self__, "last_commit_id", last_commit_id)
 
     @property
     @pulumi.getter(name="accountName")
@@ -579,6 +599,18 @@ class WorkspaceGithubRepoArgs:
     @git_url.setter
     def git_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "git_url", value)
+
+    @property
+    @pulumi.getter(name="lastCommitId")
+    def last_commit_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last commit ID.
+        """
+        return pulumi.get(self, "last_commit_id")
+
+    @last_commit_id.setter
+    def last_commit_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_commit_id", value)
 
 
 @pulumi.input_type

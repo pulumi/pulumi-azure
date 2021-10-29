@@ -178,6 +178,10 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly tier!: pulumi.Output<string>;
     /**
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+     */
+    public readonly trustedLaunchEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A collection containing the availability zone to allocate the Managed Disk in.
      */
     public readonly zones!: pulumi.Output<string | undefined>;
@@ -216,6 +220,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["storageAccountType"] = state ? state.storageAccountType : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tier"] = state ? state.tier : undefined;
+            inputs["trustedLaunchEnabled"] = state ? state.trustedLaunchEnabled : undefined;
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ManagedDiskArgs | undefined;
@@ -249,6 +254,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["storageAccountType"] = args ? args.storageAccountType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tier"] = args ? args.tier : undefined;
+            inputs["trustedLaunchEnabled"] = args ? args.trustedLaunchEnabled : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
         if (!opts.version) {
@@ -347,6 +353,10 @@ export interface ManagedDiskState {
      */
     tier?: pulumi.Input<string>;
     /**
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+     */
+    trustedLaunchEnabled?: pulumi.Input<boolean>;
+    /**
      * A collection containing the availability zone to allocate the Managed Disk in.
      */
     zones?: pulumi.Input<string>;
@@ -440,6 +450,10 @@ export interface ManagedDiskArgs {
      * The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
      */
     tier?: pulumi.Input<string>;
+    /**
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+     */
+    trustedLaunchEnabled?: pulumi.Input<boolean>;
     /**
      * A collection containing the availability zone to allocate the Managed Disk in.
      */

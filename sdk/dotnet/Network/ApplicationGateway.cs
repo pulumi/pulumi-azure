@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.ApplicationGatewayProbe>> Probes { get; private set; } = null!;
 
         /// <summary>
-        /// A `redirect_configuration` block as defined below.
+        /// One or more `redirect_configuration` blocks as defined below.
         /// </summary>
         [Output("redirectConfigurations")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayRedirectConfiguration>> RedirectConfigurations { get; private set; } = null!;
@@ -525,7 +525,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayRedirectConfigurationArgs>? _redirectConfigurations;
 
         /// <summary>
-        /// A `redirect_configuration` block as defined below.
+        /// One or more `redirect_configuration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRedirectConfigurationArgs> RedirectConfigurations
         {
@@ -826,7 +826,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayRedirectConfigurationGetArgs>? _redirectConfigurations;
 
         /// <summary>
-        /// A `redirect_configuration` block as defined below.
+        /// One or more `redirect_configuration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRedirectConfigurationGetArgs> RedirectConfigurations
         {

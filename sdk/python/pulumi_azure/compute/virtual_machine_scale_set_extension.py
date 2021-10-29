@@ -18,6 +18,7 @@ class VirtualMachineScaleSetExtensionArgs:
                  type_handler_version: pulumi.Input[str],
                  virtual_machine_scale_set_id: pulumi.Input[str],
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,7 @@ class VirtualMachineScaleSetExtensionArgs:
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
@@ -42,6 +44,8 @@ class VirtualMachineScaleSetExtensionArgs:
         pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if automatic_upgrade_enabled is not None:
+            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if name is not None:
@@ -114,6 +118,18 @@ class VirtualMachineScaleSetExtensionArgs:
         pulumi.set(self, "auto_upgrade_minor_version", value)
 
     @property
+    @pulumi.getter(name="automaticUpgradeEnabled")
+    def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_upgrade_enabled")
+
+    @automatic_upgrade_enabled.setter
+    def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_upgrade_enabled", value)
+
+    @property
     @pulumi.getter(name="forceUpdateTag")
     def force_update_tag(self) -> Optional[pulumi.Input[str]]:
         """
@@ -178,6 +194,7 @@ class VirtualMachineScaleSetExtensionArgs:
 class _VirtualMachineScaleSetExtensionState:
     def __init__(__self__, *,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
@@ -190,6 +207,7 @@ class _VirtualMachineScaleSetExtensionState:
         """
         Input properties used for looking up and filtering VirtualMachineScaleSetExtension resources.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
@@ -202,6 +220,8 @@ class _VirtualMachineScaleSetExtensionState:
         """
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if automatic_upgrade_enabled is not None:
+            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if name is not None:
@@ -232,6 +252,18 @@ class _VirtualMachineScaleSetExtensionState:
     @auto_upgrade_minor_version.setter
     def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_upgrade_minor_version", value)
+
+    @property
+    @pulumi.getter(name="automaticUpgradeEnabled")
+    def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_upgrade_enabled")
+
+    @automatic_upgrade_enabled.setter
+    def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_upgrade_enabled", value)
 
     @property
     @pulumi.getter(name="forceUpdateTag")
@@ -348,6 +380,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
@@ -393,6 +426,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
@@ -457,6 +491,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
@@ -479,6 +514,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             __props__ = VirtualMachineScaleSetExtensionArgs.__new__(VirtualMachineScaleSetExtensionArgs)
 
             __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
+            __props__.__dict__["automatic_upgrade_enabled"] = automatic_upgrade_enabled
             __props__.__dict__["force_update_tag"] = force_update_tag
             __props__.__dict__["name"] = name
             __props__.__dict__["protected_settings"] = protected_settings
@@ -507,6 +543,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+            automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
             force_update_tag: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             protected_settings: Optional[pulumi.Input[str]] = None,
@@ -524,6 +561,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
@@ -539,6 +577,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         __props__ = _VirtualMachineScaleSetExtensionState.__new__(_VirtualMachineScaleSetExtensionState)
 
         __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
+        __props__.__dict__["automatic_upgrade_enabled"] = automatic_upgrade_enabled
         __props__.__dict__["force_update_tag"] = force_update_tag
         __props__.__dict__["name"] = name
         __props__.__dict__["protected_settings"] = protected_settings
@@ -557,6 +596,14 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="automaticUpgradeEnabled")
+    def automatic_upgrade_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_upgrade_enabled")
 
     @property
     @pulumi.getter(name="forceUpdateTag")

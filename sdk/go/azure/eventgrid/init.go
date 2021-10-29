@@ -27,10 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DomainTopic{}
 	case "azure:eventgrid/eventSubscription:EventSubscription":
 		r = &EventSubscription{}
-	case "azure:eventgrid/getSystemTopic:getSystemTopic":
-		r = &GetSystemTopicResource{}
 	case "azure:eventgrid/systemTopic:SystemTopic":
-		r = &SystemTopicResource{}
+		r = &SystemTopic{}
 	case "azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription":
 		r = &SystemTopicEventSubscription{}
 	case "azure:eventgrid/topic:Topic":
@@ -61,11 +59,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"eventgrid/eventSubscription",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"eventgrid/getSystemTopic",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

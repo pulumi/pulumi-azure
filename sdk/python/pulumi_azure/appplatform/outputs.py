@@ -12,6 +12,7 @@ from . import outputs
 __all__ = [
     'SpringCloudAppIdentity',
     'SpringCloudAppPersistentDisk',
+    'SpringCloudJavaDeploymentQuota',
     'SpringCloudServiceConfigServerGitSetting',
     'SpringCloudServiceConfigServerGitSettingHttpBasicAuth',
     'SpringCloudServiceConfigServerGitSettingRepository',
@@ -141,6 +142,37 @@ class SpringCloudAppPersistentDisk(dict):
         Specifies the mount path of the persistent disk. Defaults to `/persistent`.
         """
         return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
+class SpringCloudJavaDeploymentQuota(dict):
+    def __init__(__self__, *,
+                 cpu: Optional[str] = None,
+                 memory: Optional[str] = None):
+        """
+        :param str cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+        :param str memory: Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[str]:
+        """
+        Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[str]:
+        """
+        Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+        """
+        return pulumi.get(self, "memory")
 
 
 @pulumi.output_type

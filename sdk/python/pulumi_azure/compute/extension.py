@@ -18,6 +18,7 @@ class ExtensionArgs:
                  type_handler_version: pulumi.Input[str],
                  virtual_machine_id: pulumi.Input[str],
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class ExtensionArgs:
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
         :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
                the latest minor version update to the `type_handler_version` specified.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing
                this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
@@ -46,6 +48,8 @@ class ExtensionArgs:
         pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if automatic_upgrade_enabled is not None:
+            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if protected_settings is not None:
@@ -119,6 +123,18 @@ class ExtensionArgs:
         pulumi.set(self, "auto_upgrade_minor_version", value)
 
     @property
+    @pulumi.getter(name="automaticUpgradeEnabled")
+    def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_upgrade_enabled")
+
+    @automatic_upgrade_enabled.setter
+    def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_upgrade_enabled", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -174,6 +190,7 @@ class ExtensionArgs:
 class _ExtensionState:
     def __init__(__self__, *,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
@@ -186,6 +203,7 @@ class _ExtensionState:
         Input properties used for looking up and filtering Extension resources.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
                the latest minor version update to the `type_handler_version` specified.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing
                this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
@@ -202,6 +220,8 @@ class _ExtensionState:
         """
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if automatic_upgrade_enabled is not None:
+            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if protected_settings is not None:
@@ -231,6 +251,18 @@ class _ExtensionState:
     @auto_upgrade_minor_version.setter
     def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_upgrade_minor_version", value)
+
+    @property
+    @pulumi.getter(name="automaticUpgradeEnabled")
+    def automatic_upgrade_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_upgrade_enabled")
+
+    @automatic_upgrade_enabled.setter
+    def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_upgrade_enabled", value)
 
     @property
     @pulumi.getter
@@ -340,6 +372,7 @@ class Extension(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
@@ -445,6 +478,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
                the latest minor version update to the `type_handler_version` specified.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing
                this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
@@ -573,6 +607,7 @@ class Extension(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
@@ -594,6 +629,7 @@ class Extension(pulumi.CustomResource):
             __props__ = ExtensionArgs.__new__(ExtensionArgs)
 
             __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
+            __props__.__dict__["automatic_upgrade_enabled"] = automatic_upgrade_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["protected_settings"] = protected_settings
             if publisher is None and not opts.urn:
@@ -621,6 +657,7 @@ class Extension(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+            automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             protected_settings: Optional[pulumi.Input[str]] = None,
             publisher: Optional[pulumi.Input[str]] = None,
@@ -638,6 +675,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
                the latest minor version update to the `type_handler_version` specified.
+        :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing
                this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
@@ -657,6 +695,7 @@ class Extension(pulumi.CustomResource):
         __props__ = _ExtensionState.__new__(_ExtensionState)
 
         __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
+        __props__.__dict__["automatic_upgrade_enabled"] = automatic_upgrade_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["protected_settings"] = protected_settings
         __props__.__dict__["publisher"] = publisher
@@ -675,6 +714,14 @@ class Extension(pulumi.CustomResource):
         the latest minor version update to the `type_handler_version` specified.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="automaticUpgradeEnabled")
+    def automatic_upgrade_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_upgrade_enabled")
 
     @property
     @pulumi.getter

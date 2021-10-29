@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SharedAccessPolicy{}
 	case "azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy":
 		r = &TimeSeriesInsightsAccessPolicy{}
+	case "azure:iot/timeSeriesInsightsEventSourceEventhub:TimeSeriesInsightsEventSourceEventhub":
+		r = &TimeSeriesInsightsEventSourceEventhub{}
 	case "azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub":
 		r = &TimeSeriesInsightsEventSourceIothub{}
 	case "azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment":
@@ -152,6 +154,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"iot/timeSeriesInsightsAccessPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"iot/timeSeriesInsightsEventSourceEventhub",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

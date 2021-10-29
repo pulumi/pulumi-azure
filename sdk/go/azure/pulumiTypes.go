@@ -1375,6 +1375,7 @@ func (o ProviderFeaturesVirtualMachinePtrOutput) SkipShutdownAndForceDelete() pu
 type ProviderFeaturesVirtualMachineScaleSet struct {
 	ForceDelete               *bool `pulumi:"forceDelete"`
 	RollInstancesWhenRequired bool  `pulumi:"rollInstancesWhenRequired"`
+	ScaleToZeroBeforeDeletion *bool `pulumi:"scaleToZeroBeforeDeletion"`
 }
 
 // ProviderFeaturesVirtualMachineScaleSetInput is an input type that accepts ProviderFeaturesVirtualMachineScaleSetArgs and ProviderFeaturesVirtualMachineScaleSetOutput values.
@@ -1391,6 +1392,7 @@ type ProviderFeaturesVirtualMachineScaleSetInput interface {
 type ProviderFeaturesVirtualMachineScaleSetArgs struct {
 	ForceDelete               pulumi.BoolPtrInput `pulumi:"forceDelete"`
 	RollInstancesWhenRequired pulumi.BoolInput    `pulumi:"rollInstancesWhenRequired"`
+	ScaleToZeroBeforeDeletion pulumi.BoolPtrInput `pulumi:"scaleToZeroBeforeDeletion"`
 }
 
 func (ProviderFeaturesVirtualMachineScaleSetArgs) ElementType() reflect.Type {
@@ -1478,6 +1480,10 @@ func (o ProviderFeaturesVirtualMachineScaleSetOutput) RollInstancesWhenRequired(
 	return o.ApplyT(func(v ProviderFeaturesVirtualMachineScaleSet) bool { return v.RollInstancesWhenRequired }).(pulumi.BoolOutput)
 }
 
+func (o ProviderFeaturesVirtualMachineScaleSetOutput) ScaleToZeroBeforeDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesVirtualMachineScaleSet) *bool { return v.ScaleToZeroBeforeDeletion }).(pulumi.BoolPtrOutput)
+}
+
 type ProviderFeaturesVirtualMachineScaleSetPtrOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesVirtualMachineScaleSetPtrOutput) ElementType() reflect.Type {
@@ -1517,6 +1523,15 @@ func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequir
 			return nil
 		}
 		return &v.RollInstancesWhenRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) ScaleToZeroBeforeDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesVirtualMachineScaleSet) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleToZeroBeforeDeletion
 	}).(pulumi.BoolPtrOutput)
 }
 

@@ -1219,6 +1219,7 @@ func (o FeaturesVirtualMachinePtrOutput) SkipShutdownAndForceDelete() pulumi.Boo
 type FeaturesVirtualMachineScaleSet struct {
 	ForceDelete               *bool `pulumi:"forceDelete"`
 	RollInstancesWhenRequired bool  `pulumi:"rollInstancesWhenRequired"`
+	ScaleToZeroBeforeDeletion *bool `pulumi:"scaleToZeroBeforeDeletion"`
 }
 
 // FeaturesVirtualMachineScaleSetInput is an input type that accepts FeaturesVirtualMachineScaleSetArgs and FeaturesVirtualMachineScaleSetOutput values.
@@ -1235,6 +1236,7 @@ type FeaturesVirtualMachineScaleSetInput interface {
 type FeaturesVirtualMachineScaleSetArgs struct {
 	ForceDelete               pulumi.BoolPtrInput `pulumi:"forceDelete"`
 	RollInstancesWhenRequired pulumi.BoolInput    `pulumi:"rollInstancesWhenRequired"`
+	ScaleToZeroBeforeDeletion pulumi.BoolPtrInput `pulumi:"scaleToZeroBeforeDeletion"`
 }
 
 func (FeaturesVirtualMachineScaleSetArgs) ElementType() reflect.Type {
@@ -1322,6 +1324,10 @@ func (o FeaturesVirtualMachineScaleSetOutput) RollInstancesWhenRequired() pulumi
 	return o.ApplyT(func(v FeaturesVirtualMachineScaleSet) bool { return v.RollInstancesWhenRequired }).(pulumi.BoolOutput)
 }
 
+func (o FeaturesVirtualMachineScaleSetOutput) ScaleToZeroBeforeDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesVirtualMachineScaleSet) *bool { return v.ScaleToZeroBeforeDeletion }).(pulumi.BoolPtrOutput)
+}
+
 type FeaturesVirtualMachineScaleSetPtrOutput struct{ *pulumi.OutputState }
 
 func (FeaturesVirtualMachineScaleSetPtrOutput) ElementType() reflect.Type {
@@ -1361,6 +1367,15 @@ func (o FeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequired() pul
 			return nil
 		}
 		return &v.RollInstancesWhenRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FeaturesVirtualMachineScaleSetPtrOutput) ScaleToZeroBeforeDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesVirtualMachineScaleSet) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleToZeroBeforeDeletion
 	}).(pulumi.BoolPtrOutput)
 }
 

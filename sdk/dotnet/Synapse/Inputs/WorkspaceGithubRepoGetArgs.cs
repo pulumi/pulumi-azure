@@ -31,6 +31,12 @@ namespace Pulumi.Azure.Synapse.Inputs
         public Input<string>? GitUrl { get; set; }
 
         /// <summary>
+        /// The last commit ID.
+        /// </summary>
+        [Input("lastCommitId")]
+        public Input<string>? LastCommitId { get; set; }
+
+        /// <summary>
         /// Specifies the name of the git repository.
         /// </summary>
         [Input("repositoryName", required: true)]

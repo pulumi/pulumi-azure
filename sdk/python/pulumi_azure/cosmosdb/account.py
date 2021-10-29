@@ -50,7 +50,7 @@ class AccountArgs:
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountBackupArgs'] backup: A `backup` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -207,7 +207,7 @@ class AccountArgs:
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]:
         """
-        The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+        The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "capabilities")
 
@@ -478,7 +478,7 @@ class _AccountState:
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountBackupArgs'] backup: A `backup` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
@@ -639,7 +639,7 @@ class _AccountState:
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]:
         """
-        The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+        The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "capabilities")
 
@@ -1140,7 +1140,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountBackupArgs']] backup: A `backup` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
@@ -1386,7 +1386,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountBackupArgs']] backup: A `backup` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
@@ -1488,9 +1488,9 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> pulumi.Output[Optional[Sequence['outputs.AccountCapability']]]:
+    def capabilities(self) -> pulumi.Output[Sequence['outputs.AccountCapability']]:
         """
-        The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+        The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "capabilities")
 

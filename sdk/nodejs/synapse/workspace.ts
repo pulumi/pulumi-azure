@@ -86,6 +86,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly azureDevopsRepo!: pulumi.Output<outputs.synapse.WorkspaceAzureDevopsRepo | undefined>;
     /**
+     * Subnet ID used for computes in workspace
+     */
+    public readonly computeSubnetId!: pulumi.Output<string | undefined>;
+    /**
      * A list of Connectivity endpoints for this Synapse Workspace.
      */
     public /*out*/ readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string}>;
@@ -106,6 +110,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly identities!: pulumi.Output<outputs.synapse.WorkspaceIdentity[]>;
     /**
+     * Allowed Aad Tenant Ids For Linking.
+     */
+    public readonly linkingAllowedForAadTenantIds!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -121,6 +129,14 @@ export class Workspace extends pulumi.CustomResource {
      * Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of purview account.
+     */
+    public readonly purviewId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -161,15 +177,19 @@ export class Workspace extends pulumi.CustomResource {
             const state = argsOrState as WorkspaceState | undefined;
             inputs["aadAdmin"] = state ? state.aadAdmin : undefined;
             inputs["azureDevopsRepo"] = state ? state.azureDevopsRepo : undefined;
+            inputs["computeSubnetId"] = state ? state.computeSubnetId : undefined;
             inputs["connectivityEndpoints"] = state ? state.connectivityEndpoints : undefined;
             inputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
             inputs["dataExfiltrationProtectionEnabled"] = state ? state.dataExfiltrationProtectionEnabled : undefined;
             inputs["githubRepo"] = state ? state.githubRepo : undefined;
             inputs["identities"] = state ? state.identities : undefined;
+            inputs["linkingAllowedForAadTenantIds"] = state ? state.linkingAllowedForAadTenantIds : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
             inputs["managedVirtualNetworkEnabled"] = state ? state.managedVirtualNetworkEnabled : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            inputs["purviewId"] = state ? state.purviewId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sqlAdministratorLogin"] = state ? state.sqlAdministratorLogin : undefined;
             inputs["sqlAdministratorLoginPassword"] = state ? state.sqlAdministratorLoginPassword : undefined;
@@ -192,13 +212,17 @@ export class Workspace extends pulumi.CustomResource {
             }
             inputs["aadAdmin"] = args ? args.aadAdmin : undefined;
             inputs["azureDevopsRepo"] = args ? args.azureDevopsRepo : undefined;
+            inputs["computeSubnetId"] = args ? args.computeSubnetId : undefined;
             inputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             inputs["dataExfiltrationProtectionEnabled"] = args ? args.dataExfiltrationProtectionEnabled : undefined;
             inputs["githubRepo"] = args ? args.githubRepo : undefined;
+            inputs["linkingAllowedForAadTenantIds"] = args ? args.linkingAllowedForAadTenantIds : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["managedVirtualNetworkEnabled"] = args ? args.managedVirtualNetworkEnabled : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            inputs["purviewId"] = args ? args.purviewId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
             inputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
@@ -228,6 +252,10 @@ export interface WorkspaceState {
      */
     azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
     /**
+     * Subnet ID used for computes in workspace
+     */
+    computeSubnetId?: pulumi.Input<string>;
+    /**
      * A list of Connectivity endpoints for this Synapse Workspace.
      */
     connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -248,6 +276,10 @@ export interface WorkspaceState {
      */
     identities?: pulumi.Input<pulumi.Input<inputs.synapse.WorkspaceIdentity>[]>;
     /**
+     * Allowed Aad Tenant Ids For Linking.
+     */
+    linkingAllowedForAadTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -263,6 +295,14 @@ export interface WorkspaceState {
      * Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * The ID of purview account.
+     */
+    purviewId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -302,6 +342,10 @@ export interface WorkspaceArgs {
      */
     azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
     /**
+     * Subnet ID used for computes in workspace
+     */
+    computeSubnetId?: pulumi.Input<string>;
+    /**
      * A `customerManagedKey` block as defined below.
      */
     customerManagedKey?: pulumi.Input<inputs.synapse.WorkspaceCustomerManagedKey>;
@@ -313,6 +357,10 @@ export interface WorkspaceArgs {
      * A `githubRepo` block as defined below.
      */
     githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo>;
+    /**
+     * Allowed Aad Tenant Ids For Linking.
+     */
+    linkingAllowedForAadTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -329,6 +377,14 @@ export interface WorkspaceArgs {
      * Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * The ID of purview account.
+     */
+    purviewId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
