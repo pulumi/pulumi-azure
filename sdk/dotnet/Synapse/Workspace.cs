@@ -86,6 +86,12 @@ namespace Pulumi.Azure.Synapse
         public Output<Outputs.WorkspaceAzureDevopsRepo?> AzureDevopsRepo { get; private set; } = null!;
 
         /// <summary>
+        /// Subnet ID used for computes in workspace
+        /// </summary>
+        [Output("computeSubnetId")]
+        public Output<string?> ComputeSubnetId { get; private set; } = null!;
+
+        /// <summary>
         /// A list of Connectivity endpoints for this Synapse Workspace.
         /// </summary>
         [Output("connectivityEndpoints")]
@@ -116,6 +122,12 @@ namespace Pulumi.Azure.Synapse
         public Output<ImmutableArray<Outputs.WorkspaceIdentity>> Identities { get; private set; } = null!;
 
         /// <summary>
+        /// Allowed Aad Tenant Ids For Linking.
+        /// </summary>
+        [Output("linkingAllowedForAadTenantIds")]
+        public Output<ImmutableArray<string>> LinkingAllowedForAadTenantIds { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -138,6 +150,18 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of purview account.
+        /// </summary>
+        [Output("purviewId")]
+        public Output<string?> PurviewId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -234,6 +258,12 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.WorkspaceAzureDevopsRepoArgs>? AzureDevopsRepo { get; set; }
 
         /// <summary>
+        /// Subnet ID used for computes in workspace
+        /// </summary>
+        [Input("computeSubnetId")]
+        public Input<string>? ComputeSubnetId { get; set; }
+
+        /// <summary>
         /// A `customer_managed_key` block as defined below.
         /// </summary>
         [Input("customerManagedKey")]
@@ -250,6 +280,18 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("githubRepo")]
         public Input<Inputs.WorkspaceGithubRepoArgs>? GithubRepo { get; set; }
+
+        [Input("linkingAllowedForAadTenantIds")]
+        private InputList<string>? _linkingAllowedForAadTenantIds;
+
+        /// <summary>
+        /// Allowed Aad Tenant Ids For Linking.
+        /// </summary>
+        public InputList<string> LinkingAllowedForAadTenantIds
+        {
+            get => _linkingAllowedForAadTenantIds ?? (_linkingAllowedForAadTenantIds = new InputList<string>());
+            set => _linkingAllowedForAadTenantIds = value;
+        }
 
         /// <summary>
         /// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -274,6 +316,18 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
+        /// The ID of purview account.
+        /// </summary>
+        [Input("purviewId")]
+        public Input<string>? PurviewId { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -336,6 +390,12 @@ namespace Pulumi.Azure.Synapse
         [Input("azureDevopsRepo")]
         public Input<Inputs.WorkspaceAzureDevopsRepoGetArgs>? AzureDevopsRepo { get; set; }
 
+        /// <summary>
+        /// Subnet ID used for computes in workspace
+        /// </summary>
+        [Input("computeSubnetId")]
+        public Input<string>? ComputeSubnetId { get; set; }
+
         [Input("connectivityEndpoints")]
         private InputMap<string>? _connectivityEndpoints;
 
@@ -378,6 +438,18 @@ namespace Pulumi.Azure.Synapse
             set => _identities = value;
         }
 
+        [Input("linkingAllowedForAadTenantIds")]
+        private InputList<string>? _linkingAllowedForAadTenantIds;
+
+        /// <summary>
+        /// Allowed Aad Tenant Ids For Linking.
+        /// </summary>
+        public InputList<string> LinkingAllowedForAadTenantIds
+        {
+            get => _linkingAllowedForAadTenantIds ?? (_linkingAllowedForAadTenantIds = new InputList<string>());
+            set => _linkingAllowedForAadTenantIds = value;
+        }
+
         /// <summary>
         /// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         /// </summary>
@@ -401,6 +473,18 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
+        /// The ID of purview account.
+        /// </summary>
+        [Input("purviewId")]
+        public Input<string>? PurviewId { get; set; }
 
         /// <summary>
         /// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.

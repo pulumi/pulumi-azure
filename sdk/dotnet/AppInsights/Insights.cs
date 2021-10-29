@@ -86,7 +86,7 @@ namespace Pulumi.Azure.AppInsights
     /// Application Insights instances can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appinsights/insights:Insights instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/instance1
+    ///  $ pulumi import azure:appinsights/insights:Insights instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/instance1
     /// ```
     /// </summary>
     [AzureResourceType("azure:appinsights/insights:Insights")]

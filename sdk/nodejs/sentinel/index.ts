@@ -9,6 +9,7 @@ export * from "./alertRuleFusion";
 export * from "./alertRuleMachineLearningBehaviorAnalytics";
 export * from "./alertRuleMsSecurityIncident";
 export * from "./alertRuleScheduled";
+export * from "./authomationRule";
 export * from "./dataConnectorAwsCloudTrail";
 export * from "./dataConnectorAzureActiveDirectory";
 export * from "./dataConnectorAzureAdvancedThreadProtection";
@@ -25,6 +26,7 @@ import { AlertRuleFusion } from "./alertRuleFusion";
 import { AlertRuleMachineLearningBehaviorAnalytics } from "./alertRuleMachineLearningBehaviorAnalytics";
 import { AlertRuleMsSecurityIncident } from "./alertRuleMsSecurityIncident";
 import { AlertRuleScheduled } from "./alertRuleScheduled";
+import { AuthomationRule } from "./authomationRule";
 import { DataConnectorAwsCloudTrail } from "./dataConnectorAwsCloudTrail";
 import { DataConnectorAzureActiveDirectory } from "./dataConnectorAzureActiveDirectory";
 import { DataConnectorAzureAdvancedThreadProtection } from "./dataConnectorAzureAdvancedThreadProtection";
@@ -46,6 +48,8 @@ const _module = {
                 return new AlertRuleMsSecurityIncident(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
                 return new AlertRuleScheduled(name, <any>undefined, { urn })
+            case "azure:sentinel/authomationRule:AuthomationRule":
+                return new AuthomationRule(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail":
                 return new DataConnectorAwsCloudTrail(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory":
@@ -71,6 +75,7 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleFusion", _modu
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMachineLearningBehaviorAnalytics", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMsSecurityIncident", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleScheduled", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/authomationRule", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAwsCloudTrail", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAzureActiveDirectory", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAzureAdvancedThreadProtection", _module)

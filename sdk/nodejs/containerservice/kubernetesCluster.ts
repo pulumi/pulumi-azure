@@ -143,7 +143,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly linuxProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterLinuxProfile | undefined>;
     /**
-     * Is local account disabled for AAD integrated kubernetes cluster?
+     * - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
      */
     public readonly localAccountDisabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -166,6 +166,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     public readonly nodeResourceGroup!: pulumi.Output<string>;
+    /**
+     * The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+     */
+    public /*out*/ readonly portalFqdn!: pulumi.Output<string>;
     /**
      * Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
      */
@@ -248,6 +252,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["networkProfile"] = state ? state.networkProfile : undefined;
             inputs["nodeResourceGroup"] = state ? state.nodeResourceGroup : undefined;
+            inputs["portalFqdn"] = state ? state.portalFqdn : undefined;
             inputs["privateClusterEnabled"] = state ? state.privateClusterEnabled : undefined;
             inputs["privateClusterPublicFqdnEnabled"] = state ? state.privateClusterPublicFqdnEnabled : undefined;
             inputs["privateDnsZoneId"] = state ? state.privateDnsZoneId : undefined;
@@ -301,6 +306,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["kubeAdminConfigs"] = undefined /*out*/;
             inputs["kubeConfigRaw"] = undefined /*out*/;
             inputs["kubeConfigs"] = undefined /*out*/;
+            inputs["portalFqdn"] = undefined /*out*/;
             inputs["privateFqdn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -384,7 +390,7 @@ export interface KubernetesClusterState {
      */
     linuxProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterLinuxProfile>;
     /**
-     * Is local account disabled for AAD integrated kubernetes cluster?
+     * - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
      */
     localAccountDisabled?: pulumi.Input<boolean>;
     /**
@@ -407,6 +413,10 @@ export interface KubernetesClusterState {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     nodeResourceGroup?: pulumi.Input<string>;
+    /**
+     * The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+     */
+    portalFqdn?: pulumi.Input<string>;
     /**
      * Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
      */
@@ -507,7 +517,7 @@ export interface KubernetesClusterArgs {
      */
     linuxProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterLinuxProfile>;
     /**
-     * Is local account disabled for AAD integrated kubernetes cluster?
+     * - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
      */
     localAccountDisabled?: pulumi.Input<boolean>;
     /**

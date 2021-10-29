@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -27,10 +28,12 @@ import * as utilities from "../utilities";
  * });
  * const exampleSpringCloudJavaDeployment = new azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", {
  *     springCloudAppId: exampleSpringCloudApp.id,
- *     cpu: 2,
  *     instanceCount: 2,
  *     jvmOptions: "-XX:+PrintGC",
- *     memoryInGb: 4,
+ *     quota: {
+ *         cpu: "2",
+ *         memory: "4Gi",
+ *     },
  *     runtimeVersion: "Java_11",
  *     environmentVariables: {
  *         Foo: "Bar",
@@ -76,9 +79,11 @@ export class SpringCloudJavaDeployment extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
+     * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+     *
+     * @deprecated This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider
      */
-    public readonly cpu!: pulumi.Output<number | undefined>;
+    public readonly cpu!: pulumi.Output<number>;
     /**
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      */
@@ -92,13 +97,17 @@ export class SpringCloudJavaDeployment extends pulumi.CustomResource {
      */
     public readonly jvmOptions!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
+     * @deprecated This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider
      */
-    public readonly memoryInGb!: pulumi.Output<number | undefined>;
+    public readonly memoryInGb!: pulumi.Output<number>;
     /**
      * Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A `quota` block as defined below.
+     */
+    public readonly quota!: pulumi.Output<outputs.appplatform.SpringCloudJavaDeploymentQuota>;
     /**
      * Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
      */
@@ -127,6 +136,7 @@ export class SpringCloudJavaDeployment extends pulumi.CustomResource {
             inputs["jvmOptions"] = state ? state.jvmOptions : undefined;
             inputs["memoryInGb"] = state ? state.memoryInGb : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["quota"] = state ? state.quota : undefined;
             inputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
             inputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
         } else {
@@ -140,6 +150,7 @@ export class SpringCloudJavaDeployment extends pulumi.CustomResource {
             inputs["jvmOptions"] = args ? args.jvmOptions : undefined;
             inputs["memoryInGb"] = args ? args.memoryInGb : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["quota"] = args ? args.quota : undefined;
             inputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
             inputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
         }
@@ -155,7 +166,9 @@ export class SpringCloudJavaDeployment extends pulumi.CustomResource {
  */
 export interface SpringCloudJavaDeploymentState {
     /**
-     * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
+     * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+     *
+     * @deprecated This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider
      */
     cpu?: pulumi.Input<number>;
     /**
@@ -171,13 +184,17 @@ export interface SpringCloudJavaDeploymentState {
      */
     jvmOptions?: pulumi.Input<string>;
     /**
-     * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
+     * @deprecated This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider
      */
     memoryInGb?: pulumi.Input<number>;
     /**
      * Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `quota` block as defined below.
+     */
+    quota?: pulumi.Input<inputs.appplatform.SpringCloudJavaDeploymentQuota>;
     /**
      * Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
      */
@@ -193,7 +210,9 @@ export interface SpringCloudJavaDeploymentState {
  */
 export interface SpringCloudJavaDeploymentArgs {
     /**
-     * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
+     * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+     *
+     * @deprecated This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider
      */
     cpu?: pulumi.Input<number>;
     /**
@@ -209,13 +228,17 @@ export interface SpringCloudJavaDeploymentArgs {
      */
     jvmOptions?: pulumi.Input<string>;
     /**
-     * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
+     * @deprecated This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider
      */
     memoryInGb?: pulumi.Input<number>;
     /**
      * Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `quota` block as defined below.
+     */
+    quota?: pulumi.Input<inputs.appplatform.SpringCloudJavaDeploymentQuota>;
     /**
      * Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
      */

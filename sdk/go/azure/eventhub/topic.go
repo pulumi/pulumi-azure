@@ -90,6 +90,10 @@ type Topic struct {
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
+	// Integer value which controls the maximum size of
+	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	MaxMessageSizeInKilobytes pulumi.IntOutput `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -169,6 +173,10 @@ type topicState struct {
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
+	// Integer value which controls the maximum size of
+	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -214,6 +222,10 @@ type TopicState struct {
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning pulumi.BoolPtrInput
+	// Integer value which controls the maximum size of
+	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	MaxMessageSizeInKilobytes pulumi.IntPtrInput
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -263,6 +275,10 @@ type topicArgs struct {
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
+	// Integer value which controls the maximum size of
+	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -309,6 +325,10 @@ type TopicArgs struct {
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning pulumi.BoolPtrInput
+	// Integer value which controls the maximum size of
+	// a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	MaxMessageSizeInKilobytes pulumi.IntPtrInput
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).

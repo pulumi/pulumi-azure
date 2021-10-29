@@ -10061,13 +10061,13 @@ func (o GetDomainInputMappingFieldArrayOutput) Index(i pulumi.IntInput) GetDomai
 }
 
 type GetSystemTopicIdentity struct {
-	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	// A list of IDs for User Assigned Managed Identity resources to be assigned.
 	IdentityIds []string `pulumi:"identityIds"`
 	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
-	PrincipalId *string `pulumi:"principalId"`
+	PrincipalId string `pulumi:"principalId"`
 	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
-	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+	TenantId string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
 	Type string `pulumi:"type"`
 }
 
@@ -10083,13 +10083,13 @@ type GetSystemTopicIdentityInput interface {
 }
 
 type GetSystemTopicIdentityArgs struct {
-	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	// A list of IDs for User Assigned Managed Identity resources to be assigned.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10170,22 +10170,22 @@ func (o GetSystemTopicIdentityOutput) ToGetSystemTopicIdentityPtrOutputWithConte
 	}).(GetSystemTopicIdentityPtrOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+// A list of IDs for User Assigned Managed Identity resources to be assigned.
 func (o GetSystemTopicIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSystemTopicIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
-func (o GetSystemTopicIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetSystemTopicIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+func (o GetSystemTopicIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemTopicIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
 // Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Event Grid System Topic.
-func (o GetSystemTopicIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetSystemTopicIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+func (o GetSystemTopicIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemTopicIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+// Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
 func (o GetSystemTopicIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemTopicIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10214,7 +10214,7 @@ func (o GetSystemTopicIdentityPtrOutput) Elem() GetSystemTopicIdentityOutput {
 	}).(GetSystemTopicIdentityOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+// A list of IDs for User Assigned Managed Identity resources to be assigned.
 func (o GetSystemTopicIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetSystemTopicIdentity) []string {
 		if v == nil {
@@ -10230,7 +10230,7 @@ func (o GetSystemTopicIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.PrincipalId
+		return &v.PrincipalId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10240,11 +10240,11 @@ func (o GetSystemTopicIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.TenantId
+		return &v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+// Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
 func (o GetSystemTopicIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSystemTopicIdentity) *string {
 		if v == nil {

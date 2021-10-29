@@ -1610,6 +1610,7 @@ class ApplicationGatewayRequestRoutingRuleArgs:
                  backend_http_settings_name: Optional[pulumi.Input[str]] = None,
                  http_listener_id: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  redirect_configuration_id: Optional[pulumi.Input[str]] = None,
                  redirect_configuration_name: Optional[pulumi.Input[str]] = None,
                  rewrite_rule_set_id: Optional[pulumi.Input[str]] = None,
@@ -1626,6 +1627,7 @@ class ApplicationGatewayRequestRoutingRuleArgs:
         :param pulumi.Input[str] backend_http_settings_name: The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
         :param pulumi.Input[str] http_listener_id: The ID of the associated HTTP Listener.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
+        :param pulumi.Input[int] priority: Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
         :param pulumi.Input[str] redirect_configuration_id: The ID of the associated Redirect Configuration.
         :param pulumi.Input[str] redirect_configuration_name: The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
         :param pulumi.Input[str] rewrite_rule_set_id: The ID of the associated Rewrite Rule Set.
@@ -1648,6 +1650,8 @@ class ApplicationGatewayRequestRoutingRuleArgs:
             pulumi.set(__self__, "http_listener_id", http_listener_id)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
         if redirect_configuration_id is not None:
             pulumi.set(__self__, "redirect_configuration_id", redirect_configuration_id)
         if redirect_configuration_name is not None:
@@ -1768,6 +1772,18 @@ class ApplicationGatewayRequestRoutingRuleArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter(name="redirectConfigurationId")
@@ -4119,15 +4135,26 @@ class FirewallApplicationRuleCollectionRuleArgs:
 @pulumi.input_type
 class FirewallApplicationRuleCollectionRuleProtocolArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 port: Optional[pulumi.Input[int]] = None):
+                 port: pulumi.Input[int],
+                 type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] type: Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
         :param pulumi.Input[int] port: Specify a port for the connection.
+        :param pulumi.Input[str] type: Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
         """
+        pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "type", type)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        Specify a port for the connection.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter
@@ -4140,18 +4167,6 @@ class FirewallApplicationRuleCollectionRuleProtocolArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specify a port for the connection.
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type

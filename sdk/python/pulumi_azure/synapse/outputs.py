@@ -397,6 +397,8 @@ class WorkspaceAzureDevopsRepo(dict):
             suggest = "repository_name"
         elif key == "rootFolder":
             suggest = "root_folder"
+        elif key == "lastCommitId":
+            suggest = "last_commit_id"
         elif key == "tenantId":
             suggest = "tenant_id"
 
@@ -417,6 +419,7 @@ class WorkspaceAzureDevopsRepo(dict):
                  project_name: str,
                  repository_name: str,
                  root_folder: str,
+                 last_commit_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
         :param str account_name: Specifies the Azure DevOps account name.
@@ -424,6 +427,7 @@ class WorkspaceAzureDevopsRepo(dict):
         :param str project_name: Specifies the name of the Azure DevOps project.
         :param str repository_name: Specifies the name of the git repository.
         :param str root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
+        :param str last_commit_id: The last commit ID.
         :param str tenant_id: the ID of the tenant for the Azure DevOps account.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -431,6 +435,8 @@ class WorkspaceAzureDevopsRepo(dict):
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "root_folder", root_folder)
+        if last_commit_id is not None:
+            pulumi.set(__self__, "last_commit_id", last_commit_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
@@ -473,6 +479,14 @@ class WorkspaceAzureDevopsRepo(dict):
         Specifies the root folder within the repository. Set to `/` for the top level.
         """
         return pulumi.get(self, "root_folder")
+
+    @property
+    @pulumi.getter(name="lastCommitId")
+    def last_commit_id(self) -> Optional[str]:
+        """
+        The last commit ID.
+        """
+        return pulumi.get(self, "last_commit_id")
 
     @property
     @pulumi.getter(name="tenantId")
@@ -547,6 +561,8 @@ class WorkspaceGithubRepo(dict):
             suggest = "root_folder"
         elif key == "gitUrl":
             suggest = "git_url"
+        elif key == "lastCommitId":
+            suggest = "last_commit_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkspaceGithubRepo. Access the value via the '{suggest}' property getter instead.")
@@ -564,13 +580,15 @@ class WorkspaceGithubRepo(dict):
                  branch_name: str,
                  repository_name: str,
                  root_folder: str,
-                 git_url: Optional[str] = None):
+                 git_url: Optional[str] = None,
+                 last_commit_id: Optional[str] = None):
         """
         :param str account_name: Specifies the GitHub account name.
         :param str branch_name: Specifies the collaboration branch of the repository to get code from.
         :param str repository_name: Specifies the name of the git repository.
         :param str root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
         :param str git_url: Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
+        :param str last_commit_id: The last commit ID.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "branch_name", branch_name)
@@ -578,6 +596,8 @@ class WorkspaceGithubRepo(dict):
         pulumi.set(__self__, "root_folder", root_folder)
         if git_url is not None:
             pulumi.set(__self__, "git_url", git_url)
+        if last_commit_id is not None:
+            pulumi.set(__self__, "last_commit_id", last_commit_id)
 
     @property
     @pulumi.getter(name="accountName")
@@ -618,6 +638,14 @@ class WorkspaceGithubRepo(dict):
         Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
         """
         return pulumi.get(self, "git_url")
+
+    @property
+    @pulumi.getter(name="lastCommitId")
+    def last_commit_id(self) -> Optional[str]:
+        """
+        The last commit ID.
+        """
+        return pulumi.get(self, "last_commit_id")
 
 
 @pulumi.output_type

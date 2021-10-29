@@ -12,6 +12,8 @@ namespace Pulumi.Azure.DataLake
     /// <summary>
     /// Manages a Azure Data Lake Store Firewall Rule.
     /// 
+    /// &gt; **Note:** This resoruce manages an `Azure Data Lake Storage Gen1`, previously known as `Azure Data Lake Store`.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

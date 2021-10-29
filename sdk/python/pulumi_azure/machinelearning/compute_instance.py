@@ -466,7 +466,7 @@ class ComputeInstance(pulumi.CustomResource):
         Machine Learning Compute Instances can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:machinelearning/computeInstance:ComputeInstance example C:/Program Files/Git/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/computes/compute1
+         $ pulumi import azure:machinelearning/computeInstance:ComputeInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/computes/compute1
         ```
 
         :param str resource_name: The name of the resource.
@@ -560,7 +560,7 @@ class ComputeInstance(pulumi.CustomResource):
         Machine Learning Compute Instances can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:machinelearning/computeInstance:ComputeInstance example C:/Program Files/Git/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/computes/compute1
+         $ pulumi import azure:machinelearning/computeInstance:ComputeInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/computes/compute1
         ```
 
         :param str resource_name: The name of the resource.

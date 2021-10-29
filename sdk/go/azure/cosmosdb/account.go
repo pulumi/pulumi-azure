@@ -100,7 +100,7 @@ type Account struct {
 	AnalyticalStorageEnabled pulumi.BoolPtrOutput `pulumi:"analyticalStorageEnabled"`
 	// A `backup` block as defined below.
 	Backup AccountBackupOutput `pulumi:"backup"`
-	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
 	Capabilities AccountCapabilityArrayOutput `pulumi:"capabilities"`
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings pulumi.StringArrayOutput `pulumi:"connectionStrings"`
@@ -219,7 +219,7 @@ type accountState struct {
 	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
 	// A `backup` block as defined below.
 	Backup *AccountBackup `pulumi:"backup"`
-	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
 	Capabilities []AccountCapability `pulumi:"capabilities"`
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings []string `pulumi:"connectionStrings"`
@@ -298,7 +298,7 @@ type AccountState struct {
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
 	// A `backup` block as defined below.
 	Backup AccountBackupPtrInput
-	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
 	Capabilities AccountCapabilityArrayInput
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings pulumi.StringArrayInput
@@ -381,7 +381,7 @@ type accountArgs struct {
 	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
 	// A `backup` block as defined below.
 	Backup *AccountBackup `pulumi:"backup"`
-	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
 	Capabilities []AccountCapability `pulumi:"capabilities"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
@@ -437,7 +437,7 @@ type AccountArgs struct {
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
 	// A `backup` block as defined below.
 	Backup AccountBackupPtrInput
-	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
 	Capabilities AccountCapabilityArrayInput
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyInput

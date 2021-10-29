@@ -32,7 +32,6 @@ import * as utilities from "../utilities";
  *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
  * });
  * const exampleBackupPolicyBlobStorage = new azure.dataprotection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", {
- *     resourceGroupName: rg.name,
  *     vaultId: exampleBackupVault.id,
  *     retentionDuration: "P30D",
  * });

@@ -163,6 +163,8 @@ type Extension struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled pulumi.BoolPtrOutput `pulumi:"automaticUpgradeEnabled"`
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -230,6 +232,8 @@ type extensionState struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -257,6 +261,8 @@ type ExtensionState struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -288,6 +294,8 @@ type extensionArgs struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -316,6 +324,8 @@ type ExtensionArgs struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name pulumi.StringPtrInput

@@ -10,483 +10,71 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GetSystemTopicArgs', 'GetSystemTopic']
+__all__ = [
+    'GetSystemTopicResult',
+    'AwaitableGetSystemTopicResult',
+    'get_system_topic',
+    'get_system_topic_output',
+]
 
-@pulumi.input_type
-class GetSystemTopicArgs:
-    def __init__(__self__, *,
-                 resource_group_name: pulumi.Input[str],
-                 source_arm_resource_id: pulumi.Input[str],
-                 topic_type: pulumi.Input[str],
-                 identity: Optional[pulumi.Input['GetSystemTopicIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        The set of arguments for constructing a GetSystemTopic resource.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[str] source_arm_resource_id: The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[str] topic_type: The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-               , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input['GetSystemTopicIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Event Grid System Topic.
-        """
+@pulumi.output_type
+class GetSystemTopicResult:
+    """
+    A collection of values returned by getSystemTopic.
+    """
+    def __init__(__self__, id=None, identity=None, location=None, metric_arm_resource_id=None, name=None, resource_group_name=None, source_arm_resource_id=None, tags=None, topic_type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if metric_arm_resource_id and not isinstance(metric_arm_resource_id, str):
+            raise TypeError("Expected argument 'metric_arm_resource_id' to be a str")
+        pulumi.set(__self__, "metric_arm_resource_id", metric_arm_resource_id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if source_arm_resource_id and not isinstance(source_arm_resource_id, str):
+            raise TypeError("Expected argument 'source_arm_resource_id' to be a str")
         pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if topic_type and not isinstance(topic_type, str):
+            raise TypeError("Expected argument 'topic_type' to be a str")
         pulumi.set(__self__, "topic_type", topic_type)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="sourceArmResourceId")
-    def source_arm_resource_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-        """
-        return pulumi.get(self, "source_arm_resource_id")
-
-    @source_arm_resource_id.setter
-    def source_arm_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "source_arm_resource_id", value)
-
-    @property
-    @pulumi.getter(name="topicType")
-    def topic_type(self) -> pulumi.Input[str]:
-        """
-        The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-        , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-        """
-        return pulumi.get(self, "topic_type")
-
-    @topic_type.setter
-    def topic_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "topic_type", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['GetSystemTopicIdentityArgs']]:
+    def id(self) -> str:
         """
-        An `identity` block as defined below.
+        The provider-assigned unique ID for this managed resource.
         """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['GetSystemTopicIdentityArgs']]):
-        pulumi.set(self, "identity", value)
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
+    def identity(self) -> 'outputs.GetSystemTopicIdentityResult':
         """
-        The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags which should be assigned to the Event Grid System Topic.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-
-@pulumi.input_type
-class _GetSystemTopicState:
-    def __init__(__self__, *,
-                 identity: Optional[pulumi.Input['GetSystemTopicIdentityArgs']] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 metric_arm_resource_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source_arm_resource_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 topic_type: Optional[pulumi.Input[str]] = None):
-        """
-        Input properties used for looking up and filtering GetSystemTopic resources.
-        :param pulumi.Input['GetSystemTopicIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[str] metric_arm_resource_id: The Metric ARM Resource ID of the Event Grid System Topic.
-        :param pulumi.Input[str] name: The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[str] source_arm_resource_id: The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Event Grid System Topic.
-        :param pulumi.Input[str] topic_type: The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-               , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-        """
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if metric_arm_resource_id is not None:
-            pulumi.set(__self__, "metric_arm_resource_id", metric_arm_resource_id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if source_arm_resource_id is not None:
-            pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if topic_type is not None:
-            pulumi.set(__self__, "topic_type", topic_type)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['GetSystemTopicIdentityArgs']]:
-        """
-        An `identity` block as defined below.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['GetSystemTopicIdentityArgs']]):
-        pulumi.set(self, "identity", value)
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="metricArmResourceId")
-    def metric_arm_resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Metric ARM Resource ID of the Event Grid System Topic.
-        """
-        return pulumi.get(self, "metric_arm_resource_id")
-
-    @metric_arm_resource_id.setter
-    def metric_arm_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric_arm_resource_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="sourceArmResourceId")
-    def source_arm_resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-        """
-        return pulumi.get(self, "source_arm_resource_id")
-
-    @source_arm_resource_id.setter
-    def source_arm_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_arm_resource_id", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A mapping of tags which should be assigned to the Event Grid System Topic.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="topicType")
-    def topic_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-        , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-        """
-        return pulumi.get(self, "topic_type")
-
-    @topic_type.setter
-    def topic_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "topic_type", value)
-
-
-warnings.warn("""azure.eventgrid.getSystemTopic has been deprecated in favor of azure.eventgrid.SystemTopic""", DeprecationWarning)
-
-
-class GetSystemTopic(pulumi.CustomResource):
-    warnings.warn("""azure.eventgrid.getSystemTopic has been deprecated in favor of azure.eventgrid.SystemTopic""", DeprecationWarning)
-
-    @overload
-    def __init__(__self__,
-                 resource_name: str,
-                 opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['GetSystemTopicIdentityArgs']]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source_arm_resource_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 topic_type: Optional[pulumi.Input[str]] = None,
-                 __props__=None):
-        """
-        Manages an Event Grid System Topic.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "staging",
-            })
-        example_system_topic = azure.eventgrid.SystemTopic("exampleSystemTopic",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            source_arm_resource_id=example_account.id,
-            topic_type="Microsoft.Storage.StorageAccounts")
-        ```
-
-        ## Import
-
-        Event Grid System Topic can be imported using the `resource id`, e.g.
-
-        ```sh
-         $ pulumi import azure:eventgrid/getSystemTopic:getSystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
-        ```
-
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['GetSystemTopicIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[str] source_arm_resource_id: The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Event Grid System Topic.
-        :param pulumi.Input[str] topic_type: The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-               , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-        """
-        ...
-    @overload
-    def __init__(__self__,
-                 resource_name: str,
-                 args: GetSystemTopicArgs,
-                 opts: Optional[pulumi.ResourceOptions] = None):
-        """
-        Manages an Event Grid System Topic.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "staging",
-            })
-        example_system_topic = azure.eventgrid.SystemTopic("exampleSystemTopic",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            source_arm_resource_id=example_account.id,
-            topic_type="Microsoft.Storage.StorageAccounts")
-        ```
-
-        ## Import
-
-        Event Grid System Topic can be imported using the `resource id`, e.g.
-
-        ```sh
-         $ pulumi import azure:eventgrid/getSystemTopic:getSystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
-        ```
-
-        :param str resource_name: The name of the resource.
-        :param GetSystemTopicArgs args: The arguments to use to populate this resource's properties.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-        """
-        ...
-    def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GetSystemTopicArgs, pulumi.ResourceOptions, *args, **kwargs)
-        if resource_args is not None:
-            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
-        else:
-            __self__._internal_init(resource_name, *args, **kwargs)
-
-    def _internal_init(__self__,
-                 resource_name: str,
-                 opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['GetSystemTopicIdentityArgs']]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source_arm_resource_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 topic_type: Optional[pulumi.Input[str]] = None,
-                 __props__=None):
-        pulumi.log.warn("""GetSystemTopic is deprecated: azure.eventgrid.getSystemTopic has been deprecated in favor of azure.eventgrid.SystemTopic""")
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-        if opts.version is None:
-            opts.version = _utilities.get_version()
-        if opts.id is None:
-            if __props__ is not None:
-                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GetSystemTopicArgs.__new__(GetSystemTopicArgs)
-
-            __props__.__dict__["identity"] = identity
-            __props__.__dict__["location"] = location
-            __props__.__dict__["name"] = name
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
-            if source_arm_resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'source_arm_resource_id'")
-            __props__.__dict__["source_arm_resource_id"] = source_arm_resource_id
-            __props__.__dict__["tags"] = tags
-            if topic_type is None and not opts.urn:
-                raise TypeError("Missing required property 'topic_type'")
-            __props__.__dict__["topic_type"] = topic_type
-            __props__.__dict__["metric_arm_resource_id"] = None
-        super(GetSystemTopic, __self__).__init__(
-            'azure:eventgrid/getSystemTopic:getSystemTopic',
-            resource_name,
-            __props__,
-            opts)
-
-    @staticmethod
-    def get(resource_name: str,
-            id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['GetSystemTopicIdentityArgs']]] = None,
-            location: Optional[pulumi.Input[str]] = None,
-            metric_arm_resource_id: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None,
-            source_arm_resource_id: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            topic_type: Optional[pulumi.Input[str]] = None) -> 'GetSystemTopic':
-        """
-        Get an existing GetSystemTopic resource's state with the given name, id, and optional extra
-        properties used to qualify the lookup.
-
-        :param str resource_name: The unique name of the resulting resource.
-        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['GetSystemTopicIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] location: The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[str] metric_arm_resource_id: The Metric ARM Resource ID of the Event Grid System Topic.
-        :param pulumi.Input[str] name: The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[str] source_arm_resource_id: The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Event Grid System Topic.
-        :param pulumi.Input[str] topic_type: The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-               , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-        """
-        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
-
-        __props__ = _GetSystemTopicState.__new__(_GetSystemTopicState)
-
-        __props__.__dict__["identity"] = identity
-        __props__.__dict__["location"] = location
-        __props__.__dict__["metric_arm_resource_id"] = metric_arm_resource_id
-        __props__.__dict__["name"] = name
-        __props__.__dict__["resource_group_name"] = resource_group_name
-        __props__.__dict__["source_arm_resource_id"] = source_arm_resource_id
-        __props__.__dict__["tags"] = tags
-        __props__.__dict__["topic_type"] = topic_type
-        return GetSystemTopic(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.GetSystemTopicIdentity']]:
-        """
-        An `identity` block as defined below.
+        An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
         """
         return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
-        """
-        The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        """
+    def location(self) -> str:
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="metricArmResourceId")
-    def metric_arm_resource_id(self) -> pulumi.Output[str]:
+    def metric_arm_resource_id(self) -> str:
         """
         The Metric ARM Resource ID of the Event Grid System Topic.
         """
@@ -494,42 +82,122 @@ class GetSystemTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
-        """
-        The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-        """
+    def name(self) -> str:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-        """
+    def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="sourceArmResourceId")
-    def source_arm_resource_id(self) -> pulumi.Output[str]:
+    def source_arm_resource_id(self) -> str:
         """
-        The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
+        The ID of the Event Grid System Topic ARM Source.
         """
         return pulumi.get(self, "source_arm_resource_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def tags(self) -> Mapping[str, str]:
         """
-        A mapping of tags which should be assigned to the Event Grid System Topic.
+        A mapping of tags which are assigned to the Event Grid System Topic.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="topicType")
-    def topic_type(self) -> pulumi.Output[str]:
+    def topic_type(self) -> str:
         """
         The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
         , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
         """
         return pulumi.get(self, "topic_type")
 
+
+class AwaitableGetSystemTopicResult(GetSystemTopicResult):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return GetSystemTopicResult(
+            id=self.id,
+            identity=self.identity,
+            location=self.location,
+            metric_arm_resource_id=self.metric_arm_resource_id,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            source_arm_resource_id=self.source_arm_resource_id,
+            tags=self.tags,
+            topic_type=self.topic_type)
+
+
+def get_system_topic(identity: Optional[pulumi.InputType['GetSystemTopicIdentityArgs']] = None,
+                     name: Optional[str] = None,
+                     resource_group_name: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicResult:
+    """
+    Use this data source to access information about an existing EventGrid System Topic
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.eventgrid.get_system_topic(name="eventgrid-system-topic",
+        resource_group_name="example-resources")
+    ```
+
+
+    :param pulumi.InputType['GetSystemTopicIdentityArgs'] identity: An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
+    :param str name: The name of the EventGrid System Topic resource.
+    :param str resource_group_name: The name of the resource group in which the EventGrid System Topic exists.
+    """
+    __args__ = dict()
+    __args__['identity'] = identity
+    __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
+    if opts is None:
+        opts = pulumi.InvokeOptions()
+    if opts.version is None:
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:eventgrid/getSystemTopic:getSystemTopic', __args__, opts=opts, typ=GetSystemTopicResult).value
+
+    return AwaitableGetSystemTopicResult(
+        id=__ret__.id,
+        identity=__ret__.identity,
+        location=__ret__.location,
+        metric_arm_resource_id=__ret__.metric_arm_resource_id,
+        name=__ret__.name,
+        resource_group_name=__ret__.resource_group_name,
+        source_arm_resource_id=__ret__.source_arm_resource_id,
+        tags=__ret__.tags,
+        topic_type=__ret__.topic_type)
+
+
+@_utilities.lift_output_func(get_system_topic)
+def get_system_topic_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType['GetSystemTopicIdentityArgs']]]] = None,
+                            name: Optional[pulumi.Input[str]] = None,
+                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicResult]:
+    """
+    Use this data source to access information about an existing EventGrid System Topic
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.eventgrid.get_system_topic(name="eventgrid-system-topic",
+        resource_group_name="example-resources")
+    ```
+
+
+    :param pulumi.InputType['GetSystemTopicIdentityArgs'] identity: An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
+    :param str name: The name of the EventGrid System Topic resource.
+    :param str resource_group_name: The name of the resource group in which the EventGrid System Topic exists.
+    """
+    ...

@@ -19,6 +19,12 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
         /// <summary>
+        /// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        /// </summary>
+        [Input("automaticUpgradeEnabled")]
+        public Input<bool>? AutomaticUpgradeEnabled { get; set; }
+
+        /// <summary>
         /// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         /// </summary>
         [Input("forceUpdateTag")]

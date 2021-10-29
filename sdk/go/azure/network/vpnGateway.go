@@ -89,6 +89,9 @@ type VpnGateway struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the
+	// [Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Changing this forces a new resource to be created.
+	RoutingPreference pulumi.StringOutput `pulumi:"routingPreference"`
 	// The Scale Unit for this VPN Gateway. Defaults to `1`.
 	ScaleUnit pulumi.IntPtrOutput `pulumi:"scaleUnit"`
 	// A mapping of tags to assign to the VPN Gateway.
@@ -140,6 +143,9 @@ type vpnGatewayState struct {
 	Name *string `pulumi:"name"`
 	// The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the
+	// [Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Changing this forces a new resource to be created.
+	RoutingPreference *string `pulumi:"routingPreference"`
 	// The Scale Unit for this VPN Gateway. Defaults to `1`.
 	ScaleUnit *int `pulumi:"scaleUnit"`
 	// A mapping of tags to assign to the VPN Gateway.
@@ -157,6 +163,9 @@ type VpnGatewayState struct {
 	Name pulumi.StringPtrInput
 	// The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the
+	// [Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Changing this forces a new resource to be created.
+	RoutingPreference pulumi.StringPtrInput
 	// The Scale Unit for this VPN Gateway. Defaults to `1`.
 	ScaleUnit pulumi.IntPtrInput
 	// A mapping of tags to assign to the VPN Gateway.
@@ -178,6 +187,9 @@ type vpnGatewayArgs struct {
 	Name *string `pulumi:"name"`
 	// The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the
+	// [Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Changing this forces a new resource to be created.
+	RoutingPreference *string `pulumi:"routingPreference"`
 	// The Scale Unit for this VPN Gateway. Defaults to `1`.
 	ScaleUnit *int `pulumi:"scaleUnit"`
 	// A mapping of tags to assign to the VPN Gateway.
@@ -196,6 +208,9 @@ type VpnGatewayArgs struct {
 	Name pulumi.StringPtrInput
 	// The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the
+	// [Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Changing this forces a new resource to be created.
+	RoutingPreference pulumi.StringPtrInput
 	// The Scale Unit for this VPN Gateway. Defaults to `1`.
 	ScaleUnit pulumi.IntPtrInput
 	// A mapping of tags to assign to the VPN Gateway.

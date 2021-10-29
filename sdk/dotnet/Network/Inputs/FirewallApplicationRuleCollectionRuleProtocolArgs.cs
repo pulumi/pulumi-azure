@@ -15,8 +15,8 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// Specify a port for the connection.
         /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
+        [Input("port", required: true)]
+        public Input<int> Port { get; set; } = null!;
 
         /// <summary>
         /// Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.

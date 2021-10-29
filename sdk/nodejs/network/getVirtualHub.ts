@@ -57,6 +57,10 @@ export interface GetVirtualHubResult {
      */
     readonly addressPrefix: string;
     /**
+     * The ID of the default Route Table in the Virtual Hub.
+     */
+    readonly defaultRouteTableId: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

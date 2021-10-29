@@ -47,7 +47,7 @@ namespace Pulumi.Azure.AppInsights
     /// Application Insights Smart Detection Rules can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appinsights/smartDetectionRule:SmartDetectionRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/mycomponent1/SmartDetectionRule/myrule1
+    ///  $ pulumi import azure:appinsights/smartDetectionRule:SmartDetectionRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/mycomponent1/smartDetectionRule/myrule1
     /// ```
     /// </summary>
     [AzureResourceType("azure:appinsights/smartDetectionRule:SmartDetectionRule")]

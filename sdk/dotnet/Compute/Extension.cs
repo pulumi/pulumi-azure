@@ -161,6 +161,12 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        /// </summary>
+        [Output("automaticUpgradeEnabled")]
+        public Output<bool?> AutomaticUpgradeEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the virtual machine extension peering. Changing
         /// this forces a new resource to be created.
         /// </summary>
@@ -267,6 +273,12 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
         /// <summary>
+        /// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        /// </summary>
+        [Input("automaticUpgradeEnabled")]
+        public Input<bool>? AutomaticUpgradeEnabled { get; set; }
+
+        /// <summary>
         /// The name of the virtual machine extension peering. Changing
         /// this forces a new resource to be created.
         /// </summary>
@@ -338,6 +350,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("autoUpgradeMinorVersion")]
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
+
+        /// <summary>
+        /// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        /// </summary>
+        [Input("automaticUpgradeEnabled")]
+        public Input<bool>? AutomaticUpgradeEnabled { get; set; }
 
         /// <summary>
         /// The name of the virtual machine extension peering. Changing

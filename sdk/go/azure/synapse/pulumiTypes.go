@@ -1379,6 +1379,8 @@ type WorkspaceAzureDevopsRepo struct {
 	AccountName string `pulumi:"accountName"`
 	// Specifies the collaboration branch of the repository to get code from.
 	BranchName string `pulumi:"branchName"`
+	// The last commit ID.
+	LastCommitId *string `pulumi:"lastCommitId"`
 	// Specifies the name of the Azure DevOps project.
 	ProjectName string `pulumi:"projectName"`
 	// Specifies the name of the git repository.
@@ -1405,6 +1407,8 @@ type WorkspaceAzureDevopsRepoArgs struct {
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// Specifies the collaboration branch of the repository to get code from.
 	BranchName pulumi.StringInput `pulumi:"branchName"`
+	// The last commit ID.
+	LastCommitId pulumi.StringPtrInput `pulumi:"lastCommitId"`
 	// Specifies the name of the Azure DevOps project.
 	ProjectName pulumi.StringInput `pulumi:"projectName"`
 	// Specifies the name of the git repository.
@@ -1502,6 +1506,11 @@ func (o WorkspaceAzureDevopsRepoOutput) BranchName() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceAzureDevopsRepo) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
+// The last commit ID.
+func (o WorkspaceAzureDevopsRepoOutput) LastCommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceAzureDevopsRepo) *string { return v.LastCommitId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the name of the Azure DevOps project.
 func (o WorkspaceAzureDevopsRepoOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceAzureDevopsRepo) string { return v.ProjectName }).(pulumi.StringOutput)
@@ -1563,6 +1572,16 @@ func (o WorkspaceAzureDevopsRepoPtrOutput) BranchName() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.BranchName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last commit ID.
+func (o WorkspaceAzureDevopsRepoPtrOutput) LastCommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceAzureDevopsRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastCommitId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1769,6 +1788,8 @@ type WorkspaceGithubRepo struct {
 	BranchName string `pulumi:"branchName"`
 	// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
 	GitUrl *string `pulumi:"gitUrl"`
+	// The last commit ID.
+	LastCommitId *string `pulumi:"lastCommitId"`
 	// Specifies the name of the git repository.
 	RepositoryName string `pulumi:"repositoryName"`
 	// Specifies the root folder within the repository. Set to `/` for the top level.
@@ -1793,6 +1814,8 @@ type WorkspaceGithubRepoArgs struct {
 	BranchName pulumi.StringInput `pulumi:"branchName"`
 	// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
 	GitUrl pulumi.StringPtrInput `pulumi:"gitUrl"`
+	// The last commit ID.
+	LastCommitId pulumi.StringPtrInput `pulumi:"lastCommitId"`
 	// Specifies the name of the git repository.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 	// Specifies the root folder within the repository. Set to `/` for the top level.
@@ -1891,6 +1914,11 @@ func (o WorkspaceGithubRepoOutput) GitUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceGithubRepo) *string { return v.GitUrl }).(pulumi.StringPtrOutput)
 }
 
+// The last commit ID.
+func (o WorkspaceGithubRepoOutput) LastCommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceGithubRepo) *string { return v.LastCommitId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the name of the git repository.
 func (o WorkspaceGithubRepoOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceGithubRepo) string { return v.RepositoryName }).(pulumi.StringOutput)
@@ -1952,6 +1980,16 @@ func (o WorkspaceGithubRepoPtrOutput) GitUrl() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.GitUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last commit ID.
+func (o WorkspaceGithubRepoPtrOutput) LastCommitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceGithubRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastCommitId
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -186,7 +186,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly probes!: pulumi.Output<outputs.network.ApplicationGatewayProbe[] | undefined>;
     /**
-     * A `redirectConfiguration` block as defined below.
+     * One or more `redirectConfiguration` blocks as defined below.
      */
     public readonly redirectConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayRedirectConfiguration[] | undefined>;
     /**
@@ -415,7 +415,7 @@ export interface ApplicationGatewayState {
      */
     probes?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayProbe>[]>;
     /**
-     * A `redirectConfiguration` block as defined below.
+     * One or more `redirectConfiguration` blocks as defined below.
      */
     redirectConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRedirectConfiguration>[]>;
     /**
@@ -537,7 +537,7 @@ export interface ApplicationGatewayArgs {
      */
     probes?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayProbe>[]>;
     /**
-     * A `redirectConfiguration` block as defined below.
+     * One or more `redirectConfiguration` blocks as defined below.
      */
     redirectConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRedirectConfiguration>[]>;
     /**

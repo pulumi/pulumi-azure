@@ -70,6 +70,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string AddressPrefix;
         /// <summary>
+        /// The ID of the default Route Table in the Virtual Hub.
+        /// </summary>
+        public readonly string DefaultRouteTableId;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -92,6 +96,8 @@ namespace Pulumi.Azure.Network
         private GetVirtualHubResult(
             string addressPrefix,
 
+            string defaultRouteTableId,
+
             string id,
 
             string location,
@@ -105,6 +111,7 @@ namespace Pulumi.Azure.Network
             string virtualWanId)
         {
             AddressPrefix = addressPrefix;
+            DefaultRouteTableId = defaultRouteTableId;
             Id = id;
             Location = location;
             Name = name;

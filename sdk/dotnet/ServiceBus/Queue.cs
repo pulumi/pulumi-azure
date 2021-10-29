@@ -125,6 +125,14 @@ namespace Pulumi.Azure.ServiceBus
         public Output<int?> MaxDeliveryCount { get; private set; } = null!;
 
         /// <summary>
+        /// Integer value which controls the maximum size of
+        /// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
+        /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// </summary>
+        [Output("maxMessageSizeInKilobytes")]
+        public Output<int> MaxMessageSizeInKilobytes { get; private set; } = null!;
+
+        /// <summary>
         /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         /// </summary>
         [Output("maxSizeInMegabytes")]
@@ -283,6 +291,14 @@ namespace Pulumi.Azure.ServiceBus
         public Input<int>? MaxDeliveryCount { get; set; }
 
         /// <summary>
+        /// Integer value which controls the maximum size of
+        /// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
+        /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// </summary>
+        [Input("maxMessageSizeInKilobytes")]
+        public Input<int>? MaxMessageSizeInKilobytes { get; set; }
+
+        /// <summary>
         /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         /// </summary>
         [Input("maxSizeInMegabytes")]
@@ -396,6 +412,14 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("maxDeliveryCount")]
         public Input<int>? MaxDeliveryCount { get; set; }
+
+        /// <summary>
+        /// Integer value which controls the maximum size of
+        /// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
+        /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        /// </summary>
+        [Input("maxMessageSizeInKilobytes")]
+        public Input<int>? MaxMessageSizeInKilobytes { get; set; }
 
         /// <summary>
         /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.

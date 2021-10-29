@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Event Grid System Topic.
+ * Use this data source to access information about an existing EventGrid System Topic
  *
  * ## Example Usage
  *
@@ -14,218 +14,97 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     tags: {
- *         environment: "staging",
- *     },
- * });
- * const exampleSystemTopic = new azure.eventgrid.SystemTopic("exampleSystemTopic", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sourceArmResourceId: exampleAccount.id,
- *     topicType: "Microsoft.Storage.StorageAccounts",
- * });
+ * const example = pulumi.output(azure.eventgrid.getSystemTopic({
+ *     name: "eventgrid-system-topic",
+ *     resourceGroupName: "example-resources",
+ * }));
  * ```
- *
- * ## Import
- *
- * Event Grid System Topic can be imported using the `resource id`, e.g.
- *
- * ```sh
- *  $ pulumi import azure:eventgrid/getSystemTopic:getSystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
- * ```
- *
- * @deprecated azure.eventgrid.getSystemTopic has been deprecated in favor of azure.eventgrid.SystemTopic
  */
-export class GetSystemTopic extends pulumi.CustomResource {
-    /**
-     * Get an existing GetSystemTopic resource's state with the given name, ID, and optional extra
-     * properties used to qualify the lookup.
-     *
-     * @param name The _unique_ name of the resulting resource.
-     * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
-     * @param opts Optional settings to control the behavior of the CustomResource.
-     */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GetSystemTopicState, opts?: pulumi.CustomResourceOptions): GetSystemTopic {
-        pulumi.log.warn("GetSystemTopic is deprecated: azure.eventgrid.getSystemTopic has been deprecated in favor of azure.eventgrid.SystemTopic")
-        return new GetSystemTopic(name, <any>state, { ...opts, id: id });
+export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicResult> {
+    if (!opts) {
+        opts = {}
     }
 
-    /** @internal */
-    public static readonly __pulumiType = 'azure:eventgrid/getSystemTopic:getSystemTopic';
-
-    /**
-     * Returns true if the given object is an instance of GetSystemTopic.  This is designed to work even
-     * when multiple copies of the Pulumi SDK have been loaded into the same process.
-     */
-    public static isInstance(obj: any): obj is GetSystemTopic {
-        if (obj === undefined || obj === null) {
-            return false;
-        }
-        return obj['__pulumiType'] === GetSystemTopic.__pulumiType;
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
     }
-
-    /**
-     * An `identity` block as defined below.
-     */
-    public readonly identity!: pulumi.Output<outputs.eventgrid.GetSystemTopicIdentity | undefined>;
-    /**
-     * The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-     */
-    public readonly location!: pulumi.Output<string>;
-    /**
-     * The Metric ARM Resource ID of the Event Grid System Topic.
-     */
-    public /*out*/ readonly metricArmResourceId!: pulumi.Output<string>;
-    /**
-     * The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-     */
-    public readonly name!: pulumi.Output<string>;
-    /**
-     * The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
-     * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-     */
-    public readonly sourceArmResourceId!: pulumi.Output<string>;
-    /**
-     * A mapping of tags which should be assigned to the Event Grid System Topic.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-     * , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-     */
-    public readonly topicType!: pulumi.Output<string>;
-
-    /**
-     * Create a GetSystemTopic resource with the given unique name, arguments, and options.
-     *
-     * @param name The _unique_ name of the resource.
-     * @param args The arguments to use to populate this resource's properties.
-     * @param opts A bag of options that control this resource's behavior.
-     */
-    /** @deprecated azure.eventgrid.getSystemTopic has been deprecated in favor of azure.eventgrid.SystemTopic */
-    constructor(name: string, args: GetSystemTopicArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.eventgrid.getSystemTopic has been deprecated in favor of azure.eventgrid.SystemTopic */
-    constructor(name: string, argsOrState?: GetSystemTopicArgs | GetSystemTopicState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GetSystemTopic is deprecated: azure.eventgrid.getSystemTopic has been deprecated in favor of azure.eventgrid.SystemTopic")
-        let inputs: pulumi.Inputs = {};
-        opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as GetSystemTopicState | undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["metricArmResourceId"] = state ? state.metricArmResourceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sourceArmResourceId"] = state ? state.sourceArmResourceId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["topicType"] = state ? state.topicType : undefined;
-        } else {
-            const args = argsOrState as GetSystemTopicArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.sourceArmResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sourceArmResourceId'");
-            }
-            if ((!args || args.topicType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'topicType'");
-            }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceArmResourceId"] = args ? args.sourceArmResourceId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["topicType"] = args ? args.topicType : undefined;
-            inputs["metricArmResourceId"] = undefined /*out*/;
-        }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GetSystemTopic.__pulumiType, name, inputs, opts);
-    }
+    return pulumi.runtime.invoke("azure:eventgrid/getSystemTopic:getSystemTopic", {
+        "identity": args.identity,
+        "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
+    }, opts);
 }
 
 /**
- * Input properties used for looking up and filtering getSystemTopic resources.
- */
-export interface GetSystemTopicState {
-    /**
-     * An `identity` block as defined below.
-     */
-    identity?: pulumi.Input<inputs.eventgrid.GetSystemTopicIdentity>;
-    /**
-     * The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-     */
-    location?: pulumi.Input<string>;
-    /**
-     * The Metric ARM Resource ID of the Event Grid System Topic.
-     */
-    metricArmResourceId?: pulumi.Input<string>;
-    /**
-     * The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-    /**
-     * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-     */
-    sourceArmResourceId?: pulumi.Input<string>;
-    /**
-     * A mapping of tags which should be assigned to the Event Grid System Topic.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
-     * , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
-     */
-    topicType?: pulumi.Input<string>;
-}
-
-/**
- * The set of arguments for constructing a GetSystemTopic resource.
+ * A collection of arguments for invoking getSystemTopic.
  */
 export interface GetSystemTopicArgs {
     /**
-     * An `identity` block as defined below.
+     * An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
      */
-    identity?: pulumi.Input<inputs.eventgrid.GetSystemTopicIdentity>;
+    identity?: inputs.eventgrid.GetSystemTopicIdentity;
     /**
-     * The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
+     * The name of the EventGrid System Topic resource.
      */
-    location?: pulumi.Input<string>;
+    name: string;
     /**
-     * The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
+     * The name of the resource group in which the EventGrid System Topic exists.
      */
-    name?: pulumi.Input<string>;
+    resourceGroupName: string;
+}
+
+/**
+ * A collection of values returned by getSystemTopic.
+ */
+export interface GetSystemTopicResult {
     /**
-     * The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
+     * The provider-assigned unique ID for this managed resource.
      */
-    resourceGroupName: pulumi.Input<string>;
+    readonly id: string;
     /**
-     * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
+     * An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
      */
-    sourceArmResourceId: pulumi.Input<string>;
+    readonly identity: outputs.eventgrid.GetSystemTopicIdentity;
+    readonly location: string;
     /**
-     * A mapping of tags which should be assigned to the Event Grid System Topic.
+     * The Metric ARM Resource ID of the Event Grid System Topic.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly metricArmResourceId: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
+    /**
+     * The ID of the Event Grid System Topic ARM Source.
+     */
+    readonly sourceArmResourceId: string;
+    /**
+     * A mapping of tags which are assigned to the Event Grid System Topic.
+     */
+    readonly tags: {[key: string]: string};
     /**
      * The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
      * , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
      */
-    topicType: pulumi.Input<string>;
+    readonly topicType: string;
+}
+
+export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicResult> {
+    return pulumi.output(args).apply(a => getSystemTopic(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSystemTopic.
+ */
+export interface GetSystemTopicOutputArgs {
+    /**
+     * An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
+     */
+    identity?: pulumi.Input<inputs.eventgrid.GetSystemTopicIdentityArgs>;
+    /**
+     * The name of the EventGrid System Topic resource.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which the EventGrid System Topic exists.
+     */
+    resourceGroupName: pulumi.Input<string>;
 }

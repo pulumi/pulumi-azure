@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Synapse.Outputs
         /// </summary>
         public readonly string BranchName;
         /// <summary>
+        /// The last commit ID.
+        /// </summary>
+        public readonly string? LastCommitId;
+        /// <summary>
         /// Specifies the name of the Azure DevOps project.
         /// </summary>
         public readonly string ProjectName;
@@ -44,6 +48,8 @@ namespace Pulumi.Azure.Synapse.Outputs
 
             string branchName,
 
+            string? lastCommitId,
+
             string projectName,
 
             string repositoryName,
@@ -54,6 +60,7 @@ namespace Pulumi.Azure.Synapse.Outputs
         {
             AccountName = accountName;
             BranchName = branchName;
+            LastCommitId = lastCommitId;
             ProjectName = projectName;
             RepositoryName = repositoryName;
             RootFolder = rootFolder;

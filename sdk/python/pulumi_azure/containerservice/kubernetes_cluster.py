@@ -59,7 +59,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
-        :param pulumi.Input[bool] local_account_disabled: Is local account disabled for AAD integrated kubernetes cluster?
+        :param pulumi.Input[bool] local_account_disabled: - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
@@ -303,7 +303,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="localAccountDisabled")
     def local_account_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is local account disabled for AAD integrated kubernetes cluster?
+        - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         """
         return pulumi.get(self, "local_account_disabled")
 
@@ -504,6 +504,7 @@ class _KubernetesClusterState:
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
+                 portal_fqdn: Optional[pulumi.Input[str]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
@@ -534,12 +535,13 @@ class _KubernetesClusterState:
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
-        :param pulumi.Input[bool] local_account_disabled: Is local account disabled for AAD integrated kubernetes cluster?
+        :param pulumi.Input[bool] local_account_disabled: - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] portal_fqdn: The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
@@ -599,6 +601,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "network_profile", network_profile)
         if node_resource_group is not None:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
+        if portal_fqdn is not None:
+            pulumi.set(__self__, "portal_fqdn", portal_fqdn)
         if private_cluster_enabled is not None:
             pulumi.set(__self__, "private_cluster_enabled", private_cluster_enabled)
         if private_cluster_public_fqdn_enabled is not None:
@@ -842,7 +846,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="localAccountDisabled")
     def local_account_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is local account disabled for AAD integrated kubernetes cluster?
+        - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         """
         return pulumi.get(self, "local_account_disabled")
 
@@ -909,6 +913,18 @@ class _KubernetesClusterState:
     @node_resource_group.setter
     def node_resource_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "node_resource_group", value)
+
+    @property
+    @pulumi.getter(name="portalFqdn")
+    def portal_fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+        """
+        return pulumi.get(self, "portal_fqdn")
+
+    @portal_fqdn.setter
+    def portal_fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "portal_fqdn", value)
 
     @property
     @pulumi.getter(name="privateClusterEnabled")
@@ -1128,7 +1144,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
-        :param pulumi.Input[bool] local_account_disabled: Is local account disabled for AAD integrated kubernetes cluster?
+        :param pulumi.Input[bool] local_account_disabled: - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
@@ -1286,6 +1302,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["kube_admin_configs"] = None
             __props__.__dict__["kube_config_raw"] = None
             __props__.__dict__["kube_configs"] = None
+            __props__.__dict__["portal_fqdn"] = None
             __props__.__dict__["private_fqdn"] = None
         super(KubernetesCluster, __self__).__init__(
             'azure:containerservice/kubernetesCluster:KubernetesCluster',
@@ -1321,6 +1338,7 @@ class KubernetesCluster(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
             node_resource_group: Optional[pulumi.Input[str]] = None,
+            portal_fqdn: Optional[pulumi.Input[str]] = None,
             private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
             private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
             private_dns_zone_id: Optional[pulumi.Input[str]] = None,
@@ -1356,12 +1374,13 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
-        :param pulumi.Input[bool] local_account_disabled: Is local account disabled for AAD integrated kubernetes cluster?
+        :param pulumi.Input[bool] local_account_disabled: - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] portal_fqdn: The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
@@ -1401,6 +1420,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile"] = network_profile
         __props__.__dict__["node_resource_group"] = node_resource_group
+        __props__.__dict__["portal_fqdn"] = portal_fqdn
         __props__.__dict__["private_cluster_enabled"] = private_cluster_enabled
         __props__.__dict__["private_cluster_public_fqdn_enabled"] = private_cluster_public_fqdn_enabled
         __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
@@ -1559,7 +1579,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="localAccountDisabled")
     def local_account_disabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is local account disabled for AAD integrated kubernetes cluster?
+        - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         """
         return pulumi.get(self, "local_account_disabled")
 
@@ -1602,6 +1622,14 @@ class KubernetesCluster(pulumi.CustomResource):
         The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_resource_group")
+
+    @property
+    @pulumi.getter(name="portalFqdn")
+    def portal_fqdn(self) -> pulumi.Output[str]:
+        """
+        The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+        """
+        return pulumi.get(self, "portal_fqdn")
 
     @property
     @pulumi.getter(name="privateClusterEnabled")

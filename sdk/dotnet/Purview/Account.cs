@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Purview
         public Output<string> ScanEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+        /// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Purview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+        /// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Purview
         public Input<string>? ScanEndpoint { get; set; }
 
         /// <summary>
-        /// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
+        /// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

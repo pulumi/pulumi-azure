@@ -176,7 +176,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterLinuxProfile?> LinuxProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Is local account disabled for AAD integrated kubernetes cluster?
+        /// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// </summary>
         [Output("localAccountDisabled")]
         public Output<bool?> LocalAccountDisabled { get; private set; } = null!;
@@ -210,6 +210,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("nodeResourceGroup")]
         public Output<string> NodeResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+        /// </summary>
+        [Output("portalFqdn")]
+        public Output<string> PortalFqdn { get; private set; } = null!;
 
         /// <summary>
         /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
@@ -408,7 +414,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterLinuxProfileArgs>? LinuxProfile { get; set; }
 
         /// <summary>
-        /// Is local account disabled for AAD integrated kubernetes cluster?
+        /// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// </summary>
         [Input("localAccountDisabled")]
         public Input<bool>? LocalAccountDisabled { get; set; }
@@ -643,7 +649,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterLinuxProfileGetArgs>? LinuxProfile { get; set; }
 
         /// <summary>
-        /// Is local account disabled for AAD integrated kubernetes cluster?
+        /// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// </summary>
         [Input("localAccountDisabled")]
         public Input<bool>? LocalAccountDisabled { get; set; }
@@ -677,6 +683,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("nodeResourceGroup")]
         public Input<string>? NodeResourceGroup { get; set; }
+
+        /// <summary>
+        /// The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+        /// </summary>
+        [Input("portalFqdn")]
+        public Input<string>? PortalFqdn { get; set; }
 
         /// <summary>
         /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.

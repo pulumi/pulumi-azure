@@ -64,6 +64,12 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        /// </summary>
+        [Output("automaticUpgradeEnabled")]
+        public Output<bool?> AutomaticUpgradeEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         /// </summary>
         [Output("forceUpdateTag")]
@@ -170,6 +176,12 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
         /// <summary>
+        /// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        /// </summary>
+        [Input("automaticUpgradeEnabled")]
+        public Input<bool>? AutomaticUpgradeEnabled { get; set; }
+
+        /// <summary>
         /// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         /// </summary>
         [Input("forceUpdateTag")]
@@ -241,6 +253,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("autoUpgradeMinorVersion")]
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
+
+        /// <summary>
+        /// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        /// </summary>
+        [Input("automaticUpgradeEnabled")]
+        public Input<bool>? AutomaticUpgradeEnabled { get; set; }
 
         /// <summary>
         /// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.

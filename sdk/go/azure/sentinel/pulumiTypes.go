@@ -518,6 +518,387 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) ReopenClosedIn
 	}).(pulumi.BoolPtrOutput)
 }
 
+type AuthomationRuleActionIncident struct {
+	// The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+	Classification *string `pulumi:"classification"`
+	// The comment why the incident is to be closed.
+	ClassificationComment *string `pulumi:"classificationComment"`
+	// Specifies a list of labels to add to the incident.
+	Labels []string `pulumi:"labels"`
+	// The execution order of this action.
+	Order int `pulumi:"order"`
+	// The object ID of the entity this incident is assigned to.
+	OwnerId *string `pulumi:"ownerId"`
+	// The severity to add to the incident.
+	Severity *string `pulumi:"severity"`
+	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
+	Status *string `pulumi:"status"`
+}
+
+// AuthomationRuleActionIncidentInput is an input type that accepts AuthomationRuleActionIncidentArgs and AuthomationRuleActionIncidentOutput values.
+// You can construct a concrete instance of `AuthomationRuleActionIncidentInput` via:
+//
+//          AuthomationRuleActionIncidentArgs{...}
+type AuthomationRuleActionIncidentInput interface {
+	pulumi.Input
+
+	ToAuthomationRuleActionIncidentOutput() AuthomationRuleActionIncidentOutput
+	ToAuthomationRuleActionIncidentOutputWithContext(context.Context) AuthomationRuleActionIncidentOutput
+}
+
+type AuthomationRuleActionIncidentArgs struct {
+	// The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+	Classification pulumi.StringPtrInput `pulumi:"classification"`
+	// The comment why the incident is to be closed.
+	ClassificationComment pulumi.StringPtrInput `pulumi:"classificationComment"`
+	// Specifies a list of labels to add to the incident.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+	// The execution order of this action.
+	Order pulumi.IntInput `pulumi:"order"`
+	// The object ID of the entity this incident is assigned to.
+	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
+	// The severity to add to the incident.
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
+	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (AuthomationRuleActionIncidentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthomationRuleActionIncident)(nil)).Elem()
+}
+
+func (i AuthomationRuleActionIncidentArgs) ToAuthomationRuleActionIncidentOutput() AuthomationRuleActionIncidentOutput {
+	return i.ToAuthomationRuleActionIncidentOutputWithContext(context.Background())
+}
+
+func (i AuthomationRuleActionIncidentArgs) ToAuthomationRuleActionIncidentOutputWithContext(ctx context.Context) AuthomationRuleActionIncidentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleActionIncidentOutput)
+}
+
+// AuthomationRuleActionIncidentArrayInput is an input type that accepts AuthomationRuleActionIncidentArray and AuthomationRuleActionIncidentArrayOutput values.
+// You can construct a concrete instance of `AuthomationRuleActionIncidentArrayInput` via:
+//
+//          AuthomationRuleActionIncidentArray{ AuthomationRuleActionIncidentArgs{...} }
+type AuthomationRuleActionIncidentArrayInput interface {
+	pulumi.Input
+
+	ToAuthomationRuleActionIncidentArrayOutput() AuthomationRuleActionIncidentArrayOutput
+	ToAuthomationRuleActionIncidentArrayOutputWithContext(context.Context) AuthomationRuleActionIncidentArrayOutput
+}
+
+type AuthomationRuleActionIncidentArray []AuthomationRuleActionIncidentInput
+
+func (AuthomationRuleActionIncidentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthomationRuleActionIncident)(nil)).Elem()
+}
+
+func (i AuthomationRuleActionIncidentArray) ToAuthomationRuleActionIncidentArrayOutput() AuthomationRuleActionIncidentArrayOutput {
+	return i.ToAuthomationRuleActionIncidentArrayOutputWithContext(context.Background())
+}
+
+func (i AuthomationRuleActionIncidentArray) ToAuthomationRuleActionIncidentArrayOutputWithContext(ctx context.Context) AuthomationRuleActionIncidentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleActionIncidentArrayOutput)
+}
+
+type AuthomationRuleActionIncidentOutput struct{ *pulumi.OutputState }
+
+func (AuthomationRuleActionIncidentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthomationRuleActionIncident)(nil)).Elem()
+}
+
+func (o AuthomationRuleActionIncidentOutput) ToAuthomationRuleActionIncidentOutput() AuthomationRuleActionIncidentOutput {
+	return o
+}
+
+func (o AuthomationRuleActionIncidentOutput) ToAuthomationRuleActionIncidentOutputWithContext(ctx context.Context) AuthomationRuleActionIncidentOutput {
+	return o
+}
+
+// The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+func (o AuthomationRuleActionIncidentOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthomationRuleActionIncident) *string { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+// The comment why the incident is to be closed.
+func (o AuthomationRuleActionIncidentOutput) ClassificationComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthomationRuleActionIncident) *string { return v.ClassificationComment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of labels to add to the incident.
+func (o AuthomationRuleActionIncidentOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthomationRuleActionIncident) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// The execution order of this action.
+func (o AuthomationRuleActionIncidentOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v AuthomationRuleActionIncident) int { return v.Order }).(pulumi.IntOutput)
+}
+
+// The object ID of the entity this incident is assigned to.
+func (o AuthomationRuleActionIncidentOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthomationRuleActionIncident) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
+}
+
+// The severity to add to the incident.
+func (o AuthomationRuleActionIncidentOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthomationRuleActionIncident) *string { return v.Severity }).(pulumi.StringPtrOutput)
+}
+
+// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
+func (o AuthomationRuleActionIncidentOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthomationRuleActionIncident) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type AuthomationRuleActionIncidentArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthomationRuleActionIncidentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthomationRuleActionIncident)(nil)).Elem()
+}
+
+func (o AuthomationRuleActionIncidentArrayOutput) ToAuthomationRuleActionIncidentArrayOutput() AuthomationRuleActionIncidentArrayOutput {
+	return o
+}
+
+func (o AuthomationRuleActionIncidentArrayOutput) ToAuthomationRuleActionIncidentArrayOutputWithContext(ctx context.Context) AuthomationRuleActionIncidentArrayOutput {
+	return o
+}
+
+func (o AuthomationRuleActionIncidentArrayOutput) Index(i pulumi.IntInput) AuthomationRuleActionIncidentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthomationRuleActionIncident {
+		return vs[0].([]AuthomationRuleActionIncident)[vs[1].(int)]
+	}).(AuthomationRuleActionIncidentOutput)
+}
+
+type AuthomationRuleActionPlaybook struct {
+	// The ID of the Logic App that defines the playbook's logic.
+	LogicAppId string `pulumi:"logicAppId"`
+	// The execution order of this action.
+	Order int `pulumi:"order"`
+	// The ID of the Tenant that owns the playbook.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// AuthomationRuleActionPlaybookInput is an input type that accepts AuthomationRuleActionPlaybookArgs and AuthomationRuleActionPlaybookOutput values.
+// You can construct a concrete instance of `AuthomationRuleActionPlaybookInput` via:
+//
+//          AuthomationRuleActionPlaybookArgs{...}
+type AuthomationRuleActionPlaybookInput interface {
+	pulumi.Input
+
+	ToAuthomationRuleActionPlaybookOutput() AuthomationRuleActionPlaybookOutput
+	ToAuthomationRuleActionPlaybookOutputWithContext(context.Context) AuthomationRuleActionPlaybookOutput
+}
+
+type AuthomationRuleActionPlaybookArgs struct {
+	// The ID of the Logic App that defines the playbook's logic.
+	LogicAppId pulumi.StringInput `pulumi:"logicAppId"`
+	// The execution order of this action.
+	Order pulumi.IntInput `pulumi:"order"`
+	// The ID of the Tenant that owns the playbook.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (AuthomationRuleActionPlaybookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthomationRuleActionPlaybook)(nil)).Elem()
+}
+
+func (i AuthomationRuleActionPlaybookArgs) ToAuthomationRuleActionPlaybookOutput() AuthomationRuleActionPlaybookOutput {
+	return i.ToAuthomationRuleActionPlaybookOutputWithContext(context.Background())
+}
+
+func (i AuthomationRuleActionPlaybookArgs) ToAuthomationRuleActionPlaybookOutputWithContext(ctx context.Context) AuthomationRuleActionPlaybookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleActionPlaybookOutput)
+}
+
+// AuthomationRuleActionPlaybookArrayInput is an input type that accepts AuthomationRuleActionPlaybookArray and AuthomationRuleActionPlaybookArrayOutput values.
+// You can construct a concrete instance of `AuthomationRuleActionPlaybookArrayInput` via:
+//
+//          AuthomationRuleActionPlaybookArray{ AuthomationRuleActionPlaybookArgs{...} }
+type AuthomationRuleActionPlaybookArrayInput interface {
+	pulumi.Input
+
+	ToAuthomationRuleActionPlaybookArrayOutput() AuthomationRuleActionPlaybookArrayOutput
+	ToAuthomationRuleActionPlaybookArrayOutputWithContext(context.Context) AuthomationRuleActionPlaybookArrayOutput
+}
+
+type AuthomationRuleActionPlaybookArray []AuthomationRuleActionPlaybookInput
+
+func (AuthomationRuleActionPlaybookArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthomationRuleActionPlaybook)(nil)).Elem()
+}
+
+func (i AuthomationRuleActionPlaybookArray) ToAuthomationRuleActionPlaybookArrayOutput() AuthomationRuleActionPlaybookArrayOutput {
+	return i.ToAuthomationRuleActionPlaybookArrayOutputWithContext(context.Background())
+}
+
+func (i AuthomationRuleActionPlaybookArray) ToAuthomationRuleActionPlaybookArrayOutputWithContext(ctx context.Context) AuthomationRuleActionPlaybookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleActionPlaybookArrayOutput)
+}
+
+type AuthomationRuleActionPlaybookOutput struct{ *pulumi.OutputState }
+
+func (AuthomationRuleActionPlaybookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthomationRuleActionPlaybook)(nil)).Elem()
+}
+
+func (o AuthomationRuleActionPlaybookOutput) ToAuthomationRuleActionPlaybookOutput() AuthomationRuleActionPlaybookOutput {
+	return o
+}
+
+func (o AuthomationRuleActionPlaybookOutput) ToAuthomationRuleActionPlaybookOutputWithContext(ctx context.Context) AuthomationRuleActionPlaybookOutput {
+	return o
+}
+
+// The ID of the Logic App that defines the playbook's logic.
+func (o AuthomationRuleActionPlaybookOutput) LogicAppId() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthomationRuleActionPlaybook) string { return v.LogicAppId }).(pulumi.StringOutput)
+}
+
+// The execution order of this action.
+func (o AuthomationRuleActionPlaybookOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v AuthomationRuleActionPlaybook) int { return v.Order }).(pulumi.IntOutput)
+}
+
+// The ID of the Tenant that owns the playbook.
+func (o AuthomationRuleActionPlaybookOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthomationRuleActionPlaybook) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type AuthomationRuleActionPlaybookArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthomationRuleActionPlaybookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthomationRuleActionPlaybook)(nil)).Elem()
+}
+
+func (o AuthomationRuleActionPlaybookArrayOutput) ToAuthomationRuleActionPlaybookArrayOutput() AuthomationRuleActionPlaybookArrayOutput {
+	return o
+}
+
+func (o AuthomationRuleActionPlaybookArrayOutput) ToAuthomationRuleActionPlaybookArrayOutputWithContext(ctx context.Context) AuthomationRuleActionPlaybookArrayOutput {
+	return o
+}
+
+func (o AuthomationRuleActionPlaybookArrayOutput) Index(i pulumi.IntInput) AuthomationRuleActionPlaybookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthomationRuleActionPlaybook {
+		return vs[0].([]AuthomationRuleActionPlaybook)[vs[1].(int)]
+	}).(AuthomationRuleActionPlaybookOutput)
+}
+
+type AuthomationRuleCondition struct {
+	// The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
+	Operator string `pulumi:"operator"`
+	// The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+	Property string `pulumi:"property"`
+	// Specifies a list of values to use for evaluate the condition.
+	Values []string `pulumi:"values"`
+}
+
+// AuthomationRuleConditionInput is an input type that accepts AuthomationRuleConditionArgs and AuthomationRuleConditionOutput values.
+// You can construct a concrete instance of `AuthomationRuleConditionInput` via:
+//
+//          AuthomationRuleConditionArgs{...}
+type AuthomationRuleConditionInput interface {
+	pulumi.Input
+
+	ToAuthomationRuleConditionOutput() AuthomationRuleConditionOutput
+	ToAuthomationRuleConditionOutputWithContext(context.Context) AuthomationRuleConditionOutput
+}
+
+type AuthomationRuleConditionArgs struct {
+	// The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+	Property pulumi.StringInput `pulumi:"property"`
+	// Specifies a list of values to use for evaluate the condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AuthomationRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthomationRuleCondition)(nil)).Elem()
+}
+
+func (i AuthomationRuleConditionArgs) ToAuthomationRuleConditionOutput() AuthomationRuleConditionOutput {
+	return i.ToAuthomationRuleConditionOutputWithContext(context.Background())
+}
+
+func (i AuthomationRuleConditionArgs) ToAuthomationRuleConditionOutputWithContext(ctx context.Context) AuthomationRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleConditionOutput)
+}
+
+// AuthomationRuleConditionArrayInput is an input type that accepts AuthomationRuleConditionArray and AuthomationRuleConditionArrayOutput values.
+// You can construct a concrete instance of `AuthomationRuleConditionArrayInput` via:
+//
+//          AuthomationRuleConditionArray{ AuthomationRuleConditionArgs{...} }
+type AuthomationRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToAuthomationRuleConditionArrayOutput() AuthomationRuleConditionArrayOutput
+	ToAuthomationRuleConditionArrayOutputWithContext(context.Context) AuthomationRuleConditionArrayOutput
+}
+
+type AuthomationRuleConditionArray []AuthomationRuleConditionInput
+
+func (AuthomationRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthomationRuleCondition)(nil)).Elem()
+}
+
+func (i AuthomationRuleConditionArray) ToAuthomationRuleConditionArrayOutput() AuthomationRuleConditionArrayOutput {
+	return i.ToAuthomationRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i AuthomationRuleConditionArray) ToAuthomationRuleConditionArrayOutputWithContext(ctx context.Context) AuthomationRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleConditionArrayOutput)
+}
+
+type AuthomationRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (AuthomationRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthomationRuleCondition)(nil)).Elem()
+}
+
+func (o AuthomationRuleConditionOutput) ToAuthomationRuleConditionOutput() AuthomationRuleConditionOutput {
+	return o
+}
+
+func (o AuthomationRuleConditionOutput) ToAuthomationRuleConditionOutputWithContext(ctx context.Context) AuthomationRuleConditionOutput {
+	return o
+}
+
+// The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
+func (o AuthomationRuleConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthomationRuleCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+func (o AuthomationRuleConditionOutput) Property() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthomationRuleCondition) string { return v.Property }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to use for evaluate the condition.
+func (o AuthomationRuleConditionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthomationRuleCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AuthomationRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthomationRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthomationRuleCondition)(nil)).Elem()
+}
+
+func (o AuthomationRuleConditionArrayOutput) ToAuthomationRuleConditionArrayOutput() AuthomationRuleConditionArrayOutput {
+	return o
+}
+
+func (o AuthomationRuleConditionArrayOutput) ToAuthomationRuleConditionArrayOutputWithContext(ctx context.Context) AuthomationRuleConditionArrayOutput {
+	return o
+}
+
+func (o AuthomationRuleConditionArrayOutput) Index(i pulumi.IntInput) AuthomationRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthomationRuleCondition {
+		return vs[0].([]AuthomationRuleCondition)[vs[1].(int)]
+	}).(AuthomationRuleConditionOutput)
+}
+
 type GetAlertRuleTemplateScheduledTemplate struct {
 	// The description of this Sentinel Scheduled Alert Rule Template.
 	Description string `pulumi:"description"`
@@ -791,6 +1172,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationPtrInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationGroupingInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationGroupingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationGroupingPtrInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionIncidentInput)(nil)).Elem(), AuthomationRuleActionIncidentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionIncidentArrayInput)(nil)).Elem(), AuthomationRuleActionIncidentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionPlaybookInput)(nil)).Elem(), AuthomationRuleActionPlaybookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionPlaybookArrayInput)(nil)).Elem(), AuthomationRuleActionPlaybookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleConditionInput)(nil)).Elem(), AuthomationRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleConditionArrayInput)(nil)).Elem(), AuthomationRuleConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateScheduledTemplateInput)(nil)).Elem(), GetAlertRuleTemplateScheduledTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateScheduledTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateScheduledTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplateInput)(nil)).Elem(), GetAlertRuleTemplateSecurityIncidentTemplateArgs{})
@@ -801,6 +1188,12 @@ func init() {
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationGroupingOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationGroupingPtrOutput{})
+	pulumi.RegisterOutputType(AuthomationRuleActionIncidentOutput{})
+	pulumi.RegisterOutputType(AuthomationRuleActionIncidentArrayOutput{})
+	pulumi.RegisterOutputType(AuthomationRuleActionPlaybookOutput{})
+	pulumi.RegisterOutputType(AuthomationRuleActionPlaybookArrayOutput{})
+	pulumi.RegisterOutputType(AuthomationRuleConditionOutput{})
+	pulumi.RegisterOutputType(AuthomationRuleConditionArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertRuleTemplateScheduledTemplateOutput{})
 	pulumi.RegisterOutputType(GetAlertRuleTemplateScheduledTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertRuleTemplateSecurityIncidentTemplateOutput{})

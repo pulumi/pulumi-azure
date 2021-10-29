@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataLake
 {
     /// <summary>
-    /// Manages an Azure Data Lake Store.
+    /// Manages an Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store).
+    /// 
+    /// &gt; **Note:** This resoruce manages an `Azure Data Lake Storage Gen1`, previously known as `Azure Data Lake Store`.
     /// 
     /// ## Example Usage
     /// 

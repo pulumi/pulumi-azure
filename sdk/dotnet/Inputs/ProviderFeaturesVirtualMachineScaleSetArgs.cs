@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Inputs
         [Input("rollInstancesWhenRequired", required: true)]
         public Input<bool> RollInstancesWhenRequired { get; set; } = null!;
 
+        [Input("scaleToZeroBeforeDeletion")]
+        public Input<bool>? ScaleToZeroBeforeDeletion { get; set; }
+
         public ProviderFeaturesVirtualMachineScaleSetArgs()
         {
         }

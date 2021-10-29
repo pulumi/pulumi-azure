@@ -341,6 +341,162 @@ func (o SpringCloudAppPersistentDiskPtrOutput) SizeInGb() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type SpringCloudJavaDeploymentQuota struct {
+	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	Cpu *string `pulumi:"cpu"`
+	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+	Memory *string `pulumi:"memory"`
+}
+
+// SpringCloudJavaDeploymentQuotaInput is an input type that accepts SpringCloudJavaDeploymentQuotaArgs and SpringCloudJavaDeploymentQuotaOutput values.
+// You can construct a concrete instance of `SpringCloudJavaDeploymentQuotaInput` via:
+//
+//          SpringCloudJavaDeploymentQuotaArgs{...}
+type SpringCloudJavaDeploymentQuotaInput interface {
+	pulumi.Input
+
+	ToSpringCloudJavaDeploymentQuotaOutput() SpringCloudJavaDeploymentQuotaOutput
+	ToSpringCloudJavaDeploymentQuotaOutputWithContext(context.Context) SpringCloudJavaDeploymentQuotaOutput
+}
+
+type SpringCloudJavaDeploymentQuotaArgs struct {
+	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
+	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+	Memory pulumi.StringPtrInput `pulumi:"memory"`
+}
+
+func (SpringCloudJavaDeploymentQuotaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudJavaDeploymentQuota)(nil)).Elem()
+}
+
+func (i SpringCloudJavaDeploymentQuotaArgs) ToSpringCloudJavaDeploymentQuotaOutput() SpringCloudJavaDeploymentQuotaOutput {
+	return i.ToSpringCloudJavaDeploymentQuotaOutputWithContext(context.Background())
+}
+
+func (i SpringCloudJavaDeploymentQuotaArgs) ToSpringCloudJavaDeploymentQuotaOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentQuotaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentQuotaOutput)
+}
+
+func (i SpringCloudJavaDeploymentQuotaArgs) ToSpringCloudJavaDeploymentQuotaPtrOutput() SpringCloudJavaDeploymentQuotaPtrOutput {
+	return i.ToSpringCloudJavaDeploymentQuotaPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudJavaDeploymentQuotaArgs) ToSpringCloudJavaDeploymentQuotaPtrOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentQuotaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentQuotaOutput).ToSpringCloudJavaDeploymentQuotaPtrOutputWithContext(ctx)
+}
+
+// SpringCloudJavaDeploymentQuotaPtrInput is an input type that accepts SpringCloudJavaDeploymentQuotaArgs, SpringCloudJavaDeploymentQuotaPtr and SpringCloudJavaDeploymentQuotaPtrOutput values.
+// You can construct a concrete instance of `SpringCloudJavaDeploymentQuotaPtrInput` via:
+//
+//          SpringCloudJavaDeploymentQuotaArgs{...}
+//
+//  or:
+//
+//          nil
+type SpringCloudJavaDeploymentQuotaPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudJavaDeploymentQuotaPtrOutput() SpringCloudJavaDeploymentQuotaPtrOutput
+	ToSpringCloudJavaDeploymentQuotaPtrOutputWithContext(context.Context) SpringCloudJavaDeploymentQuotaPtrOutput
+}
+
+type springCloudJavaDeploymentQuotaPtrType SpringCloudJavaDeploymentQuotaArgs
+
+func SpringCloudJavaDeploymentQuotaPtr(v *SpringCloudJavaDeploymentQuotaArgs) SpringCloudJavaDeploymentQuotaPtrInput {
+	return (*springCloudJavaDeploymentQuotaPtrType)(v)
+}
+
+func (*springCloudJavaDeploymentQuotaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudJavaDeploymentQuota)(nil)).Elem()
+}
+
+func (i *springCloudJavaDeploymentQuotaPtrType) ToSpringCloudJavaDeploymentQuotaPtrOutput() SpringCloudJavaDeploymentQuotaPtrOutput {
+	return i.ToSpringCloudJavaDeploymentQuotaPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudJavaDeploymentQuotaPtrType) ToSpringCloudJavaDeploymentQuotaPtrOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentQuotaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentQuotaPtrOutput)
+}
+
+type SpringCloudJavaDeploymentQuotaOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudJavaDeploymentQuotaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudJavaDeploymentQuota)(nil)).Elem()
+}
+
+func (o SpringCloudJavaDeploymentQuotaOutput) ToSpringCloudJavaDeploymentQuotaOutput() SpringCloudJavaDeploymentQuotaOutput {
+	return o
+}
+
+func (o SpringCloudJavaDeploymentQuotaOutput) ToSpringCloudJavaDeploymentQuotaOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentQuotaOutput {
+	return o
+}
+
+func (o SpringCloudJavaDeploymentQuotaOutput) ToSpringCloudJavaDeploymentQuotaPtrOutput() SpringCloudJavaDeploymentQuotaPtrOutput {
+	return o.ToSpringCloudJavaDeploymentQuotaPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudJavaDeploymentQuotaOutput) ToSpringCloudJavaDeploymentQuotaPtrOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentQuotaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudJavaDeploymentQuota) *SpringCloudJavaDeploymentQuota {
+		return &v
+	}).(SpringCloudJavaDeploymentQuotaPtrOutput)
+}
+
+// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+func (o SpringCloudJavaDeploymentQuotaOutput) Cpu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudJavaDeploymentQuota) *string { return v.Cpu }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+func (o SpringCloudJavaDeploymentQuotaOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudJavaDeploymentQuota) *string { return v.Memory }).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudJavaDeploymentQuotaPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudJavaDeploymentQuotaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudJavaDeploymentQuota)(nil)).Elem()
+}
+
+func (o SpringCloudJavaDeploymentQuotaPtrOutput) ToSpringCloudJavaDeploymentQuotaPtrOutput() SpringCloudJavaDeploymentQuotaPtrOutput {
+	return o
+}
+
+func (o SpringCloudJavaDeploymentQuotaPtrOutput) ToSpringCloudJavaDeploymentQuotaPtrOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentQuotaPtrOutput {
+	return o
+}
+
+func (o SpringCloudJavaDeploymentQuotaPtrOutput) Elem() SpringCloudJavaDeploymentQuotaOutput {
+	return o.ApplyT(func(v *SpringCloudJavaDeploymentQuota) SpringCloudJavaDeploymentQuota {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudJavaDeploymentQuota
+		return ret
+	}).(SpringCloudJavaDeploymentQuotaOutput)
+}
+
+// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+func (o SpringCloudJavaDeploymentQuotaPtrOutput) Cpu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudJavaDeploymentQuota) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cpu
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+func (o SpringCloudJavaDeploymentQuotaPtrOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudJavaDeploymentQuota) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Memory
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpringCloudServiceConfigServerGitSetting struct {
 	// A `httpBasicAuth` block as defined below.
 	HttpBasicAuth *SpringCloudServiceConfigServerGitSettingHttpBasicAuth `pulumi:"httpBasicAuth"`
@@ -3075,6 +3231,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppIdentityPtrInput)(nil)).Elem(), SpringCloudAppIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppPersistentDiskInput)(nil)).Elem(), SpringCloudAppPersistentDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppPersistentDiskPtrInput)(nil)).Elem(), SpringCloudAppPersistentDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudJavaDeploymentQuotaInput)(nil)).Elem(), SpringCloudJavaDeploymentQuotaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudJavaDeploymentQuotaPtrInput)(nil)).Elem(), SpringCloudJavaDeploymentQuotaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceConfigServerGitSettingInput)(nil)).Elem(), SpringCloudServiceConfigServerGitSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceConfigServerGitSettingPtrInput)(nil)).Elem(), SpringCloudServiceConfigServerGitSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceConfigServerGitSettingHttpBasicAuthInput)(nil)).Elem(), SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs{})
@@ -3115,6 +3273,8 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudAppIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppPersistentDiskOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppPersistentDiskPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudJavaDeploymentQuotaOutput{})
+	pulumi.RegisterOutputType(SpringCloudJavaDeploymentQuotaPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput{})

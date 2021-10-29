@@ -7,3 +7,4 @@ import typing
 # Export this package's modules as members:
 from .get_enrollment_account_scope import *
 from .get_mca_account_scope import *
+from .get_mpa_account_scope import *

@@ -146,8 +146,6 @@ export class SystemTopic extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure:eventgrid/getSystemTopic:getSystemTopic" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SystemTopic.__pulumiType, name, inputs, opts);
     }
 }

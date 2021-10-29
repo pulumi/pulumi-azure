@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// Specify a port for the connection.
         /// </summary>
-        public readonly int? Port;
+        public readonly int Port;
         /// <summary>
         /// Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private FirewallApplicationRuleCollectionRuleProtocol(
-            int? port,
+            int port,
 
             string type)
         {

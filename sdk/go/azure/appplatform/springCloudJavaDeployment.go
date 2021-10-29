@@ -51,11 +51,13 @@ import (
 // 		}
 // 		_, err = appplatform.NewSpringCloudJavaDeployment(ctx, "exampleSpringCloudJavaDeployment", &appplatform.SpringCloudJavaDeploymentArgs{
 // 			SpringCloudAppId: exampleSpringCloudApp.ID(),
-// 			Cpu:              pulumi.Int(2),
 // 			InstanceCount:    pulumi.Int(2),
 // 			JvmOptions:       pulumi.String("-XX:+PrintGC"),
-// 			MemoryInGb:       pulumi.Int(4),
-// 			RuntimeVersion:   pulumi.String("Java_11"),
+// 			Quota: &appplatform.SpringCloudJavaDeploymentQuotaArgs{
+// 				Cpu:    pulumi.String("2"),
+// 				Memory: pulumi.String("4Gi"),
+// 			},
+// 			RuntimeVersion: pulumi.String("Java_11"),
 // 			EnvironmentVariables: pulumi.StringMap{
 // 				"Foo": pulumi.String("Bar"),
 // 				"Env": pulumi.String("Staging"),
@@ -79,18 +81,22 @@ import (
 type SpringCloudJavaDeployment struct {
 	pulumi.CustomResourceState
 
-	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
-	Cpu pulumi.IntPtrOutput `pulumi:"cpu"`
+	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// Deprecated: This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider
+	Cpu pulumi.IntOutput `pulumi:"cpu"`
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
 	// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrOutput `pulumi:"instanceCount"`
 	// Specifies the jvm option of the Spring Cloud Deployment.
 	JvmOptions pulumi.StringPtrOutput `pulumi:"jvmOptions"`
-	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
-	MemoryInGb pulumi.IntPtrOutput `pulumi:"memoryInGb"`
+	// Deprecated: This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider
+	MemoryInGb pulumi.IntOutput `pulumi:"memoryInGb"`
 	// Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A `quota` block as defined below.
+	Quota SpringCloudJavaDeploymentQuotaOutput `pulumi:"quota"`
 	// Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
 	RuntimeVersion pulumi.StringPtrOutput `pulumi:"runtimeVersion"`
 	// Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
@@ -129,7 +135,9 @@ func GetSpringCloudJavaDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudJavaDeployment resources.
 type springCloudJavaDeploymentState struct {
-	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
+	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// Deprecated: This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider
 	Cpu *int `pulumi:"cpu"`
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
@@ -137,10 +145,12 @@ type springCloudJavaDeploymentState struct {
 	InstanceCount *int `pulumi:"instanceCount"`
 	// Specifies the jvm option of the Spring Cloud Deployment.
 	JvmOptions *string `pulumi:"jvmOptions"`
-	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
+	// Deprecated: This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider
 	MemoryInGb *int `pulumi:"memoryInGb"`
 	// Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `quota` block as defined below.
+	Quota *SpringCloudJavaDeploymentQuota `pulumi:"quota"`
 	// Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 	// Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
@@ -148,7 +158,9 @@ type springCloudJavaDeploymentState struct {
 }
 
 type SpringCloudJavaDeploymentState struct {
-	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
+	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// Deprecated: This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider
 	Cpu pulumi.IntPtrInput
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
 	EnvironmentVariables pulumi.StringMapInput
@@ -156,10 +168,12 @@ type SpringCloudJavaDeploymentState struct {
 	InstanceCount pulumi.IntPtrInput
 	// Specifies the jvm option of the Spring Cloud Deployment.
 	JvmOptions pulumi.StringPtrInput
-	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
+	// Deprecated: This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider
 	MemoryInGb pulumi.IntPtrInput
 	// Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `quota` block as defined below.
+	Quota SpringCloudJavaDeploymentQuotaPtrInput
 	// Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
 	RuntimeVersion pulumi.StringPtrInput
 	// Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
@@ -171,7 +185,9 @@ func (SpringCloudJavaDeploymentState) ElementType() reflect.Type {
 }
 
 type springCloudJavaDeploymentArgs struct {
-	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
+	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// Deprecated: This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider
 	Cpu *int `pulumi:"cpu"`
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
@@ -179,10 +195,12 @@ type springCloudJavaDeploymentArgs struct {
 	InstanceCount *int `pulumi:"instanceCount"`
 	// Specifies the jvm option of the Spring Cloud Deployment.
 	JvmOptions *string `pulumi:"jvmOptions"`
-	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
+	// Deprecated: This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider
 	MemoryInGb *int `pulumi:"memoryInGb"`
 	// Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `quota` block as defined below.
+	Quota *SpringCloudJavaDeploymentQuota `pulumi:"quota"`
 	// Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 	// Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
@@ -191,7 +209,9 @@ type springCloudJavaDeploymentArgs struct {
 
 // The set of arguments for constructing a SpringCloudJavaDeployment resource.
 type SpringCloudJavaDeploymentArgs struct {
-	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
+	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// Deprecated: This field has been deprecated in favour of `cpu` within `quota` and will be removed in a future version of the provider
 	Cpu pulumi.IntPtrInput
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
 	EnvironmentVariables pulumi.StringMapInput
@@ -199,10 +219,12 @@ type SpringCloudJavaDeploymentArgs struct {
 	InstanceCount pulumi.IntPtrInput
 	// Specifies the jvm option of the Spring Cloud Deployment.
 	JvmOptions pulumi.StringPtrInput
-	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
+	// Deprecated: This field has been deprecated in favour of `memory` within `quota` and will be removed in a future version of the provider
 	MemoryInGb pulumi.IntPtrInput
 	// Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `quota` block as defined below.
+	Quota SpringCloudJavaDeploymentQuotaPtrInput
 	// Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
 	RuntimeVersion pulumi.StringPtrInput
 	// Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.

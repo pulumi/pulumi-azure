@@ -2680,14 +2680,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "eventgrid/getSystemTopic",
-  "fqn": "pulumi_azure.eventgrid",
-  "classes": {
-   "azure:eventgrid/getSystemTopic:getSystemTopic": "GetSystemTopic"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "eventgrid/systemTopic",
   "fqn": "pulumi_azure.eventgrid",
   "classes": {
@@ -3160,6 +3152,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "iot/timeSeriesInsightsEventSourceEventhub",
+  "fqn": "pulumi_azure.iot",
+  "classes": {
+   "azure:iot/timeSeriesInsightsEventSourceEventhub:TimeSeriesInsightsEventSourceEventhub": "TimeSeriesInsightsEventSourceEventhub"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "iot/timeSeriesInsightsEventSourceIothub",
   "fqn": "pulumi_azure.iot",
   "classes": {
@@ -3356,6 +3356,14 @@ _utilities.register(
   "fqn": "pulumi_azure.kusto",
   "classes": {
    "azure:kusto/iotHubDataConnection:IotHubDataConnection": "IotHubDataConnection"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "kusto/script",
+  "fqn": "pulumi_azure.kusto",
+  "classes": {
+   "azure:kusto/script:Script": "Script"
   }
  },
  {
@@ -5304,6 +5312,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "sentinel/authomationRule",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/authomationRule:AuthomationRule": "AuthomationRule"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "sentinel/dataConnectorAwsCloudTrail",
   "fqn": "pulumi_azure.sentinel",
   "classes": {
@@ -5856,10 +5872,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "streamanalytics/outputTable",
+  "fqn": "pulumi_azure.streamanalytics",
+  "classes": {
+   "azure:streamanalytics/outputTable:OutputTable": "OutputTable"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "streamanalytics/referenceInputBlob",
   "fqn": "pulumi_azure.streamanalytics",
   "classes": {
    "azure:streamanalytics/referenceInputBlob:ReferenceInputBlob": "ReferenceInputBlob"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "streamanalytics/referenceInputMssql",
+  "fqn": "pulumi_azure.streamanalytics",
+  "classes": {
+   "azure:streamanalytics/referenceInputMssql:ReferenceInputMssql": "ReferenceInputMssql"
   }
  },
  {

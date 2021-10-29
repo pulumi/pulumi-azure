@@ -2412,6 +2412,8 @@ type ApplicationGatewayRequestRoutingRule struct {
 	Id *string `pulumi:"id"`
 	// The Name of this Request Routing Rule.
 	Name string `pulumi:"name"`
+	// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+	Priority *int `pulumi:"priority"`
 	// The ID of the associated Redirect Configuration.
 	RedirectConfigurationId *string `pulumi:"redirectConfigurationId"`
 	// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
@@ -2456,6 +2458,8 @@ type ApplicationGatewayRequestRoutingRuleArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The Name of this Request Routing Rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The ID of the associated Redirect Configuration.
 	RedirectConfigurationId pulumi.StringPtrInput `pulumi:"redirectConfigurationId"`
 	// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backendAddressPoolName` or `backendHttpSettingsName` is set.
@@ -2561,6 +2565,11 @@ func (o ApplicationGatewayRequestRoutingRuleOutput) Id() pulumi.StringPtrOutput 
 // The Name of this Request Routing Rule.
 func (o ApplicationGatewayRequestRoutingRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+func (o ApplicationGatewayRequestRoutingRuleOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayRequestRoutingRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the associated Redirect Configuration.
@@ -7193,7 +7202,7 @@ func (o FirewallApplicationRuleCollectionRuleArrayOutput) Index(i pulumi.IntInpu
 
 type FirewallApplicationRuleCollectionRuleProtocol struct {
 	// Specify a port for the connection.
-	Port *int `pulumi:"port"`
+	Port int `pulumi:"port"`
 	// Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
 	Type string `pulumi:"type"`
 }
@@ -7211,7 +7220,7 @@ type FirewallApplicationRuleCollectionRuleProtocolInput interface {
 
 type FirewallApplicationRuleCollectionRuleProtocolArgs struct {
 	// Specify a port for the connection.
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port pulumi.IntInput `pulumi:"port"`
 	// Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -7268,8 +7277,8 @@ func (o FirewallApplicationRuleCollectionRuleProtocolOutput) ToFirewallApplicati
 }
 
 // Specify a port for the connection.
-func (o FirewallApplicationRuleCollectionRuleProtocolOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FirewallApplicationRuleCollectionRuleProtocol) *int { return v.Port }).(pulumi.IntPtrOutput)
+func (o FirewallApplicationRuleCollectionRuleProtocolOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v FirewallApplicationRuleCollectionRuleProtocol) int { return v.Port }).(pulumi.IntOutput)
 }
 
 // Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
@@ -22920,6 +22929,8 @@ type GetNetworkInterfaceIpConfiguration struct {
 	// A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
 	ApplicationGatewayBackendAddressPoolsIds []string `pulumi:"applicationGatewayBackendAddressPoolsIds"`
 	ApplicationSecurityGroupIds              []string `pulumi:"applicationSecurityGroupIds"`
+	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
+	GatewayLoadBalancerFrontendIpConfigurationId string `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
 	// A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
 	LoadBalancerBackendAddressPoolsIds []string `pulumi:"loadBalancerBackendAddressPoolsIds"`
 	// A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
@@ -22954,6 +22965,8 @@ type GetNetworkInterfaceIpConfigurationArgs struct {
 	// A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
 	ApplicationGatewayBackendAddressPoolsIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolsIds"`
 	ApplicationSecurityGroupIds              pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
+	// The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
+	GatewayLoadBalancerFrontendIpConfigurationId pulumi.StringInput `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
 	// A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
 	LoadBalancerBackendAddressPoolsIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolsIds"`
 	// A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
@@ -23031,6 +23044,13 @@ func (o GetNetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddre
 
 func (o GetNetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkInterfaceIpConfiguration) []string { return v.ApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
+func (o GetNetworkInterfaceIpConfigurationOutput) GatewayLoadBalancerFrontendIpConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkInterfaceIpConfiguration) string {
+		return v.GatewayLoadBalancerFrontendIpConfigurationId
+	}).(pulumi.StringOutput)
 }
 
 // A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.

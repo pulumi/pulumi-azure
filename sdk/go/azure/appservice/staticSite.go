@@ -59,7 +59,7 @@ type StaticSite struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the sku size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
 	SkuSize pulumi.StringPtrOutput `pulumi:"skuSize"`
 	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
@@ -109,7 +109,7 @@ type staticSiteState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the sku size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
 	SkuSize *string `pulumi:"skuSize"`
 	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
 	SkuTier *string `pulumi:"skuTier"`
@@ -128,7 +128,7 @@ type StaticSiteState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the sku size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
 	SkuSize pulumi.StringPtrInput
 	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
 	SkuTier pulumi.StringPtrInput
@@ -147,7 +147,7 @@ type staticSiteArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the sku size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
 	SkuSize *string `pulumi:"skuSize"`
 	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
 	SkuTier *string `pulumi:"skuTier"`
@@ -163,7 +163,7 @@ type StaticSiteArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
+	// Specifies the sku size of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
 	SkuSize pulumi.StringPtrInput
 	// Specifies the sku tier of the Static Web App. Possible values are "Free" or "Standard". Defaults to "Free".
 	SkuTier pulumi.StringPtrInput

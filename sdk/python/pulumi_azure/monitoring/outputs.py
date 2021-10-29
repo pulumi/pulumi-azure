@@ -2722,7 +2722,7 @@ class AutoscaleSettingProfileRuleScaleAction(dict):
         """
         :param str cooldown: The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
         :param str direction: The scale direction. Possible values are `Increase` and `Decrease`.
-        :param str type: The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+        :param str type: The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
         :param int value: The number of instances involved in the scaling action. Defaults to `1`.
         """
         pulumi.set(__self__, "cooldown", cooldown)
@@ -2750,7 +2750,7 @@ class AutoscaleSettingProfileRuleScaleAction(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+        The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
         """
         return pulumi.get(self, "type")
 

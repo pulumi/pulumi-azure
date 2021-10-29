@@ -104,6 +104,10 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      * Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+     */
+    public readonly trustedServicesAllowed!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a NamespaceNetworkRuleSet resource with the given unique name, arguments, and options.
@@ -123,6 +127,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["networkRules"] = state ? state.networkRules : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["trustedServicesAllowed"] = state ? state.trustedServicesAllowed : undefined;
         } else {
             const args = argsOrState as NamespaceNetworkRuleSetArgs | undefined;
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -136,6 +141,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["networkRules"] = args ? args.networkRules : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["trustedServicesAllowed"] = args ? args.trustedServicesAllowed : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -168,6 +174,10 @@ export interface NamespaceNetworkRuleSetState {
      * Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+     */
+    trustedServicesAllowed?: pulumi.Input<boolean>;
 }
 
 /**
@@ -194,4 +204,8 @@ export interface NamespaceNetworkRuleSetArgs {
      * Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+     */
+    trustedServicesAllowed?: pulumi.Input<boolean>;
 }

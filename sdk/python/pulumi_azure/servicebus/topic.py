@@ -21,6 +21,7 @@ class TopicArgs:
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
@@ -46,6 +47,9 @@ class TopicArgs:
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
+               a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -72,6 +76,8 @@ class TopicArgs:
             pulumi.set(__self__, "enable_express", enable_express)
         if enable_partitioning is not None:
             pulumi.set(__self__, "enable_partitioning", enable_partitioning)
+        if max_message_size_in_kilobytes is not None:
+            pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes is not None:
             pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
         if name is not None:
@@ -190,6 +196,20 @@ class TopicArgs:
         pulumi.set(self, "enable_partitioning", value)
 
     @property
+    @pulumi.getter(name="maxMessageSizeInKilobytes")
+    def max_message_size_in_kilobytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Integer value which controls the maximum size of
+        a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        """
+        return pulumi.get(self, "max_message_size_in_kilobytes")
+
+    @max_message_size_in_kilobytes.setter
+    def max_message_size_in_kilobytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_message_size_in_kilobytes", value)
+
+    @property
     @pulumi.getter(name="maxSizeInMegabytes")
     def max_size_in_megabytes(self) -> Optional[pulumi.Input[int]]:
         """
@@ -265,6 +285,7 @@ class _TopicState:
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -288,6 +309,9 @@ class _TopicState:
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
+               a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -316,6 +340,8 @@ class _TopicState:
             pulumi.set(__self__, "enable_express", enable_express)
         if enable_partitioning is not None:
             pulumi.set(__self__, "enable_partitioning", enable_partitioning)
+        if max_message_size_in_kilobytes is not None:
+            pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes is not None:
             pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
         if name is not None:
@@ -410,6 +436,20 @@ class _TopicState:
     @enable_partitioning.setter
     def enable_partitioning(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_partitioning", value)
+
+    @property
+    @pulumi.getter(name="maxMessageSizeInKilobytes")
+    def max_message_size_in_kilobytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Integer value which controls the maximum size of
+        a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        """
+        return pulumi.get(self, "max_message_size_in_kilobytes")
+
+    @max_message_size_in_kilobytes.setter
+    def max_message_size_in_kilobytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_message_size_in_kilobytes", value)
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
@@ -515,6 +555,7 @@ class Topic(pulumi.CustomResource):
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -572,6 +613,9 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
+               a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -648,6 +692,7 @@ class Topic(pulumi.CustomResource):
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -673,6 +718,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["enable_batched_operations"] = enable_batched_operations
             __props__.__dict__["enable_express"] = enable_express
             __props__.__dict__["enable_partitioning"] = enable_partitioning
+            __props__.__dict__["max_message_size_in_kilobytes"] = max_message_size_in_kilobytes
             __props__.__dict__["max_size_in_megabytes"] = max_size_in_megabytes
             __props__.__dict__["name"] = name
             if namespace_name is None and not opts.urn:
@@ -702,6 +748,7 @@ class Topic(pulumi.CustomResource):
             enable_batched_operations: Optional[pulumi.Input[bool]] = None,
             enable_express: Optional[pulumi.Input[bool]] = None,
             enable_partitioning: Optional[pulumi.Input[bool]] = None,
+            max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
             max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
@@ -730,6 +777,9 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
+               a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -756,6 +806,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["enable_batched_operations"] = enable_batched_operations
         __props__.__dict__["enable_express"] = enable_express
         __props__.__dict__["enable_partitioning"] = enable_partitioning
+        __props__.__dict__["max_message_size_in_kilobytes"] = max_message_size_in_kilobytes
         __props__.__dict__["max_size_in_megabytes"] = max_size_in_megabytes
         __props__.__dict__["name"] = name
         __props__.__dict__["namespace_name"] = namespace_name
@@ -820,6 +871,16 @@ class Topic(pulumi.CustomResource):
         Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_partitioning")
+
+    @property
+    @pulumi.getter(name="maxMessageSizeInKilobytes")
+    def max_message_size_in_kilobytes(self) -> pulumi.Output[int]:
+        """
+        Integer value which controls the maximum size of
+        a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        """
+        return pulumi.get(self, "max_message_size_in_kilobytes")
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")

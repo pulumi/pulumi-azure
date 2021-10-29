@@ -6,7 +6,9 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Azure Data Lake Store.
+ * Manages an Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store).
+ *
+ * > **Note:** This resoruce manages an `Azure Data Lake Storage Gen1`, previously known as `Azure Data Lake Store`.
  *
  * ## Example Usage
  *

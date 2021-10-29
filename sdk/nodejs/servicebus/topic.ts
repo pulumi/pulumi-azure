@@ -100,6 +100,12 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly enablePartitioning!: pulumi.Output<boolean | undefined>;
     /**
+     * Integer value which controls the maximum size of
+     * a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     */
+    public readonly maxMessageSizeInKilobytes!: pulumi.Output<number>;
+    /**
      * Integer value which controls the size of
      * memory allocated for the topic. For supported values see the "Queue/topic size"
      * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -155,6 +161,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["enableBatchedOperations"] = state ? state.enableBatchedOperations : undefined;
             inputs["enableExpress"] = state ? state.enableExpress : undefined;
             inputs["enablePartitioning"] = state ? state.enablePartitioning : undefined;
+            inputs["maxMessageSizeInKilobytes"] = state ? state.maxMessageSizeInKilobytes : undefined;
             inputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
@@ -176,6 +183,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
             inputs["enableExpress"] = args ? args.enableExpress : undefined;
             inputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
+            inputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
             inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -229,6 +237,12 @@ export interface TopicState {
      * Changing this forces a new resource to be created.
      */
     enablePartitioning?: pulumi.Input<boolean>;
+    /**
+     * Integer value which controls the maximum size of
+     * a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     */
+    maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
      * Integer value which controls the size of
      * memory allocated for the topic. For supported values see the "Queue/topic size"
@@ -303,6 +317,12 @@ export interface TopicArgs {
      * Changing this forces a new resource to be created.
      */
     enablePartitioning?: pulumi.Input<boolean>;
+    /**
+     * Integer value which controls the maximum size of
+     * a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+     */
+    maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
      * Integer value which controls the size of
      * memory allocated for the topic. For supported values see the "Queue/topic size"

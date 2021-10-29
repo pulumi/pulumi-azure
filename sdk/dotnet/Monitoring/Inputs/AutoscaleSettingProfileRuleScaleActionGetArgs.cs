@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Direction { get; set; } = null!;
 
         /// <summary>
-        /// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+        /// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

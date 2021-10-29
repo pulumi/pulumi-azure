@@ -228,10 +228,13 @@ class FeaturesVirtualMachine(dict):
 class FeaturesVirtualMachineScaleSet(dict):
     def __init__(__self__, *,
                  roll_instances_when_required: bool,
-                 force_delete: Optional[bool] = None):
+                 force_delete: Optional[bool] = None,
+                 scale_to_zero_before_deletion: Optional[bool] = None):
         pulumi.set(__self__, "roll_instances_when_required", roll_instances_when_required)
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
+        if scale_to_zero_before_deletion is not None:
+            pulumi.set(__self__, "scale_to_zero_before_deletion", scale_to_zero_before_deletion)
 
     @property
     @pulumi.getter(name="rollInstancesWhenRequired")
@@ -242,5 +245,10 @@ class FeaturesVirtualMachineScaleSet(dict):
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> Optional[bool]:
         return pulumi.get(self, "force_delete")
+
+    @property
+    @pulumi.getter(name="scaleToZeroBeforeDeletion")
+    def scale_to_zero_before_deletion(self) -> Optional[bool]:
+        return pulumi.get(self, "scale_to_zero_before_deletion")
 
 

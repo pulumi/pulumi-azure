@@ -21,7 +21,6 @@ export * from "./zMixins";
 import { Domain } from "./domain";
 import { DomainTopic } from "./domainTopic";
 import { EventSubscription } from "./eventSubscription";
-import { GetSystemTopic } from "./getSystemTopic";
 import { SystemTopic } from "./systemTopic";
 import { SystemTopicEventSubscription } from "./systemTopicEventSubscription";
 import { Topic } from "./topic";
@@ -36,8 +35,6 @@ const _module = {
                 return new DomainTopic(name, <any>undefined, { urn })
             case "azure:eventgrid/eventSubscription:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
-            case "azure:eventgrid/getSystemTopic:getSystemTopic":
-                return new GetSystemTopic(name, <any>undefined, { urn })
             case "azure:eventgrid/systemTopic:SystemTopic":
                 return new SystemTopic(name, <any>undefined, { urn })
             case "azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription":
@@ -52,7 +49,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "eventgrid/domain", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/domainTopic", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/eventSubscription", _module)
-pulumi.runtime.registerResourceModule("azure", "eventgrid/getSystemTopic", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/systemTopic", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/systemTopicEventSubscription", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/topic", _module)

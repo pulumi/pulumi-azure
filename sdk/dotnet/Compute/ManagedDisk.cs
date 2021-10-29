@@ -225,6 +225,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> Tier { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        /// </summary>
+        [Output("trustedLaunchEnabled")]
+        public Output<bool?> TrustedLaunchEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A collection containing the availability zone to allocate the Managed Disk in.
         /// </summary>
         [Output("zones")]
@@ -409,6 +415,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Tier { get; set; }
 
         /// <summary>
+        /// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        /// </summary>
+        [Input("trustedLaunchEnabled")]
+        public Input<bool>? TrustedLaunchEnabled { get; set; }
+
+        /// <summary>
         /// A collection containing the availability zone to allocate the Managed Disk in.
         /// </summary>
         [Input("zones")]
@@ -552,6 +564,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }
+
+        /// <summary>
+        /// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        /// </summary>
+        [Input("trustedLaunchEnabled")]
+        public Input<bool>? TrustedLaunchEnabled { get; set; }
 
         /// <summary>
         /// A collection containing the availability zone to allocate the Managed Disk in.

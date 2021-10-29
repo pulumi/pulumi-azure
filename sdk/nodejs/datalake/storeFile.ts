@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Azure Data Lake Store File.
  *
+ * > **Note:** This resoruce manages an `Azure Data Lake Storage Gen1`, previously known as `Azure Data Lake Store`.
+ *
  * > **Note:** If you want to change the data in the remote file without changing the `localFilePath`, then
  * taint the resource so the `azure.datalake.StoreFile` gets recreated with the new data.
  *
@@ -33,7 +35,7 @@ import * as utilities from "../utilities";
  * Data Lake Store File's can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:datalake/storeFile:StoreFile txt
+ *  $ pulumi import azure:datalake/storeFile:StoreFile example example.azuredatalakestore.net/test/example.txt
  * ```
  */
 export class StoreFile extends pulumi.CustomResource {

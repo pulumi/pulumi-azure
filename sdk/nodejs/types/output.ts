@@ -1943,6 +1943,17 @@ export namespace appplatform {
         sizeInGb: number;
     }
 
+    export interface SpringCloudJavaDeploymentQuota {
+        /**
+         * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+         */
+        cpu: string;
+        /**
+         * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+         */
+        memory: string;
+    }
+
     export interface SpringCloudServiceConfigServerGitSetting {
         /**
          * A `httpBasicAuth` block as defined below.
@@ -6667,6 +6678,10 @@ export namespace compute {
          */
         autoUpgradeMinorVersion?: boolean;
         /**
+         * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+         */
+        automaticUpgradeEnabled?: boolean;
+        /**
          * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
          */
         forceUpdateTag?: string;
@@ -7900,6 +7915,10 @@ export namespace compute {
          */
         autoUpgradeMinorVersion?: boolean;
         /**
+         * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+         */
+        automaticUpgradeEnabled?: boolean;
+        /**
          * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
          */
         forceUpdateTag?: string;
@@ -8282,6 +8301,7 @@ export namespace config {
     export interface FeaturesVirtualMachineScaleSet {
         forceDelete?: boolean;
         rollInstancesWhenRequired: boolean;
+        scaleToZeroBeforeDeletion?: boolean;
     }
 
 }
@@ -13834,7 +13854,7 @@ export namespace eventgrid {
 
     export interface GetSystemTopicIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
          */
         identityIds?: string[];
         /**
@@ -13846,7 +13866,7 @@ export namespace eventgrid {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of Event Grid System Topic. Possible values are `SystemAssigned` (where Azure will generate a Principal for you) or `UserAssigned` where you can specify the User Assigned Managed Identity IDs in the `identityIds` field.
+         * Specifies the type of Managed Service Identity that is configured on this Event Grid System Topic.
          */
         type: string;
     }
@@ -21580,7 +21600,7 @@ export namespace monitoring {
          */
         direction: string;
         /**
-         * The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+         * The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
          */
         type: string;
         /**
@@ -23235,6 +23255,10 @@ export namespace network {
          */
         name: string;
         /**
+         * Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+         */
+        priority?: number;
+        /**
          * The ID of the associated Redirect Configuration.
          */
         redirectConfigurationId: string;
@@ -23879,7 +23903,7 @@ export namespace network {
         /**
          * Specify a port for the connection.
          */
-        port?: number;
+        port: number;
         /**
          * Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
          */
@@ -24526,6 +24550,10 @@ export namespace network {
          */
         applicationGatewayBackendAddressPoolsIds: string[];
         applicationSecurityGroupIds: string[];
+        /**
+         * The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
+         */
+        gatewayLoadBalancerFrontendIpConfigurationId: string;
         /**
          * A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
          */
@@ -27294,6 +27322,67 @@ export namespace sentinel {
         reopenClosedIncidents?: boolean;
     }
 
+    export interface AuthomationRuleActionIncident {
+        /**
+         * The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+         */
+        classification?: string;
+        /**
+         * The comment why the incident is to be closed.
+         */
+        classificationComment?: string;
+        /**
+         * Specifies a list of labels to add to the incident.
+         */
+        labels?: string[];
+        /**
+         * The execution order of this action.
+         */
+        order: number;
+        /**
+         * The object ID of the entity this incident is assigned to.
+         */
+        ownerId?: string;
+        /**
+         * The severity to add to the incident.
+         */
+        severity?: string;
+        /**
+         * The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
+         */
+        status?: string;
+    }
+
+    export interface AuthomationRuleActionPlaybook {
+        /**
+         * The ID of the Logic App that defines the playbook's logic.
+         */
+        logicAppId: string;
+        /**
+         * The execution order of this action.
+         */
+        order: number;
+        /**
+         * The ID of the Tenant that owns the playbook.
+         */
+        tenantId: string;
+    }
+
+    export interface AuthomationRuleCondition {
+        /**
+         * The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
+         */
+        operator: string;
+        /**
+         * The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+         */
+        property: string;
+        /**
+         * Specifies a list of values to use for evaluate the condition.
+         */
+        values: string[];
+    }
+
     export interface GetAlertRuleTemplateScheduledTemplate {
         /**
          * The description of this Sentinel Scheduled Alert Rule Template.
@@ -28048,7 +28137,7 @@ export namespace sql {
          */
         retentionDays?: number;
         /**
-         * The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+         * The State of the Policy. Possible values are `Enabled` or `Disabled`.
          */
         state?: string;
         /**
@@ -29240,6 +29329,10 @@ export namespace synapse {
          */
         branchName: string;
         /**
+         * The last commit ID.
+         */
+        lastCommitId?: string;
+        /**
          * Specifies the name of the Azure DevOps project.
          */
         projectName: string;
@@ -29281,6 +29374,10 @@ export namespace synapse {
          * Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
          */
         gitUrl?: string;
+        /**
+         * The last commit ID.
+         */
+        lastCommitId?: string;
         /**
          * Specifies the name of the git repository.
          */

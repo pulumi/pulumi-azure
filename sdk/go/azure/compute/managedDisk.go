@@ -153,6 +153,8 @@ type ManagedDisk struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringOutput `pulumi:"tier"`
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+	TrustedLaunchEnabled pulumi.BoolPtrOutput `pulumi:"trustedLaunchEnabled"`
 	// A collection containing the availability zone to allocate the Managed Disk in.
 	Zones pulumi.StringPtrOutput `pulumi:"zones"`
 }
@@ -237,6 +239,8 @@ type managedDiskState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier *string `pulumi:"tier"`
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 	// A collection containing the availability zone to allocate the Managed Disk in.
 	Zones *string `pulumi:"zones"`
 }
@@ -284,6 +288,8 @@ type ManagedDiskState struct {
 	Tags pulumi.StringMapInput
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringPtrInput
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+	TrustedLaunchEnabled pulumi.BoolPtrInput
 	// A collection containing the availability zone to allocate the Managed Disk in.
 	Zones pulumi.StringPtrInput
 }
@@ -335,6 +341,8 @@ type managedDiskArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier *string `pulumi:"tier"`
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 	// A collection containing the availability zone to allocate the Managed Disk in.
 	Zones *string `pulumi:"zones"`
 }
@@ -383,6 +391,8 @@ type ManagedDiskArgs struct {
 	Tags pulumi.StringMapInput
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringPtrInput
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+	TrustedLaunchEnabled pulumi.BoolPtrInput
 	// A collection containing the availability zone to allocate the Managed Disk in.
 	Zones pulumi.StringPtrInput
 }

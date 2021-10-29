@@ -19,6 +19,10 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly ImmutableArray<string> ApplicationGatewayBackendAddressPoolsIds;
         public readonly ImmutableArray<string> ApplicationSecurityGroupIds;
         /// <summary>
+        /// The Frontend IP Configuration ID of a Gateway Sku Load Balancer the Network Interface is consuming.
+        /// </summary>
+        public readonly string GatewayLoadBalancerFrontendIpConfigurationId;
+        /// <summary>
         /// A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerBackendAddressPoolsIds;
@@ -58,6 +62,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> applicationSecurityGroupIds,
 
+            string gatewayLoadBalancerFrontendIpConfigurationId,
+
             ImmutableArray<string> loadBalancerBackendAddressPoolsIds,
 
             ImmutableArray<string> loadBalancerInboundNatRulesIds,
@@ -78,6 +84,7 @@ namespace Pulumi.Azure.Network.Outputs
         {
             ApplicationGatewayBackendAddressPoolsIds = applicationGatewayBackendAddressPoolsIds;
             ApplicationSecurityGroupIds = applicationSecurityGroupIds;
+            GatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
             LoadBalancerBackendAddressPoolsIds = loadBalancerBackendAddressPoolsIds;
             LoadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
             Name = name;

@@ -88,6 +88,10 @@ type Queue struct {
 	LockDuration pulumi.StringOutput `pulumi:"lockDuration"`
 	// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
 	MaxDeliveryCount pulumi.IntPtrOutput `pulumi:"maxDeliveryCount"`
+	// Integer value which controls the maximum size of
+	// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
+	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	MaxMessageSizeInKilobytes pulumi.IntOutput `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
 	MaxSizeInMegabytes pulumi.IntOutput `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
@@ -167,6 +171,10 @@ type queueState struct {
 	LockDuration *string `pulumi:"lockDuration"`
 	// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// Integer value which controls the maximum size of
+	// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
+	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
@@ -206,6 +214,10 @@ type QueueState struct {
 	LockDuration pulumi.StringPtrInput
 	// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
 	MaxDeliveryCount pulumi.IntPtrInput
+	// Integer value which controls the maximum size of
+	// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
+	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	MaxMessageSizeInKilobytes pulumi.IntPtrInput
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
 	MaxSizeInMegabytes pulumi.IntPtrInput
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
@@ -249,6 +261,10 @@ type queueArgs struct {
 	LockDuration *string `pulumi:"lockDuration"`
 	// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// Integer value which controls the maximum size of
+	// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
+	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
@@ -289,6 +305,10 @@ type QueueArgs struct {
 	LockDuration pulumi.StringPtrInput
 	// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
 	MaxDeliveryCount pulumi.IntPtrInput
+	// Integer value which controls the maximum size of
+	// a message allowed on the queue for Premium SKU. For supported values see the "Large messages support"
+	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+	MaxMessageSizeInKilobytes pulumi.IntPtrInput
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
 	MaxSizeInMegabytes pulumi.IntPtrInput
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.

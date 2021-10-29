@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
+        /// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        /// </summary>
+        public readonly bool? AutomaticUpgradeEnabled;
+        /// <summary>
         /// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         /// </summary>
         public readonly string? ForceUpdateTag;
@@ -54,6 +58,8 @@ namespace Pulumi.Azure.Compute.Outputs
         private LinuxVirtualMachineScaleSetExtension(
             bool? autoUpgradeMinorVersion,
 
+            bool? automaticUpgradeEnabled,
+
             string? forceUpdateTag,
 
             string name,
@@ -71,6 +77,7 @@ namespace Pulumi.Azure.Compute.Outputs
             string typeHandlerVersion)
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            AutomaticUpgradeEnabled = automaticUpgradeEnabled;
             ForceUpdateTag = forceUpdateTag;
             Name = name;
             ProtectedSettings = protectedSettings;

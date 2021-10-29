@@ -45,6 +45,21 @@ import * as utilities from "../utilities";
  *     billingScopeId: exampleMcaAccountScope.then(exampleMcaAccountScope => exampleMcaAccountScope.id),
  * });
  * ```
+ * ### Creating A New Alias And Subscription For A Microsoft Partner Account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleMpaAccountScope = azure.billing.getMpaAccountScope({
+ *     billingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+ *     customerName: "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
+ * });
+ * const exampleSubscription = new azure.core.Subscription("exampleSubscription", {
+ *     subscriptionName: "My Example MPA Subscription",
+ *     billingScopeId: exampleMpaAccountScope.then(exampleMpaAccountScope => exampleMpaAccountScope.id),
+ * });
+ * ```
  * ### Adding An Alias To An Existing Subscription
  *
  * ```typescript
@@ -66,7 +81,7 @@ import * as utilities from "../utilities";
  *  $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
  * ```
  *
- *  In this scenario, the `subscription_id` property can be completed and this provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
+ *  In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
  */
 export class Subscription extends pulumi.CustomResource {
     /**
@@ -101,7 +116,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly alias!: pulumi.Output<string>;
     /**
-     * The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+     * The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
      */
     public readonly billingScopeId!: pulumi.Output<string | undefined>;
     /**
@@ -171,7 +186,7 @@ export interface SubscriptionState {
      */
     alias?: pulumi.Input<string>;
     /**
-     * The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+     * The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
      */
     billingScopeId?: pulumi.Input<string>;
     /**
@@ -202,7 +217,7 @@ export interface SubscriptionArgs {
      */
     alias?: pulumi.Input<string>;
     /**
-     * The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+     * The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
      */
     billingScopeId?: pulumi.Input<string>;
     /**

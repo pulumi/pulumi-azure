@@ -380,7 +380,9 @@ class Store(pulumi.CustomResource):
                  tier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Azure Data Lake Store.
+        Manages an Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store).
+
+        > **Note:** This resoruce manages an `Azure Data Lake Storage Gen1`, previously known as `Azure Data Lake Store`.
 
         ## Example Usage
 
@@ -424,7 +426,9 @@ class Store(pulumi.CustomResource):
                  args: StoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Azure Data Lake Store.
+        Manages an Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store).
+
+        > **Note:** This resoruce manages an `Azure Data Lake Storage Gen1`, previously known as `Azure Data Lake Store`.
 
         ## Example Usage
 

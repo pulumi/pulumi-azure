@@ -124,6 +124,12 @@ namespace Pulumi.Azure.ServiceBus
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+        /// </summary>
+        [Output("trustedServicesAllowed")]
+        public Output<bool?> TrustedServicesAllowed { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a NamespaceNetworkRuleSet resource with the given unique name, arguments, and options.
@@ -212,6 +218,12 @@ namespace Pulumi.Azure.ServiceBus
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+        /// </summary>
+        [Input("trustedServicesAllowed")]
+        public Input<bool>? TrustedServicesAllowed { get; set; }
+
         public NamespaceNetworkRuleSetArgs()
         {
         }
@@ -260,6 +272,12 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+        /// </summary>
+        [Input("trustedServicesAllowed")]
+        public Input<bool>? TrustedServicesAllowed { get; set; }
 
         public NamespaceNetworkRuleSetState()
         {

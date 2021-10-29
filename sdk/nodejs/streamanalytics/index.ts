@@ -13,7 +13,9 @@ export * from "./outputEventHub";
 export * from "./outputMssql";
 export * from "./outputServiceBusQueue";
 export * from "./outputServicebusTopic";
+export * from "./outputTable";
 export * from "./referenceInputBlob";
+export * from "./referenceInputMssql";
 export * from "./streamInputBlob";
 export * from "./streamInputEventHub";
 export * from "./streamInputIotHub";
@@ -26,7 +28,9 @@ import { OutputEventHub } from "./outputEventHub";
 import { OutputMssql } from "./outputMssql";
 import { OutputServiceBusQueue } from "./outputServiceBusQueue";
 import { OutputServicebusTopic } from "./outputServicebusTopic";
+import { OutputTable } from "./outputTable";
 import { ReferenceInputBlob } from "./referenceInputBlob";
+import { ReferenceInputMssql } from "./referenceInputMssql";
 import { StreamInputBlob } from "./streamInputBlob";
 import { StreamInputEventHub } from "./streamInputEventHub";
 import { StreamInputIotHub } from "./streamInputIotHub";
@@ -49,8 +53,12 @@ const _module = {
                 return new OutputServiceBusQueue(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic":
                 return new OutputServicebusTopic(name, <any>undefined, { urn })
+            case "azure:streamanalytics/outputTable:OutputTable":
+                return new OutputTable(name, <any>undefined, { urn })
             case "azure:streamanalytics/referenceInputBlob:ReferenceInputBlob":
                 return new ReferenceInputBlob(name, <any>undefined, { urn })
+            case "azure:streamanalytics/referenceInputMssql:ReferenceInputMssql":
+                return new ReferenceInputMssql(name, <any>undefined, { urn })
             case "azure:streamanalytics/streamInputBlob:StreamInputBlob":
                 return new StreamInputBlob(name, <any>undefined, { urn })
             case "azure:streamanalytics/streamInputEventHub:StreamInputEventHub":
@@ -69,7 +77,9 @@ pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputEventHub",
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputMssql", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputServiceBusQueue", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputServicebusTopic", _module)
+pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputTable", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/referenceInputBlob", _module)
+pulumi.runtime.registerResourceModule("azure", "streamanalytics/referenceInputMssql", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/streamInputBlob", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/streamInputEventHub", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/streamInputIotHub", _module)

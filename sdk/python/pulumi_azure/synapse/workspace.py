@@ -21,13 +21,17 @@ class WorkspaceArgs:
                  storage_data_lake_gen2_filesystem_id: pulumi.Input[str],
                  aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
                  azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
+                 compute_subnet_id: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  github_repo: Optional[pulumi.Input['WorkspaceGithubRepoArgs']] = None,
+                 linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 purview_id: Optional[pulumi.Input[str]] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -38,13 +42,17 @@ class WorkspaceArgs:
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace
         :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed Aad Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
         """
@@ -56,12 +64,16 @@ class WorkspaceArgs:
             pulumi.set(__self__, "aad_admin", aad_admin)
         if azure_devops_repo is not None:
             pulumi.set(__self__, "azure_devops_repo", azure_devops_repo)
+        if compute_subnet_id is not None:
+            pulumi.set(__self__, "compute_subnet_id", compute_subnet_id)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if data_exfiltration_protection_enabled is not None:
             pulumi.set(__self__, "data_exfiltration_protection_enabled", data_exfiltration_protection_enabled)
         if github_repo is not None:
             pulumi.set(__self__, "github_repo", github_repo)
+        if linking_allowed_for_aad_tenant_ids is not None:
+            pulumi.set(__self__, "linking_allowed_for_aad_tenant_ids", linking_allowed_for_aad_tenant_ids)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_resource_group_name is not None:
@@ -70,6 +82,10 @@ class WorkspaceArgs:
             pulumi.set(__self__, "managed_virtual_network_enabled", managed_virtual_network_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if purview_id is not None:
+            pulumi.set(__self__, "purview_id", purview_id)
         if sql_identity_control_enabled is not None:
             pulumi.set(__self__, "sql_identity_control_enabled", sql_identity_control_enabled)
         if tags is not None:
@@ -148,6 +164,18 @@ class WorkspaceArgs:
         pulumi.set(self, "azure_devops_repo", value)
 
     @property
+    @pulumi.getter(name="computeSubnetId")
+    def compute_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subnet ID used for computes in workspace
+        """
+        return pulumi.get(self, "compute_subnet_id")
+
+    @compute_subnet_id.setter
+    def compute_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_subnet_id", value)
+
+    @property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']]:
         """
@@ -182,6 +210,18 @@ class WorkspaceArgs:
     @github_repo.setter
     def github_repo(self, value: Optional[pulumi.Input['WorkspaceGithubRepoArgs']]):
         pulumi.set(self, "github_repo", value)
+
+    @property
+    @pulumi.getter(name="linkingAllowedForAadTenantIds")
+    def linking_allowed_for_aad_tenant_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Allowed Aad Tenant Ids For Linking.
+        """
+        return pulumi.get(self, "linking_allowed_for_aad_tenant_ids")
+
+    @linking_allowed_for_aad_tenant_ids.setter
+    def linking_allowed_for_aad_tenant_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "linking_allowed_for_aad_tenant_ids", value)
 
     @property
     @pulumi.getter
@@ -232,6 +272,30 @@ class WorkspaceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="purviewId")
+    def purview_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of purview account.
+        """
+        return pulumi.get(self, "purview_id")
+
+    @purview_id.setter
+    def purview_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "purview_id", value)
+
+    @property
     @pulumi.getter(name="sqlIdentityControlEnabled")
     def sql_identity_control_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -261,15 +325,19 @@ class _WorkspaceState:
     def __init__(__self__, *,
                  aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
                  azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
+                 compute_subnet_id: Optional[pulumi.Input[str]] = None,
                  connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  github_repo: Optional[pulumi.Input['WorkspaceGithubRepoArgs']] = None,
                  identities: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceIdentityArgs']]]] = None,
+                 linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
@@ -280,15 +348,19 @@ class _WorkspaceState:
         Input properties used for looking up and filtering Workspace resources.
         :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
         :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceIdentityArgs']]] identities: An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed Aad Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
@@ -300,6 +372,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "aad_admin", aad_admin)
         if azure_devops_repo is not None:
             pulumi.set(__self__, "azure_devops_repo", azure_devops_repo)
+        if compute_subnet_id is not None:
+            pulumi.set(__self__, "compute_subnet_id", compute_subnet_id)
         if connectivity_endpoints is not None:
             pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
         if customer_managed_key is not None:
@@ -310,6 +384,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "github_repo", github_repo)
         if identities is not None:
             pulumi.set(__self__, "identities", identities)
+        if linking_allowed_for_aad_tenant_ids is not None:
+            pulumi.set(__self__, "linking_allowed_for_aad_tenant_ids", linking_allowed_for_aad_tenant_ids)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_resource_group_name is not None:
@@ -318,6 +394,10 @@ class _WorkspaceState:
             pulumi.set(__self__, "managed_virtual_network_enabled", managed_virtual_network_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if purview_id is not None:
+            pulumi.set(__self__, "purview_id", purview_id)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sql_administrator_login is not None:
@@ -354,6 +434,18 @@ class _WorkspaceState:
     @azure_devops_repo.setter
     def azure_devops_repo(self, value: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']]):
         pulumi.set(self, "azure_devops_repo", value)
+
+    @property
+    @pulumi.getter(name="computeSubnetId")
+    def compute_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subnet ID used for computes in workspace
+        """
+        return pulumi.get(self, "compute_subnet_id")
+
+    @compute_subnet_id.setter
+    def compute_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_subnet_id", value)
 
     @property
     @pulumi.getter(name="connectivityEndpoints")
@@ -416,6 +508,18 @@ class _WorkspaceState:
         pulumi.set(self, "identities", value)
 
     @property
+    @pulumi.getter(name="linkingAllowedForAadTenantIds")
+    def linking_allowed_for_aad_tenant_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Allowed Aad Tenant Ids For Linking.
+        """
+        return pulumi.get(self, "linking_allowed_for_aad_tenant_ids")
+
+    @linking_allowed_for_aad_tenant_ids.setter
+    def linking_allowed_for_aad_tenant_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "linking_allowed_for_aad_tenant_ids", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -462,6 +566,30 @@ class _WorkspaceState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="purviewId")
+    def purview_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of purview account.
+        """
+        return pulumi.get(self, "purview_id")
+
+    @purview_id.setter
+    def purview_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "purview_id", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -543,13 +671,17 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
                  azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
+                 compute_subnet_id: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
+                 linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
@@ -603,13 +735,17 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed Aad Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
@@ -682,13 +818,17 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
                  azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
+                 compute_subnet_id: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
+                 linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
@@ -709,13 +849,17 @@ class Workspace(pulumi.CustomResource):
 
             __props__.__dict__["aad_admin"] = aad_admin
             __props__.__dict__["azure_devops_repo"] = azure_devops_repo
+            __props__.__dict__["compute_subnet_id"] = compute_subnet_id
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["data_exfiltration_protection_enabled"] = data_exfiltration_protection_enabled
             __props__.__dict__["github_repo"] = github_repo
+            __props__.__dict__["linking_allowed_for_aad_tenant_ids"] = linking_allowed_for_aad_tenant_ids
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
             __props__.__dict__["managed_virtual_network_enabled"] = managed_virtual_network_enabled
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+            __props__.__dict__["purview_id"] = purview_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -744,15 +888,19 @@ class Workspace(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
             azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
+            compute_subnet_id: Optional[pulumi.Input[str]] = None,
             connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
             data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
             github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
             identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]]] = None,
+            linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
             managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+            purview_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sql_administrator_login: Optional[pulumi.Input[str]] = None,
             sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
@@ -768,15 +916,19 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]] identities: An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed Aad Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
@@ -790,15 +942,19 @@ class Workspace(pulumi.CustomResource):
 
         __props__.__dict__["aad_admin"] = aad_admin
         __props__.__dict__["azure_devops_repo"] = azure_devops_repo
+        __props__.__dict__["compute_subnet_id"] = compute_subnet_id
         __props__.__dict__["connectivity_endpoints"] = connectivity_endpoints
         __props__.__dict__["customer_managed_key"] = customer_managed_key
         __props__.__dict__["data_exfiltration_protection_enabled"] = data_exfiltration_protection_enabled
         __props__.__dict__["github_repo"] = github_repo
         __props__.__dict__["identities"] = identities
+        __props__.__dict__["linking_allowed_for_aad_tenant_ids"] = linking_allowed_for_aad_tenant_ids
         __props__.__dict__["location"] = location
         __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
         __props__.__dict__["managed_virtual_network_enabled"] = managed_virtual_network_enabled
         __props__.__dict__["name"] = name
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+        __props__.__dict__["purview_id"] = purview_id
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sql_administrator_login"] = sql_administrator_login
         __props__.__dict__["sql_administrator_login_password"] = sql_administrator_login_password
@@ -822,6 +978,14 @@ class Workspace(pulumi.CustomResource):
         An `azure_devops_repo` block as defined below.
         """
         return pulumi.get(self, "azure_devops_repo")
+
+    @property
+    @pulumi.getter(name="computeSubnetId")
+    def compute_subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Subnet ID used for computes in workspace
+        """
+        return pulumi.get(self, "compute_subnet_id")
 
     @property
     @pulumi.getter(name="connectivityEndpoints")
@@ -864,6 +1028,14 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "identities")
 
     @property
+    @pulumi.getter(name="linkingAllowedForAadTenantIds")
+    def linking_allowed_for_aad_tenant_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Allowed Aad Tenant Ids For Linking.
+        """
+        return pulumi.get(self, "linking_allowed_for_aad_tenant_ids")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
@@ -894,6 +1066,22 @@ class Workspace(pulumi.CustomResource):
         Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @property
+    @pulumi.getter(name="purviewId")
+    def purview_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of purview account.
+        """
+        return pulumi.get(self, "purview_id")
 
     @property
     @pulumi.getter(name="resourceGroupName")
