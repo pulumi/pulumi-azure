@@ -7,53 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Share Data Lake Gen1 Dataset.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as azuread from "@pulumi/azuread";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.datashare.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const exampleShare = new azure.datashare.Share("exampleShare", {
- *     accountId: exampleAccount.id,
- *     kind: "CopyBased",
- * });
- * const exampleStore = new azure.datalake.Store("exampleStore", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     firewallState: "Disabled",
- * });
- * const exampleStoreFile = new azure.datalake.StoreFile("exampleStoreFile", {
- *     accountName: exampleStore.name,
- *     localFilePath: "./example/myfile.txt",
- *     remoteFilePath: "/example/myfile.txt",
- * });
- * const exampleServicePrincipal = exampleAccount.name.apply(name => azuread.getServicePrincipal({
- *     displayName: name,
- * }));
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
- *     scope: exampleStore.id,
- *     roleDefinitionName: "Owner",
- *     principalId: exampleServicePrincipal.apply(exampleServicePrincipal => exampleServicePrincipal.objectId),
- * });
- * const exampleDatasetDataLakeGen1 = new azure.datashare.DatasetDataLakeGen1("exampleDatasetDataLakeGen1", {
- *     dataShareId: exampleShare.id,
- *     dataLakeStoreId: exampleStore.id,
- *     fileName: "myfile.txt",
- *     folderPath: "example",
- * }, {
- *     dependsOn: [exampleAssignment],
- * });
- * ```
- *
  * ## Import
  *
  * Data Share Data Lake Gen1 Datasets can be imported using the `resource id`, e.g.

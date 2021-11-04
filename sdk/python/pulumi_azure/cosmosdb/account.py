@@ -1079,54 +1079,6 @@ class Account(pulumi.CustomResource):
         """
         Manages a CosmosDB (formally DocumentDB) Account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        rg = azure.core.ResourceGroup("rg", location="westus")
-        ri = random.RandomInteger("ri",
-            min=10000,
-            max=99999)
-        db = azure.cosmosdb.Account("db",
-            location=rg.location,
-            resource_group_name=rg.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            enable_automatic_failover=True,
-            capabilities=[
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableAggregationPipeline",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="mongoEnableDocLevelTTL",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="MongoDBv3.4",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableMongo",
-                ),
-            ],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[
-                azure.cosmosdb.AccountGeoLocationArgs(
-                    location=var["failover_location"],
-                    failover_priority=1,
-                ),
-                azure.cosmosdb.AccountGeoLocationArgs(
-                    location=rg.location,
-                    failover_priority=0,
-                ),
-            ])
-        ```
-
         ## Import
 
         CosmosDB Accounts can be imported using the `resource id`, e.g.
@@ -1172,54 +1124,6 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a CosmosDB (formally DocumentDB) Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        rg = azure.core.ResourceGroup("rg", location="westus")
-        ri = random.RandomInteger("ri",
-            min=10000,
-            max=99999)
-        db = azure.cosmosdb.Account("db",
-            location=rg.location,
-            resource_group_name=rg.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
-            enable_automatic_failover=True,
-            capabilities=[
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableAggregationPipeline",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="mongoEnableDocLevelTTL",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="MongoDBv3.4",
-                ),
-                azure.cosmosdb.AccountCapabilityArgs(
-                    name="EnableMongo",
-                ),
-            ],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[
-                azure.cosmosdb.AccountGeoLocationArgs(
-                    location=var["failover_location"],
-                    failover_priority=1,
-                ),
-                azure.cosmosdb.AccountGeoLocationArgs(
-                    location=rg.location,
-                    failover_priority=0,
-                ),
-            ])
-        ```
 
         ## Import
 

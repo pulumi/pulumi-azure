@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
  * Promotes an App Service Slot to Production within an App Service.
  *
  * > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- *
- * const server = new random.RandomId("server", {});
- * // ...
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {});
- * // ...
- * const examplePlan = new azure.appservice.Plan("examplePlan", {});
- * // ...
- * const exampleAppService = new azure.appservice.AppService("exampleAppService", {});
- * // ...
- * const exampleSlot = new azure.appservice.Slot("exampleSlot", {});
- * // ...
- * const exampleActiveSlot = new azure.appservice.ActiveSlot("exampleActiveSlot", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     appServiceName: exampleAppService.name,
- *     appServiceSlotName: exampleSlot.name,
- * });
- * ```
  */
 export class ActiveSlot extends pulumi.CustomResource {
     /**

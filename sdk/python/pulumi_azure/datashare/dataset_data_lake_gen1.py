@@ -213,44 +213,6 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
         """
         Manages a Data Share Data Lake Gen1 Dataset.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.datashare.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_share = azure.datashare.Share("exampleShare",
-            account_id=example_account.id,
-            kind="CopyBased")
-        example_store = azure.datalake.Store("exampleStore",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            firewall_state="Disabled")
-        example_store_file = azure.datalake.StoreFile("exampleStoreFile",
-            account_name=example_store.name,
-            local_file_path="./example/myfile.txt",
-            remote_file_path="/example/myfile.txt")
-        example_service_principal = example_account.name.apply(lambda name: azuread.get_service_principal(display_name=name))
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_store.id,
-            role_definition_name="Owner",
-            principal_id=example_service_principal.object_id)
-        example_dataset_data_lake_gen1 = azure.datashare.DatasetDataLakeGen1("exampleDatasetDataLakeGen1",
-            data_share_id=example_share.id,
-            data_lake_store_id=example_store.id,
-            file_name="myfile.txt",
-            folder_path="example",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
-
         ## Import
 
         Data Share Data Lake Gen1 Datasets can be imported using the `resource id`, e.g.
@@ -275,44 +237,6 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Share Data Lake Gen1 Dataset.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.datashare.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
-        example_share = azure.datashare.Share("exampleShare",
-            account_id=example_account.id,
-            kind="CopyBased")
-        example_store = azure.datalake.Store("exampleStore",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            firewall_state="Disabled")
-        example_store_file = azure.datalake.StoreFile("exampleStoreFile",
-            account_name=example_store.name,
-            local_file_path="./example/myfile.txt",
-            remote_file_path="/example/myfile.txt")
-        example_service_principal = example_account.name.apply(lambda name: azuread.get_service_principal(display_name=name))
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_store.id,
-            role_definition_name="Owner",
-            principal_id=example_service_principal.object_id)
-        example_dataset_data_lake_gen1 = azure.datashare.DatasetDataLakeGen1("exampleDatasetDataLakeGen1",
-            data_share_id=example_share.id,
-            data_lake_store_id=example_store.id,
-            file_name="myfile.txt",
-            folder_path="example",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
 
         ## Import
 

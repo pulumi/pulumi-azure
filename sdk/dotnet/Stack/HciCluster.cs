@@ -12,38 +12,6 @@ namespace Pulumi.Azure.Stack
     /// <summary>
     /// Manages an Azure Stack HCI Cluster.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleApplication = Output.Create(AzureAD.GetApplication.InvokeAsync(new AzureAD.GetApplicationArgs
-    ///         {
-    ///             Name = "example-app",
-    ///         }));
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleHciCluster = new Azure.Stack.HciCluster("exampleHciCluster", new Azure.Stack.HciClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClientId = exampleApplication.Apply(exampleApplication =&gt; exampleApplication.ApplicationId),
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Azure Stack HCI Clusters can be imported using the `resource id`, e.g.

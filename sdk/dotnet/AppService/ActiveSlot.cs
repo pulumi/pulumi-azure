@@ -13,48 +13,6 @@ namespace Pulumi.Azure.AppService
     /// Promotes an App Service Slot to Production within an App Service.
     /// 
     /// &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Random = Pulumi.Random;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var server = new Random.RandomId("server", new Random.RandomIdArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleSlot = new Azure.AppService.Slot("exampleSlot", new Azure.AppService.SlotArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleActiveSlot = new Azure.AppService.ActiveSlot("exampleActiveSlot", new Azure.AppService.ActiveSlotArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServiceName = exampleAppService.Name,
-    ///             AppServiceSlotName = exampleSlot.Name,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/activeSlot:ActiveSlot")]
     public partial class ActiveSlot : Pulumi.CustomResource

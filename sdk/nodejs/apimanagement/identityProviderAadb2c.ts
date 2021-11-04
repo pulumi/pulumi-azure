@@ -7,44 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Azure AD B2C Identity Provider.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as azuread from "@pulumi/azuread";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     publisherName: "My Company",
- *     publisherEmail: "company@terraform.io",
- *     skuName: "Developer_1",
- * });
- * const exampleApplication = new azuread.Application("exampleApplication", {
- *     oauth2AllowImplicitFlow: true,
- *     replyUrls: [`https://${azurerm_api_management.test.name}.developer.azure-api.net/signin`],
- * });
- * const exampleApplicationPassword = new azuread.ApplicationPassword("exampleApplicationPassword", {
- *     applicationObjectId: azuread_application.test.object_id,
- *     endDateRelative: "36h",
- *     value: `P@55w0rD!%[7]s`,
- * });
- * const exampleIdentityProviderAadb2c = new azure.apimanagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c", {
- *     apiManagementId: exampleService.id,
- *     clientId: exampleApplication.applicationId,
- *     clientSecret: `P@55w0rD!%[7]s`,
- *     allowedTenant: "myb2ctenant.onmicrosoft.com",
- *     signinTenant: "myb2ctenant.onmicrosoft.com",
- *     authority: "myb2ctenant.b2clogin.com",
- *     signinPolicy: "B2C_1_Login",
- *     signupPolicy: "B2C_1_Signup",
- * }, {
- *     dependsOn: [exampleApplicationPassword],
- * });
- * ```
- *
  * ## Import
  *
  * API Management Azure AD B2C Identity Providers can be imported using the `resource id`, e.g.
