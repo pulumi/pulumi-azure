@@ -15,7 +15,7 @@ type AccountBackup struct {
 	IntervalInMinutes *int `pulumi:"intervalInMinutes"`
 	// The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
 	RetentionInHours *int `pulumi:"retentionInHours"`
-	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -35,7 +35,7 @@ type AccountBackupArgs struct {
 	IntervalInMinutes pulumi.IntPtrInput `pulumi:"intervalInMinutes"`
 	// The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
 	RetentionInHours pulumi.IntPtrInput `pulumi:"retentionInHours"`
-	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -126,7 +126,7 @@ func (o AccountBackupOutput) RetentionInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountBackup) *int { return v.RetentionInHours }).(pulumi.IntPtrOutput)
 }
 
-// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 func (o AccountBackupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountBackup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -175,7 +175,7 @@ func (o AccountBackupPtrOutput) RetentionInHours() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 func (o AccountBackupPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountBackup) *string {
 		if v == nil {

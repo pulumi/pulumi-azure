@@ -176,6 +176,8 @@ type LinuxVirtualMachine struct {
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDiskOutput `pulumi:"osDisk"`
+	// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`.
+	PatchMode pulumi.StringPtrOutput `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachinePlanPtrOutput `pulumi:"plan"`
 	// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
@@ -300,6 +302,8 @@ type linuxVirtualMachineState struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// A `osDisk` block as defined below.
 	OsDisk *LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
+	// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`.
+	PatchMode *string `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *LinuxVirtualMachinePlan `pulumi:"plan"`
 	// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
@@ -381,6 +385,8 @@ type LinuxVirtualMachineState struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDiskPtrInput
+	// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`.
+	PatchMode pulumi.StringPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachinePlanPtrInput
 	// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
@@ -466,6 +472,8 @@ type linuxVirtualMachineArgs struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
+	// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`.
+	PatchMode *string `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *LinuxVirtualMachinePlan `pulumi:"plan"`
 	// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
@@ -538,6 +546,8 @@ type LinuxVirtualMachineArgs struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDiskInput
+	// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`.
+	PatchMode pulumi.StringPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachinePlanPtrInput
 	// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.

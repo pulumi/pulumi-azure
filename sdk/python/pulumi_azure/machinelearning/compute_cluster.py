@@ -21,6 +21,7 @@ class ComputeClusterArgs:
                  vm_size: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ComputeClusterIdentityArgs']] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ssh: Optional[pulumi.Input['ComputeClusterSshArgs']] = None,
@@ -35,6 +36,7 @@ class ComputeClusterArgs:
         :param pulumi.Input[str] vm_size: The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input['ComputeClusterIdentityArgs'] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input['ComputeClusterSshArgs'] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -50,6 +52,8 @@ class ComputeClusterArgs:
             pulumi.set(__self__, "description", description)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if local_auth_enabled is not None:
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -136,6 +140,18 @@ class ComputeClusterArgs:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "local_auth_enabled")
+
+    @local_auth_enabled.setter
+    def local_auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_auth_enabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -213,6 +229,7 @@ class _ComputeClusterState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ComputeClusterIdentityArgs']] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -227,6 +244,7 @@ class _ComputeClusterState:
         Input properties used for looking up and filtering ComputeCluster resources.
         :param pulumi.Input[str] description: The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input['ComputeClusterIdentityArgs'] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -242,6 +260,8 @@ class _ComputeClusterState:
             pulumi.set(__self__, "description", description)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if local_auth_enabled is not None:
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if machine_learning_workspace_id is not None:
@@ -286,6 +306,18 @@ class _ComputeClusterState:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['ComputeClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "local_auth_enabled")
+
+    @local_auth_enabled.setter
+    def local_auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_auth_enabled", value)
 
     @property
     @pulumi.getter
@@ -415,6 +447,7 @@ class ComputeCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ComputeClusterIdentityArgs']]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -502,6 +535,7 @@ class ComputeCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[pulumi.InputType['ComputeClusterIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -608,6 +642,7 @@ class ComputeCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ComputeClusterIdentityArgs']]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -632,6 +667,7 @@ class ComputeCluster(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
             if machine_learning_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'machine_learning_workspace_id'")
@@ -662,6 +698,7 @@ class ComputeCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['ComputeClusterIdentityArgs']]] = None,
+            local_auth_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -681,6 +718,7 @@ class ComputeCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[pulumi.InputType['ComputeClusterIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -698,6 +736,7 @@ class ComputeCluster(pulumi.CustomResource):
 
         __props__.__dict__["description"] = description
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["local_auth_enabled"] = local_auth_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["machine_learning_workspace_id"] = machine_learning_workspace_id
         __props__.__dict__["name"] = name
@@ -725,6 +764,14 @@ class ComputeCluster(pulumi.CustomResource):
         A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        return pulumi.get(self, "local_auth_enabled")
 
     @property
     @pulumi.getter

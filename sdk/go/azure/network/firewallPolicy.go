@@ -57,6 +57,8 @@ type FirewallPolicy struct {
 	Firewalls pulumi.StringArrayOutput `pulumi:"firewalls"`
 	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
 	Identity FirewallPolicyIdentityPtrOutput `pulumi:"identity"`
+	// An `insights` block as defined below.
+	Insights FirewallPolicyInsightsPtrOutput `pulumi:"insights"`
 	// A `intrusionDetection` block as defined below.
 	IntrusionDetection FirewallPolicyIntrusionDetectionPtrOutput `pulumi:"intrusionDetection"`
 	// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
@@ -123,6 +125,8 @@ type firewallPolicyState struct {
 	Firewalls []string `pulumi:"firewalls"`
 	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
 	Identity *FirewallPolicyIdentity `pulumi:"identity"`
+	// An `insights` block as defined below.
+	Insights *FirewallPolicyInsights `pulumi:"insights"`
 	// A `intrusionDetection` block as defined below.
 	IntrusionDetection *FirewallPolicyIntrusionDetection `pulumi:"intrusionDetection"`
 	// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
@@ -158,6 +162,8 @@ type FirewallPolicyState struct {
 	Firewalls pulumi.StringArrayInput
 	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
 	Identity FirewallPolicyIdentityPtrInput
+	// An `insights` block as defined below.
+	Insights FirewallPolicyInsightsPtrInput
 	// A `intrusionDetection` block as defined below.
 	IntrusionDetection FirewallPolicyIntrusionDetectionPtrInput
 	// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
@@ -193,6 +199,8 @@ type firewallPolicyArgs struct {
 	Dns *FirewallPolicyDns `pulumi:"dns"`
 	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
 	Identity *FirewallPolicyIdentity `pulumi:"identity"`
+	// An `insights` block as defined below.
+	Insights *FirewallPolicyInsights `pulumi:"insights"`
 	// A `intrusionDetection` block as defined below.
 	IntrusionDetection *FirewallPolicyIntrusionDetection `pulumi:"intrusionDetection"`
 	// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
@@ -223,6 +231,8 @@ type FirewallPolicyArgs struct {
 	Dns FirewallPolicyDnsPtrInput
 	// An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
 	Identity FirewallPolicyIdentityPtrInput
+	// An `insights` block as defined below.
+	Insights FirewallPolicyInsightsPtrInput
 	// A `intrusionDetection` block as defined below.
 	IntrusionDetection FirewallPolicyIntrusionDetectionPtrInput
 	// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.

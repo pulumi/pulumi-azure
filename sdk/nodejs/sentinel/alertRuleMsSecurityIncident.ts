@@ -19,8 +19,19 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "pergb2018",
  * });
+ * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
+ *     solutionName: "SecurityInsights",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     workspaceResourceId: exampleAnalyticsWorkspace.id,
+ *     workspaceName: exampleAnalyticsWorkspace.name,
+ *     plan: {
+ *         publisher: "Microsoft",
+ *         product: "OMSGallery/SecurityInsights",
+ *     },
+ * });
  * const exampleAlertRuleMsSecurityIncident = new azure.sentinel.AlertRuleMsSecurityIncident("exampleAlertRuleMsSecurityIncident", {
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
+ *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     productFilter: "Microsoft Cloud App Security",
  *     displayName: "example rule",
  *     severityFilters: ["High"],

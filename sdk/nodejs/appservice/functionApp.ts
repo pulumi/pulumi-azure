@@ -197,6 +197,10 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.appservice.FunctionAppIdentity>;
     /**
+     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+     */
+    public readonly keyVaultReferenceIdentityId!: pulumi.Output<string>;
+    /**
      * The Function App kind - such as `functionapp,linux,container`
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
@@ -283,6 +287,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -317,6 +322,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["osType"] = args ? args.osType : undefined;
@@ -400,6 +406,10 @@ export interface FunctionAppState {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.appservice.FunctionAppIdentity>;
+    /**
+     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+     */
+    keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**
      * The Function App kind - such as `functionapp,linux,container`
      */
@@ -512,6 +522,10 @@ export interface FunctionAppArgs {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.appservice.FunctionAppIdentity>;
+    /**
+     * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+     */
+    keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

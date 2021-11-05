@@ -30,7 +30,6 @@ namespace Pulumi.Azure.Purview
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "Standard_4",
     ///         });
     ///     }
     /// 
@@ -108,11 +107,8 @@ namespace Pulumi.Azure.Purview
         [Output("scanEndpoint")]
         public Output<string> ScanEndpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
-        /// </summary>
         [Output("skuName")]
-        public Output<string> SkuName { get; private set; } = null!;
+        public Output<string?> SkuName { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Purview Account.
@@ -190,11 +186,8 @@ namespace Pulumi.Azure.Purview
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
-        /// </summary>
-        [Input("skuName", required: true)]
-        public Input<string> SkuName { get; set; } = null!;
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -281,9 +274,6 @@ namespace Pulumi.Azure.Purview
         [Input("scanEndpoint")]
         public Input<string>? ScanEndpoint { get; set; }
 
-        /// <summary>
-        /// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
-        /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 

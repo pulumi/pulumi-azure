@@ -61,6 +61,8 @@ __all__ = [
     'DiagnosticSettingMetricArgs',
     'DiagnosticSettingMetricRetentionPolicyArgs',
     'LogProfileRetentionPolicyArgs',
+    'LogzMonitorPlanArgs',
+    'LogzMonitorUserArgs',
     'MetricAlertActionArgs',
     'MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs',
     'MetricAlertCriteriaArgs',
@@ -3084,6 +3086,140 @@ class LogProfileRetentionPolicyArgs:
     @days.setter
     def days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days", value)
+
+
+@pulumi.input_type
+class LogzMonitorPlanArgs:
+    def __init__(__self__, *,
+                 billing_cycle: pulumi.Input[str],
+                 effective_date: pulumi.Input[str],
+                 plan_id: pulumi.Input[str],
+                 usage_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] billing_cycle: Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
+        :param pulumi.Input[str] effective_date: Date when plan was applied. Changing this forces a new logz Monitor to be created.
+        :param pulumi.Input[str] plan_id: Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+        :param pulumi.Input[str] usage_type: Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+        """
+        pulumi.set(__self__, "billing_cycle", billing_cycle)
+        pulumi.set(__self__, "effective_date", effective_date)
+        pulumi.set(__self__, "plan_id", plan_id)
+        pulumi.set(__self__, "usage_type", usage_type)
+
+    @property
+    @pulumi.getter(name="billingCycle")
+    def billing_cycle(self) -> pulumi.Input[str]:
+        """
+        Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "billing_cycle")
+
+    @billing_cycle.setter
+    def billing_cycle(self, value: pulumi.Input[str]):
+        pulumi.set(self, "billing_cycle", value)
+
+    @property
+    @pulumi.getter(name="effectiveDate")
+    def effective_date(self) -> pulumi.Input[str]:
+        """
+        Date when plan was applied. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "effective_date")
+
+    @effective_date.setter
+    def effective_date(self, value: pulumi.Input[str]):
+        pulumi.set(self, "effective_date", value)
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> pulumi.Input[str]:
+        """
+        Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "plan_id")
+
+    @plan_id.setter
+    def plan_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "plan_id", value)
+
+    @property
+    @pulumi.getter(name="usageType")
+    def usage_type(self) -> pulumi.Input[str]:
+        """
+        Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "usage_type")
+
+    @usage_type.setter
+    def usage_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "usage_type", value)
+
+
+@pulumi.input_type
+class LogzMonitorUserArgs:
+    def __init__(__self__, *,
+                 email: pulumi.Input[str],
+                 first_name: pulumi.Input[str],
+                 last_name: pulumi.Input[str],
+                 phone_number: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] email: Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+        :param pulumi.Input[str] first_name: First Name of the user. Changing this forces a new logz Monitor to be created.
+        :param pulumi.Input[str] last_name: Last Name of the user. Changing this forces a new logz Monitor to be created.
+        :param pulumi.Input[str] phone_number: Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+        """
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[str]:
+        """
+        Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> pulumi.Input[str]:
+        """
+        First Name of the user. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "first_name")
+
+    @first_name.setter
+    def first_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "first_name", value)
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> pulumi.Input[str]:
+        """
+        Last Name of the user. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "last_name")
+
+    @last_name.setter
+    def last_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "last_name", value)
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> pulumi.Input[str]:
+        """
+        Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "phone_number", value)
 
 
 @pulumi.input_type

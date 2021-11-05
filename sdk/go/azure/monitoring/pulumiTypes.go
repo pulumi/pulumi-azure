@@ -7716,6 +7716,394 @@ func (o LogProfileRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type LogzMonitorPlan struct {
+	// Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
+	BillingCycle string `pulumi:"billingCycle"`
+	// Date when plan was applied. Changing this forces a new logz Monitor to be created.
+	EffectiveDate string `pulumi:"effectiveDate"`
+	// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+	PlanId string `pulumi:"planId"`
+	// Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+	UsageType string `pulumi:"usageType"`
+}
+
+// LogzMonitorPlanInput is an input type that accepts LogzMonitorPlanArgs and LogzMonitorPlanOutput values.
+// You can construct a concrete instance of `LogzMonitorPlanInput` via:
+//
+//          LogzMonitorPlanArgs{...}
+type LogzMonitorPlanInput interface {
+	pulumi.Input
+
+	ToLogzMonitorPlanOutput() LogzMonitorPlanOutput
+	ToLogzMonitorPlanOutputWithContext(context.Context) LogzMonitorPlanOutput
+}
+
+type LogzMonitorPlanArgs struct {
+	// Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
+	BillingCycle pulumi.StringInput `pulumi:"billingCycle"`
+	// Date when plan was applied. Changing this forces a new logz Monitor to be created.
+	EffectiveDate pulumi.StringInput `pulumi:"effectiveDate"`
+	// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+	PlanId pulumi.StringInput `pulumi:"planId"`
+	// Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+	UsageType pulumi.StringInput `pulumi:"usageType"`
+}
+
+func (LogzMonitorPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogzMonitorPlan)(nil)).Elem()
+}
+
+func (i LogzMonitorPlanArgs) ToLogzMonitorPlanOutput() LogzMonitorPlanOutput {
+	return i.ToLogzMonitorPlanOutputWithContext(context.Background())
+}
+
+func (i LogzMonitorPlanArgs) ToLogzMonitorPlanOutputWithContext(ctx context.Context) LogzMonitorPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorPlanOutput)
+}
+
+func (i LogzMonitorPlanArgs) ToLogzMonitorPlanPtrOutput() LogzMonitorPlanPtrOutput {
+	return i.ToLogzMonitorPlanPtrOutputWithContext(context.Background())
+}
+
+func (i LogzMonitorPlanArgs) ToLogzMonitorPlanPtrOutputWithContext(ctx context.Context) LogzMonitorPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorPlanOutput).ToLogzMonitorPlanPtrOutputWithContext(ctx)
+}
+
+// LogzMonitorPlanPtrInput is an input type that accepts LogzMonitorPlanArgs, LogzMonitorPlanPtr and LogzMonitorPlanPtrOutput values.
+// You can construct a concrete instance of `LogzMonitorPlanPtrInput` via:
+//
+//          LogzMonitorPlanArgs{...}
+//
+//  or:
+//
+//          nil
+type LogzMonitorPlanPtrInput interface {
+	pulumi.Input
+
+	ToLogzMonitorPlanPtrOutput() LogzMonitorPlanPtrOutput
+	ToLogzMonitorPlanPtrOutputWithContext(context.Context) LogzMonitorPlanPtrOutput
+}
+
+type logzMonitorPlanPtrType LogzMonitorPlanArgs
+
+func LogzMonitorPlanPtr(v *LogzMonitorPlanArgs) LogzMonitorPlanPtrInput {
+	return (*logzMonitorPlanPtrType)(v)
+}
+
+func (*logzMonitorPlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogzMonitorPlan)(nil)).Elem()
+}
+
+func (i *logzMonitorPlanPtrType) ToLogzMonitorPlanPtrOutput() LogzMonitorPlanPtrOutput {
+	return i.ToLogzMonitorPlanPtrOutputWithContext(context.Background())
+}
+
+func (i *logzMonitorPlanPtrType) ToLogzMonitorPlanPtrOutputWithContext(ctx context.Context) LogzMonitorPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorPlanPtrOutput)
+}
+
+type LogzMonitorPlanOutput struct{ *pulumi.OutputState }
+
+func (LogzMonitorPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogzMonitorPlan)(nil)).Elem()
+}
+
+func (o LogzMonitorPlanOutput) ToLogzMonitorPlanOutput() LogzMonitorPlanOutput {
+	return o
+}
+
+func (o LogzMonitorPlanOutput) ToLogzMonitorPlanOutputWithContext(ctx context.Context) LogzMonitorPlanOutput {
+	return o
+}
+
+func (o LogzMonitorPlanOutput) ToLogzMonitorPlanPtrOutput() LogzMonitorPlanPtrOutput {
+	return o.ToLogzMonitorPlanPtrOutputWithContext(context.Background())
+}
+
+func (o LogzMonitorPlanOutput) ToLogzMonitorPlanPtrOutputWithContext(ctx context.Context) LogzMonitorPlanPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogzMonitorPlan) *LogzMonitorPlan {
+		return &v
+	}).(LogzMonitorPlanPtrOutput)
+}
+
+// Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorPlanOutput) BillingCycle() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzMonitorPlan) string { return v.BillingCycle }).(pulumi.StringOutput)
+}
+
+// Date when plan was applied. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorPlanOutput) EffectiveDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzMonitorPlan) string { return v.EffectiveDate }).(pulumi.StringOutput)
+}
+
+// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorPlanOutput) PlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzMonitorPlan) string { return v.PlanId }).(pulumi.StringOutput)
+}
+
+// Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorPlanOutput) UsageType() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzMonitorPlan) string { return v.UsageType }).(pulumi.StringOutput)
+}
+
+type LogzMonitorPlanPtrOutput struct{ *pulumi.OutputState }
+
+func (LogzMonitorPlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogzMonitorPlan)(nil)).Elem()
+}
+
+func (o LogzMonitorPlanPtrOutput) ToLogzMonitorPlanPtrOutput() LogzMonitorPlanPtrOutput {
+	return o
+}
+
+func (o LogzMonitorPlanPtrOutput) ToLogzMonitorPlanPtrOutputWithContext(ctx context.Context) LogzMonitorPlanPtrOutput {
+	return o
+}
+
+func (o LogzMonitorPlanPtrOutput) Elem() LogzMonitorPlanOutput {
+	return o.ApplyT(func(v *LogzMonitorPlan) LogzMonitorPlan {
+		if v != nil {
+			return *v
+		}
+		var ret LogzMonitorPlan
+		return ret
+	}).(LogzMonitorPlanOutput)
+}
+
+// Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorPlanPtrOutput) BillingCycle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogzMonitorPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BillingCycle
+	}).(pulumi.StringPtrOutput)
+}
+
+// Date when plan was applied. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorPlanPtrOutput) EffectiveDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogzMonitorPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EffectiveDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorPlanPtrOutput) PlanId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogzMonitorPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PlanId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorPlanPtrOutput) UsageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogzMonitorPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UsageType
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogzMonitorUser struct {
+	// Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+	Email string `pulumi:"email"`
+	// First Name of the user. Changing this forces a new logz Monitor to be created.
+	FirstName string `pulumi:"firstName"`
+	// Last Name of the user. Changing this forces a new logz Monitor to be created.
+	LastName string `pulumi:"lastName"`
+	// Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+	PhoneNumber string `pulumi:"phoneNumber"`
+}
+
+// LogzMonitorUserInput is an input type that accepts LogzMonitorUserArgs and LogzMonitorUserOutput values.
+// You can construct a concrete instance of `LogzMonitorUserInput` via:
+//
+//          LogzMonitorUserArgs{...}
+type LogzMonitorUserInput interface {
+	pulumi.Input
+
+	ToLogzMonitorUserOutput() LogzMonitorUserOutput
+	ToLogzMonitorUserOutputWithContext(context.Context) LogzMonitorUserOutput
+}
+
+type LogzMonitorUserArgs struct {
+	// Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+	Email pulumi.StringInput `pulumi:"email"`
+	// First Name of the user. Changing this forces a new logz Monitor to be created.
+	FirstName pulumi.StringInput `pulumi:"firstName"`
+	// Last Name of the user. Changing this forces a new logz Monitor to be created.
+	LastName pulumi.StringInput `pulumi:"lastName"`
+	// Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
+}
+
+func (LogzMonitorUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogzMonitorUser)(nil)).Elem()
+}
+
+func (i LogzMonitorUserArgs) ToLogzMonitorUserOutput() LogzMonitorUserOutput {
+	return i.ToLogzMonitorUserOutputWithContext(context.Background())
+}
+
+func (i LogzMonitorUserArgs) ToLogzMonitorUserOutputWithContext(ctx context.Context) LogzMonitorUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorUserOutput)
+}
+
+func (i LogzMonitorUserArgs) ToLogzMonitorUserPtrOutput() LogzMonitorUserPtrOutput {
+	return i.ToLogzMonitorUserPtrOutputWithContext(context.Background())
+}
+
+func (i LogzMonitorUserArgs) ToLogzMonitorUserPtrOutputWithContext(ctx context.Context) LogzMonitorUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorUserOutput).ToLogzMonitorUserPtrOutputWithContext(ctx)
+}
+
+// LogzMonitorUserPtrInput is an input type that accepts LogzMonitorUserArgs, LogzMonitorUserPtr and LogzMonitorUserPtrOutput values.
+// You can construct a concrete instance of `LogzMonitorUserPtrInput` via:
+//
+//          LogzMonitorUserArgs{...}
+//
+//  or:
+//
+//          nil
+type LogzMonitorUserPtrInput interface {
+	pulumi.Input
+
+	ToLogzMonitorUserPtrOutput() LogzMonitorUserPtrOutput
+	ToLogzMonitorUserPtrOutputWithContext(context.Context) LogzMonitorUserPtrOutput
+}
+
+type logzMonitorUserPtrType LogzMonitorUserArgs
+
+func LogzMonitorUserPtr(v *LogzMonitorUserArgs) LogzMonitorUserPtrInput {
+	return (*logzMonitorUserPtrType)(v)
+}
+
+func (*logzMonitorUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogzMonitorUser)(nil)).Elem()
+}
+
+func (i *logzMonitorUserPtrType) ToLogzMonitorUserPtrOutput() LogzMonitorUserPtrOutput {
+	return i.ToLogzMonitorUserPtrOutputWithContext(context.Background())
+}
+
+func (i *logzMonitorUserPtrType) ToLogzMonitorUserPtrOutputWithContext(ctx context.Context) LogzMonitorUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorUserPtrOutput)
+}
+
+type LogzMonitorUserOutput struct{ *pulumi.OutputState }
+
+func (LogzMonitorUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogzMonitorUser)(nil)).Elem()
+}
+
+func (o LogzMonitorUserOutput) ToLogzMonitorUserOutput() LogzMonitorUserOutput {
+	return o
+}
+
+func (o LogzMonitorUserOutput) ToLogzMonitorUserOutputWithContext(ctx context.Context) LogzMonitorUserOutput {
+	return o
+}
+
+func (o LogzMonitorUserOutput) ToLogzMonitorUserPtrOutput() LogzMonitorUserPtrOutput {
+	return o.ToLogzMonitorUserPtrOutputWithContext(context.Background())
+}
+
+func (o LogzMonitorUserOutput) ToLogzMonitorUserPtrOutputWithContext(ctx context.Context) LogzMonitorUserPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogzMonitorUser) *LogzMonitorUser {
+		return &v
+	}).(LogzMonitorUserPtrOutput)
+}
+
+// Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorUserOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzMonitorUser) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// First Name of the user. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorUserOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzMonitorUser) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// Last Name of the user. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorUserOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzMonitorUser) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+// Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorUserOutput) PhoneNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzMonitorUser) string { return v.PhoneNumber }).(pulumi.StringOutput)
+}
+
+type LogzMonitorUserPtrOutput struct{ *pulumi.OutputState }
+
+func (LogzMonitorUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogzMonitorUser)(nil)).Elem()
+}
+
+func (o LogzMonitorUserPtrOutput) ToLogzMonitorUserPtrOutput() LogzMonitorUserPtrOutput {
+	return o
+}
+
+func (o LogzMonitorUserPtrOutput) ToLogzMonitorUserPtrOutputWithContext(ctx context.Context) LogzMonitorUserPtrOutput {
+	return o
+}
+
+func (o LogzMonitorUserPtrOutput) Elem() LogzMonitorUserOutput {
+	return o.ApplyT(func(v *LogzMonitorUser) LogzMonitorUser {
+		if v != nil {
+			return *v
+		}
+		var ret LogzMonitorUser
+		return ret
+	}).(LogzMonitorUserOutput)
+}
+
+// Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorUserPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogzMonitorUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// First Name of the user. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorUserPtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogzMonitorUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Last Name of the user. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorUserPtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogzMonitorUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorUserPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogzMonitorUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
 type MetricAlertAction struct {
 	// The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
 	ActionGroupId string `pulumi:"actionGroupId"`
@@ -11791,6 +12179,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingMetricRetentionPolicyPtrInput)(nil)).Elem(), DiagnosticSettingMetricRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogProfileRetentionPolicyInput)(nil)).Elem(), LogProfileRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogProfileRetentionPolicyPtrInput)(nil)).Elem(), LogProfileRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorPlanInput)(nil)).Elem(), LogzMonitorPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorPlanPtrInput)(nil)).Elem(), LogzMonitorPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorUserInput)(nil)).Elem(), LogzMonitorUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorUserPtrInput)(nil)).Elem(), LogzMonitorUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertActionInput)(nil)).Elem(), MetricAlertActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertActionArrayInput)(nil)).Elem(), MetricAlertActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaInput)(nil)).Elem(), MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs{})
@@ -11949,6 +12341,10 @@ func init() {
 	pulumi.RegisterOutputType(DiagnosticSettingMetricRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(LogProfileRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(LogProfileRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(LogzMonitorPlanOutput{})
+	pulumi.RegisterOutputType(LogzMonitorPlanPtrOutput{})
+	pulumi.RegisterOutputType(LogzMonitorUserOutput{})
+	pulumi.RegisterOutputType(LogzMonitorUserPtrOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput{})

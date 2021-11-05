@@ -17,6 +17,7 @@ class BlobArgs:
                  storage_container_name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  access_tier: Optional[pulumi.Input[str]] = None,
+                 cache_control: Optional[pulumi.Input[str]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,6 +34,7 @@ class BlobArgs:
         :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created.
         :param pulumi.Input[str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+        :param pulumi.Input[str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
@@ -49,6 +51,8 @@ class BlobArgs:
         pulumi.set(__self__, "type", type)
         if access_tier is not None:
             pulumi.set(__self__, "access_tier", access_tier)
+        if cache_control is not None:
+            pulumi.set(__self__, "cache_control", cache_control)
         if content_md5 is not None:
             pulumi.set(__self__, "content_md5", content_md5)
         if content_type is not None:
@@ -116,6 +120,18 @@ class BlobArgs:
     @access_tier.setter
     def access_tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_tier", value)
+
+    @property
+    @pulumi.getter(name="cacheControl")
+    def cache_control(self) -> Optional[pulumi.Input[str]]:
+        """
+        Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+        """
+        return pulumi.get(self, "cache_control")
+
+    @cache_control.setter
+    def cache_control(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_control", value)
 
     @property
     @pulumi.getter(name="contentMd5")
@@ -231,6 +247,7 @@ class BlobArgs:
 class _BlobState:
     def __init__(__self__, *,
                  access_tier: Optional[pulumi.Input[str]] = None,
+                 cache_control: Optional[pulumi.Input[str]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -247,6 +264,7 @@ class _BlobState:
         """
         Input properties used for looking up and filtering Blob resources.
         :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+        :param pulumi.Input[str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
@@ -265,6 +283,8 @@ class _BlobState:
         """
         if access_tier is not None:
             pulumi.set(__self__, "access_tier", access_tier)
+        if cache_control is not None:
+            pulumi.set(__self__, "cache_control", cache_control)
         if content_md5 is not None:
             pulumi.set(__self__, "content_md5", content_md5)
         if content_type is not None:
@@ -303,6 +323,18 @@ class _BlobState:
     @access_tier.setter
     def access_tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_tier", value)
+
+    @property
+    @pulumi.getter(name="cacheControl")
+    def cache_control(self) -> Optional[pulumi.Input[str]]:
+        """
+        Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+        """
+        return pulumi.get(self, "cache_control")
+
+    @cache_control.setter
+    def cache_control(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_control", value)
 
     @property
     @pulumi.getter(name="contentMd5")
@@ -469,6 +501,7 @@ class Blob(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
+                 cache_control: Optional[pulumi.Input[str]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -518,6 +551,7 @@ class Blob(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+        :param pulumi.Input[str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
@@ -588,6 +622,7 @@ class Blob(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
+                 cache_control: Optional[pulumi.Input[str]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -613,6 +648,7 @@ class Blob(pulumi.CustomResource):
             __props__ = BlobArgs.__new__(BlobArgs)
 
             __props__.__dict__["access_tier"] = access_tier
+            __props__.__dict__["cache_control"] = cache_control
             __props__.__dict__["content_md5"] = content_md5
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["metadata"] = metadata
@@ -643,6 +679,7 @@ class Blob(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_tier: Optional[pulumi.Input[str]] = None,
+            cache_control: Optional[pulumi.Input[str]] = None,
             content_md5: Optional[pulumi.Input[str]] = None,
             content_type: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -664,6 +701,7 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+        :param pulumi.Input[str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
@@ -685,6 +723,7 @@ class Blob(pulumi.CustomResource):
         __props__ = _BlobState.__new__(_BlobState)
 
         __props__.__dict__["access_tier"] = access_tier
+        __props__.__dict__["cache_control"] = cache_control
         __props__.__dict__["content_md5"] = content_md5
         __props__.__dict__["content_type"] = content_type
         __props__.__dict__["metadata"] = metadata
@@ -707,6 +746,14 @@ class Blob(pulumi.CustomResource):
         The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
         """
         return pulumi.get(self, "access_tier")
+
+    @property
+    @pulumi.getter(name="cacheControl")
+    def cache_control(self) -> pulumi.Output[Optional[str]]:
+        """
+        Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+        """
+        return pulumi.get(self, "cache_control")
 
     @property
     @pulumi.getter(name="contentMd5")

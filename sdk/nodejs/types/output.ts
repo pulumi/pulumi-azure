@@ -10759,7 +10759,7 @@ export namespace cosmosdb {
          */
         retentionInHours: number;
         /**
-         * The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+         * The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
          */
         type: string;
     }
@@ -15544,13 +15544,16 @@ export namespace frontdoor {
 
     export interface RulesEngineRuleMatchCondition {
         /**
-         * can be set to `true` or `false` to negate the given condition.
+         * can be set to `true` or `false` to negate the given condition. Defaults to `true`.
          */
         negateCondition?: boolean;
         /**
          * can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
          */
         operator: string;
+        /**
+         * match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+         */
         selector?: string;
         /**
          * can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
@@ -21938,6 +21941,44 @@ export namespace monitoring {
         enabled: boolean;
     }
 
+    export interface LogzMonitorPlan {
+        /**
+         * Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
+         */
+        billingCycle: string;
+        /**
+         * Date when plan was applied. Changing this forces a new logz Monitor to be created.
+         */
+        effectiveDate: string;
+        /**
+         * Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+         */
+        planId: string;
+        /**
+         * Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+         */
+        usageType: string;
+    }
+
+    export interface LogzMonitorUser {
+        /**
+         * Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+         */
+        email: string;
+        /**
+         * First Name of the user. Changing this forces a new logz Monitor to be created.
+         */
+        firstName: string;
+        /**
+         * Last Name of the user. Changing this forces a new logz Monitor to be created.
+         */
+        lastName: string;
+        /**
+         * Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+         */
+        phoneNumber: string;
+    }
+
     export interface MetricAlertAction {
         /**
          * The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource
@@ -22157,7 +22198,6 @@ export namespace monitoring {
          */
         webhookPayload?: string;
     }
-
 }
 
 export namespace mssql {
@@ -24056,6 +24096,36 @@ export namespace network {
         userAssignedIdentityIds?: string[];
     }
 
+    export interface FirewallPolicyInsights {
+        /**
+         * The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `logAnalyticsWorkspace`.
+         */
+        defaultLogAnalyticsWorkspaceId: string;
+        /**
+         * Whether the insights functionality is enabled for this Firewall Policy.
+         */
+        enabled: boolean;
+        /**
+         * A list of `logAnalyticsWorkspace` block as defined below.
+         */
+        logAnalyticsWorkspaces?: outputs.network.FirewallPolicyInsightsLogAnalyticsWorkspace[];
+        /**
+         * The log retention period in days.
+         */
+        retentionInDays?: number;
+    }
+
+    export interface FirewallPolicyInsightsLogAnalyticsWorkspace {
+        /**
+         * The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs.
+         */
+        firewallLocation: string;
+        /**
+         * The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewallLocation`.
+         */
+        id: string;
+    }
+
     export interface FirewallPolicyIntrusionDetection {
         /**
          * In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
@@ -24241,7 +24311,11 @@ export namespace network {
         /**
          * Specifies the translated address.
          */
-        translatedAddress: string;
+        translatedAddress?: string;
+        /**
+         * Specifies the translated FQDN.
+         */
+        translatedFqdn?: string;
         /**
          * Specifies the translated port.
          */
@@ -26288,7 +26362,6 @@ export namespace network {
          */
         peeringAddress: string;
     }
-
 }
 
 export namespace notificationhub {
@@ -29401,6 +29474,21 @@ export namespace synapse {
          * The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          */
         type: string;
+    }
+
+    export interface WorkspaceSqlAadAdmin {
+        /**
+         * The login name of the Azure AD Administrator of this Synapse Workspace SQL.
+         */
+        login: string;
+        /**
+         * The object id of the Azure AD Administrator of this Synapse Workspace SQL.
+         */
+        objectId: string;
+        /**
+         * The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+         */
+        tenantId: string;
     }
 
     export interface WorkspaceVulnerabilityAssessmentRecurringScans {

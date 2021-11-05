@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .account import *
+from .cassandra_cluster import *
+from .cassandra_datacenter import *
 from .cassandra_keyspace import *
 from .cassandra_table import *
 from .get_account import *

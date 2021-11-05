@@ -8331,6 +8331,308 @@ func (o FirewallPolicyIdentityPtrOutput) UserAssignedIdentityIds() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
+type FirewallPolicyInsights struct {
+	// The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `logAnalyticsWorkspace`.
+	DefaultLogAnalyticsWorkspaceId string `pulumi:"defaultLogAnalyticsWorkspaceId"`
+	// Whether the insights functionality is enabled for this Firewall Policy.
+	Enabled bool `pulumi:"enabled"`
+	// A list of `logAnalyticsWorkspace` block as defined below.
+	LogAnalyticsWorkspaces []FirewallPolicyInsightsLogAnalyticsWorkspace `pulumi:"logAnalyticsWorkspaces"`
+	// The log retention period in days.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+}
+
+// FirewallPolicyInsightsInput is an input type that accepts FirewallPolicyInsightsArgs and FirewallPolicyInsightsOutput values.
+// You can construct a concrete instance of `FirewallPolicyInsightsInput` via:
+//
+//          FirewallPolicyInsightsArgs{...}
+type FirewallPolicyInsightsInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyInsightsOutput() FirewallPolicyInsightsOutput
+	ToFirewallPolicyInsightsOutputWithContext(context.Context) FirewallPolicyInsightsOutput
+}
+
+type FirewallPolicyInsightsArgs struct {
+	// The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `logAnalyticsWorkspace`.
+	DefaultLogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"defaultLogAnalyticsWorkspaceId"`
+	// Whether the insights functionality is enabled for this Firewall Policy.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A list of `logAnalyticsWorkspace` block as defined below.
+	LogAnalyticsWorkspaces FirewallPolicyInsightsLogAnalyticsWorkspaceArrayInput `pulumi:"logAnalyticsWorkspaces"`
+	// The log retention period in days.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+}
+
+func (FirewallPolicyInsightsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyInsights)(nil)).Elem()
+}
+
+func (i FirewallPolicyInsightsArgs) ToFirewallPolicyInsightsOutput() FirewallPolicyInsightsOutput {
+	return i.ToFirewallPolicyInsightsOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyInsightsArgs) ToFirewallPolicyInsightsOutputWithContext(ctx context.Context) FirewallPolicyInsightsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyInsightsOutput)
+}
+
+func (i FirewallPolicyInsightsArgs) ToFirewallPolicyInsightsPtrOutput() FirewallPolicyInsightsPtrOutput {
+	return i.ToFirewallPolicyInsightsPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyInsightsArgs) ToFirewallPolicyInsightsPtrOutputWithContext(ctx context.Context) FirewallPolicyInsightsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyInsightsOutput).ToFirewallPolicyInsightsPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyInsightsPtrInput is an input type that accepts FirewallPolicyInsightsArgs, FirewallPolicyInsightsPtr and FirewallPolicyInsightsPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyInsightsPtrInput` via:
+//
+//          FirewallPolicyInsightsArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallPolicyInsightsPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyInsightsPtrOutput() FirewallPolicyInsightsPtrOutput
+	ToFirewallPolicyInsightsPtrOutputWithContext(context.Context) FirewallPolicyInsightsPtrOutput
+}
+
+type firewallPolicyInsightsPtrType FirewallPolicyInsightsArgs
+
+func FirewallPolicyInsightsPtr(v *FirewallPolicyInsightsArgs) FirewallPolicyInsightsPtrInput {
+	return (*firewallPolicyInsightsPtrType)(v)
+}
+
+func (*firewallPolicyInsightsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyInsights)(nil)).Elem()
+}
+
+func (i *firewallPolicyInsightsPtrType) ToFirewallPolicyInsightsPtrOutput() FirewallPolicyInsightsPtrOutput {
+	return i.ToFirewallPolicyInsightsPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyInsightsPtrType) ToFirewallPolicyInsightsPtrOutputWithContext(ctx context.Context) FirewallPolicyInsightsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyInsightsPtrOutput)
+}
+
+type FirewallPolicyInsightsOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyInsightsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyInsights)(nil)).Elem()
+}
+
+func (o FirewallPolicyInsightsOutput) ToFirewallPolicyInsightsOutput() FirewallPolicyInsightsOutput {
+	return o
+}
+
+func (o FirewallPolicyInsightsOutput) ToFirewallPolicyInsightsOutputWithContext(ctx context.Context) FirewallPolicyInsightsOutput {
+	return o
+}
+
+func (o FirewallPolicyInsightsOutput) ToFirewallPolicyInsightsPtrOutput() FirewallPolicyInsightsPtrOutput {
+	return o.ToFirewallPolicyInsightsPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyInsightsOutput) ToFirewallPolicyInsightsPtrOutputWithContext(ctx context.Context) FirewallPolicyInsightsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyInsights) *FirewallPolicyInsights {
+		return &v
+	}).(FirewallPolicyInsightsPtrOutput)
+}
+
+// The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `logAnalyticsWorkspace`.
+func (o FirewallPolicyInsightsOutput) DefaultLogAnalyticsWorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyInsights) string { return v.DefaultLogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+}
+
+// Whether the insights functionality is enabled for this Firewall Policy.
+func (o FirewallPolicyInsightsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FirewallPolicyInsights) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A list of `logAnalyticsWorkspace` block as defined below.
+func (o FirewallPolicyInsightsOutput) LogAnalyticsWorkspaces() FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyInsights) []FirewallPolicyInsightsLogAnalyticsWorkspace {
+		return v.LogAnalyticsWorkspaces
+	}).(FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput)
+}
+
+// The log retention period in days.
+func (o FirewallPolicyInsightsOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyInsights) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+type FirewallPolicyInsightsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyInsightsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyInsights)(nil)).Elem()
+}
+
+func (o FirewallPolicyInsightsPtrOutput) ToFirewallPolicyInsightsPtrOutput() FirewallPolicyInsightsPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyInsightsPtrOutput) ToFirewallPolicyInsightsPtrOutputWithContext(ctx context.Context) FirewallPolicyInsightsPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyInsightsPtrOutput) Elem() FirewallPolicyInsightsOutput {
+	return o.ApplyT(func(v *FirewallPolicyInsights) FirewallPolicyInsights {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyInsights
+		return ret
+	}).(FirewallPolicyInsightsOutput)
+}
+
+// The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `logAnalyticsWorkspace`.
+func (o FirewallPolicyInsightsPtrOutput) DefaultLogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyInsights) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultLogAnalyticsWorkspaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the insights functionality is enabled for this Firewall Policy.
+func (o FirewallPolicyInsightsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyInsights) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of `logAnalyticsWorkspace` block as defined below.
+func (o FirewallPolicyInsightsPtrOutput) LogAnalyticsWorkspaces() FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyInsights) []FirewallPolicyInsightsLogAnalyticsWorkspace {
+		if v == nil {
+			return nil
+		}
+		return v.LogAnalyticsWorkspaces
+	}).(FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput)
+}
+
+// The log retention period in days.
+func (o FirewallPolicyInsightsPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyInsights) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+type FirewallPolicyInsightsLogAnalyticsWorkspace struct {
+	// The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs.
+	FirewallLocation string `pulumi:"firewallLocation"`
+	// The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewallLocation`.
+	Id string `pulumi:"id"`
+}
+
+// FirewallPolicyInsightsLogAnalyticsWorkspaceInput is an input type that accepts FirewallPolicyInsightsLogAnalyticsWorkspaceArgs and FirewallPolicyInsightsLogAnalyticsWorkspaceOutput values.
+// You can construct a concrete instance of `FirewallPolicyInsightsLogAnalyticsWorkspaceInput` via:
+//
+//          FirewallPolicyInsightsLogAnalyticsWorkspaceArgs{...}
+type FirewallPolicyInsightsLogAnalyticsWorkspaceInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyInsightsLogAnalyticsWorkspaceOutput() FirewallPolicyInsightsLogAnalyticsWorkspaceOutput
+	ToFirewallPolicyInsightsLogAnalyticsWorkspaceOutputWithContext(context.Context) FirewallPolicyInsightsLogAnalyticsWorkspaceOutput
+}
+
+type FirewallPolicyInsightsLogAnalyticsWorkspaceArgs struct {
+	// The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs.
+	FirewallLocation pulumi.StringInput `pulumi:"firewallLocation"`
+	// The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewallLocation`.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FirewallPolicyInsightsLogAnalyticsWorkspaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyInsightsLogAnalyticsWorkspace)(nil)).Elem()
+}
+
+func (i FirewallPolicyInsightsLogAnalyticsWorkspaceArgs) ToFirewallPolicyInsightsLogAnalyticsWorkspaceOutput() FirewallPolicyInsightsLogAnalyticsWorkspaceOutput {
+	return i.ToFirewallPolicyInsightsLogAnalyticsWorkspaceOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyInsightsLogAnalyticsWorkspaceArgs) ToFirewallPolicyInsightsLogAnalyticsWorkspaceOutputWithContext(ctx context.Context) FirewallPolicyInsightsLogAnalyticsWorkspaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyInsightsLogAnalyticsWorkspaceOutput)
+}
+
+// FirewallPolicyInsightsLogAnalyticsWorkspaceArrayInput is an input type that accepts FirewallPolicyInsightsLogAnalyticsWorkspaceArray and FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyInsightsLogAnalyticsWorkspaceArrayInput` via:
+//
+//          FirewallPolicyInsightsLogAnalyticsWorkspaceArray{ FirewallPolicyInsightsLogAnalyticsWorkspaceArgs{...} }
+type FirewallPolicyInsightsLogAnalyticsWorkspaceArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput() FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput
+	ToFirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutputWithContext(context.Context) FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput
+}
+
+type FirewallPolicyInsightsLogAnalyticsWorkspaceArray []FirewallPolicyInsightsLogAnalyticsWorkspaceInput
+
+func (FirewallPolicyInsightsLogAnalyticsWorkspaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyInsightsLogAnalyticsWorkspace)(nil)).Elem()
+}
+
+func (i FirewallPolicyInsightsLogAnalyticsWorkspaceArray) ToFirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput() FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput {
+	return i.ToFirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyInsightsLogAnalyticsWorkspaceArray) ToFirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutputWithContext(ctx context.Context) FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput)
+}
+
+type FirewallPolicyInsightsLogAnalyticsWorkspaceOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyInsightsLogAnalyticsWorkspaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyInsightsLogAnalyticsWorkspace)(nil)).Elem()
+}
+
+func (o FirewallPolicyInsightsLogAnalyticsWorkspaceOutput) ToFirewallPolicyInsightsLogAnalyticsWorkspaceOutput() FirewallPolicyInsightsLogAnalyticsWorkspaceOutput {
+	return o
+}
+
+func (o FirewallPolicyInsightsLogAnalyticsWorkspaceOutput) ToFirewallPolicyInsightsLogAnalyticsWorkspaceOutputWithContext(ctx context.Context) FirewallPolicyInsightsLogAnalyticsWorkspaceOutput {
+	return o
+}
+
+// The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs.
+func (o FirewallPolicyInsightsLogAnalyticsWorkspaceOutput) FirewallLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyInsightsLogAnalyticsWorkspace) string { return v.FirewallLocation }).(pulumi.StringOutput)
+}
+
+// The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewallLocation`.
+func (o FirewallPolicyInsightsLogAnalyticsWorkspaceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyInsightsLogAnalyticsWorkspace) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyInsightsLogAnalyticsWorkspace)(nil)).Elem()
+}
+
+func (o FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput) ToFirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput() FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput) ToFirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutputWithContext(ctx context.Context) FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput) Index(i pulumi.IntInput) FirewallPolicyInsightsLogAnalyticsWorkspaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyInsightsLogAnalyticsWorkspace {
+		return vs[0].([]FirewallPolicyInsightsLogAnalyticsWorkspace)[vs[1].(int)]
+	}).(FirewallPolicyInsightsLogAnalyticsWorkspaceOutput)
+}
+
 type FirewallPolicyIntrusionDetection struct {
 	// In which mode you want to run intrusion detection: "Off", "Alert" or "Deny".
 	Mode *string `pulumi:"mode"`
@@ -9351,7 +9653,9 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionRule struct {
 	// Specifies a list of source IP groups.
 	SourceIpGroups []string `pulumi:"sourceIpGroups"`
 	// Specifies the translated address.
-	TranslatedAddress string `pulumi:"translatedAddress"`
+	TranslatedAddress *string `pulumi:"translatedAddress"`
+	// Specifies the translated FQDN.
+	TranslatedFqdn *string `pulumi:"translatedFqdn"`
 	// Specifies the translated port.
 	TranslatedPort int `pulumi:"translatedPort"`
 }
@@ -9381,7 +9685,9 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs struct {
 	// Specifies a list of source IP groups.
 	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
 	// Specifies the translated address.
-	TranslatedAddress pulumi.StringInput `pulumi:"translatedAddress"`
+	TranslatedAddress pulumi.StringPtrInput `pulumi:"translatedAddress"`
+	// Specifies the translated FQDN.
+	TranslatedFqdn pulumi.StringPtrInput `pulumi:"translatedFqdn"`
 	// Specifies the translated port.
 	TranslatedPort pulumi.IntInput `pulumi:"translatedPort"`
 }
@@ -9468,8 +9774,13 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) SourceIpGr
 }
 
 // Specifies the translated address.
-func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) TranslatedAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) string { return v.TranslatedAddress }).(pulumi.StringOutput)
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) TranslatedAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.TranslatedAddress }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the translated FQDN.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) TranslatedFqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.TranslatedFqdn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the translated port.
@@ -25393,6 +25704,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyDnsPtrInput)(nil)).Elem(), FirewallPolicyDnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyIdentityInput)(nil)).Elem(), FirewallPolicyIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyIdentityPtrInput)(nil)).Elem(), FirewallPolicyIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyInsightsInput)(nil)).Elem(), FirewallPolicyInsightsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyInsightsPtrInput)(nil)).Elem(), FirewallPolicyInsightsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyInsightsLogAnalyticsWorkspaceInput)(nil)).Elem(), FirewallPolicyInsightsLogAnalyticsWorkspaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyInsightsLogAnalyticsWorkspaceArrayInput)(nil)).Elem(), FirewallPolicyInsightsLogAnalyticsWorkspaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyIntrusionDetectionInput)(nil)).Elem(), FirewallPolicyIntrusionDetectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyIntrusionDetectionPtrInput)(nil)).Elem(), FirewallPolicyIntrusionDetectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyIntrusionDetectionSignatureOverrideInput)(nil)).Elem(), FirewallPolicyIntrusionDetectionSignatureOverrideArgs{})
@@ -25722,6 +26037,10 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyDnsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyIdentityOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyIdentityPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyInsightsOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyInsightsPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyInsightsLogAnalyticsWorkspaceOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyIntrusionDetectionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyIntrusionDetectionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyIntrusionDetectionSignatureOverrideOutput{})

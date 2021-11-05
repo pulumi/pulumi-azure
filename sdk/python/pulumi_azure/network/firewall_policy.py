@@ -19,6 +19,7 @@ class FirewallPolicyArgs:
                  base_policy_id: Optional[pulumi.Input[str]] = None,
                  dns: Optional[pulumi.Input['FirewallPolicyDnsArgs']] = None,
                  identity: Optional[pulumi.Input['FirewallPolicyIdentityArgs']] = None,
+                 insights: Optional[pulumi.Input['FirewallPolicyInsightsArgs']] = None,
                  intrusion_detection: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -34,6 +35,7 @@ class FirewallPolicyArgs:
         :param pulumi.Input[str] base_policy_id: The ID of the base Firewall Policy.
         :param pulumi.Input['FirewallPolicyDnsArgs'] dns: A `dns` block as defined below.
         :param pulumi.Input['FirewallPolicyIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input['FirewallPolicyInsightsArgs'] insights: An `insights` block as defined below.
         :param pulumi.Input['FirewallPolicyIntrusionDetectionArgs'] intrusion_detection: A `intrusion_detection` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
@@ -51,6 +53,8 @@ class FirewallPolicyArgs:
             pulumi.set(__self__, "dns", dns)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if insights is not None:
+            pulumi.set(__self__, "insights", insights)
         if intrusion_detection is not None:
             pulumi.set(__self__, "intrusion_detection", intrusion_detection)
         if location is not None:
@@ -117,6 +121,18 @@ class FirewallPolicyArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['FirewallPolicyIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def insights(self) -> Optional[pulumi.Input['FirewallPolicyInsightsArgs']]:
+        """
+        An `insights` block as defined below.
+        """
+        return pulumi.get(self, "insights")
+
+    @insights.setter
+    def insights(self, value: Optional[pulumi.Input['FirewallPolicyInsightsArgs']]):
+        pulumi.set(self, "insights", value)
 
     @property
     @pulumi.getter(name="intrusionDetection")
@@ -235,6 +251,7 @@ class _FirewallPolicyState:
                  dns: Optional[pulumi.Input['FirewallPolicyDnsArgs']] = None,
                  firewalls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input['FirewallPolicyIdentityArgs']] = None,
+                 insights: Optional[pulumi.Input['FirewallPolicyInsightsArgs']] = None,
                  intrusion_detection: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -253,6 +270,7 @@ class _FirewallPolicyState:
         :param pulumi.Input['FirewallPolicyDnsArgs'] dns: A `dns` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] firewalls: A list of references to Azure Firewalls that this Firewall Policy is associated with.
         :param pulumi.Input['FirewallPolicyIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input['FirewallPolicyInsightsArgs'] insights: An `insights` block as defined below.
         :param pulumi.Input['FirewallPolicyIntrusionDetectionArgs'] intrusion_detection: A `intrusion_detection` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
@@ -275,6 +293,8 @@ class _FirewallPolicyState:
             pulumi.set(__self__, "firewalls", firewalls)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if insights is not None:
+            pulumi.set(__self__, "insights", insights)
         if intrusion_detection is not None:
             pulumi.set(__self__, "intrusion_detection", intrusion_detection)
         if location is not None:
@@ -357,6 +377,18 @@ class _FirewallPolicyState:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['FirewallPolicyIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def insights(self) -> Optional[pulumi.Input['FirewallPolicyInsightsArgs']]:
+        """
+        An `insights` block as defined below.
+        """
+        return pulumi.get(self, "insights")
+
+    @insights.setter
+    def insights(self, value: Optional[pulumi.Input['FirewallPolicyInsightsArgs']]):
+        pulumi.set(self, "insights", value)
 
     @property
     @pulumi.getter(name="intrusionDetection")
@@ -499,6 +531,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  base_policy_id: Optional[pulumi.Input[str]] = None,
                  dns: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyDnsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyIdentityArgs']]] = None,
+                 insights: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyInsightsArgs']]] = None,
                  intrusion_detection: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyIntrusionDetectionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -537,6 +570,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] base_policy_id: The ID of the base Firewall Policy.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyDnsArgs']] dns: A `dns` block as defined below.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input[pulumi.InputType['FirewallPolicyInsightsArgs']] insights: An `insights` block as defined below.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyIntrusionDetectionArgs']] intrusion_detection: A `intrusion_detection` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
@@ -594,6 +628,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  base_policy_id: Optional[pulumi.Input[str]] = None,
                  dns: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyDnsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyIdentityArgs']]] = None,
+                 insights: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyInsightsArgs']]] = None,
                  intrusion_detection: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyIntrusionDetectionArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -619,6 +654,7 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["base_policy_id"] = base_policy_id
             __props__.__dict__["dns"] = dns
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["insights"] = insights
             __props__.__dict__["intrusion_detection"] = intrusion_detection
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -649,6 +685,7 @@ class FirewallPolicy(pulumi.CustomResource):
             dns: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyDnsArgs']]] = None,
             firewalls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyIdentityArgs']]] = None,
+            insights: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyInsightsArgs']]] = None,
             intrusion_detection: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyIntrusionDetectionArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -672,6 +709,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FirewallPolicyDnsArgs']] dns: A `dns` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] firewalls: A list of references to Azure Firewalls that this Firewall Policy is associated with.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input[pulumi.InputType['FirewallPolicyInsightsArgs']] insights: An `insights` block as defined below.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyIntrusionDetectionArgs']] intrusion_detection: A `intrusion_detection` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
@@ -693,6 +731,7 @@ class FirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["dns"] = dns
         __props__.__dict__["firewalls"] = firewalls
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["insights"] = insights
         __props__.__dict__["intrusion_detection"] = intrusion_detection
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -745,6 +784,14 @@ class FirewallPolicy(pulumi.CustomResource):
         An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def insights(self) -> pulumi.Output[Optional['outputs.FirewallPolicyInsights']]:
+        """
+        An `insights` block as defined below.
+        """
+        return pulumi.get(self, "insights")
 
     @property
     @pulumi.getter(name="intrusionDetection")

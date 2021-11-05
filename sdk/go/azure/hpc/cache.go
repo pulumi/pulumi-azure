@@ -82,7 +82,7 @@ import (
 type Cache struct {
 	pulumi.CustomResourceState
 
-	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb pulumi.IntOutput `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy CacheDefaultAccessPolicyOutput `pulumi:"defaultAccessPolicy"`
@@ -110,7 +110,7 @@ type Cache struct {
 	//
 	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
 	RootSquashEnabled pulumi.BoolOutput `pulumi:"rootSquashEnabled"`
-	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -159,7 +159,7 @@ func GetCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cache resources.
 type cacheState struct {
-	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb *int `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy *CacheDefaultAccessPolicy `pulumi:"defaultAccessPolicy"`
@@ -187,7 +187,7 @@ type cacheState struct {
 	//
 	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
 	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
-	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -196,7 +196,7 @@ type cacheState struct {
 }
 
 type CacheState struct {
-	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb pulumi.IntPtrInput
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy CacheDefaultAccessPolicyPtrInput
@@ -224,7 +224,7 @@ type CacheState struct {
 	//
 	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
 	RootSquashEnabled pulumi.BoolPtrInput
-	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
@@ -237,7 +237,7 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
-	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb int `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy *CacheDefaultAccessPolicy `pulumi:"defaultAccessPolicy"`
@@ -263,7 +263,7 @@ type cacheArgs struct {
 	//
 	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
 	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
-	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
@@ -273,7 +273,7 @@ type cacheArgs struct {
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
-	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb pulumi.IntInput
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy CacheDefaultAccessPolicyPtrInput
@@ -299,7 +299,7 @@ type CacheArgs struct {
 	//
 	// Deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
 	RootSquashEnabled pulumi.BoolPtrInput
-	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+	// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput

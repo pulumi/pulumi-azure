@@ -99,9 +99,6 @@ namespace Pulumi.Azure.ContainerService
         /// The SKU of this Container Registry, such as `Basic`.
         /// </summary>
         public readonly string Sku;
-        /// <summary>
-        /// The ID of the Storage Account used for this Container Registry. This is only returned for `Classic` SKU's.
-        /// </summary>
         public readonly string StorageAccountId;
         /// <summary>
         /// A map of tags assigned to the Container Registry.

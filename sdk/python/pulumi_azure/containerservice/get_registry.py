@@ -50,6 +50,10 @@ class GetRegistryResult:
         pulumi.set(__self__, "sku", sku)
         if storage_account_id and not isinstance(storage_account_id, str):
             raise TypeError("Expected argument 'storage_account_id' to be a str")
+        if storage_account_id is not None:
+            warnings.warn("""this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_id is deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""")
+
         pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -124,9 +128,6 @@ class GetRegistryResult:
     @property
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> str:
-        """
-        The ID of the Storage Account used for this Container Registry. This is only returned for `Classic` SKU's.
-        """
         return pulumi.get(self, "storage_account_id")
 
     @property

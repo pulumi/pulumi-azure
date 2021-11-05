@@ -35,7 +35,6 @@ import (
 // 		_, err = purview.NewAccount(ctx, "exampleAccount", &purview.AccountArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
-// 			SkuName:           pulumi.String("Standard_4"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -75,8 +74,8 @@ type Account struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Scan endpoint.
 	ScanEndpoint pulumi.StringOutput `pulumi:"scanEndpoint"`
-	// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
-	SkuName pulumi.StringOutput `pulumi:"skuName"`
+	// Deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
+	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Purview Account.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -90,9 +89,6 @@ func NewAccount(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.SkuName == nil {
-		return nil, errors.New("invalid value for required argument 'SkuName'")
 	}
 	var resource Account
 	err := ctx.RegisterResource("azure:purview/account:Account", name, args, &resource, opts...)
@@ -136,7 +132,7 @@ type accountState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Scan endpoint.
 	ScanEndpoint *string `pulumi:"scanEndpoint"`
-	// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
+	// Deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Purview Account.
 	Tags map[string]string `pulumi:"tags"`
@@ -163,7 +159,7 @@ type AccountState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Scan endpoint.
 	ScanEndpoint pulumi.StringPtrInput
-	// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
+	// Deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Purview Account.
 	Tags pulumi.StringMapInput
@@ -182,8 +178,8 @@ type accountArgs struct {
 	PublicNetworkEnabled *bool `pulumi:"publicNetworkEnabled"`
 	// The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
-	SkuName string `pulumi:"skuName"`
+	// Deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
+	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Purview Account.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -198,8 +194,8 @@ type AccountArgs struct {
 	PublicNetworkEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
-	SkuName pulumi.StringInput
+	// Deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
+	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Purview Account.
 	Tags pulumi.StringMapInput
 }

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *             name: "debuggingoutput",
  *             priority: 1,
  *             action: {
- *                 responseHeaderActions: [{
+ *                 responseHeaders: [{
  *                     headerActionType: "Append",
  *                     headerName: "X-TEST-HEADER",
  *                     value: "Append Header Rule",

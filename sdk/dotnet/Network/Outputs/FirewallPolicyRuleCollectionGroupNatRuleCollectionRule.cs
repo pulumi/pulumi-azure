@@ -40,7 +40,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// Specifies the translated address.
         /// </summary>
-        public readonly string TranslatedAddress;
+        public readonly string? TranslatedAddress;
+        /// <summary>
+        /// Specifies the translated FQDN.
+        /// </summary>
+        public readonly string? TranslatedFqdn;
         /// <summary>
         /// Specifies the translated port.
         /// </summary>
@@ -60,7 +64,9 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> sourceIpGroups,
 
-            string translatedAddress,
+            string? translatedAddress,
+
+            string? translatedFqdn,
 
             int translatedPort)
         {
@@ -71,6 +77,7 @@ namespace Pulumi.Azure.Network.Outputs
             SourceAddresses = sourceAddresses;
             SourceIpGroups = sourceIpGroups;
             TranslatedAddress = translatedAddress;
+            TranslatedFqdn = translatedFqdn;
             TranslatedPort = translatedPort;
         }
     }

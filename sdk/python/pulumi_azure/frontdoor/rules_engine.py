@@ -218,11 +218,11 @@ class RulesEngine(pulumi.CustomResource):
                     name="debuggingoutput",
                     priority=1,
                     action=azure.frontdoor.RulesEngineRuleActionArgs(
-                        response_header_actions=[{
-                            "headerActionType": "Append",
-                            "headerName": "X-TEST-HEADER",
-                            "value": "Append Header Rule",
-                        }],
+                        response_headers=[azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
+                            header_action_type="Append",
+                            header_name="X-TEST-HEADER",
+                            value="Append Header Rule",
+                        )],
                     ),
                 ),
                 azure.frontdoor.RulesEngineRuleArgs(
@@ -284,11 +284,11 @@ class RulesEngine(pulumi.CustomResource):
                     name="debuggingoutput",
                     priority=1,
                     action=azure.frontdoor.RulesEngineRuleActionArgs(
-                        response_header_actions=[{
-                            "headerActionType": "Append",
-                            "headerName": "X-TEST-HEADER",
-                            "value": "Append Header Rule",
-                        }],
+                        response_headers=[azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
+                            header_action_type="Append",
+                            header_name="X-TEST-HEADER",
+                            value="Append Header Rule",
+                        )],
                     ),
                 ),
                 azure.frontdoor.RulesEngineRuleArgs(

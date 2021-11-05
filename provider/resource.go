@@ -1124,6 +1124,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_notebook_workspace":   {Tok: azureResource(azureCosmosDB, "NotebookWorkspace")},
 			"azurerm_cosmosdb_sql_trigger":          {Tok: azureResource(azureCosmosDB, "SqlTrigger")},
 			"azurerm_cosmosdb_sql_function":         {Tok: azureResource(azureCosmosDB, "SqlFunction")},
+			"azurerm_cosmosdb_cassandra_cluster":    {Tok: azureResource(azureCosmosDB, "CassandraCluster")},
+			"azurerm_cosmosdb_cassandra_datacenter": {Tok: azureResource(azureCosmosDB, "CassandraDatacenter")},
 
 			// Cost Management
 			"azurerm_cost_management_export_resource_group": {
@@ -1185,6 +1187,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_action_rule_suppression":     {Tok: azureResource(azureMonitoring, "ActionRuleSuppression")},
 			"azurerm_monitor_smart_detector_alert_rule":   {Tok: azureResource(azureMonitoring, "SmartDetectorAlertRule")},
 			"azurerm_monitor_aad_diagnostic_setting":      {Tok: azureResource(azureMonitoring, "AadDiagnosticSetting")},
+			"azurerm_logz_monitor":                        {Tok: azureResource(azureMonitoring, "LogzMonitor")},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
@@ -1706,6 +1709,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_stream_analytics_output_table": {
 				Tok: azureResource(azureStreamAnalytics, "OutputTable"),
+			},
+			"azurerm_stream_analytics_output_synapse": {
+				Tok: azureResource(azureStreamAnalytics, "OutputSynapse"),
 			},
 
 			// Marketplace

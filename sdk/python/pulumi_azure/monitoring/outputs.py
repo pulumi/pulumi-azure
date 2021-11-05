@@ -62,6 +62,8 @@ __all__ = [
     'DiagnosticSettingMetric',
     'DiagnosticSettingMetricRetentionPolicy',
     'LogProfileRetentionPolicy',
+    'LogzMonitorPlan',
+    'LogzMonitorUser',
     'MetricAlertAction',
     'MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria',
     'MetricAlertCriteria',
@@ -2969,6 +2971,152 @@ class LogProfileRetentionPolicy(dict):
         The number of days for the retention policy. Defaults to 0.
         """
         return pulumi.get(self, "days")
+
+
+@pulumi.output_type
+class LogzMonitorPlan(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "billingCycle":
+            suggest = "billing_cycle"
+        elif key == "effectiveDate":
+            suggest = "effective_date"
+        elif key == "planId":
+            suggest = "plan_id"
+        elif key == "usageType":
+            suggest = "usage_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogzMonitorPlan. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogzMonitorPlan.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogzMonitorPlan.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 billing_cycle: str,
+                 effective_date: str,
+                 plan_id: str,
+                 usage_type: str):
+        """
+        :param str billing_cycle: Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
+        :param str effective_date: Date when plan was applied. Changing this forces a new logz Monitor to be created.
+        :param str plan_id: Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+        :param str usage_type: Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+        """
+        pulumi.set(__self__, "billing_cycle", billing_cycle)
+        pulumi.set(__self__, "effective_date", effective_date)
+        pulumi.set(__self__, "plan_id", plan_id)
+        pulumi.set(__self__, "usage_type", usage_type)
+
+    @property
+    @pulumi.getter(name="billingCycle")
+    def billing_cycle(self) -> str:
+        """
+        Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "billing_cycle")
+
+    @property
+    @pulumi.getter(name="effectiveDate")
+    def effective_date(self) -> str:
+        """
+        Date when plan was applied. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "effective_date")
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> str:
+        """
+        Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "plan_id")
+
+    @property
+    @pulumi.getter(name="usageType")
+    def usage_type(self) -> str:
+        """
+        Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "usage_type")
+
+
+@pulumi.output_type
+class LogzMonitorUser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firstName":
+            suggest = "first_name"
+        elif key == "lastName":
+            suggest = "last_name"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogzMonitorUser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogzMonitorUser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogzMonitorUser.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email: str,
+                 first_name: str,
+                 last_name: str,
+                 phone_number: str):
+        """
+        :param str email: Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+        :param str first_name: First Name of the user. Changing this forces a new logz Monitor to be created.
+        :param str last_name: Last Name of the user. Changing this forces a new logz Monitor to be created.
+        :param str phone_number: Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+        """
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> str:
+        """
+        First Name of the user. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> str:
+        """
+        Last Name of the user. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> str:
+        """
+        Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "phone_number")
 
 
 @pulumi.output_type

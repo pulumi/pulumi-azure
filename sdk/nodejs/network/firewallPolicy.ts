@@ -77,6 +77,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.network.FirewallPolicyIdentity | undefined>;
     /**
+     * An `insights` block as defined below.
+     */
+    public readonly insights!: pulumi.Output<outputs.network.FirewallPolicyInsights | undefined>;
+    /**
      * A `intrusionDetection` block as defined below.
      */
     public readonly intrusionDetection!: pulumi.Output<outputs.network.FirewallPolicyIntrusionDetection | undefined>;
@@ -139,6 +143,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["dns"] = state ? state.dns : undefined;
             inputs["firewalls"] = state ? state.firewalls : undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["insights"] = state ? state.insights : undefined;
             inputs["intrusionDetection"] = state ? state.intrusionDetection : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -158,6 +163,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             inputs["basePolicyId"] = args ? args.basePolicyId : undefined;
             inputs["dns"] = args ? args.dns : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["insights"] = args ? args.insights : undefined;
             inputs["intrusionDetection"] = args ? args.intrusionDetection : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -203,6 +209,10 @@ export interface FirewallPolicyState {
      * An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
      */
     identity?: pulumi.Input<inputs.network.FirewallPolicyIdentity>;
+    /**
+     * An `insights` block as defined below.
+     */
+    insights?: pulumi.Input<inputs.network.FirewallPolicyInsights>;
     /**
      * A `intrusionDetection` block as defined below.
      */
@@ -265,6 +275,10 @@ export interface FirewallPolicyArgs {
      * An `identity` block as defined below. Changing this forces a new Firewall Policy to be created.
      */
     identity?: pulumi.Input<inputs.network.FirewallPolicyIdentity>;
+    /**
+     * An `insights` block as defined below.
+     */
+    insights?: pulumi.Input<inputs.network.FirewallPolicyInsights>;
     /**
      * A `intrusionDetection` block as defined below.
      */

@@ -19,7 +19,18 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "PerGB2018",
  * });
- * const exampleDataConnectorThreatIntelligence = new azure.sentinel.DataConnectorThreatIntelligence("exampleDataConnectorThreatIntelligence", {logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id});
+ * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
+ *     solutionName: "SecurityInsights",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     workspaceResourceId: exampleAnalyticsWorkspace.id,
+ *     workspaceName: exampleAnalyticsWorkspace.name,
+ *     plan: {
+ *         publisher: "Microsoft",
+ *         product: "OMSGallery/SecurityInsights",
+ *     },
+ * });
+ * const exampleDataConnectorThreatIntelligence = new azure.sentinel.DataConnectorThreatIntelligence("exampleDataConnectorThreatIntelligence", {logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId});
  * ```
  *
  * ## Import

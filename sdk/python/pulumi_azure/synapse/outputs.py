@@ -22,6 +22,7 @@ __all__ = [
     'WorkspaceCustomerManagedKey',
     'WorkspaceGithubRepo',
     'WorkspaceIdentity',
+    'WorkspaceSqlAadAdmin',
     'WorkspaceVulnerabilityAssessmentRecurringScans',
     'GetWorkspaceIdentityResult',
 ]
@@ -708,6 +709,65 @@ class WorkspaceIdentity(dict):
         The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class WorkspaceSqlAadAdmin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceSqlAadAdmin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceSqlAadAdmin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceSqlAadAdmin.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 login: str,
+                 object_id: str,
+                 tenant_id: str):
+        """
+        :param str login: The login name of the Azure AD Administrator of this Synapse Workspace SQL.
+        :param str object_id: The object id of the Azure AD Administrator of this Synapse Workspace SQL.
+        :param str tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+        """
+        pulumi.set(__self__, "login", login)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def login(self) -> str:
+        """
+        The login name of the Azure AD Administrator of this Synapse Workspace SQL.
+        """
+        return pulumi.get(self, "login")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        The object id of the Azure AD Administrator of this Synapse Workspace SQL.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

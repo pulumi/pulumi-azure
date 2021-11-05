@@ -83,7 +83,7 @@ export interface GetRegistryResult {
      */
     readonly sku: string;
     /**
-     * The ID of the Storage Account used for this Container Registry. This is only returned for `Classic` SKU's.
+     * @deprecated this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
      */
     readonly storageAccountId: string;
     /**

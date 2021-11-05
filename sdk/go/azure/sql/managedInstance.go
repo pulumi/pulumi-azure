@@ -266,6 +266,8 @@ type ManagedInstance struct {
 	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
+	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+	DnsZonePartnerId pulumi.StringPtrOutput `pulumi:"dnsZonePartnerId"`
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
@@ -355,6 +357,8 @@ type managedInstanceState struct {
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
+	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+	DnsZonePartnerId *string `pulumi:"dnsZonePartnerId"`
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn *string `pulumi:"fqdn"`
 	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
@@ -392,6 +396,8 @@ type ManagedInstanceState struct {
 	AdministratorLoginPassword pulumi.StringPtrInput
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
+	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+	DnsZonePartnerId pulumi.StringPtrInput
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn pulumi.StringPtrInput
 	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
@@ -433,6 +439,8 @@ type managedInstanceArgs struct {
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
+	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+	DnsZonePartnerId *string `pulumi:"dnsZonePartnerId"`
 	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
 	LicenseType string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -469,6 +477,8 @@ type ManagedInstanceArgs struct {
 	AdministratorLoginPassword pulumi.StringInput
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
+	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+	DnsZonePartnerId pulumi.StringPtrInput
 	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
 	LicenseType pulumi.StringInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

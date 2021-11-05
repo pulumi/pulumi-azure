@@ -37,6 +37,7 @@ export class ZipBlob extends pulumi.CustomResource {
     }
 
     public readonly accessTier!: pulumi.Output<string>;
+    public readonly cacheControl!: pulumi.Output<string | undefined>;
     public readonly content!: pulumi.Output<pulumi.asset.Archive | undefined>;
     public readonly contentMd5!: pulumi.Output<string | undefined>;
     public readonly contentType!: pulumi.Output<string | undefined>;
@@ -68,6 +69,7 @@ export class ZipBlob extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ZipBlobState | undefined;
             inputs["accessTier"] = state ? state.accessTier : undefined;
+            inputs["cacheControl"] = state ? state.cacheControl : undefined;
             inputs["content"] = state ? state.content : undefined;
             inputs["contentMd5"] = state ? state.contentMd5 : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
@@ -93,6 +95,7 @@ export class ZipBlob extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
+            inputs["cacheControl"] = args ? args.cacheControl : undefined;
             inputs["content"] = args ? args.content : undefined;
             inputs["contentMd5"] = args ? args.contentMd5 : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
@@ -119,6 +122,7 @@ export class ZipBlob extends pulumi.CustomResource {
  */
 export interface ZipBlobState {
     accessTier?: pulumi.Input<string>;
+    cacheControl?: pulumi.Input<string>;
     content?: pulumi.Input<pulumi.asset.Archive>;
     contentMd5?: pulumi.Input<string>;
     contentType?: pulumi.Input<string>;
@@ -139,6 +143,7 @@ export interface ZipBlobState {
  */
 export interface ZipBlobArgs {
     accessTier?: pulumi.Input<string>;
+    cacheControl?: pulumi.Input<string>;
     content?: pulumi.Input<pulumi.asset.Archive>;
     contentMd5?: pulumi.Input<string>;
     contentType?: pulumi.Input<string>;

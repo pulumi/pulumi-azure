@@ -17,6 +17,7 @@ class ShareArgs:
     def __init__(__self__, *,
                  storage_account_name: pulumi.Input[str],
                  acls: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]] = None,
+                 enabled_protocol: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input[int]] = None):
@@ -25,6 +26,7 @@ class ShareArgs:
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
                Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
         :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
@@ -32,6 +34,8 @@ class ShareArgs:
         pulumi.set(__self__, "storage_account_name", storage_account_name)
         if acls is not None:
             pulumi.set(__self__, "acls", acls)
+        if enabled_protocol is not None:
+            pulumi.set(__self__, "enabled_protocol", enabled_protocol)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
@@ -63,6 +67,18 @@ class ShareArgs:
     @acls.setter
     def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]]):
         pulumi.set(self, "acls", value)
+
+    @property
+    @pulumi.getter(name="enabledProtocol")
+    def enabled_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "enabled_protocol")
+
+    @enabled_protocol.setter
+    def enabled_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enabled_protocol", value)
 
     @property
     @pulumi.getter
@@ -105,6 +121,7 @@ class ShareArgs:
 class _ShareState:
     def __init__(__self__, *,
                  acls: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]] = None,
+                 enabled_protocol: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input[int]] = None,
@@ -114,6 +131,7 @@ class _ShareState:
         """
         Input properties used for looking up and filtering Share resources.
         :param pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
         :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
@@ -124,6 +142,8 @@ class _ShareState:
         """
         if acls is not None:
             pulumi.set(__self__, "acls", acls)
+        if enabled_protocol is not None:
+            pulumi.set(__self__, "enabled_protocol", enabled_protocol)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
@@ -148,6 +168,18 @@ class _ShareState:
     @acls.setter
     def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]]]):
         pulumi.set(self, "acls", value)
+
+    @property
+    @pulumi.getter(name="enabledProtocol")
+    def enabled_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "enabled_protocol")
+
+    @enabled_protocol.setter
+    def enabled_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enabled_protocol", value)
 
     @property
     @pulumi.getter
@@ -229,6 +261,7 @@ class Share(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]]] = None,
+                 enabled_protocol: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input[int]] = None,
@@ -275,6 +308,7 @@ class Share(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
         :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
@@ -341,6 +375,7 @@ class Share(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]]] = None,
+                 enabled_protocol: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input[int]] = None,
@@ -358,6 +393,7 @@ class Share(pulumi.CustomResource):
             __props__ = ShareArgs.__new__(ShareArgs)
 
             __props__.__dict__["acls"] = acls
+            __props__.__dict__["enabled_protocol"] = enabled_protocol
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
             __props__.__dict__["quota"] = quota
@@ -377,6 +413,7 @@ class Share(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]]] = None,
+            enabled_protocol: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             quota: Optional[pulumi.Input[int]] = None,
@@ -391,6 +428,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
         :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
@@ -404,6 +442,7 @@ class Share(pulumi.CustomResource):
         __props__ = _ShareState.__new__(_ShareState)
 
         __props__.__dict__["acls"] = acls
+        __props__.__dict__["enabled_protocol"] = enabled_protocol
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["name"] = name
         __props__.__dict__["quota"] = quota
@@ -419,6 +458,14 @@ class Share(pulumi.CustomResource):
         One or more `acl` blocks as defined below.
         """
         return pulumi.get(self, "acls")
+
+    @property
+    @pulumi.getter(name="enabledProtocol")
+    def enabled_protocol(self) -> pulumi.Output[Optional[str]]:
+        """
+        The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "enabled_protocol")
 
     @property
     @pulumi.getter

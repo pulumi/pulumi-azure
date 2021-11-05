@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Hpc
     public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>
-        /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("cacheSizeInGb")]
         public Output<int> CacheSizeInGb { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Hpc
         public Output<bool> RootSquashEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+        /// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Hpc
     public sealed class CacheArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("cacheSizeInGb", required: true)]
         public Input<int> CacheSizeInGb { get; set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.Hpc
         public Input<bool>? RootSquashEnabled { get; set; }
 
         /// <summary>
-        /// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+        /// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Azure.Hpc
     public sealed class CacheState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        /// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("cacheSizeInGb")]
         public Input<int>? CacheSizeInGb { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.Hpc
         public Input<bool>? RootSquashEnabled { get; set; }
 
         /// <summary>
-        /// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+        /// The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

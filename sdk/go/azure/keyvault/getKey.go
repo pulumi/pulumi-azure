@@ -55,6 +55,8 @@ type LookupKeyArgs struct {
 
 // A collection of values returned by getKey.
 type LookupKeyResult struct {
+	// The EC Curve name of this Key Vault Key.
+	Curve string `pulumi:"curve"`
 	// The RSA public exponent of this Key Vault Key.
 	E string `pulumi:"e"`
 	// The provider-assigned unique ID for this managed resource.
@@ -69,12 +71,20 @@ type LookupKeyResult struct {
 	// The RSA modulus of this Key Vault Key.
 	N    string `pulumi:"n"`
 	Name string `pulumi:"name"`
+	// The OpenSSH encoded public key of this Key Vault Key.
+	PublicKeyOpenssh string `pulumi:"publicKeyOpenssh"`
+	// The PEM encoded public key of this Key Vault Key.
+	PublicKeyPem string `pulumi:"publicKeyPem"`
 	// A mapping of tags assigned to this Key Vault Key.
 	Tags map[string]string `pulumi:"tags"`
 	// The current version of the Key Vault Key.
 	Version string `pulumi:"version"`
 	// The Base ID of the Key Vault Key.
 	VersionlessId string `pulumi:"versionlessId"`
+	// The EC X component of this Key Vault Key.
+	X string `pulumi:"x"`
+	// The EC Y component of this Key Vault Key.
+	Y string `pulumi:"y"`
 }
 
 func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeyResultOutput {
@@ -111,6 +121,11 @@ func (o LookupKeyResultOutput) ToLookupKeyResultOutput() LookupKeyResultOutput {
 
 func (o LookupKeyResultOutput) ToLookupKeyResultOutputWithContext(ctx context.Context) LookupKeyResultOutput {
 	return o
+}
+
+// The EC Curve name of this Key Vault Key.
+func (o LookupKeyResultOutput) Curve() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.Curve }).(pulumi.StringOutput)
 }
 
 // The RSA public exponent of this Key Vault Key.
@@ -151,6 +166,16 @@ func (o LookupKeyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The OpenSSH encoded public key of this Key Vault Key.
+func (o LookupKeyResultOutput) PublicKeyOpenssh() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.PublicKeyOpenssh }).(pulumi.StringOutput)
+}
+
+// The PEM encoded public key of this Key Vault Key.
+func (o LookupKeyResultOutput) PublicKeyPem() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.PublicKeyPem }).(pulumi.StringOutput)
+}
+
 // A mapping of tags assigned to this Key Vault Key.
 func (o LookupKeyResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupKeyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
@@ -164,6 +189,16 @@ func (o LookupKeyResultOutput) Version() pulumi.StringOutput {
 // The Base ID of the Key Vault Key.
 func (o LookupKeyResultOutput) VersionlessId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.VersionlessId }).(pulumi.StringOutput)
+}
+
+// The EC X component of this Key Vault Key.
+func (o LookupKeyResultOutput) X() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.X }).(pulumi.StringOutput)
+}
+
+// The EC Y component of this Key Vault Key.
+func (o LookupKeyResultOutput) Y() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.Y }).(pulumi.StringOutput)
 }
 
 func init() {

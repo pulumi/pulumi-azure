@@ -16,6 +16,7 @@ type ZipBlob struct {
 	pulumi.CustomResourceState
 
 	AccessTier           pulumi.StringOutput    `pulumi:"accessTier"`
+	CacheControl         pulumi.StringPtrOutput `pulumi:"cacheControl"`
 	Content              pulumi.ArchiveOutput   `pulumi:"content"`
 	ContentMd5           pulumi.StringPtrOutput `pulumi:"contentMd5"`
 	ContentType          pulumi.StringPtrOutput `pulumi:"contentType"`
@@ -70,6 +71,7 @@ func GetZipBlob(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ZipBlob resources.
 type zipBlobState struct {
 	AccessTier           *string           `pulumi:"accessTier"`
+	CacheControl         *string           `pulumi:"cacheControl"`
 	Content              pulumi.Archive    `pulumi:"content"`
 	ContentMd5           *string           `pulumi:"contentMd5"`
 	ContentType          *string           `pulumi:"contentType"`
@@ -87,6 +89,7 @@ type zipBlobState struct {
 
 type ZipBlobState struct {
 	AccessTier           pulumi.StringPtrInput
+	CacheControl         pulumi.StringPtrInput
 	Content              pulumi.ArchiveInput
 	ContentMd5           pulumi.StringPtrInput
 	ContentType          pulumi.StringPtrInput
@@ -108,6 +111,7 @@ func (ZipBlobState) ElementType() reflect.Type {
 
 type zipBlobArgs struct {
 	AccessTier           *string           `pulumi:"accessTier"`
+	CacheControl         *string           `pulumi:"cacheControl"`
 	Content              pulumi.Archive    `pulumi:"content"`
 	ContentMd5           *string           `pulumi:"contentMd5"`
 	ContentType          *string           `pulumi:"contentType"`
@@ -125,6 +129,7 @@ type zipBlobArgs struct {
 // The set of arguments for constructing a ZipBlob resource.
 type ZipBlobArgs struct {
 	AccessTier           pulumi.StringPtrInput
+	CacheControl         pulumi.StringPtrInput
 	Content              pulumi.ArchiveInput
 	ContentMd5           pulumi.StringPtrInput
 	ContentType          pulumi.StringPtrInput

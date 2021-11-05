@@ -14,13 +14,16 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class RulesEngineRuleMatchCondition
     {
         /// <summary>
-        /// can be set to `true` or `false` to negate the given condition.
+        /// can be set to `true` or `false` to negate the given condition. Defaults to `true`.
         /// </summary>
         public readonly bool? NegateCondition;
         /// <summary>
         /// can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
         /// </summary>
         public readonly string Operator;
+        /// <summary>
+        /// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+        /// </summary>
         public readonly string? Selector;
         /// <summary>
         /// can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`

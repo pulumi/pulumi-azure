@@ -125,6 +125,14 @@ export class Key extends pulumi.CustomResource {
      */
     public readonly notBeforeDate!: pulumi.Output<string | undefined>;
     /**
+     * The OpenSSH encoded public key of this Key Vault Key.
+     */
+    public /*out*/ readonly publicKeyOpenssh!: pulumi.Output<string>;
+    /**
+     * The PEM encoded public key of this Key Vault Key.
+     */
+    public /*out*/ readonly publicKeyPem!: pulumi.Output<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -168,6 +176,8 @@ export class Key extends pulumi.CustomResource {
             inputs["n"] = state ? state.n : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
+            inputs["publicKeyOpenssh"] = state ? state.publicKeyOpenssh : undefined;
+            inputs["publicKeyPem"] = state ? state.publicKeyPem : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["version"] = state ? state.version : undefined;
             inputs["versionlessId"] = state ? state.versionlessId : undefined;
@@ -195,6 +205,8 @@ export class Key extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["e"] = undefined /*out*/;
             inputs["n"] = undefined /*out*/;
+            inputs["publicKeyOpenssh"] = undefined /*out*/;
+            inputs["publicKeyPem"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
             inputs["versionlessId"] = undefined /*out*/;
             inputs["x"] = undefined /*out*/;
@@ -251,6 +263,14 @@ export interface KeyState {
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
      */
     notBeforeDate?: pulumi.Input<string>;
+    /**
+     * The OpenSSH encoded public key of this Key Vault Key.
+     */
+    publicKeyOpenssh?: pulumi.Input<string>;
+    /**
+     * The PEM encoded public key of this Key Vault Key.
+     */
+    publicKeyPem?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

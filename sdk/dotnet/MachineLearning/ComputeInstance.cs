@@ -142,6 +142,12 @@ namespace Pulumi.Azure.MachineLearning
         public Output<Outputs.ComputeInstanceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// </summary>
+        [Output("localAuthEnabled")]
+        public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Output("location")]
@@ -254,6 +260,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.ComputeInstanceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
         /// </summary>
         [Input("location")]
@@ -331,6 +343,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ComputeInstanceIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.

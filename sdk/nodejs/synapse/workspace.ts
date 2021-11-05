@@ -142,6 +142,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * An `sqlAadAdmin` block as defined below.
+     */
+    public readonly sqlAadAdmin!: pulumi.Output<outputs.synapse.WorkspaceSqlAadAdmin>;
+    /**
      * Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
      */
     public readonly sqlAdministratorLogin!: pulumi.Output<string>;
@@ -191,6 +195,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["purviewId"] = state ? state.purviewId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["sqlAadAdmin"] = state ? state.sqlAadAdmin : undefined;
             inputs["sqlAdministratorLogin"] = state ? state.sqlAdministratorLogin : undefined;
             inputs["sqlAdministratorLoginPassword"] = state ? state.sqlAdministratorLoginPassword : undefined;
             inputs["sqlIdentityControlEnabled"] = state ? state.sqlIdentityControlEnabled : undefined;
@@ -224,6 +229,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["purviewId"] = args ? args.purviewId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sqlAadAdmin"] = args ? args.sqlAadAdmin : undefined;
             inputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
             inputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
             inputs["sqlIdentityControlEnabled"] = args ? args.sqlIdentityControlEnabled : undefined;
@@ -308,6 +314,10 @@ export interface WorkspaceState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * An `sqlAadAdmin` block as defined below.
+     */
+    sqlAadAdmin?: pulumi.Input<inputs.synapse.WorkspaceSqlAadAdmin>;
+    /**
      * Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
      */
     sqlAdministratorLogin?: pulumi.Input<string>;
@@ -389,6 +399,10 @@ export interface WorkspaceArgs {
      * Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * An `sqlAadAdmin` block as defined below.
+     */
+    sqlAadAdmin?: pulumi.Input<inputs.synapse.WorkspaceSqlAadAdmin>;
     /**
      * Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
      */

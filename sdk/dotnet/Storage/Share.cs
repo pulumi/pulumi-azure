@@ -79,6 +79,12 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableArray<Outputs.ShareAcl>> Acls { get; private set; } = null!;
 
         /// <summary>
+        /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("enabledProtocol")]
+        public Output<string?> EnabledProtocol { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of MetaData for this File Share.
         /// </summary>
         [Output("metadata")]
@@ -173,6 +179,12 @@ namespace Pulumi.Azure.Storage
             set => _acls = value;
         }
 
+        /// <summary>
+        /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("enabledProtocol")]
+        public Input<string>? EnabledProtocol { get; set; }
+
         [Input("metadata")]
         private InputMap<string>? _metadata;
 
@@ -222,6 +234,12 @@ namespace Pulumi.Azure.Storage
             get => _acls ?? (_acls = new InputList<Inputs.ShareAclGetArgs>());
             set => _acls = value;
         }
+
+        /// <summary>
+        /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("enabledProtocol")]
+        public Input<string>? EnabledProtocol { get; set; }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;

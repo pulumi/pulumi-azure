@@ -75,8 +75,14 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// Specifies the translated address.
         /// </summary>
-        [Input("translatedAddress", required: true)]
-        public Input<string> TranslatedAddress { get; set; } = null!;
+        [Input("translatedAddress")]
+        public Input<string>? TranslatedAddress { get; set; }
+
+        /// <summary>
+        /// Specifies the translated FQDN.
+        /// </summary>
+        [Input("translatedFqdn")]
+        public Input<string>? TranslatedFqdn { get; set; }
 
         /// <summary>
         /// Specifies the translated port.

@@ -14,15 +14,22 @@ __all__ = ['WorkspaceKeyArgs', 'WorkspaceKey']
 class WorkspaceKeyArgs:
     def __init__(__self__, *,
                  active: pulumi.Input[bool],
-                 cusomter_managed_key_name: pulumi.Input[str],
                  synapse_workspace_id: pulumi.Input[str],
+                 cusomter_managed_key_name: Optional[pulumi.Input[str]] = None,
+                 customer_managed_key_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WorkspaceKey resource.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "cusomter_managed_key_name", cusomter_managed_key_name)
         pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+        if cusomter_managed_key_name is not None:
+            warnings.warn("""As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.""", DeprecationWarning)
+            pulumi.log.warn("""cusomter_managed_key_name is deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.""")
+        if cusomter_managed_key_name is not None:
+            pulumi.set(__self__, "cusomter_managed_key_name", cusomter_managed_key_name)
+        if customer_managed_key_name is not None:
+            pulumi.set(__self__, "customer_managed_key_name", customer_managed_key_name)
         if customer_managed_key_versionless_id is not None:
             pulumi.set(__self__, "customer_managed_key_versionless_id", customer_managed_key_versionless_id)
 
@@ -36,15 +43,6 @@ class WorkspaceKeyArgs:
         pulumi.set(self, "active", value)
 
     @property
-    @pulumi.getter(name="cusomterManagedKeyName")
-    def cusomter_managed_key_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "cusomter_managed_key_name")
-
-    @cusomter_managed_key_name.setter
-    def cusomter_managed_key_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "cusomter_managed_key_name", value)
-
-    @property
     @pulumi.getter(name="synapseWorkspaceId")
     def synapse_workspace_id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "synapse_workspace_id")
@@ -52,6 +50,24 @@ class WorkspaceKeyArgs:
     @synapse_workspace_id.setter
     def synapse_workspace_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "synapse_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="cusomterManagedKeyName")
+    def cusomter_managed_key_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cusomter_managed_key_name")
+
+    @cusomter_managed_key_name.setter
+    def cusomter_managed_key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cusomter_managed_key_name", value)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyName")
+    def customer_managed_key_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "customer_managed_key_name")
+
+    @customer_managed_key_name.setter
+    def customer_managed_key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_managed_key_name", value)
 
     @property
     @pulumi.getter(name="customerManagedKeyVersionlessId")
@@ -68,6 +84,7 @@ class _WorkspaceKeyState:
     def __init__(__self__, *,
                  active: Optional[pulumi.Input[bool]] = None,
                  cusomter_managed_key_name: Optional[pulumi.Input[str]] = None,
+                 customer_managed_key_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None):
         """
@@ -76,7 +93,12 @@ class _WorkspaceKeyState:
         if active is not None:
             pulumi.set(__self__, "active", active)
         if cusomter_managed_key_name is not None:
+            warnings.warn("""As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.""", DeprecationWarning)
+            pulumi.log.warn("""cusomter_managed_key_name is deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.""")
+        if cusomter_managed_key_name is not None:
             pulumi.set(__self__, "cusomter_managed_key_name", cusomter_managed_key_name)
+        if customer_managed_key_name is not None:
+            pulumi.set(__self__, "customer_managed_key_name", customer_managed_key_name)
         if customer_managed_key_versionless_id is not None:
             pulumi.set(__self__, "customer_managed_key_versionless_id", customer_managed_key_versionless_id)
         if synapse_workspace_id is not None:
@@ -99,6 +121,15 @@ class _WorkspaceKeyState:
     @cusomter_managed_key_name.setter
     def cusomter_managed_key_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cusomter_managed_key_name", value)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyName")
+    def customer_managed_key_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "customer_managed_key_name")
+
+    @customer_managed_key_name.setter
+    def customer_managed_key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_managed_key_name", value)
 
     @property
     @pulumi.getter(name="customerManagedKeyVersionlessId")
@@ -126,6 +157,7 @@ class WorkspaceKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  cusomter_managed_key_name: Optional[pulumi.Input[str]] = None,
+                 customer_managed_key_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -159,6 +191,7 @@ class WorkspaceKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  cusomter_managed_key_name: Optional[pulumi.Input[str]] = None,
+                 customer_managed_key_name: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -176,9 +209,11 @@ class WorkspaceKey(pulumi.CustomResource):
             if active is None and not opts.urn:
                 raise TypeError("Missing required property 'active'")
             __props__.__dict__["active"] = active
-            if cusomter_managed_key_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cusomter_managed_key_name'")
+            if cusomter_managed_key_name is not None and not opts.urn:
+                warnings.warn("""As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.""", DeprecationWarning)
+                pulumi.log.warn("""cusomter_managed_key_name is deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.""")
             __props__.__dict__["cusomter_managed_key_name"] = cusomter_managed_key_name
+            __props__.__dict__["customer_managed_key_name"] = customer_managed_key_name
             __props__.__dict__["customer_managed_key_versionless_id"] = customer_managed_key_versionless_id
             if synapse_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synapse_workspace_id'")
@@ -195,6 +230,7 @@ class WorkspaceKey(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             active: Optional[pulumi.Input[bool]] = None,
             cusomter_managed_key_name: Optional[pulumi.Input[str]] = None,
+            customer_managed_key_name: Optional[pulumi.Input[str]] = None,
             customer_managed_key_versionless_id: Optional[pulumi.Input[str]] = None,
             synapse_workspace_id: Optional[pulumi.Input[str]] = None) -> 'WorkspaceKey':
         """
@@ -211,6 +247,7 @@ class WorkspaceKey(pulumi.CustomResource):
 
         __props__.__dict__["active"] = active
         __props__.__dict__["cusomter_managed_key_name"] = cusomter_managed_key_name
+        __props__.__dict__["customer_managed_key_name"] = customer_managed_key_name
         __props__.__dict__["customer_managed_key_versionless_id"] = customer_managed_key_versionless_id
         __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
         return WorkspaceKey(resource_name, opts=opts, __props__=__props__)
@@ -224,6 +261,11 @@ class WorkspaceKey(pulumi.CustomResource):
     @pulumi.getter(name="cusomterManagedKeyName")
     def cusomter_managed_key_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "cusomter_managed_key_name")
+
+    @property
+    @pulumi.getter(name="customerManagedKeyName")
+    def customer_managed_key_name(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "customer_managed_key_name")
 
     @property
     @pulumi.getter(name="customerManagedKeyVersionlessId")

@@ -25,6 +25,7 @@ class SlotArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['SlotIdentityArgs']] = None,
+                 key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input['SlotLogsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,7 @@ class SlotArgs:
         :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled?
         :param pulumi.Input[bool] https_only: Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['SlotIdentityArgs'] identity: A Managed Service Identity block as defined below.
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['SlotLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
@@ -65,6 +67,8 @@ class SlotArgs:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if key_vault_reference_identity_id is not None:
+            pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if logs is not None:
@@ -197,6 +201,18 @@ class SlotArgs:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="keyVaultReferenceIdentityId")
+    def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+        """
+        return pulumi.get(self, "key_vault_reference_identity_id")
+
+    @key_vault_reference_identity_id.setter
+    def key_vault_reference_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_reference_identity_id", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -270,6 +286,7 @@ class _SlotState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['SlotIdentityArgs']] = None,
+                 key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input['SlotLogsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -289,6 +306,7 @@ class _SlotState:
         :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled?
         :param pulumi.Input[bool] https_only: Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['SlotIdentityArgs'] identity: A Managed Service Identity block as defined below.
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['SlotLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
@@ -317,6 +335,8 @@ class _SlotState:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if key_vault_reference_identity_id is not None:
+            pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if logs is not None:
@@ -453,6 +473,18 @@ class _SlotState:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="keyVaultReferenceIdentityId")
+    def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+        """
+        return pulumi.get(self, "key_vault_reference_identity_id")
+
+    @key_vault_reference_identity_id.setter
+    def key_vault_reference_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_reference_identity_id", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -551,6 +583,7 @@ class Slot(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['SlotIdentityArgs']]] = None,
+                 key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[pulumi.InputType['SlotLogsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -676,6 +709,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled?
         :param pulumi.Input[bool] https_only: Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SlotIdentityArgs']] identity: A Managed Service Identity block as defined below.
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SlotLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
@@ -820,6 +854,7 @@ class Slot(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['SlotIdentityArgs']]] = None,
+                 key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logs: Optional[pulumi.Input[pulumi.InputType['SlotLogsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -851,6 +886,7 @@ class Slot(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["https_only"] = https_only
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
             __props__.__dict__["location"] = location
             __props__.__dict__["logs"] = logs
             __props__.__dict__["name"] = name
@@ -881,6 +917,7 @@ class Slot(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['SlotIdentityArgs']]] = None,
+            key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             logs: Optional[pulumi.Input[pulumi.InputType['SlotLogsArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -905,6 +942,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled?
         :param pulumi.Input[bool] https_only: Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SlotIdentityArgs']] identity: A Managed Service Identity block as defined below.
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SlotLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
@@ -927,6 +965,7 @@ class Slot(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["https_only"] = https_only
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
         __props__.__dict__["location"] = location
         __props__.__dict__["logs"] = logs
         __props__.__dict__["name"] = name
@@ -1015,6 +1054,14 @@ class Slot(pulumi.CustomResource):
         A Managed Service Identity block as defined below.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVaultReferenceIdentityId")
+    def key_vault_reference_identity_id(self) -> pulumi.Output[str]:
+        """
+        The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+        """
+        return pulumi.get(self, "key_vault_reference_identity_id")
 
     @property
     @pulumi.getter

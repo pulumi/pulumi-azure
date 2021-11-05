@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * const exampleAccount = new azure.purview.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     skuName: "Standard_4",
  * });
  * ```
  *
@@ -99,9 +98,9 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly scanEndpoint!: pulumi.Output<string>;
     /**
-     * The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
+     * @deprecated This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
      */
-    public readonly skuName!: pulumi.Output<string>;
+    public readonly skuName!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Purview Account.
      */
@@ -136,9 +135,6 @@ export class Account extends pulumi.CustomResource {
             const args = argsOrState as AccountArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'skuName'");
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -205,7 +201,7 @@ export interface AccountState {
      */
     scanEndpoint?: pulumi.Input<string>;
     /**
-     * The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
+     * @deprecated This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -235,9 +231,9 @@ export interface AccountArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
+     * @deprecated This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure
      */
-    skuName: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Purview Account.
      */

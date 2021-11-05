@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DiagnosticSetting{}
 	case "azure:monitoring/logProfile:LogProfile":
 		r = &LogProfile{}
+	case "azure:monitoring/logzMonitor:LogzMonitor":
+		r = &LogzMonitor{}
 	case "azure:monitoring/metricAlert:MetricAlert":
 		r = &MetricAlert{}
 	case "azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert":
@@ -96,6 +98,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"monitoring/logProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"monitoring/logzMonitor",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

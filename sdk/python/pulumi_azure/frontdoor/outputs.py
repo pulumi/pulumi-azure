@@ -1907,7 +1907,8 @@ class RulesEngineRuleMatchCondition(dict):
                  variable: Optional[str] = None):
         """
         :param str operator: can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
-        :param bool negate_condition: can be set to `true` or `false` to negate the given condition.
+        :param bool negate_condition: can be set to `true` or `false` to negate the given condition. Defaults to `true`.
+        :param str selector: match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
         :param Sequence[str] transforms: can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
         :param Sequence[str] values: can contain one or more strings.
         :param str variable: can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
@@ -1936,13 +1937,16 @@ class RulesEngineRuleMatchCondition(dict):
     @pulumi.getter(name="negateCondition")
     def negate_condition(self) -> Optional[bool]:
         """
-        can be set to `true` or `false` to negate the given condition.
+        can be set to `true` or `false` to negate the given condition. Defaults to `true`.
         """
         return pulumi.get(self, "negate_condition")
 
     @property
     @pulumi.getter
     def selector(self) -> Optional[str]:
+        """
+        match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+        """
         return pulumi.get(self, "selector")
 
     @property

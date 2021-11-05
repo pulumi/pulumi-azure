@@ -64,8 +64,8 @@ github.com/Azure/azure-sdk-for-go v51.1.0+incompatible/go.mod h1:9XXNKU+eRnpl9mo
 github.com/Azure/azure-sdk-for-go v51.2.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-sdk-for-go v54.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-sdk-for-go v56.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
-github.com/Azure/azure-sdk-for-go v58.0.0+incompatible h1:Cw16jiP4dI+CK761aq44ol4RV5dUiIIXky1+EKpoiVM=
-github.com/Azure/azure-sdk-for-go v58.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
+github.com/Azure/azure-sdk-for-go v59.0.0+incompatible h1:I1ULJqny1qQhUBFy11yDXHhW3pLvbhwV0PTn7mjp9V0=
+github.com/Azure/azure-sdk-for-go v59.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-service-bus-go v0.10.11/go.mod h1:AWw9eTTWZVZyvgpPahD1ybz3a8/vT3GsJDS8KYex55U=
 github.com/Azure/azure-storage-blob-go v0.13.0 h1:lgWHvFh+UYBNVQLFHXkvul2f6yOPA9PIH82RTG2cSwc=
 github.com/Azure/azure-storage-blob-go v0.13.0/go.mod h1:pA9kNqtjUeQF2zOSu4s//nUdBD+e64lEuc4sVnuOfNs=
@@ -739,8 +739,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20210629210550-59d24255d71f h1:YWtQ7xeRQvB9h5Uwtrl9wDKRKkyLTXWBzU7x0c9VOZ4=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20210629210550-59d24255d71f/go.mod h1:grseeRo9g3yNkYW09iFlV8LG78jTa1ssBgouogQg/RU=
-github.com/pulumi/terraform-provider-azurerm v0.0.0-20211029143404-bb66e3896165 h1:PcRLUrLiWRnjPOvpW/pBanPmm0lJMkH63Eb4r1/Ac/I=
-github.com/pulumi/terraform-provider-azurerm v0.0.0-20211029143404-bb66e3896165/go.mod h1:vR8gk6oInaeNYZvgOp+4EgNSEdBuYZj1cXKlybIlkxk=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20211105140625-c6285f6a1131 h1:YyGH3XWYHj+7E9uJxv97o86Ln51senc3xHjemtIvGfg=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20211105140625-c6285f6a1131/go.mod h1:wAuYreXaF+GMNe2y1ymnMcbOqujV7mmBT2z0E20Ho0A=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=
@@ -815,8 +815,8 @@ github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6/go.
 github.com/tklauser/go-sysconf v0.3.8/go.mod h1:z4zYWRS+X53WUKtBcmDg1comV3fPhdQnzasnIHUoLDU=
 github.com/tklauser/numcpus v0.2.3/go.mod h1:vpEPS/JC+oZGGQ/My/vJnNsvMDQL6PwOqt8dsCw5j+E=
 github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=
-github.com/tombuildsstuff/giovanni v0.16.0 h1:Q8QKgsr4Fmhf+z6Mf1UPQKeovkCdudkiMaAZmq9CIjg=
-github.com/tombuildsstuff/giovanni v0.16.0/go.mod h1:66KVLYma2whJhEdxPSPL3GQHkulhK+C5CluKfHGfPF4=
+github.com/tombuildsstuff/giovanni v0.17.0 h1:Flq608eARmHuTkFfvT5vD0rLcEMRqDFPq0khVRrxAIk=
+github.com/tombuildsstuff/giovanni v0.17.0/go.mod h1:66KVLYma2whJhEdxPSPL3GQHkulhK+C5CluKfHGfPF4=
 github.com/tv42/httpunix v0.0.0-20150427012821-b75d8614f926/go.mod h1:9ESjWnEqriFuLhtthL60Sar/7RFoluCcXsuvEwTV5KM=
 github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 h1:X9dsIWPuuEJlPX//UmRKophhOKCGXc46RVIGuttks68=
 github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7/go.mod h1:UxoP3EypF8JfGEjAII8jx1q8rQyDnX8qdTCs/UQBVIE=

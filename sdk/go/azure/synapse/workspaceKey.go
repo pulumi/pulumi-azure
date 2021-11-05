@@ -14,8 +14,10 @@ import (
 type WorkspaceKey struct {
 	pulumi.CustomResourceState
 
-	Active                          pulumi.BoolOutput      `pulumi:"active"`
+	Active pulumi.BoolOutput `pulumi:"active"`
+	// Deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
 	CusomterManagedKeyName          pulumi.StringOutput    `pulumi:"cusomterManagedKeyName"`
+	CustomerManagedKeyName          pulumi.StringOutput    `pulumi:"customerManagedKeyName"`
 	CustomerManagedKeyVersionlessId pulumi.StringPtrOutput `pulumi:"customerManagedKeyVersionlessId"`
 	SynapseWorkspaceId              pulumi.StringOutput    `pulumi:"synapseWorkspaceId"`
 }
@@ -29,9 +31,6 @@ func NewWorkspaceKey(ctx *pulumi.Context,
 
 	if args.Active == nil {
 		return nil, errors.New("invalid value for required argument 'Active'")
-	}
-	if args.CusomterManagedKeyName == nil {
-		return nil, errors.New("invalid value for required argument 'CusomterManagedKeyName'")
 	}
 	if args.SynapseWorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'SynapseWorkspaceId'")
@@ -58,15 +57,19 @@ func GetWorkspaceKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceKey resources.
 type workspaceKeyState struct {
-	Active                          *bool   `pulumi:"active"`
+	Active *bool `pulumi:"active"`
+	// Deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
 	CusomterManagedKeyName          *string `pulumi:"cusomterManagedKeyName"`
+	CustomerManagedKeyName          *string `pulumi:"customerManagedKeyName"`
 	CustomerManagedKeyVersionlessId *string `pulumi:"customerManagedKeyVersionlessId"`
 	SynapseWorkspaceId              *string `pulumi:"synapseWorkspaceId"`
 }
 
 type WorkspaceKeyState struct {
-	Active                          pulumi.BoolPtrInput
+	Active pulumi.BoolPtrInput
+	// Deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
 	CusomterManagedKeyName          pulumi.StringPtrInput
+	CustomerManagedKeyName          pulumi.StringPtrInput
 	CustomerManagedKeyVersionlessId pulumi.StringPtrInput
 	SynapseWorkspaceId              pulumi.StringPtrInput
 }
@@ -76,16 +79,20 @@ func (WorkspaceKeyState) ElementType() reflect.Type {
 }
 
 type workspaceKeyArgs struct {
-	Active                          bool    `pulumi:"active"`
-	CusomterManagedKeyName          string  `pulumi:"cusomterManagedKeyName"`
+	Active bool `pulumi:"active"`
+	// Deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
+	CusomterManagedKeyName          *string `pulumi:"cusomterManagedKeyName"`
+	CustomerManagedKeyName          *string `pulumi:"customerManagedKeyName"`
 	CustomerManagedKeyVersionlessId *string `pulumi:"customerManagedKeyVersionlessId"`
 	SynapseWorkspaceId              string  `pulumi:"synapseWorkspaceId"`
 }
 
 // The set of arguments for constructing a WorkspaceKey resource.
 type WorkspaceKeyArgs struct {
-	Active                          pulumi.BoolInput
-	CusomterManagedKeyName          pulumi.StringInput
+	Active pulumi.BoolInput
+	// Deprecated: As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
+	CusomterManagedKeyName          pulumi.StringPtrInput
+	CustomerManagedKeyName          pulumi.StringPtrInput
 	CustomerManagedKeyVersionlessId pulumi.StringPtrInput
 	SynapseWorkspaceId              pulumi.StringInput
 }

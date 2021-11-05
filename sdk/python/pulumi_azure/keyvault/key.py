@@ -172,6 +172,8 @@ class _KeyState:
                  n: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_before_date: Optional[pulumi.Input[str]] = None,
+                 public_key_openssh: Optional[pulumi.Input[str]] = None,
+                 public_key_pem: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  versionless_id: Optional[pulumi.Input[str]] = None,
@@ -189,6 +191,8 @@ class _KeyState:
         :param pulumi.Input[str] n: The RSA modulus of this Key Vault Key.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        :param pulumi.Input[str] public_key_openssh: The OpenSSH encoded public key of this Key Vault Key.
+        :param pulumi.Input[str] public_key_pem: The PEM encoded public key of this Key Vault Key.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The current version of the Key Vault Key.
         :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Key.
@@ -215,6 +219,10 @@ class _KeyState:
             pulumi.set(__self__, "name", name)
         if not_before_date is not None:
             pulumi.set(__self__, "not_before_date", not_before_date)
+        if public_key_openssh is not None:
+            pulumi.set(__self__, "public_key_openssh", public_key_openssh)
+        if public_key_pem is not None:
+            pulumi.set(__self__, "public_key_pem", public_key_pem)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
@@ -345,6 +353,30 @@ class _KeyState:
     @not_before_date.setter
     def not_before_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "not_before_date", value)
+
+    @property
+    @pulumi.getter(name="publicKeyOpenssh")
+    def public_key_openssh(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OpenSSH encoded public key of this Key Vault Key.
+        """
+        return pulumi.get(self, "public_key_openssh")
+
+    @public_key_openssh.setter
+    def public_key_openssh(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_key_openssh", value)
+
+    @property
+    @pulumi.getter(name="publicKeyPem")
+    def public_key_pem(self) -> Optional[pulumi.Input[str]]:
+        """
+        The PEM encoded public key of this Key Vault Key.
+        """
+        return pulumi.get(self, "public_key_pem")
+
+    @public_key_pem.setter
+    def public_key_pem(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_key_pem", value)
 
     @property
     @pulumi.getter
@@ -593,6 +625,8 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["e"] = None
             __props__.__dict__["n"] = None
+            __props__.__dict__["public_key_openssh"] = None
+            __props__.__dict__["public_key_pem"] = None
             __props__.__dict__["version"] = None
             __props__.__dict__["versionless_id"] = None
             __props__.__dict__["x"] = None
@@ -617,6 +651,8 @@ class Key(pulumi.CustomResource):
             n: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             not_before_date: Optional[pulumi.Input[str]] = None,
+            public_key_openssh: Optional[pulumi.Input[str]] = None,
+            public_key_pem: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None,
             versionless_id: Optional[pulumi.Input[str]] = None,
@@ -639,6 +675,8 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] n: The RSA modulus of this Key Vault Key.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        :param pulumi.Input[str] public_key_openssh: The OpenSSH encoded public key of this Key Vault Key.
+        :param pulumi.Input[str] public_key_pem: The PEM encoded public key of this Key Vault Key.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The current version of the Key Vault Key.
         :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Key.
@@ -659,6 +697,8 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["n"] = n
         __props__.__dict__["name"] = name
         __props__.__dict__["not_before_date"] = not_before_date
+        __props__.__dict__["public_key_openssh"] = public_key_openssh
+        __props__.__dict__["public_key_pem"] = public_key_pem
         __props__.__dict__["tags"] = tags
         __props__.__dict__["version"] = version
         __props__.__dict__["versionless_id"] = versionless_id
@@ -745,6 +785,22 @@ class Key(pulumi.CustomResource):
         Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         """
         return pulumi.get(self, "not_before_date")
+
+    @property
+    @pulumi.getter(name="publicKeyOpenssh")
+    def public_key_openssh(self) -> pulumi.Output[str]:
+        """
+        The OpenSSH encoded public key of this Key Vault Key.
+        """
+        return pulumi.get(self, "public_key_openssh")
+
+    @property
+    @pulumi.getter(name="publicKeyPem")
+    def public_key_pem(self) -> pulumi.Output[str]:
+        """
+        The PEM encoded public key of this Key Vault Key.
+        """
+        return pulumi.get(self, "public_key_pem")
 
     @property
     @pulumi.getter

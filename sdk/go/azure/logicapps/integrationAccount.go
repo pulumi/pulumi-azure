@@ -58,6 +58,8 @@ import (
 type IntegrationAccount struct {
 	pulumi.CustomResourceState
 
+	// The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+	IntegrationServiceEnvironmentId pulumi.StringPtrOutput `pulumi:"integrationServiceEnvironmentId"`
 	// The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
@@ -105,6 +107,8 @@ func GetIntegrationAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccount resources.
 type integrationAccountState struct {
+	// The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+	IntegrationServiceEnvironmentId *string `pulumi:"integrationServiceEnvironmentId"`
 	// The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
@@ -118,6 +122,8 @@ type integrationAccountState struct {
 }
 
 type IntegrationAccountState struct {
+	// The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+	IntegrationServiceEnvironmentId pulumi.StringPtrInput
 	// The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
@@ -135,6 +141,8 @@ func (IntegrationAccountState) ElementType() reflect.Type {
 }
 
 type integrationAccountArgs struct {
+	// The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+	IntegrationServiceEnvironmentId *string `pulumi:"integrationServiceEnvironmentId"`
 	// The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
@@ -149,6 +157,8 @@ type integrationAccountArgs struct {
 
 // The set of arguments for constructing a IntegrationAccount resource.
 type IntegrationAccountArgs struct {
+	// The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+	IntegrationServiceEnvironmentId pulumi.StringPtrInput
 	// The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.

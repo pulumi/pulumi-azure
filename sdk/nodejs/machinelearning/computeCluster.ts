@@ -122,6 +122,10 @@ export class ComputeCluster extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.machinelearning.ComputeClusterIdentity | undefined>;
     /**
+     * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     */
+    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -177,6 +181,7 @@ export class ComputeCluster extends pulumi.CustomResource {
             const state = argsOrState as ComputeClusterState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -203,6 +208,7 @@ export class ComputeCluster extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -233,6 +239,10 @@ export interface ComputeClusterState {
      * A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     identity?: pulumi.Input<inputs.machinelearning.ComputeClusterIdentity>;
+    /**
+     * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
@@ -287,6 +297,10 @@ export interface ComputeClusterArgs {
      * A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     identity?: pulumi.Input<inputs.machinelearning.ComputeClusterIdentity>;
+    /**
+     * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
      */

@@ -247,6 +247,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.LinuxVirtualMachineOsDisk> OsDisk { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`.
+        /// </summary>
+        [Output("patchMode")]
+        public Output<string?> PatchMode { get; private set; } = null!;
+
+        /// <summary>
         /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("plan")]
@@ -539,6 +545,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineOsDiskArgs> OsDisk { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`.
+        /// </summary>
+        [Input("patchMode")]
+        public Input<string>? PatchMode { get; set; }
+
+        /// <summary>
         /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
@@ -772,6 +784,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.LinuxVirtualMachineOsDiskGetArgs>? OsDisk { get; set; }
+
+        /// <summary>
+        /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`.
+        /// </summary>
+        [Input("patchMode")]
+        public Input<string>? PatchMode { get; set; }
 
         /// <summary>
         /// A `plan` block as defined below. Changing this forces a new resource to be created.

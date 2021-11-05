@@ -78,6 +78,10 @@ export class Share extends pulumi.CustomResource {
      */
     public readonly acls!: pulumi.Output<outputs.storage.ShareAcl[] | undefined>;
     /**
+     * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+     */
+    public readonly enabledProtocol!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of MetaData for this File Share.
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string}>;
@@ -117,6 +121,7 @@ export class Share extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ShareState | undefined;
             inputs["acls"] = state ? state.acls : undefined;
+            inputs["enabledProtocol"] = state ? state.enabledProtocol : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["quota"] = state ? state.quota : undefined;
@@ -129,6 +134,7 @@ export class Share extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             inputs["acls"] = args ? args.acls : undefined;
+            inputs["enabledProtocol"] = args ? args.enabledProtocol : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["quota"] = args ? args.quota : undefined;
@@ -151,6 +157,10 @@ export interface ShareState {
      * One or more `acl` blocks as defined below.
      */
     acls?: pulumi.Input<pulumi.Input<inputs.storage.ShareAcl>[]>;
+    /**
+     * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+     */
+    enabledProtocol?: pulumi.Input<string>;
     /**
      * A mapping of MetaData for this File Share.
      */
@@ -186,6 +196,10 @@ export interface ShareArgs {
      * One or more `acl` blocks as defined below.
      */
     acls?: pulumi.Input<pulumi.Input<inputs.storage.ShareAcl>[]>;
+    /**
+     * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+     */
+    enabledProtocol?: pulumi.Input<string>;
     /**
      * A mapping of MetaData for this File Share.
      */

@@ -20,8 +20,19 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "pergb2018",
  * });
+ * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
+ *     solutionName: "SecurityInsights",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     workspaceResourceId: exampleAnalyticsWorkspace.id,
+ *     workspaceName: exampleAnalyticsWorkspace.name,
+ *     plan: {
+ *         publisher: "Microsoft",
+ *         product: "OMSGallery/SecurityInsights",
+ *     },
+ * });
  * const exampleAlertRuleScheduled = new azure.sentinel.AlertRuleScheduled("exampleAlertRuleScheduled", {
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
+ *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     displayName: "example",
  *     severity: "High",
  *     query: `AzureActivity |

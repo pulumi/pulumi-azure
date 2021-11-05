@@ -205,6 +205,8 @@ type Slot struct {
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// A Managed Service Identity block as defined below.
 	Identity SlotIdentityOutput `pulumi:"identity"`
+	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+	KeyVaultReferenceIdentityId pulumi.StringOutput `pulumi:"keyVaultReferenceIdentityId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `logs` block as defined below.
@@ -279,6 +281,8 @@ type slotState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A Managed Service Identity block as defined below.
 	Identity *SlotIdentity `pulumi:"identity"`
+	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// A `logs` block as defined below.
@@ -316,6 +320,8 @@ type SlotState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// A Managed Service Identity block as defined below.
 	Identity SlotIdentityPtrInput
+	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// A `logs` block as defined below.
@@ -355,6 +361,8 @@ type slotArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A Managed Service Identity block as defined below.
 	Identity *SlotIdentity `pulumi:"identity"`
+	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// A `logs` block as defined below.
@@ -389,6 +397,8 @@ type SlotArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// A Managed Service Identity block as defined below.
 	Identity SlotIdentityPtrInput
+	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// A `logs` block as defined below.

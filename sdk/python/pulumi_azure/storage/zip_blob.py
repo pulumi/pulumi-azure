@@ -17,6 +17,7 @@ class ZipBlobArgs:
                  storage_container_name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  access_tier: Optional[pulumi.Input[str]] = None,
+                 cache_control: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[pulumi.Archive]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
@@ -34,6 +35,8 @@ class ZipBlobArgs:
         pulumi.set(__self__, "type", type)
         if access_tier is not None:
             pulumi.set(__self__, "access_tier", access_tier)
+        if cache_control is not None:
+            pulumi.set(__self__, "cache_control", cache_control)
         if content is not None:
             pulumi.set(__self__, "content", content)
         if content_md5 is not None:
@@ -88,6 +91,15 @@ class ZipBlobArgs:
     @access_tier.setter
     def access_tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_tier", value)
+
+    @property
+    @pulumi.getter(name="cacheControl")
+    def cache_control(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cache_control")
+
+    @cache_control.setter
+    def cache_control(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_control", value)
 
     @property
     @pulumi.getter
@@ -175,6 +187,7 @@ class ZipBlobArgs:
 class _ZipBlobState:
     def __init__(__self__, *,
                  access_tier: Optional[pulumi.Input[str]] = None,
+                 cache_control: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[pulumi.Archive]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
@@ -193,6 +206,8 @@ class _ZipBlobState:
         """
         if access_tier is not None:
             pulumi.set(__self__, "access_tier", access_tier)
+        if cache_control is not None:
+            pulumi.set(__self__, "cache_control", cache_control)
         if content is not None:
             pulumi.set(__self__, "content", content)
         if content_md5 is not None:
@@ -228,6 +243,15 @@ class _ZipBlobState:
     @access_tier.setter
     def access_tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_tier", value)
+
+    @property
+    @pulumi.getter(name="cacheControl")
+    def cache_control(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cache_control")
+
+    @cache_control.setter
+    def cache_control(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_control", value)
 
     @property
     @pulumi.getter
@@ -358,6 +382,7 @@ class ZipBlob(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
+                 cache_control: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[pulumi.Archive]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
@@ -400,6 +425,7 @@ class ZipBlob(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
+                 cache_control: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[pulumi.Archive]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
@@ -426,6 +452,7 @@ class ZipBlob(pulumi.CustomResource):
             __props__ = ZipBlobArgs.__new__(ZipBlobArgs)
 
             __props__.__dict__["access_tier"] = access_tier
+            __props__.__dict__["cache_control"] = cache_control
             __props__.__dict__["content"] = content
             __props__.__dict__["content_md5"] = content_md5
             __props__.__dict__["content_type"] = content_type
@@ -456,6 +483,7 @@ class ZipBlob(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_tier: Optional[pulumi.Input[str]] = None,
+            cache_control: Optional[pulumi.Input[str]] = None,
             content: Optional[pulumi.Input[pulumi.Archive]] = None,
             content_md5: Optional[pulumi.Input[str]] = None,
             content_type: Optional[pulumi.Input[str]] = None,
@@ -482,6 +510,7 @@ class ZipBlob(pulumi.CustomResource):
         __props__ = _ZipBlobState.__new__(_ZipBlobState)
 
         __props__.__dict__["access_tier"] = access_tier
+        __props__.__dict__["cache_control"] = cache_control
         __props__.__dict__["content"] = content
         __props__.__dict__["content_md5"] = content_md5
         __props__.__dict__["content_type"] = content_type
@@ -501,6 +530,11 @@ class ZipBlob(pulumi.CustomResource):
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> pulumi.Output[str]:
         return pulumi.get(self, "access_tier")
+
+    @property
+    @pulumi.getter(name="cacheControl")
+    def cache_control(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "cache_control")
 
     @property
     @pulumi.getter

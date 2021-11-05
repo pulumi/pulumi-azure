@@ -224,6 +224,8 @@ type FunctionApp struct {
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity FunctionAppIdentityOutput `pulumi:"identity"`
+	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+	KeyVaultReferenceIdentityId pulumi.StringOutput `pulumi:"keyVaultReferenceIdentityId"`
 	// The Function App kind - such as `functionapp,linux,container`
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -319,6 +321,8 @@ type functionAppState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *FunctionAppIdentity `pulumi:"identity"`
+	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Function App kind - such as `functionapp,linux,container`
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -380,6 +384,8 @@ type FunctionAppState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity FunctionAppIdentityPtrInput
+	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Function App kind - such as `functionapp,linux,container`
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -441,6 +447,8 @@ type functionAppArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *FunctionAppIdentity `pulumi:"identity"`
+	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
@@ -491,6 +499,8 @@ type FunctionAppArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity FunctionAppIdentityPtrInput
+	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
