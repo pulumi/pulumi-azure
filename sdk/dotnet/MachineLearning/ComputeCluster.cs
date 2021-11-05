@@ -130,6 +130,12 @@ namespace Pulumi.Azure.MachineLearning
         public Output<Outputs.ComputeClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        [Output("localAuthEnabled")]
+        public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Output("location")]
@@ -248,6 +254,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.ComputeClusterIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("location")]
@@ -331,6 +343,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ComputeClusterIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.

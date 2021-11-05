@@ -53,6 +53,10 @@ export interface GetKeyArgs {
  */
 export interface GetKeyResult {
     /**
+     * The EC Curve name of this Key Vault Key.
+     */
+    readonly curve: string;
+    /**
      * The RSA public exponent of this Key Vault Key.
      */
     readonly e: string;
@@ -79,6 +83,14 @@ export interface GetKeyResult {
     readonly n: string;
     readonly name: string;
     /**
+     * The OpenSSH encoded public key of this Key Vault Key.
+     */
+    readonly publicKeyOpenssh: string;
+    /**
+     * The PEM encoded public key of this Key Vault Key.
+     */
+    readonly publicKeyPem: string;
+    /**
      * A mapping of tags assigned to this Key Vault Key.
      */
     readonly tags: {[key: string]: string};
@@ -90,6 +102,14 @@ export interface GetKeyResult {
      * The Base ID of the Key Vault Key.
      */
     readonly versionlessId: string;
+    /**
+     * The EC X component of this Key Vault Key.
+     */
+    readonly x: string;
+    /**
+     * The EC Y component of this Key Vault Key.
+     */
+    readonly y: string;
 }
 
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {

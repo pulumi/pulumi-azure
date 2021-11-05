@@ -71,7 +71,7 @@ type LookupRegistryResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of this Container Registry, such as `Basic`.
 	Sku string `pulumi:"sku"`
-	// The ID of the Storage Account used for this Container Registry. This is only returned for `Classic` SKU's.
+	// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// A map of tags assigned to the Container Registry.
 	Tags map[string]string `pulumi:"tags"`
@@ -156,7 +156,7 @@ func (o LookupRegistryResultOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Sku }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Account used for this Container Registry. This is only returned for `Classic` SKU's.
+// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
 func (o LookupRegistryResultOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }

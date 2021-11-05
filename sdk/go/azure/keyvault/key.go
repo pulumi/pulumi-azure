@@ -112,6 +112,10 @@ type Key struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 	NotBeforeDate pulumi.StringPtrOutput `pulumi:"notBeforeDate"`
+	// The OpenSSH encoded public key of this Key Vault Key.
+	PublicKeyOpenssh pulumi.StringOutput `pulumi:"publicKeyOpenssh"`
+	// The PEM encoded public key of this Key Vault Key.
+	PublicKeyPem pulumi.StringOutput `pulumi:"publicKeyPem"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The current version of the Key Vault Key.
@@ -182,6 +186,10 @@ type keyState struct {
 	Name *string `pulumi:"name"`
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 	NotBeforeDate *string `pulumi:"notBeforeDate"`
+	// The OpenSSH encoded public key of this Key Vault Key.
+	PublicKeyOpenssh *string `pulumi:"publicKeyOpenssh"`
+	// The PEM encoded public key of this Key Vault Key.
+	PublicKeyPem *string `pulumi:"publicKeyPem"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The current version of the Key Vault Key.
@@ -215,6 +223,10 @@ type KeyState struct {
 	Name pulumi.StringPtrInput
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 	NotBeforeDate pulumi.StringPtrInput
+	// The OpenSSH encoded public key of this Key Vault Key.
+	PublicKeyOpenssh pulumi.StringPtrInput
+	// The PEM encoded public key of this Key Vault Key.
+	PublicKeyPem pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The current version of the Key Vault Key.

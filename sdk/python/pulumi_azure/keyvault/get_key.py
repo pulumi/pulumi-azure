@@ -20,7 +20,10 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, e=None, id=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, tags=None, version=None, versionless_id=None):
+    def __init__(__self__, curve=None, e=None, id=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, public_key_openssh=None, public_key_pem=None, tags=None, version=None, versionless_id=None, x=None, y=None):
+        if curve and not isinstance(curve, str):
+            raise TypeError("Expected argument 'curve' to be a str")
+        pulumi.set(__self__, "curve", curve)
         if e and not isinstance(e, str):
             raise TypeError("Expected argument 'e' to be a str")
         pulumi.set(__self__, "e", e)
@@ -45,6 +48,12 @@ class GetKeyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if public_key_openssh and not isinstance(public_key_openssh, str):
+            raise TypeError("Expected argument 'public_key_openssh' to be a str")
+        pulumi.set(__self__, "public_key_openssh", public_key_openssh)
+        if public_key_pem and not isinstance(public_key_pem, str):
+            raise TypeError("Expected argument 'public_key_pem' to be a str")
+        pulumi.set(__self__, "public_key_pem", public_key_pem)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -54,6 +63,20 @@ class GetKeyResult:
         if versionless_id and not isinstance(versionless_id, str):
             raise TypeError("Expected argument 'versionless_id' to be a str")
         pulumi.set(__self__, "versionless_id", versionless_id)
+        if x and not isinstance(x, str):
+            raise TypeError("Expected argument 'x' to be a str")
+        pulumi.set(__self__, "x", x)
+        if y and not isinstance(y, str):
+            raise TypeError("Expected argument 'y' to be a str")
+        pulumi.set(__self__, "y", y)
+
+    @property
+    @pulumi.getter
+    def curve(self) -> str:
+        """
+        The EC Curve name of this Key Vault Key.
+        """
+        return pulumi.get(self, "curve")
 
     @property
     @pulumi.getter
@@ -114,6 +137,22 @@ class GetKeyResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="publicKeyOpenssh")
+    def public_key_openssh(self) -> str:
+        """
+        The OpenSSH encoded public key of this Key Vault Key.
+        """
+        return pulumi.get(self, "public_key_openssh")
+
+    @property
+    @pulumi.getter(name="publicKeyPem")
+    def public_key_pem(self) -> str:
+        """
+        The PEM encoded public key of this Key Vault Key.
+        """
+        return pulumi.get(self, "public_key_pem")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -137,6 +176,22 @@ class GetKeyResult:
         """
         return pulumi.get(self, "versionless_id")
 
+    @property
+    @pulumi.getter
+    def x(self) -> str:
+        """
+        The EC X component of this Key Vault Key.
+        """
+        return pulumi.get(self, "x")
+
+    @property
+    @pulumi.getter
+    def y(self) -> str:
+        """
+        The EC Y component of this Key Vault Key.
+        """
+        return pulumi.get(self, "y")
+
 
 class AwaitableGetKeyResult(GetKeyResult):
     # pylint: disable=using-constant-test
@@ -144,6 +199,7 @@ class AwaitableGetKeyResult(GetKeyResult):
         if False:
             yield self
         return GetKeyResult(
+            curve=self.curve,
             e=self.e,
             id=self.id,
             key_opts=self.key_opts,
@@ -152,9 +208,13 @@ class AwaitableGetKeyResult(GetKeyResult):
             key_vault_id=self.key_vault_id,
             n=self.n,
             name=self.name,
+            public_key_openssh=self.public_key_openssh,
+            public_key_pem=self.public_key_pem,
             tags=self.tags,
             version=self.version,
-            versionless_id=self.versionless_id)
+            versionless_id=self.versionless_id,
+            x=self.x,
+            y=self.y)
 
 
 def get_key(key_vault_id: Optional[str] = None,
@@ -188,6 +248,7 @@ def get_key(key_vault_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getKey:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
     return AwaitableGetKeyResult(
+        curve=__ret__.curve,
         e=__ret__.e,
         id=__ret__.id,
         key_opts=__ret__.key_opts,
@@ -196,9 +257,13 @@ def get_key(key_vault_id: Optional[str] = None,
         key_vault_id=__ret__.key_vault_id,
         n=__ret__.n,
         name=__ret__.name,
+        public_key_openssh=__ret__.public_key_openssh,
+        public_key_pem=__ret__.public_key_pem,
         tags=__ret__.tags,
         version=__ret__.version,
-        versionless_id=__ret__.versionless_id)
+        versionless_id=__ret__.versionless_id,
+        x=__ret__.x,
+        y=__ret__.y)
 
 
 @_utilities.lift_output_func(get_key)

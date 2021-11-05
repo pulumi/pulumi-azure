@@ -160,8 +160,8 @@ type Registry struct {
 	RetentionPolicy RegistryRetentionPolicyOutput `pulumi:"retentionPolicy"`
 	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
-	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
-	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
+	// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
+	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `trustPolicy` block as documented below.
@@ -236,7 +236,7 @@ type registryState struct {
 	RetentionPolicy *RegistryRetentionPolicy `pulumi:"retentionPolicy"`
 	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku *string `pulumi:"sku"`
-	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
+	// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -281,7 +281,7 @@ type RegistryState struct {
 	RetentionPolicy RegistryRetentionPolicyPtrInput
 	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku pulumi.StringPtrInput
-	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
+	// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
 	StorageAccountId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -324,7 +324,7 @@ type registryArgs struct {
 	RetentionPolicy *RegistryRetentionPolicy `pulumi:"retentionPolicy"`
 	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku *string `pulumi:"sku"`
-	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
+	// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -364,7 +364,7 @@ type RegistryArgs struct {
 	RetentionPolicy RegistryRetentionPolicyPtrInput
 	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku pulumi.StringPtrInput
-	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
+	// Deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
 	StorageAccountId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

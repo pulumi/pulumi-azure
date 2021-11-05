@@ -143,8 +143,18 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="PerGB2018")
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+            solution_name="SecurityInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            workspace_name=example_analytics_workspace.name,
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+                publisher="Microsoft",
+                product="OMSGallery/SecurityInsights",
+            ))
         example_data_connector_aws_cloud_trail = azure.sentinel.DataConnectorAwsCloudTrail("exampleDataConnectorAwsCloudTrail",
-            log_analytics_workspace_id=example_analytics_workspace.id,
+            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             aws_role_arn="arn:aws:iam::000000000000:role/role1")
         ```
 
@@ -182,8 +192,18 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="PerGB2018")
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+            solution_name="SecurityInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            workspace_name=example_analytics_workspace.name,
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+                publisher="Microsoft",
+                product="OMSGallery/SecurityInsights",
+            ))
         example_data_connector_aws_cloud_trail = azure.sentinel.DataConnectorAwsCloudTrail("exampleDataConnectorAwsCloudTrail",
-            log_analytics_workspace_id=example_analytics_workspace.id,
+            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             aws_role_arn="arn:aws:iam::000000000000:role/role1")
         ```
 

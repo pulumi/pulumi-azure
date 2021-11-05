@@ -19,8 +19,19 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "PerGB2018",
  * });
+ * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
+ *     solutionName: "SecurityInsights",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     workspaceResourceId: exampleAnalyticsWorkspace.id,
+ *     workspaceName: exampleAnalyticsWorkspace.name,
+ *     plan: {
+ *         publisher: "Microsoft",
+ *         product: "OMSGallery/SecurityInsights",
+ *     },
+ * });
  * const exampleDataConnectorAwsCloudTrail = new azure.sentinel.DataConnectorAwsCloudTrail("exampleDataConnectorAwsCloudTrail", {
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
+ *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     awsRoleArn: "arn:aws:iam::000000000000:role/role1",
  * });
  * ```

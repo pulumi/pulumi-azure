@@ -242,6 +242,12 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.FunctionAppIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+        /// </summary>
+        [Output("keyVaultReferenceIdentityId")]
+        public Output<string> KeyVaultReferenceIdentityId { get; private set; } = null!;
+
+        /// <summary>
         /// The Function App kind - such as `functionapp,linux,container`
         /// </summary>
         [Output("kind")]
@@ -453,6 +459,12 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.FunctionAppIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+        /// </summary>
+        [Input("keyVaultReferenceIdentityId")]
+        public Input<string>? KeyVaultReferenceIdentityId { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -617,6 +629,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FunctionAppIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+        /// </summary>
+        [Input("keyVaultReferenceIdentityId")]
+        public Input<string>? KeyVaultReferenceIdentityId { get; set; }
 
         /// <summary>
         /// The Function App kind - such as `functionapp,linux,container`

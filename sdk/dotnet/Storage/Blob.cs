@@ -68,6 +68,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> AccessTier { get; private set; } = null!;
 
         /// <summary>
+        /// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+        /// </summary>
+        [Output("cacheControl")]
+        public Output<string?> CacheControl { get; private set; } = null!;
+
+        /// <summary>
         /// The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         /// </summary>
         [Output("contentMd5")]
@@ -200,6 +206,12 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccessTier { get; set; }
 
         /// <summary>
+        /// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+        /// </summary>
+        [Input("cacheControl")]
+        public Input<string>? CacheControl { get; set; }
+
+        /// <summary>
         /// The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         /// </summary>
         [Input("contentMd5")]
@@ -291,6 +303,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
+
+        /// <summary>
+        /// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+        /// </summary>
+        [Input("cacheControl")]
+        public Input<string>? CacheControl { get; set; }
 
         /// <summary>
         /// The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.

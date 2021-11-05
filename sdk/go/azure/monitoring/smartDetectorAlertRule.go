@@ -84,7 +84,7 @@ type SmartDetectorAlertRule struct {
 	ActionGroup SmartDetectorAlertRuleActionGroupOutput `pulumi:"actionGroup"`
 	// Specifies a description for the Smart Detector Alert Rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+	// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
 	DetectorType pulumi.StringOutput `pulumi:"detectorType"`
 	// Is the Smart Detector Alert Rule enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -155,7 +155,7 @@ type smartDetectorAlertRuleState struct {
 	ActionGroup *SmartDetectorAlertRuleActionGroup `pulumi:"actionGroup"`
 	// Specifies a description for the Smart Detector Alert Rule.
 	Description *string `pulumi:"description"`
-	// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+	// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
 	DetectorType *string `pulumi:"detectorType"`
 	// Is the Smart Detector Alert Rule enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -180,7 +180,7 @@ type SmartDetectorAlertRuleState struct {
 	ActionGroup SmartDetectorAlertRuleActionGroupPtrInput
 	// Specifies a description for the Smart Detector Alert Rule.
 	Description pulumi.StringPtrInput
-	// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+	// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
 	DetectorType pulumi.StringPtrInput
 	// Is the Smart Detector Alert Rule enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
@@ -209,7 +209,7 @@ type smartDetectorAlertRuleArgs struct {
 	ActionGroup SmartDetectorAlertRuleActionGroup `pulumi:"actionGroup"`
 	// Specifies a description for the Smart Detector Alert Rule.
 	Description *string `pulumi:"description"`
-	// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+	// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
 	DetectorType string `pulumi:"detectorType"`
 	// Is the Smart Detector Alert Rule enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -235,7 +235,7 @@ type SmartDetectorAlertRuleArgs struct {
 	ActionGroup SmartDetectorAlertRuleActionGroupInput
 	// Specifies a description for the Smart Detector Alert Rule.
 	Description pulumi.StringPtrInput
-	// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+	// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
 	DetectorType pulumi.StringInput
 	// Is the Smart Detector Alert Rule enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput

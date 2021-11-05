@@ -74,6 +74,8 @@ type Blob struct {
 
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
+	// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+	CacheControl pulumi.StringPtrOutput `pulumi:"cacheControl"`
 	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
 	ContentMd5 pulumi.StringPtrOutput `pulumi:"contentMd5"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
@@ -144,6 +146,8 @@ func GetBlob(ctx *pulumi.Context,
 type blobState struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
+	// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+	CacheControl *string `pulumi:"cacheControl"`
 	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
 	ContentMd5 *string `pulumi:"contentMd5"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
@@ -177,6 +181,8 @@ type blobState struct {
 type BlobState struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier pulumi.StringPtrInput
+	// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+	CacheControl pulumi.StringPtrInput
 	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
 	ContentMd5 pulumi.StringPtrInput
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
@@ -214,6 +220,8 @@ func (BlobState) ElementType() reflect.Type {
 type blobArgs struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
+	// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+	CacheControl *string `pulumi:"cacheControl"`
 	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
 	ContentMd5 *string `pulumi:"contentMd5"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
@@ -246,6 +254,8 @@ type blobArgs struct {
 type BlobArgs struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
 	AccessTier pulumi.StringPtrInput
+	// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+	CacheControl pulumi.StringPtrInput
 	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
 	ContentMd5 pulumi.StringPtrInput
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.

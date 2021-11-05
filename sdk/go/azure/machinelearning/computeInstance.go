@@ -149,6 +149,8 @@ type ComputeInstance struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
 	Identity ComputeInstanceIdentityPtrOutput `pulumi:"identity"`
+	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
+	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
 	// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -208,6 +210,8 @@ type computeInstanceState struct {
 	Description *string `pulumi:"description"`
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
 	Identity *ComputeInstanceIdentity `pulumi:"identity"`
+	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
 	Location *string `pulumi:"location"`
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -233,6 +237,8 @@ type ComputeInstanceState struct {
 	Description pulumi.StringPtrInput
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
 	Identity ComputeInstanceIdentityPtrInput
+	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
 	Location pulumi.StringPtrInput
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -262,6 +268,8 @@ type computeInstanceArgs struct {
 	Description *string `pulumi:"description"`
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
 	Identity *ComputeInstanceIdentity `pulumi:"identity"`
+	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
 	Location *string `pulumi:"location"`
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -288,6 +296,8 @@ type ComputeInstanceArgs struct {
 	Description pulumi.StringPtrInput
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
 	Identity ComputeInstanceIdentityPtrInput
+	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
 	Location pulumi.StringPtrInput
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.

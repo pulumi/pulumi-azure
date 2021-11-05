@@ -27,6 +27,7 @@ class FunctionAppArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['FunctionAppIdentityArgs']] = None,
+                 key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
@@ -51,6 +52,7 @@ class FunctionAppArgs:
         :param pulumi.Input[bool] enabled: Is the Function App enabled?
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['FunctionAppIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app.
@@ -86,6 +88,8 @@ class FunctionAppArgs:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if key_vault_reference_identity_id is not None:
+            pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -255,6 +259,18 @@ class FunctionAppArgs:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="keyVaultReferenceIdentityId")
+    def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+        """
+        return pulumi.get(self, "key_vault_reference_identity_id")
+
+    @key_vault_reference_identity_id.setter
+    def key_vault_reference_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_reference_identity_id", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -388,6 +404,7 @@ class _FunctionAppState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['FunctionAppIdentityArgs']] = None,
+                 key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -418,6 +435,7 @@ class _FunctionAppState:
         :param pulumi.Input[bool] enabled: Is the Function App enabled?
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['FunctionAppIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
@@ -462,6 +480,8 @@ class _FunctionAppState:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if key_vault_reference_identity_id is not None:
+            pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -651,6 +671,18 @@ class _FunctionAppState:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['FunctionAppIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyVaultReferenceIdentityId")
+    def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+        """
+        return pulumi.get(self, "key_vault_reference_identity_id")
+
+    @key_vault_reference_identity_id.setter
+    def key_vault_reference_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_reference_identity_id", value)
 
     @property
     @pulumi.getter
@@ -846,6 +878,7 @@ class FunctionApp(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']]] = None,
+                 key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
@@ -971,6 +1004,7 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the Function App enabled?
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app.
@@ -1114,6 +1148,7 @@ class FunctionApp(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']]] = None,
+                 key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
@@ -1153,6 +1188,7 @@ class FunctionApp(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["https_only"] = https_only
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["os_type"] = os_type
@@ -1198,6 +1234,7 @@ class FunctionApp(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']]] = None,
+            key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1233,6 +1270,7 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the Function App enabled?
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
@@ -1265,6 +1303,7 @@ class FunctionApp(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["https_only"] = https_only
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
         __props__.__dict__["kind"] = kind
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -1385,6 +1424,14 @@ class FunctionApp(pulumi.CustomResource):
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyVaultReferenceIdentityId")
+    def key_vault_reference_identity_id(self) -> pulumi.Output[str]:
+        """
+        The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
+        """
+        return pulumi.get(self, "key_vault_reference_identity_id")
 
     @property
     @pulumi.getter

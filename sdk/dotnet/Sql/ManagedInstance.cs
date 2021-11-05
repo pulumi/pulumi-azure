@@ -258,6 +258,12 @@ namespace Pulumi.Azure.Sql
         public Output<string?> Collation { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        /// </summary>
+        [Output("dnsZonePartnerId")]
+        public Output<string?> DnsZonePartnerId { get; private set; } = null!;
+
+        /// <summary>
         /// The fully qualified domain name of the Azure Managed SQL Instance
         /// </summary>
         [Output("fqdn")]
@@ -406,6 +412,12 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
+        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        /// </summary>
+        [Input("dnsZonePartnerId")]
+        public Input<string>? DnsZonePartnerId { get; set; }
+
+        /// <summary>
         /// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
         /// </summary>
         [Input("licenseType", required: true)]
@@ -513,6 +525,12 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         [Input("collation")]
         public Input<string>? Collation { get; set; }
+
+        /// <summary>
+        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        /// </summary>
+        [Input("dnsZonePartnerId")]
+        public Input<string>? DnsZonePartnerId { get; set; }
 
         /// <summary>
         /// The fully qualified domain name of the Azure Managed SQL Instance

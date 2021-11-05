@@ -41,8 +41,22 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+// 			SolutionName:        pulumi.String("SecurityInsights"),
+// 			Location:            exampleResourceGroup.Location,
+// 			ResourceGroupName:   exampleResourceGroup.Name,
+// 			WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+// 			WorkspaceName:       exampleAnalyticsWorkspace.Name,
+// 			Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
+// 				Publisher: pulumi.String("Microsoft"),
+// 				Product:   pulumi.String("OMSGallery/SecurityInsights"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = sentinel.NewAlertRuleFusion(ctx, "exampleAlertRuleFusion", &sentinel.AlertRuleFusionArgs{
-// 			LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+// 			LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
 // 			AlertRuleTemplateGuid:   pulumi.String("f71aba3d-28fb-450b-b192-4e76a83015c8"),
 // 		})
 // 		if err != nil {

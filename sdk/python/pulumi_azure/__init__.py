@@ -1736,6 +1736,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cosmosdb/cassandraCluster",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/cassandraCluster:CassandraCluster": "CassandraCluster"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cosmosdb/cassandraDatacenter",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/cassandraDatacenter:CassandraDatacenter": "CassandraDatacenter"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cosmosdb/cassandraKeyspace",
   "fqn": "pulumi_azure.cosmosdb",
   "classes": {
@@ -4024,6 +4040,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "monitoring/logzMonitor",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/logzMonitor:LogzMonitor": "LogzMonitor"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "monitoring/metricAlert",
   "fqn": "pulumi_azure.monitoring",
   "classes": {
@@ -5868,6 +5892,14 @@ _utilities.register(
   "fqn": "pulumi_azure.streamanalytics",
   "classes": {
    "azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic": "OutputServicebusTopic"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "streamanalytics/outputSynapse",
+  "fqn": "pulumi_azure.streamanalytics",
+  "classes": {
+   "azure:streamanalytics/outputSynapse:OutputSynapse": "OutputSynapse"
   }
  },
  {

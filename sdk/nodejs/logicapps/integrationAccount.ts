@@ -61,6 +61,10 @@ export class IntegrationAccount extends pulumi.CustomResource {
     }
 
     /**
+     * The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+     */
+    public readonly integrationServiceEnvironmentId!: pulumi.Output<string | undefined>;
+    /**
      * The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -94,6 +98,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountState | undefined;
+            inputs["integrationServiceEnvironmentId"] = state ? state.integrationServiceEnvironmentId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -107,6 +112,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
+            inputs["integrationServiceEnvironmentId"] = args ? args.integrationServiceEnvironmentId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -124,6 +130,10 @@ export class IntegrationAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IntegrationAccount resources.
  */
 export interface IntegrationAccountState {
+    /**
+     * The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+     */
+    integrationServiceEnvironmentId?: pulumi.Input<string>;
     /**
      * The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
      */
@@ -150,6 +160,10 @@ export interface IntegrationAccountState {
  * The set of arguments for constructing a IntegrationAccount resource.
  */
 export interface IntegrationAccountArgs {
+    /**
+     * The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+     */
+    integrationServiceEnvironmentId?: pulumi.Input<string>;
     /**
      * The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
      */

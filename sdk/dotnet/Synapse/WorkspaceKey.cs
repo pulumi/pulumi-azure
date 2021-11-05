@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Synapse
         [Output("cusomterManagedKeyName")]
         public Output<string> CusomterManagedKeyName { get; private set; } = null!;
 
+        [Output("customerManagedKeyName")]
+        public Output<string> CustomerManagedKeyName { get; private set; } = null!;
+
         [Output("customerManagedKeyVersionlessId")]
         public Output<string?> CustomerManagedKeyVersionlessId { get; private set; } = null!;
 
@@ -73,8 +76,11 @@ namespace Pulumi.Azure.Synapse
         [Input("active", required: true)]
         public Input<bool> Active { get; set; } = null!;
 
-        [Input("cusomterManagedKeyName", required: true)]
-        public Input<string> CusomterManagedKeyName { get; set; } = null!;
+        [Input("cusomterManagedKeyName")]
+        public Input<string>? CusomterManagedKeyName { get; set; }
+
+        [Input("customerManagedKeyName")]
+        public Input<string>? CustomerManagedKeyName { get; set; }
 
         [Input("customerManagedKeyVersionlessId")]
         public Input<string>? CustomerManagedKeyVersionlessId { get; set; }
@@ -94,6 +100,9 @@ namespace Pulumi.Azure.Synapse
 
         [Input("cusomterManagedKeyName")]
         public Input<string>? CusomterManagedKeyName { get; set; }
+
+        [Input("customerManagedKeyName")]
+        public Input<string>? CustomerManagedKeyName { get; set; }
 
         [Input("customerManagedKeyVersionlessId")]
         public Input<string>? CustomerManagedKeyVersionlessId { get; set; }

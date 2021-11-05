@@ -29,7 +29,7 @@ class SmartDetectorAlertRuleArgs:
         """
         The set of arguments for constructing a SmartDetectorAlertRule resource.
         :param pulumi.Input['SmartDetectorAlertRuleActionGroupArgs'] action_group: An `action_group` block as defined below.
-        :param pulumi.Input[str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+        :param pulumi.Input[str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         :param pulumi.Input[str] frequency: Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_resource_ids: Specifies the scopes of this Smart Detector Alert Rule.
@@ -73,7 +73,7 @@ class SmartDetectorAlertRuleArgs:
     @pulumi.getter(name="detectorType")
     def detector_type(self) -> pulumi.Input[str]:
         """
-        Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+        Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         """
         return pulumi.get(self, "detector_type")
 
@@ -208,7 +208,7 @@ class _SmartDetectorAlertRuleState:
         Input properties used for looking up and filtering SmartDetectorAlertRule resources.
         :param pulumi.Input['SmartDetectorAlertRuleActionGroupArgs'] action_group: An `action_group` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Smart Detector Alert Rule.
-        :param pulumi.Input[str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+        :param pulumi.Input[str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         :param pulumi.Input[bool] enabled: Is the Smart Detector Alert Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] frequency: Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created.
@@ -269,7 +269,7 @@ class _SmartDetectorAlertRuleState:
     @pulumi.getter(name="detectorType")
     def detector_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+        Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         """
         return pulumi.get(self, "detector_type")
 
@@ -431,7 +431,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SmartDetectorAlertRuleActionGroupArgs']] action_group: An `action_group` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Smart Detector Alert Rule.
-        :param pulumi.Input[str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+        :param pulumi.Input[str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         :param pulumi.Input[bool] enabled: Is the Smart Detector Alert Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] frequency: Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created.
@@ -574,7 +574,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SmartDetectorAlertRuleActionGroupArgs']] action_group: An `action_group` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Smart Detector Alert Rule.
-        :param pulumi.Input[str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+        :param pulumi.Input[str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         :param pulumi.Input[bool] enabled: Is the Smart Detector Alert Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] frequency: Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created.
@@ -621,7 +621,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     @pulumi.getter(name="detectorType")
     def detector_type(self) -> pulumi.Output[str]:
         """
-        Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+        Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         """
         return pulumi.get(self, "detector_type")
 

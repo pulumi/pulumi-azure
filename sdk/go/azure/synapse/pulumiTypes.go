@@ -2128,6 +2128,181 @@ func (o WorkspaceIdentityArrayOutput) Index(i pulumi.IntInput) WorkspaceIdentity
 	}).(WorkspaceIdentityOutput)
 }
 
+type WorkspaceSqlAadAdmin struct {
+	// The login name of the Azure AD Administrator of this Synapse Workspace SQL.
+	Login string `pulumi:"login"`
+	// The object id of the Azure AD Administrator of this Synapse Workspace SQL.
+	ObjectId string `pulumi:"objectId"`
+	// The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// WorkspaceSqlAadAdminInput is an input type that accepts WorkspaceSqlAadAdminArgs and WorkspaceSqlAadAdminOutput values.
+// You can construct a concrete instance of `WorkspaceSqlAadAdminInput` via:
+//
+//          WorkspaceSqlAadAdminArgs{...}
+type WorkspaceSqlAadAdminInput interface {
+	pulumi.Input
+
+	ToWorkspaceSqlAadAdminOutput() WorkspaceSqlAadAdminOutput
+	ToWorkspaceSqlAadAdminOutputWithContext(context.Context) WorkspaceSqlAadAdminOutput
+}
+
+type WorkspaceSqlAadAdminArgs struct {
+	// The login name of the Azure AD Administrator of this Synapse Workspace SQL.
+	Login pulumi.StringInput `pulumi:"login"`
+	// The object id of the Azure AD Administrator of this Synapse Workspace SQL.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (WorkspaceSqlAadAdminArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceSqlAadAdmin)(nil)).Elem()
+}
+
+func (i WorkspaceSqlAadAdminArgs) ToWorkspaceSqlAadAdminOutput() WorkspaceSqlAadAdminOutput {
+	return i.ToWorkspaceSqlAadAdminOutputWithContext(context.Background())
+}
+
+func (i WorkspaceSqlAadAdminArgs) ToWorkspaceSqlAadAdminOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminOutput)
+}
+
+func (i WorkspaceSqlAadAdminArgs) ToWorkspaceSqlAadAdminPtrOutput() WorkspaceSqlAadAdminPtrOutput {
+	return i.ToWorkspaceSqlAadAdminPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceSqlAadAdminArgs) ToWorkspaceSqlAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminOutput).ToWorkspaceSqlAadAdminPtrOutputWithContext(ctx)
+}
+
+// WorkspaceSqlAadAdminPtrInput is an input type that accepts WorkspaceSqlAadAdminArgs, WorkspaceSqlAadAdminPtr and WorkspaceSqlAadAdminPtrOutput values.
+// You can construct a concrete instance of `WorkspaceSqlAadAdminPtrInput` via:
+//
+//          WorkspaceSqlAadAdminArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceSqlAadAdminPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceSqlAadAdminPtrOutput() WorkspaceSqlAadAdminPtrOutput
+	ToWorkspaceSqlAadAdminPtrOutputWithContext(context.Context) WorkspaceSqlAadAdminPtrOutput
+}
+
+type workspaceSqlAadAdminPtrType WorkspaceSqlAadAdminArgs
+
+func WorkspaceSqlAadAdminPtr(v *WorkspaceSqlAadAdminArgs) WorkspaceSqlAadAdminPtrInput {
+	return (*workspaceSqlAadAdminPtrType)(v)
+}
+
+func (*workspaceSqlAadAdminPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceSqlAadAdmin)(nil)).Elem()
+}
+
+func (i *workspaceSqlAadAdminPtrType) ToWorkspaceSqlAadAdminPtrOutput() WorkspaceSqlAadAdminPtrOutput {
+	return i.ToWorkspaceSqlAadAdminPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceSqlAadAdminPtrType) ToWorkspaceSqlAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminPtrOutput)
+}
+
+type WorkspaceSqlAadAdminOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceSqlAadAdminOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceSqlAadAdmin)(nil)).Elem()
+}
+
+func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutput() WorkspaceSqlAadAdminOutput {
+	return o
+}
+
+func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminOutput {
+	return o
+}
+
+func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminPtrOutput() WorkspaceSqlAadAdminPtrOutput {
+	return o.ToWorkspaceSqlAadAdminPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceSqlAadAdmin) *WorkspaceSqlAadAdmin {
+		return &v
+	}).(WorkspaceSqlAadAdminPtrOutput)
+}
+
+// The login name of the Azure AD Administrator of this Synapse Workspace SQL.
+func (o WorkspaceSqlAadAdminOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceSqlAadAdmin) string { return v.Login }).(pulumi.StringOutput)
+}
+
+// The object id of the Azure AD Administrator of this Synapse Workspace SQL.
+func (o WorkspaceSqlAadAdminOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceSqlAadAdmin) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+func (o WorkspaceSqlAadAdminOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceSqlAadAdmin) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type WorkspaceSqlAadAdminPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceSqlAadAdminPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceSqlAadAdmin)(nil)).Elem()
+}
+
+func (o WorkspaceSqlAadAdminPtrOutput) ToWorkspaceSqlAadAdminPtrOutput() WorkspaceSqlAadAdminPtrOutput {
+	return o
+}
+
+func (o WorkspaceSqlAadAdminPtrOutput) ToWorkspaceSqlAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminPtrOutput {
+	return o
+}
+
+func (o WorkspaceSqlAadAdminPtrOutput) Elem() WorkspaceSqlAadAdminOutput {
+	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) WorkspaceSqlAadAdmin {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceSqlAadAdmin
+		return ret
+	}).(WorkspaceSqlAadAdminOutput)
+}
+
+// The login name of the Azure AD Administrator of this Synapse Workspace SQL.
+func (o WorkspaceSqlAadAdminPtrOutput) Login() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Login
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object id of the Azure AD Administrator of this Synapse Workspace SQL.
+func (o WorkspaceSqlAadAdminPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+func (o WorkspaceSqlAadAdminPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceVulnerabilityAssessmentRecurringScans struct {
 	// Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
 	EmailSubscriptionAdminsEnabled *bool `pulumi:"emailSubscriptionAdminsEnabled"`
@@ -2445,6 +2620,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceGithubRepoPtrInput)(nil)).Elem(), WorkspaceGithubRepoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityInput)(nil)).Elem(), WorkspaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityArrayInput)(nil)).Elem(), WorkspaceIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSqlAadAdminInput)(nil)).Elem(), WorkspaceSqlAadAdminArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSqlAadAdminPtrInput)(nil)).Elem(), WorkspaceSqlAadAdminArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceVulnerabilityAssessmentRecurringScansInput)(nil)).Elem(), WorkspaceVulnerabilityAssessmentRecurringScansArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceVulnerabilityAssessmentRecurringScansPtrInput)(nil)).Elem(), WorkspaceVulnerabilityAssessmentRecurringScansArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceIdentityInput)(nil)).Elem(), GetWorkspaceIdentityArgs{})
@@ -2475,6 +2652,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceGithubRepoPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceSqlAadAdminOutput{})
+	pulumi.RegisterOutputType(WorkspaceSqlAadAdminPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceVulnerabilityAssessmentRecurringScansOutput{})
 	pulumi.RegisterOutputType(WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityOutput{})

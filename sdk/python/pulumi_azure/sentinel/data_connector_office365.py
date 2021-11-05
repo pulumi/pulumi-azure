@@ -243,7 +243,17 @@ class DataConnectorOffice365(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="PerGB2018")
-        example_data_connector_office365 = azure.sentinel.DataConnectorOffice365("exampleDataConnectorOffice365", log_analytics_workspace_id=example_analytics_workspace.id)
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+            solution_name="SecurityInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            workspace_name=example_analytics_workspace.name,
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+                publisher="Microsoft",
+                product="OMSGallery/SecurityInsights",
+            ))
+        example_data_connector_office365 = azure.sentinel.DataConnectorOffice365("exampleDataConnectorOffice365", log_analytics_workspace_id=example_analytics_solution.workspace_resource_id)
         ```
 
         ## Import
@@ -283,7 +293,17 @@ class DataConnectorOffice365(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="PerGB2018")
-        example_data_connector_office365 = azure.sentinel.DataConnectorOffice365("exampleDataConnectorOffice365", log_analytics_workspace_id=example_analytics_workspace.id)
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+            solution_name="SecurityInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            workspace_name=example_analytics_workspace.name,
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+                publisher="Microsoft",
+                product="OMSGallery/SecurityInsights",
+            ))
+        example_data_connector_office365 = azure.sentinel.DataConnectorOffice365("exampleDataConnectorOffice365", log_analytics_workspace_id=example_analytics_solution.workspace_resource_id)
         ```
 
         ## Import

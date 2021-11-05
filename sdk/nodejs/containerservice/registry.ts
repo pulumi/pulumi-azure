@@ -168,9 +168,9 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
-     * The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
+     * @deprecated this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    public readonly storageAccountId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -321,7 +321,7 @@ export interface RegistryState {
      */
     sku?: pulumi.Input<string>;
     /**
-     * The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
+     * @deprecated this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
      */
     storageAccountId?: pulumi.Input<string>;
     /**
@@ -397,7 +397,7 @@ export interface RegistryArgs {
      */
     sku?: pulumi.Input<string>;
     /**
-     * The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
+     * @deprecated this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0
      */
     storageAccountId?: pulumi.Input<string>;
     /**

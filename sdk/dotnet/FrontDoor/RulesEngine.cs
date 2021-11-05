@@ -34,13 +34,13 @@ namespace Pulumi.Azure.FrontDoor
     ///                     Priority = 1,
     ///                     Action = new Azure.FrontDoor.Inputs.RulesEngineRuleActionArgs
     ///                     {
-    ///                         ResponseHeaderActions = 
+    ///                         ResponseHeaders = 
     ///                         {
-    ///                             
+    ///                             new Azure.FrontDoor.Inputs.RulesEngineRuleActionResponseHeaderArgs
     ///                             {
-    ///                                 { "headerActionType", "Append" },
-    ///                                 { "headerName", "X-TEST-HEADER" },
-    ///                                 { "value", "Append Header Rule" },
+    ///                                 HeaderActionType = "Append",
+    ///                                 HeaderName = "X-TEST-HEADER",
+    ///                                 Value = "Append Header Rule",
     ///                             },
     ///                         },
     ///                     },

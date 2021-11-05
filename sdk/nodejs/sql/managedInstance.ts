@@ -230,6 +230,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+     */
+    public readonly dnsZonePartnerId!: pulumi.Output<string | undefined>;
+    /**
      * The fully qualified domain name of the Azure Managed SQL Instance
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
@@ -302,6 +306,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
             inputs["collation"] = state ? state.collation : undefined;
+            inputs["dnsZonePartnerId"] = state ? state.dnsZonePartnerId : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["licenseType"] = state ? state.licenseType : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -345,6 +350,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             inputs["collation"] = args ? args.collation : undefined;
+            inputs["dnsZonePartnerId"] = args ? args.dnsZonePartnerId : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
@@ -383,6 +389,10 @@ export interface ManagedInstanceState {
      * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     collation?: pulumi.Input<string>;
+    /**
+     * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+     */
+    dnsZonePartnerId?: pulumi.Input<string>;
     /**
      * The fully qualified domain name of the Azure Managed SQL Instance
      */
@@ -457,6 +467,10 @@ export interface ManagedInstanceArgs {
      * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     collation?: pulumi.Input<string>;
+    /**
+     * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+     */
+    dnsZonePartnerId?: pulumi.Input<string>;
     /**
      * What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
      */

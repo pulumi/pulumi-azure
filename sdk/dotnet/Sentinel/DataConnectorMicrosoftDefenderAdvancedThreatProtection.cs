@@ -32,9 +32,22 @@ namespace Pulumi.Azure.Sentinel
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = "PerGB2018",
     ///         });
+    ///         var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new Azure.OperationalInsights.AnalyticsSolutionArgs
+    ///         {
+    ///             SolutionName = "SecurityInsights",
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///             {
+    ///                 Publisher = "Microsoft",
+    ///                 Product = "OMSGallery/SecurityInsights",
+    ///             },
+    ///         });
     ///         var exampleDataConnectorMicrosoftDefenderAdvancedThreatProtection = new Azure.Sentinel.DataConnectorMicrosoftDefenderAdvancedThreatProtection("exampleDataConnectorMicrosoftDefenderAdvancedThreatProtection", new Azure.Sentinel.DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs
     ///         {
-    ///             LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
     ///         });
     ///     }
     /// 

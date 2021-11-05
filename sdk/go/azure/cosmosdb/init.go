@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:cosmosdb/account:Account":
 		r = &Account{}
+	case "azure:cosmosdb/cassandraCluster:CassandraCluster":
+		r = &CassandraCluster{}
+	case "azure:cosmosdb/cassandraDatacenter:CassandraDatacenter":
+		r = &CassandraDatacenter{}
 	case "azure:cosmosdb/cassandraKeyspace:CassandraKeyspace":
 		r = &CassandraKeyspace{}
 	case "azure:cosmosdb/cassandraTable:CassandraTable":
@@ -65,6 +69,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cosmosdb/account",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cosmosdb/cassandraCluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cosmosdb/cassandraDatacenter",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

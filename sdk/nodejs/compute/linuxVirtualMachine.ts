@@ -193,6 +193,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.LinuxVirtualMachineOsDisk>;
     /**
+     * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`.
+     */
+    public readonly patchMode!: pulumi.Output<string | undefined>;
+    /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly plan!: pulumi.Output<outputs.compute.LinuxVirtualMachinePlan | undefined>;
@@ -299,6 +303,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             inputs["osDisk"] = state ? state.osDisk : undefined;
+            inputs["patchMode"] = state ? state.patchMode : undefined;
             inputs["plan"] = state ? state.plan : undefined;
             inputs["platformFaultDomain"] = state ? state.platformFaultDomain : undefined;
             inputs["priority"] = state ? state.priority : undefined;
@@ -355,6 +360,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["networkInterfaceIds"] = args ? args.networkInterfaceIds : undefined;
             inputs["osDisk"] = args ? args.osDisk : undefined;
+            inputs["patchMode"] = args ? args.patchMode : undefined;
             inputs["plan"] = args ? args.plan : undefined;
             inputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
             inputs["priority"] = args ? args.priority : undefined;
@@ -469,6 +475,10 @@ export interface LinuxVirtualMachineState {
      * A `osDisk` block as defined below.
      */
     osDisk?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsDisk>;
+    /**
+     * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`.
+     */
+    patchMode?: pulumi.Input<string>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
@@ -631,6 +641,10 @@ export interface LinuxVirtualMachineArgs {
      * A `osDisk` block as defined below.
      */
     osDisk: pulumi.Input<inputs.compute.LinuxVirtualMachineOsDisk>;
+    /**
+     * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`.
+     */
+    patchMode?: pulumi.Input<string>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */

@@ -146,6 +146,18 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> NotBeforeDate { get; private set; } = null!;
 
         /// <summary>
+        /// The OpenSSH encoded public key of this Key Vault Key.
+        /// </summary>
+        [Output("publicKeyOpenssh")]
+        public Output<string> PublicKeyOpenssh { get; private set; } = null!;
+
+        /// <summary>
+        /// The PEM encoded public key of this Key Vault Key.
+        /// </summary>
+        [Output("publicKeyPem")]
+        public Output<string> PublicKeyPem { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -359,6 +371,18 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("notBeforeDate")]
         public Input<string>? NotBeforeDate { get; set; }
+
+        /// <summary>
+        /// The OpenSSH encoded public key of this Key Vault Key.
+        /// </summary>
+        [Input("publicKeyOpenssh")]
+        public Input<string>? PublicKeyOpenssh { get; set; }
+
+        /// <summary>
+        /// The PEM encoded public key of this Key Vault Key.
+        /// </summary>
+        [Input("publicKeyPem")]
+        public Input<string>? PublicKeyPem { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

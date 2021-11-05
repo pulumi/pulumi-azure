@@ -62,6 +62,8 @@ __all__ = [
     'FirewallNetworkRuleCollectionRule',
     'FirewallPolicyDns',
     'FirewallPolicyIdentity',
+    'FirewallPolicyInsights',
+    'FirewallPolicyInsightsLogAnalyticsWorkspace',
     'FirewallPolicyIntrusionDetection',
     'FirewallPolicyIntrusionDetectionSignatureOverride',
     'FirewallPolicyIntrusionDetectionTrafficBypass',
@@ -4675,6 +4677,126 @@ class FirewallPolicyIdentity(dict):
 
 
 @pulumi.output_type
+class FirewallPolicyInsights(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultLogAnalyticsWorkspaceId":
+            suggest = "default_log_analytics_workspace_id"
+        elif key == "logAnalyticsWorkspaces":
+            suggest = "log_analytics_workspaces"
+        elif key == "retentionInDays":
+            suggest = "retention_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyInsights. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyInsights.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyInsights.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_log_analytics_workspace_id: str,
+                 enabled: bool,
+                 log_analytics_workspaces: Optional[Sequence['outputs.FirewallPolicyInsightsLogAnalyticsWorkspace']] = None,
+                 retention_in_days: Optional[int] = None):
+        """
+        :param str default_log_analytics_workspace_id: The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
+        :param bool enabled: Whether the insights functionality is enabled for this Firewall Policy.
+        :param Sequence['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs'] log_analytics_workspaces: A list of `log_analytics_workspace` block as defined below.
+        :param int retention_in_days: The log retention period in days.
+        """
+        pulumi.set(__self__, "default_log_analytics_workspace_id", default_log_analytics_workspace_id)
+        pulumi.set(__self__, "enabled", enabled)
+        if log_analytics_workspaces is not None:
+            pulumi.set(__self__, "log_analytics_workspaces", log_analytics_workspaces)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+
+    @property
+    @pulumi.getter(name="defaultLogAnalyticsWorkspaceId")
+    def default_log_analytics_workspace_id(self) -> str:
+        """
+        The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
+        """
+        return pulumi.get(self, "default_log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether the insights functionality is enabled for this Firewall Policy.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaces")
+    def log_analytics_workspaces(self) -> Optional[Sequence['outputs.FirewallPolicyInsightsLogAnalyticsWorkspace']]:
+        """
+        A list of `log_analytics_workspace` block as defined below.
+        """
+        return pulumi.get(self, "log_analytics_workspaces")
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[int]:
+        """
+        The log retention period in days.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+
+@pulumi.output_type
+class FirewallPolicyInsightsLogAnalyticsWorkspace(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firewallLocation":
+            suggest = "firewall_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyInsightsLogAnalyticsWorkspace. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyInsightsLogAnalyticsWorkspace.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyInsightsLogAnalyticsWorkspace.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 firewall_location: str,
+                 id: str):
+        """
+        :param str firewall_location: The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs.
+        :param str id: The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewall_location`.
+        """
+        pulumi.set(__self__, "firewall_location", firewall_location)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="firewallLocation")
+    def firewall_location(self) -> str:
+        """
+        The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs.
+        """
+        return pulumi.get(self, "firewall_location")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewall_location`.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class FirewallPolicyIntrusionDetection(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5198,9 +5320,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "translatedAddress":
-            suggest = "translated_address"
-        elif key == "translatedPort":
+        if key == "translatedPort":
             suggest = "translated_port"
         elif key == "destinationAddress":
             suggest = "destination_address"
@@ -5210,6 +5330,10 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
             suggest = "source_addresses"
         elif key == "sourceIpGroups":
             suggest = "source_ip_groups"
+        elif key == "translatedAddress":
+            suggest = "translated_address"
+        elif key == "translatedFqdn":
+            suggest = "translated_fqdn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyRuleCollectionGroupNatRuleCollectionRule. Access the value via the '{suggest}' property getter instead.")
@@ -5225,25 +5349,26 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
     def __init__(__self__, *,
                  name: str,
                  protocols: Sequence[str],
-                 translated_address: str,
                  translated_port: int,
                  destination_address: Optional[str] = None,
                  destination_ports: Optional[Sequence[str]] = None,
                  source_addresses: Optional[Sequence[str]] = None,
-                 source_ip_groups: Optional[Sequence[str]] = None):
+                 source_ip_groups: Optional[Sequence[str]] = None,
+                 translated_address: Optional[str] = None,
+                 translated_fqdn: Optional[str] = None):
         """
         :param str name: The name which should be used for this rule.
         :param Sequence[str] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
-        :param str translated_address: Specifies the translated address.
         :param int translated_port: Specifies the translated port.
         :param str destination_address: The destination IP address (including CIDR).
         :param Sequence[str] destination_ports: Specifies a list of destination ports.
         :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
+        :param str translated_address: Specifies the translated address.
+        :param str translated_fqdn: Specifies the translated FQDN.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocols", protocols)
-        pulumi.set(__self__, "translated_address", translated_address)
         pulumi.set(__self__, "translated_port", translated_port)
         if destination_address is not None:
             pulumi.set(__self__, "destination_address", destination_address)
@@ -5253,6 +5378,10 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
             pulumi.set(__self__, "source_addresses", source_addresses)
         if source_ip_groups is not None:
             pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+        if translated_address is not None:
+            pulumi.set(__self__, "translated_address", translated_address)
+        if translated_fqdn is not None:
+            pulumi.set(__self__, "translated_fqdn", translated_fqdn)
 
     @property
     @pulumi.getter
@@ -5269,14 +5398,6 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
         Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
         """
         return pulumi.get(self, "protocols")
-
-    @property
-    @pulumi.getter(name="translatedAddress")
-    def translated_address(self) -> str:
-        """
-        Specifies the translated address.
-        """
-        return pulumi.get(self, "translated_address")
 
     @property
     @pulumi.getter(name="translatedPort")
@@ -5317,6 +5438,22 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
         Specifies a list of source IP groups.
         """
         return pulumi.get(self, "source_ip_groups")
+
+    @property
+    @pulumi.getter(name="translatedAddress")
+    def translated_address(self) -> Optional[str]:
+        """
+        Specifies the translated address.
+        """
+        return pulumi.get(self, "translated_address")
+
+    @property
+    @pulumi.getter(name="translatedFqdn")
+    def translated_fqdn(self) -> Optional[str]:
+        """
+        Specifies the translated FQDN.
+        """
+        return pulumi.get(self, "translated_fqdn")
 
 
 @pulumi.output_type

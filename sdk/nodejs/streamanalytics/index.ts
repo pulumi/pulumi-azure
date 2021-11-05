@@ -13,6 +13,7 @@ export * from "./outputEventHub";
 export * from "./outputMssql";
 export * from "./outputServiceBusQueue";
 export * from "./outputServicebusTopic";
+export * from "./outputSynapse";
 export * from "./outputTable";
 export * from "./referenceInputBlob";
 export * from "./referenceInputMssql";
@@ -28,6 +29,7 @@ import { OutputEventHub } from "./outputEventHub";
 import { OutputMssql } from "./outputMssql";
 import { OutputServiceBusQueue } from "./outputServiceBusQueue";
 import { OutputServicebusTopic } from "./outputServicebusTopic";
+import { OutputSynapse } from "./outputSynapse";
 import { OutputTable } from "./outputTable";
 import { ReferenceInputBlob } from "./referenceInputBlob";
 import { ReferenceInputMssql } from "./referenceInputMssql";
@@ -53,6 +55,8 @@ const _module = {
                 return new OutputServiceBusQueue(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic":
                 return new OutputServicebusTopic(name, <any>undefined, { urn })
+            case "azure:streamanalytics/outputSynapse:OutputSynapse":
+                return new OutputSynapse(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputTable:OutputTable":
                 return new OutputTable(name, <any>undefined, { urn })
             case "azure:streamanalytics/referenceInputBlob:ReferenceInputBlob":
@@ -77,6 +81,7 @@ pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputEventHub",
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputMssql", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputServiceBusQueue", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputServicebusTopic", _module)
+pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputSynapse", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputTable", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/referenceInputBlob", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/referenceInputMssql", _module)

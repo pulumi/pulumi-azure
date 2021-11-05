@@ -33,7 +33,11 @@ export class WorkspaceKey extends pulumi.CustomResource {
     }
 
     public readonly active!: pulumi.Output<boolean>;
+    /**
+     * @deprecated As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
+     */
     public readonly cusomterManagedKeyName!: pulumi.Output<string>;
+    public readonly customerManagedKeyName!: pulumi.Output<string>;
     public readonly customerManagedKeyVersionlessId!: pulumi.Output<string | undefined>;
     public readonly synapseWorkspaceId!: pulumi.Output<string>;
 
@@ -52,6 +56,7 @@ export class WorkspaceKey extends pulumi.CustomResource {
             const state = argsOrState as WorkspaceKeyState | undefined;
             inputs["active"] = state ? state.active : undefined;
             inputs["cusomterManagedKeyName"] = state ? state.cusomterManagedKeyName : undefined;
+            inputs["customerManagedKeyName"] = state ? state.customerManagedKeyName : undefined;
             inputs["customerManagedKeyVersionlessId"] = state ? state.customerManagedKeyVersionlessId : undefined;
             inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
         } else {
@@ -59,14 +64,12 @@ export class WorkspaceKey extends pulumi.CustomResource {
             if ((!args || args.active === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'active'");
             }
-            if ((!args || args.cusomterManagedKeyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'cusomterManagedKeyName'");
-            }
             if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
             inputs["active"] = args ? args.active : undefined;
             inputs["cusomterManagedKeyName"] = args ? args.cusomterManagedKeyName : undefined;
+            inputs["customerManagedKeyName"] = args ? args.customerManagedKeyName : undefined;
             inputs["customerManagedKeyVersionlessId"] = args ? args.customerManagedKeyVersionlessId : undefined;
             inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
         }
@@ -82,7 +85,11 @@ export class WorkspaceKey extends pulumi.CustomResource {
  */
 export interface WorkspaceKeyState {
     active?: pulumi.Input<boolean>;
+    /**
+     * @deprecated As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
+     */
     cusomterManagedKeyName?: pulumi.Input<string>;
+    customerManagedKeyName?: pulumi.Input<string>;
     customerManagedKeyVersionlessId?: pulumi.Input<string>;
     synapseWorkspaceId?: pulumi.Input<string>;
 }
@@ -92,7 +99,11 @@ export interface WorkspaceKeyState {
  */
 export interface WorkspaceKeyArgs {
     active: pulumi.Input<boolean>;
-    cusomterManagedKeyName: pulumi.Input<string>;
+    /**
+     * @deprecated As this property name contained a typo originally, please switch to using 'customer_managed_key_name' instead.
+     */
+    cusomterManagedKeyName?: pulumi.Input<string>;
+    customerManagedKeyName?: pulumi.Input<string>;
     customerManagedKeyVersionlessId?: pulumi.Input<string>;
     synapseWorkspaceId: pulumi.Input<string>;
 }

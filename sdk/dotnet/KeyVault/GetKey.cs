@@ -70,6 +70,10 @@ namespace Pulumi.Azure.KeyVault
     public sealed class GetKeyResult
     {
         /// <summary>
+        /// The EC Curve name of this Key Vault Key.
+        /// </summary>
+        public readonly string Curve;
+        /// <summary>
         /// The RSA public exponent of this Key Vault Key.
         /// </summary>
         public readonly string E;
@@ -96,6 +100,14 @@ namespace Pulumi.Azure.KeyVault
         public readonly string N;
         public readonly string Name;
         /// <summary>
+        /// The OpenSSH encoded public key of this Key Vault Key.
+        /// </summary>
+        public readonly string PublicKeyOpenssh;
+        /// <summary>
+        /// The PEM encoded public key of this Key Vault Key.
+        /// </summary>
+        public readonly string PublicKeyPem;
+        /// <summary>
         /// A mapping of tags assigned to this Key Vault Key.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -107,9 +119,19 @@ namespace Pulumi.Azure.KeyVault
         /// The Base ID of the Key Vault Key.
         /// </summary>
         public readonly string VersionlessId;
+        /// <summary>
+        /// The EC X component of this Key Vault Key.
+        /// </summary>
+        public readonly string X;
+        /// <summary>
+        /// The EC Y component of this Key Vault Key.
+        /// </summary>
+        public readonly string Y;
 
         [OutputConstructor]
         private GetKeyResult(
+            string curve,
+
             string e,
 
             string id,
@@ -126,12 +148,21 @@ namespace Pulumi.Azure.KeyVault
 
             string name,
 
+            string publicKeyOpenssh,
+
+            string publicKeyPem,
+
             ImmutableDictionary<string, string> tags,
 
             string version,
 
-            string versionlessId)
+            string versionlessId,
+
+            string x,
+
+            string y)
         {
+            Curve = curve;
             E = e;
             Id = id;
             KeyOpts = keyOpts;
@@ -140,9 +171,13 @@ namespace Pulumi.Azure.KeyVault
             KeyVaultId = keyVaultId;
             N = n;
             Name = name;
+            PublicKeyOpenssh = publicKeyOpenssh;
+            PublicKeyPem = publicKeyPem;
             Tags = tags;
             Version = version;
             VersionlessId = versionlessId;
+            X = x;
+            Y = y;
         }
     }
 }

@@ -33,11 +33,11 @@ import (
 // 					Name:     pulumi.String("debuggingoutput"),
 // 					Priority: pulumi.Int(1),
 // 					Action: &frontdoor.RulesEngineRuleActionArgs{
-// 						ResponseHeaderActions: []map[string]interface{}{
-// 							map[string]interface{}{
-// 								"headerActionType": "Append",
-// 								"headerName":       "X-TEST-HEADER",
-// 								"value":            "Append Header Rule",
+// 						ResponseHeaders: frontdoor.RulesEngineRuleActionResponseHeaderArray{
+// 							&frontdoor.RulesEngineRuleActionResponseHeaderArgs{
+// 								HeaderActionType: pulumi.String("Append"),
+// 								HeaderName:       pulumi.String("X-TEST-HEADER"),
+// 								Value:            pulumi.String("Append Header Rule"),
 // 							},
 // 						},
 // 					},

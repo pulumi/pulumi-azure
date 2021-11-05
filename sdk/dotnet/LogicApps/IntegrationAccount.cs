@@ -53,6 +53,12 @@ namespace Pulumi.Azure.LogicApps
     public partial class IntegrationAccount : Pulumi.CustomResource
     {
         /// <summary>
+        /// The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+        /// </summary>
+        [Output("integrationServiceEnvironmentId")]
+        public Output<string?> IntegrationServiceEnvironmentId { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         /// </summary>
         [Output("location")]
@@ -129,6 +135,12 @@ namespace Pulumi.Azure.LogicApps
     public sealed class IntegrationAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+        /// </summary>
+        [Input("integrationServiceEnvironmentId")]
+        public Input<string>? IntegrationServiceEnvironmentId { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         /// </summary>
         [Input("location")]
@@ -171,6 +183,12 @@ namespace Pulumi.Azure.LogicApps
 
     public sealed class IntegrationAccountState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+        /// </summary>
+        [Input("integrationServiceEnvironmentId")]
+        public Input<string>? IntegrationServiceEnvironmentId { get; set; }
+
         /// <summary>
         /// The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         /// </summary>

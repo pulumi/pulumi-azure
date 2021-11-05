@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+        /// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         /// </summary>
         [Output("detectorType")]
         public Output<string> DetectorType { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+        /// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         /// </summary>
         [Input("detectorType", required: true)]
         public Input<string> DetectorType { get; set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+        /// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         /// </summary>
         [Input("detectorType")]
         public Input<string>? DetectorType { get; set; }

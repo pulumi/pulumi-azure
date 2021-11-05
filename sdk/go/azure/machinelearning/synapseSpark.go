@@ -138,6 +138,8 @@ type SynapseSpark struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Identity SynapseSparkIdentityPtrOutput `pulumi:"identity"`
+	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
+	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
 	// The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -189,6 +191,8 @@ type synapseSparkState struct {
 	Description *string `pulumi:"description"`
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Identity *SynapseSparkIdentity `pulumi:"identity"`
+	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Location *string `pulumi:"location"`
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -206,6 +210,8 @@ type SynapseSparkState struct {
 	Description pulumi.StringPtrInput
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Identity SynapseSparkIdentityPtrInput
+	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Location pulumi.StringPtrInput
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -227,6 +233,8 @@ type synapseSparkArgs struct {
 	Description *string `pulumi:"description"`
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Identity *SynapseSparkIdentity `pulumi:"identity"`
+	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Location *string `pulumi:"location"`
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -245,6 +253,8 @@ type SynapseSparkArgs struct {
 	Description pulumi.StringPtrInput
 	// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Identity SynapseSparkIdentityPtrInput
+	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Location pulumi.StringPtrInput
 	// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.

@@ -16,28 +16,31 @@ __all__ = ['AccountArgs', 'Account']
 class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 sku_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
-        :param pulumi.Input[str] sku_name: The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         :param pulumi.Input[str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Purview Account.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_network_enabled is not None:
             pulumi.set(__self__, "public_network_enabled", public_network_enabled)
+        if sku_name is not None:
+            warnings.warn("""This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure""", DeprecationWarning)
+            pulumi.log.warn("""sku_name is deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure""")
+        if sku_name is not None:
+            pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -52,18 +55,6 @@ class AccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="skuName")
-    def sku_name(self) -> pulumi.Input[str]:
-        """
-        The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
-        """
-        return pulumi.get(self, "sku_name")
-
-    @sku_name.setter
-    def sku_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sku_name", value)
 
     @property
     @pulumi.getter
@@ -100,6 +91,15 @@ class AccountArgs:
     @public_network_enabled.setter
     def public_network_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "public_network_enabled", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_name", value)
 
     @property
     @pulumi.getter
@@ -141,7 +141,6 @@ class _AccountState:
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] scan_endpoint: Scan endpoint.
-        :param pulumi.Input[str] sku_name: The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Purview Account.
         """
         if atlas_kafka_endpoint_primary_connection_string is not None:
@@ -164,6 +163,9 @@ class _AccountState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if scan_endpoint is not None:
             pulumi.set(__self__, "scan_endpoint", scan_endpoint)
+        if sku_name is not None:
+            warnings.warn("""This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure""", DeprecationWarning)
+            pulumi.log.warn("""sku_name is deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure""")
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
@@ -292,9 +294,6 @@ class _AccountState:
     @property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
-        """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
@@ -338,8 +337,7 @@ class Account(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_account = azure.purview.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="Standard_4")
+            location=example_resource_group.location)
         ```
 
         ## Import
@@ -356,7 +354,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
-        :param pulumi.Input[str] sku_name: The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Purview Account.
         """
         ...
@@ -377,8 +374,7 @@ class Account(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_account = azure.purview.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            sku_name="Standard_4")
+            location=example_resource_group.location)
         ```
 
         ## Import
@@ -428,8 +424,9 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sku_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sku_name'")
+            if sku_name is not None and not opts.urn:
+                warnings.warn("""This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure""", DeprecationWarning)
+                pulumi.log.warn("""sku_name is deprecated: This property can no longer be specified on create/update, it can only be updated by creating a support ticket at Azure""")
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["atlas_kafka_endpoint_primary_connection_string"] = None
@@ -477,7 +474,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] scan_endpoint: Scan endpoint.
-        :param pulumi.Input[str] sku_name: The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Purview Account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -580,10 +576,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> pulumi.Output[str]:
-        """
-        The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_1`, `Standard_4` and `Standard_16`.
-        """
+    def sku_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "sku_name")
 
     @property

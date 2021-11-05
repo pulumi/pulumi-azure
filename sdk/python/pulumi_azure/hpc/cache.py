@@ -32,9 +32,9 @@ class CacheArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cache resource.
-        :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
@@ -82,7 +82,7 @@ class CacheArgs:
     @pulumi.getter(name="cacheSizeInGb")
     def cache_size_in_gb(self) -> pulumi.Input[int]:
         """
-        The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cache_size_in_gb")
 
@@ -106,7 +106,7 @@ class CacheArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+        The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -280,7 +280,7 @@ class _CacheState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cache resources.
-        :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input['CacheDirectoryFlatFileArgs'] directory_flat_file: A `directory_flat_file` block as defined below.
@@ -293,7 +293,7 @@ class _CacheState:
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-        :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
@@ -337,7 +337,7 @@ class _CacheState:
     @pulumi.getter(name="cacheSizeInGb")
     def cache_size_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cache_size_in_gb")
 
@@ -493,7 +493,7 @@ class _CacheState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+        The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -587,7 +587,7 @@ class Cache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']] directory_flat_file: A `directory_flat_file` block as defined below.
@@ -599,7 +599,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-        :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
@@ -749,7 +749,7 @@ class Cache(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']] directory_flat_file: A `directory_flat_file` block as defined below.
@@ -762,7 +762,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-        :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
@@ -792,7 +792,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="cacheSizeInGb")
     def cache_size_in_gb(self) -> pulumi.Output[int]:
         """
-        The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cache_size_in_gb")
 
@@ -896,7 +896,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+        The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 

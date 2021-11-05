@@ -41,8 +41,22 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+// 			SolutionName:        pulumi.String("SecurityInsights"),
+// 			Location:            exampleResourceGroup.Location,
+// 			ResourceGroupName:   exampleResourceGroup.Name,
+// 			WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+// 			WorkspaceName:       exampleAnalyticsWorkspace.Name,
+// 			Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
+// 				Publisher: pulumi.String("Microsoft"),
+// 				Product:   pulumi.String("OMSGallery/SecurityInsights"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = sentinel.NewDataConnectorAwsCloudTrail(ctx, "exampleDataConnectorAwsCloudTrail", &sentinel.DataConnectorAwsCloudTrailArgs{
-// 			LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+// 			LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
 // 			AwsRoleArn:              pulumi.String("arn:aws:iam::000000000000:role/role1"),
 // 		})
 // 		if err != nil {

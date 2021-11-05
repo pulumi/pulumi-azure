@@ -18,6 +18,7 @@ export * from "./getLogProfile";
 export * from "./getScheduledQueryRulesAlert";
 export * from "./getScheduledQueryRulesLog";
 export * from "./logProfile";
+export * from "./logzMonitor";
 export * from "./metricAlert";
 export * from "./scheduledQueryRulesAlert";
 export * from "./scheduledQueryRulesLog";
@@ -32,6 +33,7 @@ import { ActivityLogAlert } from "./activityLogAlert";
 import { AutoscaleSetting } from "./autoscaleSetting";
 import { DiagnosticSetting } from "./diagnosticSetting";
 import { LogProfile } from "./logProfile";
+import { LogzMonitor } from "./logzMonitor";
 import { MetricAlert } from "./metricAlert";
 import { ScheduledQueryRulesAlert } from "./scheduledQueryRulesAlert";
 import { ScheduledQueryRulesLog } from "./scheduledQueryRulesLog";
@@ -57,6 +59,8 @@ const _module = {
                 return new DiagnosticSetting(name, <any>undefined, { urn })
             case "azure:monitoring/logProfile:LogProfile":
                 return new LogProfile(name, <any>undefined, { urn })
+            case "azure:monitoring/logzMonitor:LogzMonitor":
+                return new LogzMonitor(name, <any>undefined, { urn })
             case "azure:monitoring/metricAlert:MetricAlert":
                 return new MetricAlert(name, <any>undefined, { urn })
             case "azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert":
@@ -78,6 +82,7 @@ pulumi.runtime.registerResourceModule("azure", "monitoring/activityLogAlert", _m
 pulumi.runtime.registerResourceModule("azure", "monitoring/autoscaleSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/diagnosticSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logProfile", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/logzMonitor", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/metricAlert", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/scheduledQueryRulesAlert", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/scheduledQueryRulesLog", _module)

@@ -74,6 +74,12 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.FirewallPolicyIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// An `insights` block as defined below.
+        /// </summary>
+        [Output("insights")]
+        public Output<Outputs.FirewallPolicyInsights?> Insights { get; private set; } = null!;
+
+        /// <summary>
         /// A `intrusion_detection` block as defined below.
         /// </summary>
         [Output("intrusionDetection")]
@@ -204,6 +210,12 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.FirewallPolicyIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// An `insights` block as defined below.
+        /// </summary>
+        [Input("insights")]
+        public Input<Inputs.FirewallPolicyInsightsArgs>? Insights { get; set; }
+
+        /// <summary>
         /// A `intrusion_detection` block as defined below.
         /// </summary>
         [Input("intrusionDetection")]
@@ -323,6 +335,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FirewallPolicyIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// An `insights` block as defined below.
+        /// </summary>
+        [Input("insights")]
+        public Input<Inputs.FirewallPolicyInsightsGetArgs>? Insights { get; set; }
 
         /// <summary>
         /// A `intrusion_detection` block as defined below.

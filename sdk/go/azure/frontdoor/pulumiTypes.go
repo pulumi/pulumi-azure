@@ -3280,10 +3280,11 @@ func (o RulesEngineRuleActionResponseHeaderArrayOutput) Index(i pulumi.IntInput)
 }
 
 type RulesEngineRuleMatchCondition struct {
-	// can be set to `true` or `false` to negate the given condition.
+	// can be set to `true` or `false` to negate the given condition. Defaults to `true`.
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
-	Operator string  `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
+	// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
 	Selector *string `pulumi:"selector"`
 	// can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
 	Transforms []string `pulumi:"transforms"`
@@ -3305,10 +3306,11 @@ type RulesEngineRuleMatchConditionInput interface {
 }
 
 type RulesEngineRuleMatchConditionArgs struct {
-	// can be set to `true` or `false` to negate the given condition.
+	// can be set to `true` or `false` to negate the given condition. Defaults to `true`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
-	Operator pulumi.StringInput    `pulumi:"operator"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
@@ -3369,7 +3371,7 @@ func (o RulesEngineRuleMatchConditionOutput) ToRulesEngineRuleMatchConditionOutp
 	return o
 }
 
-// can be set to `true` or `false` to negate the given condition.
+// can be set to `true` or `false` to negate the given condition. Defaults to `true`.
 func (o RulesEngineRuleMatchConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RulesEngineRuleMatchCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
@@ -3379,6 +3381,7 @@ func (o RulesEngineRuleMatchConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
 func (o RulesEngineRuleMatchConditionOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesEngineRuleMatchCondition) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }

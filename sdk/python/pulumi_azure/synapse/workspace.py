@@ -32,6 +32,7 @@ class WorkspaceArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purview_id: Optional[pulumi.Input[str]] = None,
+                 sql_aad_admin: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -53,6 +54,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
+        :param pulumi.Input['WorkspaceSqlAadAdminArgs'] sql_aad_admin: An `sql_aad_admin` block as defined below.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
         """
@@ -86,6 +88,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purview_id is not None:
             pulumi.set(__self__, "purview_id", purview_id)
+        if sql_aad_admin is not None:
+            pulumi.set(__self__, "sql_aad_admin", sql_aad_admin)
         if sql_identity_control_enabled is not None:
             pulumi.set(__self__, "sql_identity_control_enabled", sql_identity_control_enabled)
         if tags is not None:
@@ -296,6 +300,18 @@ class WorkspaceArgs:
         pulumi.set(self, "purview_id", value)
 
     @property
+    @pulumi.getter(name="sqlAadAdmin")
+    def sql_aad_admin(self) -> Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]:
+        """
+        An `sql_aad_admin` block as defined below.
+        """
+        return pulumi.get(self, "sql_aad_admin")
+
+    @sql_aad_admin.setter
+    def sql_aad_admin(self, value: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]):
+        pulumi.set(self, "sql_aad_admin", value)
+
+    @property
     @pulumi.getter(name="sqlIdentityControlEnabled")
     def sql_identity_control_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -339,6 +355,7 @@ class _WorkspaceState:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sql_aad_admin: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -362,6 +379,7 @@ class _WorkspaceState:
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['WorkspaceSqlAadAdminArgs'] sql_aad_admin: An `sql_aad_admin` block as defined below.
         :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -400,6 +418,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "purview_id", purview_id)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sql_aad_admin is not None:
+            pulumi.set(__self__, "sql_aad_admin", sql_aad_admin)
         if sql_administrator_login is not None:
             pulumi.set(__self__, "sql_administrator_login", sql_administrator_login)
         if sql_administrator_login_password is not None:
@@ -604,6 +624,18 @@ class _WorkspaceState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="sqlAadAdmin")
+    def sql_aad_admin(self) -> Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]:
+        """
+        An `sql_aad_admin` block as defined below.
+        """
+        return pulumi.get(self, "sql_aad_admin")
+
+    @sql_aad_admin.setter
+    def sql_aad_admin(self, value: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]):
+        pulumi.set(self, "sql_aad_admin", value)
+
+    @property
     @pulumi.getter(name="sqlAdministratorLogin")
     def sql_administrator_login(self) -> Optional[pulumi.Input[str]]:
         """
@@ -683,6 +715,7 @@ class Workspace(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sql_aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -747,6 +780,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']] sql_aad_admin: An `sql_aad_admin` block as defined below.
         :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -830,6 +864,7 @@ class Workspace(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sql_aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -863,6 +898,7 @@ class Workspace(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sql_aad_admin"] = sql_aad_admin
             if sql_administrator_login is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_administrator_login'")
             __props__.__dict__["sql_administrator_login"] = sql_administrator_login
@@ -902,6 +938,7 @@ class Workspace(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             purview_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            sql_aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']]] = None,
             sql_administrator_login: Optional[pulumi.Input[str]] = None,
             sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
             sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -930,6 +967,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']] sql_aad_admin: An `sql_aad_admin` block as defined below.
         :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -956,6 +994,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["purview_id"] = purview_id
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["sql_aad_admin"] = sql_aad_admin
         __props__.__dict__["sql_administrator_login"] = sql_administrator_login
         __props__.__dict__["sql_administrator_login_password"] = sql_administrator_login_password
         __props__.__dict__["sql_identity_control_enabled"] = sql_identity_control_enabled
@@ -1090,6 +1129,14 @@ class Workspace(pulumi.CustomResource):
         Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="sqlAadAdmin")
+    def sql_aad_admin(self) -> pulumi.Output['outputs.WorkspaceSqlAadAdmin']:
+        """
+        An `sql_aad_admin` block as defined below.
+        """
+        return pulumi.get(self, "sql_aad_admin")
 
     @property
     @pulumi.getter(name="sqlAdministratorLogin")

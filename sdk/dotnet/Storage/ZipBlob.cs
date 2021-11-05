@@ -16,6 +16,9 @@ namespace Pulumi.Azure.Storage
         [Output("accessTier")]
         public Output<string> AccessTier { get; private set; } = null!;
 
+        [Output("cacheControl")]
+        public Output<string?> CacheControl { get; private set; } = null!;
+
         [Output("content")]
         public Output<Archive?> Content { get; private set; } = null!;
 
@@ -104,6 +107,9 @@ namespace Pulumi.Azure.Storage
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
 
+        [Input("cacheControl")]
+        public Input<string>? CacheControl { get; set; }
+
         [Input("content")]
         public Input<Archive>? Content { get; set; }
 
@@ -154,6 +160,9 @@ namespace Pulumi.Azure.Storage
     {
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
+
+        [Input("cacheControl")]
+        public Input<string>? CacheControl { get; set; }
 
         [Input("content")]
         public Input<Archive>? Content { get; set; }

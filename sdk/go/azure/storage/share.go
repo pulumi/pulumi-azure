@@ -79,6 +79,8 @@ type Share struct {
 
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayOutput `pulumi:"acls"`
+	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	EnabledProtocol pulumi.StringPtrOutput `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name of the share. Must be unique within the storage account where the share is located.
@@ -128,6 +130,8 @@ func GetShare(ctx *pulumi.Context,
 type shareState struct {
 	// One or more `acl` blocks as defined below.
 	Acls []ShareAcl `pulumi:"acls"`
+	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	EnabledProtocol *string `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the share. Must be unique within the storage account where the share is located.
@@ -146,6 +150,8 @@ type shareState struct {
 type ShareState struct {
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayInput
+	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	EnabledProtocol pulumi.StringPtrInput
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapInput
 	// The name of the share. Must be unique within the storage account where the share is located.
@@ -168,6 +174,8 @@ func (ShareState) ElementType() reflect.Type {
 type shareArgs struct {
 	// One or more `acl` blocks as defined below.
 	Acls []ShareAcl `pulumi:"acls"`
+	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	EnabledProtocol *string `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the share. Must be unique within the storage account where the share is located.
@@ -183,6 +191,8 @@ type shareArgs struct {
 type ShareArgs struct {
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayInput
+	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SBM` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	EnabledProtocol pulumi.StringPtrInput
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapInput
 	// The name of the share. Must be unique within the storage account where the share is located.

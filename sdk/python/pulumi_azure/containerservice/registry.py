@@ -47,7 +47,6 @@ class RegistryArgs:
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
         :param pulumi.Input['RegistryRetentionPolicyArgs'] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
-        :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['RegistryTrustPolicyArgs'] trust_policy: A `trust_policy` block as documented below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
@@ -80,6 +79,9 @@ class RegistryArgs:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if storage_account_id is not None:
+            warnings.warn("""this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_id is deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""")
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
@@ -248,9 +250,6 @@ class RegistryArgs:
     @property
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
@@ -335,7 +334,6 @@ class _RegistryState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input['RegistryRetentionPolicyArgs'] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
-        :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['RegistryTrustPolicyArgs'] trust_policy: A `trust_policy` block as documented below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
@@ -375,6 +373,9 @@ class _RegistryState:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if storage_account_id is not None:
+            warnings.warn("""this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_id is deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""")
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
@@ -579,9 +580,6 @@ class _RegistryState:
     @property
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "storage_account_id")
 
     @storage_account_id.setter
@@ -726,7 +724,6 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
-        :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']] trust_policy: A `trust_policy` block as documented below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
@@ -862,6 +859,9 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["retention_policy"] = retention_policy
             __props__.__dict__["sku"] = sku
+            if storage_account_id is not None and not opts.urn:
+                warnings.warn("""this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""", DeprecationWarning)
+                pulumi.log.warn("""storage_account_id is deprecated: this attribute is no longer recognized by the API and is not functional anymore, thus this property will be removed in v3.0""")
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trust_policy"] = trust_policy
@@ -922,7 +922,6 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
-        :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']] trust_policy: A `trust_policy` block as documented below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
@@ -1083,10 +1082,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
-        """
+    def storage_account_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "storage_account_id")
 
     @property

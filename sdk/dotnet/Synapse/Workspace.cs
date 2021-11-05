@@ -170,6 +170,12 @@ namespace Pulumi.Azure.Synapse
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// An `sql_aad_admin` block as defined below.
+        /// </summary>
+        [Output("sqlAadAdmin")]
+        public Output<Outputs.WorkspaceSqlAadAdmin> SqlAadAdmin { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sqlAdministratorLogin")]
@@ -336,6 +342,12 @@ namespace Pulumi.Azure.Synapse
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// An `sql_aad_admin` block as defined below.
+        /// </summary>
+        [Input("sqlAadAdmin")]
+        public Input<Inputs.WorkspaceSqlAadAdminArgs>? SqlAadAdmin { get; set; }
+
+        /// <summary>
         /// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sqlAdministratorLogin", required: true)]
@@ -491,6 +503,12 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// An `sql_aad_admin` block as defined below.
+        /// </summary>
+        [Input("sqlAadAdmin")]
+        public Input<Inputs.WorkspaceSqlAadAdminGetArgs>? SqlAadAdmin { get; set; }
 
         /// <summary>
         /// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.

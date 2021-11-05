@@ -75,7 +75,7 @@ export class Cache extends pulumi.CustomResource {
     }
 
     /**
-     * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+     * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      */
     public readonly cacheSizeInGb!: pulumi.Output<number>;
     /**
@@ -129,7 +129,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly rootSquashEnabled!: pulumi.Output<boolean>;
     /**
-     * The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+     * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -213,7 +213,7 @@ export class Cache extends pulumi.CustomResource {
  */
 export interface CacheState {
     /**
-     * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+     * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      */
     cacheSizeInGb?: pulumi.Input<number>;
     /**
@@ -267,7 +267,7 @@ export interface CacheState {
      */
     rootSquashEnabled?: pulumi.Input<boolean>;
     /**
-     * The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+     * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -285,7 +285,7 @@ export interface CacheState {
  */
 export interface CacheArgs {
     /**
-     * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+     * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      */
     cacheSizeInGb: pulumi.Input<number>;
     /**
@@ -335,7 +335,7 @@ export interface CacheArgs {
      */
     rootSquashEnabled?: pulumi.Input<boolean>;
     /**
-     * The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+     * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      */
     skuName: pulumi.Input<string>;
     /**

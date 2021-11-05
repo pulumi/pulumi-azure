@@ -15,6 +15,7 @@ class IntegrationAccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
+                 integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -22,12 +23,15 @@ class IntegrationAccountArgs:
         The set of arguments for constructing a IntegrationAccount resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] sku_name: The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
+        :param pulumi.Input[str] integration_service_environment_id: The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] location: The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logic App Integration Account.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
+        if integration_service_environment_id is not None:
+            pulumi.set(__self__, "integration_service_environment_id", integration_service_environment_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -58,6 +62,18 @@ class IntegrationAccountArgs:
     @sku_name.setter
     def sku_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="integrationServiceEnvironmentId")
+    def integration_service_environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+        """
+        return pulumi.get(self, "integration_service_environment_id")
+
+    @integration_service_environment_id.setter
+    def integration_service_environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_service_environment_id", value)
 
     @property
     @pulumi.getter
@@ -99,6 +115,7 @@ class IntegrationAccountArgs:
 @pulumi.input_type
 class _IntegrationAccountState:
     def __init__(__self__, *,
+                 integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -106,12 +123,15 @@ class _IntegrationAccountState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccount resources.
+        :param pulumi.Input[str] integration_service_environment_id: The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] location: The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] sku_name: The sku name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logic App Integration Account.
         """
+        if integration_service_environment_id is not None:
+            pulumi.set(__self__, "integration_service_environment_id", integration_service_environment_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -122,6 +142,18 @@ class _IntegrationAccountState:
             pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="integrationServiceEnvironmentId")
+    def integration_service_environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+        """
+        return pulumi.get(self, "integration_service_environment_id")
+
+    @integration_service_environment_id.setter
+    def integration_service_environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_service_environment_id", value)
 
     @property
     @pulumi.getter
@@ -189,6 +221,7 @@ class IntegrationAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -224,6 +257,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] integration_service_environment_id: The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] location: The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
@@ -278,6 +312,7 @@ class IntegrationAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -295,6 +330,7 @@ class IntegrationAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationAccountArgs.__new__(IntegrationAccountArgs)
 
+            __props__.__dict__["integration_service_environment_id"] = integration_service_environment_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -314,6 +350,7 @@ class IntegrationAccount(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            integration_service_environment_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -326,6 +363,7 @@ class IntegrationAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] integration_service_environment_id: The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] location: The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
@@ -336,12 +374,21 @@ class IntegrationAccount(pulumi.CustomResource):
 
         __props__ = _IntegrationAccountState.__new__(_IntegrationAccountState)
 
+        __props__.__dict__["integration_service_environment_id"] = integration_service_environment_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["tags"] = tags
         return IntegrationAccount(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="integrationServiceEnvironmentId")
+    def integration_service_environment_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
+        """
+        return pulumi.get(self, "integration_service_environment_id")
 
     @property
     @pulumi.getter

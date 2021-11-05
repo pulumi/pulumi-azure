@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./account";
+export * from "./cassandraCluster";
+export * from "./cassandraDatacenter";
 export * from "./cassandraKeyspace";
 export * from "./cassandraTable";
 export * from "./getAccount";
@@ -25,6 +27,8 @@ export * from "./zMixins";
 
 // Import resources to register:
 import { Account } from "./account";
+import { CassandraCluster } from "./cassandraCluster";
+import { CassandraDatacenter } from "./cassandraDatacenter";
 import { CassandraKeyspace } from "./cassandraKeyspace";
 import { CassandraTable } from "./cassandraTable";
 import { GremlinDatabase } from "./gremlinDatabase";
@@ -45,6 +49,10 @@ const _module = {
         switch (type) {
             case "azure:cosmosdb/account:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "azure:cosmosdb/cassandraCluster:CassandraCluster":
+                return new CassandraCluster(name, <any>undefined, { urn })
+            case "azure:cosmosdb/cassandraDatacenter:CassandraDatacenter":
+                return new CassandraDatacenter(name, <any>undefined, { urn })
             case "azure:cosmosdb/cassandraKeyspace:CassandraKeyspace":
                 return new CassandraKeyspace(name, <any>undefined, { urn })
             case "azure:cosmosdb/cassandraTable:CassandraTable":
@@ -77,6 +85,8 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/account", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/cassandraCluster", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/cassandraDatacenter", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/cassandraKeyspace", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/cassandraTable", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/gremlinDatabase", _module)

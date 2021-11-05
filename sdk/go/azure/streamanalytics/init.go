@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OutputServiceBusQueue{}
 	case "azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic":
 		r = &OutputServicebusTopic{}
+	case "azure:streamanalytics/outputSynapse:OutputSynapse":
+		r = &OutputSynapse{}
 	case "azure:streamanalytics/outputTable:OutputTable":
 		r = &OutputTable{}
 	case "azure:streamanalytics/referenceInputBlob:ReferenceInputBlob":
@@ -93,6 +95,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"streamanalytics/outputServicebusTopic",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"streamanalytics/outputSynapse",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

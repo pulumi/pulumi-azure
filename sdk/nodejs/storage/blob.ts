@@ -73,6 +73,10 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly accessTier!: pulumi.Output<string>;
     /**
+     * Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+     */
+    public readonly cacheControl!: pulumi.Output<string | undefined>;
+    /**
      * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
      */
     public readonly contentMd5!: pulumi.Output<string | undefined>;
@@ -141,6 +145,7 @@ export class Blob extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BlobState | undefined;
             inputs["accessTier"] = state ? state.accessTier : undefined;
+            inputs["cacheControl"] = state ? state.cacheControl : undefined;
             inputs["contentMd5"] = state ? state.contentMd5 : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
@@ -166,6 +171,7 @@ export class Blob extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
+            inputs["cacheControl"] = args ? args.cacheControl : undefined;
             inputs["contentMd5"] = args ? args.contentMd5 : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
@@ -195,6 +201,10 @@ export interface BlobState {
      * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
      */
     accessTier?: pulumi.Input<string>;
+    /**
+     * Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+     */
+    cacheControl?: pulumi.Input<string>;
     /**
      * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
      */
@@ -259,6 +269,10 @@ export interface BlobArgs {
      * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
      */
     accessTier?: pulumi.Input<string>;
+    /**
+     * Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
+     */
+    cacheControl?: pulumi.Input<string>;
     /**
      * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
      */

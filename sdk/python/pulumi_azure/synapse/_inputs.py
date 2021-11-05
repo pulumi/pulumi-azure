@@ -22,6 +22,7 @@ __all__ = [
     'WorkspaceCustomerManagedKeyArgs',
     'WorkspaceGithubRepoArgs',
     'WorkspaceIdentityArgs',
+    'WorkspaceSqlAadAdminArgs',
     'WorkspaceVulnerabilityAssessmentRecurringScansArgs',
 ]
 
@@ -666,6 +667,58 @@ class WorkspaceIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class WorkspaceSqlAadAdminArgs:
+    def __init__(__self__, *,
+                 login: pulumi.Input[str],
+                 object_id: pulumi.Input[str],
+                 tenant_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] login: The login name of the Azure AD Administrator of this Synapse Workspace SQL.
+        :param pulumi.Input[str] object_id: The object id of the Azure AD Administrator of this Synapse Workspace SQL.
+        :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+        """
+        pulumi.set(__self__, "login", login)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def login(self) -> pulumi.Input[str]:
+        """
+        The login name of the Azure AD Administrator of this Synapse Workspace SQL.
+        """
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: pulumi.Input[str]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Input[str]:
+        """
+        The object id of the Azure AD Administrator of this Synapse Workspace SQL.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[str]:
+        """
+        The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type

@@ -176,8 +176,18 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="pergb2018")
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+            solution_name="SecurityInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            workspace_name=example_analytics_workspace.name,
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+                publisher="Microsoft",
+                product="OMSGallery/SecurityInsights",
+            ))
         example_alert_rule_machine_learning_behavior_analytics = azure.sentinel.AlertRuleMachineLearningBehaviorAnalytics("exampleAlertRuleMachineLearningBehaviorAnalytics",
-            log_analytics_workspace_id=example_analytics_workspace.id,
+            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             alert_rule_template_guid="737a2ce1-70a3-4968-9e90-3e6aca836abf")
         ```
 
@@ -216,8 +226,18 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="pergb2018")
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+            solution_name="SecurityInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            workspace_name=example_analytics_workspace.name,
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+                publisher="Microsoft",
+                product="OMSGallery/SecurityInsights",
+            ))
         example_alert_rule_machine_learning_behavior_analytics = azure.sentinel.AlertRuleMachineLearningBehaviorAnalytics("exampleAlertRuleMachineLearningBehaviorAnalytics",
-            log_analytics_workspace_id=example_analytics_workspace.id,
+            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             alert_rule_template_guid="737a2ce1-70a3-4968-9e90-3e6aca836abf")
         ```
 

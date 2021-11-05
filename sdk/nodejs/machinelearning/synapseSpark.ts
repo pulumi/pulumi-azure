@@ -118,6 +118,10 @@ export class SynapseSpark extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.machinelearning.SynapseSparkIdentity | undefined>;
     /**
+     * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
+     */
+    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -153,6 +157,7 @@ export class SynapseSpark extends pulumi.CustomResource {
             const state = argsOrState as SynapseSparkState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -168,6 +173,7 @@ export class SynapseSpark extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -193,6 +199,10 @@ export interface SynapseSparkState {
      * A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
     identity?: pulumi.Input<inputs.machinelearning.SynapseSparkIdentity>;
+    /**
+     * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
@@ -227,6 +237,10 @@ export interface SynapseSparkArgs {
      * A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
     identity?: pulumi.Input<inputs.machinelearning.SynapseSparkIdentity>;
+    /**
+     * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
