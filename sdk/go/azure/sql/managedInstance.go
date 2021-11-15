@@ -270,6 +270,8 @@ type ManagedInstance struct {
 	DnsZonePartnerId pulumi.StringPtrOutput `pulumi:"dnsZonePartnerId"`
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+	// An `identity` block as defined below.
+	Identity ManagedInstanceIdentityPtrOutput `pulumi:"identity"`
 	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -361,6 +363,8 @@ type managedInstanceState struct {
 	DnsZonePartnerId *string `pulumi:"dnsZonePartnerId"`
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn *string `pulumi:"fqdn"`
+	// An `identity` block as defined below.
+	Identity *ManagedInstanceIdentity `pulumi:"identity"`
 	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -400,6 +404,8 @@ type ManagedInstanceState struct {
 	DnsZonePartnerId pulumi.StringPtrInput
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity ManagedInstanceIdentityPtrInput
 	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -441,6 +447,8 @@ type managedInstanceArgs struct {
 	Collation *string `pulumi:"collation"`
 	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId *string `pulumi:"dnsZonePartnerId"`
+	// An `identity` block as defined below.
+	Identity *ManagedInstanceIdentity `pulumi:"identity"`
 	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
 	LicenseType string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -479,6 +487,8 @@ type ManagedInstanceArgs struct {
 	Collation pulumi.StringPtrInput
 	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity ManagedInstanceIdentityPtrInput
 	// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
 	LicenseType pulumi.StringInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

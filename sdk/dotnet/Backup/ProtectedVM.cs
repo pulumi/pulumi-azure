@@ -74,6 +74,18 @@ namespace Pulumi.Azure.Backup
         public Output<string> BackupPolicyId { get; private set; } = null!;
 
         /// <summary>
+        /// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+        /// </summary>
+        [Output("excludeDiskLuns")]
+        public Output<ImmutableArray<int>> ExcludeDiskLuns { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+        /// </summary>
+        [Output("includeDiskLuns")]
+        public Output<ImmutableArray<int>> IncludeDiskLuns { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryVaultName")]
@@ -149,6 +161,30 @@ namespace Pulumi.Azure.Backup
         [Input("backupPolicyId", required: true)]
         public Input<string> BackupPolicyId { get; set; } = null!;
 
+        [Input("excludeDiskLuns")]
+        private InputList<int>? _excludeDiskLuns;
+
+        /// <summary>
+        /// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+        /// </summary>
+        public InputList<int> ExcludeDiskLuns
+        {
+            get => _excludeDiskLuns ?? (_excludeDiskLuns = new InputList<int>());
+            set => _excludeDiskLuns = value;
+        }
+
+        [Input("includeDiskLuns")]
+        private InputList<int>? _includeDiskLuns;
+
+        /// <summary>
+        /// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+        /// </summary>
+        public InputList<int> IncludeDiskLuns
+        {
+            get => _includeDiskLuns ?? (_includeDiskLuns = new InputList<int>());
+            set => _includeDiskLuns = value;
+        }
+
         /// <summary>
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         /// </summary>
@@ -191,6 +227,30 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("backupPolicyId")]
         public Input<string>? BackupPolicyId { get; set; }
+
+        [Input("excludeDiskLuns")]
+        private InputList<int>? _excludeDiskLuns;
+
+        /// <summary>
+        /// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+        /// </summary>
+        public InputList<int> ExcludeDiskLuns
+        {
+            get => _excludeDiskLuns ?? (_excludeDiskLuns = new InputList<int>());
+            set => _excludeDiskLuns = value;
+        }
+
+        [Input("includeDiskLuns")]
+        private InputList<int>? _includeDiskLuns;
+
+        /// <summary>
+        /// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+        /// </summary>
+        public InputList<int> IncludeDiskLuns
+        {
+            get => _includeDiskLuns ?? (_includeDiskLuns = new InputList<int>());
+            set => _includeDiskLuns = value;
+        }
 
         /// <summary>
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.

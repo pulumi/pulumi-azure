@@ -134,6 +134,15 @@ namespace Pulumi.Azure.AppInsights
         [Output("instrumentationKey")]
         public Output<string> InstrumentationKey { get; private set; } = null!;
 
+        [Output("internetIngestionEnabled")]
+        public Output<bool?> InternetIngestionEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
+        /// </summary>
+        [Output("internetQueryEnabled")]
+        public Output<bool?> InternetQueryEnabled { get; private set; } = null!;
+
         /// <summary>
         /// Disable Non-Azure AD based Auth. Defaults to `false`.
         /// </summary>
@@ -254,6 +263,15 @@ namespace Pulumi.Azure.AppInsights
         [Input("disableIpMasking")]
         public Input<bool>? DisableIpMasking { get; set; }
 
+        [Input("internetIngestionEnabled")]
+        public Input<bool>? InternetIngestionEnabled { get; set; }
+
+        /// <summary>
+        /// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
+        /// </summary>
+        [Input("internetQueryEnabled")]
+        public Input<bool>? InternetQueryEnabled { get; set; }
+
         /// <summary>
         /// Disable Non-Azure AD based Auth. Defaults to `false`.
         /// </summary>
@@ -358,6 +376,15 @@ namespace Pulumi.Azure.AppInsights
         /// </summary>
         [Input("instrumentationKey")]
         public Input<string>? InstrumentationKey { get; set; }
+
+        [Input("internetIngestionEnabled")]
+        public Input<bool>? InternetIngestionEnabled { get; set; }
+
+        /// <summary>
+        /// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
+        /// </summary>
+        [Input("internetQueryEnabled")]
+        public Input<bool>? InternetQueryEnabled { get; set; }
 
         /// <summary>
         /// Disable Non-Azure AD based Auth. Defaults to `false`.

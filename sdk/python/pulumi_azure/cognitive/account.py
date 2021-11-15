@@ -41,7 +41,7 @@ class AccountArgs:
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
-        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block is documented below.
+        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metrics_advisor_aad_client_id: The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
@@ -53,7 +53,7 @@ class AccountArgs:
         :param pulumi.Input[bool] outbound_network_access_restrited: Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]] storages: An `identity` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]] storages: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "kind", kind)
@@ -156,7 +156,7 @@ class AccountArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
         """
-        An `identity` block is documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -300,7 +300,7 @@ class AccountArgs:
     @pulumi.getter
     def storages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]]:
         """
-        An `identity` block is documented below.
+        A `storage` block as defined below.
         """
         return pulumi.get(self, "storages")
 
@@ -351,7 +351,7 @@ class _AccountState:
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the Cognitive Service Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
-        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block is documented below.
+        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -368,7 +368,7 @@ class _AccountState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary access key which can be used to connect to the Cognitive Service Account.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]] storages: An `identity` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]] storages: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if custom_subdomain_name is not None:
@@ -456,7 +456,7 @@ class _AccountState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
         """
-        An `identity` block is documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -660,7 +660,7 @@ class _AccountState:
     @pulumi.getter
     def storages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]]]:
         """
-        An `identity` block is documented below.
+        A `storage` block as defined below.
         """
         return pulumi.get(self, "storages")
 
@@ -719,7 +719,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block is documented below.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -734,7 +734,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageArgs']]]] storages: An `identity` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageArgs']]]] storages: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -868,7 +868,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the Cognitive Service Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block is documented below.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -885,7 +885,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary access key which can be used to connect to the Cognitive Service Account.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageArgs']]]] storages: An `identity` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageArgs']]]] storages: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -944,7 +944,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.AccountIdentity']]:
         """
-        An `identity` block is documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -1080,7 +1080,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def storages(self) -> pulumi.Output[Optional[Sequence['outputs.AccountStorage']]]:
         """
-        An `identity` block is documented below.
+        A `storage` block as defined below.
         """
         return pulumi.get(self, "storages")
 

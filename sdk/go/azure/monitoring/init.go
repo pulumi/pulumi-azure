@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LogzMonitor{}
 	case "azure:monitoring/metricAlert:MetricAlert":
 		r = &MetricAlert{}
+	case "azure:monitoring/privateLinkScope:PrivateLinkScope":
+		r = &PrivateLinkScope{}
 	case "azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert":
 		r = &ScheduledQueryRulesAlert{}
 	case "azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog":
@@ -108,6 +110,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"monitoring/metricAlert",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"monitoring/privateLinkScope",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

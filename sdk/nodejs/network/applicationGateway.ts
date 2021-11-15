@@ -170,7 +170,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly httpListeners!: pulumi.Output<outputs.network.ApplicationGatewayHttpListener[]>;
     /**
-     * A `identity` block.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.network.ApplicationGatewayIdentity | undefined>;
     /**
@@ -399,7 +399,7 @@ export interface ApplicationGatewayState {
      */
     httpListeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[]>;
     /**
-     * A `identity` block.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.network.ApplicationGatewayIdentity>;
     /**
@@ -521,7 +521,7 @@ export interface ApplicationGatewayArgs {
      */
     httpListeners: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[]>;
     /**
-     * A `identity` block.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.network.ApplicationGatewayIdentity>;
     /**

@@ -27,8 +27,8 @@ class ServiceAccountArgs:
         The set of arguments for constructing a ServiceAccount resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAccountStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
-        :param pulumi.Input['ServiceAccountIdentityArgs'] identity: An `identity` block is documented below.
-        :param pulumi.Input['ServiceAccountKeyDeliveryAccessControlArgs'] key_delivery_access_control: An `key_delivery_access_control` block is documented below.
+        :param pulumi.Input['ServiceAccountIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['ServiceAccountKeyDeliveryAccessControlArgs'] key_delivery_access_control: A `key_delivery_access_control` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_authentication_type: Specifies the storage authentication type. 
@@ -78,7 +78,7 @@ class ServiceAccountArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ServiceAccountIdentityArgs']]:
         """
-        An `identity` block is documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -90,7 +90,7 @@ class ServiceAccountArgs:
     @pulumi.getter(name="keyDeliveryAccessControl")
     def key_delivery_access_control(self) -> Optional[pulumi.Input['ServiceAccountKeyDeliveryAccessControlArgs']]:
         """
-        An `key_delivery_access_control` block is documented below.
+        A `key_delivery_access_control` block as defined below.
         """
         return pulumi.get(self, "key_delivery_access_control")
 
@@ -161,8 +161,8 @@ class _ServiceAccountState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ServiceAccount resources.
-        :param pulumi.Input['ServiceAccountIdentityArgs'] identity: An `identity` block is documented below.
-        :param pulumi.Input['ServiceAccountKeyDeliveryAccessControlArgs'] key_delivery_access_control: An `key_delivery_access_control` block is documented below.
+        :param pulumi.Input['ServiceAccountIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['ServiceAccountKeyDeliveryAccessControlArgs'] key_delivery_access_control: A `key_delivery_access_control` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
@@ -192,7 +192,7 @@ class _ServiceAccountState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ServiceAccountIdentityArgs']]:
         """
-        An `identity` block is documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -204,7 +204,7 @@ class _ServiceAccountState:
     @pulumi.getter(name="keyDeliveryAccessControl")
     def key_delivery_access_control(self) -> Optional[pulumi.Input['ServiceAccountKeyDeliveryAccessControlArgs']]:
         """
-        An `key_delivery_access_control` block is documented below.
+        A `key_delivery_access_control` block as defined below.
         """
         return pulumi.get(self, "key_delivery_access_control")
 
@@ -334,8 +334,8 @@ class ServiceAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceAccountIdentityArgs']] identity: An `identity` block is documented below.
-        :param pulumi.Input[pulumi.InputType['ServiceAccountKeyDeliveryAccessControlArgs']] key_delivery_access_control: An `key_delivery_access_control` block is documented below.
+        :param pulumi.Input[pulumi.InputType['ServiceAccountIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceAccountKeyDeliveryAccessControlArgs']] key_delivery_access_control: A `key_delivery_access_control` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
@@ -456,8 +456,8 @@ class ServiceAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceAccountIdentityArgs']] identity: An `identity` block is documented below.
-        :param pulumi.Input[pulumi.InputType['ServiceAccountKeyDeliveryAccessControlArgs']] key_delivery_access_control: An `key_delivery_access_control` block is documented below.
+        :param pulumi.Input[pulumi.InputType['ServiceAccountIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceAccountKeyDeliveryAccessControlArgs']] key_delivery_access_control: A `key_delivery_access_control` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
@@ -484,7 +484,7 @@ class ServiceAccount(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output['outputs.ServiceAccountIdentity']:
         """
-        An `identity` block is documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -492,7 +492,7 @@ class ServiceAccount(pulumi.CustomResource):
     @pulumi.getter(name="keyDeliveryAccessControl")
     def key_delivery_access_control(self) -> pulumi.Output['outputs.ServiceAccountKeyDeliveryAccessControl']:
         """
-        An `key_delivery_access_control` block is documented below.
+        A `key_delivery_access_control` block as defined below.
         """
         return pulumi.get(self, "key_delivery_access_control")
 

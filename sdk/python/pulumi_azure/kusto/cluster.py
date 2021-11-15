@@ -40,7 +40,7 @@ class ClusterArgs:
         :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[str] engine: . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
-        :param pulumi.Input['ClusterIdentityArgs'] identity: An identity block.
+        :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -169,7 +169,7 @@ class ClusterArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ClusterIdentityArgs']]:
         """
-        An identity block.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -303,7 +303,7 @@ class _ClusterState:
         :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[str] engine: . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
-        :param pulumi.Input['ClusterIdentityArgs'] identity: An identity block.
+        :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -429,7 +429,7 @@ class _ClusterState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ClusterIdentityArgs']]:
         """
-        An identity block.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -629,7 +629,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[str] engine: . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
-        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An identity block.
+        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -783,7 +783,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[str] engine: . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
-        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An identity block.
+        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -872,7 +872,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output['outputs.ClusterIdentity']:
         """
-        An identity block.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

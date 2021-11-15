@@ -33,7 +33,7 @@ class WorkspaceArgs:
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
-        :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block defined below.
+        :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -90,7 +90,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def identity(self) -> pulumi.Input['WorkspaceIdentityArgs']:
         """
-        An `identity` block defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -282,7 +282,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] discovery_url: The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
         :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
-        :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block defined below.
+        :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -402,7 +402,7 @@ class _WorkspaceState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['WorkspaceIdentityArgs']]:
         """
-        An `identity` block defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -591,7 +591,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
-        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -759,7 +759,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] discovery_url: The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
         :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
-        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -844,7 +844,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output['outputs.WorkspaceIdentity']:
         """
-        An `identity` block defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

@@ -28,7 +28,7 @@ class SynapseSparkArgs:
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[str] synapse_spark_pool_id: The ID of the linked Synapse Spark Pool. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
-        :param pulumi.Input['SynapseSparkIdentityArgs'] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        :param pulumi.Input['SynapseSparkIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -89,7 +89,7 @@ class SynapseSparkArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['SynapseSparkIdentityArgs']]:
         """
-        A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         """
         return pulumi.get(self, "identity")
 
@@ -160,7 +160,7 @@ class _SynapseSparkState:
         """
         Input properties used for looking up and filtering SynapseSpark resources.
         :param pulumi.Input[str] description: The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
-        :param pulumi.Input['SynapseSparkIdentityArgs'] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        :param pulumi.Input['SynapseSparkIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -201,7 +201,7 @@ class _SynapseSparkState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['SynapseSparkIdentityArgs']]:
         """
-        A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         """
         return pulumi.get(self, "identity")
 
@@ -367,7 +367,7 @@ class SynapseSpark(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
-        :param pulumi.Input[pulumi.InputType['SynapseSparkIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        :param pulumi.Input[pulumi.InputType['SynapseSparkIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -522,7 +522,7 @@ class SynapseSpark(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
-        :param pulumi.Input[pulumi.InputType['SynapseSparkIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        :param pulumi.Input[pulumi.InputType['SynapseSparkIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -556,7 +556,7 @@ class SynapseSpark(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.SynapseSparkIdentity']]:
         """
-        A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         """
         return pulumi.get(self, "identity")
 

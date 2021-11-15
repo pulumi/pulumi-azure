@@ -4056,6 +4056,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "monitoring/privateLinkScope",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/privateLinkScope:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "monitoring/scheduledQueryRulesAlert",
   "fqn": "pulumi_azure.monitoring",
   "classes": {
@@ -4252,6 +4260,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mysql",
   "classes": {
    "azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration": "FlexibleServerConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mysql/flexibleServerFirewallRule",
+  "fqn": "pulumi_azure.mysql",
+  "classes": {
+   "azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule": "FlexibleServerFirewallRule"
   }
  },
  {
@@ -6060,6 +6076,14 @@ _utilities.register(
   "fqn": "pulumi_azure.synapse",
   "classes": {
    "azure:synapse/workspace:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "synapse/workspaceAadAdmin",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin": "WorkspaceAadAdmin"
   }
  },
  {

@@ -109,6 +109,11 @@ export class Insights extends pulumi.CustomResource {
      * The Instrumentation Key for this Application Insights component. (Sensitive)
      */
     public /*out*/ readonly instrumentationKey!: pulumi.Output<string>;
+    public readonly internetIngestionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
+     */
+    public readonly internetQueryEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Disable Non-Azure AD based Auth. Defaults to `false`.
      */
@@ -164,6 +169,8 @@ export class Insights extends pulumi.CustomResource {
             inputs["dailyDataCapNotificationsDisabled"] = state ? state.dailyDataCapNotificationsDisabled : undefined;
             inputs["disableIpMasking"] = state ? state.disableIpMasking : undefined;
             inputs["instrumentationKey"] = state ? state.instrumentationKey : undefined;
+            inputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
+            inputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
             inputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -184,6 +191,8 @@ export class Insights extends pulumi.CustomResource {
             inputs["dailyDataCapInGb"] = args ? args.dailyDataCapInGb : undefined;
             inputs["dailyDataCapNotificationsDisabled"] = args ? args.dailyDataCapNotificationsDisabled : undefined;
             inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
+            inputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
+            inputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
             inputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -235,6 +244,11 @@ export interface InsightsState {
      * The Instrumentation Key for this Application Insights component. (Sensitive)
      */
     instrumentationKey?: pulumi.Input<string>;
+    internetIngestionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
+     */
+    internetQueryEnabled?: pulumi.Input<boolean>;
     /**
      * Disable Non-Azure AD based Auth. Defaults to `false`.
      */
@@ -291,6 +305,11 @@ export interface InsightsArgs {
      * By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
      */
     disableIpMasking?: pulumi.Input<boolean>;
+    internetIngestionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
+     */
+    internetQueryEnabled?: pulumi.Input<boolean>;
     /**
      * Disable Non-Azure AD based Auth. Defaults to `false`.
      */

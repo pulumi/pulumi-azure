@@ -106,7 +106,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly highBusinessImpact!: pulumi.Output<boolean | undefined>;
     /**
-     * An `identity` block defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.machinelearning.WorkspaceIdentity>;
     /**
@@ -245,7 +245,7 @@ export interface WorkspaceState {
      */
     highBusinessImpact?: pulumi.Input<boolean>;
     /**
-     * An `identity` block defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
     /**
@@ -311,7 +311,7 @@ export interface WorkspaceArgs {
      */
     highBusinessImpact?: pulumi.Input<boolean>;
     /**
-     * An `identity` block defined below.
+     * An `identity` block as defined below.
      */
     identity: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
     /**

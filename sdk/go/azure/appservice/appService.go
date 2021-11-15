@@ -106,7 +106,7 @@ type AppService struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
-	// A Managed Service Identity block as defined below.
+	// An `identity` block as defined below.
 	Identity AppServiceIdentityOutput `pulumi:"identity"`
 	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringOutput `pulumi:"keyVaultReferenceIdentityId"`
@@ -195,7 +195,7 @@ type appServiceState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
-	// A Managed Service Identity block as defined below.
+	// An `identity` block as defined below.
 	Identity *AppServiceIdentity `pulumi:"identity"`
 	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
@@ -250,7 +250,7 @@ type AppServiceState struct {
 	Enabled pulumi.BoolPtrInput
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
-	// A Managed Service Identity block as defined below.
+	// An `identity` block as defined below.
 	Identity AppServiceIdentityPtrInput
 	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
@@ -305,7 +305,7 @@ type appServiceArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
-	// A Managed Service Identity block as defined below.
+	// An `identity` block as defined below.
 	Identity *AppServiceIdentity `pulumi:"identity"`
 	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
@@ -347,7 +347,7 @@ type AppServiceArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
-	// A Managed Service Identity block as defined below.
+	// An `identity` block as defined below.
 	Identity AppServiceIdentityPtrInput
 	// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput

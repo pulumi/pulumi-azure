@@ -106,9 +106,17 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly diskEncryptionSetId!: pulumi.Output<string | undefined>;
     /**
+     * The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+     */
+    public readonly diskIopsReadOnly!: pulumi.Output<number>;
+    /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
      */
     public readonly diskIopsReadWrite!: pulumi.Output<number>;
+    /**
+     * The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+     */
+    public readonly diskMbpsReadOnly!: pulumi.Output<number>;
     /**
      * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
      */
@@ -202,7 +210,9 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["createOption"] = state ? state.createOption : undefined;
             inputs["diskAccessId"] = state ? state.diskAccessId : undefined;
             inputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
+            inputs["diskIopsReadOnly"] = state ? state.diskIopsReadOnly : undefined;
             inputs["diskIopsReadWrite"] = state ? state.diskIopsReadWrite : undefined;
+            inputs["diskMbpsReadOnly"] = state ? state.diskMbpsReadOnly : undefined;
             inputs["diskMbpsReadWrite"] = state ? state.diskMbpsReadWrite : undefined;
             inputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
             inputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
@@ -236,7 +246,9 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["createOption"] = args ? args.createOption : undefined;
             inputs["diskAccessId"] = args ? args.diskAccessId : undefined;
             inputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
+            inputs["diskIopsReadOnly"] = args ? args.diskIopsReadOnly : undefined;
             inputs["diskIopsReadWrite"] = args ? args.diskIopsReadWrite : undefined;
+            inputs["diskMbpsReadOnly"] = args ? args.diskMbpsReadOnly : undefined;
             inputs["diskMbpsReadWrite"] = args ? args.diskMbpsReadWrite : undefined;
             inputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
             inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
@@ -281,9 +293,17 @@ export interface ManagedDiskState {
      */
     diskEncryptionSetId?: pulumi.Input<string>;
     /**
+     * The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+     */
+    diskIopsReadOnly?: pulumi.Input<number>;
+    /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
      */
     diskIopsReadWrite?: pulumi.Input<number>;
+    /**
+     * The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+     */
+    diskMbpsReadOnly?: pulumi.Input<number>;
     /**
      * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
      */
@@ -379,9 +399,17 @@ export interface ManagedDiskArgs {
      */
     diskEncryptionSetId?: pulumi.Input<string>;
     /**
+     * The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+     */
+    diskIopsReadOnly?: pulumi.Input<number>;
+    /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
      */
     diskIopsReadWrite?: pulumi.Input<number>;
+    /**
+     * The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+     */
+    diskMbpsReadOnly?: pulumi.Input<number>;
     /**
      * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
      */

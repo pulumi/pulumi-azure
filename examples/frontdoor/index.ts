@@ -38,6 +38,8 @@ const fd = new azure.frontdoor.Frontdoor("example", {
 
     backendPoolHealthProbes: [{
         name: healthProbeSettingName,
+        protocol: "Https",
+        probeMethod: "HEAD"
     }],
 
     backendPools: [{

@@ -89,7 +89,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
-     * An identity block.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.kusto.ClusterIdentity>;
     /**
@@ -231,7 +231,7 @@ export interface ClusterState {
      */
     engine?: pulumi.Input<string>;
     /**
-     * An identity block.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**
@@ -305,7 +305,7 @@ export interface ClusterArgs {
      */
     engine?: pulumi.Input<string>;
     /**
-     * An identity block.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**

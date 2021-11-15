@@ -31,7 +31,7 @@ class ExpressRoutePortArgs:
         :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         :param pulumi.Input[str] peering_location: The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
-        :param pulumi.Input['ExpressRoutePortIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['ExpressRoutePortIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ExpressRoutePortLink1Args'] link1: A list of `link` blocks as defined below.
         :param pulumi.Input['ExpressRoutePortLink2Args'] link2: A list of `link` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
@@ -107,7 +107,7 @@ class ExpressRoutePortArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ExpressRoutePortIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -198,7 +198,7 @@ class _ExpressRoutePortState:
         :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         :param pulumi.Input[str] ethertype: The EtherType of the Express Route Port.
         :param pulumi.Input[str] guid: The resource GUID of the Express Route Port.
-        :param pulumi.Input['ExpressRoutePortIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['ExpressRoutePortIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ExpressRoutePortLink1Args'] link1: A list of `link` blocks as defined below.
         :param pulumi.Input['ExpressRoutePortLink2Args'] link2: A list of `link` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
@@ -287,7 +287,7 @@ class _ExpressRoutePortState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ExpressRoutePortIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -438,7 +438,7 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
         :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
-        :param pulumi.Input[pulumi.InputType['ExpressRoutePortIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ExpressRoutePortIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['ExpressRoutePortLink1Args']] link1: A list of `link` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ExpressRoutePortLink2Args']] link2: A list of `link` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
@@ -571,7 +571,7 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         :param pulumi.Input[str] ethertype: The EtherType of the Express Route Port.
         :param pulumi.Input[str] guid: The resource GUID of the Express Route Port.
-        :param pulumi.Input[pulumi.InputType['ExpressRoutePortIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ExpressRoutePortIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['ExpressRoutePortLink1Args']] link1: A list of `link` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ExpressRoutePortLink2Args']] link2: A list of `link` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
@@ -636,7 +636,7 @@ class ExpressRoutePort(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ExpressRoutePortIdentity']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

@@ -579,7 +579,7 @@ class Group(pulumi.CustomResource):
             containers=[
                 azure.containerservice.GroupContainerArgs(
                     name="hello-world",
-                    image="microsoft/aci-helloworld:latest",
+                    image="mcr.microsoft.com/azuredocs/aci-helloworld:latest",
                     cpu=0.5,
                     memory=1.5,
                     ports=[azure.containerservice.GroupContainerPortArgs(
@@ -589,7 +589,7 @@ class Group(pulumi.CustomResource):
                 ),
                 azure.containerservice.GroupContainerArgs(
                     name="sidecar",
-                    image="microsoft/aci-tutorial-sidecar",
+                    image="mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
                     cpu=0.5,
                     memory=1.5,
                 ),
@@ -652,7 +652,7 @@ class Group(pulumi.CustomResource):
             containers=[
                 azure.containerservice.GroupContainerArgs(
                     name="hello-world",
-                    image="microsoft/aci-helloworld:latest",
+                    image="mcr.microsoft.com/azuredocs/aci-helloworld:latest",
                     cpu=0.5,
                     memory=1.5,
                     ports=[azure.containerservice.GroupContainerPortArgs(
@@ -662,7 +662,7 @@ class Group(pulumi.CustomResource):
                 ),
                 azure.containerservice.GroupContainerArgs(
                     name="sidecar",
-                    image="microsoft/aci-tutorial-sidecar",
+                    image="mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
                     cpu=0.5,
                     memory=1.5,
                 ),

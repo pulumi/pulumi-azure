@@ -33,7 +33,7 @@ class GroupPolicyAssignmentArgs:
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not?
-        :param pulumi.Input['GroupPolicyAssignmentIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['GroupPolicyAssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
@@ -125,7 +125,7 @@ class GroupPolicyAssignmentArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['GroupPolicyAssignmentIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -213,7 +213,7 @@ class _GroupPolicyAssignmentState:
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not?
-        :param pulumi.Input['GroupPolicyAssignmentIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['GroupPolicyAssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
@@ -285,7 +285,7 @@ class _GroupPolicyAssignmentState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['GroupPolicyAssignmentIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -439,7 +439,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not?
-        :param pulumi.Input[pulumi.InputType['GroupPolicyAssignmentIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['GroupPolicyAssignmentIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
@@ -577,7 +577,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not?
-        :param pulumi.Input[pulumi.InputType['GroupPolicyAssignmentIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['GroupPolicyAssignmentIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
@@ -631,7 +631,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.GroupPolicyAssignmentIdentity']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

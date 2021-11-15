@@ -1113,7 +1113,8 @@ class GetBudgetResourceGroupNotificationResult(dict):
                  contact_roles: Sequence[str],
                  enabled: bool,
                  operator: str,
-                 threshold: int):
+                 threshold: int,
+                 threshold_type: str):
         """
         :param Sequence[str] contact_emails: A list of email addresses to send the budget notification to when the threshold is exceeded.
         :param Sequence[str] contact_groups: A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
@@ -1128,6 +1129,7 @@ class GetBudgetResourceGroupNotificationResult(dict):
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "threshold_type", threshold_type)
 
     @property
     @pulumi.getter(name="contactEmails")
@@ -1176,6 +1178,11 @@ class GetBudgetResourceGroupNotificationResult(dict):
         Threshold value associated with the notification.
         """
         return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> str:
+        return pulumi.get(self, "threshold_type")
 
 
 @pulumi.output_type
@@ -1444,7 +1451,8 @@ class GetBudgetSubscriptionNotificationResult(dict):
                  contact_roles: Sequence[str],
                  enabled: bool,
                  operator: str,
-                 threshold: int):
+                 threshold: int,
+                 threshold_type: str):
         """
         :param Sequence[str] contact_emails: A list of email addresses to send the budget notification to when the threshold is exceeded.
         :param Sequence[str] contact_groups: A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
@@ -1459,6 +1467,7 @@ class GetBudgetSubscriptionNotificationResult(dict):
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "threshold_type", threshold_type)
 
     @property
     @pulumi.getter(name="contactEmails")
@@ -1507,6 +1516,11 @@ class GetBudgetSubscriptionNotificationResult(dict):
         Threshold value associated with the notification.
         """
         return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> str:
+        return pulumi.get(self, "threshold_type")
 
 
 @pulumi.output_type

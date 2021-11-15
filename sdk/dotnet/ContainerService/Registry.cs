@@ -149,7 +149,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<Outputs.RegistryGeoreplication>> Georeplications { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as documented below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.RegistryIdentity> Identity { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// An `identity` block as documented below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.RegistryIdentityArgs>? Identity { get; set; }
@@ -450,7 +450,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// An `identity` block as documented below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.RegistryIdentityGetArgs>? Identity { get; set; }

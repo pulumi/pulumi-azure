@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.ApplicationGatewayHttpListener>> HttpListeners { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ApplicationGatewayIdentity?> Identity { get; private set; } = null!;
@@ -492,7 +492,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `identity` block.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ApplicationGatewayIdentityArgs>? Identity { get; set; }
@@ -793,7 +793,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `identity` block.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ApplicationGatewayIdentityGetArgs>? Identity { get; set; }

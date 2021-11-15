@@ -146,7 +146,7 @@ type WindowsVirtualMachineScaleSet struct {
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineScaleSetIdentityPtrOutput `pulumi:"identity"`
 	// The number of Virtual Machines in the Scale Set.
 	Instances pulumi.IntOutput `pulumi:"instances"`
@@ -292,7 +292,7 @@ type windowsVirtualMachineScaleSetState struct {
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity *WindowsVirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// The number of Virtual Machines in the Scale Set.
 	Instances *int `pulumi:"instances"`
@@ -389,7 +389,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineScaleSetIdentityPtrInput
 	// The number of Virtual Machines in the Scale Set.
 	Instances pulumi.IntPtrInput
@@ -490,7 +490,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity *WindowsVirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// The number of Virtual Machines in the Scale Set.
 	Instances int `pulumi:"instances"`
@@ -586,7 +586,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineScaleSetIdentityPtrInput
 	// The number of Virtual Machines in the Scale Set.
 	Instances pulumi.IntInput

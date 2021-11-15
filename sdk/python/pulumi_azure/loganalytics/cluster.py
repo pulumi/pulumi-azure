@@ -23,7 +23,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input['ClusterIdentityArgs'] identity: A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
@@ -45,7 +45,7 @@ class ClusterArgs:
     @pulumi.getter
     def identity(self) -> pulumi.Input['ClusterIdentityArgs']:
         """
-        A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
@@ -127,7 +127,7 @@ class _ClusterState:
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] cluster_id: The GUID of the cluster.
-        :param pulumi.Input['ClusterIdentityArgs'] identity: A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
@@ -165,7 +165,7 @@ class _ClusterState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ClusterIdentityArgs']]:
         """
-        A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
@@ -278,7 +278,7 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
@@ -390,7 +390,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_id: The GUID of the cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
@@ -422,7 +422,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output['outputs.ClusterIdentity']:
         """
-        A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         """
         return pulumi.get(self, "identity")
 

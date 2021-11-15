@@ -173,7 +173,7 @@ namespace Pulumi.Azure.Storage
         public Output<bool?> EnableHttpsTrafficOnly { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity> Identity { get; private set; } = null!;
@@ -553,7 +553,7 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? EnableHttpsTrafficOnly { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
@@ -708,7 +708,7 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? EnableHttpsTrafficOnly { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }

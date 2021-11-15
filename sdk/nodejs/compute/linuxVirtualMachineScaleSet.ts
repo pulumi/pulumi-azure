@@ -171,7 +171,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly healthProbeId!: pulumi.Output<string | undefined>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetIdentity | undefined>;
     /**
@@ -481,7 +481,7 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     healthProbeId?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetIdentity>;
     /**
@@ -663,7 +663,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     healthProbeId?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetIdentity>;
     /**

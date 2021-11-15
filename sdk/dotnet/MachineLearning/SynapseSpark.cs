@@ -116,7 +116,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        /// An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.SynapseSparkIdentity?> Identity { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        /// An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SynapseSparkIdentityArgs>? Identity { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        /// An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SynapseSparkIdentityGetArgs>? Identity { get; set; }

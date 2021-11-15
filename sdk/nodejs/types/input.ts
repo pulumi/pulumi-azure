@@ -6223,7 +6223,7 @@ export namespace compute {
 
     export interface VirtualMachineOsProfileWindowsConfig {
         /**
-         * A `additionalUnattendConfig` block.
+         * An `additionalUnattendConfig` block as defined below.
          */
         additionalUnattendConfigs?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig>[]>;
         /**
@@ -6239,7 +6239,7 @@ export namespace compute {
          */
         timezone?: pulumi.Input<string>;
         /**
-         * One or more `winrm` block.
+         * One or more `winrm` blocks as defined below.
          */
         winrms?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfigWinrm>[]>;
     }
@@ -15715,7 +15715,7 @@ export namespace iot {
          */
         endpointNames?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
          */
         source?: pulumi.Input<string>;
     }
@@ -15784,7 +15784,7 @@ export namespace iot {
          */
         name: pulumi.Input<string>;
         /**
-         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
          */
         source: pulumi.Input<string>;
     }
@@ -24043,6 +24043,21 @@ export namespace sql {
          * Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
          */
         mode: pulumi.Input<string>;
+    }
+
+    export interface ManagedInstanceIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+         */
+        type?: pulumi.Input<string>;
     }
 
     export interface SqlServerExtendedAuditingPolicy {

@@ -113,7 +113,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     }
 
     /**
-     * A `additionalCapabilities` block.
+     * An `additionalCapabilities` block as defined below.
      */
     public readonly additionalCapabilities!: pulumi.Output<outputs.compute.VirtualMachineAdditionalCapabilities | undefined>;
     /**
@@ -121,7 +121,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly availabilitySetId!: pulumi.Output<string>;
     /**
-     * A `bootDiagnostics` block.
+     * A `bootDiagnostics` block as defined below.
      */
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.VirtualMachineBootDiagnostics | undefined>;
     /**
@@ -133,7 +133,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly deleteOsDiskOnTermination!: pulumi.Output<boolean | undefined>;
     /**
-     * A `identity` block.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.compute.VirtualMachineIdentity>;
     /**
@@ -153,11 +153,11 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
-     * An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
+     * An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      */
     public readonly osProfile!: pulumi.Output<outputs.compute.VirtualMachineOsProfile | undefined>;
     /**
-     * A `osProfileLinuxConfig` block.
+     * An `osProfileLinuxConfig` block as defined below.
      */
     public readonly osProfileLinuxConfig!: pulumi.Output<outputs.compute.VirtualMachineOsProfileLinuxConfig | undefined>;
     /**
@@ -165,11 +165,11 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly osProfileSecrets!: pulumi.Output<outputs.compute.VirtualMachineOsProfileSecret[] | undefined>;
     /**
-     * A `osProfileWindowsConfig` block.
+     * An `osProfileWindowsConfig` block as defined below.
      */
     public readonly osProfileWindowsConfig!: pulumi.Output<outputs.compute.VirtualMachineOsProfileWindowsConfig | undefined>;
     /**
-     * A `plan` block.
+     * A `plan` block as defined below.
      */
     public readonly plan!: pulumi.Output<outputs.compute.VirtualMachinePlan | undefined>;
     /**
@@ -189,11 +189,11 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly storageDataDisks!: pulumi.Output<outputs.compute.VirtualMachineStorageDataDisk[]>;
     /**
-     * A `storageImageReference` block.
+     * A `storageImageReference` block as defined below.
      */
     public readonly storageImageReference!: pulumi.Output<outputs.compute.VirtualMachineStorageImageReference>;
     /**
-     * A `storageOsDisk` block.
+     * A `storageOsDisk` block as defined below.
      */
     public readonly storageOsDisk!: pulumi.Output<outputs.compute.VirtualMachineStorageOsDisk>;
     /**
@@ -297,7 +297,7 @@ export class VirtualMachine extends pulumi.CustomResource {
  */
 export interface VirtualMachineState {
     /**
-     * A `additionalCapabilities` block.
+     * An `additionalCapabilities` block as defined below.
      */
     additionalCapabilities?: pulumi.Input<inputs.compute.VirtualMachineAdditionalCapabilities>;
     /**
@@ -305,7 +305,7 @@ export interface VirtualMachineState {
      */
     availabilitySetId?: pulumi.Input<string>;
     /**
-     * A `bootDiagnostics` block.
+     * A `bootDiagnostics` block as defined below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.VirtualMachineBootDiagnostics>;
     /**
@@ -317,7 +317,7 @@ export interface VirtualMachineState {
      */
     deleteOsDiskOnTermination?: pulumi.Input<boolean>;
     /**
-     * A `identity` block.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.VirtualMachineIdentity>;
     /**
@@ -337,11 +337,11 @@ export interface VirtualMachineState {
      */
     networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
+     * An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      */
     osProfile?: pulumi.Input<inputs.compute.VirtualMachineOsProfile>;
     /**
-     * A `osProfileLinuxConfig` block.
+     * An `osProfileLinuxConfig` block as defined below.
      */
     osProfileLinuxConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfig>;
     /**
@@ -349,11 +349,11 @@ export interface VirtualMachineState {
      */
     osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecret>[]>;
     /**
-     * A `osProfileWindowsConfig` block.
+     * An `osProfileWindowsConfig` block as defined below.
      */
     osProfileWindowsConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfig>;
     /**
-     * A `plan` block.
+     * A `plan` block as defined below.
      */
     plan?: pulumi.Input<inputs.compute.VirtualMachinePlan>;
     /**
@@ -373,11 +373,11 @@ export interface VirtualMachineState {
      */
     storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
     /**
-     * A `storageImageReference` block.
+     * A `storageImageReference` block as defined below.
      */
     storageImageReference?: pulumi.Input<inputs.compute.VirtualMachineStorageImageReference>;
     /**
-     * A `storageOsDisk` block.
+     * A `storageOsDisk` block as defined below.
      */
     storageOsDisk?: pulumi.Input<inputs.compute.VirtualMachineStorageOsDisk>;
     /**
@@ -399,7 +399,7 @@ export interface VirtualMachineState {
  */
 export interface VirtualMachineArgs {
     /**
-     * A `additionalCapabilities` block.
+     * An `additionalCapabilities` block as defined below.
      */
     additionalCapabilities?: pulumi.Input<inputs.compute.VirtualMachineAdditionalCapabilities>;
     /**
@@ -407,7 +407,7 @@ export interface VirtualMachineArgs {
      */
     availabilitySetId?: pulumi.Input<string>;
     /**
-     * A `bootDiagnostics` block.
+     * A `bootDiagnostics` block as defined below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.VirtualMachineBootDiagnostics>;
     /**
@@ -419,7 +419,7 @@ export interface VirtualMachineArgs {
      */
     deleteOsDiskOnTermination?: pulumi.Input<boolean>;
     /**
-     * A `identity` block.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.VirtualMachineIdentity>;
     /**
@@ -439,11 +439,11 @@ export interface VirtualMachineArgs {
      */
     networkInterfaceIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
+     * An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      */
     osProfile?: pulumi.Input<inputs.compute.VirtualMachineOsProfile>;
     /**
-     * A `osProfileLinuxConfig` block.
+     * An `osProfileLinuxConfig` block as defined below.
      */
     osProfileLinuxConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfig>;
     /**
@@ -451,11 +451,11 @@ export interface VirtualMachineArgs {
      */
     osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecret>[]>;
     /**
-     * A `osProfileWindowsConfig` block.
+     * An `osProfileWindowsConfig` block as defined below.
      */
     osProfileWindowsConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfig>;
     /**
-     * A `plan` block.
+     * A `plan` block as defined below.
      */
     plan?: pulumi.Input<inputs.compute.VirtualMachinePlan>;
     /**
@@ -475,11 +475,11 @@ export interface VirtualMachineArgs {
      */
     storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
     /**
-     * A `storageImageReference` block.
+     * A `storageImageReference` block as defined below.
      */
     storageImageReference?: pulumi.Input<inputs.compute.VirtualMachineStorageImageReference>;
     /**
-     * A `storageOsDisk` block.
+     * A `storageOsDisk` block as defined below.
      */
     storageOsDisk: pulumi.Input<inputs.compute.VirtualMachineStorageOsDisk>;
     /**

@@ -77,7 +77,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
      */
     public /*out*/ readonly guid!: pulumi.Output<string>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.network.ExpressRoutePortIdentity | undefined>;
     /**
@@ -195,7 +195,7 @@ export interface ExpressRoutePortState {
      */
     guid?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.network.ExpressRoutePortIdentity>;
     /**
@@ -245,7 +245,7 @@ export interface ExpressRoutePortArgs {
      */
     encapsulation: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.network.ExpressRoutePortIdentity>;
     /**

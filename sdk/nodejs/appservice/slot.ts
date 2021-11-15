@@ -185,7 +185,7 @@ export class Slot extends pulumi.CustomResource {
      */
     public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * A Managed Service Identity block as defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.appservice.SlotIdentity>;
     /**
@@ -330,7 +330,7 @@ export interface SlotState {
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**
-     * A Managed Service Identity block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.appservice.SlotIdentity>;
     /**
@@ -404,7 +404,7 @@ export interface SlotArgs {
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**
-     * A Managed Service Identity block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.appservice.SlotIdentity>;
     /**

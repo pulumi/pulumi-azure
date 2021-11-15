@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> HealthProbeId { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.WindowsVirtualMachineScaleSetIdentity?> Identity { get; private set; } = null!;
@@ -557,7 +557,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? HealthProbeId { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WindowsVirtualMachineScaleSetIdentityArgs>? Identity { get; set; }
@@ -888,7 +888,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? HealthProbeId { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WindowsVirtualMachineScaleSetIdentityGetArgs>? Identity { get; set; }

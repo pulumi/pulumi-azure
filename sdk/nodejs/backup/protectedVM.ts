@@ -78,6 +78,14 @@ export class ProtectedVM extends pulumi.CustomResource {
      */
     public readonly backupPolicyId!: pulumi.Output<string>;
     /**
+     * A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+     */
+    public readonly excludeDiskLuns!: pulumi.Output<number[] | undefined>;
+    /**
+     * A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+     */
+    public readonly includeDiskLuns!: pulumi.Output<number[] | undefined>;
+    /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
     public readonly recoveryVaultName!: pulumi.Output<string>;
@@ -108,6 +116,8 @@ export class ProtectedVM extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ProtectedVMState | undefined;
             inputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
+            inputs["excludeDiskLuns"] = state ? state.excludeDiskLuns : undefined;
+            inputs["includeDiskLuns"] = state ? state.includeDiskLuns : undefined;
             inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sourceVmId"] = state ? state.sourceVmId : undefined;
@@ -127,6 +137,8 @@ export class ProtectedVM extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sourceVmId'");
             }
             inputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
+            inputs["excludeDiskLuns"] = args ? args.excludeDiskLuns : undefined;
+            inputs["includeDiskLuns"] = args ? args.includeDiskLuns : undefined;
             inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sourceVmId"] = args ? args.sourceVmId : undefined;
@@ -147,6 +159,14 @@ export interface ProtectedVMState {
      * Specifies the id of the backup policy to use.
      */
     backupPolicyId?: pulumi.Input<string>;
+    /**
+     * A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+     */
+    excludeDiskLuns?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+     */
+    includeDiskLuns?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
@@ -173,6 +193,14 @@ export interface ProtectedVMArgs {
      * Specifies the id of the backup policy to use.
      */
     backupPolicyId: pulumi.Input<string>;
+    /**
+     * A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
+     */
+    excludeDiskLuns?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
+     */
+    includeDiskLuns?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */

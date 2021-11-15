@@ -171,7 +171,7 @@ type ApplicationGateway struct {
 	GatewayIpConfigurations ApplicationGatewayGatewayIpConfigurationArrayOutput `pulumi:"gatewayIpConfigurations"`
 	// One or more `httpListener` blocks as defined below.
 	HttpListeners ApplicationGatewayHttpListenerArrayOutput `pulumi:"httpListeners"`
-	// A `identity` block.
+	// An `identity` block as defined below.
 	Identity ApplicationGatewayIdentityPtrOutput `pulumi:"identity"`
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -287,7 +287,7 @@ type applicationGatewayState struct {
 	GatewayIpConfigurations []ApplicationGatewayGatewayIpConfiguration `pulumi:"gatewayIpConfigurations"`
 	// One or more `httpListener` blocks as defined below.
 	HttpListeners []ApplicationGatewayHttpListener `pulumi:"httpListeners"`
-	// A `identity` block.
+	// An `identity` block as defined below.
 	Identity *ApplicationGatewayIdentity `pulumi:"identity"`
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -348,7 +348,7 @@ type ApplicationGatewayState struct {
 	GatewayIpConfigurations ApplicationGatewayGatewayIpConfigurationArrayInput
 	// One or more `httpListener` blocks as defined below.
 	HttpListeners ApplicationGatewayHttpListenerArrayInput
-	// A `identity` block.
+	// An `identity` block as defined below.
 	Identity ApplicationGatewayIdentityPtrInput
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -413,7 +413,7 @@ type applicationGatewayArgs struct {
 	GatewayIpConfigurations []ApplicationGatewayGatewayIpConfiguration `pulumi:"gatewayIpConfigurations"`
 	// One or more `httpListener` blocks as defined below.
 	HttpListeners []ApplicationGatewayHttpListener `pulumi:"httpListeners"`
-	// A `identity` block.
+	// An `identity` block as defined below.
 	Identity *ApplicationGatewayIdentity `pulumi:"identity"`
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -475,7 +475,7 @@ type ApplicationGatewayArgs struct {
 	GatewayIpConfigurations ApplicationGatewayGatewayIpConfigurationArrayInput
 	// One or more `httpListener` blocks as defined below.
 	HttpListeners ApplicationGatewayHttpListenerArrayInput
-	// A `identity` block.
+	// An `identity` block as defined below.
 	Identity ApplicationGatewayIdentityPtrInput
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

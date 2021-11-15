@@ -11545,7 +11545,7 @@ func (o VirtualMachineOsProfileSecretVaultCertificateArrayOutput) Index(i pulumi
 }
 
 type VirtualMachineOsProfileWindowsConfig struct {
-	// A `additionalUnattendConfig` block.
+	// An `additionalUnattendConfig` block as defined below.
 	AdditionalUnattendConfigs []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig `pulumi:"additionalUnattendConfigs"`
 	// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
 	EnableAutomaticUpgrades *bool `pulumi:"enableAutomaticUpgrades"`
@@ -11553,7 +11553,7 @@ type VirtualMachineOsProfileWindowsConfig struct {
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
-	// One or more `winrm` block.
+	// One or more `winrm` blocks as defined below.
 	Winrms []VirtualMachineOsProfileWindowsConfigWinrm `pulumi:"winrms"`
 }
 
@@ -11569,7 +11569,7 @@ type VirtualMachineOsProfileWindowsConfigInput interface {
 }
 
 type VirtualMachineOsProfileWindowsConfigArgs struct {
-	// A `additionalUnattendConfig` block.
+	// An `additionalUnattendConfig` block as defined below.
 	AdditionalUnattendConfigs VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayInput `pulumi:"additionalUnattendConfigs"`
 	// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
 	EnableAutomaticUpgrades pulumi.BoolPtrInput `pulumi:"enableAutomaticUpgrades"`
@@ -11577,7 +11577,7 @@ type VirtualMachineOsProfileWindowsConfigArgs struct {
 	ProvisionVmAgent pulumi.BoolPtrInput `pulumi:"provisionVmAgent"`
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
-	// One or more `winrm` block.
+	// One or more `winrm` blocks as defined below.
 	Winrms VirtualMachineOsProfileWindowsConfigWinrmArrayInput `pulumi:"winrms"`
 }
 
@@ -11658,7 +11658,7 @@ func (o VirtualMachineOsProfileWindowsConfigOutput) ToVirtualMachineOsProfileWin
 	}).(VirtualMachineOsProfileWindowsConfigPtrOutput)
 }
 
-// A `additionalUnattendConfig` block.
+// An `additionalUnattendConfig` block as defined below.
 func (o VirtualMachineOsProfileWindowsConfigOutput) AdditionalUnattendConfigs() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
 	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig {
 		return v.AdditionalUnattendConfigs
@@ -11680,7 +11680,7 @@ func (o VirtualMachineOsProfileWindowsConfigOutput) Timezone() pulumi.StringPtrO
 	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
-// One or more `winrm` block.
+// One or more `winrm` blocks as defined below.
 func (o VirtualMachineOsProfileWindowsConfigOutput) Winrms() VirtualMachineOsProfileWindowsConfigWinrmArrayOutput {
 	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigWinrm {
 		return v.Winrms
@@ -11711,7 +11711,7 @@ func (o VirtualMachineOsProfileWindowsConfigPtrOutput) Elem() VirtualMachineOsPr
 	}).(VirtualMachineOsProfileWindowsConfigOutput)
 }
 
-// A `additionalUnattendConfig` block.
+// An `additionalUnattendConfig` block as defined below.
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) AdditionalUnattendConfigs() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
 	return o.ApplyT(func(v *VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig {
 		if v == nil {
@@ -11751,7 +11751,7 @@ func (o VirtualMachineOsProfileWindowsConfigPtrOutput) Timezone() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// One or more `winrm` block.
+// One or more `winrm` blocks as defined below.
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) Winrms() VirtualMachineOsProfileWindowsConfigWinrmArrayOutput {
 	return o.ApplyT(func(v *VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigWinrm {
 		if v == nil {

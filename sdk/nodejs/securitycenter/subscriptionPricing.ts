@@ -58,7 +58,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
     }
 
     /**
-     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm` and `Dns`.
+     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases` and `Dns`.
      */
     public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
@@ -101,7 +101,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
  */
 export interface SubscriptionPricingState {
     /**
-     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm` and `Dns`.
+     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases` and `Dns`.
      */
     resourceType?: pulumi.Input<string>;
     /**
@@ -115,7 +115,7 @@ export interface SubscriptionPricingState {
  */
 export interface SubscriptionPricingArgs {
     /**
-     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm` and `Dns`.
+     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases` and `Dns`.
      */
     resourceType?: pulumi.Input<string>;
     /**

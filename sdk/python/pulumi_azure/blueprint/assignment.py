@@ -28,6 +28,7 @@ class AssignmentArgs:
         The set of arguments for constructing a Assignment resource.
         :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
+        :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location of the Assignment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
@@ -79,6 +80,9 @@ class AssignmentArgs:
     @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AssignmentIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
         return pulumi.get(self, "identity")
 
     @identity.setter
@@ -179,6 +183,7 @@ class _AssignmentState:
         :param pulumi.Input[str] blueprint_name: The name of the blueprint assigned
         :param pulumi.Input[str] description: The Description on the Blueprint
         :param pulumi.Input[str] display_name: The display name of the blueprint
+        :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location of the Assignment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
@@ -255,6 +260,9 @@ class _AssignmentState:
     @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AssignmentIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
         return pulumi.get(self, "identity")
 
     @identity.setter
@@ -459,6 +467,7 @@ class Assignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location of the Assignment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
@@ -632,6 +641,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] blueprint_name: The name of the blueprint assigned
         :param pulumi.Input[str] description: The Description on the Blueprint
         :param pulumi.Input[str] display_name: The display name of the blueprint
+        :param pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location of the Assignment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
@@ -688,6 +698,9 @@ class Assignment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.AssignmentIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
         return pulumi.get(self, "identity")
 
     @property

@@ -58,7 +58,7 @@ type BackupVault struct {
 
 	// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
 	DatastoreType pulumi.StringOutput `pulumi:"datastoreType"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -112,7 +112,7 @@ func GetBackupVault(ctx *pulumi.Context,
 type backupVaultState struct {
 	// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
 	DatastoreType *string `pulumi:"datastoreType"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity *BackupVaultIdentity `pulumi:"identity"`
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location *string `pulumi:"location"`
@@ -129,7 +129,7 @@ type backupVaultState struct {
 type BackupVaultState struct {
 	// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
 	DatastoreType pulumi.StringPtrInput
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrInput
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location pulumi.StringPtrInput
@@ -150,7 +150,7 @@ func (BackupVaultState) ElementType() reflect.Type {
 type backupVaultArgs struct {
 	// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
 	DatastoreType string `pulumi:"datastoreType"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity *BackupVaultIdentity `pulumi:"identity"`
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location *string `pulumi:"location"`
@@ -168,7 +168,7 @@ type backupVaultArgs struct {
 type BackupVaultArgs struct {
 	// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
 	DatastoreType pulumi.StringInput
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrInput
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location pulumi.StringPtrInput

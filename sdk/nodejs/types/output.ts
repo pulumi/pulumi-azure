@@ -7555,7 +7555,7 @@ export namespace compute {
 
     export interface VirtualMachineOsProfileWindowsConfig {
         /**
-         * A `additionalUnattendConfig` block.
+         * An `additionalUnattendConfig` block as defined below.
          */
         additionalUnattendConfigs?: outputs.compute.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig[];
         /**
@@ -7571,7 +7571,7 @@ export namespace compute {
          */
         timezone?: string;
         /**
-         * One or more `winrm` block.
+         * One or more `winrm` blocks as defined below.
          */
         winrms?: outputs.compute.VirtualMachineOsProfileWindowsConfigWinrm[];
     }
@@ -8674,6 +8674,7 @@ export namespace consumption {
          * Threshold value associated with the notification.
          */
         threshold: number;
+        thresholdType: string;
     }
 
     export interface GetBudgetResourceGroupTimePeriod {
@@ -8798,6 +8799,7 @@ export namespace consumption {
          * Threshold value associated with the notification.
          */
         threshold: number;
+        thresholdType: string;
     }
 
     export interface GetBudgetSubscriptionTimePeriod {
@@ -18192,7 +18194,7 @@ export namespace iot {
          */
         endpointNames: string[];
         /**
-         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
          */
         source?: string;
     }
@@ -18261,7 +18263,7 @@ export namespace iot {
          */
         name: string;
         /**
-         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+         * The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
          */
         source: string;
     }
@@ -28152,6 +28154,21 @@ export namespace sql {
          * The identity type of the SQL Server.
          */
         type: string;
+    }
+
+    export interface ManagedInstanceIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+         */
+        tenantId: string;
+        /**
+         * The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+         */
+        type?: string;
     }
 
     export interface SqlServerExtendedAuditingPolicy {

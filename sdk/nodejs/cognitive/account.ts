@@ -55,7 +55,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly fqdns!: pulumi.Output<string[] | undefined>;
     /**
-     * An `identity` block is documented below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.cognitive.AccountIdentity | undefined>;
     /**
@@ -123,7 +123,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * An `identity` block is documented below.
+     * A `storage` block as defined below.
      */
     public readonly storages!: pulumi.Output<outputs.cognitive.AccountStorage[] | undefined>;
     /**
@@ -224,7 +224,7 @@ export interface AccountState {
      */
     fqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An `identity` block is documented below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.cognitive.AccountIdentity>;
     /**
@@ -292,7 +292,7 @@ export interface AccountState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * An `identity` block is documented below.
+     * A `storage` block as defined below.
      */
     storages?: pulumi.Input<pulumi.Input<inputs.cognitive.AccountStorage>[]>;
     /**
@@ -314,7 +314,7 @@ export interface AccountArgs {
      */
     fqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An `identity` block is documented below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.cognitive.AccountIdentity>;
     /**
@@ -374,7 +374,7 @@ export interface AccountArgs {
      */
     skuName: pulumi.Input<string>;
     /**
-     * An `identity` block is documented below.
+     * A `storage` block as defined below.
      */
     storages?: pulumi.Input<pulumi.Input<inputs.cognitive.AccountStorage>[]>;
     /**

@@ -147,7 +147,7 @@ type ComputeInstance struct {
 	AuthorizationType pulumi.StringPtrOutput `pulumi:"authorizationType"`
 	// The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
 	Identity ComputeInstanceIdentityPtrOutput `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
@@ -208,7 +208,7 @@ type computeInstanceState struct {
 	AuthorizationType *string `pulumi:"authorizationType"`
 	// The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Description *string `pulumi:"description"`
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
 	Identity *ComputeInstanceIdentity `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -235,7 +235,7 @@ type ComputeInstanceState struct {
 	AuthorizationType pulumi.StringPtrInput
 	// The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Description pulumi.StringPtrInput
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
 	Identity ComputeInstanceIdentityPtrInput
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
 	LocalAuthEnabled pulumi.BoolPtrInput
@@ -266,7 +266,7 @@ type computeInstanceArgs struct {
 	AuthorizationType *string `pulumi:"authorizationType"`
 	// The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Description *string `pulumi:"description"`
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
 	Identity *ComputeInstanceIdentity `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -294,7 +294,7 @@ type ComputeInstanceArgs struct {
 	AuthorizationType pulumi.StringPtrInput
 	// The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Description pulumi.StringPtrInput
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
 	Identity ComputeInstanceIdentityPtrInput
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
 	LocalAuthEnabled pulumi.BoolPtrInput

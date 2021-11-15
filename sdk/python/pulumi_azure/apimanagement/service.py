@@ -50,7 +50,7 @@ class ServiceArgs:
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
         :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input['ServiceHostnameConfigurationArgs'] hostname_configuration: A `hostname_configuration` block as defined below.
-        :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block is documented below.
+        :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
@@ -224,7 +224,7 @@ class ServiceArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
         """
-        An `identity` block is documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -447,7 +447,7 @@ class _ServiceState:
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
         :param pulumi.Input['ServiceHostnameConfigurationArgs'] hostname_configuration: A `hostname_configuration` block as defined below.
-        :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block is documented below.
+        :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] management_api_url: The URL for the Management API associated with this API Management service.
         :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
@@ -638,7 +638,7 @@ class _ServiceState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
         """
-        An `identity` block is documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -991,7 +991,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
         :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block is documented below.
+        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
@@ -1196,7 +1196,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
         :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block is documented below.
+        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] management_api_url: The URL for the Management API associated with this API Management service.
         :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
@@ -1328,7 +1328,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ServiceIdentity']]:
         """
-        An `identity` block is documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

@@ -270,6 +270,12 @@ namespace Pulumi.Azure.Sql
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedInstanceIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
         /// </summary>
         [Output("licenseType")]
@@ -418,6 +424,12 @@ namespace Pulumi.Azure.Sql
         public Input<string>? DnsZonePartnerId { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedInstanceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
         /// </summary>
         [Input("licenseType", required: true)]
@@ -537,6 +549,12 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedInstanceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.

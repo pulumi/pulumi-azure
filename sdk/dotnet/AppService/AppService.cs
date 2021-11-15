@@ -147,7 +147,7 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> HttpsOnly { get; private set; } = null!;
 
         /// <summary>
-        /// A Managed Service Identity block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AppServiceIdentity> Identity { get; private set; } = null!;
@@ -349,7 +349,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// A Managed Service Identity block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AppServiceIdentityArgs>? Identity { get; set; }
@@ -506,7 +506,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// A Managed Service Identity block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AppServiceIdentityGetArgs>? Identity { get; set; }

@@ -30,7 +30,7 @@ class InferenceClusterArgs:
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] cluster_purpose: The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param pulumi.Input['InferenceClusterIdentityArgs'] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input['InferenceClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input['InferenceClusterSslArgs'] ssl: A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -105,7 +105,7 @@ class InferenceClusterArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['InferenceClusterIdentityArgs']]:
         """
-        A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
@@ -178,7 +178,7 @@ class _InferenceClusterState:
         Input properties used for looking up and filtering InferenceCluster resources.
         :param pulumi.Input[str] cluster_purpose: The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param pulumi.Input['InferenceClusterIdentityArgs'] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input['InferenceClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -233,7 +233,7 @@ class _InferenceClusterState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['InferenceClusterIdentityArgs']]:
         """
-        A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
@@ -413,7 +413,7 @@ class InferenceCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_purpose: The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param pulumi.Input[pulumi.InputType['InferenceClusterIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input[pulumi.InputType['InferenceClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -584,7 +584,7 @@ class InferenceCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_purpose: The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param pulumi.Input[pulumi.InputType['InferenceClusterIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input[pulumi.InputType['InferenceClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -627,7 +627,7 @@ class InferenceCluster(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.InferenceClusterIdentity']]:
         """
-        A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "identity")
 

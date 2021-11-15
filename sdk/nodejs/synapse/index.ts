@@ -20,6 +20,7 @@ export * from "./sqlPoolSecurityAlertPolicy";
 export * from "./sqlPoolVulnerabilityAssessment";
 export * from "./sqlPoolVulnerabilityAssessmentBaseline";
 export * from "./workspace";
+export * from "./workspaceAadAdmin";
 export * from "./workspaceExtendedAuditingPolicy";
 export * from "./workspaceKey";
 export * from "./workspaceSecurityAlertPolicy";
@@ -40,6 +41,7 @@ import { SqlPoolSecurityAlertPolicy } from "./sqlPoolSecurityAlertPolicy";
 import { SqlPoolVulnerabilityAssessment } from "./sqlPoolVulnerabilityAssessment";
 import { SqlPoolVulnerabilityAssessmentBaseline } from "./sqlPoolVulnerabilityAssessmentBaseline";
 import { Workspace } from "./workspace";
+import { WorkspaceAadAdmin } from "./workspaceAadAdmin";
 import { WorkspaceExtendedAuditingPolicy } from "./workspaceExtendedAuditingPolicy";
 import { WorkspaceKey } from "./workspaceKey";
 import { WorkspaceSecurityAlertPolicy } from "./workspaceSecurityAlertPolicy";
@@ -77,6 +79,8 @@ const _module = {
                 return new SqlPoolVulnerabilityAssessmentBaseline(name, <any>undefined, { urn })
             case "azure:synapse/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
+            case "azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin":
+                return new WorkspaceAadAdmin(name, <any>undefined, { urn })
             case "azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy":
                 return new WorkspaceExtendedAuditingPolicy(name, <any>undefined, { urn })
             case "azure:synapse/workspaceKey:WorkspaceKey":
@@ -104,6 +108,7 @@ pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolSecurityAlertPoli
 pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolVulnerabilityAssessmentBaseline", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspace", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/workspaceAadAdmin", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspaceExtendedAuditingPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspaceKey", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspaceSecurityAlertPolicy", _module)

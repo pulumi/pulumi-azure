@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     containers: [
  *         {
  *             name: "hello-world",
- *             image: "microsoft/aci-helloworld:latest",
+ *             image: "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
  *             cpu: "0.5",
  *             memory: "1.5",
  *             ports: [{
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             name: "sidecar",
- *             image: "microsoft/aci-tutorial-sidecar",
+ *             image: "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
  *             cpu: "0.5",
  *             memory: "1.5",
  *         },

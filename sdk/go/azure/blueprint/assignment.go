@@ -131,8 +131,9 @@ type Assignment struct {
 	// The Description on the Blueprint
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The display name of the blueprint
-	DisplayName pulumi.StringOutput         `pulumi:"displayName"`
-	Identity    AssignmentIdentityPtrOutput `pulumi:"identity"`
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// An `identity` block as defined below.
+	Identity AssignmentIdentityPtrOutput `pulumi:"identity"`
 	// The Azure location of the Assignment.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
@@ -193,8 +194,9 @@ type assignmentState struct {
 	// The Description on the Blueprint
 	Description *string `pulumi:"description"`
 	// The display name of the blueprint
-	DisplayName *string             `pulumi:"displayName"`
-	Identity    *AssignmentIdentity `pulumi:"identity"`
+	DisplayName *string `pulumi:"displayName"`
+	// An `identity` block as defined below.
+	Identity *AssignmentIdentity `pulumi:"identity"`
 	// The Azure location of the Assignment.
 	Location *string `pulumi:"location"`
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
@@ -222,7 +224,8 @@ type AssignmentState struct {
 	Description pulumi.StringPtrInput
 	// The display name of the blueprint
 	DisplayName pulumi.StringPtrInput
-	Identity    AssignmentIdentityPtrInput
+	// An `identity` block as defined below.
+	Identity AssignmentIdentityPtrInput
 	// The Azure location of the Assignment.
 	Location pulumi.StringPtrInput
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
@@ -248,6 +251,7 @@ func (AssignmentState) ElementType() reflect.Type {
 }
 
 type assignmentArgs struct {
+	// An `identity` block as defined below.
 	Identity *AssignmentIdentity `pulumi:"identity"`
 	// The Azure location of the Assignment.
 	Location *string `pulumi:"location"`
@@ -269,6 +273,7 @@ type assignmentArgs struct {
 
 // The set of arguments for constructing a Assignment resource.
 type AssignmentArgs struct {
+	// An `identity` block as defined below.
 	Identity AssignmentIdentityPtrInput
 	// The Azure location of the Assignment.
 	Location pulumi.StringPtrInput

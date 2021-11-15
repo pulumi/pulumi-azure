@@ -24,7 +24,7 @@ class DiskEncryptionSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DiskEncryptionSet resource.
-        :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: A `identity` block defined below.
+        :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
@@ -48,7 +48,7 @@ class DiskEncryptionSetArgs:
     @pulumi.getter
     def identity(self) -> pulumi.Input['DiskEncryptionSetIdentityArgs']:
         """
-        A `identity` block defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -142,7 +142,7 @@ class _DiskEncryptionSetState:
         """
         Input properties used for looking up and filtering DiskEncryptionSet resources.
         :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
-        :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: A `identity` block defined below.
+        :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
         :param pulumi.Input[str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
@@ -180,7 +180,7 @@ class _DiskEncryptionSetState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['DiskEncryptionSetIdentityArgs']]:
         """
-        A `identity` block defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -334,7 +334,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: A `identity` block defined below.
+        :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
         :param pulumi.Input[str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
@@ -488,7 +488,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: A `identity` block defined below.
+        :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
         :param pulumi.Input[str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
@@ -520,7 +520,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output['outputs.DiskEncryptionSetIdentity']:
         """
-        A `identity` block defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

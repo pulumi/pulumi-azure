@@ -63,7 +63,7 @@ type Cluster struct {
 
 	// The GUID of the cluster.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
-	// A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+	// An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
 	Identity ClusterIdentityOutput `pulumi:"identity"`
 	// The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -114,7 +114,7 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// The GUID of the cluster.
 	ClusterId *string `pulumi:"clusterId"`
-	// A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+	// An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
 	Identity *ClusterIdentity `pulumi:"identity"`
 	// The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	Location *string `pulumi:"location"`
@@ -131,7 +131,7 @@ type clusterState struct {
 type ClusterState struct {
 	// The GUID of the cluster.
 	ClusterId pulumi.StringPtrInput
-	// A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+	// An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
 	Identity ClusterIdentityPtrInput
 	// The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	Location pulumi.StringPtrInput
@@ -150,7 +150,7 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+	// An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
 	Identity ClusterIdentity `pulumi:"identity"`
 	// The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	Location *string `pulumi:"location"`
@@ -166,7 +166,7 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+	// An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
 	Identity ClusterIdentityInput
 	// The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
 	Location pulumi.StringPtrInput

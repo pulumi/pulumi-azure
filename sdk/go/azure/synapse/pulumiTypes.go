@@ -1199,7 +1199,7 @@ func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-type WorkspaceAadAdmin struct {
+type WorkspaceAadAdminType struct {
 	// The login name of the Azure AD Administrator of this Synapse Workspace.
 	Login string `pulumi:"login"`
 	// The object id of the Azure AD Administrator of this Synapse Workspace.
@@ -1208,18 +1208,18 @@ type WorkspaceAadAdmin struct {
 	TenantId string `pulumi:"tenantId"`
 }
 
-// WorkspaceAadAdminInput is an input type that accepts WorkspaceAadAdminArgs and WorkspaceAadAdminOutput values.
-// You can construct a concrete instance of `WorkspaceAadAdminInput` via:
+// WorkspaceAadAdminTypeInput is an input type that accepts WorkspaceAadAdminTypeArgs and WorkspaceAadAdminTypeOutput values.
+// You can construct a concrete instance of `WorkspaceAadAdminTypeInput` via:
 //
-//          WorkspaceAadAdminArgs{...}
-type WorkspaceAadAdminInput interface {
+//          WorkspaceAadAdminTypeArgs{...}
+type WorkspaceAadAdminTypeInput interface {
 	pulumi.Input
 
-	ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput
-	ToWorkspaceAadAdminOutputWithContext(context.Context) WorkspaceAadAdminOutput
+	ToWorkspaceAadAdminTypeOutput() WorkspaceAadAdminTypeOutput
+	ToWorkspaceAadAdminTypeOutputWithContext(context.Context) WorkspaceAadAdminTypeOutput
 }
 
-type WorkspaceAadAdminArgs struct {
+type WorkspaceAadAdminTypeArgs struct {
 	// The login name of the Azure AD Administrator of this Synapse Workspace.
 	Login pulumi.StringInput `pulumi:"login"`
 	// The object id of the Azure AD Administrator of this Synapse Workspace.
@@ -1228,125 +1228,125 @@ type WorkspaceAadAdminArgs struct {
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
 
-func (WorkspaceAadAdminArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceAadAdmin)(nil)).Elem()
+func (WorkspaceAadAdminTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceAadAdminType)(nil)).Elem()
 }
 
-func (i WorkspaceAadAdminArgs) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {
-	return i.ToWorkspaceAadAdminOutputWithContext(context.Background())
+func (i WorkspaceAadAdminTypeArgs) ToWorkspaceAadAdminTypeOutput() WorkspaceAadAdminTypeOutput {
+	return i.ToWorkspaceAadAdminTypeOutputWithContext(context.Background())
 }
 
-func (i WorkspaceAadAdminArgs) ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminOutput)
+func (i WorkspaceAadAdminTypeArgs) ToWorkspaceAadAdminTypeOutputWithContext(ctx context.Context) WorkspaceAadAdminTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminTypeOutput)
 }
 
-func (i WorkspaceAadAdminArgs) ToWorkspaceAadAdminPtrOutput() WorkspaceAadAdminPtrOutput {
-	return i.ToWorkspaceAadAdminPtrOutputWithContext(context.Background())
+func (i WorkspaceAadAdminTypeArgs) ToWorkspaceAadAdminTypePtrOutput() WorkspaceAadAdminTypePtrOutput {
+	return i.ToWorkspaceAadAdminTypePtrOutputWithContext(context.Background())
 }
 
-func (i WorkspaceAadAdminArgs) ToWorkspaceAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceAadAdminPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminOutput).ToWorkspaceAadAdminPtrOutputWithContext(ctx)
+func (i WorkspaceAadAdminTypeArgs) ToWorkspaceAadAdminTypePtrOutputWithContext(ctx context.Context) WorkspaceAadAdminTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminTypeOutput).ToWorkspaceAadAdminTypePtrOutputWithContext(ctx)
 }
 
-// WorkspaceAadAdminPtrInput is an input type that accepts WorkspaceAadAdminArgs, WorkspaceAadAdminPtr and WorkspaceAadAdminPtrOutput values.
-// You can construct a concrete instance of `WorkspaceAadAdminPtrInput` via:
+// WorkspaceAadAdminTypePtrInput is an input type that accepts WorkspaceAadAdminTypeArgs, WorkspaceAadAdminTypePtr and WorkspaceAadAdminTypePtrOutput values.
+// You can construct a concrete instance of `WorkspaceAadAdminTypePtrInput` via:
 //
-//          WorkspaceAadAdminArgs{...}
+//          WorkspaceAadAdminTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type WorkspaceAadAdminPtrInput interface {
+type WorkspaceAadAdminTypePtrInput interface {
 	pulumi.Input
 
-	ToWorkspaceAadAdminPtrOutput() WorkspaceAadAdminPtrOutput
-	ToWorkspaceAadAdminPtrOutputWithContext(context.Context) WorkspaceAadAdminPtrOutput
+	ToWorkspaceAadAdminTypePtrOutput() WorkspaceAadAdminTypePtrOutput
+	ToWorkspaceAadAdminTypePtrOutputWithContext(context.Context) WorkspaceAadAdminTypePtrOutput
 }
 
-type workspaceAadAdminPtrType WorkspaceAadAdminArgs
+type workspaceAadAdminTypePtrType WorkspaceAadAdminTypeArgs
 
-func WorkspaceAadAdminPtr(v *WorkspaceAadAdminArgs) WorkspaceAadAdminPtrInput {
-	return (*workspaceAadAdminPtrType)(v)
+func WorkspaceAadAdminTypePtr(v *WorkspaceAadAdminTypeArgs) WorkspaceAadAdminTypePtrInput {
+	return (*workspaceAadAdminTypePtrType)(v)
 }
 
-func (*workspaceAadAdminPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceAadAdmin)(nil)).Elem()
+func (*workspaceAadAdminTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceAadAdminType)(nil)).Elem()
 }
 
-func (i *workspaceAadAdminPtrType) ToWorkspaceAadAdminPtrOutput() WorkspaceAadAdminPtrOutput {
-	return i.ToWorkspaceAadAdminPtrOutputWithContext(context.Background())
+func (i *workspaceAadAdminTypePtrType) ToWorkspaceAadAdminTypePtrOutput() WorkspaceAadAdminTypePtrOutput {
+	return i.ToWorkspaceAadAdminTypePtrOutputWithContext(context.Background())
 }
 
-func (i *workspaceAadAdminPtrType) ToWorkspaceAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceAadAdminPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminPtrOutput)
+func (i *workspaceAadAdminTypePtrType) ToWorkspaceAadAdminTypePtrOutputWithContext(ctx context.Context) WorkspaceAadAdminTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminTypePtrOutput)
 }
 
-type WorkspaceAadAdminOutput struct{ *pulumi.OutputState }
+type WorkspaceAadAdminTypeOutput struct{ *pulumi.OutputState }
 
-func (WorkspaceAadAdminOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceAadAdmin)(nil)).Elem()
+func (WorkspaceAadAdminTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceAadAdminType)(nil)).Elem()
 }
 
-func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {
+func (o WorkspaceAadAdminTypeOutput) ToWorkspaceAadAdminTypeOutput() WorkspaceAadAdminTypeOutput {
 	return o
 }
 
-func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput {
+func (o WorkspaceAadAdminTypeOutput) ToWorkspaceAadAdminTypeOutputWithContext(ctx context.Context) WorkspaceAadAdminTypeOutput {
 	return o
 }
 
-func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminPtrOutput() WorkspaceAadAdminPtrOutput {
-	return o.ToWorkspaceAadAdminPtrOutputWithContext(context.Background())
+func (o WorkspaceAadAdminTypeOutput) ToWorkspaceAadAdminTypePtrOutput() WorkspaceAadAdminTypePtrOutput {
+	return o.ToWorkspaceAadAdminTypePtrOutputWithContext(context.Background())
 }
 
-func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceAadAdminPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceAadAdmin) *WorkspaceAadAdmin {
+func (o WorkspaceAadAdminTypeOutput) ToWorkspaceAadAdminTypePtrOutputWithContext(ctx context.Context) WorkspaceAadAdminTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceAadAdminType) *WorkspaceAadAdminType {
 		return &v
-	}).(WorkspaceAadAdminPtrOutput)
+	}).(WorkspaceAadAdminTypePtrOutput)
 }
 
 // The login name of the Azure AD Administrator of this Synapse Workspace.
-func (o WorkspaceAadAdminOutput) Login() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceAadAdmin) string { return v.Login }).(pulumi.StringOutput)
+func (o WorkspaceAadAdminTypeOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceAadAdminType) string { return v.Login }).(pulumi.StringOutput)
 }
 
 // The object id of the Azure AD Administrator of this Synapse Workspace.
-func (o WorkspaceAadAdminOutput) ObjectId() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceAadAdmin) string { return v.ObjectId }).(pulumi.StringOutput)
+func (o WorkspaceAadAdminTypeOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceAadAdminType) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
 // The tenant id of the Azure AD Administrator of this Synapse Workspace.
-func (o WorkspaceAadAdminOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceAadAdmin) string { return v.TenantId }).(pulumi.StringOutput)
+func (o WorkspaceAadAdminTypeOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceAadAdminType) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-type WorkspaceAadAdminPtrOutput struct{ *pulumi.OutputState }
+type WorkspaceAadAdminTypePtrOutput struct{ *pulumi.OutputState }
 
-func (WorkspaceAadAdminPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceAadAdmin)(nil)).Elem()
+func (WorkspaceAadAdminTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceAadAdminType)(nil)).Elem()
 }
 
-func (o WorkspaceAadAdminPtrOutput) ToWorkspaceAadAdminPtrOutput() WorkspaceAadAdminPtrOutput {
+func (o WorkspaceAadAdminTypePtrOutput) ToWorkspaceAadAdminTypePtrOutput() WorkspaceAadAdminTypePtrOutput {
 	return o
 }
 
-func (o WorkspaceAadAdminPtrOutput) ToWorkspaceAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceAadAdminPtrOutput {
+func (o WorkspaceAadAdminTypePtrOutput) ToWorkspaceAadAdminTypePtrOutputWithContext(ctx context.Context) WorkspaceAadAdminTypePtrOutput {
 	return o
 }
 
-func (o WorkspaceAadAdminPtrOutput) Elem() WorkspaceAadAdminOutput {
-	return o.ApplyT(func(v *WorkspaceAadAdmin) WorkspaceAadAdmin {
+func (o WorkspaceAadAdminTypePtrOutput) Elem() WorkspaceAadAdminTypeOutput {
+	return o.ApplyT(func(v *WorkspaceAadAdminType) WorkspaceAadAdminType {
 		if v != nil {
 			return *v
 		}
-		var ret WorkspaceAadAdmin
+		var ret WorkspaceAadAdminType
 		return ret
-	}).(WorkspaceAadAdminOutput)
+	}).(WorkspaceAadAdminTypeOutput)
 }
 
 // The login name of the Azure AD Administrator of this Synapse Workspace.
-func (o WorkspaceAadAdminPtrOutput) Login() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceAadAdmin) *string {
+func (o WorkspaceAadAdminTypePtrOutput) Login() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceAadAdminType) *string {
 		if v == nil {
 			return nil
 		}
@@ -1355,8 +1355,8 @@ func (o WorkspaceAadAdminPtrOutput) Login() pulumi.StringPtrOutput {
 }
 
 // The object id of the Azure AD Administrator of this Synapse Workspace.
-func (o WorkspaceAadAdminPtrOutput) ObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceAadAdmin) *string {
+func (o WorkspaceAadAdminTypePtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceAadAdminType) *string {
 		if v == nil {
 			return nil
 		}
@@ -1365,8 +1365,8 @@ func (o WorkspaceAadAdminPtrOutput) ObjectId() pulumi.StringPtrOutput {
 }
 
 // The tenant id of the Azure AD Administrator of this Synapse Workspace.
-func (o WorkspaceAadAdminPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceAadAdmin) *string {
+func (o WorkspaceAadAdminTypePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceAadAdminType) *string {
 		if v == nil {
 			return nil
 		}
@@ -2610,8 +2610,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolVulnerabilityAssessmentBaselineBaselineArrayInput)(nil)).Elem(), SqlPoolVulnerabilityAssessmentBaselineBaselineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRecurringScansInput)(nil)).Elem(), SqlPoolVulnerabilityAssessmentRecurringScansArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolVulnerabilityAssessmentRecurringScansPtrInput)(nil)).Elem(), SqlPoolVulnerabilityAssessmentRecurringScansArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminInput)(nil)).Elem(), WorkspaceAadAdminArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminPtrInput)(nil)).Elem(), WorkspaceAadAdminArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminTypeInput)(nil)).Elem(), WorkspaceAadAdminTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminTypePtrInput)(nil)).Elem(), WorkspaceAadAdminTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAzureDevopsRepoInput)(nil)).Elem(), WorkspaceAzureDevopsRepoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAzureDevopsRepoPtrInput)(nil)).Elem(), WorkspaceAzureDevopsRepoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomerManagedKeyInput)(nil)).Elem(), WorkspaceCustomerManagedKeyArgs{})
@@ -2642,8 +2642,8 @@ func init() {
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRecurringScansOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput{})
-	pulumi.RegisterOutputType(WorkspaceAadAdminOutput{})
-	pulumi.RegisterOutputType(WorkspaceAadAdminPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceAadAdminTypeOutput{})
+	pulumi.RegisterOutputType(WorkspaceAadAdminTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceAzureDevopsRepoOutput{})
 	pulumi.RegisterOutputType(WorkspaceAzureDevopsRepoPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomerManagedKeyOutput{})

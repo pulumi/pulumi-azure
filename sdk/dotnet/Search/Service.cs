@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Search
         public Output<ImmutableArray<string>> AllowedIps { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }

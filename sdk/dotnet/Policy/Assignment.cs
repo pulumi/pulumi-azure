@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Policy
         public Output<bool?> EnforcementMode { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AssignmentIdentity> Identity { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.Policy
         public Input<bool>? EnforcementMode { get; set; }
 
         /// <summary>
-        /// An `identity` block.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AssignmentIdentityArgs>? Identity { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.Policy
         public Input<bool>? EnforcementMode { get; set; }
 
         /// <summary>
-        /// An `identity` block.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AssignmentIdentityGetArgs>? Identity { get; set; }

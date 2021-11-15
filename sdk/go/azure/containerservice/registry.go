@@ -140,7 +140,7 @@ type Registry struct {
 	GeoreplicationLocations pulumi.StringArrayOutput `pulumi:"georeplicationLocations"`
 	// A `georeplications` block as documented below.
 	Georeplications RegistryGeoreplicationArrayOutput `pulumi:"georeplications"`
-	// An `identity` block as documented below.
+	// An `identity` block as defined below.
 	Identity RegistryIdentityOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -216,7 +216,7 @@ type registryState struct {
 	GeoreplicationLocations []string `pulumi:"georeplicationLocations"`
 	// A `georeplications` block as documented below.
 	Georeplications []RegistryGeoreplication `pulumi:"georeplications"`
-	// An `identity` block as documented below.
+	// An `identity` block as defined below.
 	Identity *RegistryIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -261,7 +261,7 @@ type RegistryState struct {
 	GeoreplicationLocations pulumi.StringArrayInput
 	// A `georeplications` block as documented below.
 	Georeplications RegistryGeoreplicationArrayInput
-	// An `identity` block as documented below.
+	// An `identity` block as defined below.
 	Identity RegistryIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -306,7 +306,7 @@ type registryArgs struct {
 	GeoreplicationLocations []string `pulumi:"georeplicationLocations"`
 	// A `georeplications` block as documented below.
 	Georeplications []RegistryGeoreplication `pulumi:"georeplications"`
-	// An `identity` block as documented below.
+	// An `identity` block as defined below.
 	Identity *RegistryIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -346,7 +346,7 @@ type RegistryArgs struct {
 	GeoreplicationLocations pulumi.StringArrayInput
 	// A `georeplications` block as documented below.
 	Georeplications RegistryGeoreplicationArrayInput
-	// An `identity` block as documented below.
+	// An `identity` block as defined below.
 	Identity RegistryIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

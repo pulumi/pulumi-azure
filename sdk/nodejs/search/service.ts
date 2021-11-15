@@ -63,7 +63,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly allowedIps!: pulumi.Output<string[] | undefined>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.search.ServiceIdentity | undefined>;
     /**
@@ -175,7 +175,7 @@ export interface ServiceState {
      */
     allowedIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.search.ServiceIdentity>;
     /**
@@ -233,7 +233,7 @@ export interface ServiceArgs {
      */
     allowedIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.search.ServiceIdentity>;
     /**

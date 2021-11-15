@@ -78,7 +78,7 @@ type Assignment struct {
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
 	EnforcementMode pulumi.BoolPtrOutput `pulumi:"enforcementMode"`
-	// An `identity` block.
+	// An `identity` block as defined below.
 	Identity AssignmentIdentityOutput `pulumi:"identity"`
 	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -137,7 +137,7 @@ type assignmentState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
 	EnforcementMode *bool `pulumi:"enforcementMode"`
-	// An `identity` block.
+	// An `identity` block as defined below.
 	Identity *AssignmentIdentity `pulumi:"identity"`
 	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -162,7 +162,7 @@ type AssignmentState struct {
 	DisplayName pulumi.StringPtrInput
 	// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
 	EnforcementMode pulumi.BoolPtrInput
-	// An `identity` block.
+	// An `identity` block as defined below.
 	Identity AssignmentIdentityPtrInput
 	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -191,7 +191,7 @@ type assignmentArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
 	EnforcementMode *bool `pulumi:"enforcementMode"`
-	// An `identity` block.
+	// An `identity` block as defined below.
 	Identity *AssignmentIdentity `pulumi:"identity"`
 	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -217,7 +217,7 @@ type AssignmentArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
 	EnforcementMode pulumi.BoolPtrInput
-	// An `identity` block.
+	// An `identity` block as defined below.
 	Identity AssignmentIdentityPtrInput
 	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

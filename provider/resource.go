@@ -1187,6 +1187,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_action_rule_suppression":     {Tok: azureResource(azureMonitoring, "ActionRuleSuppression")},
 			"azurerm_monitor_smart_detector_alert_rule":   {Tok: azureResource(azureMonitoring, "SmartDetectorAlertRule")},
 			"azurerm_monitor_aad_diagnostic_setting":      {Tok: azureResource(azureMonitoring, "AadDiagnosticSetting")},
+			"azurerm_monitor_private_link_scope":          {Tok: azureResource(azureMonitoring, "PrivateLinkScope")},
 			"azurerm_logz_monitor":                        {Tok: azureResource(azureMonitoring, "LogzMonitor")},
 
 			// MS SQL
@@ -1229,6 +1230,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_mysql_flexible_server":               {Tok: azureResource(azureMySQL, "FlexibleServer")},
 			"azurerm_mysql_flexible_server_configuration": {Tok: azureResource(azureMySQL, "FlexibleServerConfiguration")},
+			"azurerm_mysql_flexible_server_firewall_rule": {Tok: azureResource(azureMySQL, "FlexibleServerFirewallRule")},
 
 			// Postgress SQL
 			"azurerm_postgresql_configuration": {
@@ -1943,6 +1945,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_synapse_sql_pool_extended_auditing_policy":          {Tok: azureResource(azureSynapse, "SqlPoolExtendedAuditingPolicy")},
 			"azurerm_synapse_workspace_extended_auditing_policy":         {Tok: azureResource(azureSynapse, "WorkspaceExtendedAuditingPolicy")},
 			"azurerm_synapse_sql_pool_vulnerability_assessment_baseline": {Tok: azureResource(azureSynapse, "SqlPoolVulnerabilityAssessmentBaseline")},
+			"azurerm_synapse_workspace_aad_admin":                        {Tok: azureResource(azureSynapse, "WorkspaceAadAdmin")},
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},
@@ -2046,6 +2049,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"azurerm_batch_application":                 {Tok: azureDataSource(azureBatch, "getApplication")},
 			"azurerm_subscriptions":                     {Tok: azureDataSource(azureCore, "getSubscriptions")},
 			"azurerm_cdn_profile":                       {Tok: azureDataSource(azureCDN, "getProfile")},
 			"azurerm_client_config":                     {Tok: azureDataSource(azureCore, "getClientConfig")},

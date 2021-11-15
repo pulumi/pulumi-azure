@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<ImmutableArray<string>> Fqdns { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block is documented below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block is documented below.
+        /// A `storage` block as defined below.
         /// </summary>
         [Output("storages")]
         public Output<ImmutableArray<Outputs.AccountStorage>> Storages { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// An `identity` block is documented below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.Cognitive
         private InputList<Inputs.AccountStorageArgs>? _storages;
 
         /// <summary>
-        /// An `identity` block is documented below.
+        /// A `storage` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountStorageArgs> Storages
         {
@@ -363,7 +363,7 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// An `identity` block is documented below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
@@ -468,7 +468,7 @@ namespace Pulumi.Azure.Cognitive
         private InputList<Inputs.AccountStorageGetArgs>? _storages;
 
         /// <summary>
-        /// An `identity` block is documented below.
+        /// A `storage` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountStorageGetArgs> Storages
         {

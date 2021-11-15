@@ -9,6 +9,7 @@ from .account import *
 from .application import *
 from .certificate import *
 from .get_account import *
+from .get_application import *
 from .get_certificate import *
 from .get_pool import *
 from .job import *

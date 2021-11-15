@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class VirtualMachineOsProfileWindowsConfig
     {
         /// <summary>
-        /// A `additional_unattend_config` block.
+        /// An `additional_unattend_config` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig> AdditionalUnattendConfigs;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? Timezone;
         /// <summary>
-        /// One or more `winrm` block.
+        /// One or more `winrm` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineOsProfileWindowsConfigWinrm> Winrms;
 

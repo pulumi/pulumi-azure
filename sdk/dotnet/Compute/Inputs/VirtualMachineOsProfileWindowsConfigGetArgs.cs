@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigGetArgs>? _additionalUnattendConfigs;
 
         /// <summary>
-        /// A `additional_unattend_config` block.
+        /// An `additional_unattend_config` block as defined below.
         /// </summary>
         public InputList<Inputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigGetArgs> AdditionalUnattendConfigs
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.VirtualMachineOsProfileWindowsConfigWinrmGetArgs>? _winrms;
 
         /// <summary>
-        /// One or more `winrm` block.
+        /// One or more `winrm` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualMachineOsProfileWindowsConfigWinrmGetArgs> Winrms
         {

@@ -126,7 +126,7 @@ export class ComputeInstance extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+     * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
      */
     public readonly identity!: pulumi.Output<outputs.machinelearning.ComputeInstanceIdentity | undefined>;
     /**
@@ -232,7 +232,7 @@ export interface ComputeInstanceState {
      */
     description?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+     * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
      */
     identity?: pulumi.Input<inputs.machinelearning.ComputeInstanceIdentity>;
     /**
@@ -286,7 +286,7 @@ export interface ComputeInstanceArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+     * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
      */
     identity?: pulumi.Input<inputs.machinelearning.ComputeInstanceIdentity>;
     /**
