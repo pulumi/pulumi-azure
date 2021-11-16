@@ -20,6 +20,7 @@ from .get_scheduled_query_rules_log import *
 from .log_profile import *
 from .logz_monitor import *
 from .metric_alert import *
+from .private_link_scope import *
 from .scheduled_query_rules_alert import *
 from .scheduled_query_rules_log import *
 from .smart_detector_alert_rule import *

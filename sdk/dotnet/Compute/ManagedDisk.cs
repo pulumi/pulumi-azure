@@ -117,10 +117,22 @@ namespace Pulumi.Azure.Compute
         public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
 
         /// <summary>
+        /// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+        /// </summary>
+        [Output("diskIopsReadOnly")]
+        public Output<int> DiskIopsReadOnly { get; private set; } = null!;
+
+        /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Output("diskIopsReadWrite")]
         public Output<int> DiskIopsReadWrite { get; private set; } = null!;
+
+        /// <summary>
+        /// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+        /// </summary>
+        [Output("diskMbpsReadOnly")]
+        public Output<int> DiskMbpsReadOnly { get; private set; } = null!;
 
         /// <summary>
         /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
@@ -301,10 +313,22 @@ namespace Pulumi.Azure.Compute
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
+        /// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+        /// </summary>
+        [Input("diskIopsReadOnly")]
+        public Input<int>? DiskIopsReadOnly { get; set; }
+
+        /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Input("diskIopsReadWrite")]
         public Input<int>? DiskIopsReadWrite { get; set; }
+
+        /// <summary>
+        /// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+        /// </summary>
+        [Input("diskMbpsReadOnly")]
+        public Input<int>? DiskMbpsReadOnly { get; set; }
 
         /// <summary>
         /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
@@ -452,10 +476,22 @@ namespace Pulumi.Azure.Compute
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
+        /// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+        /// </summary>
+        [Input("diskIopsReadOnly")]
+        public Input<int>? DiskIopsReadOnly { get; set; }
+
+        /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Input("diskIopsReadWrite")]
         public Input<int>? DiskIopsReadWrite { get; set; }
+
+        /// <summary>
+        /// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+        /// </summary>
+        [Input("diskMbpsReadOnly")]
+        public Input<int>? DiskMbpsReadOnly { get; set; }
 
         /// <summary>
         /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.

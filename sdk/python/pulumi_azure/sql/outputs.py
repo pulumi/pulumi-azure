@@ -15,6 +15,7 @@ __all__ = [
     'FailoverGroupPartnerServer',
     'FailoverGroupReadWriteEndpointFailoverPolicy',
     'FailoverGroupReadonlyEndpointFailoverPolicy',
+    'ManagedInstanceIdentity',
     'SqlServerExtendedAuditingPolicy',
     'SqlServerIdentity',
     'SqlServerThreatDetectionPolicy',
@@ -456,6 +457,68 @@ class FailoverGroupReadonlyEndpointFailoverPolicy(dict):
         Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
         """
         return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class ManagedInstanceIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedInstanceIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedInstanceIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedInstanceIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        :param str type: The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+        """
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

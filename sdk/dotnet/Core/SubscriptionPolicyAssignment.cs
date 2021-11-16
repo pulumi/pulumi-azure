@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Core
         public Output<bool?> Enforce { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.SubscriptionPolicyAssignmentIdentity?> Identity { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Core
         public Input<bool>? Enforce { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SubscriptionPolicyAssignmentIdentityArgs>? Identity { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.Core
         public Input<bool>? Enforce { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SubscriptionPolicyAssignmentIdentityGetArgs>? Identity { get; set; }

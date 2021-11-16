@@ -65,7 +65,7 @@ type ExpressRoutePort struct {
 	Ethertype pulumi.StringOutput `pulumi:"ethertype"`
 	// The resource GUID of the Express Route Port.
 	Guid pulumi.StringOutput `pulumi:"guid"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity ExpressRoutePortIdentityPtrOutput `pulumi:"identity"`
 	// A list of `link` blocks as defined below.
 	Link1 ExpressRoutePortLink1Output `pulumi:"link1"`
@@ -134,7 +134,7 @@ type expressRoutePortState struct {
 	Ethertype *string `pulumi:"ethertype"`
 	// The resource GUID of the Express Route Port.
 	Guid *string `pulumi:"guid"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity *ExpressRoutePortIdentity `pulumi:"identity"`
 	// A list of `link` blocks as defined below.
 	Link1 *ExpressRoutePortLink1 `pulumi:"link1"`
@@ -163,7 +163,7 @@ type ExpressRoutePortState struct {
 	Ethertype pulumi.StringPtrInput
 	// The resource GUID of the Express Route Port.
 	Guid pulumi.StringPtrInput
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity ExpressRoutePortIdentityPtrInput
 	// A list of `link` blocks as defined below.
 	Link1 ExpressRoutePortLink1PtrInput
@@ -192,7 +192,7 @@ type expressRoutePortArgs struct {
 	BandwidthInGbps int `pulumi:"bandwidthInGbps"`
 	// The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
 	Encapsulation string `pulumi:"encapsulation"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity *ExpressRoutePortIdentity `pulumi:"identity"`
 	// A list of `link` blocks as defined below.
 	Link1 *ExpressRoutePortLink1 `pulumi:"link1"`
@@ -216,7 +216,7 @@ type ExpressRoutePortArgs struct {
 	BandwidthInGbps pulumi.IntInput
 	// The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
 	Encapsulation pulumi.StringInput
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity ExpressRoutePortIdentityPtrInput
 	// A list of `link` blocks as defined below.
 	Link1 ExpressRoutePortLink1PtrInput

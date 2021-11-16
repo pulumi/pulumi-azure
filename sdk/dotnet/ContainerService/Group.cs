@@ -40,7 +40,7 @@ namespace Pulumi.Azure.ContainerService
     ///                 new Azure.ContainerService.Inputs.GroupContainerArgs
     ///                 {
     ///                     Name = "hello-world",
-    ///                     Image = "microsoft/aci-helloworld:latest",
+    ///                     Image = "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
     ///                     Cpu = 0.5,
     ///                     Memory = 1.5,
     ///                     Ports = 
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ContainerService
     ///                 new Azure.ContainerService.Inputs.GroupContainerArgs
     ///                 {
     ///                     Name = "sidecar",
-    ///                     Image = "microsoft/aci-tutorial-sidecar",
+    ///                     Image = "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar",
     ///                     Cpu = 0.5,
     ///                     Memory = 1.5,
     ///                 },

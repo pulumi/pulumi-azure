@@ -135,9 +135,10 @@ type VirtualNetworkGateway struct {
 	EnableBgp pulumi.BoolOutput `pulumi:"enableBgp"`
 	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
 	Generation pulumi.StringOutput `pulumi:"generation"`
-	// One or two `ipConfiguration` blocks documented below.
-	// An active-standby gateway requires exactly one `ipConfiguration` block whereas
-	// an active-active gateway requires exactly two `ipConfiguration` blocks.
+	// One, two or three `ipConfiguration` blocks documented below.
+	// An active-standby gateway requires exactly one `ipConfiguration` block,
+	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations VirtualNetworkGatewayIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
@@ -233,9 +234,10 @@ type virtualNetworkGatewayState struct {
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
 	Generation *string `pulumi:"generation"`
-	// One or two `ipConfiguration` blocks documented below.
-	// An active-standby gateway requires exactly one `ipConfiguration` block whereas
-	// an active-active gateway requires exactly two `ipConfiguration` blocks.
+	// One, two or three `ipConfiguration` blocks documented below.
+	// An active-standby gateway requires exactly one `ipConfiguration` block,
+	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations []VirtualNetworkGatewayIpConfiguration `pulumi:"ipConfigurations"`
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
@@ -291,9 +293,10 @@ type VirtualNetworkGatewayState struct {
 	EnableBgp pulumi.BoolPtrInput
 	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
 	Generation pulumi.StringPtrInput
-	// One or two `ipConfiguration` blocks documented below.
-	// An active-standby gateway requires exactly one `ipConfiguration` block whereas
-	// an active-active gateway requires exactly two `ipConfiguration` blocks.
+	// One, two or three `ipConfiguration` blocks documented below.
+	// An active-standby gateway requires exactly one `ipConfiguration` block,
+	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations VirtualNetworkGatewayIpConfigurationArrayInput
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
@@ -353,9 +356,10 @@ type virtualNetworkGatewayArgs struct {
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
 	Generation *string `pulumi:"generation"`
-	// One or two `ipConfiguration` blocks documented below.
-	// An active-standby gateway requires exactly one `ipConfiguration` block whereas
-	// an active-active gateway requires exactly two `ipConfiguration` blocks.
+	// One, two or three `ipConfiguration` blocks documented below.
+	// An active-standby gateway requires exactly one `ipConfiguration` block,
+	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations []VirtualNetworkGatewayIpConfiguration `pulumi:"ipConfigurations"`
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
@@ -412,9 +416,10 @@ type VirtualNetworkGatewayArgs struct {
 	EnableBgp pulumi.BoolPtrInput
 	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
 	Generation pulumi.StringPtrInput
-	// One or two `ipConfiguration` blocks documented below.
-	// An active-standby gateway requires exactly one `ipConfiguration` block whereas
-	// an active-active gateway requires exactly two `ipConfiguration` blocks.
+	// One, two or three `ipConfiguration` blocks documented below.
+	// An active-standby gateway requires exactly one `ipConfiguration` block,
+	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
 	IpConfigurations VirtualNetworkGatewayIpConfigurationArrayInput
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.

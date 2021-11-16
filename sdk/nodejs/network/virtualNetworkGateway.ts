@@ -146,9 +146,10 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly generation!: pulumi.Output<string>;
     /**
-     * One or two `ipConfiguration` blocks documented below.
-     * An active-standby gateway requires exactly one `ipConfiguration` block whereas
-     * an active-active gateway requires exactly two `ipConfiguration` blocks.
+     * One, two or three `ipConfiguration` blocks documented below.
+     * An active-standby gateway requires exactly one `ipConfiguration` block,
+     * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+     * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
      */
     public readonly ipConfigurations!: pulumi.Output<outputs.network.VirtualNetworkGatewayIpConfiguration[]>;
     /**
@@ -303,9 +304,10 @@ export interface VirtualNetworkGatewayState {
      */
     generation?: pulumi.Input<string>;
     /**
-     * One or two `ipConfiguration` blocks documented below.
-     * An active-standby gateway requires exactly one `ipConfiguration` block whereas
-     * an active-active gateway requires exactly two `ipConfiguration` blocks.
+     * One, two or three `ipConfiguration` blocks documented below.
+     * An active-standby gateway requires exactly one `ipConfiguration` block,
+     * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+     * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
      */
     ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayIpConfiguration>[]>;
     /**
@@ -394,9 +396,10 @@ export interface VirtualNetworkGatewayArgs {
      */
     generation?: pulumi.Input<string>;
     /**
-     * One or two `ipConfiguration` blocks documented below.
-     * An active-standby gateway requires exactly one `ipConfiguration` block whereas
-     * an active-active gateway requires exactly two `ipConfiguration` blocks.
+     * One, two or three `ipConfiguration` blocks documented below.
+     * An active-standby gateway requires exactly one `ipConfiguration` block,
+     * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+     * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
      */
     ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayIpConfiguration>[]>;
     /**

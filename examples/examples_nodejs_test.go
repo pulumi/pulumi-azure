@@ -1,4 +1,5 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+//go:build nodejs || all
 // +build nodejs all
 
 package examples
@@ -323,7 +324,7 @@ func TestAccFrontdoor(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "frontdoor"),
-			RunUpdateTest: true,
+			RunUpdateTest: false,
 		})
 
 	integration.ProgramTest(t, &test)

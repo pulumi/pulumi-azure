@@ -1148,6 +1148,181 @@ func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) Mode() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type ManagedInstanceIdentity struct {
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	TenantId *string `pulumi:"tenantId"`
+	// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+	Type *string `pulumi:"type"`
+}
+
+// ManagedInstanceIdentityInput is an input type that accepts ManagedInstanceIdentityArgs and ManagedInstanceIdentityOutput values.
+// You can construct a concrete instance of `ManagedInstanceIdentityInput` via:
+//
+//          ManagedInstanceIdentityArgs{...}
+type ManagedInstanceIdentityInput interface {
+	pulumi.Input
+
+	ToManagedInstanceIdentityOutput() ManagedInstanceIdentityOutput
+	ToManagedInstanceIdentityOutputWithContext(context.Context) ManagedInstanceIdentityOutput
+}
+
+type ManagedInstanceIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ManagedInstanceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (i ManagedInstanceIdentityArgs) ToManagedInstanceIdentityOutput() ManagedInstanceIdentityOutput {
+	return i.ToManagedInstanceIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceIdentityArgs) ToManagedInstanceIdentityOutputWithContext(ctx context.Context) ManagedInstanceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceIdentityOutput)
+}
+
+func (i ManagedInstanceIdentityArgs) ToManagedInstanceIdentityPtrOutput() ManagedInstanceIdentityPtrOutput {
+	return i.ToManagedInstanceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceIdentityArgs) ToManagedInstanceIdentityPtrOutputWithContext(ctx context.Context) ManagedInstanceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceIdentityOutput).ToManagedInstanceIdentityPtrOutputWithContext(ctx)
+}
+
+// ManagedInstanceIdentityPtrInput is an input type that accepts ManagedInstanceIdentityArgs, ManagedInstanceIdentityPtr and ManagedInstanceIdentityPtrOutput values.
+// You can construct a concrete instance of `ManagedInstanceIdentityPtrInput` via:
+//
+//          ManagedInstanceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedInstanceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToManagedInstanceIdentityPtrOutput() ManagedInstanceIdentityPtrOutput
+	ToManagedInstanceIdentityPtrOutputWithContext(context.Context) ManagedInstanceIdentityPtrOutput
+}
+
+type managedInstanceIdentityPtrType ManagedInstanceIdentityArgs
+
+func ManagedInstanceIdentityPtr(v *ManagedInstanceIdentityArgs) ManagedInstanceIdentityPtrInput {
+	return (*managedInstanceIdentityPtrType)(v)
+}
+
+func (*managedInstanceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (i *managedInstanceIdentityPtrType) ToManagedInstanceIdentityPtrOutput() ManagedInstanceIdentityPtrOutput {
+	return i.ToManagedInstanceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *managedInstanceIdentityPtrType) ToManagedInstanceIdentityPtrOutputWithContext(ctx context.Context) ManagedInstanceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceIdentityPtrOutput)
+}
+
+type ManagedInstanceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityOutput() ManagedInstanceIdentityOutput {
+	return o
+}
+
+func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityOutputWithContext(ctx context.Context) ManagedInstanceIdentityOutput {
+	return o
+}
+
+func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityPtrOutput() ManagedInstanceIdentityPtrOutput {
+	return o.ToManagedInstanceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityPtrOutputWithContext(ctx context.Context) ManagedInstanceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceIdentity) *ManagedInstanceIdentity {
+		return &v
+	}).(ManagedInstanceIdentityPtrOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+func (o ManagedInstanceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+func (o ManagedInstanceIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+func (o ManagedInstanceIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ManagedInstanceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (o ManagedInstanceIdentityPtrOutput) ToManagedInstanceIdentityPtrOutput() ManagedInstanceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedInstanceIdentityPtrOutput) ToManagedInstanceIdentityPtrOutputWithContext(ctx context.Context) ManagedInstanceIdentityPtrOutput {
+	return o
+}
+
+func (o ManagedInstanceIdentityPtrOutput) Elem() ManagedInstanceIdentityOutput {
+	return o.ApplyT(func(v *ManagedInstanceIdentity) ManagedInstanceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedInstanceIdentity
+		return ret
+	}).(ManagedInstanceIdentityOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+func (o ManagedInstanceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+func (o ManagedInstanceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity type of the SQL Managed Instance. Only possible values is `SystemAssigned`.
+func (o ManagedInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type SqlServerExtendedAuditingPolicy struct {
 	// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
@@ -1915,6 +2090,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadonlyEndpointFailoverPolicyInput)(nil)).Elem(), FailoverGroupReadonlyEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadonlyEndpointFailoverPolicyPtrInput)(nil)).Elem(), FailoverGroupReadonlyEndpointFailoverPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceIdentityInput)(nil)).Elem(), ManagedInstanceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceIdentityPtrInput)(nil)).Elem(), ManagedInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerExtendedAuditingPolicyInput)(nil)).Elem(), SqlServerExtendedAuditingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerExtendedAuditingPolicyPtrInput)(nil)).Elem(), SqlServerExtendedAuditingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerIdentityInput)(nil)).Elem(), SqlServerIdentityArgs{})
@@ -1935,6 +2112,8 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadonlyEndpointFailoverPolicyOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceIdentityOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SqlServerExtendedAuditingPolicyOutput{})
 	pulumi.RegisterOutputType(SqlServerExtendedAuditingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SqlServerIdentityOutput{})

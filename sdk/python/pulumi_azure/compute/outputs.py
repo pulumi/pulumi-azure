@@ -4614,11 +4614,11 @@ class VirtualMachineOsProfileWindowsConfig(dict):
                  timezone: Optional[str] = None,
                  winrms: Optional[Sequence['outputs.VirtualMachineOsProfileWindowsConfigWinrm']] = None):
         """
-        :param Sequence['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs'] additional_unattend_configs: A `additional_unattend_config` block.
+        :param Sequence['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs'] additional_unattend_configs: An `additional_unattend_config` block as defined below.
         :param bool enable_automatic_upgrades: Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
         :param bool provision_vm_agent: Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
         :param str timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-        :param Sequence['VirtualMachineOsProfileWindowsConfigWinrmArgs'] winrms: One or more `winrm` block.
+        :param Sequence['VirtualMachineOsProfileWindowsConfigWinrmArgs'] winrms: One or more `winrm` blocks as defined below.
         """
         if additional_unattend_configs is not None:
             pulumi.set(__self__, "additional_unattend_configs", additional_unattend_configs)
@@ -4635,7 +4635,7 @@ class VirtualMachineOsProfileWindowsConfig(dict):
     @pulumi.getter(name="additionalUnattendConfigs")
     def additional_unattend_configs(self) -> Optional[Sequence['outputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig']]:
         """
-        A `additional_unattend_config` block.
+        An `additional_unattend_config` block as defined below.
         """
         return pulumi.get(self, "additional_unattend_configs")
 
@@ -4667,7 +4667,7 @@ class VirtualMachineOsProfileWindowsConfig(dict):
     @pulumi.getter
     def winrms(self) -> Optional[Sequence['outputs.VirtualMachineOsProfileWindowsConfigWinrm']]:
         """
-        One or more `winrm` block.
+        One or more `winrm` blocks as defined below.
         """
         return pulumi.get(self, "winrms")
 

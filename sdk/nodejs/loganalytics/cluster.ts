@@ -69,7 +69,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+     * An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
      */
     public readonly identity!: pulumi.Output<outputs.loganalytics.ClusterIdentity>;
     /**
@@ -145,7 +145,7 @@ export interface ClusterState {
      */
     clusterId?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+     * An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
      */
     identity?: pulumi.Input<inputs.loganalytics.ClusterIdentity>;
     /**
@@ -175,7 +175,7 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+     * An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
      */
     identity: pulumi.Input<inputs.loganalytics.ClusterIdentity>;
     /**

@@ -30,7 +30,7 @@ class ServiceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
-        :param pulumi.Input['ServiceIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: The number of partitions which should be created.
@@ -97,7 +97,7 @@ class ServiceArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -197,7 +197,7 @@ class _ServiceState:
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
-        :param pulumi.Input['ServiceIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: The number of partitions which should be created.
@@ -253,7 +253,7 @@ class _ServiceState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -437,7 +437,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
-        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: The number of partitions which should be created.
@@ -562,7 +562,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
-        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: The number of partitions which should be created.
@@ -606,7 +606,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ServiceIdentity']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

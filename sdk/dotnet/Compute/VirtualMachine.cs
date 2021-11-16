@@ -124,7 +124,7 @@ namespace Pulumi.Azure.Compute
     public partial class VirtualMachine : Pulumi.CustomResource
     {
         /// <summary>
-        /// A `additional_capabilities` block.
+        /// An `additional_capabilities` block as defined below.
         /// </summary>
         [Output("additionalCapabilities")]
         public Output<Outputs.VirtualMachineAdditionalCapabilities?> AdditionalCapabilities { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> AvailabilitySetId { get; private set; } = null!;
 
         /// <summary>
-        /// A `boot_diagnostics` block.
+        /// A `boot_diagnostics` block as defined below.
         /// </summary>
         [Output("bootDiagnostics")]
         public Output<Outputs.VirtualMachineBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> DeleteOsDiskOnTermination { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.VirtualMachineIdentity> Identity { get; private set; } = null!;
@@ -184,13 +184,13 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
 
         /// <summary>
-        /// An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+        /// An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
         /// </summary>
         [Output("osProfile")]
         public Output<Outputs.VirtualMachineOsProfile?> OsProfile { get; private set; } = null!;
 
         /// <summary>
-        /// A `os_profile_linux_config` block.
+        /// An `os_profile_linux_config` block as defined below.
         /// </summary>
         [Output("osProfileLinuxConfig")]
         public Output<Outputs.VirtualMachineOsProfileLinuxConfig?> OsProfileLinuxConfig { get; private set; } = null!;
@@ -202,13 +202,13 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<Outputs.VirtualMachineOsProfileSecret>> OsProfileSecrets { get; private set; } = null!;
 
         /// <summary>
-        /// A `os_profile_windows_config` block.
+        /// An `os_profile_windows_config` block as defined below.
         /// </summary>
         [Output("osProfileWindowsConfig")]
         public Output<Outputs.VirtualMachineOsProfileWindowsConfig?> OsProfileWindowsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block.
+        /// A `plan` block as defined below.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.VirtualMachinePlan?> Plan { get; private set; } = null!;
@@ -238,13 +238,13 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<Outputs.VirtualMachineStorageDataDisk>> StorageDataDisks { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_image_reference` block.
+        /// A `storage_image_reference` block as defined below.
         /// </summary>
         [Output("storageImageReference")]
         public Output<Outputs.VirtualMachineStorageImageReference> StorageImageReference { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_os_disk` block.
+        /// A `storage_os_disk` block as defined below.
         /// </summary>
         [Output("storageOsDisk")]
         public Output<Outputs.VirtualMachineStorageOsDisk> StorageOsDisk { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.Compute
     public sealed class VirtualMachineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `additional_capabilities` block.
+        /// An `additional_capabilities` block as defined below.
         /// </summary>
         [Input("additionalCapabilities")]
         public Input<Inputs.VirtualMachineAdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? AvailabilitySetId { get; set; }
 
         /// <summary>
-        /// A `boot_diagnostics` block.
+        /// A `boot_diagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.VirtualMachineBootDiagnosticsArgs>? BootDiagnostics { get; set; }
@@ -344,7 +344,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? DeleteOsDiskOnTermination { get; set; }
 
         /// <summary>
-        /// A `identity` block.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.VirtualMachineIdentityArgs>? Identity { get; set; }
@@ -380,13 +380,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+        /// An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
         /// </summary>
         [Input("osProfile")]
         public Input<Inputs.VirtualMachineOsProfileArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// A `os_profile_linux_config` block.
+        /// An `os_profile_linux_config` block as defined below.
         /// </summary>
         [Input("osProfileLinuxConfig")]
         public Input<Inputs.VirtualMachineOsProfileLinuxConfigArgs>? OsProfileLinuxConfig { get; set; }
@@ -404,13 +404,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `os_profile_windows_config` block.
+        /// An `os_profile_windows_config` block as defined below.
         /// </summary>
         [Input("osProfileWindowsConfig")]
         public Input<Inputs.VirtualMachineOsProfileWindowsConfigArgs>? OsProfileWindowsConfig { get; set; }
 
         /// <summary>
-        /// A `plan` block.
+        /// A `plan` block as defined below.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.VirtualMachinePlanArgs>? Plan { get; set; }
@@ -446,13 +446,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `storage_image_reference` block.
+        /// A `storage_image_reference` block as defined below.
         /// </summary>
         [Input("storageImageReference")]
         public Input<Inputs.VirtualMachineStorageImageReferenceArgs>? StorageImageReference { get; set; }
 
         /// <summary>
-        /// A `storage_os_disk` block.
+        /// A `storage_os_disk` block as defined below.
         /// </summary>
         [Input("storageOsDisk", required: true)]
         public Input<Inputs.VirtualMachineStorageOsDiskArgs> StorageOsDisk { get; set; } = null!;
@@ -489,7 +489,7 @@ namespace Pulumi.Azure.Compute
     public sealed class VirtualMachineState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `additional_capabilities` block.
+        /// An `additional_capabilities` block as defined below.
         /// </summary>
         [Input("additionalCapabilities")]
         public Input<Inputs.VirtualMachineAdditionalCapabilitiesGetArgs>? AdditionalCapabilities { get; set; }
@@ -501,7 +501,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? AvailabilitySetId { get; set; }
 
         /// <summary>
-        /// A `boot_diagnostics` block.
+        /// A `boot_diagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.VirtualMachineBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
@@ -519,7 +519,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? DeleteOsDiskOnTermination { get; set; }
 
         /// <summary>
-        /// A `identity` block.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.VirtualMachineIdentityGetArgs>? Identity { get; set; }
@@ -555,13 +555,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+        /// An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
         /// </summary>
         [Input("osProfile")]
         public Input<Inputs.VirtualMachineOsProfileGetArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// A `os_profile_linux_config` block.
+        /// An `os_profile_linux_config` block as defined below.
         /// </summary>
         [Input("osProfileLinuxConfig")]
         public Input<Inputs.VirtualMachineOsProfileLinuxConfigGetArgs>? OsProfileLinuxConfig { get; set; }
@@ -579,13 +579,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `os_profile_windows_config` block.
+        /// An `os_profile_windows_config` block as defined below.
         /// </summary>
         [Input("osProfileWindowsConfig")]
         public Input<Inputs.VirtualMachineOsProfileWindowsConfigGetArgs>? OsProfileWindowsConfig { get; set; }
 
         /// <summary>
-        /// A `plan` block.
+        /// A `plan` block as defined below.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.VirtualMachinePlanGetArgs>? Plan { get; set; }
@@ -621,13 +621,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `storage_image_reference` block.
+        /// A `storage_image_reference` block as defined below.
         /// </summary>
         [Input("storageImageReference")]
         public Input<Inputs.VirtualMachineStorageImageReferenceGetArgs>? StorageImageReference { get; set; }
 
         /// <summary>
-        /// A `storage_os_disk` block.
+        /// A `storage_os_disk` block as defined below.
         /// </summary>
         [Input("storageOsDisk")]
         public Input<Inputs.VirtualMachineStorageOsDiskGetArgs>? StorageOsDisk { get; set; }

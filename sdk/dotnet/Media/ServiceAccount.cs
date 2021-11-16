@@ -63,13 +63,13 @@ namespace Pulumi.Azure.Media
     public partial class ServiceAccount : Pulumi.CustomResource
     {
         /// <summary>
-        /// An `identity` block is documented below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServiceAccountIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// An `key_delivery_access_control` block is documented below.
+        /// A `key_delivery_access_control` block as defined below.
         /// </summary>
         [Output("keyDeliveryAccessControl")]
         public Output<Outputs.ServiceAccountKeyDeliveryAccessControl> KeyDeliveryAccessControl { get; private set; } = null!;
@@ -162,13 +162,13 @@ namespace Pulumi.Azure.Media
     public sealed class ServiceAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block is documented below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceAccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// An `key_delivery_access_control` block is documented below.
+        /// A `key_delivery_access_control` block as defined below.
         /// </summary>
         [Input("keyDeliveryAccessControl")]
         public Input<Inputs.ServiceAccountKeyDeliveryAccessControlArgs>? KeyDeliveryAccessControl { get; set; }
@@ -230,13 +230,13 @@ namespace Pulumi.Azure.Media
     public sealed class ServiceAccountState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block is documented below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceAccountIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// An `key_delivery_access_control` block is documented below.
+        /// A `key_delivery_access_control` block as defined below.
         /// </summary>
         [Input("keyDeliveryAccessControl")]
         public Input<Inputs.ServiceAccountKeyDeliveryAccessControlGetArgs>? KeyDeliveryAccessControl { get; set; }

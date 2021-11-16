@@ -96,7 +96,7 @@ namespace Pulumi.Azure.VideoAnalyzer
     public partial class Analyzer : Pulumi.CustomResource
     {
         /// <summary>
-        /// An `identity` block is defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AnalyzerIdentity> Identity { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.VideoAnalyzer
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// An `storage_account` blocks is defined below.
+        /// A `storage_account` block as defined below.
         /// </summary>
         [Output("storageAccount")]
         public Output<Outputs.AnalyzerStorageAccount> StorageAccount { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.VideoAnalyzer
     public sealed class AnalyzerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block is defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.AnalyzerIdentityArgs> Identity { get; set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.VideoAnalyzer
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// An `storage_account` blocks is defined below.
+        /// A `storage_account` block as defined below.
         /// </summary>
         [Input("storageAccount", required: true)]
         public Input<Inputs.AnalyzerStorageAccountArgs> StorageAccount { get; set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.VideoAnalyzer
     public sealed class AnalyzerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block is defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AnalyzerIdentityGetArgs>? Identity { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.VideoAnalyzer
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// An `storage_account` blocks is defined below.
+        /// A `storage_account` block as defined below.
         /// </summary>
         [Input("storageAccount")]
         public Input<Inputs.AnalyzerStorageAccountGetArgs>? StorageAccount { get; set; }

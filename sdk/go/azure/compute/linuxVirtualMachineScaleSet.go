@@ -159,7 +159,7 @@ type LinuxVirtualMachineScaleSet struct {
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineScaleSetIdentityPtrOutput `pulumi:"identity"`
 	// The number of Virtual Machines in the Scale Set.
 	Instances pulumi.IntOutput `pulumi:"instances"`
@@ -296,7 +296,7 @@ type linuxVirtualMachineScaleSetState struct {
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// The number of Virtual Machines in the Scale Set.
 	Instances *int `pulumi:"instances"`
@@ -387,7 +387,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineScaleSetIdentityPtrInput
 	// The number of Virtual Machines in the Scale Set.
 	Instances pulumi.IntPtrInput
@@ -482,7 +482,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// The number of Virtual Machines in the Scale Set.
 	Instances int `pulumi:"instances"`
@@ -572,7 +572,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineScaleSetIdentityPtrInput
 	// The number of Virtual Machines in the Scale Set.
 	Instances pulumi.IntInput

@@ -104,7 +104,7 @@ import (
 type Analyzer struct {
 	pulumi.CustomResourceState
 
-	// An `identity` block is defined below.
+	// An `identity` block as defined below.
 	Identity AnalyzerIdentityOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -112,7 +112,7 @@ type Analyzer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// An `storageAccount` blocks is defined below.
+	// A `storageAccount` block as defined below.
 	StorageAccount AnalyzerStorageAccountOutput `pulumi:"storageAccount"`
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -156,7 +156,7 @@ func GetAnalyzer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Analyzer resources.
 type analyzerState struct {
-	// An `identity` block is defined below.
+	// An `identity` block as defined below.
 	Identity *AnalyzerIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -164,14 +164,14 @@ type analyzerState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// An `storageAccount` blocks is defined below.
+	// A `storageAccount` block as defined below.
 	StorageAccount *AnalyzerStorageAccount `pulumi:"storageAccount"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type AnalyzerState struct {
-	// An `identity` block is defined below.
+	// An `identity` block as defined below.
 	Identity AnalyzerIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -179,7 +179,7 @@ type AnalyzerState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// An `storageAccount` blocks is defined below.
+	// A `storageAccount` block as defined below.
 	StorageAccount AnalyzerStorageAccountPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
@@ -190,7 +190,7 @@ func (AnalyzerState) ElementType() reflect.Type {
 }
 
 type analyzerArgs struct {
-	// An `identity` block is defined below.
+	// An `identity` block as defined below.
 	Identity AnalyzerIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -198,7 +198,7 @@ type analyzerArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// An `storageAccount` blocks is defined below.
+	// A `storageAccount` block as defined below.
 	StorageAccount AnalyzerStorageAccount `pulumi:"storageAccount"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -206,7 +206,7 @@ type analyzerArgs struct {
 
 // The set of arguments for constructing a Analyzer resource.
 type AnalyzerArgs struct {
-	// An `identity` block is defined below.
+	// An `identity` block as defined below.
 	Identity AnalyzerIdentityInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -214,7 +214,7 @@ type AnalyzerArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// An `storageAccount` blocks is defined below.
+	// A `storageAccount` block as defined below.
 	StorageAccount AnalyzerStorageAccountInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput

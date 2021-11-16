@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AutoKeyRotationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.DiskEncryptionSetIdentity> Identity { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutoKeyRotationEnabled { get; set; }
 
         /// <summary>
-        /// A `identity` block defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.DiskEncryptionSetIdentityArgs> Identity { get; set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutoKeyRotationEnabled { get; set; }
 
         /// <summary>
-        /// A `identity` block defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DiskEncryptionSetIdentityGetArgs>? Identity { get; set; }

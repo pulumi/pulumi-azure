@@ -127,7 +127,7 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * A Managed Service Identity block as defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.appservice.AppServiceIdentity>;
     /**
@@ -317,7 +317,7 @@ export interface AppServiceState {
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**
-     * A Managed Service Identity block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.appservice.AppServiceIdentity>;
     /**
@@ -419,7 +419,7 @@ export interface AppServiceArgs {
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**
-     * A Managed Service Identity block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.appservice.AppServiceIdentity>;
     /**

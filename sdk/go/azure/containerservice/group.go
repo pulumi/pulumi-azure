@@ -43,7 +43,7 @@ import (
 // 			Containers: containerservice.GroupContainerArray{
 // 				&containerservice.GroupContainerArgs{
 // 					Name:   pulumi.String("hello-world"),
-// 					Image:  pulumi.String("microsoft/aci-helloworld:latest"),
+// 					Image:  pulumi.String("mcr.microsoft.com/azuredocs/aci-helloworld:latest"),
 // 					Cpu:    pulumi.Float64(0.5),
 // 					Memory: pulumi.Float64(1.5),
 // 					Ports: containerservice.GroupContainerPortArray{
@@ -55,7 +55,7 @@ import (
 // 				},
 // 				&containerservice.GroupContainerArgs{
 // 					Name:   pulumi.String("sidecar"),
-// 					Image:  pulumi.String("microsoft/aci-tutorial-sidecar"),
+// 					Image:  pulumi.String("mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"),
 // 					Cpu:    pulumi.Float64(0.5),
 // 					Memory: pulumi.Float64(1.5),
 // 				},

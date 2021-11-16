@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -238,6 +239,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.sql.ManagedInstanceIdentity | undefined>;
+    /**
      * What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
      */
     public readonly licenseType!: pulumi.Output<string>;
@@ -308,6 +313,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             inputs["collation"] = state ? state.collation : undefined;
             inputs["dnsZonePartnerId"] = state ? state.dnsZonePartnerId : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["licenseType"] = state ? state.licenseType : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
@@ -351,6 +357,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             inputs["collation"] = args ? args.collation : undefined;
             inputs["dnsZonePartnerId"] = args ? args.dnsZonePartnerId : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
@@ -397,6 +404,10 @@ export interface ManagedInstanceState {
      * The fully qualified domain name of the Azure Managed SQL Instance
      */
     fqdn?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.sql.ManagedInstanceIdentity>;
     /**
      * What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
      */
@@ -471,6 +482,10 @@ export interface ManagedInstanceArgs {
      * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
      */
     dnsZonePartnerId?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.sql.ManagedInstanceIdentity>;
     /**
      * What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
      */

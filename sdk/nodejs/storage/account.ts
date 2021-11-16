@@ -136,7 +136,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly enableHttpsTrafficOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.storage.AccountIdentity>;
     /**
@@ -507,7 +507,7 @@ export interface AccountState {
      */
     enableHttpsTrafficOnly?: pulumi.Input<boolean>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.storage.AccountIdentity>;
     /**
@@ -735,7 +735,7 @@ export interface AccountArgs {
      */
     enableHttpsTrafficOnly?: pulumi.Input<boolean>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.storage.AccountIdentity>;
     /**

@@ -82,7 +82,7 @@ class LinuxVirtualMachineScaleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
-        :param pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
         :param pulumi.Input[str] name: The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
@@ -453,7 +453,7 @@ class LinuxVirtualMachineScaleSetArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -768,7 +768,7 @@ class _LinuxVirtualMachineScaleSetState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
-        :param pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Scale Set.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
@@ -1093,7 +1093,7 @@ class _LinuxVirtualMachineScaleSetState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -1547,7 +1547,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Scale Set.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
@@ -1849,7 +1849,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Scale Set.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
@@ -2067,7 +2067,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.LinuxVirtualMachineScaleSetIdentity']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

@@ -60,7 +60,7 @@ class ApplicationGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
         :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy.
-        :param pulumi.Input['ApplicationGatewayIdentityArgs'] identity: A `identity` block.
+        :param pulumi.Input['ApplicationGatewayIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]] probes: One or more `probe` blocks as defined below.
@@ -298,7 +298,7 @@ class ApplicationGatewayArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ApplicationGatewayIdentityArgs']]:
         """
-        A `identity` block.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -520,7 +520,7 @@ class _ApplicationGatewayState:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]] http_listeners: One or more `http_listener` blocks as defined below.
-        :param pulumi.Input['ApplicationGatewayIdentityArgs'] identity: A `identity` block.
+        :param pulumi.Input['ApplicationGatewayIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]] probes: One or more `probe` blocks as defined below.
@@ -734,7 +734,7 @@ class _ApplicationGatewayState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ApplicationGatewayIdentityArgs']]:
         """
-        A `identity` block.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -1082,7 +1082,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]] http_listeners: One or more `http_listener` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']] identity: A `identity` block.
+        :param pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]] probes: One or more `probe` blocks as defined below.
@@ -1354,7 +1354,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]] http_listeners: One or more `http_listener` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']] identity: A `identity` block.
+        :param pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]] probes: One or more `probe` blocks as defined below.
@@ -1500,7 +1500,7 @@ class ApplicationGateway(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ApplicationGatewayIdentity']]:
         """
-        A `identity` block.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

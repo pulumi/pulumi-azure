@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Guid { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ExpressRoutePortIdentity?> Identity { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Network
         public Input<string> Encapsulation { get; set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ExpressRoutePortIdentityArgs>? Identity { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Guid { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ExpressRoutePortIdentityGetArgs>? Identity { get; set; }

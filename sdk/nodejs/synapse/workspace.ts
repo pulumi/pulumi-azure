@@ -40,6 +40,93 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Creating A Workspace With Customer Managed Key And Azure AD Admin
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "StorageV2",
+ *     isHnsEnabled: "true",
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
+ * });
+ * const deployer = new azure.keyvault.AccessPolicy("deployer", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
+ *     keyPermissions: [
+ *         "create",
+ *         "get",
+ *         "delete",
+ *         "purge",
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "unwrapKey",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [deployer],
+ * });
+ * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
+ *     sqlAdministratorLogin: "sqladminuser",
+ *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     customerManagedKey: {
+ *         keyVersionlessId: exampleKey.versionlessId,
+ *         keyName: "enckey",
+ *     },
+ *     tags: {
+ *         Env: "production",
+ *     },
+ * });
+ * const workspacePolicy = new azure.keyvault.AccessPolicy("workspacePolicy", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: exampleWorkspace.identities.apply(identities => identities[0].tenantId),
+ *     objectId: exampleWorkspace.identities.apply(identities => identities[0].principalId),
+ *     keyPermissions: [
+ *         "Get",
+ *         "WrapKey",
+ *         "UnwrapKey",
+ *     ],
+ * });
+ * const exampleWorkspaceKey = new azure.synapse.WorkspaceKey("exampleWorkspaceKey", {
+ *     customerManagedKeyVersionlessId: exampleKey.versionlessId,
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ *     active: true,
+ *     customerManagedKeyName: "enckey",
+ * }, {
+ *     dependsOn: [workspacePolicy],
+ * });
+ * const exampleWorkspaceAadAdmin = new azure.synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin", {
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ *     login: "AzureAD Admin",
+ *     objectId: "00000000-0000-0000-0000-000000000000",
+ *     tenantId: "00000000-0000-0000-0000-000000000000",
+ * }, {
+ *     dependsOn: [exampleWorkspaceKey],
+ * });
+ * ```
  *
  * ## Import
  *
@@ -78,7 +165,7 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
-     * An `aadAdmin` block as defined below.
+     * An `aadAdmin` block as defined below. Conflicts with `customerManagedKey`.
      */
     public readonly aadAdmin!: pulumi.Output<outputs.synapse.WorkspaceAadAdmin>;
     /**
@@ -94,7 +181,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string}>;
     /**
-     * A `customerManagedKey` block as defined below.
+     * A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
      */
     public readonly customerManagedKey!: pulumi.Output<outputs.synapse.WorkspaceCustomerManagedKey | undefined>;
     /**
@@ -250,7 +337,7 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceState {
     /**
-     * An `aadAdmin` block as defined below.
+     * An `aadAdmin` block as defined below. Conflicts with `customerManagedKey`.
      */
     aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
     /**
@@ -266,7 +353,7 @@ export interface WorkspaceState {
      */
     connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A `customerManagedKey` block as defined below.
+     * A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
      */
     customerManagedKey?: pulumi.Input<inputs.synapse.WorkspaceCustomerManagedKey>;
     /**
@@ -344,7 +431,7 @@ export interface WorkspaceState {
  */
 export interface WorkspaceArgs {
     /**
-     * An `aadAdmin` block as defined below.
+     * An `aadAdmin` block as defined below. Conflicts with `customerManagedKey`.
      */
     aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
     /**
@@ -356,7 +443,7 @@ export interface WorkspaceArgs {
      */
     computeSubnetId?: pulumi.Input<string>;
     /**
-     * A `customerManagedKey` block as defined below.
+     * A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
      */
     customerManagedKey?: pulumi.Input<inputs.synapse.WorkspaceCustomerManagedKey>;
     /**

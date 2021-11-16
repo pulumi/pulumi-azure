@@ -37,6 +37,7 @@ namespace Pulumi.Azure.Consumption.Outputs
         /// Threshold value associated with the notification.
         /// </summary>
         public readonly int Threshold;
+        public readonly string ThresholdType;
 
         [OutputConstructor]
         private GetBudgetResourceGroupNotificationResult(
@@ -50,7 +51,9 @@ namespace Pulumi.Azure.Consumption.Outputs
 
             string @operator,
 
-            int threshold)
+            int threshold,
+
+            string thresholdType)
         {
             ContactEmails = contactEmails;
             ContactGroups = contactGroups;
@@ -58,6 +61,7 @@ namespace Pulumi.Azure.Consumption.Outputs
             Enabled = enabled;
             Operator = @operator;
             Threshold = threshold;
+            ThresholdType = thresholdType;
         }
     }
 }

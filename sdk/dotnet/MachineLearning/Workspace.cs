@@ -112,7 +112,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<bool?> HighBusinessImpact { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.WorkspaceIdentity> Identity { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<bool>? HighBusinessImpact { get; set; }
 
         /// <summary>
-        /// An `identity` block defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.WorkspaceIdentityArgs> Identity { get; set; } = null!;
@@ -357,7 +357,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<bool>? HighBusinessImpact { get; set; }
 
         /// <summary>
-        /// An `identity` block defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WorkspaceIdentityGetArgs>? Identity { get; set; }

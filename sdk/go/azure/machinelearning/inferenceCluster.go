@@ -152,7 +152,7 @@ type InferenceCluster struct {
 	ClusterPurpose pulumi.StringPtrOutput `pulumi:"clusterPurpose"`
 	// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Identity InferenceClusterIdentityPtrOutput `pulumi:"identity"`
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId pulumi.StringOutput `pulumi:"kubernetesClusterId"`
@@ -207,7 +207,7 @@ type inferenceClusterState struct {
 	ClusterPurpose *string `pulumi:"clusterPurpose"`
 	// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description *string `pulumi:"description"`
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Identity *InferenceClusterIdentity `pulumi:"identity"`
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId *string `pulumi:"kubernetesClusterId"`
@@ -228,7 +228,7 @@ type InferenceClusterState struct {
 	ClusterPurpose pulumi.StringPtrInput
 	// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description pulumi.StringPtrInput
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Identity InferenceClusterIdentityPtrInput
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId pulumi.StringPtrInput
@@ -253,7 +253,7 @@ type inferenceClusterArgs struct {
 	ClusterPurpose *string `pulumi:"clusterPurpose"`
 	// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description *string `pulumi:"description"`
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Identity *InferenceClusterIdentity `pulumi:"identity"`
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId string `pulumi:"kubernetesClusterId"`
@@ -275,7 +275,7 @@ type InferenceClusterArgs struct {
 	ClusterPurpose pulumi.StringPtrInput
 	// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description pulumi.StringPtrInput
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Identity InferenceClusterIdentityPtrInput
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId pulumi.StringInput

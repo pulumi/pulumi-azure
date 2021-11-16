@@ -128,7 +128,7 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly georeplications!: pulumi.Output<outputs.containerservice.RegistryGeoreplication[]>;
     /**
-     * An `identity` block as documented below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.containerservice.RegistryIdentity>;
     /**
@@ -281,7 +281,7 @@ export interface RegistryState {
      */
     georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
     /**
-     * An `identity` block as documented below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.containerservice.RegistryIdentity>;
     /**
@@ -361,7 +361,7 @@ export interface RegistryArgs {
      */
     georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
     /**
-     * An `identity` block as documented below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.containerservice.RegistryIdentity>;
     /**

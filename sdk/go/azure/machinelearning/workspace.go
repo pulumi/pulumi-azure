@@ -105,7 +105,7 @@ type Workspace struct {
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact pulumi.BoolPtrOutput `pulumi:"highBusinessImpact"`
-	// An `identity` block defined below.
+	// An `identity` block as defined below.
 	Identity WorkspaceIdentityOutput `pulumi:"identity"`
 	// The compute name for image build of the Machine Learning Workspace.
 	ImageBuildComputeName pulumi.StringPtrOutput `pulumi:"imageBuildComputeName"`
@@ -183,7 +183,7 @@ type workspaceState struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
-	// An `identity` block defined below.
+	// An `identity` block as defined below.
 	Identity *WorkspaceIdentity `pulumi:"identity"`
 	// The compute name for image build of the Machine Learning Workspace.
 	ImageBuildComputeName *string `pulumi:"imageBuildComputeName"`
@@ -218,7 +218,7 @@ type WorkspaceState struct {
 	FriendlyName pulumi.StringPtrInput
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact pulumi.BoolPtrInput
-	// An `identity` block defined below.
+	// An `identity` block as defined below.
 	Identity WorkspaceIdentityPtrInput
 	// The compute name for image build of the Machine Learning Workspace.
 	ImageBuildComputeName pulumi.StringPtrInput
@@ -255,7 +255,7 @@ type workspaceArgs struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
-	// An `identity` block defined below.
+	// An `identity` block as defined below.
 	Identity WorkspaceIdentity `pulumi:"identity"`
 	// The compute name for image build of the Machine Learning Workspace.
 	ImageBuildComputeName *string `pulumi:"imageBuildComputeName"`
@@ -289,7 +289,7 @@ type WorkspaceArgs struct {
 	FriendlyName pulumi.StringPtrInput
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact pulumi.BoolPtrInput
-	// An `identity` block defined below.
+	// An `identity` block as defined below.
 	Identity WorkspaceIdentityInput
 	// The compute name for image build of the Machine Learning Workspace.
 	ImageBuildComputeName pulumi.StringPtrInput

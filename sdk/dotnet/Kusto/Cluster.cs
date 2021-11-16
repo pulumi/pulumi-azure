@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// An identity block.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ClusterIdentity> Identity { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// An identity block.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ClusterIdentityArgs>? Identity { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// An identity block.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ClusterIdentityGetArgs>? Identity { get; set; }

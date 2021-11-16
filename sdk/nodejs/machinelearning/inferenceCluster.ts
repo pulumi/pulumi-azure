@@ -131,7 +131,7 @@ export class InferenceCluster extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+     * An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
     public readonly identity!: pulumi.Output<outputs.machinelearning.InferenceClusterIdentity | undefined>;
     /**
@@ -219,7 +219,7 @@ export interface InferenceClusterState {
      */
     description?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+     * An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
     identity?: pulumi.Input<inputs.machinelearning.InferenceClusterIdentity>;
     /**
@@ -261,7 +261,7 @@ export interface InferenceClusterArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+     * An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
     identity?: pulumi.Input<inputs.machinelearning.InferenceClusterIdentity>;
     /**

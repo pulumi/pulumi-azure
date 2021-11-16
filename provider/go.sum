@@ -424,8 +424,8 @@ github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/errwrap v1.1.0 h1:OxrOeh75EUXMY8TBjag2fzXGZ40LB6IKw45YeGUDY2I=
 github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
-github.com/hashicorp/go-azure-helpers v0.16.5 h1:rhcpg2Nk1Li6173KTHNnj/i+MGXYNjvYKIdNlg6q3RU=
-github.com/hashicorp/go-azure-helpers v0.16.5/go.mod h1:kR7+sTDEb9TOp/O80ss1UEJg1t4/BHLD/U8wHLS4BGQ=
+github.com/hashicorp/go-azure-helpers v0.17.1 h1:qkvhSgyPzK3UwWQDocGLFmZ9iRjTj1Dv4CzeyhwfoIs=
+github.com/hashicorp/go-azure-helpers v0.17.1/go.mod h1:L4ny2lW2muOESZR1XjbM59c3Pq+7SA9Yt1Nry5UfKZc=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -476,7 +476,6 @@ github.com/hashicorp/go-uuid v1.0.2 h1:cfejS+Tpcp13yd5nYHWDI6qVCny6wyX2Mt5SGur2I
 github.com/hashicorp/go-uuid v1.0.2/go.mod h1:6SBZvOh/SIDV7/2o3Jml5SYk/TvGqwFJ/bN7x4byOro=
 github.com/hashicorp/go-version v1.1.0/go.mod h1:fltr4n8CU8Ke44wwGCBoEymUuxUHl09ZGVZPK5anwXA=
 github.com/hashicorp/go-version v1.2.0/go.mod h1:fltr4n8CU8Ke44wwGCBoEymUuxUHl09ZGVZPK5anwXA=
-github.com/hashicorp/go-version v1.2.1/go.mod h1:fltr4n8CU8Ke44wwGCBoEymUuxUHl09ZGVZPK5anwXA=
 github.com/hashicorp/go-version v1.3.0 h1:McDWVJIU/y+u1BRV06dPaLfLCaT7fUTJLp5r04x7iNw=
 github.com/hashicorp/go-version v1.3.0/go.mod h1:fltr4n8CU8Ke44wwGCBoEymUuxUHl09ZGVZPK5anwXA=
 github.com/hashicorp/golang-lru v0.5.0/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
@@ -503,9 +502,8 @@ github.com/hashicorp/terraform-exec v0.14.0/go.mod h1:qrAASDq28KZiMPDnQ02sFS9udc
 github.com/hashicorp/terraform-json v0.4.0/go.mod h1:eAbqb4w0pSlRmdvl8fOyHAi/+8jnkVYN28gJkSJrLhU=
 github.com/hashicorp/terraform-json v0.12.0 h1:8czPgEEWWPROStjkWPUnTQDXmpmZPlkQAwYYLETaTvw=
 github.com/hashicorp/terraform-json v0.12.0/go.mod h1:pmbq9o4EuL43db5+0ogX10Yofv1nozM+wskr/bGFJpI=
+github.com/hashicorp/terraform-plugin-go v0.3.0 h1:AJqYzP52JFYl9NABRI7smXI1pNjgR5Q/y2WyVJ/BOZA=
 github.com/hashicorp/terraform-plugin-go v0.3.0/go.mod h1:dFHsQMaTLpON2gWhVWT96fvtlc/MF1vSy3OdMhWBzdM=
-github.com/hashicorp/terraform-plugin-go v0.3.1 h1:ML+THFcqpdR049gqrbEFDFo99va2Wqw9g4XDPy51euU=
-github.com/hashicorp/terraform-plugin-go v0.3.1/go.mod h1:dFHsQMaTLpON2gWhVWT96fvtlc/MF1vSy3OdMhWBzdM=
 github.com/hashicorp/terraform-plugin-sdk v1.0.0/go.mod h1:NuwtLpEpPsFaKJPJNGtMcn9vlhe6Ofe+Y6NqXhJgV2M=
 github.com/hashicorp/terraform-plugin-sdk v1.7.0 h1:B//oq0ZORG+EkVrIJy0uPGSonvmXqxSzXe8+GhknoW0=
 github.com/hashicorp/terraform-plugin-sdk v1.7.0/go.mod h1:OjgQmey5VxnPej/buEhe+YqKm0KNvV3QqU4hkqHqPCY=
@@ -739,8 +737,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20210629210550-59d24255d71f h1:YWtQ7xeRQvB9h5Uwtrl9wDKRKkyLTXWBzU7x0c9VOZ4=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20210629210550-59d24255d71f/go.mod h1:grseeRo9g3yNkYW09iFlV8LG78jTa1ssBgouogQg/RU=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20211105140625-c6285f6a1131 h1:YyGH3XWYHj+7E9uJxv97o86Ln51senc3xHjemtIvGfg=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20211105140625-c6285f6a1131/go.mod h1:wAuYreXaF+GMNe2y1ymnMcbOqujV7mmBT2z0E20Ho0A=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20211112180131-1cd69b3a0b80 h1:e5ZipjcXcjORaem03xv88QDGzPe8qP2DJsMwJzA1y+I=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20211112180131-1cd69b3a0b80/go.mod h1:0HG0eYi4uTNjvbNcKO/x5tQbVoCcwa0qoGv/yZ94df0=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=
@@ -912,7 +910,6 @@ golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de/go.mod h1:LzIPMQfyMNhhGPh
 golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad/go.mod h1:jdWPYTVW3xRLrWPugEBEK3UY2ZEsg3UU495nc5E+M+I=
-golang.org/x/crypto v0.0.0-20210220033148-5ea612d1eb83/go.mod h1:jdWPYTVW3xRLrWPugEBEK3UY2ZEsg3UU495nc5E+M+I=
 golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2/go.mod h1:T9bdIzuCu7OtxOm1hfPfRQxPLYneinmdGuTeoZ9dtd4=
 golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b/go.mod h1:T9bdIzuCu7OtxOm1hfPfRQxPLYneinmdGuTeoZ9dtd4=
 golang.org/x/crypto v0.0.0-20210506145944-38f3c27a63bf/go.mod h1:P+XmwS30IXTQdn5tA2iutPOUgjI07+tq3H3K9MVA1s8=

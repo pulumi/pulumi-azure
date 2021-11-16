@@ -39,7 +39,7 @@ class RegistryArgs:
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
-        :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as documented below.
+        :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
@@ -155,7 +155,7 @@ class RegistryArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['RegistryIdentityArgs']]:
         """
-        An `identity` block as documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -324,7 +324,7 @@ class _RegistryState:
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
-        :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as documented below.
+        :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] login_server: The URL that can be used to log into the container registry.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
@@ -461,7 +461,7 @@ class _RegistryState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['RegistryIdentityArgs']]:
         """
-        An `identity` block as documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -715,7 +715,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]] georeplications: A `georeplications` block as documented below.
-        :param pulumi.Input[pulumi.InputType['RegistryIdentityArgs']] identity: An `identity` block as documented below.
+        :param pulumi.Input[pulumi.InputType['RegistryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']] network_rule_set: A `network_rule_set` block as documented below.
@@ -912,7 +912,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]] georeplications: A `georeplications` block as documented below.
-        :param pulumi.Input[pulumi.InputType['RegistryIdentityArgs']] identity: An `identity` block as documented below.
+        :param pulumi.Input[pulumi.InputType['RegistryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] login_server: The URL that can be used to log into the container registry.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
@@ -1004,7 +1004,7 @@ class Registry(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output['outputs.RegistryIdentity']:
         """
-        An `identity` block as documented below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

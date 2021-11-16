@@ -12,6 +12,43 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory using SQL API.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
+    ///         {
+    ///             Name = "tfex-cosmosdb-account",
+    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///         }));
+    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleLinkedServiceCosmosDb = new Azure.DataFactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", new Azure.DataFactory.LinkedServiceCosmosDbArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DataFactoryName = exampleFactory.Name,
+    ///             AccountEndpoint = azurerm_cosmosdb_account.Example.Endpoint,
+    ///             AccountKey = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.PrimaryKey),
+    ///             Database = "foo",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Factory Linked Service's can be imported using the `resource id`, e.g.

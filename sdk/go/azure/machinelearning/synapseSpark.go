@@ -136,7 +136,7 @@ type SynapseSpark struct {
 
 	// The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Identity SynapseSparkIdentityPtrOutput `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
@@ -189,7 +189,7 @@ func GetSynapseSpark(ctx *pulumi.Context,
 type synapseSparkState struct {
 	// The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Description *string `pulumi:"description"`
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Identity *SynapseSparkIdentity `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -208,7 +208,7 @@ type synapseSparkState struct {
 type SynapseSparkState struct {
 	// The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Description pulumi.StringPtrInput
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Identity SynapseSparkIdentityPtrInput
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
 	LocalAuthEnabled pulumi.BoolPtrInput
@@ -231,7 +231,7 @@ func (SynapseSparkState) ElementType() reflect.Type {
 type synapseSparkArgs struct {
 	// The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Description *string `pulumi:"description"`
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Identity *SynapseSparkIdentity `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -251,7 +251,7 @@ type synapseSparkArgs struct {
 type SynapseSparkArgs struct {
 	// The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Description pulumi.StringPtrInput
-	// A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+	// An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
 	Identity SynapseSparkIdentityPtrInput
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
 	LocalAuthEnabled pulumi.BoolPtrInput

@@ -141,6 +141,9 @@ namespace Pulumi.Azure.Blueprint
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Output("identity")]
         public Output<Outputs.AssignmentIdentity?> Identity { get; private set; } = null!;
 
@@ -244,6 +247,9 @@ namespace Pulumi.Azure.Blueprint
 
     public sealed class AssignmentArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.AssignmentIdentityArgs>? Identity { get; set; }
 
@@ -326,6 +332,9 @@ namespace Pulumi.Azure.Blueprint
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.AssignmentIdentityGetArgs>? Identity { get; set; }
 

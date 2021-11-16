@@ -87,7 +87,7 @@ export class GroupPolicyAssignment extends pulumi.CustomResource {
      */
     public readonly enforce!: pulumi.Output<boolean | undefined>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.management.GroupPolicyAssignmentIdentity | undefined>;
     /**
@@ -187,7 +187,7 @@ export interface GroupPolicyAssignmentState {
      */
     enforce?: pulumi.Input<boolean>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.management.GroupPolicyAssignmentIdentity>;
     /**
@@ -237,7 +237,7 @@ export interface GroupPolicyAssignmentArgs {
      */
     enforce?: pulumi.Input<boolean>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.management.GroupPolicyAssignmentIdentity>;
     /**

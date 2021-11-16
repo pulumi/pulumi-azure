@@ -27,7 +27,7 @@ type Account struct {
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// List of FQDNs allowed for the Cognitive Account.
 	Fqdns pulumi.StringArrayOutput `pulumi:"fqdns"`
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	Kind pulumi.StringOutput `pulumi:"kind"`
@@ -61,7 +61,7 @@ type Account struct {
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// An `identity` block is documented below.
+	// A `storage` block as defined below.
 	Storages AccountStorageArrayOutput `pulumi:"storages"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -111,7 +111,7 @@ type accountState struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// List of FQDNs allowed for the Cognitive Account.
 	Fqdns []string `pulumi:"fqdns"`
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
@@ -145,7 +145,7 @@ type accountState struct {
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName *string `pulumi:"skuName"`
-	// An `identity` block is documented below.
+	// A `storage` block as defined below.
 	Storages []AccountStorage `pulumi:"storages"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -158,7 +158,7 @@ type AccountState struct {
 	Endpoint pulumi.StringPtrInput
 	// List of FQDNs allowed for the Cognitive Account.
 	Fqdns pulumi.StringArrayInput
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
@@ -192,7 +192,7 @@ type AccountState struct {
 	SecondaryAccessKey pulumi.StringPtrInput
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName pulumi.StringPtrInput
-	// An `identity` block is documented below.
+	// A `storage` block as defined below.
 	Storages AccountStorageArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -207,7 +207,7 @@ type accountArgs struct {
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// List of FQDNs allowed for the Cognitive Account.
 	Fqdns []string `pulumi:"fqdns"`
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	Kind string `pulumi:"kind"`
@@ -237,7 +237,7 @@ type accountArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName string `pulumi:"skuName"`
-	// An `identity` block is documented below.
+	// A `storage` block as defined below.
 	Storages []AccountStorage `pulumi:"storages"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -249,7 +249,7 @@ type AccountArgs struct {
 	CustomSubdomainName pulumi.StringPtrInput
 	// List of FQDNs allowed for the Cognitive Account.
 	Fqdns pulumi.StringArrayInput
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	Kind pulumi.StringInput
@@ -279,7 +279,7 @@ type AccountArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName pulumi.StringInput
-	// An `identity` block is documented below.
+	// A `storage` block as defined below.
 	Storages AccountStorageArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

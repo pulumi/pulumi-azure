@@ -57,7 +57,7 @@ type Service struct {
 
 	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
 	AllowedIps pulumi.StringArrayOutput `pulumi:"allowedIps"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -120,7 +120,7 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
 	AllowedIps []string `pulumi:"allowedIps"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location *string `pulumi:"location"`
@@ -149,7 +149,7 @@ type serviceState struct {
 type ServiceState struct {
 	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
 	AllowedIps pulumi.StringArrayInput
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringPtrInput
@@ -182,7 +182,7 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
 	AllowedIps []string `pulumi:"allowedIps"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location *string `pulumi:"location"`
@@ -206,7 +206,7 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
 	AllowedIps pulumi.StringArrayInput
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringPtrInput

@@ -94,7 +94,7 @@ export class Analyzer extends pulumi.CustomResource {
     }
 
     /**
-     * An `identity` block is defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.videoanalyzer.AnalyzerIdentity>;
     /**
@@ -110,7 +110,7 @@ export class Analyzer extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * An `storageAccount` blocks is defined below.
+     * A `storageAccount` block as defined below.
      */
     public readonly storageAccount!: pulumi.Output<outputs.videoanalyzer.AnalyzerStorageAccount>;
     /**
@@ -167,7 +167,7 @@ export class Analyzer extends pulumi.CustomResource {
  */
 export interface AnalyzerState {
     /**
-     * An `identity` block is defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.videoanalyzer.AnalyzerIdentity>;
     /**
@@ -183,7 +183,7 @@ export interface AnalyzerState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * An `storageAccount` blocks is defined below.
+     * A `storageAccount` block as defined below.
      */
     storageAccount?: pulumi.Input<inputs.videoanalyzer.AnalyzerStorageAccount>;
     /**
@@ -197,7 +197,7 @@ export interface AnalyzerState {
  */
 export interface AnalyzerArgs {
     /**
-     * An `identity` block is defined below.
+     * An `identity` block as defined below.
      */
     identity: pulumi.Input<inputs.videoanalyzer.AnalyzerIdentity>;
     /**
@@ -213,7 +213,7 @@ export interface AnalyzerArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * An `storageAccount` blocks is defined below.
+     * A `storageAccount` block as defined below.
      */
     storageAccount: pulumi.Input<inputs.videoanalyzer.AnalyzerStorageAccount>;
     /**

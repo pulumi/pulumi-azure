@@ -238,7 +238,7 @@ class IoTHubFallbackRouteArgs:
         :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
         :param pulumi.Input[bool] enabled: Used to specify whether the fallback route is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
-        :param pulumi.Input[str] source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        :param pulumi.Input[str] source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
         """
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
@@ -289,7 +289,7 @@ class IoTHubFallbackRouteArgs:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
         """
         return pulumi.get(self, "source")
 
@@ -479,7 +479,7 @@ class IoTHubRouteArgs:
         :param pulumi.Input[bool] enabled: Used to specify whether a route is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed.
         :param pulumi.Input[str] name: The name of the route.
-        :param pulumi.Input[str] source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        :param pulumi.Input[str] source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
         :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -529,7 +529,7 @@ class IoTHubRouteArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
         """
-        The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceConnectionStateEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
         """
         return pulumi.get(self, "source")
 

@@ -27,7 +27,7 @@ class BackupVaultArgs:
         :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
         :param pulumi.Input[str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
-        :param pulumi.Input['BackupVaultIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['BackupVaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
@@ -84,7 +84,7 @@ class BackupVaultArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['BackupVaultIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -142,7 +142,7 @@ class _BackupVaultState:
         """
         Input properties used for looking up and filtering BackupVault resources.
         :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
-        :param pulumi.Input['BackupVaultIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['BackupVaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
@@ -180,7 +180,7 @@ class _BackupVaultState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['BackupVaultIdentityArgs']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -290,7 +290,7 @@ class BackupVault(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
-        :param pulumi.Input[pulumi.InputType['BackupVaultIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['BackupVaultIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
@@ -400,7 +400,7 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
-        :param pulumi.Input[pulumi.InputType['BackupVaultIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['BackupVaultIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
@@ -432,7 +432,7 @@ class BackupVault(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.BackupVaultIdentity']]:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

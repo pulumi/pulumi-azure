@@ -131,17 +131,17 @@ import (
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 
-	// A `additionalCapabilities` block.
+	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities VirtualMachineAdditionalCapabilitiesPtrOutput `pulumi:"additionalCapabilities"`
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringOutput `pulumi:"availabilitySetId"`
-	// A `bootDiagnostics` block.
+	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics VirtualMachineBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
 	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteDataDisksOnTermination pulumi.BoolPtrOutput `pulumi:"deleteDataDisksOnTermination"`
 	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteOsDiskOnTermination pulumi.BoolPtrOutput `pulumi:"deleteOsDiskOnTermination"`
-	// A `identity` block.
+	// An `identity` block as defined below.
 	Identity VirtualMachineIdentityOutput `pulumi:"identity"`
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
@@ -151,15 +151,15 @@ type VirtualMachine struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of Network Interface ID's which should be associated with the Virtual Machine.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
-	// An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
+	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile VirtualMachineOsProfilePtrOutput `pulumi:"osProfile"`
-	// A `osProfileLinuxConfig` block.
+	// An `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig VirtualMachineOsProfileLinuxConfigPtrOutput `pulumi:"osProfileLinuxConfig"`
 	// One or more `osProfileSecrets` blocks.
 	OsProfileSecrets VirtualMachineOsProfileSecretArrayOutput `pulumi:"osProfileSecrets"`
-	// A `osProfileWindowsConfig` block.
+	// An `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig VirtualMachineOsProfileWindowsConfigPtrOutput `pulumi:"osProfileWindowsConfig"`
-	// A `plan` block.
+	// A `plan` block as defined below.
 	Plan VirtualMachinePlanPtrOutput `pulumi:"plan"`
 	// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
 	PrimaryNetworkInterfaceId pulumi.StringPtrOutput `pulumi:"primaryNetworkInterfaceId"`
@@ -169,9 +169,9 @@ type VirtualMachine struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `storageDataDisk` blocks.
 	StorageDataDisks VirtualMachineStorageDataDiskArrayOutput `pulumi:"storageDataDisks"`
-	// A `storageImageReference` block.
+	// A `storageImageReference` block as defined below.
 	StorageImageReference VirtualMachineStorageImageReferenceOutput `pulumi:"storageImageReference"`
-	// A `storageOsDisk` block.
+	// A `storageOsDisk` block as defined below.
 	StorageOsDisk VirtualMachineStorageOsDiskOutput `pulumi:"storageOsDisk"`
 	// A mapping of tags to assign to the Virtual Machine.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -222,17 +222,17 @@ func GetVirtualMachine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualMachine resources.
 type virtualMachineState struct {
-	// A `additionalCapabilities` block.
+	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *VirtualMachineAdditionalCapabilities `pulumi:"additionalCapabilities"`
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
-	// A `bootDiagnostics` block.
+	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *VirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteDataDisksOnTermination *bool `pulumi:"deleteDataDisksOnTermination"`
 	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteOsDiskOnTermination *bool `pulumi:"deleteOsDiskOnTermination"`
-	// A `identity` block.
+	// An `identity` block as defined below.
 	Identity *VirtualMachineIdentity `pulumi:"identity"`
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
@@ -242,15 +242,15 @@ type virtualMachineState struct {
 	Name *string `pulumi:"name"`
 	// A list of Network Interface ID's which should be associated with the Virtual Machine.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
-	// An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
+	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile *VirtualMachineOsProfile `pulumi:"osProfile"`
-	// A `osProfileLinuxConfig` block.
+	// An `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig *VirtualMachineOsProfileLinuxConfig `pulumi:"osProfileLinuxConfig"`
 	// One or more `osProfileSecrets` blocks.
 	OsProfileSecrets []VirtualMachineOsProfileSecret `pulumi:"osProfileSecrets"`
-	// A `osProfileWindowsConfig` block.
+	// An `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig *VirtualMachineOsProfileWindowsConfig `pulumi:"osProfileWindowsConfig"`
-	// A `plan` block.
+	// A `plan` block as defined below.
 	Plan *VirtualMachinePlan `pulumi:"plan"`
 	// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
 	PrimaryNetworkInterfaceId *string `pulumi:"primaryNetworkInterfaceId"`
@@ -260,9 +260,9 @@ type virtualMachineState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `storageDataDisk` blocks.
 	StorageDataDisks []VirtualMachineStorageDataDisk `pulumi:"storageDataDisks"`
-	// A `storageImageReference` block.
+	// A `storageImageReference` block as defined below.
 	StorageImageReference *VirtualMachineStorageImageReference `pulumi:"storageImageReference"`
-	// A `storageOsDisk` block.
+	// A `storageOsDisk` block as defined below.
 	StorageOsDisk *VirtualMachineStorageOsDisk `pulumi:"storageOsDisk"`
 	// A mapping of tags to assign to the Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
@@ -273,17 +273,17 @@ type virtualMachineState struct {
 }
 
 type VirtualMachineState struct {
-	// A `additionalCapabilities` block.
+	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities VirtualMachineAdditionalCapabilitiesPtrInput
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrInput
-	// A `bootDiagnostics` block.
+	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics VirtualMachineBootDiagnosticsPtrInput
 	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteDataDisksOnTermination pulumi.BoolPtrInput
 	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteOsDiskOnTermination pulumi.BoolPtrInput
-	// A `identity` block.
+	// An `identity` block as defined below.
 	Identity VirtualMachineIdentityPtrInput
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
@@ -293,15 +293,15 @@ type VirtualMachineState struct {
 	Name pulumi.StringPtrInput
 	// A list of Network Interface ID's which should be associated with the Virtual Machine.
 	NetworkInterfaceIds pulumi.StringArrayInput
-	// An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
+	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile VirtualMachineOsProfilePtrInput
-	// A `osProfileLinuxConfig` block.
+	// An `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig VirtualMachineOsProfileLinuxConfigPtrInput
 	// One or more `osProfileSecrets` blocks.
 	OsProfileSecrets VirtualMachineOsProfileSecretArrayInput
-	// A `osProfileWindowsConfig` block.
+	// An `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig VirtualMachineOsProfileWindowsConfigPtrInput
-	// A `plan` block.
+	// A `plan` block as defined below.
 	Plan VirtualMachinePlanPtrInput
 	// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
 	PrimaryNetworkInterfaceId pulumi.StringPtrInput
@@ -311,9 +311,9 @@ type VirtualMachineState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `storageDataDisk` blocks.
 	StorageDataDisks VirtualMachineStorageDataDiskArrayInput
-	// A `storageImageReference` block.
+	// A `storageImageReference` block as defined below.
 	StorageImageReference VirtualMachineStorageImageReferencePtrInput
-	// A `storageOsDisk` block.
+	// A `storageOsDisk` block as defined below.
 	StorageOsDisk VirtualMachineStorageOsDiskPtrInput
 	// A mapping of tags to assign to the Virtual Machine.
 	Tags pulumi.StringMapInput
@@ -328,17 +328,17 @@ func (VirtualMachineState) ElementType() reflect.Type {
 }
 
 type virtualMachineArgs struct {
-	// A `additionalCapabilities` block.
+	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *VirtualMachineAdditionalCapabilities `pulumi:"additionalCapabilities"`
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
-	// A `bootDiagnostics` block.
+	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *VirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteDataDisksOnTermination *bool `pulumi:"deleteDataDisksOnTermination"`
 	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteOsDiskOnTermination *bool `pulumi:"deleteOsDiskOnTermination"`
-	// A `identity` block.
+	// An `identity` block as defined below.
 	Identity *VirtualMachineIdentity `pulumi:"identity"`
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
@@ -348,15 +348,15 @@ type virtualMachineArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of Network Interface ID's which should be associated with the Virtual Machine.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
-	// An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
+	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile *VirtualMachineOsProfile `pulumi:"osProfile"`
-	// A `osProfileLinuxConfig` block.
+	// An `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig *VirtualMachineOsProfileLinuxConfig `pulumi:"osProfileLinuxConfig"`
 	// One or more `osProfileSecrets` blocks.
 	OsProfileSecrets []VirtualMachineOsProfileSecret `pulumi:"osProfileSecrets"`
-	// A `osProfileWindowsConfig` block.
+	// An `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig *VirtualMachineOsProfileWindowsConfig `pulumi:"osProfileWindowsConfig"`
-	// A `plan` block.
+	// A `plan` block as defined below.
 	Plan *VirtualMachinePlan `pulumi:"plan"`
 	// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
 	PrimaryNetworkInterfaceId *string `pulumi:"primaryNetworkInterfaceId"`
@@ -366,9 +366,9 @@ type virtualMachineArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `storageDataDisk` blocks.
 	StorageDataDisks []VirtualMachineStorageDataDisk `pulumi:"storageDataDisks"`
-	// A `storageImageReference` block.
+	// A `storageImageReference` block as defined below.
 	StorageImageReference *VirtualMachineStorageImageReference `pulumi:"storageImageReference"`
-	// A `storageOsDisk` block.
+	// A `storageOsDisk` block as defined below.
 	StorageOsDisk VirtualMachineStorageOsDisk `pulumi:"storageOsDisk"`
 	// A mapping of tags to assign to the Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
@@ -380,17 +380,17 @@ type virtualMachineArgs struct {
 
 // The set of arguments for constructing a VirtualMachine resource.
 type VirtualMachineArgs struct {
-	// A `additionalCapabilities` block.
+	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities VirtualMachineAdditionalCapabilitiesPtrInput
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrInput
-	// A `bootDiagnostics` block.
+	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics VirtualMachineBootDiagnosticsPtrInput
 	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteDataDisksOnTermination pulumi.BoolPtrInput
 	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteOsDiskOnTermination pulumi.BoolPtrInput
-	// A `identity` block.
+	// An `identity` block as defined below.
 	Identity VirtualMachineIdentityPtrInput
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
@@ -400,15 +400,15 @@ type VirtualMachineArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of Network Interface ID's which should be associated with the Virtual Machine.
 	NetworkInterfaceIds pulumi.StringArrayInput
-	// An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
+	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile VirtualMachineOsProfilePtrInput
-	// A `osProfileLinuxConfig` block.
+	// An `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig VirtualMachineOsProfileLinuxConfigPtrInput
 	// One or more `osProfileSecrets` blocks.
 	OsProfileSecrets VirtualMachineOsProfileSecretArrayInput
-	// A `osProfileWindowsConfig` block.
+	// An `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig VirtualMachineOsProfileWindowsConfigPtrInput
-	// A `plan` block.
+	// A `plan` block as defined below.
 	Plan VirtualMachinePlanPtrInput
 	// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
 	PrimaryNetworkInterfaceId pulumi.StringPtrInput
@@ -418,9 +418,9 @@ type VirtualMachineArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// One or more `storageDataDisk` blocks.
 	StorageDataDisks VirtualMachineStorageDataDiskArrayInput
-	// A `storageImageReference` block.
+	// A `storageImageReference` block as defined below.
 	StorageImageReference VirtualMachineStorageImageReferencePtrInput
-	// A `storageOsDisk` block.
+	// A `storageOsDisk` block as defined below.
 	StorageOsDisk VirtualMachineStorageOsDiskInput
 	// A mapping of tags to assign to the Virtual Machine.
 	Tags pulumi.StringMapInput

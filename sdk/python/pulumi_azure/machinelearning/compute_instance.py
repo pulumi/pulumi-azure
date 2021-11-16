@@ -34,7 +34,7 @@ class ComputeInstanceArgs:
         :param pulumi.Input['ComputeInstanceAssignToUserArgs'] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] authorization_type: The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
-        :param pulumi.Input['ComputeInstanceIdentityArgs'] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input['ComputeInstanceIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -129,7 +129,7 @@ class ComputeInstanceArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ComputeInstanceIdentityArgs']]:
         """
-        A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "identity")
 
@@ -230,7 +230,7 @@ class _ComputeInstanceState:
         :param pulumi.Input['ComputeInstanceAssignToUserArgs'] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] authorization_type: The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
-        :param pulumi.Input['ComputeInstanceIdentityArgs'] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input['ComputeInstanceIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -305,7 +305,7 @@ class _ComputeInstanceState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ComputeInstanceIdentityArgs']]:
         """
-        A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "identity")
 
@@ -507,7 +507,7 @@ class ComputeInstance(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ComputeInstanceAssignToUserArgs']] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] authorization_type: The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
-        :param pulumi.Input[pulumi.InputType['ComputeInstanceIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[pulumi.InputType['ComputeInstanceIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -684,7 +684,7 @@ class ComputeInstance(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ComputeInstanceAssignToUserArgs']] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] authorization_type: The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] description: The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
-        :param pulumi.Input[pulumi.InputType['ComputeInstanceIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[pulumi.InputType['ComputeInstanceIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
@@ -740,7 +740,7 @@ class ComputeInstance(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ComputeInstanceIdentity']]:
         """
-        A `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         """
         return pulumi.get(self, "identity")
 

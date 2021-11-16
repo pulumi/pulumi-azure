@@ -127,6 +127,9 @@ export class Assignment extends pulumi.CustomResource {
      * The display name of the blueprint
      */
     public /*out*/ readonly displayName!: pulumi.Output<string>;
+    /**
+     * An `identity` block as defined below.
+     */
     public readonly identity!: pulumi.Output<outputs.blueprint.AssignmentIdentity | undefined>;
     /**
      * The Azure location of the Assignment.
@@ -236,6 +239,9 @@ export interface AssignmentState {
      * The display name of the blueprint
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
     identity?: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
     /**
      * The Azure location of the Assignment.
@@ -279,6 +285,9 @@ export interface AssignmentState {
  * The set of arguments for constructing a Assignment resource.
  */
 export interface AssignmentArgs {
+    /**
+     * An `identity` block as defined below.
+     */
     identity?: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
     /**
      * The Azure location of the Assignment.

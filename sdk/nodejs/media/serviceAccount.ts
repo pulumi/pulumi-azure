@@ -68,11 +68,11 @@ export class ServiceAccount extends pulumi.CustomResource {
     }
 
     /**
-     * An `identity` block is documented below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.media.ServiceAccountIdentity>;
     /**
-     * An `keyDeliveryAccessControl` block is documented below.
+     * A `keyDeliveryAccessControl` block as defined below.
      */
     public readonly keyDeliveryAccessControl!: pulumi.Output<outputs.media.ServiceAccountKeyDeliveryAccessControl>;
     /**
@@ -153,11 +153,11 @@ export class ServiceAccount extends pulumi.CustomResource {
  */
 export interface ServiceAccountState {
     /**
-     * An `identity` block is documented below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.media.ServiceAccountIdentity>;
     /**
-     * An `keyDeliveryAccessControl` block is documented below.
+     * A `keyDeliveryAccessControl` block as defined below.
      */
     keyDeliveryAccessControl?: pulumi.Input<inputs.media.ServiceAccountKeyDeliveryAccessControl>;
     /**
@@ -192,11 +192,11 @@ export interface ServiceAccountState {
  */
 export interface ServiceAccountArgs {
     /**
-     * An `identity` block is documented below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.media.ServiceAccountIdentity>;
     /**
-     * An `keyDeliveryAccessControl` block is documented below.
+     * A `keyDeliveryAccessControl` block as defined below.
      */
     keyDeliveryAccessControl?: pulumi.Input<inputs.media.ServiceAccountKeyDeliveryAccessControl>;
     /**

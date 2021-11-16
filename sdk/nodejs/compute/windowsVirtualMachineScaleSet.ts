@@ -169,7 +169,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly healthProbeId!: pulumi.Output<string | undefined>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetIdentity | undefined>;
     /**
@@ -500,7 +500,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     healthProbeId?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetIdentity>;
     /**
@@ -694,7 +694,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     healthProbeId?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetIdentity>;
     /**

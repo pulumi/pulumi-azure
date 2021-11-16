@@ -103,7 +103,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<Outputs.ServiceHostnameConfiguration> HostnameConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block is documented below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.ServiceHostnameConfigurationArgs>? HostnameConfiguration { get; set; }
 
         /// <summary>
-        /// An `identity` block is documented below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
@@ -530,7 +530,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.ServiceHostnameConfigurationGetArgs>? HostnameConfiguration { get; set; }
 
         /// <summary>
-        /// An `identity` block is documented below.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }

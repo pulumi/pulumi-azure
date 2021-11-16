@@ -23,9 +23,9 @@ class AnalyzerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Analyzer resource.
-        :param pulumi.Input['AnalyzerIdentityArgs'] identity: An `identity` block is defined below.
+        :param pulumi.Input['AnalyzerIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
-        :param pulumi.Input['AnalyzerStorageAccountArgs'] storage_account: An `storage_account` blocks is defined below.
+        :param pulumi.Input['AnalyzerStorageAccountArgs'] storage_account: A `storage_account` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Video Analyzer. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
@@ -44,7 +44,7 @@ class AnalyzerArgs:
     @pulumi.getter
     def identity(self) -> pulumi.Input['AnalyzerIdentityArgs']:
         """
-        An `identity` block is defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -68,7 +68,7 @@ class AnalyzerArgs:
     @pulumi.getter(name="storageAccount")
     def storage_account(self) -> pulumi.Input['AnalyzerStorageAccountArgs']:
         """
-        An `storage_account` blocks is defined below.
+        A `storage_account` block as defined below.
         """
         return pulumi.get(self, "storage_account")
 
@@ -124,11 +124,11 @@ class _AnalyzerState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Analyzer resources.
-        :param pulumi.Input['AnalyzerIdentityArgs'] identity: An `identity` block is defined below.
+        :param pulumi.Input['AnalyzerIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Video Analyzer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
-        :param pulumi.Input['AnalyzerStorageAccountArgs'] storage_account: An `storage_account` blocks is defined below.
+        :param pulumi.Input['AnalyzerStorageAccountArgs'] storage_account: A `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
         if identity is not None:
@@ -148,7 +148,7 @@ class _AnalyzerState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AnalyzerIdentityArgs']]:
         """
-        An `identity` block is defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -196,7 +196,7 @@ class _AnalyzerState:
     @pulumi.getter(name="storageAccount")
     def storage_account(self) -> Optional[pulumi.Input['AnalyzerStorageAccountArgs']]:
         """
-        An `storage_account` blocks is defined below.
+        A `storage_account` block as defined below.
         """
         return pulumi.get(self, "storage_account")
 
@@ -285,11 +285,11 @@ class Analyzer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AnalyzerIdentityArgs']] identity: An `identity` block is defined below.
+        :param pulumi.Input[pulumi.InputType['AnalyzerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Video Analyzer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArgs']] storage_account: An `storage_account` blocks is defined below.
+        :param pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArgs']] storage_account: A `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
         ...
@@ -420,11 +420,11 @@ class Analyzer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AnalyzerIdentityArgs']] identity: An `identity` block is defined below.
+        :param pulumi.Input[pulumi.InputType['AnalyzerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Video Analyzer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArgs']] storage_account: An `storage_account` blocks is defined below.
+        :param pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArgs']] storage_account: A `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -443,7 +443,7 @@ class Analyzer(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output['outputs.AnalyzerIdentity']:
         """
-        An `identity` block is defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -475,7 +475,7 @@ class Analyzer(pulumi.CustomResource):
     @pulumi.getter(name="storageAccount")
     def storage_account(self) -> pulumi.Output['outputs.AnalyzerStorageAccount']:
         """
-        An `storage_account` blocks is defined below.
+        A `storage_account` block as defined below.
         """
         return pulumi.get(self, "storage_account")
 

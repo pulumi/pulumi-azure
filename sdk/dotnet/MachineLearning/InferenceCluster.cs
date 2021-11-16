@@ -138,7 +138,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.InferenceClusterIdentity?> Identity { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.InferenceClusterIdentityArgs>? Identity { get; set; }
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.InferenceClusterIdentityGetArgs>? Identity { get; set; }

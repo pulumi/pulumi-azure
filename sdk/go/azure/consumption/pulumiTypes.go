@@ -3141,7 +3141,8 @@ type GetBudgetResourceGroupNotification struct {
 	// The operator used for comparison.
 	Operator string `pulumi:"operator"`
 	// Threshold value associated with the notification.
-	Threshold int `pulumi:"threshold"`
+	Threshold     int    `pulumi:"threshold"`
+	ThresholdType string `pulumi:"thresholdType"`
 }
 
 // GetBudgetResourceGroupNotificationInput is an input type that accepts GetBudgetResourceGroupNotificationArgs and GetBudgetResourceGroupNotificationOutput values.
@@ -3167,7 +3168,8 @@ type GetBudgetResourceGroupNotificationArgs struct {
 	// The operator used for comparison.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Threshold value associated with the notification.
-	Threshold pulumi.IntInput `pulumi:"threshold"`
+	Threshold     pulumi.IntInput    `pulumi:"threshold"`
+	ThresholdType pulumi.StringInput `pulumi:"thresholdType"`
 }
 
 func (GetBudgetResourceGroupNotificationArgs) ElementType() reflect.Type {
@@ -3249,6 +3251,10 @@ func (o GetBudgetResourceGroupNotificationOutput) Operator() pulumi.StringOutput
 // Threshold value associated with the notification.
 func (o GetBudgetResourceGroupNotificationOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBudgetResourceGroupNotification) int { return v.Threshold }).(pulumi.IntOutput)
+}
+
+func (o GetBudgetResourceGroupNotificationOutput) ThresholdType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetResourceGroupNotification) string { return v.ThresholdType }).(pulumi.StringOutput)
 }
 
 type GetBudgetResourceGroupNotificationArrayOutput struct{ *pulumi.OutputState }
@@ -4070,7 +4076,8 @@ type GetBudgetSubscriptionNotification struct {
 	// The operator to used for comparison.
 	Operator string `pulumi:"operator"`
 	// Threshold value associated with the notification.
-	Threshold int `pulumi:"threshold"`
+	Threshold     int    `pulumi:"threshold"`
+	ThresholdType string `pulumi:"thresholdType"`
 }
 
 // GetBudgetSubscriptionNotificationInput is an input type that accepts GetBudgetSubscriptionNotificationArgs and GetBudgetSubscriptionNotificationOutput values.
@@ -4096,7 +4103,8 @@ type GetBudgetSubscriptionNotificationArgs struct {
 	// The operator to used for comparison.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Threshold value associated with the notification.
-	Threshold pulumi.IntInput `pulumi:"threshold"`
+	Threshold     pulumi.IntInput    `pulumi:"threshold"`
+	ThresholdType pulumi.StringInput `pulumi:"thresholdType"`
 }
 
 func (GetBudgetSubscriptionNotificationArgs) ElementType() reflect.Type {
@@ -4178,6 +4186,10 @@ func (o GetBudgetSubscriptionNotificationOutput) Operator() pulumi.StringOutput 
 // Threshold value associated with the notification.
 func (o GetBudgetSubscriptionNotificationOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetBudgetSubscriptionNotification) int { return v.Threshold }).(pulumi.IntOutput)
+}
+
+func (o GetBudgetSubscriptionNotificationOutput) ThresholdType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBudgetSubscriptionNotification) string { return v.ThresholdType }).(pulumi.StringOutput)
 }
 
 type GetBudgetSubscriptionNotificationArrayOutput struct{ *pulumi.OutputState }

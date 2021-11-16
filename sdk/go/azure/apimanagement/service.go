@@ -77,7 +77,7 @@ type Service struct {
 	GatewayUrl pulumi.StringOutput `pulumi:"gatewayUrl"`
 	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration ServiceHostnameConfigurationOutput `pulumi:"hostnameConfiguration"`
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
 	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -185,7 +185,7 @@ type serviceState struct {
 	GatewayUrl *string `pulumi:"gatewayUrl"`
 	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration *ServiceHostnameConfiguration `pulumi:"hostnameConfiguration"`
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
 	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -253,7 +253,7 @@ type ServiceState struct {
 	GatewayUrl pulumi.StringPtrInput
 	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration ServiceHostnameConfigurationPtrInput
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
 	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -319,7 +319,7 @@ type serviceArgs struct {
 	GatewayDisabled *bool `pulumi:"gatewayDisabled"`
 	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration *ServiceHostnameConfiguration `pulumi:"hostnameConfiguration"`
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
 	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -372,7 +372,7 @@ type ServiceArgs struct {
 	GatewayDisabled pulumi.BoolPtrInput
 	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration ServiceHostnameConfigurationPtrInput
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
 	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

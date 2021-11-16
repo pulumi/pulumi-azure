@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ManagedInstanceArgs', 'ManagedInstance']
 
@@ -23,6 +25,7 @@ class ManagedInstanceArgs:
                  vcores: pulumi.Input[int],
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -42,6 +45,7 @@ class ManagedInstanceArgs:
         :param pulumi.Input[int] vcores: Number of cores that should be assigned to your instance. Values can be `8`, `16`, or `24` if `sku_name` is `GP_Gen4`, or `8`, `16`, `24`, `32`, or `40` if `sku_name` is `GP_Gen5`.
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input['ManagedInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure.
@@ -62,6 +66,8 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "collation", collation)
         if dns_zone_partner_id is not None:
             pulumi.set(__self__, "dns_zone_partner_id", dns_zone_partner_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if minimum_tls_version is not None:
@@ -199,6 +205,18 @@ class ManagedInstanceArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedInstanceIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedInstanceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -290,6 +308,7 @@ class _ManagedInstanceState:
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
@@ -310,6 +329,7 @@ class _ManagedInstanceState:
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
+        :param pulumi.Input['ManagedInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
@@ -334,6 +354,8 @@ class _ManagedInstanceState:
             pulumi.set(__self__, "dns_zone_partner_id", dns_zone_partner_id)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -420,6 +442,18 @@ class _ManagedInstanceState:
     @fqdn.setter
     def fqdn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedInstanceIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedInstanceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -587,6 +621,7 @@ class ManagedInstance(pulumi.CustomResource):
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
@@ -775,6 +810,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
@@ -982,6 +1018,7 @@ class ManagedInstance(pulumi.CustomResource):
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
@@ -1015,6 +1052,7 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["administrator_login_password"] = administrator_login_password
             __props__.__dict__["collation"] = collation
             __props__.__dict__["dns_zone_partner_id"] = dns_zone_partner_id
+            __props__.__dict__["identity"] = identity
             if license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'license_type'")
             __props__.__dict__["license_type"] = license_type
@@ -1056,6 +1094,7 @@ class ManagedInstance(pulumi.CustomResource):
             collation: Optional[pulumi.Input[str]] = None,
             dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             minimum_tls_version: Optional[pulumi.Input[str]] = None,
@@ -1081,6 +1120,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
+        :param pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
@@ -1104,6 +1144,7 @@ class ManagedInstance(pulumi.CustomResource):
         __props__.__dict__["collation"] = collation
         __props__.__dict__["dns_zone_partner_id"] = dns_zone_partner_id
         __props__.__dict__["fqdn"] = fqdn
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["location"] = location
         __props__.__dict__["minimum_tls_version"] = minimum_tls_version
@@ -1158,6 +1199,14 @@ class ManagedInstance(pulumi.CustomResource):
         The fully qualified domain name of the Azure Managed SQL Instance
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedInstanceIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="licenseType")

@@ -117,8 +117,12 @@ type ManagedDisk struct {
 	DiskAccessId pulumi.StringPtrOutput `pulumi:"diskAccessId"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
+	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+	DiskIopsReadOnly pulumi.IntOutput `pulumi:"diskIopsReadOnly"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite pulumi.IntOutput `pulumi:"diskIopsReadWrite"`
+	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+	DiskMbpsReadOnly pulumi.IntOutput `pulumi:"diskMbpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntOutput `pulumi:"diskMbpsReadWrite"`
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
@@ -203,8 +207,12 @@ type managedDiskState struct {
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+	DiskIopsReadOnly *int `pulumi:"diskIopsReadOnly"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
+	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+	DiskMbpsReadOnly *int `pulumi:"diskMbpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
@@ -252,8 +260,12 @@ type ManagedDiskState struct {
 	DiskAccessId pulumi.StringPtrInput
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput
+	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+	DiskIopsReadOnly pulumi.IntPtrInput
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite pulumi.IntPtrInput
+	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+	DiskMbpsReadOnly pulumi.IntPtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntPtrInput
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
@@ -305,8 +317,12 @@ type managedDiskArgs struct {
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+	DiskIopsReadOnly *int `pulumi:"diskIopsReadOnly"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
+	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+	DiskMbpsReadOnly *int `pulumi:"diskMbpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
@@ -355,8 +371,12 @@ type ManagedDiskArgs struct {
 	DiskAccessId pulumi.StringPtrInput
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput
+	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+	DiskIopsReadOnly pulumi.IntPtrInput
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite pulumi.IntPtrInput
+	// The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+	DiskMbpsReadOnly pulumi.IntPtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntPtrInput
 	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.

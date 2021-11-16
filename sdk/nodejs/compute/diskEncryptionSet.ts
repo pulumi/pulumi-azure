@@ -113,7 +113,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      */
     public readonly autoKeyRotationEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A `identity` block defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.compute.DiskEncryptionSetIdentity>;
     /**
@@ -192,7 +192,7 @@ export interface DiskEncryptionSetState {
      */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
     /**
-     * A `identity` block defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.DiskEncryptionSetIdentity>;
     /**
@@ -226,7 +226,7 @@ export interface DiskEncryptionSetArgs {
      */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
     /**
-     * A `identity` block defined below.
+     * An `identity` block as defined below.
      */
     identity: pulumi.Input<inputs.compute.DiskEncryptionSetIdentity>;
     /**

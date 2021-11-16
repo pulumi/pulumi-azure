@@ -9,6 +9,7 @@ export * from "./account";
 export * from "./application";
 export * from "./certificate";
 export * from "./getAccount";
+export * from "./getApplication";
 export * from "./getCertificate";
 export * from "./getPool";
 export * from "./job";

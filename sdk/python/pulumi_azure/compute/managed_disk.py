@@ -20,7 +20,9 @@ class ManagedDiskArgs:
                  storage_account_type: pulumi.Input[str],
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 disk_iops_read_only: Optional[pulumi.Input[int]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_mbps_read_only: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
@@ -45,7 +47,9 @@ class ManagedDiskArgs:
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        :param pulumi.Input[int] disk_iops_read_only: The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
@@ -71,8 +75,12 @@ class ManagedDiskArgs:
             pulumi.set(__self__, "disk_access_id", disk_access_id)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_iops_read_only is not None:
+            pulumi.set(__self__, "disk_iops_read_only", disk_iops_read_only)
         if disk_iops_read_write is not None:
             pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_mbps_read_only is not None:
+            pulumi.set(__self__, "disk_mbps_read_only", disk_mbps_read_only)
         if disk_mbps_read_write is not None:
             pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if disk_size_gb is not None:
@@ -169,6 +177,18 @@ class ManagedDiskArgs:
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @property
+    @pulumi.getter(name="diskIopsReadOnly")
+    def disk_iops_read_only(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+        """
+        return pulumi.get(self, "disk_iops_read_only")
+
+    @disk_iops_read_only.setter
+    def disk_iops_read_only(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_iops_read_only", value)
+
+    @property
     @pulumi.getter(name="diskIopsReadWrite")
     def disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
         """
@@ -179,6 +199,18 @@ class ManagedDiskArgs:
     @disk_iops_read_write.setter
     def disk_iops_read_write(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_iops_read_write", value)
+
+    @property
+    @pulumi.getter(name="diskMbpsReadOnly")
+    def disk_mbps_read_only(self) -> Optional[pulumi.Input[int]]:
+        """
+        The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+        """
+        return pulumi.get(self, "disk_mbps_read_only")
+
+    @disk_mbps_read_only.setter
+    def disk_mbps_read_only(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_mbps_read_only", value)
 
     @property
     @pulumi.getter(name="diskMbpsReadWrite")
@@ -391,7 +423,9 @@ class _ManagedDiskState:
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 disk_iops_read_only: Optional[pulumi.Input[int]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_mbps_read_only: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
@@ -416,7 +450,9 @@ class _ManagedDiskState:
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        :param pulumi.Input[int] disk_iops_read_only: The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
@@ -443,8 +479,12 @@ class _ManagedDiskState:
             pulumi.set(__self__, "disk_access_id", disk_access_id)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_iops_read_only is not None:
+            pulumi.set(__self__, "disk_iops_read_only", disk_iops_read_only)
         if disk_iops_read_write is not None:
             pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_mbps_read_only is not None:
+            pulumi.set(__self__, "disk_mbps_read_only", disk_mbps_read_only)
         if disk_mbps_read_write is not None:
             pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if disk_size_gb is not None:
@@ -521,6 +561,18 @@ class _ManagedDiskState:
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @property
+    @pulumi.getter(name="diskIopsReadOnly")
+    def disk_iops_read_only(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+        """
+        return pulumi.get(self, "disk_iops_read_only")
+
+    @disk_iops_read_only.setter
+    def disk_iops_read_only(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_iops_read_only", value)
+
+    @property
     @pulumi.getter(name="diskIopsReadWrite")
     def disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
         """
@@ -531,6 +583,18 @@ class _ManagedDiskState:
     @disk_iops_read_write.setter
     def disk_iops_read_write(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_iops_read_write", value)
+
+    @property
+    @pulumi.getter(name="diskMbpsReadOnly")
+    def disk_mbps_read_only(self) -> Optional[pulumi.Input[int]]:
+        """
+        The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+        """
+        return pulumi.get(self, "disk_mbps_read_only")
+
+    @disk_mbps_read_only.setter
+    def disk_mbps_read_only(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_mbps_read_only", value)
 
     @property
     @pulumi.getter(name="diskMbpsReadWrite")
@@ -769,7 +833,9 @@ class ManagedDisk(pulumi.CustomResource):
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 disk_iops_read_only: Optional[pulumi.Input[int]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_mbps_read_only: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
@@ -852,7 +918,9 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        :param pulumi.Input[int] disk_iops_read_only: The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
@@ -954,7 +1022,9 @@ class ManagedDisk(pulumi.CustomResource):
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 disk_iops_read_only: Optional[pulumi.Input[int]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_mbps_read_only: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
@@ -991,7 +1061,9 @@ class ManagedDisk(pulumi.CustomResource):
             __props__.__dict__["create_option"] = create_option
             __props__.__dict__["disk_access_id"] = disk_access_id
             __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
+            __props__.__dict__["disk_iops_read_only"] = disk_iops_read_only
             __props__.__dict__["disk_iops_read_write"] = disk_iops_read_write
+            __props__.__dict__["disk_mbps_read_only"] = disk_mbps_read_only
             __props__.__dict__["disk_mbps_read_write"] = disk_mbps_read_write
             __props__.__dict__["disk_size_gb"] = disk_size_gb
             __props__.__dict__["encryption_settings"] = encryption_settings
@@ -1028,7 +1100,9 @@ class ManagedDisk(pulumi.CustomResource):
             create_option: Optional[pulumi.Input[str]] = None,
             disk_access_id: Optional[pulumi.Input[str]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+            disk_iops_read_only: Optional[pulumi.Input[int]] = None,
             disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+            disk_mbps_read_only: Optional[pulumi.Input[int]] = None,
             disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
             disk_size_gb: Optional[pulumi.Input[int]] = None,
             encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
@@ -1058,7 +1132,9 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        :param pulumi.Input[int] disk_iops_read_only: The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
@@ -1086,7 +1162,9 @@ class ManagedDisk(pulumi.CustomResource):
         __props__.__dict__["create_option"] = create_option
         __props__.__dict__["disk_access_id"] = disk_access_id
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
+        __props__.__dict__["disk_iops_read_only"] = disk_iops_read_only
         __props__.__dict__["disk_iops_read_write"] = disk_iops_read_write
+        __props__.__dict__["disk_mbps_read_only"] = disk_mbps_read_only
         __props__.__dict__["disk_mbps_read_write"] = disk_mbps_read_write
         __props__.__dict__["disk_size_gb"] = disk_size_gb
         __props__.__dict__["encryption_settings"] = encryption_settings
@@ -1133,12 +1211,28 @@ class ManagedDisk(pulumi.CustomResource):
         return pulumi.get(self, "disk_encryption_set_id")
 
     @property
+    @pulumi.getter(name="diskIopsReadOnly")
+    def disk_iops_read_only(self) -> pulumi.Output[int]:
+        """
+        The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
+        """
+        return pulumi.get(self, "disk_iops_read_only")
+
+    @property
     @pulumi.getter(name="diskIopsReadWrite")
     def disk_iops_read_write(self) -> pulumi.Output[int]:
         """
         The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         """
         return pulumi.get(self, "disk_iops_read_write")
+
+    @property
+    @pulumi.getter(name="diskMbpsReadOnly")
+    def disk_mbps_read_only(self) -> pulumi.Output[int]:
+        """
+        The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks with shared disk enabled. MBps means millions of bytes per second.
+        """
+        return pulumi.get(self, "disk_mbps_read_only")
 
     @property
     @pulumi.getter(name="diskMbpsReadWrite")

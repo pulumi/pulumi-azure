@@ -112,7 +112,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly enforcementMode!: pulumi.Output<boolean | undefined>;
     /**
-     * An `identity` block.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.policy.AssignmentIdentity>;
     /**
@@ -212,7 +212,7 @@ export interface AssignmentState {
      */
     enforcementMode?: pulumi.Input<boolean>;
     /**
-     * An `identity` block.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.policy.AssignmentIdentity>;
     /**
@@ -262,7 +262,7 @@ export interface AssignmentArgs {
      */
     enforcementMode?: pulumi.Input<boolean>;
     /**
-     * An `identity` block.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.policy.AssignmentIdentity>;
     /**

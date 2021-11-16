@@ -64,7 +64,7 @@ export class BackupVault extends pulumi.CustomResource {
      */
     public readonly datastoreType!: pulumi.Output<string>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.dataprotection.BackupVaultIdentity | undefined>;
     /**
@@ -143,7 +143,7 @@ export interface BackupVaultState {
      */
     datastoreType?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.dataprotection.BackupVaultIdentity>;
     /**
@@ -177,7 +177,7 @@ export interface BackupVaultArgs {
      */
     datastoreType: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.dataprotection.BackupVaultIdentity>;
     /**

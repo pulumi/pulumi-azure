@@ -33,7 +33,7 @@ class AssignmentArgs:
         :param pulumi.Input[str] description: A description to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enforcement_mode: Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-        :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block.
+        :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy assignment. This is a JSON string representing additional metadata that should be stored with the policy assignment.
         :param pulumi.Input[str] name: The name of the Policy Assignment. Changing this forces a new resource to be created.
@@ -125,7 +125,7 @@ class AssignmentArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AssignmentIdentityArgs']]:
         """
-        An `identity` block.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -213,7 +213,7 @@ class _AssignmentState:
         :param pulumi.Input[str] description: A description to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enforcement_mode: Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-        :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block.
+        :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy assignment. This is a JSON string representing additional metadata that should be stored with the policy assignment.
         :param pulumi.Input[str] name: The name of the Policy Assignment. Changing this forces a new resource to be created.
@@ -285,7 +285,7 @@ class _AssignmentState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AssignmentIdentityArgs']]:
         """
-        An `identity` block.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
@@ -464,7 +464,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enforcement_mode: Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-        :param pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']] identity: An `identity` block.
+        :param pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy assignment. This is a JSON string representing additional metadata that should be stored with the policy assignment.
         :param pulumi.Input[str] name: The name of the Policy Assignment. Changing this forces a new resource to be created.
@@ -627,7 +627,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enforcement_mode: Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-        :param pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']] identity: An `identity` block.
+        :param pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy assignment. This is a JSON string representing additional metadata that should be stored with the policy assignment.
         :param pulumi.Input[str] name: The name of the Policy Assignment. Changing this forces a new resource to be created.
@@ -681,7 +681,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output['outputs.AssignmentIdentity']:
         """
-        An `identity` block.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 

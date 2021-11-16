@@ -118,7 +118,7 @@ export class ComputeCluster extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     public readonly identity!: pulumi.Output<outputs.machinelearning.ComputeClusterIdentity | undefined>;
     /**
@@ -236,7 +236,7 @@ export interface ComputeClusterState {
      */
     description?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     identity?: pulumi.Input<inputs.machinelearning.ComputeClusterIdentity>;
     /**
@@ -294,7 +294,7 @@ export interface ComputeClusterArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     identity?: pulumi.Input<inputs.machinelearning.ComputeClusterIdentity>;
     /**

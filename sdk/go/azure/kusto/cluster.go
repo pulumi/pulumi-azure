@@ -73,7 +73,7 @@ type Cluster struct {
 	EnableStreamingIngest pulumi.BoolPtrOutput `pulumi:"enableStreamingIngest"`
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
-	// An identity block.
+	// An `identity` block as defined below.
 	Identity ClusterIdentityOutput `pulumi:"identity"`
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
 	LanguageExtensions pulumi.StringArrayOutput `pulumi:"languageExtensions"`
@@ -146,7 +146,7 @@ type clusterState struct {
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine *string `pulumi:"engine"`
-	// An identity block.
+	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
 	LanguageExtensions []string `pulumi:"languageExtensions"`
@@ -185,7 +185,7 @@ type ClusterState struct {
 	EnableStreamingIngest pulumi.BoolPtrInput
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrInput
-	// An identity block.
+	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
 	LanguageExtensions pulumi.StringArrayInput
@@ -226,7 +226,7 @@ type clusterArgs struct {
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine *string `pulumi:"engine"`
-	// An identity block.
+	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
 	LanguageExtensions []string `pulumi:"languageExtensions"`
@@ -262,7 +262,7 @@ type ClusterArgs struct {
 	EnableStreamingIngest pulumi.BoolPtrInput
 	// . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
 	Engine pulumi.StringPtrInput
-	// An identity block.
+	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
 	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
 	LanguageExtensions pulumi.StringArrayInput

@@ -4407,11 +4407,11 @@ class VirtualMachineOsProfileWindowsConfigArgs:
                  timezone: Optional[pulumi.Input[str]] = None,
                  winrms: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs']]] additional_unattend_configs: A `additional_unattend_config` block.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs']]] additional_unattend_configs: An `additional_unattend_config` block as defined below.
         :param pulumi.Input[bool] enable_automatic_upgrades: Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgs']]] winrms: One or more `winrm` block.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgs']]] winrms: One or more `winrm` blocks as defined below.
         """
         if additional_unattend_configs is not None:
             pulumi.set(__self__, "additional_unattend_configs", additional_unattend_configs)
@@ -4428,7 +4428,7 @@ class VirtualMachineOsProfileWindowsConfigArgs:
     @pulumi.getter(name="additionalUnattendConfigs")
     def additional_unattend_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs']]]]:
         """
-        A `additional_unattend_config` block.
+        An `additional_unattend_config` block as defined below.
         """
         return pulumi.get(self, "additional_unattend_configs")
 
@@ -4476,7 +4476,7 @@ class VirtualMachineOsProfileWindowsConfigArgs:
     @pulumi.getter
     def winrms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgs']]]]:
         """
-        One or more `winrm` block.
+        One or more `winrm` blocks as defined below.
         """
         return pulumi.get(self, "winrms")
 

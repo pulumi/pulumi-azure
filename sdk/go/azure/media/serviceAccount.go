@@ -70,9 +70,9 @@ import (
 type ServiceAccount struct {
 	pulumi.CustomResourceState
 
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity ServiceAccountIdentityOutput `pulumi:"identity"`
-	// An `keyDeliveryAccessControl` block is documented below.
+	// A `keyDeliveryAccessControl` block as defined below.
 	KeyDeliveryAccessControl ServiceAccountKeyDeliveryAccessControlOutput `pulumi:"keyDeliveryAccessControl"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -130,9 +130,9 @@ func GetServiceAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceAccount resources.
 type serviceAccountState struct {
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity *ServiceAccountIdentity `pulumi:"identity"`
-	// An `keyDeliveryAccessControl` block is documented below.
+	// A `keyDeliveryAccessControl` block as defined below.
 	KeyDeliveryAccessControl *ServiceAccountKeyDeliveryAccessControl `pulumi:"keyDeliveryAccessControl"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -150,9 +150,9 @@ type serviceAccountState struct {
 }
 
 type ServiceAccountState struct {
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity ServiceAccountIdentityPtrInput
-	// An `keyDeliveryAccessControl` block is documented below.
+	// A `keyDeliveryAccessControl` block as defined below.
 	KeyDeliveryAccessControl ServiceAccountKeyDeliveryAccessControlPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -174,9 +174,9 @@ func (ServiceAccountState) ElementType() reflect.Type {
 }
 
 type serviceAccountArgs struct {
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity *ServiceAccountIdentity `pulumi:"identity"`
-	// An `keyDeliveryAccessControl` block is documented below.
+	// A `keyDeliveryAccessControl` block as defined below.
 	KeyDeliveryAccessControl *ServiceAccountKeyDeliveryAccessControl `pulumi:"keyDeliveryAccessControl"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -195,9 +195,9 @@ type serviceAccountArgs struct {
 
 // The set of arguments for constructing a ServiceAccount resource.
 type ServiceAccountArgs struct {
-	// An `identity` block is documented below.
+	// An `identity` block as defined below.
 	Identity ServiceAccountIdentityPtrInput
-	// An `keyDeliveryAccessControl` block is documented below.
+	// A `keyDeliveryAccessControl` block as defined below.
 	KeyDeliveryAccessControl ServiceAccountKeyDeliveryAccessControlPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

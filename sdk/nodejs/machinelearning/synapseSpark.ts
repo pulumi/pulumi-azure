@@ -114,7 +114,7 @@ export class SynapseSpark extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+     * An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
     public readonly identity!: pulumi.Output<outputs.machinelearning.SynapseSparkIdentity | undefined>;
     /**
@@ -196,7 +196,7 @@ export interface SynapseSparkState {
      */
     description?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+     * An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
     identity?: pulumi.Input<inputs.machinelearning.SynapseSparkIdentity>;
     /**
@@ -234,7 +234,7 @@ export interface SynapseSparkArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+     * An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
     identity?: pulumi.Input<inputs.machinelearning.SynapseSparkIdentity>;
     /**
