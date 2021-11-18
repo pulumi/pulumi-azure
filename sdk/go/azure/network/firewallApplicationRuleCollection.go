@@ -429,6 +429,10 @@ func (o FirewallApplicationRuleCollectionMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallApplicationRuleCollectionInput)(nil)).Elem(), &FirewallApplicationRuleCollection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallApplicationRuleCollectionPtrInput)(nil)).Elem(), &FirewallApplicationRuleCollection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallApplicationRuleCollectionArrayInput)(nil)).Elem(), FirewallApplicationRuleCollectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallApplicationRuleCollectionMapInput)(nil)).Elem(), FirewallApplicationRuleCollectionMap{})
 	pulumi.RegisterOutputType(FirewallApplicationRuleCollectionOutput{})
 	pulumi.RegisterOutputType(FirewallApplicationRuleCollectionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallApplicationRuleCollectionArrayOutput{})

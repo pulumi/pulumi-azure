@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.KeyVault
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about the permissions from the Management Key Vault Templates.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var contributor = Output.Create(Azure.KeyVault.GetAccessPolicy.InvokeAsync(new Azure.KeyVault.GetAccessPolicyArgs
+        ///         {
+        ///             Name = "Key Management",
+        ///         }));
+        ///         this.AccessPolicyKeyPermissions = contributor.Apply(contributor =&gt; contributor.KeyPermissions);
+        ///     }
+        /// 
+        ///     [Output("accessPolicyKeyPermissions")]
+        ///     public Output&lt;string&gt; AccessPolicyKeyPermissions { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -56,6 +89,21 @@ namespace Pulumi.Azure.KeyVault
         public string Name { get; set; } = null!;
 
         public GetAccessPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetAccessPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Management Template. Possible values are: `Key Management`,
+        /// `Secret Management`, `Certificate Management`, `Key &amp; Secret Management`, `Key &amp; Certificate Management`,
+        /// `Secret &amp; Certificate Management`,  `Key, Secret, &amp; Certificate Management`
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetAccessPolicyInvokeArgs()
         {
         }
     }

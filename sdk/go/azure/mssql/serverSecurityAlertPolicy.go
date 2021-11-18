@@ -422,6 +422,10 @@ func (o ServerSecurityAlertPolicyMapOutput) MapIndex(k pulumi.StringInput) Serve
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerSecurityAlertPolicyInput)(nil)).Elem(), &ServerSecurityAlertPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerSecurityAlertPolicyPtrInput)(nil)).Elem(), &ServerSecurityAlertPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerSecurityAlertPolicyArrayInput)(nil)).Elem(), ServerSecurityAlertPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerSecurityAlertPolicyMapInput)(nil)).Elem(), ServerSecurityAlertPolicyMap{})
 	pulumi.RegisterOutputType(ServerSecurityAlertPolicyOutput{})
 	pulumi.RegisterOutputType(ServerSecurityAlertPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ServerSecurityAlertPolicyArrayOutput{})

@@ -387,6 +387,10 @@ func (o EnterpriseClusterMapOutput) MapIndex(k pulumi.StringInput) EnterpriseClu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseClusterInput)(nil)).Elem(), &EnterpriseCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseClusterPtrInput)(nil)).Elem(), &EnterpriseCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseClusterArrayInput)(nil)).Elem(), EnterpriseClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseClusterMapInput)(nil)).Elem(), EnterpriseClusterMap{})
 	pulumi.RegisterOutputType(EnterpriseClusterOutput{})
 	pulumi.RegisterOutputType(EnterpriseClusterPtrOutput{})
 	pulumi.RegisterOutputType(EnterpriseClusterArrayOutput{})

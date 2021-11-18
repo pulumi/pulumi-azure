@@ -837,6 +837,10 @@ func (o WindowsVirtualMachineScaleSetMapOutput) MapIndex(k pulumi.StringInput) W
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetInput)(nil)).Elem(), &WindowsVirtualMachineScaleSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetPtrInput)(nil)).Elem(), &WindowsVirtualMachineScaleSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetArrayInput)(nil)).Elem(), WindowsVirtualMachineScaleSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetMapInput)(nil)).Elem(), WindowsVirtualMachineScaleSetMap{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetArrayOutput{})

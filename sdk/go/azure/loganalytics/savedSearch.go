@@ -396,6 +396,10 @@ func (o SavedSearchMapOutput) MapIndex(k pulumi.StringInput) SavedSearchOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SavedSearchInput)(nil)).Elem(), &SavedSearch{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SavedSearchPtrInput)(nil)).Elem(), &SavedSearch{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SavedSearchArrayInput)(nil)).Elem(), SavedSearchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SavedSearchMapInput)(nil)).Elem(), SavedSearchMap{})
 	pulumi.RegisterOutputType(SavedSearchOutput{})
 	pulumi.RegisterOutputType(SavedSearchPtrOutput{})
 	pulumi.RegisterOutputType(SavedSearchArrayOutput{})

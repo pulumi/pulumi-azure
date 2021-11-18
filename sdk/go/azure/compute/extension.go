@@ -540,6 +540,10 @@ func (o ExtensionMapOutput) MapIndex(k pulumi.StringInput) ExtensionOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionInput)(nil)).Elem(), &Extension{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionPtrInput)(nil)).Elem(), &Extension{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionArrayInput)(nil)).Elem(), ExtensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionMapInput)(nil)).Elem(), ExtensionMap{})
 	pulumi.RegisterOutputType(ExtensionOutput{})
 	pulumi.RegisterOutputType(ExtensionPtrOutput{})
 	pulumi.RegisterOutputType(ExtensionArrayOutput{})

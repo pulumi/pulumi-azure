@@ -463,6 +463,10 @@ func (o SharedImageMapOutput) MapIndex(k pulumi.StringInput) SharedImageOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageInput)(nil)).Elem(), &SharedImage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImagePtrInput)(nil)).Elem(), &SharedImage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageArrayInput)(nil)).Elem(), SharedImageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageMapInput)(nil)).Elem(), SharedImageMap{})
 	pulumi.RegisterOutputType(SharedImageOutput{})
 	pulumi.RegisterOutputType(SharedImagePtrOutput{})
 	pulumi.RegisterOutputType(SharedImageArrayOutput{})

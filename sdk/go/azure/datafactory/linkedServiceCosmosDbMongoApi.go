@@ -424,6 +424,10 @@ func (o LinkedServiceCosmosDbMongoApiMapOutput) MapIndex(k pulumi.StringInput) L
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceCosmosDbMongoApiInput)(nil)).Elem(), &LinkedServiceCosmosDbMongoApi{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceCosmosDbMongoApiPtrInput)(nil)).Elem(), &LinkedServiceCosmosDbMongoApi{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceCosmosDbMongoApiArrayInput)(nil)).Elem(), LinkedServiceCosmosDbMongoApiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceCosmosDbMongoApiMapInput)(nil)).Elem(), LinkedServiceCosmosDbMongoApiMap{})
 	pulumi.RegisterOutputType(LinkedServiceCosmosDbMongoApiOutput{})
 	pulumi.RegisterOutputType(LinkedServiceCosmosDbMongoApiPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceCosmosDbMongoApiArrayOutput{})

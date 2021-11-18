@@ -371,6 +371,10 @@ func (o CassandraKeyspaceMapOutput) MapIndex(k pulumi.StringInput) CassandraKeys
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraKeyspaceInput)(nil)).Elem(), &CassandraKeyspace{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraKeyspacePtrInput)(nil)).Elem(), &CassandraKeyspace{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraKeyspaceArrayInput)(nil)).Elem(), CassandraKeyspaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraKeyspaceMapInput)(nil)).Elem(), CassandraKeyspaceMap{})
 	pulumi.RegisterOutputType(CassandraKeyspaceOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspacePtrOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceArrayOutput{})

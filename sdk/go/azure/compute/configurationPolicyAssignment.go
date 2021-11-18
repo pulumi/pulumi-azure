@@ -439,6 +439,10 @@ func (o ConfigurationPolicyAssignmentMapOutput) MapIndex(k pulumi.StringInput) C
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentInput)(nil)).Elem(), &ConfigurationPolicyAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentPtrInput)(nil)).Elem(), &ConfigurationPolicyAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentArrayInput)(nil)).Elem(), ConfigurationPolicyAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentMapInput)(nil)).Elem(), ConfigurationPolicyAssignmentMap{})
 	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentArrayOutput{})

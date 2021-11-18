@@ -490,6 +490,10 @@ func (o RServerClusterMapOutput) MapIndex(k pulumi.StringInput) RServerClusterOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterInput)(nil)).Elem(), &RServerCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterPtrInput)(nil)).Elem(), &RServerCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterArrayInput)(nil)).Elem(), RServerClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterMapInput)(nil)).Elem(), RServerClusterMap{})
 	pulumi.RegisterOutputType(RServerClusterOutput{})
 	pulumi.RegisterOutputType(RServerClusterPtrOutput{})
 	pulumi.RegisterOutputType(RServerClusterArrayOutput{})

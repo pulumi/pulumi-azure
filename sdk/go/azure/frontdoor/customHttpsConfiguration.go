@@ -295,6 +295,10 @@ func (o CustomHttpsConfigurationMapOutput) MapIndex(k pulumi.StringInput) Custom
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomHttpsConfigurationInput)(nil)).Elem(), &CustomHttpsConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomHttpsConfigurationPtrInput)(nil)).Elem(), &CustomHttpsConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomHttpsConfigurationArrayInput)(nil)).Elem(), CustomHttpsConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomHttpsConfigurationMapInput)(nil)).Elem(), CustomHttpsConfigurationMap{})
 	pulumi.RegisterOutputType(CustomHttpsConfigurationOutput{})
 	pulumi.RegisterOutputType(CustomHttpsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CustomHttpsConfigurationArrayOutput{})

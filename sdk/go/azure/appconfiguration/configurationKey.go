@@ -520,6 +520,10 @@ func (o ConfigurationKeyMapOutput) MapIndex(k pulumi.StringInput) ConfigurationK
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationKeyInput)(nil)).Elem(), &ConfigurationKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationKeyPtrInput)(nil)).Elem(), &ConfigurationKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationKeyArrayInput)(nil)).Elem(), ConfigurationKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationKeyMapInput)(nil)).Elem(), ConfigurationKeyMap{})
 	pulumi.RegisterOutputType(ConfigurationKeyOutput{})
 	pulumi.RegisterOutputType(ConfigurationKeyPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationKeyArrayOutput{})

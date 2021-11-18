@@ -411,6 +411,10 @@ func (o AuthomationRuleMapOutput) MapIndex(k pulumi.StringInput) AuthomationRule
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleInput)(nil)).Elem(), &AuthomationRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRulePtrInput)(nil)).Elem(), &AuthomationRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleArrayInput)(nil)).Elem(), AuthomationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleMapInput)(nil)).Elem(), AuthomationRuleMap{})
 	pulumi.RegisterOutputType(AuthomationRuleOutput{})
 	pulumi.RegisterOutputType(AuthomationRulePtrOutput{})
 	pulumi.RegisterOutputType(AuthomationRuleArrayOutput{})

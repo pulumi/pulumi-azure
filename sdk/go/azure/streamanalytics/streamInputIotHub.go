@@ -438,6 +438,10 @@ func (o StreamInputIotHubMapOutput) MapIndex(k pulumi.StringInput) StreamInputIo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamInputIotHubInput)(nil)).Elem(), &StreamInputIotHub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamInputIotHubPtrInput)(nil)).Elem(), &StreamInputIotHub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamInputIotHubArrayInput)(nil)).Elem(), StreamInputIotHubArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamInputIotHubMapInput)(nil)).Elem(), StreamInputIotHubMap{})
 	pulumi.RegisterOutputType(StreamInputIotHubOutput{})
 	pulumi.RegisterOutputType(StreamInputIotHubPtrOutput{})
 	pulumi.RegisterOutputType(StreamInputIotHubArrayOutput{})

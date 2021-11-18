@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Task<GetTrafficManagerProfileResult> InvokeAsync(GetTrafficManagerProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerProfileResult>("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args ?? new GetTrafficManagerProfileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Traffic Manager Profile.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetTrafficManagerProfile.InvokeAsync(new Azure.Network.GetTrafficManagerProfileArgs
+        ///         {
+        ///             Name = "test",
+        ///             ResourceGroupName = "test",
+        ///         }));
+        ///         this.TrafficRoutingMethod = data.Azurerm_traffic_manager_profile.Traffic_routing_method;
+        ///     }
+        /// 
+        ///     [Output("trafficRoutingMethod")]
+        ///     public Output&lt;string&gt; TrafficRoutingMethod { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetTrafficManagerProfileResult> Invoke(GetTrafficManagerProfileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTrafficManagerProfileResult>("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args ?? new GetTrafficManagerProfileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -79,6 +113,43 @@ namespace Pulumi.Azure.Network
         public bool? TrafficViewEnabled { get; set; }
 
         public GetTrafficManagerProfileArgs()
+        {
+        }
+    }
+
+    public sealed class GetTrafficManagerProfileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Traffic Manager Profile.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the resource group the Traffic Manager Profile is located in.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Indicates whether Traffic View is enabled for the Traffic Manager profile.
+        /// </summary>
+        [Input("trafficViewEnabled")]
+        public Input<bool>? TrafficViewEnabled { get; set; }
+
+        public GetTrafficManagerProfileInvokeArgs()
         {
         }
     }

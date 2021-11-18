@@ -438,6 +438,10 @@ func (o SqlPoolSecurityAlertPolicyMapOutput) MapIndex(k pulumi.StringInput) SqlP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolSecurityAlertPolicyInput)(nil)).Elem(), &SqlPoolSecurityAlertPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolSecurityAlertPolicyPtrInput)(nil)).Elem(), &SqlPoolSecurityAlertPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolSecurityAlertPolicyArrayInput)(nil)).Elem(), SqlPoolSecurityAlertPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolSecurityAlertPolicyMapInput)(nil)).Elem(), SqlPoolSecurityAlertPolicyMap{})
 	pulumi.RegisterOutputType(SqlPoolSecurityAlertPolicyOutput{})
 	pulumi.RegisterOutputType(SqlPoolSecurityAlertPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SqlPoolSecurityAlertPolicyArrayOutput{})

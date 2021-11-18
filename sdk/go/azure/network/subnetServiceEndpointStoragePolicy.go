@@ -363,6 +363,10 @@ func (o SubnetServiceEndpointStoragePolicyMapOutput) MapIndex(k pulumi.StringInp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyInput)(nil)).Elem(), &SubnetServiceEndpointStoragePolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyPtrInput)(nil)).Elem(), &SubnetServiceEndpointStoragePolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyArrayInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyMapInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyMap{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyOutput{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyPtrOutput{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyArrayOutput{})

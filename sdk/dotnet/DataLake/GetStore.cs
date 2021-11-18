@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.DataLake
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.DataLake
         /// </summary>
         public static Task<GetStoreResult> InvokeAsync(GetStoreArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStoreResult>("azure:datalake/getStore:getStore", args ?? new GetStoreArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Data Lake Store.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.DataLake.GetStore.InvokeAsync(new Azure.DataLake.GetStoreArgs
+        ///         {
+        ///             Name = "testdatalake",
+        ///             ResourceGroupName = "testdatalake",
+        ///         }));
+        ///         this.DataLakeStoreId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("dataLakeStoreId")]
+        ///     public Output&lt;string&gt; DataLakeStoreId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetStoreResult> Invoke(GetStoreInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStoreResult>("azure:datalake/getStore:getStore", args ?? new GetStoreInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.DataLake
         public string ResourceGroupName { get; set; } = null!;
 
         public GetStoreArgs()
+        {
+        }
+    }
+
+    public sealed class GetStoreInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Data Lake Store.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where the Data Lake Store exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetStoreInvokeArgs()
         {
         }
     }

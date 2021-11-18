@@ -401,6 +401,10 @@ func (o ShareFileMapOutput) MapIndex(k pulumi.StringInput) ShareFileOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareFileInput)(nil)).Elem(), &ShareFile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareFilePtrInput)(nil)).Elem(), &ShareFile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareFileArrayInput)(nil)).Elem(), ShareFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareFileMapInput)(nil)).Elem(), ShareFileMap{})
 	pulumi.RegisterOutputType(ShareFileOutput{})
 	pulumi.RegisterOutputType(ShareFilePtrOutput{})
 	pulumi.RegisterOutputType(ShareFileArrayOutput{})

@@ -413,6 +413,10 @@ func (o ServerKeyMapOutput) MapIndex(k pulumi.StringInput) ServerKeyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerKeyInput)(nil)).Elem(), &ServerKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerKeyPtrInput)(nil)).Elem(), &ServerKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerKeyArrayInput)(nil)).Elem(), ServerKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerKeyMapInput)(nil)).Elem(), ServerKeyMap{})
 	pulumi.RegisterOutputType(ServerKeyOutput{})
 	pulumi.RegisterOutputType(ServerKeyPtrOutput{})
 	pulumi.RegisterOutputType(ServerKeyArrayOutput{})

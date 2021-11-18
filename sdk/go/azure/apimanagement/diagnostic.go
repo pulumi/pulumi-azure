@@ -522,6 +522,10 @@ func (o DiagnosticMapOutput) MapIndex(k pulumi.StringInput) DiagnosticOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticInput)(nil)).Elem(), &Diagnostic{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticPtrInput)(nil)).Elem(), &Diagnostic{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticArrayInput)(nil)).Elem(), DiagnosticArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticMapInput)(nil)).Elem(), DiagnosticMap{})
 	pulumi.RegisterOutputType(DiagnosticOutput{})
 	pulumi.RegisterOutputType(DiagnosticPtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticArrayOutput{})

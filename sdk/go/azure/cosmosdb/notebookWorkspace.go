@@ -352,6 +352,10 @@ func (o NotebookWorkspaceMapOutput) MapIndex(k pulumi.StringInput) NotebookWorks
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookWorkspaceInput)(nil)).Elem(), &NotebookWorkspace{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookWorkspacePtrInput)(nil)).Elem(), &NotebookWorkspace{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookWorkspaceArrayInput)(nil)).Elem(), NotebookWorkspaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookWorkspaceMapInput)(nil)).Elem(), NotebookWorkspaceMap{})
 	pulumi.RegisterOutputType(NotebookWorkspaceOutput{})
 	pulumi.RegisterOutputType(NotebookWorkspacePtrOutput{})
 	pulumi.RegisterOutputType(NotebookWorkspaceArrayOutput{})

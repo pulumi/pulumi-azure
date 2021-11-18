@@ -392,6 +392,10 @@ func (o SyncCloudEndpointMapOutput) MapIndex(k pulumi.StringInput) SyncCloudEndp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncCloudEndpointInput)(nil)).Elem(), &SyncCloudEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncCloudEndpointPtrInput)(nil)).Elem(), &SyncCloudEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncCloudEndpointArrayInput)(nil)).Elem(), SyncCloudEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncCloudEndpointMapInput)(nil)).Elem(), SyncCloudEndpointMap{})
 	pulumi.RegisterOutputType(SyncCloudEndpointOutput{})
 	pulumi.RegisterOutputType(SyncCloudEndpointPtrOutput{})
 	pulumi.RegisterOutputType(SyncCloudEndpointArrayOutput{})

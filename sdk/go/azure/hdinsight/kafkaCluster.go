@@ -551,6 +551,10 @@ func (o KafkaClusterMapOutput) MapIndex(k pulumi.StringInput) KafkaClusterOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterInput)(nil)).Elem(), &KafkaCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterPtrInput)(nil)).Elem(), &KafkaCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterArrayInput)(nil)).Elem(), KafkaClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterMapInput)(nil)).Elem(), KafkaClusterMap{})
 	pulumi.RegisterOutputType(KafkaClusterOutput{})
 	pulumi.RegisterOutputType(KafkaClusterPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterArrayOutput{})

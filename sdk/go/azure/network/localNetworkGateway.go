@@ -404,6 +404,10 @@ func (o LocalNetworkGatewayMapOutput) MapIndex(k pulumi.StringInput) LocalNetwor
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalNetworkGatewayInput)(nil)).Elem(), &LocalNetworkGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalNetworkGatewayPtrInput)(nil)).Elem(), &LocalNetworkGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalNetworkGatewayArrayInput)(nil)).Elem(), LocalNetworkGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalNetworkGatewayMapInput)(nil)).Elem(), LocalNetworkGatewayMap{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayPtrOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayArrayOutput{})

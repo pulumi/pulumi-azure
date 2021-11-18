@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Core
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public static Task<GetResourcesResult> InvokeAsync(GetResourcesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourcesResult>("azure:core/getResources:getResources", args ?? new GetResourcesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about existing resources.
+        /// </summary>
+        public static Output<GetResourcesResult> Invoke(GetResourcesInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("azure:core/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.Azure.Core
         public string? Type { get; set; }
 
         public GetResourcesArgs()
+        {
+        }
+    }
+
+    public sealed class GetResourcesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Resource.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("requiredTags")]
+        private InputMap<string>? _requiredTags;
+
+        /// <summary>
+        /// A mapping of tags which the resource has to have in order to be included in the result.
+        /// </summary>
+        public InputMap<string> RequiredTags
+        {
+            get => _requiredTags ?? (_requiredTags = new InputMap<string>());
+            set => _requiredTags = value;
+        }
+
+        /// <summary>
+        /// The name of the Resource group where the Resources are located.
+        /// </summary>
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        public GetResourcesInvokeArgs()
         {
         }
     }

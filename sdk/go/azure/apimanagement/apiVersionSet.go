@@ -396,6 +396,10 @@ func (o ApiVersionSetMapOutput) MapIndex(k pulumi.StringInput) ApiVersionSetOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiVersionSetInput)(nil)).Elem(), &ApiVersionSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiVersionSetPtrInput)(nil)).Elem(), &ApiVersionSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiVersionSetArrayInput)(nil)).Elem(), ApiVersionSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiVersionSetMapInput)(nil)).Elem(), ApiVersionSetMap{})
 	pulumi.RegisterOutputType(ApiVersionSetOutput{})
 	pulumi.RegisterOutputType(ApiVersionSetPtrOutput{})
 	pulumi.RegisterOutputType(ApiVersionSetArrayOutput{})

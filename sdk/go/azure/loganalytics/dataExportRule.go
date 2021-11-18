@@ -395,6 +395,10 @@ func (o DataExportRuleMapOutput) MapIndex(k pulumi.StringInput) DataExportRuleOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataExportRuleInput)(nil)).Elem(), &DataExportRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataExportRulePtrInput)(nil)).Elem(), &DataExportRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataExportRuleArrayInput)(nil)).Elem(), DataExportRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataExportRuleMapInput)(nil)).Elem(), DataExportRuleMap{})
 	pulumi.RegisterOutputType(DataExportRuleOutput{})
 	pulumi.RegisterOutputType(DataExportRulePtrOutput{})
 	pulumi.RegisterOutputType(DataExportRuleArrayOutput{})

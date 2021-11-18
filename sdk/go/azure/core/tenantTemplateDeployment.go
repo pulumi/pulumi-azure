@@ -334,6 +334,10 @@ func (o TenantTemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput) Tenant
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantTemplateDeploymentInput)(nil)).Elem(), &TenantTemplateDeployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantTemplateDeploymentPtrInput)(nil)).Elem(), &TenantTemplateDeployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantTemplateDeploymentArrayInput)(nil)).Elem(), TenantTemplateDeploymentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantTemplateDeploymentMapInput)(nil)).Elem(), TenantTemplateDeploymentMap{})
 	pulumi.RegisterOutputType(TenantTemplateDeploymentOutput{})
 	pulumi.RegisterOutputType(TenantTemplateDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(TenantTemplateDeploymentArrayOutput{})

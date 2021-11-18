@@ -382,6 +382,10 @@ func (o DatasetKustoClusterMapOutput) MapIndex(k pulumi.StringInput) DatasetKust
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetKustoClusterInput)(nil)).Elem(), &DatasetKustoCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetKustoClusterPtrInput)(nil)).Elem(), &DatasetKustoCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetKustoClusterArrayInput)(nil)).Elem(), DatasetKustoClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetKustoClusterMapInput)(nil)).Elem(), DatasetKustoClusterMap{})
 	pulumi.RegisterOutputType(DatasetKustoClusterOutput{})
 	pulumi.RegisterOutputType(DatasetKustoClusterPtrOutput{})
 	pulumi.RegisterOutputType(DatasetKustoClusterArrayOutput{})

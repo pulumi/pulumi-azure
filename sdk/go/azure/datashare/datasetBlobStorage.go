@@ -421,6 +421,10 @@ func (o DatasetBlobStorageMapOutput) MapIndex(k pulumi.StringInput) DatasetBlobS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBlobStorageInput)(nil)).Elem(), &DatasetBlobStorage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBlobStoragePtrInput)(nil)).Elem(), &DatasetBlobStorage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBlobStorageArrayInput)(nil)).Elem(), DatasetBlobStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBlobStorageMapInput)(nil)).Elem(), DatasetBlobStorageMap{})
 	pulumi.RegisterOutputType(DatasetBlobStorageOutput{})
 	pulumi.RegisterOutputType(DatasetBlobStoragePtrOutput{})
 	pulumi.RegisterOutputType(DatasetBlobStorageArrayOutput{})

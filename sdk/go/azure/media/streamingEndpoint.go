@@ -561,6 +561,10 @@ func (o StreamingEndpointMapOutput) MapIndex(k pulumi.StringInput) StreamingEndp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointInput)(nil)).Elem(), &StreamingEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointPtrInput)(nil)).Elem(), &StreamingEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointArrayInput)(nil)).Elem(), StreamingEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingEndpointMapInput)(nil)).Elem(), StreamingEndpointMap{})
 	pulumi.RegisterOutputType(StreamingEndpointOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointPtrOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointArrayOutput{})

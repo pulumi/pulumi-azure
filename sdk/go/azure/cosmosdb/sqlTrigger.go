@@ -373,6 +373,10 @@ func (o SqlTriggerMapOutput) MapIndex(k pulumi.StringInput) SqlTriggerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlTriggerInput)(nil)).Elem(), &SqlTrigger{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlTriggerPtrInput)(nil)).Elem(), &SqlTrigger{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlTriggerArrayInput)(nil)).Elem(), SqlTriggerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlTriggerMapInput)(nil)).Elem(), SqlTriggerMap{})
 	pulumi.RegisterOutputType(SqlTriggerOutput{})
 	pulumi.RegisterOutputType(SqlTriggerPtrOutput{})
 	pulumi.RegisterOutputType(SqlTriggerArrayOutput{})

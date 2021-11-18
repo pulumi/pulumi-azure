@@ -387,6 +387,10 @@ func (o BackupInstanceBlogStorageMapOutput) MapIndex(k pulumi.StringInput) Backu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceBlogStorageInput)(nil)).Elem(), &BackupInstanceBlogStorage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceBlogStoragePtrInput)(nil)).Elem(), &BackupInstanceBlogStorage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceBlogStorageArrayInput)(nil)).Elem(), BackupInstanceBlogStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceBlogStorageMapInput)(nil)).Elem(), BackupInstanceBlogStorageMap{})
 	pulumi.RegisterOutputType(BackupInstanceBlogStorageOutput{})
 	pulumi.RegisterOutputType(BackupInstanceBlogStoragePtrOutput{})
 	pulumi.RegisterOutputType(BackupInstanceBlogStorageArrayOutput{})

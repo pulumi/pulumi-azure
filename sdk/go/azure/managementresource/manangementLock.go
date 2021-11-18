@@ -413,6 +413,10 @@ func (o ManangementLockMapOutput) MapIndex(k pulumi.StringInput) ManangementLock
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManangementLockInput)(nil)).Elem(), &ManangementLock{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManangementLockPtrInput)(nil)).Elem(), &ManangementLock{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManangementLockArrayInput)(nil)).Elem(), ManangementLockArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManangementLockMapInput)(nil)).Elem(), ManangementLockMap{})
 	pulumi.RegisterOutputType(ManangementLockOutput{})
 	pulumi.RegisterOutputType(ManangementLockPtrOutput{})
 	pulumi.RegisterOutputType(ManangementLockArrayOutput{})

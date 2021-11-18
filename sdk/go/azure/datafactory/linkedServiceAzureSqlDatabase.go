@@ -461,6 +461,10 @@ func (o LinkedServiceAzureSqlDatabaseMapOutput) MapIndex(k pulumi.StringInput) L
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSqlDatabaseInput)(nil)).Elem(), &LinkedServiceAzureSqlDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSqlDatabasePtrInput)(nil)).Elem(), &LinkedServiceAzureSqlDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSqlDatabaseArrayInput)(nil)).Elem(), LinkedServiceAzureSqlDatabaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSqlDatabaseMapInput)(nil)).Elem(), LinkedServiceAzureSqlDatabaseMap{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabasePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseArrayOutput{})

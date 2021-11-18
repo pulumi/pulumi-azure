@@ -349,6 +349,10 @@ func (o MongoDatabaseMapOutput) MapIndex(k pulumi.StringInput) MongoDatabaseOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoDatabaseInput)(nil)).Elem(), &MongoDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoDatabasePtrInput)(nil)).Elem(), &MongoDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoDatabaseArrayInput)(nil)).Elem(), MongoDatabaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoDatabaseMapInput)(nil)).Elem(), MongoDatabaseMap{})
 	pulumi.RegisterOutputType(MongoDatabaseOutput{})
 	pulumi.RegisterOutputType(MongoDatabasePtrOutput{})
 	pulumi.RegisterOutputType(MongoDatabaseArrayOutput{})

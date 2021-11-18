@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Billing
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Azure.Billing
         /// </summary>
         public static Task<GetMcaAccountScopeResult> InvokeAsync(GetMcaAccountScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMcaAccountScopeResult>("azure:billing/getMcaAccountScope:getMcaAccountScope", args ?? new GetMcaAccountScopeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access an ID for your MCA Account billing scope.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Billing.GetMcaAccountScope.InvokeAsync(new Azure.Billing.GetMcaAccountScopeArgs
+        ///         {
+        ///             BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+        ///             BillingProfileName = "PE2Q-NOIT-BG7-TGB",
+        ///             InvoiceSectionName = "MTT4-OBS7-PJA-TGB",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetMcaAccountScopeResult> Invoke(GetMcaAccountScopeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMcaAccountScopeResult>("azure:billing/getMcaAccountScope:getMcaAccountScope", args ?? new GetMcaAccountScopeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +103,31 @@ namespace Pulumi.Azure.Billing
         public string InvoiceSectionName { get; set; } = null!;
 
         public GetMcaAccountScopeArgs()
+        {
+        }
+    }
+
+    public sealed class GetMcaAccountScopeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Billing Account Name of the MCA account.
+        /// </summary>
+        [Input("billingAccountName", required: true)]
+        public Input<string> BillingAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The Billing Profile Name in the above Billing Account.
+        /// </summary>
+        [Input("billingProfileName", required: true)]
+        public Input<string> BillingProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// The Invoice Section Name in the above Billing Profile.
+        /// </summary>
+        [Input("invoiceSectionName", required: true)]
+        public Input<string> InvoiceSectionName { get; set; } = null!;
+
+        public GetMcaAccountScopeInvokeArgs()
         {
         }
     }

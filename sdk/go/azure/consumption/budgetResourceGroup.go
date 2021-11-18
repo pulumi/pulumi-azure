@@ -443,6 +443,10 @@ func (o BudgetResourceGroupMapOutput) MapIndex(k pulumi.StringInput) BudgetResou
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupInput)(nil)).Elem(), &BudgetResourceGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupPtrInput)(nil)).Elem(), &BudgetResourceGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupArrayInput)(nil)).Elem(), BudgetResourceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupMapInput)(nil)).Elem(), BudgetResourceGroupMap{})
 	pulumi.RegisterOutputType(BudgetResourceGroupOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupPtrOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupArrayOutput{})

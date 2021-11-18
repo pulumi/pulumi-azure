@@ -288,6 +288,10 @@ func (o WorkspaceKeyMapOutput) MapIndex(k pulumi.StringInput) WorkspaceKeyOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceKeyInput)(nil)).Elem(), &WorkspaceKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceKeyPtrInput)(nil)).Elem(), &WorkspaceKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceKeyArrayInput)(nil)).Elem(), WorkspaceKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceKeyMapInput)(nil)).Elem(), WorkspaceKeyMap{})
 	pulumi.RegisterOutputType(WorkspaceKeyOutput{})
 	pulumi.RegisterOutputType(WorkspaceKeyPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceKeyArrayOutput{})

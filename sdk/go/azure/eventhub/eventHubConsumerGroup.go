@@ -376,6 +376,10 @@ func (o EventHubConsumerGroupMapOutput) MapIndex(k pulumi.StringInput) EventHubC
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHubConsumerGroupInput)(nil)).Elem(), &EventHubConsumerGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHubConsumerGroupPtrInput)(nil)).Elem(), &EventHubConsumerGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHubConsumerGroupArrayInput)(nil)).Elem(), EventHubConsumerGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHubConsumerGroupMapInput)(nil)).Elem(), EventHubConsumerGroupMap{})
 	pulumi.RegisterOutputType(EventHubConsumerGroupOutput{})
 	pulumi.RegisterOutputType(EventHubConsumerGroupPtrOutput{})
 	pulumi.RegisterOutputType(EventHubConsumerGroupArrayOutput{})

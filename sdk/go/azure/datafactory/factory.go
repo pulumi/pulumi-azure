@@ -405,6 +405,10 @@ func (o FactoryMapOutput) MapIndex(k pulumi.StringInput) FactoryOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FactoryInput)(nil)).Elem(), &Factory{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FactoryPtrInput)(nil)).Elem(), &Factory{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FactoryArrayInput)(nil)).Elem(), FactoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FactoryMapInput)(nil)).Elem(), FactoryMap{})
 	pulumi.RegisterOutputType(FactoryOutput{})
 	pulumi.RegisterOutputType(FactoryPtrOutput{})
 	pulumi.RegisterOutputType(FactoryArrayOutput{})

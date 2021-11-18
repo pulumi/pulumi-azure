@@ -299,6 +299,10 @@ func (o AutoProvisioningMapOutput) MapIndex(k pulumi.StringInput) AutoProvisioni
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoProvisioningInput)(nil)).Elem(), &AutoProvisioning{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoProvisioningPtrInput)(nil)).Elem(), &AutoProvisioning{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoProvisioningArrayInput)(nil)).Elem(), AutoProvisioningArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoProvisioningMapInput)(nil)).Elem(), AutoProvisioningMap{})
 	pulumi.RegisterOutputType(AutoProvisioningOutput{})
 	pulumi.RegisterOutputType(AutoProvisioningPtrOutput{})
 	pulumi.RegisterOutputType(AutoProvisioningArrayOutput{})

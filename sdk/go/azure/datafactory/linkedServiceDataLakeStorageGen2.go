@@ -461,6 +461,10 @@ func (o LinkedServiceDataLakeStorageGen2MapOutput) MapIndex(k pulumi.StringInput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceDataLakeStorageGen2Input)(nil)).Elem(), &LinkedServiceDataLakeStorageGen2{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceDataLakeStorageGen2PtrInput)(nil)).Elem(), &LinkedServiceDataLakeStorageGen2{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceDataLakeStorageGen2ArrayInput)(nil)).Elem(), LinkedServiceDataLakeStorageGen2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceDataLakeStorageGen2MapInput)(nil)).Elem(), LinkedServiceDataLakeStorageGen2Map{})
 	pulumi.RegisterOutputType(LinkedServiceDataLakeStorageGen2Output{})
 	pulumi.RegisterOutputType(LinkedServiceDataLakeStorageGen2PtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceDataLakeStorageGen2ArrayOutput{})

@@ -351,6 +351,10 @@ func (o DataConnectorAwsCloudTrailMapOutput) MapIndex(k pulumi.StringInput) Data
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAwsCloudTrailInput)(nil)).Elem(), &DataConnectorAwsCloudTrail{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAwsCloudTrailPtrInput)(nil)).Elem(), &DataConnectorAwsCloudTrail{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAwsCloudTrailArrayInput)(nil)).Elem(), DataConnectorAwsCloudTrailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAwsCloudTrailMapInput)(nil)).Elem(), DataConnectorAwsCloudTrailMap{})
 	pulumi.RegisterOutputType(DataConnectorAwsCloudTrailOutput{})
 	pulumi.RegisterOutputType(DataConnectorAwsCloudTrailPtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorAwsCloudTrailArrayOutput{})

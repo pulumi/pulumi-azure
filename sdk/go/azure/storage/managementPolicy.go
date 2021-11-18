@@ -385,6 +385,10 @@ func (o ManagementPolicyMapOutput) MapIndex(k pulumi.StringInput) ManagementPoli
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementPolicyInput)(nil)).Elem(), &ManagementPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementPolicyPtrInput)(nil)).Elem(), &ManagementPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementPolicyArrayInput)(nil)).Elem(), ManagementPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementPolicyMapInput)(nil)).Elem(), ManagementPolicyMap{})
 	pulumi.RegisterOutputType(ManagementPolicyOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyArrayOutput{})

@@ -482,6 +482,10 @@ func (o InferenceClusterMapOutput) MapIndex(k pulumi.StringInput) InferenceClust
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceClusterInput)(nil)).Elem(), &InferenceCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceClusterPtrInput)(nil)).Elem(), &InferenceCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceClusterArrayInput)(nil)).Elem(), InferenceClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceClusterMapInput)(nil)).Elem(), InferenceClusterMap{})
 	pulumi.RegisterOutputType(InferenceClusterOutput{})
 	pulumi.RegisterOutputType(InferenceClusterPtrOutput{})
 	pulumi.RegisterOutputType(InferenceClusterArrayOutput{})

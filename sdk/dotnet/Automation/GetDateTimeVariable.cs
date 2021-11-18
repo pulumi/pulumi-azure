@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Automation
 {
@@ -45,6 +46,41 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         public static Task<GetDateTimeVariableResult> InvokeAsync(GetDateTimeVariableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Automation Datetime Variable.
+        /// 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Automation.GetDateTimeVariable.InvokeAsync(new Azure.Automation.GetDateTimeVariableArgs
+        ///         {
+        ///             Name = "tfex-example-var",
+        ///             ResourceGroupName = "tfex-example-rg",
+        ///             AutomationAccountName = "tfex-example-account",
+        ///         }));
+        ///         this.VariableId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("variableId")]
+        ///     public Output&lt;string&gt; VariableId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDateTimeVariableResult> Invoke(GetDateTimeVariableInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -69,6 +105,31 @@ namespace Pulumi.Azure.Automation
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDateTimeVariableArgs()
+        {
+        }
+    }
+
+    public sealed class GetDateTimeVariableInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account in which the Automation Variable exists.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Automation Variable.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where the automation account exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDateTimeVariableInvokeArgs()
         {
         }
     }

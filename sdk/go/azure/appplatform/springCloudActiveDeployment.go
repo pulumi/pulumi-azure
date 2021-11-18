@@ -349,6 +349,10 @@ func (o SpringCloudActiveDeploymentMapOutput) MapIndex(k pulumi.StringInput) Spr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudActiveDeploymentInput)(nil)).Elem(), &SpringCloudActiveDeployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudActiveDeploymentPtrInput)(nil)).Elem(), &SpringCloudActiveDeployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudActiveDeploymentArrayInput)(nil)).Elem(), SpringCloudActiveDeploymentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudActiveDeploymentMapInput)(nil)).Elem(), SpringCloudActiveDeploymentMap{})
 	pulumi.RegisterOutputType(SpringCloudActiveDeploymentOutput{})
 	pulumi.RegisterOutputType(SpringCloudActiveDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudActiveDeploymentArrayOutput{})

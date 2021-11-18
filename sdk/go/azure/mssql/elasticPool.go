@@ -438,6 +438,10 @@ func (o ElasticPoolMapOutput) MapIndex(k pulumi.StringInput) ElasticPoolOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ElasticPoolInput)(nil)).Elem(), &ElasticPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ElasticPoolPtrInput)(nil)).Elem(), &ElasticPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ElasticPoolArrayInput)(nil)).Elem(), ElasticPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ElasticPoolMapInput)(nil)).Elem(), ElasticPoolMap{})
 	pulumi.RegisterOutputType(ElasticPoolOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPtrOutput{})
 	pulumi.RegisterOutputType(ElasticPoolArrayOutput{})

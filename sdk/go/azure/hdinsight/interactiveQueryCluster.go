@@ -539,6 +539,10 @@ func (o InteractiveQueryClusterMapOutput) MapIndex(k pulumi.StringInput) Interac
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterInput)(nil)).Elem(), &InteractiveQueryCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterPtrInput)(nil)).Elem(), &InteractiveQueryCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterArrayInput)(nil)).Elem(), InteractiveQueryClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterMapInput)(nil)).Elem(), InteractiveQueryClusterMap{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterArrayOutput{})

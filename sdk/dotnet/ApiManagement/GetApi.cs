@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ApiManagement
 {
@@ -45,6 +46,41 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure:apimanagement/getApi:getApi", args ?? new GetApiArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing API Management API.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
+        ///         {
+        ///             Name = "search-api",
+        ///             ApiManagementName = "search-api-management",
+        ///             ResourceGroupName = "search-service",
+        ///             Revision = "2",
+        ///         }));
+        ///         this.ApiManagementApiId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("apiManagementApiId")]
+        ///     public Output&lt;string&gt; ApiManagementApiId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure:apimanagement/getApi:getApi", args ?? new GetApiInvokeArgs(), options.WithVersion());
     }
 
 
@@ -75,6 +111,37 @@ namespace Pulumi.Azure.ApiManagement
         public string Revision { get; set; } = null!;
 
         public GetApiArgs()
+        {
+        }
+    }
+
+    public sealed class GetApiInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the API Management Service in which the API Management API exists.
+        /// </summary>
+        [Input("apiManagementName", required: true)]
+        public Input<string> ApiManagementName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the API Management API.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group in which the API Management Service exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Revision of the API Management API.
+        /// </summary>
+        [Input("revision", required: true)]
+        public Input<string> Revision { get; set; } = null!;
+
+        public GetApiInvokeArgs()
         {
         }
     }

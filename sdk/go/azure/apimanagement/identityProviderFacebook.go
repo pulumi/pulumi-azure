@@ -356,6 +356,10 @@ func (o IdentityProviderFacebookMapOutput) MapIndex(k pulumi.StringInput) Identi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderFacebookInput)(nil)).Elem(), &IdentityProviderFacebook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderFacebookPtrInput)(nil)).Elem(), &IdentityProviderFacebook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderFacebookArrayInput)(nil)).Elem(), IdentityProviderFacebookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderFacebookMapInput)(nil)).Elem(), IdentityProviderFacebookMap{})
 	pulumi.RegisterOutputType(IdentityProviderFacebookOutput{})
 	pulumi.RegisterOutputType(IdentityProviderFacebookPtrOutput{})
 	pulumi.RegisterOutputType(IdentityProviderFacebookArrayOutput{})

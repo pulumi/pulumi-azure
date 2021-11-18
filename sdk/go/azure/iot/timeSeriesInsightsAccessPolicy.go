@@ -363,6 +363,10 @@ func (o TimeSeriesInsightsAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsAccessPolicyInput)(nil)).Elem(), &TimeSeriesInsightsAccessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsAccessPolicyPtrInput)(nil)).Elem(), &TimeSeriesInsightsAccessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsAccessPolicyArrayInput)(nil)).Elem(), TimeSeriesInsightsAccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsAccessPolicyMapInput)(nil)).Elem(), TimeSeriesInsightsAccessPolicyMap{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsAccessPolicyOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsAccessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsAccessPolicyArrayOutput{})

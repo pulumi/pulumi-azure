@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.DevTest
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.DevTest
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure:devtest/getLab:getLab", args ?? new GetLabArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Dev Test Lab.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.DevTest.GetLab.InvokeAsync(new Azure.DevTest.GetLabArgs
+        ///         {
+        ///             Name = "example-lab",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.UniqueIdentifier = example.Apply(example =&gt; example.UniqueIdentifier);
+        ///     }
+        /// 
+        ///     [Output("uniqueIdentifier")]
+        ///     public Output&lt;string&gt; UniqueIdentifier { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure:devtest/getLab:getLab", args ?? new GetLabInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.DevTest
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLabArgs()
+        {
+        }
+    }
+
+    public sealed class GetLabInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Dev Test Lab.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where the Dev Test Lab exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLabInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Cdn
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing CDN Profile.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Cdn.GetProfile.InvokeAsync(new Azure.Cdn.GetProfileArgs
+        ///         {
+        ///             Name = "myfirstcdnprofile",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.CdnProfileId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("cdnProfileId")]
+        ///     public Output&lt;string&gt; CdnProfileId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? new GetProfileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.Cdn
         public string ResourceGroupName { get; set; } = null!;
 
         public GetProfileArgs()
+        {
+        }
+    }
+
+    public sealed class GetProfileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the CDN Profile.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group in which the CDN Profile exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetProfileInvokeArgs()
         {
         }
     }

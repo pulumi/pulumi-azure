@@ -379,6 +379,10 @@ func (o TriggerRecurrenceMapOutput) MapIndex(k pulumi.StringInput) TriggerRecurr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerRecurrenceInput)(nil)).Elem(), &TriggerRecurrence{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerRecurrencePtrInput)(nil)).Elem(), &TriggerRecurrence{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerRecurrenceArrayInput)(nil)).Elem(), TriggerRecurrenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerRecurrenceMapInput)(nil)).Elem(), TriggerRecurrenceMap{})
 	pulumi.RegisterOutputType(TriggerRecurrenceOutput{})
 	pulumi.RegisterOutputType(TriggerRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(TriggerRecurrenceArrayOutput{})

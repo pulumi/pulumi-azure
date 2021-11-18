@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.MariaDB
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.MariaDB
         /// </summary>
         public static Task<GetMariaDbServerResult> InvokeAsync(GetMariaDbServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMariaDbServerResult>("azure:mariadb/getMariaDbServer:getMariaDbServer", args ?? new GetMariaDbServerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing MariaDB Server.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var dbServer = Output.Create(Azure.MariaDB.GetMariaDbServer.InvokeAsync(new Azure.MariaDB.GetMariaDbServerArgs
+        ///         {
+        ///             Name = "mariadb-server",
+        ///             ResourceGroupName = azurerm_mariadb_server.Example.Resource_group_name,
+        ///         }));
+        ///         this.MariadbServerId = data.Azurerm_mariadb_server.Example.Id;
+        ///     }
+        /// 
+        ///     [Output("mariadbServerId")]
+        ///     public Output&lt;string&gt; MariadbServerId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetMariaDbServerResult> Invoke(GetMariaDbServerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMariaDbServerResult>("azure:mariadb/getMariaDbServer:getMariaDbServer", args ?? new GetMariaDbServerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.MariaDB
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMariaDbServerArgs()
+        {
+        }
+    }
+
+    public sealed class GetMariaDbServerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the MariaDB Server to retrieve information about.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the MariaDB Server exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMariaDbServerInvokeArgs()
         {
         }
     }

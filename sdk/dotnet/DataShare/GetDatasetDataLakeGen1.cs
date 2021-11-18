@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.DataShare
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.DataShare
         /// </summary>
         public static Task<GetDatasetDataLakeGen1Result> InvokeAsync(GetDatasetDataLakeGen1Args args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetDataLakeGen1Result>("azure:datashare/getDatasetDataLakeGen1:getDatasetDataLakeGen1", args ?? new GetDatasetDataLakeGen1Args(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing DataShareDataLakeGen1Dataset.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.DataShare.GetDatasetDataLakeGen1.InvokeAsync(new Azure.DataShare.GetDatasetDataLakeGen1Args
+        ///         {
+        ///             Name = "example-dsdsdlg1",
+        ///             DataShareId = "example-share-id",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDatasetDataLakeGen1Result> Invoke(GetDatasetDataLakeGen1InvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatasetDataLakeGen1Result>("azure:datashare/getDatasetDataLakeGen1:getDatasetDataLakeGen1", args ?? new GetDatasetDataLakeGen1InvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.DataShare
         public string Name { get; set; } = null!;
 
         public GetDatasetDataLakeGen1Args()
+        {
+        }
+    }
+
+    public sealed class GetDatasetDataLakeGen1InvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource ID of the Data Share where this Data Share Data Lake Gen1 Dataset should be created.
+        /// </summary>
+        [Input("dataShareId", required: true)]
+        public Input<string> DataShareId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Data Share Data Lake Gen1 Dataset.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetDatasetDataLakeGen1InvokeArgs()
         {
         }
     }

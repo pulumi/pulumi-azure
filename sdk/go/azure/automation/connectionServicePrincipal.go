@@ -359,6 +359,10 @@ func (o ConnectionServicePrincipalMapOutput) MapIndex(k pulumi.StringInput) Conn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionServicePrincipalInput)(nil)).Elem(), &ConnectionServicePrincipal{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionServicePrincipalPtrInput)(nil)).Elem(), &ConnectionServicePrincipal{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionServicePrincipalArrayInput)(nil)).Elem(), ConnectionServicePrincipalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionServicePrincipalMapInput)(nil)).Elem(), ConnectionServicePrincipalMap{})
 	pulumi.RegisterOutputType(ConnectionServicePrincipalOutput{})
 	pulumi.RegisterOutputType(ConnectionServicePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionServicePrincipalArrayOutput{})

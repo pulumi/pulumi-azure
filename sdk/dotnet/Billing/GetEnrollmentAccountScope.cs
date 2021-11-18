@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Billing
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Billing
         /// </summary>
         public static Task<GetEnrollmentAccountScopeResult> InvokeAsync(GetEnrollmentAccountScopeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnrollmentAccountScopeResult>("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args ?? new GetEnrollmentAccountScopeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Enrollment Account Billing Scope.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Billing.GetEnrollmentAccountScope.InvokeAsync(new Azure.Billing.GetEnrollmentAccountScopeArgs
+        ///         {
+        ///             BillingAccountName = "existing",
+        ///             EnrollmentAccountName = "existing",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetEnrollmentAccountScopeResult> Invoke(GetEnrollmentAccountScopeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEnrollmentAccountScopeResult>("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args ?? new GetEnrollmentAccountScopeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.Billing
         public string EnrollmentAccountName { get; set; } = null!;
 
         public GetEnrollmentAccountScopeArgs()
+        {
+        }
+    }
+
+    public sealed class GetEnrollmentAccountScopeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Billing Account Name of the Enterprise Account.
+        /// </summary>
+        [Input("billingAccountName", required: true)]
+        public Input<string> BillingAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The Enrollment Account Name in the above Enterprise Account.
+        /// </summary>
+        [Input("enrollmentAccountName", required: true)]
+        public Input<string> EnrollmentAccountName { get; set; } = null!;
+
+        public GetEnrollmentAccountScopeInvokeArgs()
         {
         }
     }

@@ -438,6 +438,10 @@ func (o FailoverGroupMapOutput) MapIndex(k pulumi.StringInput) FailoverGroupOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupInput)(nil)).Elem(), &FailoverGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupPtrInput)(nil)).Elem(), &FailoverGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupArrayInput)(nil)).Elem(), FailoverGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupMapInput)(nil)).Elem(), FailoverGroupMap{})
 	pulumi.RegisterOutputType(FailoverGroupOutput{})
 	pulumi.RegisterOutputType(FailoverGroupPtrOutput{})
 	pulumi.RegisterOutputType(FailoverGroupArrayOutput{})

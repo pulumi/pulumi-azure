@@ -331,6 +331,10 @@ func (o AdvancedThreatProtectionMapOutput) MapIndex(k pulumi.StringInput) Advanc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedThreatProtectionInput)(nil)).Elem(), &AdvancedThreatProtection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedThreatProtectionPtrInput)(nil)).Elem(), &AdvancedThreatProtection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedThreatProtectionArrayInput)(nil)).Elem(), AdvancedThreatProtectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedThreatProtectionMapInput)(nil)).Elem(), AdvancedThreatProtectionMap{})
 	pulumi.RegisterOutputType(AdvancedThreatProtectionOutput{})
 	pulumi.RegisterOutputType(AdvancedThreatProtectionPtrOutput{})
 	pulumi.RegisterOutputType(AdvancedThreatProtectionArrayOutput{})

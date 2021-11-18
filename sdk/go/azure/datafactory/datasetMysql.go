@@ -427,6 +427,10 @@ func (o DatasetMysqlMapOutput) MapIndex(k pulumi.StringInput) DatasetMysqlOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetMysqlInput)(nil)).Elem(), &DatasetMysql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetMysqlPtrInput)(nil)).Elem(), &DatasetMysql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetMysqlArrayInput)(nil)).Elem(), DatasetMysqlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetMysqlMapInput)(nil)).Elem(), DatasetMysqlMap{})
 	pulumi.RegisterOutputType(DatasetMysqlOutput{})
 	pulumi.RegisterOutputType(DatasetMysqlPtrOutput{})
 	pulumi.RegisterOutputType(DatasetMysqlArrayOutput{})

@@ -327,6 +327,10 @@ func (o DateTimeVariableMapOutput) MapIndex(k pulumi.StringInput) DateTimeVariab
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DateTimeVariableInput)(nil)).Elem(), &DateTimeVariable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DateTimeVariablePtrInput)(nil)).Elem(), &DateTimeVariable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DateTimeVariableArrayInput)(nil)).Elem(), DateTimeVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DateTimeVariableMapInput)(nil)).Elem(), DateTimeVariableMap{})
 	pulumi.RegisterOutputType(DateTimeVariableOutput{})
 	pulumi.RegisterOutputType(DateTimeVariablePtrOutput{})
 	pulumi.RegisterOutputType(DateTimeVariableArrayOutput{})

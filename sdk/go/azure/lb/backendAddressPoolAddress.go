@@ -359,6 +359,10 @@ func (o BackendAddressPoolAddressMapOutput) MapIndex(k pulumi.StringInput) Backe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolAddressInput)(nil)).Elem(), &BackendAddressPoolAddress{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolAddressPtrInput)(nil)).Elem(), &BackendAddressPoolAddress{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolAddressArrayInput)(nil)).Elem(), BackendAddressPoolAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolAddressMapInput)(nil)).Elem(), BackendAddressPoolAddressMap{})
 	pulumi.RegisterOutputType(BackendAddressPoolAddressOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolAddressPtrOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolAddressArrayOutput{})

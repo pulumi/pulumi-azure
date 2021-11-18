@@ -370,6 +370,10 @@ func (o CustomProviderMapOutput) MapIndex(k pulumi.StringInput) CustomProviderOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderInput)(nil)).Elem(), &CustomProvider{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderPtrInput)(nil)).Elem(), &CustomProvider{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderArrayInput)(nil)).Elem(), CustomProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderMapInput)(nil)).Elem(), CustomProviderMap{})
 	pulumi.RegisterOutputType(CustomProviderOutput{})
 	pulumi.RegisterOutputType(CustomProviderPtrOutput{})
 	pulumi.RegisterOutputType(CustomProviderArrayOutput{})

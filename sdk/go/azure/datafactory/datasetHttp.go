@@ -451,6 +451,10 @@ func (o DatasetHttpMapOutput) MapIndex(k pulumi.StringInput) DatasetHttpOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetHttpInput)(nil)).Elem(), &DatasetHttp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetHttpPtrInput)(nil)).Elem(), &DatasetHttp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetHttpArrayInput)(nil)).Elem(), DatasetHttpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetHttpMapInput)(nil)).Elem(), DatasetHttpMap{})
 	pulumi.RegisterOutputType(DatasetHttpOutput{})
 	pulumi.RegisterOutputType(DatasetHttpPtrOutput{})
 	pulumi.RegisterOutputType(DatasetHttpArrayOutput{})

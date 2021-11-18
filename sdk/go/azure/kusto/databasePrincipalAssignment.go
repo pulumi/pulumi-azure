@@ -430,6 +430,10 @@ func (o DatabasePrincipalAssignmentMapOutput) MapIndex(k pulumi.StringInput) Dat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalAssignmentInput)(nil)).Elem(), &DatabasePrincipalAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalAssignmentPtrInput)(nil)).Elem(), &DatabasePrincipalAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalAssignmentArrayInput)(nil)).Elem(), DatabasePrincipalAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalAssignmentMapInput)(nil)).Elem(), DatabasePrincipalAssignmentMap{})
 	pulumi.RegisterOutputType(DatabasePrincipalAssignmentOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalAssignmentArrayOutput{})

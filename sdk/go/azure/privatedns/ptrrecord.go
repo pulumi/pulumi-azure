@@ -375,6 +375,10 @@ func (o PTRRecordMapOutput) MapIndex(k pulumi.StringInput) PTRRecordOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PTRRecordInput)(nil)).Elem(), &PTRRecord{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PTRRecordPtrInput)(nil)).Elem(), &PTRRecord{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PTRRecordArrayInput)(nil)).Elem(), PTRRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PTRRecordMapInput)(nil)).Elem(), PTRRecordMap{})
 	pulumi.RegisterOutputType(PTRRecordOutput{})
 	pulumi.RegisterOutputType(PTRRecordPtrOutput{})
 	pulumi.RegisterOutputType(PTRRecordArrayOutput{})

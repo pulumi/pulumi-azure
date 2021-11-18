@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.CosmosDB
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         public static Task<GetMongoDatabaseResult> InvokeAsync(GetMongoDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMongoDatabaseResult>("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args ?? new GetMongoDatabaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Cosmos DB Mongo Database.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.CosmosDB.GetMongoDatabase.InvokeAsync(new Azure.CosmosDB.GetMongoDatabaseArgs
+        ///         {
+        ///             Name = "test-cosmosdb-mongo-db",
+        ///             ResourceGroupName = "test-cosmosdb-account-rg",
+        ///             AccountName = "test-cosmosdb-account",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetMongoDatabaseResult> Invoke(GetMongoDatabaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMongoDatabaseResult>("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args ?? new GetMongoDatabaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +103,31 @@ namespace Pulumi.Azure.CosmosDB
         public string ResourceGroupName { get; set; } = null!;
 
         public GetMongoDatabaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetMongoDatabaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Cosmos DB Account where the Mongo Database exists.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of this Cosmos DB Mongo Database.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the Cosmos DB Mongo Database exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetMongoDatabaseInvokeArgs()
         {
         }
     }

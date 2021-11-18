@@ -358,6 +358,10 @@ func (o ChannelAlexaMapOutput) MapIndex(k pulumi.StringInput) ChannelAlexaOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAlexaInput)(nil)).Elem(), &ChannelAlexa{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAlexaPtrInput)(nil)).Elem(), &ChannelAlexa{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAlexaArrayInput)(nil)).Elem(), ChannelAlexaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelAlexaMapInput)(nil)).Elem(), ChannelAlexaMap{})
 	pulumi.RegisterOutputType(ChannelAlexaOutput{})
 	pulumi.RegisterOutputType(ChannelAlexaPtrOutput{})
 	pulumi.RegisterOutputType(ChannelAlexaArrayOutput{})

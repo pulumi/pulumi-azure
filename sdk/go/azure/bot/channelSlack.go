@@ -406,6 +406,10 @@ func (o ChannelSlackMapOutput) MapIndex(k pulumi.StringInput) ChannelSlackOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlackInput)(nil)).Elem(), &ChannelSlack{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlackPtrInput)(nil)).Elem(), &ChannelSlack{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlackArrayInput)(nil)).Elem(), ChannelSlackArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlackMapInput)(nil)).Elem(), ChannelSlackMap{})
 	pulumi.RegisterOutputType(ChannelSlackOutput{})
 	pulumi.RegisterOutputType(ChannelSlackPtrOutput{})
 	pulumi.RegisterOutputType(ChannelSlackArrayOutput{})

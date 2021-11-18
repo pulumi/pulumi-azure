@@ -416,6 +416,10 @@ func (o AadDiagnosticSettingMapOutput) MapIndex(k pulumi.StringInput) AadDiagnos
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingInput)(nil)).Elem(), &AadDiagnosticSetting{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingPtrInput)(nil)).Elem(), &AadDiagnosticSetting{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingArrayInput)(nil)).Elem(), AadDiagnosticSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingMapInput)(nil)).Elem(), AadDiagnosticSettingMap{})
 	pulumi.RegisterOutputType(AadDiagnosticSettingOutput{})
 	pulumi.RegisterOutputType(AadDiagnosticSettingPtrOutput{})
 	pulumi.RegisterOutputType(AadDiagnosticSettingArrayOutput{})

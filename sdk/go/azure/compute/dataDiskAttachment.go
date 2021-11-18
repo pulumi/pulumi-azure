@@ -455,6 +455,10 @@ func (o DataDiskAttachmentMapOutput) MapIndex(k pulumi.StringInput) DataDiskAtta
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataDiskAttachmentInput)(nil)).Elem(), &DataDiskAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataDiskAttachmentPtrInput)(nil)).Elem(), &DataDiskAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataDiskAttachmentArrayInput)(nil)).Elem(), DataDiskAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataDiskAttachmentMapInput)(nil)).Elem(), DataDiskAttachmentMap{})
 	pulumi.RegisterOutputType(DataDiskAttachmentOutput{})
 	pulumi.RegisterOutputType(DataDiskAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(DataDiskAttachmentArrayOutput{})

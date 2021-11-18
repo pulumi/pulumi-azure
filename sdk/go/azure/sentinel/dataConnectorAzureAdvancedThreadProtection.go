@@ -349,6 +349,10 @@ func (o DataConnectorAzureAdvancedThreadProtectionMapOutput) MapIndex(k pulumi.S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureAdvancedThreadProtectionInput)(nil)).Elem(), &DataConnectorAzureAdvancedThreadProtection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureAdvancedThreadProtectionPtrInput)(nil)).Elem(), &DataConnectorAzureAdvancedThreadProtection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureAdvancedThreadProtectionArrayInput)(nil)).Elem(), DataConnectorAzureAdvancedThreadProtectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureAdvancedThreadProtectionMapInput)(nil)).Elem(), DataConnectorAzureAdvancedThreadProtectionMap{})
 	pulumi.RegisterOutputType(DataConnectorAzureAdvancedThreadProtectionOutput{})
 	pulumi.RegisterOutputType(DataConnectorAzureAdvancedThreadProtectionPtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorAzureAdvancedThreadProtectionArrayOutput{})

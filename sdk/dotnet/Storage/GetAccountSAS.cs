@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -90,6 +91,86 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Task<GetAccountSASResult> InvokeAsync(GetAccountSASArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? new GetAccountSASArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
+        /// 
+        /// Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account.
+        /// 
+        /// Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
+        /// and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+        ///         {
+        ///             Location = "West Europe",
+        ///         });
+        ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+        ///         {
+        ///             ResourceGroupName = exampleResourceGroup.Name,
+        ///             Location = "westus",
+        ///             AccountTier = "Standard",
+        ///             AccountReplicationType = "GRS",
+        ///             Tags = 
+        ///             {
+        ///                 { "environment", "staging" },
+        ///             },
+        ///         });
+        ///         var exampleAccountSAS = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; Azure.Storage.GetAccountSAS.InvokeAsync(new Azure.Storage.GetAccountSASArgs
+        ///         {
+        ///             ConnectionString = primaryConnectionString,
+        ///             HttpsOnly = true,
+        ///             SignedVersion = "2017-07-29",
+        ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesArgs
+        ///             {
+        ///                 Service = true,
+        ///                 Container = false,
+        ///                 Object = false,
+        ///             },
+        ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesArgs
+        ///             {
+        ///                 Blob = true,
+        ///                 Queue = false,
+        ///                 Table = false,
+        ///                 File = false,
+        ///             },
+        ///             Start = "2018-03-21T00:00:00Z",
+        ///             Expiry = "2020-03-21T00:00:00Z",
+        ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsArgs
+        ///             {
+        ///                 Read = true,
+        ///                 Write = true,
+        ///                 Delete = false,
+        ///                 List = false,
+        ///                 Add = true,
+        ///                 Create = true,
+        ///                 Update = false,
+        ///                 Process = false,
+        ///             },
+        ///         }));
+        ///         this.SasUrlQueryString = exampleAccountSAS.Apply(exampleAccountSAS =&gt; exampleAccountSAS.Sas);
+        ///     }
+        /// 
+        ///     [Output("sasUrlQueryString")]
+        ///     public Output&lt;string&gt; SasUrlQueryString { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAccountSASResult> Invoke(GetAccountSASInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? new GetAccountSASInvokeArgs(), options.WithVersion());
     }
 
 
@@ -150,6 +231,67 @@ namespace Pulumi.Azure.Storage
         public string Start { get; set; } = null!;
 
         public GetAccountSASArgs()
+        {
+        }
+    }
+
+    public sealed class GetAccountSASInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
+        /// </summary>
+        [Input("connectionString", required: true)]
+        public Input<string> ConnectionString { get; set; } = null!;
+
+        /// <summary>
+        /// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
+        /// </summary>
+        [Input("expiry", required: true)]
+        public Input<string> Expiry { get; set; } = null!;
+
+        /// <summary>
+        /// Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
+        /// </summary>
+        [Input("httpsOnly")]
+        public Input<bool>? HttpsOnly { get; set; }
+
+        /// <summary>
+        /// IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
+        /// </summary>
+        [Input("ipAddresses")]
+        public Input<string>? IpAddresses { get; set; }
+
+        /// <summary>
+        /// A `permissions` block as defined below.
+        /// </summary>
+        [Input("permissions", required: true)]
+        public Input<Inputs.GetAccountSASPermissionsInputArgs> Permissions { get; set; } = null!;
+
+        /// <summary>
+        /// A `resource_types` block as defined below.
+        /// </summary>
+        [Input("resourceTypes", required: true)]
+        public Input<Inputs.GetAccountSASResourceTypesInputArgs> ResourceTypes { get; set; } = null!;
+
+        /// <summary>
+        /// A `services` block as defined below.
+        /// </summary>
+        [Input("services", required: true)]
+        public Input<Inputs.GetAccountSASServicesInputArgs> Services { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+        /// </summary>
+        [Input("signedVersion")]
+        public Input<string>? SignedVersion { get; set; }
+
+        /// <summary>
+        /// The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
+        /// </summary>
+        [Input("start", required: true)]
+        public Input<string> Start { get; set; } = null!;
+
+        public GetAccountSASInvokeArgs()
         {
         }
     }

@@ -555,6 +555,10 @@ func (o FrontdoorMapOutput) MapIndex(k pulumi.StringInput) FrontdoorOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorInput)(nil)).Elem(), &Frontdoor{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorPtrInput)(nil)).Elem(), &Frontdoor{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorArrayInput)(nil)).Elem(), FrontdoorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorMapInput)(nil)).Elem(), FrontdoorMap{})
 	pulumi.RegisterOutputType(FrontdoorOutput{})
 	pulumi.RegisterOutputType(FrontdoorPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorArrayOutput{})

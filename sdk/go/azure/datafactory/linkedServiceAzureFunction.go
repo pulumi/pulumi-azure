@@ -430,6 +430,10 @@ func (o LinkedServiceAzureFunctionMapOutput) MapIndex(k pulumi.StringInput) Link
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFunctionInput)(nil)).Elem(), &LinkedServiceAzureFunction{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFunctionPtrInput)(nil)).Elem(), &LinkedServiceAzureFunction{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFunctionArrayInput)(nil)).Elem(), LinkedServiceAzureFunctionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFunctionMapInput)(nil)).Elem(), LinkedServiceAzureFunctionMap{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFunctionOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFunctionPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFunctionArrayOutput{})

@@ -442,6 +442,10 @@ func (o ScheduledQueryRulesAlertMapOutput) MapIndex(k pulumi.StringInput) Schedu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertInput)(nil)).Elem(), &ScheduledQueryRulesAlert{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertPtrInput)(nil)).Elem(), &ScheduledQueryRulesAlert{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertArrayInput)(nil)).Elem(), ScheduledQueryRulesAlertArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertMapInput)(nil)).Elem(), ScheduledQueryRulesAlertMap{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertArrayOutput{})

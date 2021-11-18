@@ -370,6 +370,10 @@ func (o JobScheduleMapOutput) MapIndex(k pulumi.StringInput) JobScheduleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*JobScheduleInput)(nil)).Elem(), &JobSchedule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobSchedulePtrInput)(nil)).Elem(), &JobSchedule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobScheduleArrayInput)(nil)).Elem(), JobScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobScheduleMapInput)(nil)).Elem(), JobScheduleMap{})
 	pulumi.RegisterOutputType(JobScheduleOutput{})
 	pulumi.RegisterOutputType(JobSchedulePtrOutput{})
 	pulumi.RegisterOutputType(JobScheduleArrayOutput{})

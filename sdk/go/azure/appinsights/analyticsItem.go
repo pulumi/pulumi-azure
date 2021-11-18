@@ -394,6 +394,10 @@ func (o AnalyticsItemMapOutput) MapIndex(k pulumi.StringInput) AnalyticsItemOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsItemInput)(nil)).Elem(), &AnalyticsItem{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsItemPtrInput)(nil)).Elem(), &AnalyticsItem{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsItemArrayInput)(nil)).Elem(), AnalyticsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsItemMapInput)(nil)).Elem(), AnalyticsItemMap{})
 	pulumi.RegisterOutputType(AnalyticsItemOutput{})
 	pulumi.RegisterOutputType(AnalyticsItemPtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsItemArrayOutput{})

@@ -460,6 +460,10 @@ func (o DatasetBinaryMapOutput) MapIndex(k pulumi.StringInput) DatasetBinaryOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBinaryInput)(nil)).Elem(), &DatasetBinary{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBinaryPtrInput)(nil)).Elem(), &DatasetBinary{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBinaryArrayInput)(nil)).Elem(), DatasetBinaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBinaryMapInput)(nil)).Elem(), DatasetBinaryMap{})
 	pulumi.RegisterOutputType(DatasetBinaryOutput{})
 	pulumi.RegisterOutputType(DatasetBinaryPtrOutput{})
 	pulumi.RegisterOutputType(DatasetBinaryArrayOutput{})

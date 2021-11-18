@@ -310,6 +310,10 @@ func (o IntegrationAccountSessionMapOutput) MapIndex(k pulumi.StringInput) Integ
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountSessionInput)(nil)).Elem(), &IntegrationAccountSession{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountSessionPtrInput)(nil)).Elem(), &IntegrationAccountSession{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountSessionArrayInput)(nil)).Elem(), IntegrationAccountSessionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountSessionMapInput)(nil)).Elem(), IntegrationAccountSessionMap{})
 	pulumi.RegisterOutputType(IntegrationAccountSessionOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSessionPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSessionArrayOutput{})

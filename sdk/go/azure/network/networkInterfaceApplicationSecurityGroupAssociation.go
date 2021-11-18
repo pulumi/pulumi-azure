@@ -359,6 +359,10 @@ func (o NetworkInterfaceApplicationSecurityGroupAssociationMapOutput) MapIndex(k
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceApplicationSecurityGroupAssociationInput)(nil)).Elem(), &NetworkInterfaceApplicationSecurityGroupAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceApplicationSecurityGroupAssociationPtrInput)(nil)).Elem(), &NetworkInterfaceApplicationSecurityGroupAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceApplicationSecurityGroupAssociationArrayInput)(nil)).Elem(), NetworkInterfaceApplicationSecurityGroupAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceApplicationSecurityGroupAssociationMapInput)(nil)).Elem(), NetworkInterfaceApplicationSecurityGroupAssociationMap{})
 	pulumi.RegisterOutputType(NetworkInterfaceApplicationSecurityGroupAssociationOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceApplicationSecurityGroupAssociationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceApplicationSecurityGroupAssociationArrayOutput{})

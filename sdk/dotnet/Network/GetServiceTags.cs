@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -47,6 +48,43 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Task<GetServiceTagsResult> InvokeAsync(GetServiceTagsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about Service Tags.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetServiceTags.InvokeAsync(new Azure.Network.GetServiceTagsArgs
+        ///         {
+        ///             Location = "westcentralus",
+        ///             Service = "AzureKeyVault",
+        ///             LocationFilter = "northeurope",
+        ///         }));
+        ///         this.AddressPrefixes = example.Apply(example =&gt; example.AddressPrefixes);
+        ///         this.Ipv4Cidrs = example.Apply(example =&gt; example.Ipv4Cidrs);
+        ///     }
+        /// 
+        ///     [Output("addressPrefixes")]
+        ///     public Output&lt;string&gt; AddressPrefixes { get; set; }
+        ///     [Output("ipv4Cidrs")]
+        ///     public Output&lt;string&gt; Ipv4Cidrs { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetServiceTagsResult> Invoke(GetServiceTagsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -71,6 +109,31 @@ namespace Pulumi.Azure.Network
         public string Service { get; set; } = null!;
 
         public GetServiceTagsArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceTagsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Azure Region where the Service Tags exists. This value is not used to filter the results but for specifying the region to request. For filtering by region use `location_filter` instead.  More information can be found here: [Service Tags URL parameters](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/servicetags/list#uri-parameters).
+        /// </summary>
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// Changes the scope of the service tags. Can be any value that is also valid for `location`. If this field is empty then all address prefixes are considered instead of only location specific ones.
+        /// </summary>
+        [Input("locationFilter")]
+        public Input<string>? LocationFilter { get; set; }
+
+        /// <summary>
+        /// The type of the service for which address prefixes will be fetched. Available service tags can be found here: [Available service tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
+        /// </summary>
+        [Input("service", required: true)]
+        public Input<string> Service { get; set; } = null!;
+
+        public GetServiceTagsInvokeArgs()
         {
         }
     }

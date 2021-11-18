@@ -393,6 +393,10 @@ func (o NamedValueMapOutput) MapIndex(k pulumi.StringInput) NamedValueOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamedValueInput)(nil)).Elem(), &NamedValue{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamedValuePtrInput)(nil)).Elem(), &NamedValue{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamedValueArrayInput)(nil)).Elem(), NamedValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamedValueMapInput)(nil)).Elem(), NamedValueMap{})
 	pulumi.RegisterOutputType(NamedValueOutput{})
 	pulumi.RegisterOutputType(NamedValuePtrOutput{})
 	pulumi.RegisterOutputType(NamedValueArrayOutput{})

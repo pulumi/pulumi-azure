@@ -438,6 +438,10 @@ func (o RunBookMapOutput) MapIndex(k pulumi.StringInput) RunBookOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookInput)(nil)).Elem(), &RunBook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookPtrInput)(nil)).Elem(), &RunBook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookArrayInput)(nil)).Elem(), RunBookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookMapInput)(nil)).Elem(), RunBookMap{})
 	pulumi.RegisterOutputType(RunBookOutput{})
 	pulumi.RegisterOutputType(RunBookPtrOutput{})
 	pulumi.RegisterOutputType(RunBookArrayOutput{})

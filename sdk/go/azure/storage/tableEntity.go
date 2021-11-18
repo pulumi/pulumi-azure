@@ -387,6 +387,10 @@ func (o TableEntityMapOutput) MapIndex(k pulumi.StringInput) TableEntityOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TableEntityInput)(nil)).Elem(), &TableEntity{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableEntityPtrInput)(nil)).Elem(), &TableEntity{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableEntityArrayInput)(nil)).Elem(), TableEntityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableEntityMapInput)(nil)).Elem(), TableEntityMap{})
 	pulumi.RegisterOutputType(TableEntityOutput{})
 	pulumi.RegisterOutputType(TableEntityPtrOutput{})
 	pulumi.RegisterOutputType(TableEntityArrayOutput{})

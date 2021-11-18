@@ -401,6 +401,10 @@ func (o LoggerMapOutput) MapIndex(k pulumi.StringInput) LoggerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggerInput)(nil)).Elem(), &Logger{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggerPtrInput)(nil)).Elem(), &Logger{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggerArrayInput)(nil)).Elem(), LoggerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggerMapInput)(nil)).Elem(), LoggerMap{})
 	pulumi.RegisterOutputType(LoggerOutput{})
 	pulumi.RegisterOutputType(LoggerPtrOutput{})
 	pulumi.RegisterOutputType(LoggerArrayOutput{})

@@ -386,6 +386,10 @@ func (o EdgeModuleMapOutput) MapIndex(k pulumi.StringInput) EdgeModuleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EdgeModuleInput)(nil)).Elem(), &EdgeModule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EdgeModulePtrInput)(nil)).Elem(), &EdgeModule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EdgeModuleArrayInput)(nil)).Elem(), EdgeModuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EdgeModuleMapInput)(nil)).Elem(), EdgeModuleMap{})
 	pulumi.RegisterOutputType(EdgeModuleOutput{})
 	pulumi.RegisterOutputType(EdgeModulePtrOutput{})
 	pulumi.RegisterOutputType(EdgeModuleArrayOutput{})

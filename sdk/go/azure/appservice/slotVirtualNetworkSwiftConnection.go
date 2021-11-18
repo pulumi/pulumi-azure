@@ -392,6 +392,10 @@ func (o SlotVirtualNetworkSwiftConnectionMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SlotVirtualNetworkSwiftConnectionInput)(nil)).Elem(), &SlotVirtualNetworkSwiftConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlotVirtualNetworkSwiftConnectionPtrInput)(nil)).Elem(), &SlotVirtualNetworkSwiftConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlotVirtualNetworkSwiftConnectionArrayInput)(nil)).Elem(), SlotVirtualNetworkSwiftConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlotVirtualNetworkSwiftConnectionMapInput)(nil)).Elem(), SlotVirtualNetworkSwiftConnectionMap{})
 	pulumi.RegisterOutputType(SlotVirtualNetworkSwiftConnectionOutput{})
 	pulumi.RegisterOutputType(SlotVirtualNetworkSwiftConnectionPtrOutput{})
 	pulumi.RegisterOutputType(SlotVirtualNetworkSwiftConnectionArrayOutput{})

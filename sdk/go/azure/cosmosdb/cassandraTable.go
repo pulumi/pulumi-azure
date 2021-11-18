@@ -404,6 +404,10 @@ func (o CassandraTableMapOutput) MapIndex(k pulumi.StringInput) CassandraTableOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraTableInput)(nil)).Elem(), &CassandraTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraTablePtrInput)(nil)).Elem(), &CassandraTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraTableArrayInput)(nil)).Elem(), CassandraTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraTableMapInput)(nil)).Elem(), CassandraTableMap{})
 	pulumi.RegisterOutputType(CassandraTableOutput{})
 	pulumi.RegisterOutputType(CassandraTablePtrOutput{})
 	pulumi.RegisterOutputType(CassandraTableArrayOutput{})

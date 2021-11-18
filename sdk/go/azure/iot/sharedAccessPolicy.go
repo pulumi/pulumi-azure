@@ -405,6 +405,10 @@ func (o SharedAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) SharedAccess
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedAccessPolicyInput)(nil)).Elem(), &SharedAccessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedAccessPolicyPtrInput)(nil)).Elem(), &SharedAccessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedAccessPolicyArrayInput)(nil)).Elem(), SharedAccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedAccessPolicyMapInput)(nil)).Elem(), SharedAccessPolicyMap{})
 	pulumi.RegisterOutputType(SharedAccessPolicyOutput{})
 	pulumi.RegisterOutputType(SharedAccessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessPolicyArrayOutput{})

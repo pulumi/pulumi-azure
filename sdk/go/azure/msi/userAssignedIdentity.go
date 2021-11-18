@@ -285,6 +285,10 @@ func (o UserAssignedIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssign
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityInput)(nil)).Elem(), &UserAssignedIdentity{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityPtrInput)(nil)).Elem(), &UserAssignedIdentity{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityArrayInput)(nil)).Elem(), UserAssignedIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAssignedIdentityMapInput)(nil)).Elem(), UserAssignedIdentityMap{})
 	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityArrayOutput{})

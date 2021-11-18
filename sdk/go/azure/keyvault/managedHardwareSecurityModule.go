@@ -414,6 +414,10 @@ func (o ManagedHardwareSecurityModuleMapOutput) MapIndex(k pulumi.StringInput) M
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHardwareSecurityModuleInput)(nil)).Elem(), &ManagedHardwareSecurityModule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHardwareSecurityModulePtrInput)(nil)).Elem(), &ManagedHardwareSecurityModule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHardwareSecurityModuleArrayInput)(nil)).Elem(), ManagedHardwareSecurityModuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHardwareSecurityModuleMapInput)(nil)).Elem(), ManagedHardwareSecurityModuleMap{})
 	pulumi.RegisterOutputType(ManagedHardwareSecurityModuleOutput{})
 	pulumi.RegisterOutputType(ManagedHardwareSecurityModulePtrOutput{})
 	pulumi.RegisterOutputType(ManagedHardwareSecurityModuleArrayOutput{})

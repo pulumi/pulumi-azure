@@ -282,6 +282,10 @@ func (o VirtualNetworkDnsServersMapOutput) MapIndex(k pulumi.StringInput) Virtua
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkDnsServersInput)(nil)).Elem(), &VirtualNetworkDnsServers{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkDnsServersPtrInput)(nil)).Elem(), &VirtualNetworkDnsServers{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkDnsServersArrayInput)(nil)).Elem(), VirtualNetworkDnsServersArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkDnsServersMapInput)(nil)).Elem(), VirtualNetworkDnsServersMap{})
 	pulumi.RegisterOutputType(VirtualNetworkDnsServersOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkDnsServersPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkDnsServersArrayOutput{})

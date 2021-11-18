@@ -497,6 +497,10 @@ func (o KeyVaultMapOutput) MapIndex(k pulumi.StringInput) KeyVaultOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultInput)(nil)).Elem(), &KeyVault{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultPtrInput)(nil)).Elem(), &KeyVault{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultArrayInput)(nil)).Elem(), KeyVaultArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultMapInput)(nil)).Elem(), KeyVaultMap{})
 	pulumi.RegisterOutputType(KeyVaultOutput{})
 	pulumi.RegisterOutputType(KeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultArrayOutput{})

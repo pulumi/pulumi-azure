@@ -438,6 +438,10 @@ func (o PolicySetDefinitionMapOutput) MapIndex(k pulumi.StringInput) PolicySetDe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionInput)(nil)).Elem(), &PolicySetDefinition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionPtrInput)(nil)).Elem(), &PolicySetDefinition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionArrayInput)(nil)).Elem(), PolicySetDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionMapInput)(nil)).Elem(), PolicySetDefinitionMap{})
 	pulumi.RegisterOutputType(PolicySetDefinitionOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionArrayOutput{})

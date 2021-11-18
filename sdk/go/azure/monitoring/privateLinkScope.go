@@ -324,6 +324,10 @@ func (o PrivateLinkScopeMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkSco
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopeInput)(nil)).Elem(), &PrivateLinkScope{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopePtrInput)(nil)).Elem(), &PrivateLinkScope{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopeArrayInput)(nil)).Elem(), PrivateLinkScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkScopeMapInput)(nil)).Elem(), PrivateLinkScopeMap{})
 	pulumi.RegisterOutputType(PrivateLinkScopeOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopeArrayOutput{})

@@ -376,6 +376,10 @@ func (o IntegrationAccountBatchConfigurationMapOutput) MapIndex(k pulumi.StringI
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountBatchConfigurationInput)(nil)).Elem(), &IntegrationAccountBatchConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountBatchConfigurationPtrInput)(nil)).Elem(), &IntegrationAccountBatchConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountBatchConfigurationArrayInput)(nil)).Elem(), IntegrationAccountBatchConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountBatchConfigurationMapInput)(nil)).Elem(), IntegrationAccountBatchConfigurationMap{})
 	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationArrayOutput{})

@@ -423,6 +423,10 @@ func (o SharedImageVersionMapOutput) MapIndex(k pulumi.StringInput) SharedImageV
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionInput)(nil)).Elem(), &SharedImageVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionPtrInput)(nil)).Elem(), &SharedImageVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionArrayInput)(nil)).Elem(), SharedImageVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionMapInput)(nil)).Elem(), SharedImageVersionMap{})
 	pulumi.RegisterOutputType(SharedImageVersionOutput{})
 	pulumi.RegisterOutputType(SharedImageVersionPtrOutput{})
 	pulumi.RegisterOutputType(SharedImageVersionArrayOutput{})

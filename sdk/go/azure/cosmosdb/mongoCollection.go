@@ -413,6 +413,10 @@ func (o MongoCollectionMapOutput) MapIndex(k pulumi.StringInput) MongoCollection
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionInput)(nil)).Elem(), &MongoCollection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionPtrInput)(nil)).Elem(), &MongoCollection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionArrayInput)(nil)).Elem(), MongoCollectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionMapInput)(nil)).Elem(), MongoCollectionMap{})
 	pulumi.RegisterOutputType(MongoCollectionOutput{})
 	pulumi.RegisterOutputType(MongoCollectionPtrOutput{})
 	pulumi.RegisterOutputType(MongoCollectionArrayOutput{})

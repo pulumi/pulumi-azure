@@ -905,6 +905,10 @@ func (o ScaleSetMapOutput) MapIndex(k pulumi.StringInput) ScaleSetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetInput)(nil)).Elem(), &ScaleSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetPtrInput)(nil)).Elem(), &ScaleSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetArrayInput)(nil)).Elem(), ScaleSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetMapInput)(nil)).Elem(), ScaleSetMap{})
 	pulumi.RegisterOutputType(ScaleSetOutput{})
 	pulumi.RegisterOutputType(ScaleSetPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetArrayOutput{})

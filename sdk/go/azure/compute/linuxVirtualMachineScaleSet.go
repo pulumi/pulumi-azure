@@ -817,6 +817,10 @@ func (o LinuxVirtualMachineScaleSetMapOutput) MapIndex(k pulumi.StringInput) Lin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetInput)(nil)).Elem(), &LinuxVirtualMachineScaleSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetPtrInput)(nil)).Elem(), &LinuxVirtualMachineScaleSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetArrayInput)(nil)).Elem(), LinuxVirtualMachineScaleSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetMapInput)(nil)).Elem(), LinuxVirtualMachineScaleSetMap{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetArrayOutput{})

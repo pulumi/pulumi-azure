@@ -318,6 +318,10 @@ func (o ManagedDatabaseMapOutput) MapIndex(k pulumi.StringInput) ManagedDatabase
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseInput)(nil)).Elem(), &ManagedDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabasePtrInput)(nil)).Elem(), &ManagedDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseArrayInput)(nil)).Elem(), ManagedDatabaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseMapInput)(nil)).Elem(), ManagedDatabaseMap{})
 	pulumi.RegisterOutputType(ManagedDatabaseOutput{})
 	pulumi.RegisterOutputType(ManagedDatabasePtrOutput{})
 	pulumi.RegisterOutputType(ManagedDatabaseArrayOutput{})

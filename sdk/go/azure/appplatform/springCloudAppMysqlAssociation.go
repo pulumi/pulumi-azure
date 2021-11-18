@@ -408,6 +408,10 @@ func (o SpringCloudAppMysqlAssociationMapOutput) MapIndex(k pulumi.StringInput) 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppMysqlAssociationInput)(nil)).Elem(), &SpringCloudAppMysqlAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppMysqlAssociationPtrInput)(nil)).Elem(), &SpringCloudAppMysqlAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppMysqlAssociationArrayInput)(nil)).Elem(), SpringCloudAppMysqlAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppMysqlAssociationMapInput)(nil)).Elem(), SpringCloudAppMysqlAssociationMap{})
 	pulumi.RegisterOutputType(SpringCloudAppMysqlAssociationOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppMysqlAssociationPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppMysqlAssociationArrayOutput{})

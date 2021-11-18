@@ -347,6 +347,10 @@ func (o SpatialAnchorsAccountMapOutput) MapIndex(k pulumi.StringInput) SpatialAn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpatialAnchorsAccountInput)(nil)).Elem(), &SpatialAnchorsAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpatialAnchorsAccountPtrInput)(nil)).Elem(), &SpatialAnchorsAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpatialAnchorsAccountArrayInput)(nil)).Elem(), SpatialAnchorsAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpatialAnchorsAccountMapInput)(nil)).Elem(), SpatialAnchorsAccountMap{})
 	pulumi.RegisterOutputType(SpatialAnchorsAccountOutput{})
 	pulumi.RegisterOutputType(SpatialAnchorsAccountPtrOutput{})
 	pulumi.RegisterOutputType(SpatialAnchorsAccountArrayOutput{})

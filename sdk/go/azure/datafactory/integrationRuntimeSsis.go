@@ -470,6 +470,10 @@ func (o IntegrationRuntimeSsisMapOutput) MapIndex(k pulumi.StringInput) Integrat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisInput)(nil)).Elem(), &IntegrationRuntimeSsis{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisPtrInput)(nil)).Elem(), &IntegrationRuntimeSsis{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisArrayInput)(nil)).Elem(), IntegrationRuntimeSsisArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisMapInput)(nil)).Elem(), IntegrationRuntimeSsisMap{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisArrayOutput{})

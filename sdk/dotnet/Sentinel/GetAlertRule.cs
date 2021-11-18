@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Sentinel
 {
@@ -48,6 +49,44 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         public static Task<GetAlertRuleResult> InvokeAsync(GetAlertRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleResult>("azure:sentinel/getAlertRule:getAlertRule", args ?? new GetAlertRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Sentinel Alert Rule.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleAnalyticsWorkspace = Output.Create(Azure.OperationalInsights.GetAnalyticsWorkspace.InvokeAsync(new Azure.OperationalInsights.GetAnalyticsWorkspaceArgs
+        ///         {
+        ///             Name = "example",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         var exampleAlertRule = exampleAnalyticsWorkspace.Apply(exampleAnalyticsWorkspace =&gt; Output.Create(Azure.Sentinel.GetAlertRule.InvokeAsync(new Azure.Sentinel.GetAlertRuleArgs
+        ///         {
+        ///             Name = "existing",
+        ///             LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+        ///         })));
+        ///         this.Id = exampleAlertRule.Apply(exampleAlertRule =&gt; exampleAlertRule.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAlertRuleResult> Invoke(GetAlertRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAlertRuleResult>("azure:sentinel/getAlertRule:getAlertRule", args ?? new GetAlertRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -66,6 +105,25 @@ namespace Pulumi.Azure.Sentinel
         public string Name { get; set; } = null!;
 
         public GetAlertRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.
+        /// </summary>
+        [Input("logAnalyticsWorkspaceId", required: true)]
+        public Input<string> LogAnalyticsWorkspaceId { get; set; } = null!;
+
+        /// <summary>
+        /// The name which should be used for this Sentinel Alert Rule.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetAlertRuleInvokeArgs()
         {
         }
     }

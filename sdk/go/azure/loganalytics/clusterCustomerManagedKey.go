@@ -383,6 +383,10 @@ func (o ClusterCustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) Clust
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCustomerManagedKeyInput)(nil)).Elem(), &ClusterCustomerManagedKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCustomerManagedKeyPtrInput)(nil)).Elem(), &ClusterCustomerManagedKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCustomerManagedKeyArrayInput)(nil)).Elem(), ClusterCustomerManagedKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCustomerManagedKeyMapInput)(nil)).Elem(), ClusterCustomerManagedKeyMap{})
 	pulumi.RegisterOutputType(ClusterCustomerManagedKeyOutput{})
 	pulumi.RegisterOutputType(ClusterCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCustomerManagedKeyArrayOutput{})

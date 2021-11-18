@@ -411,6 +411,10 @@ func (o CassandraDatacenterMapOutput) MapIndex(k pulumi.StringInput) CassandraDa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraDatacenterInput)(nil)).Elem(), &CassandraDatacenter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraDatacenterPtrInput)(nil)).Elem(), &CassandraDatacenter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraDatacenterArrayInput)(nil)).Elem(), CassandraDatacenterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraDatacenterMapInput)(nil)).Elem(), CassandraDatacenterMap{})
 	pulumi.RegisterOutputType(CassandraDatacenterOutput{})
 	pulumi.RegisterOutputType(CassandraDatacenterPtrOutput{})
 	pulumi.RegisterOutputType(CassandraDatacenterArrayOutput{})

@@ -460,6 +460,10 @@ func (o PolicyVMMapOutput) MapIndex(k pulumi.StringInput) PolicyVMOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMInput)(nil)).Elem(), &PolicyVM{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMPtrInput)(nil)).Elem(), &PolicyVM{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMArrayInput)(nil)).Elem(), PolicyVMArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMMapInput)(nil)).Elem(), PolicyVMMap{})
 	pulumi.RegisterOutputType(PolicyVMOutput{})
 	pulumi.RegisterOutputType(PolicyVMPtrOutput{})
 	pulumi.RegisterOutputType(PolicyVMArrayOutput{})

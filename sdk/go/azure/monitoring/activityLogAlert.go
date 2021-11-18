@@ -420,6 +420,10 @@ func (o ActivityLogAlertMapOutput) MapIndex(k pulumi.StringInput) ActivityLogAle
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertInput)(nil)).Elem(), &ActivityLogAlert{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertPtrInput)(nil)).Elem(), &ActivityLogAlert{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertArrayInput)(nil)).Elem(), ActivityLogAlertArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertMapInput)(nil)).Elem(), ActivityLogAlertMap{})
 	pulumi.RegisterOutputType(ActivityLogAlertOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertPtrOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertArrayOutput{})

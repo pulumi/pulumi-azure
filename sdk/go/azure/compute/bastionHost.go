@@ -388,6 +388,10 @@ func (o BastionHostMapOutput) MapIndex(k pulumi.StringInput) BastionHostOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostInput)(nil)).Elem(), &BastionHost{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostPtrInput)(nil)).Elem(), &BastionHost{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostArrayInput)(nil)).Elem(), BastionHostArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostMapInput)(nil)).Elem(), BastionHostMap{})
 	pulumi.RegisterOutputType(BastionHostOutput{})
 	pulumi.RegisterOutputType(BastionHostPtrOutput{})
 	pulumi.RegisterOutputType(BastionHostArrayOutput{})

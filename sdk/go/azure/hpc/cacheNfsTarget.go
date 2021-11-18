@@ -338,6 +338,10 @@ func (o CacheNfsTargetMapOutput) MapIndex(k pulumi.StringInput) CacheNfsTargetOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheNfsTargetInput)(nil)).Elem(), &CacheNfsTarget{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheNfsTargetPtrInput)(nil)).Elem(), &CacheNfsTarget{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheNfsTargetArrayInput)(nil)).Elem(), CacheNfsTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheNfsTargetMapInput)(nil)).Elem(), CacheNfsTargetMap{})
 	pulumi.RegisterOutputType(CacheNfsTargetOutput{})
 	pulumi.RegisterOutputType(CacheNfsTargetPtrOutput{})
 	pulumi.RegisterOutputType(CacheNfsTargetArrayOutput{})

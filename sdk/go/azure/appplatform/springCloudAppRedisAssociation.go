@@ -379,6 +379,10 @@ func (o SpringCloudAppRedisAssociationMapOutput) MapIndex(k pulumi.StringInput) 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppRedisAssociationInput)(nil)).Elem(), &SpringCloudAppRedisAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppRedisAssociationPtrInput)(nil)).Elem(), &SpringCloudAppRedisAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppRedisAssociationArrayInput)(nil)).Elem(), SpringCloudAppRedisAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppRedisAssociationMapInput)(nil)).Elem(), SpringCloudAppRedisAssociationMap{})
 	pulumi.RegisterOutputType(SpringCloudAppRedisAssociationOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppRedisAssociationPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppRedisAssociationArrayOutput{})

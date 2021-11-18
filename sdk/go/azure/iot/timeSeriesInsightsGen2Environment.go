@@ -409,6 +409,10 @@ func (o TimeSeriesInsightsGen2EnvironmentMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentInput)(nil)).Elem(), &TimeSeriesInsightsGen2Environment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentPtrInput)(nil)).Elem(), &TimeSeriesInsightsGen2Environment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentArrayInput)(nil)).Elem(), TimeSeriesInsightsGen2EnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentMapInput)(nil)).Elem(), TimeSeriesInsightsGen2EnvironmentMap{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsGen2EnvironmentOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsGen2EnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsGen2EnvironmentArrayOutput{})

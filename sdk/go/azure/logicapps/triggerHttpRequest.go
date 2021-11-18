@@ -363,6 +363,10 @@ func (o TriggerHttpRequestMapOutput) MapIndex(k pulumi.StringInput) TriggerHttpR
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerHttpRequestInput)(nil)).Elem(), &TriggerHttpRequest{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerHttpRequestPtrInput)(nil)).Elem(), &TriggerHttpRequest{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerHttpRequestArrayInput)(nil)).Elem(), TriggerHttpRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerHttpRequestMapInput)(nil)).Elem(), TriggerHttpRequestMap{})
 	pulumi.RegisterOutputType(TriggerHttpRequestOutput{})
 	pulumi.RegisterOutputType(TriggerHttpRequestPtrOutput{})
 	pulumi.RegisterOutputType(TriggerHttpRequestArrayOutput{})

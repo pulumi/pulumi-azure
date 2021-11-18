@@ -337,6 +337,10 @@ func (o NatGatewayPublicIpPrefixAssociationMapOutput) MapIndex(k pulumi.StringIn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayPublicIpPrefixAssociationInput)(nil)).Elem(), &NatGatewayPublicIpPrefixAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayPublicIpPrefixAssociationPtrInput)(nil)).Elem(), &NatGatewayPublicIpPrefixAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayPublicIpPrefixAssociationArrayInput)(nil)).Elem(), NatGatewayPublicIpPrefixAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayPublicIpPrefixAssociationMapInput)(nil)).Elem(), NatGatewayPublicIpPrefixAssociationMap{})
 	pulumi.RegisterOutputType(NatGatewayPublicIpPrefixAssociationOutput{})
 	pulumi.RegisterOutputType(NatGatewayPublicIpPrefixAssociationPtrOutput{})
 	pulumi.RegisterOutputType(NatGatewayPublicIpPrefixAssociationArrayOutput{})

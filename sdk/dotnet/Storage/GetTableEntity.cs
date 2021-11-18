@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Task<GetTableEntityResult> InvokeAsync(GetTableEntityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableEntityResult>("azure:storage/getTableEntity:getTableEntity", args ?? new GetTableEntityArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Storage Table Entity.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Storage.GetTableEntity.InvokeAsync(new Azure.Storage.GetTableEntityArgs
+        ///         {
+        ///             PartitionKey = "example-partition-key",
+        ///             RowKey = "example-row-key",
+        ///             StorageAccountName = "example-storage-account-name",
+        ///             TableName = "example-table-name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetTableEntityResult> Invoke(GetTableEntityInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTableEntityResult>("azure:storage/getTableEntity:getTableEntity", args ?? new GetTableEntityInvokeArgs(), options.WithVersion());
     }
 
 
@@ -72,6 +105,37 @@ namespace Pulumi.Azure.Storage
         public string TableName { get; set; } = null!;
 
         public GetTableEntityArgs()
+        {
+        }
+    }
+
+    public sealed class GetTableEntityInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The key for the partition where the entity will be retrieved.
+        /// </summary>
+        [Input("partitionKey", required: true)]
+        public Input<string> PartitionKey { get; set; } = null!;
+
+        /// <summary>
+        /// The key for the row where the entity will be retrieved.
+        /// </summary>
+        [Input("rowKey", required: true)]
+        public Input<string> RowKey { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Storage Account where the Table exists.
+        /// </summary>
+        [Input("storageAccountName", required: true)]
+        public Input<string> StorageAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Table.
+        /// </summary>
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
+
+        public GetTableEntityInvokeArgs()
         {
         }
     }

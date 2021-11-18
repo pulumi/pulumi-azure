@@ -452,6 +452,10 @@ func (o AccountCustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) Accou
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyInput)(nil)).Elem(), &AccountCustomerManagedKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyPtrInput)(nil)).Elem(), &AccountCustomerManagedKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyArrayInput)(nil)).Elem(), AccountCustomerManagedKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyMapInput)(nil)).Elem(), AccountCustomerManagedKeyMap{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyOutput{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Task<GetBlobResult> InvokeAsync(GetBlobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBlobResult>("azure:storage/getBlob:getBlob", args ?? new GetBlobArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Storage Blob.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Storage.GetBlob.InvokeAsync(new Azure.Storage.GetBlobArgs
+        ///         {
+        ///             Name = "example-blob-name",
+        ///             StorageAccountName = "example-storage-account-name",
+        ///             StorageContainerName = "example-storage-container-name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetBlobResult> Invoke(GetBlobInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBlobResult>("azure:storage/getBlob:getBlob", args ?? new GetBlobInvokeArgs(), options.WithVersion());
     }
 
 
@@ -77,6 +109,43 @@ namespace Pulumi.Azure.Storage
         public string StorageContainerName { get; set; } = null!;
 
         public GetBlobArgs()
+        {
+        }
+    }
+
+    public sealed class GetBlobInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("metadata")]
+        private InputMap<string>? _metadata;
+
+        /// <summary>
+        /// A map of custom blob metadata.
+        /// </summary>
+        public InputMap<string> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<string>());
+            set => _metadata = value;
+        }
+
+        /// <summary>
+        /// The name of the Blob.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Storage Account where the Container exists.
+        /// </summary>
+        [Input("storageAccountName", required: true)]
+        public Input<string> StorageAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Storage Container where the Blob exists.
+        /// </summary>
+        [Input("storageContainerName", required: true)]
+        public Input<string> StorageContainerName { get; set; } = null!;
+
+        public GetBlobInvokeArgs()
         {
         }
     }

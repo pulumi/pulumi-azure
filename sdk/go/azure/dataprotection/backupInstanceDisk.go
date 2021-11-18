@@ -333,6 +333,10 @@ func (o BackupInstanceDiskMapOutput) MapIndex(k pulumi.StringInput) BackupInstan
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceDiskInput)(nil)).Elem(), &BackupInstanceDisk{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceDiskPtrInput)(nil)).Elem(), &BackupInstanceDisk{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceDiskArrayInput)(nil)).Elem(), BackupInstanceDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstanceDiskMapInput)(nil)).Elem(), BackupInstanceDiskMap{})
 	pulumi.RegisterOutputType(BackupInstanceDiskOutput{})
 	pulumi.RegisterOutputType(BackupInstanceDiskPtrOutput{})
 	pulumi.RegisterOutputType(BackupInstanceDiskArrayOutput{})

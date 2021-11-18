@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Role
 {
@@ -14,6 +15,9 @@ namespace Pulumi.Azure.Role
     {
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
+
+        public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +33,22 @@ namespace Pulumi.Azure.Role
         public string? Scope { get; set; }
 
         public GetRoleDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetRoleDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("roleDefinitionId")]
+        public Input<string>? RoleDefinitionId { get; set; }
+
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        public GetRoleDefinitionInvokeArgs()
         {
         }
     }

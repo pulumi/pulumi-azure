@@ -385,6 +385,10 @@ func (o PublicIpPrefixMapOutput) MapIndex(k pulumi.StringInput) PublicIpPrefixOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicIpPrefixInput)(nil)).Elem(), &PublicIpPrefix{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicIpPrefixPtrInput)(nil)).Elem(), &PublicIpPrefix{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicIpPrefixArrayInput)(nil)).Elem(), PublicIpPrefixArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicIpPrefixMapInput)(nil)).Elem(), PublicIpPrefixMap{})
 	pulumi.RegisterOutputType(PublicIpPrefixOutput{})
 	pulumi.RegisterOutputType(PublicIpPrefixPtrOutput{})
 	pulumi.RegisterOutputType(PublicIpPrefixArrayOutput{})

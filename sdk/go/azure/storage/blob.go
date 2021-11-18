@@ -475,6 +475,10 @@ func (o BlobMapOutput) MapIndex(k pulumi.StringInput) BlobOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobInput)(nil)).Elem(), &Blob{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobPtrInput)(nil)).Elem(), &Blob{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobArrayInput)(nil)).Elem(), BlobArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobMapInput)(nil)).Elem(), BlobMap{})
 	pulumi.RegisterOutputType(BlobOutput{})
 	pulumi.RegisterOutputType(BlobPtrOutput{})
 	pulumi.RegisterOutputType(BlobArrayOutput{})

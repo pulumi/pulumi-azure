@@ -415,6 +415,10 @@ func (o LogzMonitorMapOutput) MapIndex(k pulumi.StringInput) LogzMonitorOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorInput)(nil)).Elem(), &LogzMonitor{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorPtrInput)(nil)).Elem(), &LogzMonitor{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorArrayInput)(nil)).Elem(), LogzMonitorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorMapInput)(nil)).Elem(), LogzMonitorMap{})
 	pulumi.RegisterOutputType(LogzMonitorOutput{})
 	pulumi.RegisterOutputType(LogzMonitorPtrOutput{})
 	pulumi.RegisterOutputType(LogzMonitorArrayOutput{})

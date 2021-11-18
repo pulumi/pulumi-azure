@@ -400,6 +400,10 @@ func (o SpringCloudAppMapOutput) MapIndex(k pulumi.StringInput) SpringCloudAppOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppInput)(nil)).Elem(), &SpringCloudApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppPtrInput)(nil)).Elem(), &SpringCloudApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppArrayInput)(nil)).Elem(), SpringCloudAppArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppMapInput)(nil)).Elem(), SpringCloudAppMap{})
 	pulumi.RegisterOutputType(SpringCloudAppOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppArrayOutput{})

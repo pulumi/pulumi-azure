@@ -457,6 +457,10 @@ func (o AutomationMapOutput) MapIndex(k pulumi.StringInput) AutomationOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationInput)(nil)).Elem(), &Automation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationPtrInput)(nil)).Elem(), &Automation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationArrayInput)(nil)).Elem(), AutomationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationMapInput)(nil)).Elem(), AutomationMap{})
 	pulumi.RegisterOutputType(AutomationOutput{})
 	pulumi.RegisterOutputType(AutomationPtrOutput{})
 	pulumi.RegisterOutputType(AutomationArrayOutput{})

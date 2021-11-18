@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Compute
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public static Task<GetSshPublicKeyResult> InvokeAsync(GetSshPublicKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSshPublicKeyResult>("azure:compute/getSshPublicKey:getSshPublicKey", args ?? new GetSshPublicKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing SSH Public Key.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Compute.GetSshPublicKey.InvokeAsync(new Azure.Compute.GetSshPublicKeyArgs
+        ///         {
+        ///             Name = "existing",
+        ///             ResourceGroupName = "existing",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSshPublicKeyResult> Invoke(GetSshPublicKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSshPublicKeyResult>("azure:compute/getSshPublicKey:getSshPublicKey", args ?? new GetSshPublicKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -73,6 +107,37 @@ namespace Pulumi.Azure.Compute
         }
 
         public GetSshPublicKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetSshPublicKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of this SSH Public Key.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the SSH Public Key exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the SSH Public Key.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetSshPublicKeyInvokeArgs()
         {
         }
     }

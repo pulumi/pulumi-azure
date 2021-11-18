@@ -404,6 +404,10 @@ func (o LinkedServerMapOutput) MapIndex(k pulumi.StringInput) LinkedServerOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServerInput)(nil)).Elem(), &LinkedServer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServerPtrInput)(nil)).Elem(), &LinkedServer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServerArrayInput)(nil)).Elem(), LinkedServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServerMapInput)(nil)).Elem(), LinkedServerMap{})
 	pulumi.RegisterOutputType(LinkedServerOutput{})
 	pulumi.RegisterOutputType(LinkedServerPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServerArrayOutput{})

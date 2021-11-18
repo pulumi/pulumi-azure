@@ -434,6 +434,10 @@ func (o OutputSynapseMapOutput) MapIndex(k pulumi.StringInput) OutputSynapseOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputSynapseInput)(nil)).Elem(), &OutputSynapse{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputSynapsePtrInput)(nil)).Elem(), &OutputSynapse{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputSynapseArrayInput)(nil)).Elem(), OutputSynapseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputSynapseMapInput)(nil)).Elem(), OutputSynapseMap{})
 	pulumi.RegisterOutputType(OutputSynapseOutput{})
 	pulumi.RegisterOutputType(OutputSynapsePtrOutput{})
 	pulumi.RegisterOutputType(OutputSynapseArrayOutput{})

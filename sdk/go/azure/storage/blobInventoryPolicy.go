@@ -365,6 +365,10 @@ func (o BlobInventoryPolicyMapOutput) MapIndex(k pulumi.StringInput) BlobInvento
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyInput)(nil)).Elem(), &BlobInventoryPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyPtrInput)(nil)).Elem(), &BlobInventoryPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyArrayInput)(nil)).Elem(), BlobInventoryPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyMapInput)(nil)).Elem(), BlobInventoryPolicyMap{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyArrayOutput{})

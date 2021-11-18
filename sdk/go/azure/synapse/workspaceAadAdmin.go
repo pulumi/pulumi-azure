@@ -420,6 +420,10 @@ func (o WorkspaceAadAdminMapOutput) MapIndex(k pulumi.StringInput) WorkspaceAadA
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminInput)(nil)).Elem(), &WorkspaceAadAdmin{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminPtrInput)(nil)).Elem(), &WorkspaceAadAdmin{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminArrayInput)(nil)).Elem(), WorkspaceAadAdminArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminMapInput)(nil)).Elem(), WorkspaceAadAdminMap{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminArrayOutput{})

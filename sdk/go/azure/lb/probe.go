@@ -409,6 +409,10 @@ func (o ProbeMapOutput) MapIndex(k pulumi.StringInput) ProbeOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProbeInput)(nil)).Elem(), &Probe{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProbePtrInput)(nil)).Elem(), &Probe{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProbeArrayInput)(nil)).Elem(), ProbeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProbeMapInput)(nil)).Elem(), ProbeMap{})
 	pulumi.RegisterOutputType(ProbeOutput{})
 	pulumi.RegisterOutputType(ProbePtrOutput{})
 	pulumi.RegisterOutputType(ProbeArrayOutput{})

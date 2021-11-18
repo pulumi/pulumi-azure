@@ -451,6 +451,10 @@ func (o CustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) CustomerMana
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedKeyInput)(nil)).Elem(), &CustomerManagedKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedKeyPtrInput)(nil)).Elem(), &CustomerManagedKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedKeyArrayInput)(nil)).Elem(), CustomerManagedKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedKeyMapInput)(nil)).Elem(), CustomerManagedKeyMap{})
 	pulumi.RegisterOutputType(CustomerManagedKeyOutput{})
 	pulumi.RegisterOutputType(CustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(CustomerManagedKeyArrayOutput{})

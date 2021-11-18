@@ -777,6 +777,10 @@ func (o WindowsVirtualMachineMapOutput) MapIndex(k pulumi.StringInput) WindowsVi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineInput)(nil)).Elem(), &WindowsVirtualMachine{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachinePtrInput)(nil)).Elem(), &WindowsVirtualMachine{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineArrayInput)(nil)).Elem(), WindowsVirtualMachineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineMapInput)(nil)).Elem(), WindowsVirtualMachineMap{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachinePtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineArrayOutput{})

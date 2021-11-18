@@ -451,6 +451,10 @@ func (o DatasetSnowflakeMapOutput) MapIndex(k pulumi.StringInput) DatasetSnowfla
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSnowflakeInput)(nil)).Elem(), &DatasetSnowflake{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSnowflakePtrInput)(nil)).Elem(), &DatasetSnowflake{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSnowflakeArrayInput)(nil)).Elem(), DatasetSnowflakeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSnowflakeMapInput)(nil)).Elem(), DatasetSnowflakeMap{})
 	pulumi.RegisterOutputType(DatasetSnowflakeOutput{})
 	pulumi.RegisterOutputType(DatasetSnowflakePtrOutput{})
 	pulumi.RegisterOutputType(DatasetSnowflakeArrayOutput{})

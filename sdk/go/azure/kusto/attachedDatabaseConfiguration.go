@@ -359,6 +359,10 @@ func (o AttachedDatabaseConfigurationMapOutput) MapIndex(k pulumi.StringInput) A
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AttachedDatabaseConfigurationInput)(nil)).Elem(), &AttachedDatabaseConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AttachedDatabaseConfigurationPtrInput)(nil)).Elem(), &AttachedDatabaseConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AttachedDatabaseConfigurationArrayInput)(nil)).Elem(), AttachedDatabaseConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AttachedDatabaseConfigurationMapInput)(nil)).Elem(), AttachedDatabaseConfigurationMap{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationOutput{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationArrayOutput{})

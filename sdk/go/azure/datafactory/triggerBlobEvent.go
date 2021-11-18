@@ -473,6 +473,10 @@ func (o TriggerBlobEventMapOutput) MapIndex(k pulumi.StringInput) TriggerBlobEve
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerBlobEventInput)(nil)).Elem(), &TriggerBlobEvent{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerBlobEventPtrInput)(nil)).Elem(), &TriggerBlobEvent{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerBlobEventArrayInput)(nil)).Elem(), TriggerBlobEventArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerBlobEventMapInput)(nil)).Elem(), TriggerBlobEventMap{})
 	pulumi.RegisterOutputType(TriggerBlobEventOutput{})
 	pulumi.RegisterOutputType(TriggerBlobEventPtrOutput{})
 	pulumi.RegisterOutputType(TriggerBlobEventArrayOutput{})

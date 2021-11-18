@@ -393,6 +393,10 @@ func (o DataSourceWindowsPerformanceCounterMapOutput) MapIndex(k pulumi.StringIn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWindowsPerformanceCounterInput)(nil)).Elem(), &DataSourceWindowsPerformanceCounter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWindowsPerformanceCounterPtrInput)(nil)).Elem(), &DataSourceWindowsPerformanceCounter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWindowsPerformanceCounterArrayInput)(nil)).Elem(), DataSourceWindowsPerformanceCounterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWindowsPerformanceCounterMapInput)(nil)).Elem(), DataSourceWindowsPerformanceCounterMap{})
 	pulumi.RegisterOutputType(DataSourceWindowsPerformanceCounterOutput{})
 	pulumi.RegisterOutputType(DataSourceWindowsPerformanceCounterPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceWindowsPerformanceCounterArrayOutput{})

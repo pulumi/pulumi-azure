@@ -385,6 +385,10 @@ func (o ConfigurationStoreMapOutput) MapIndex(k pulumi.StringInput) Configuratio
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreInput)(nil)).Elem(), &ConfigurationStore{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStorePtrInput)(nil)).Elem(), &ConfigurationStore{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreArrayInput)(nil)).Elem(), ConfigurationStoreArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreMapInput)(nil)).Elem(), ConfigurationStoreMap{})
 	pulumi.RegisterOutputType(ConfigurationStoreOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationStoreArrayOutput{})

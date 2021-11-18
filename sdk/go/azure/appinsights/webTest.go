@@ -467,6 +467,10 @@ func (o WebTestMapOutput) MapIndex(k pulumi.StringInput) WebTestOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebTestInput)(nil)).Elem(), &WebTest{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebTestPtrInput)(nil)).Elem(), &WebTest{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebTestArrayInput)(nil)).Elem(), WebTestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebTestMapInput)(nil)).Elem(), WebTestMap{})
 	pulumi.RegisterOutputType(WebTestOutput{})
 	pulumi.RegisterOutputType(WebTestPtrOutput{})
 	pulumi.RegisterOutputType(WebTestArrayOutput{})

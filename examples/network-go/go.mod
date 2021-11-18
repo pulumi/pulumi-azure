@@ -4,5 +4,5 @@ go 1.16
 
 require (
 	github.com/pulumi/pulumi-azure/sdk/v4 v4.6.0
-	github.com/pulumi/pulumi/sdk/v3 v3.11.0
+	github.com/pulumi/pulumi/sdk/v3 v3.17.0
 )

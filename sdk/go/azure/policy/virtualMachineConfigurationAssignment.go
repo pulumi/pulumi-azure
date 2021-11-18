@@ -440,6 +440,10 @@ func (o VirtualMachineConfigurationAssignmentMapOutput) MapIndex(k pulumi.String
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentInput)(nil)).Elem(), &VirtualMachineConfigurationAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentPtrInput)(nil)).Elem(), &VirtualMachineConfigurationAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentArrayInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentMapInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentMap{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentArrayOutput{})

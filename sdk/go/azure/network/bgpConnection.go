@@ -388,6 +388,10 @@ func (o BgpConnectionMapOutput) MapIndex(k pulumi.StringInput) BgpConnectionOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BgpConnectionInput)(nil)).Elem(), &BgpConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BgpConnectionPtrInput)(nil)).Elem(), &BgpConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BgpConnectionArrayInput)(nil)).Elem(), BgpConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BgpConnectionMapInput)(nil)).Elem(), BgpConnectionMap{})
 	pulumi.RegisterOutputType(BgpConnectionOutput{})
 	pulumi.RegisterOutputType(BgpConnectionPtrOutput{})
 	pulumi.RegisterOutputType(BgpConnectionArrayOutput{})

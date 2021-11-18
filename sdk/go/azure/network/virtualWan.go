@@ -385,6 +385,10 @@ func (o VirtualWanMapOutput) MapIndex(k pulumi.StringInput) VirtualWanOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualWanInput)(nil)).Elem(), &VirtualWan{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualWanPtrInput)(nil)).Elem(), &VirtualWan{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualWanArrayInput)(nil)).Elem(), VirtualWanArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualWanMapInput)(nil)).Elem(), VirtualWanMap{})
 	pulumi.RegisterOutputType(VirtualWanOutput{})
 	pulumi.RegisterOutputType(VirtualWanPtrOutput{})
 	pulumi.RegisterOutputType(VirtualWanArrayOutput{})

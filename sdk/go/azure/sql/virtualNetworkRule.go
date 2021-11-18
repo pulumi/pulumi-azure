@@ -386,6 +386,10 @@ func (o VirtualNetworkRuleMapOutput) MapIndex(k pulumi.StringInput) VirtualNetwo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkRuleInput)(nil)).Elem(), &VirtualNetworkRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkRulePtrInput)(nil)).Elem(), &VirtualNetworkRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkRuleArrayInput)(nil)).Elem(), VirtualNetworkRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkRuleMapInput)(nil)).Elem(), VirtualNetworkRuleMap{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRulePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleArrayOutput{})

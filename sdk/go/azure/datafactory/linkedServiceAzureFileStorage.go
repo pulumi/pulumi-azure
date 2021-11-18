@@ -442,6 +442,10 @@ func (o LinkedServiceAzureFileStorageMapOutput) MapIndex(k pulumi.StringInput) L
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFileStorageInput)(nil)).Elem(), &LinkedServiceAzureFileStorage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFileStoragePtrInput)(nil)).Elem(), &LinkedServiceAzureFileStorage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFileStorageArrayInput)(nil)).Elem(), LinkedServiceAzureFileStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFileStorageMapInput)(nil)).Elem(), LinkedServiceAzureFileStorageMap{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFileStorageOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFileStoragePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFileStorageArrayOutput{})

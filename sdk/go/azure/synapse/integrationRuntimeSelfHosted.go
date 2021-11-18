@@ -378,6 +378,10 @@ func (o IntegrationRuntimeSelfHostedMapOutput) MapIndex(k pulumi.StringInput) In
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSelfHostedInput)(nil)).Elem(), &IntegrationRuntimeSelfHosted{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSelfHostedPtrInput)(nil)).Elem(), &IntegrationRuntimeSelfHosted{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSelfHostedArrayInput)(nil)).Elem(), IntegrationRuntimeSelfHostedArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSelfHostedMapInput)(nil)).Elem(), IntegrationRuntimeSelfHostedMap{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedArrayOutput{})

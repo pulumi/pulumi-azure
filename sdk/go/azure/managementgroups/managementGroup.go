@@ -365,6 +365,10 @@ func (o ManagementGroupMapOutput) MapIndex(k pulumi.StringInput) ManagementGroup
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupInput)(nil)).Elem(), &ManagementGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupPtrInput)(nil)).Elem(), &ManagementGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupArrayInput)(nil)).Elem(), ManagementGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagementGroupMapInput)(nil)).Elem(), ManagementGroupMap{})
 	pulumi.RegisterOutputType(ManagementGroupOutput{})
 	pulumi.RegisterOutputType(ManagementGroupPtrOutput{})
 	pulumi.RegisterOutputType(ManagementGroupArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.MixedReality
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.MixedReality
         /// </summary>
         public static Task<GetSpatialAnchorsAccountResult> InvokeAsync(GetSpatialAnchorsAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSpatialAnchorsAccountResult>("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get information about an Azure Spatial Anchors Account.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.MixedReality.GetSpatialAnchorsAccount.InvokeAsync(new Azure.MixedReality.GetSpatialAnchorsAccountArgs
+        ///         {
+        ///             Name = "example",
+        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         }));
+        ///         this.AccountDomain = data.Azurerm_spatial_anchors_account.Account_domain;
+        ///     }
+        /// 
+        ///     [Output("accountDomain")]
+        ///     public Output&lt;string&gt; AccountDomain { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSpatialAnchorsAccountResult> Invoke(GetSpatialAnchorsAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSpatialAnchorsAccountResult>("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.MixedReality
         public string ResourceGroupName { get; set; } = null!;
 
         public GetSpatialAnchorsAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetSpatialAnchorsAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group in which to create the Spatial Anchors Account.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetSpatialAnchorsAccountInvokeArgs()
         {
         }
     }

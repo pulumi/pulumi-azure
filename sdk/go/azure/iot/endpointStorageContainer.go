@@ -435,6 +435,10 @@ func (o EndpointStorageContainerMapOutput) MapIndex(k pulumi.StringInput) Endpoi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStorageContainerInput)(nil)).Elem(), &EndpointStorageContainer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStorageContainerPtrInput)(nil)).Elem(), &EndpointStorageContainer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStorageContainerArrayInput)(nil)).Elem(), EndpointStorageContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStorageContainerMapInput)(nil)).Elem(), EndpointStorageContainerMap{})
 	pulumi.RegisterOutputType(EndpointStorageContainerOutput{})
 	pulumi.RegisterOutputType(EndpointStorageContainerPtrOutput{})
 	pulumi.RegisterOutputType(EndpointStorageContainerArrayOutput{})

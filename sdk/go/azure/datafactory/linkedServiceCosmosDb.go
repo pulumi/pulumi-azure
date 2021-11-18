@@ -441,6 +441,10 @@ func (o LinkedServiceCosmosDbMapOutput) MapIndex(k pulumi.StringInput) LinkedSer
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceCosmosDbInput)(nil)).Elem(), &LinkedServiceCosmosDb{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceCosmosDbPtrInput)(nil)).Elem(), &LinkedServiceCosmosDb{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceCosmosDbArrayInput)(nil)).Elem(), LinkedServiceCosmosDbArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceCosmosDbMapInput)(nil)).Elem(), LinkedServiceCosmosDbMap{})
 	pulumi.RegisterOutputType(LinkedServiceCosmosDbOutput{})
 	pulumi.RegisterOutputType(LinkedServiceCosmosDbPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceCosmosDbArrayOutput{})

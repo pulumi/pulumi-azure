@@ -440,6 +440,10 @@ func (o CacheBlobTargetMapOutput) MapIndex(k pulumi.StringInput) CacheBlobTarget
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheBlobTargetInput)(nil)).Elem(), &CacheBlobTarget{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheBlobTargetPtrInput)(nil)).Elem(), &CacheBlobTarget{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheBlobTargetArrayInput)(nil)).Elem(), CacheBlobTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheBlobTargetMapInput)(nil)).Elem(), CacheBlobTargetMap{})
 	pulumi.RegisterOutputType(CacheBlobTargetOutput{})
 	pulumi.RegisterOutputType(CacheBlobTargetPtrOutput{})
 	pulumi.RegisterOutputType(CacheBlobTargetArrayOutput{})

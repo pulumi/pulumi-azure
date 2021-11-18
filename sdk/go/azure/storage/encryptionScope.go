@@ -362,6 +362,10 @@ func (o EncryptionScopeMapOutput) MapIndex(k pulumi.StringInput) EncryptionScope
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionScopeInput)(nil)).Elem(), &EncryptionScope{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionScopePtrInput)(nil)).Elem(), &EncryptionScope{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionScopeArrayInput)(nil)).Elem(), EncryptionScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionScopeMapInput)(nil)).Elem(), EncryptionScopeMap{})
 	pulumi.RegisterOutputType(EncryptionScopeOutput{})
 	pulumi.RegisterOutputType(EncryptionScopePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionScopeArrayOutput{})

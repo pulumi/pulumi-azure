@@ -399,6 +399,10 @@ func (o ActionRuleSuppressionMapOutput) MapIndex(k pulumi.StringInput) ActionRul
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleSuppressionInput)(nil)).Elem(), &ActionRuleSuppression{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleSuppressionPtrInput)(nil)).Elem(), &ActionRuleSuppression{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleSuppressionArrayInput)(nil)).Elem(), ActionRuleSuppressionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleSuppressionMapInput)(nil)).Elem(), ActionRuleSuppressionMap{})
 	pulumi.RegisterOutputType(ActionRuleSuppressionOutput{})
 	pulumi.RegisterOutputType(ActionRuleSuppressionPtrOutput{})
 	pulumi.RegisterOutputType(ActionRuleSuppressionArrayOutput{})

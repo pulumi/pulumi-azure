@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Task<GetNetworkDdosProtectionPlanResult> InvokeAsync(GetNetworkDdosProtectionPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? new GetNetworkDdosProtectionPlanArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Azure Network DDoS Protection Plan.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetNetworkDdosProtectionPlan.InvokeAsync(new Azure.Network.GetNetworkDdosProtectionPlanArgs
+        ///         {
+        ///             Name = azurerm_network_ddos_protection_plan.Example.Name,
+        ///             ResourceGroupName = azurerm_network_ddos_protection_plan.Example.Resource_group_name,
+        ///         }));
+        ///         this.DdosProtectionPlanId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("ddosProtectionPlanId")]
+        ///     public Output&lt;string&gt; DdosProtectionPlanId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetNetworkDdosProtectionPlanResult> Invoke(GetNetworkDdosProtectionPlanInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? new GetNetworkDdosProtectionPlanInvokeArgs(), options.WithVersion());
     }
 
 
@@ -73,6 +107,37 @@ namespace Pulumi.Azure.Network
         }
 
         public GetNetworkDdosProtectionPlanArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkDdosProtectionPlanInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Network DDoS Protection Plan.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group where the Network DDoS Protection Plan exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetNetworkDdosProtectionPlanInvokeArgs()
         {
         }
     }

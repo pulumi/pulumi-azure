@@ -364,6 +364,10 @@ func (o CacheAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) CacheAccessPo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheAccessPolicyInput)(nil)).Elem(), &CacheAccessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheAccessPolicyPtrInput)(nil)).Elem(), &CacheAccessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheAccessPolicyArrayInput)(nil)).Elem(), CacheAccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CacheAccessPolicyMapInput)(nil)).Elem(), CacheAccessPolicyMap{})
 	pulumi.RegisterOutputType(CacheAccessPolicyOutput{})
 	pulumi.RegisterOutputType(CacheAccessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(CacheAccessPolicyArrayOutput{})

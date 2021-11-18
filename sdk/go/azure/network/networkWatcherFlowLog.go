@@ -462,6 +462,10 @@ func (o NetworkWatcherFlowLogMapOutput) MapIndex(k pulumi.StringInput) NetworkWa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkWatcherFlowLogInput)(nil)).Elem(), &NetworkWatcherFlowLog{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkWatcherFlowLogPtrInput)(nil)).Elem(), &NetworkWatcherFlowLog{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkWatcherFlowLogArrayInput)(nil)).Elem(), NetworkWatcherFlowLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkWatcherFlowLogMapInput)(nil)).Elem(), NetworkWatcherFlowLogMap{})
 	pulumi.RegisterOutputType(NetworkWatcherFlowLogOutput{})
 	pulumi.RegisterOutputType(NetworkWatcherFlowLogPtrOutput{})
 	pulumi.RegisterOutputType(NetworkWatcherFlowLogArrayOutput{})

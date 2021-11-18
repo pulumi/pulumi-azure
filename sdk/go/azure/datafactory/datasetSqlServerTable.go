@@ -427,6 +427,10 @@ func (o DatasetSqlServerTableMapOutput) MapIndex(k pulumi.StringInput) DatasetSq
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSqlServerTableInput)(nil)).Elem(), &DatasetSqlServerTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSqlServerTablePtrInput)(nil)).Elem(), &DatasetSqlServerTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSqlServerTableArrayInput)(nil)).Elem(), DatasetSqlServerTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSqlServerTableMapInput)(nil)).Elem(), DatasetSqlServerTableMap{})
 	pulumi.RegisterOutputType(DatasetSqlServerTableOutput{})
 	pulumi.RegisterOutputType(DatasetSqlServerTablePtrOutput{})
 	pulumi.RegisterOutputType(DatasetSqlServerTableArrayOutput{})

@@ -447,6 +447,10 @@ func (o StreamingLocatorMapOutput) MapIndex(k pulumi.StringInput) StreamingLocat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingLocatorInput)(nil)).Elem(), &StreamingLocator{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingLocatorPtrInput)(nil)).Elem(), &StreamingLocator{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingLocatorArrayInput)(nil)).Elem(), StreamingLocatorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingLocatorMapInput)(nil)).Elem(), StreamingLocatorMap{})
 	pulumi.RegisterOutputType(StreamingLocatorOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorPtrOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorArrayOutput{})

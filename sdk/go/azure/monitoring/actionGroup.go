@@ -530,6 +530,10 @@ func (o ActionGroupMapOutput) MapIndex(k pulumi.StringInput) ActionGroupOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupInput)(nil)).Elem(), &ActionGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupPtrInput)(nil)).Elem(), &ActionGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupArrayInput)(nil)).Elem(), ActionGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupMapInput)(nil)).Elem(), ActionGroupMap{})
 	pulumi.RegisterOutputType(ActionGroupOutput{})
 	pulumi.RegisterOutputType(ActionGroupPtrOutput{})
 	pulumi.RegisterOutputType(ActionGroupArrayOutput{})

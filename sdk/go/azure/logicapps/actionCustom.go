@@ -337,6 +337,10 @@ func (o ActionCustomMapOutput) MapIndex(k pulumi.StringInput) ActionCustomOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionCustomInput)(nil)).Elem(), &ActionCustom{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionCustomPtrInput)(nil)).Elem(), &ActionCustom{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionCustomArrayInput)(nil)).Elem(), ActionCustomArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionCustomMapInput)(nil)).Elem(), ActionCustomMap{})
 	pulumi.RegisterOutputType(ActionCustomOutput{})
 	pulumi.RegisterOutputType(ActionCustomPtrOutput{})
 	pulumi.RegisterOutputType(ActionCustomArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Batch
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Batch pool
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Batch.GetPool.InvokeAsync(new Azure.Batch.GetPoolArgs
+        ///         {
+        ///             AccountName = "testbatchaccount",
+        ///             Name = "testbatchpool",
+        ///             ResourceGroupName = "test",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -80,6 +112,46 @@ namespace Pulumi.Azure.Batch
         public Inputs.GetPoolStartTaskArgs? StartTask { get; set; }
 
         public GetPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Batch account.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        [Input("certificates")]
+        private InputList<Inputs.GetPoolCertificateInputArgs>? _certificates;
+
+        /// <summary>
+        /// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+        /// </summary>
+        public InputList<Inputs.GetPoolCertificateInputArgs> Certificates
+        {
+            get => _certificates ?? (_certificates = new InputList<Inputs.GetPoolCertificateInputArgs>());
+            set => _certificates = value;
+        }
+
+        /// <summary>
+        /// The name of the endpoint.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// A `start_task` block that describes the start task settings for the Batch pool.
+        /// </summary>
+        [Input("startTask")]
+        public Input<Inputs.GetPoolStartTaskInputArgs>? StartTask { get; set; }
+
+        public GetPoolInvokeArgs()
         {
         }
     }

@@ -598,6 +598,10 @@ func (o IoTHubMapOutput) MapIndex(k pulumi.StringInput) IoTHubOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubInput)(nil)).Elem(), &IoTHub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubPtrInput)(nil)).Elem(), &IoTHub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubArrayInput)(nil)).Elem(), IoTHubArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubMapInput)(nil)).Elem(), IoTHubMap{})
 	pulumi.RegisterOutputType(IoTHubOutput{})
 	pulumi.RegisterOutputType(IoTHubPtrOutput{})
 	pulumi.RegisterOutputType(IoTHubArrayOutput{})

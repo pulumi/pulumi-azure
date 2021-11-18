@@ -430,6 +430,10 @@ func (o WorkspaceSecurityAlertPolicyMapOutput) MapIndex(k pulumi.StringInput) Wo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSecurityAlertPolicyInput)(nil)).Elem(), &WorkspaceSecurityAlertPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSecurityAlertPolicyPtrInput)(nil)).Elem(), &WorkspaceSecurityAlertPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSecurityAlertPolicyArrayInput)(nil)).Elem(), WorkspaceSecurityAlertPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSecurityAlertPolicyMapInput)(nil)).Elem(), WorkspaceSecurityAlertPolicyMap{})
 	pulumi.RegisterOutputType(WorkspaceSecurityAlertPolicyOutput{})
 	pulumi.RegisterOutputType(WorkspaceSecurityAlertPolicyPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceSecurityAlertPolicyArrayOutput{})

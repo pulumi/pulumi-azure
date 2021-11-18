@@ -391,6 +391,10 @@ func (o ChannelFacebookMapOutput) MapIndex(k pulumi.StringInput) ChannelFacebook
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelFacebookInput)(nil)).Elem(), &ChannelFacebook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelFacebookPtrInput)(nil)).Elem(), &ChannelFacebook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelFacebookArrayInput)(nil)).Elem(), ChannelFacebookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelFacebookMapInput)(nil)).Elem(), ChannelFacebookMap{})
 	pulumi.RegisterOutputType(ChannelFacebookOutput{})
 	pulumi.RegisterOutputType(ChannelFacebookPtrOutput{})
 	pulumi.RegisterOutputType(ChannelFacebookArrayOutput{})

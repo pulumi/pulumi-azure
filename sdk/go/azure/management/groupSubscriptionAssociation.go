@@ -328,6 +328,10 @@ func (o GroupSubscriptionAssociationMapOutput) MapIndex(k pulumi.StringInput) Gr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupSubscriptionAssociationInput)(nil)).Elem(), &GroupSubscriptionAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupSubscriptionAssociationPtrInput)(nil)).Elem(), &GroupSubscriptionAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupSubscriptionAssociationArrayInput)(nil)).Elem(), GroupSubscriptionAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupSubscriptionAssociationMapInput)(nil)).Elem(), GroupSubscriptionAssociationMap{})
 	pulumi.RegisterOutputType(GroupSubscriptionAssociationOutput{})
 	pulumi.RegisterOutputType(GroupSubscriptionAssociationPtrOutput{})
 	pulumi.RegisterOutputType(GroupSubscriptionAssociationArrayOutput{})

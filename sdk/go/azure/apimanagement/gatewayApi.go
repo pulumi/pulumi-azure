@@ -335,6 +335,10 @@ func (o GatewayApiMapOutput) MapIndex(k pulumi.StringInput) GatewayApiOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayApiInput)(nil)).Elem(), &GatewayApi{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayApiPtrInput)(nil)).Elem(), &GatewayApi{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayApiArrayInput)(nil)).Elem(), GatewayApiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayApiMapInput)(nil)).Elem(), GatewayApiMap{})
 	pulumi.RegisterOutputType(GatewayApiOutput{})
 	pulumi.RegisterOutputType(GatewayApiPtrOutput{})
 	pulumi.RegisterOutputType(GatewayApiArrayOutput{})

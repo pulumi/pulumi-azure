@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ContainerService
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public static Task<GetRegistryTokenResult> InvokeAsync(GetRegistryTokenArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryTokenResult>("azure:containerservice/getRegistryToken:getRegistryToken", args ?? new GetRegistryTokenArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Container Registry token.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ContainerService.GetRegistryToken.InvokeAsync(new Azure.ContainerService.GetRegistryTokenArgs
+        ///         {
+        ///             Name = "exampletoken",
+        ///             ResourceGroupName = "example-resource-group",
+        ///             ContainerRegistryName = "example-registry",
+        ///         }));
+        ///         this.ScopeMapId = example.Apply(example =&gt; example.ScopeMapId);
+        ///     }
+        /// 
+        ///     [Output("scopeMapId")]
+        ///     public Output&lt;string&gt; ScopeMapId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRegistryTokenResult> Invoke(GetRegistryTokenInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRegistryTokenResult>("azure:containerservice/getRegistryToken:getRegistryToken", args ?? new GetRegistryTokenInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +103,31 @@ namespace Pulumi.Azure.ContainerService
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRegistryTokenArgs()
+        {
+        }
+    }
+
+    public sealed class GetRegistryTokenInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Name of the Container Registry where the token exists.
+        /// </summary>
+        [Input("containerRegistryName", required: true)]
+        public Input<string> ContainerRegistryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Container Registry token.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where this Container Registry token exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRegistryTokenInvokeArgs()
         {
         }
     }

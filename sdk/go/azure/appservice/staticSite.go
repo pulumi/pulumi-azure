@@ -362,6 +362,10 @@ func (o StaticSiteMapOutput) MapIndex(k pulumi.StringInput) StaticSiteOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteInput)(nil)).Elem(), &StaticSite{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticSitePtrInput)(nil)).Elem(), &StaticSite{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteArrayInput)(nil)).Elem(), StaticSiteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteMapInput)(nil)).Elem(), StaticSiteMap{})
 	pulumi.RegisterOutputType(StaticSiteOutput{})
 	pulumi.RegisterOutputType(StaticSitePtrOutput{})
 	pulumi.RegisterOutputType(StaticSiteArrayOutput{})

@@ -414,6 +414,10 @@ func (o NamespaceAuthorizationRuleMapOutput) MapIndex(k pulumi.StringInput) Name
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceAuthorizationRuleInput)(nil)).Elem(), &NamespaceAuthorizationRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceAuthorizationRulePtrInput)(nil)).Elem(), &NamespaceAuthorizationRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceAuthorizationRuleArrayInput)(nil)).Elem(), NamespaceAuthorizationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceAuthorizationRuleMapInput)(nil)).Elem(), NamespaceAuthorizationRuleMap{})
 	pulumi.RegisterOutputType(NamespaceAuthorizationRuleOutput{})
 	pulumi.RegisterOutputType(NamespaceAuthorizationRulePtrOutput{})
 	pulumi.RegisterOutputType(NamespaceAuthorizationRuleArrayOutput{})

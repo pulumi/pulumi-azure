@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -84,6 +85,80 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Task<GetAccountBlobContainerSASResult> InvokeAsync(GetAccountBlobContainerSASArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountBlobContainerSASResult>("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args ?? new GetAccountBlobContainerSASArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
+        /// 
+        /// Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+        ///         {
+        ///             Location = "West Europe",
+        ///         });
+        ///         var storage = new Azure.Storage.Account("storage", new Azure.Storage.AccountArgs
+        ///         {
+        ///             ResourceGroupName = rg.Name,
+        ///             Location = rg.Location,
+        ///             AccountTier = "Standard",
+        ///             AccountReplicationType = "LRS",
+        ///         });
+        ///         var container = new Azure.Storage.Container("container", new Azure.Storage.ContainerArgs
+        ///         {
+        ///             StorageAccountName = storage.Name,
+        ///             ContainerAccessType = "private",
+        ///         });
+        ///         var example = Output.Tuple(storage.PrimaryConnectionString, container.Name).Apply(values =&gt;
+        ///         {
+        ///             var primaryConnectionString = values.Item1;
+        ///             var name = values.Item2;
+        ///             return Azure.Storage.GetAccountBlobContainerSAS.InvokeAsync(new Azure.Storage.GetAccountBlobContainerSASArgs
+        ///             {
+        ///                 ConnectionString = primaryConnectionString,
+        ///                 ContainerName = name,
+        ///                 HttpsOnly = true,
+        ///                 IpAddress = "168.1.5.65",
+        ///                 Start = "2018-03-21",
+        ///                 Expiry = "2018-03-21",
+        ///                 Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsArgs
+        ///                 {
+        ///                     Read = true,
+        ///                     Add = true,
+        ///                     Create = false,
+        ///                     Write = false,
+        ///                     Delete = true,
+        ///                     List = true,
+        ///                 },
+        ///                 CacheControl = "max-age=5",
+        ///                 ContentDisposition = "inline",
+        ///                 ContentEncoding = "deflate",
+        ///                 ContentLanguage = "en-US",
+        ///                 ContentType = "application/json",
+        ///             });
+        ///         });
+        ///         this.SasUrlQueryString = example.Apply(example =&gt; example.Sas);
+        ///     }
+        /// 
+        ///     [Output("sasUrlQueryString")]
+        ///     public Output&lt;string&gt; SasUrlQueryString { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAccountBlobContainerSASResult> Invoke(GetAccountBlobContainerSASInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAccountBlobContainerSASResult>("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args ?? new GetAccountBlobContainerSASInvokeArgs(), options.WithVersion());
     }
 
 
@@ -162,6 +237,85 @@ namespace Pulumi.Azure.Storage
         public string Start { get; set; } = null!;
 
         public GetAccountBlobContainerSASArgs()
+        {
+        }
+    }
+
+    public sealed class GetAccountBlobContainerSASInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The `Cache-Control` response header that is sent when this SAS token is used.
+        /// </summary>
+        [Input("cacheControl")]
+        public Input<string>? CacheControl { get; set; }
+
+        /// <summary>
+        /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
+        /// </summary>
+        [Input("connectionString", required: true)]
+        public Input<string> ConnectionString { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the container.
+        /// </summary>
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// The `Content-Disposition` response header that is sent when this SAS token is used.
+        /// </summary>
+        [Input("contentDisposition")]
+        public Input<string>? ContentDisposition { get; set; }
+
+        /// <summary>
+        /// The `Content-Encoding` response header that is sent when this SAS token is used.
+        /// </summary>
+        [Input("contentEncoding")]
+        public Input<string>? ContentEncoding { get; set; }
+
+        /// <summary>
+        /// The `Content-Language` response header that is sent when this SAS token is used.
+        /// </summary>
+        [Input("contentLanguage")]
+        public Input<string>? ContentLanguage { get; set; }
+
+        /// <summary>
+        /// The `Content-Type` response header that is sent when this SAS token is used.
+        /// </summary>
+        [Input("contentType")]
+        public Input<string>? ContentType { get; set; }
+
+        /// <summary>
+        /// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
+        /// </summary>
+        [Input("expiry", required: true)]
+        public Input<string> Expiry { get; set; } = null!;
+
+        /// <summary>
+        /// Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
+        /// </summary>
+        [Input("httpsOnly")]
+        public Input<bool>? HttpsOnly { get; set; }
+
+        /// <summary>
+        /// Single ipv4 address or range (connected with a dash) of ipv4 addresses.
+        /// </summary>
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
+
+        /// <summary>
+        /// A `permissions` block as defined below.
+        /// </summary>
+        [Input("permissions", required: true)]
+        public Input<Inputs.GetAccountBlobContainerSASPermissionsInputArgs> Permissions { get; set; } = null!;
+
+        /// <summary>
+        /// The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
+        /// </summary>
+        [Input("start", required: true)]
+        public Input<string> Start { get; set; } = null!;
+
+        public GetAccountBlobContainerSASInvokeArgs()
         {
         }
     }

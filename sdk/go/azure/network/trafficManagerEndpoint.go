@@ -619,6 +619,10 @@ func (o TrafficManagerEndpointMapOutput) MapIndex(k pulumi.StringInput) TrafficM
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerEndpointInput)(nil)).Elem(), &TrafficManagerEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerEndpointPtrInput)(nil)).Elem(), &TrafficManagerEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerEndpointArrayInput)(nil)).Elem(), TrafficManagerEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerEndpointMapInput)(nil)).Elem(), TrafficManagerEndpointMap{})
 	pulumi.RegisterOutputType(TrafficManagerEndpointOutput{})
 	pulumi.RegisterOutputType(TrafficManagerEndpointPtrOutput{})
 	pulumi.RegisterOutputType(TrafficManagerEndpointArrayOutput{})

@@ -470,6 +470,10 @@ func (o AssignmentVirtualMachineScaleSetMapOutput) MapIndex(k pulumi.StringInput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentVirtualMachineScaleSetInput)(nil)).Elem(), &AssignmentVirtualMachineScaleSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentVirtualMachineScaleSetPtrInput)(nil)).Elem(), &AssignmentVirtualMachineScaleSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentVirtualMachineScaleSetArrayInput)(nil)).Elem(), AssignmentVirtualMachineScaleSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentVirtualMachineScaleSetMapInput)(nil)).Elem(), AssignmentVirtualMachineScaleSetMap{})
 	pulumi.RegisterOutputType(AssignmentVirtualMachineScaleSetOutput{})
 	pulumi.RegisterOutputType(AssignmentVirtualMachineScaleSetPtrOutput{})
 	pulumi.RegisterOutputType(AssignmentVirtualMachineScaleSetArrayOutput{})

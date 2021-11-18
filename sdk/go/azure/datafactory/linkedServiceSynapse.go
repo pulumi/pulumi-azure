@@ -478,6 +478,10 @@ func (o LinkedServiceSynapseMapOutput) MapIndex(k pulumi.StringInput) LinkedServ
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSynapseInput)(nil)).Elem(), &LinkedServiceSynapse{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSynapsePtrInput)(nil)).Elem(), &LinkedServiceSynapse{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSynapseArrayInput)(nil)).Elem(), LinkedServiceSynapseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSynapseMapInput)(nil)).Elem(), LinkedServiceSynapseMap{})
 	pulumi.RegisterOutputType(LinkedServiceSynapseOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSynapsePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSynapseArrayOutput{})

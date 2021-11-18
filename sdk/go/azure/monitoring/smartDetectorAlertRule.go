@@ -446,6 +446,10 @@ func (o SmartDetectorAlertRuleMapOutput) MapIndex(k pulumi.StringInput) SmartDet
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SmartDetectorAlertRuleInput)(nil)).Elem(), &SmartDetectorAlertRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmartDetectorAlertRulePtrInput)(nil)).Elem(), &SmartDetectorAlertRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmartDetectorAlertRuleArrayInput)(nil)).Elem(), SmartDetectorAlertRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmartDetectorAlertRuleMapInput)(nil)).Elem(), SmartDetectorAlertRuleMap{})
 	pulumi.RegisterOutputType(SmartDetectorAlertRuleOutput{})
 	pulumi.RegisterOutputType(SmartDetectorAlertRulePtrOutput{})
 	pulumi.RegisterOutputType(SmartDetectorAlertRuleArrayOutput{})

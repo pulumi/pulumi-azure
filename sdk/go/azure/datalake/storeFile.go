@@ -305,6 +305,10 @@ func (o StoreFileMapOutput) MapIndex(k pulumi.StringInput) StoreFileOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StoreFileInput)(nil)).Elem(), &StoreFile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StoreFilePtrInput)(nil)).Elem(), &StoreFile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StoreFileArrayInput)(nil)).Elem(), StoreFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StoreFileMapInput)(nil)).Elem(), StoreFileMap{})
 	pulumi.RegisterOutputType(StoreFileOutput{})
 	pulumi.RegisterOutputType(StoreFilePtrOutput{})
 	pulumi.RegisterOutputType(StoreFileArrayOutput{})

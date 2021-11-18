@@ -355,6 +355,10 @@ func (o ResourceGroupTemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupTemplateDeploymentInput)(nil)).Elem(), &ResourceGroupTemplateDeployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupTemplateDeploymentPtrInput)(nil)).Elem(), &ResourceGroupTemplateDeployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupTemplateDeploymentArrayInput)(nil)).Elem(), ResourceGroupTemplateDeploymentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupTemplateDeploymentMapInput)(nil)).Elem(), ResourceGroupTemplateDeploymentMap{})
 	pulumi.RegisterOutputType(ResourceGroupTemplateDeploymentOutput{})
 	pulumi.RegisterOutputType(ResourceGroupTemplateDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupTemplateDeploymentArrayOutput{})

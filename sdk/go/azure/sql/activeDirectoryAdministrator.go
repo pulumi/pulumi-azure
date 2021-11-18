@@ -374,6 +374,10 @@ func (o ActiveDirectoryAdministratorMapOutput) MapIndex(k pulumi.StringInput) Ac
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActiveDirectoryAdministratorInput)(nil)).Elem(), &ActiveDirectoryAdministrator{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActiveDirectoryAdministratorPtrInput)(nil)).Elem(), &ActiveDirectoryAdministrator{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActiveDirectoryAdministratorArrayInput)(nil)).Elem(), ActiveDirectoryAdministratorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActiveDirectoryAdministratorMapInput)(nil)).Elem(), ActiveDirectoryAdministratorMap{})
 	pulumi.RegisterOutputType(ActiveDirectoryAdministratorOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryAdministratorPtrOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryAdministratorArrayOutput{})

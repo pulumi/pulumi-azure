@@ -460,6 +460,10 @@ func (o TriggerCustomEventMapOutput) MapIndex(k pulumi.StringInput) TriggerCusto
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerCustomEventInput)(nil)).Elem(), &TriggerCustomEvent{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerCustomEventPtrInput)(nil)).Elem(), &TriggerCustomEvent{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerCustomEventArrayInput)(nil)).Elem(), TriggerCustomEventArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerCustomEventMapInput)(nil)).Elem(), TriggerCustomEventMap{})
 	pulumi.RegisterOutputType(TriggerCustomEventOutput{})
 	pulumi.RegisterOutputType(TriggerCustomEventPtrOutput{})
 	pulumi.RegisterOutputType(TriggerCustomEventArrayOutput{})

@@ -398,6 +398,10 @@ func (o EnterpriseDatabaseMapOutput) MapIndex(k pulumi.StringInput) EnterpriseDa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseDatabaseInput)(nil)).Elem(), &EnterpriseDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseDatabasePtrInput)(nil)).Elem(), &EnterpriseDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseDatabaseArrayInput)(nil)).Elem(), EnterpriseDatabaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseDatabaseMapInput)(nil)).Elem(), EnterpriseDatabaseMap{})
 	pulumi.RegisterOutputType(EnterpriseDatabaseOutput{})
 	pulumi.RegisterOutputType(EnterpriseDatabasePtrOutput{})
 	pulumi.RegisterOutputType(EnterpriseDatabaseArrayOutput{})

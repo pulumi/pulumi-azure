@@ -349,6 +349,10 @@ func (o GremlinDatabaseMapOutput) MapIndex(k pulumi.StringInput) GremlinDatabase
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GremlinDatabaseInput)(nil)).Elem(), &GremlinDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GremlinDatabasePtrInput)(nil)).Elem(), &GremlinDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GremlinDatabaseArrayInput)(nil)).Elem(), GremlinDatabaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GremlinDatabaseMapInput)(nil)).Elem(), GremlinDatabaseMap{})
 	pulumi.RegisterOutputType(GremlinDatabaseOutput{})
 	pulumi.RegisterOutputType(GremlinDatabasePtrOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseArrayOutput{})

@@ -377,6 +377,10 @@ func (o DataConnectorOffice365MapOutput) MapIndex(k pulumi.StringInput) DataConn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorOffice365Input)(nil)).Elem(), &DataConnectorOffice365{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorOffice365PtrInput)(nil)).Elem(), &DataConnectorOffice365{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorOffice365ArrayInput)(nil)).Elem(), DataConnectorOffice365Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorOffice365MapInput)(nil)).Elem(), DataConnectorOffice365Map{})
 	pulumi.RegisterOutputType(DataConnectorOffice365Output{})
 	pulumi.RegisterOutputType(DataConnectorOffice365PtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorOffice365ArrayOutput{})

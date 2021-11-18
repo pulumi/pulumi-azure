@@ -347,6 +347,10 @@ func (o ApiOperationTagMapOutput) MapIndex(k pulumi.StringInput) ApiOperationTag
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationTagInput)(nil)).Elem(), &ApiOperationTag{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationTagPtrInput)(nil)).Elem(), &ApiOperationTag{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationTagArrayInput)(nil)).Elem(), ApiOperationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationTagMapInput)(nil)).Elem(), ApiOperationTagMap{})
 	pulumi.RegisterOutputType(ApiOperationTagOutput{})
 	pulumi.RegisterOutputType(ApiOperationTagPtrOutput{})
 	pulumi.RegisterOutputType(ApiOperationTagArrayOutput{})

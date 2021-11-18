@@ -433,6 +433,10 @@ func (o FlexibleServerFirewallRuleMapOutput) MapIndex(k pulumi.StringInput) Flex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerFirewallRuleInput)(nil)).Elem(), &FlexibleServerFirewallRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerFirewallRulePtrInput)(nil)).Elem(), &FlexibleServerFirewallRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerFirewallRuleArrayInput)(nil)).Elem(), FlexibleServerFirewallRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerFirewallRuleMapInput)(nil)).Elem(), FlexibleServerFirewallRuleMap{})
 	pulumi.RegisterOutputType(FlexibleServerFirewallRuleOutput{})
 	pulumi.RegisterOutputType(FlexibleServerFirewallRulePtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerFirewallRuleArrayOutput{})

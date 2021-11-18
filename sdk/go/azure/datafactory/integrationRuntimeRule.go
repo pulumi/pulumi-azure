@@ -406,6 +406,10 @@ func (o IntegrationRuntimeRuleMapOutput) MapIndex(k pulumi.StringInput) Integrat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeRuleInput)(nil)).Elem(), &IntegrationRuntimeRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeRulePtrInput)(nil)).Elem(), &IntegrationRuntimeRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeRuleArrayInput)(nil)).Elem(), IntegrationRuntimeRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeRuleMapInput)(nil)).Elem(), IntegrationRuntimeRuleMap{})
 	pulumi.RegisterOutputType(IntegrationRuntimeRuleOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeRulePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeRuleArrayOutput{})

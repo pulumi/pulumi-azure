@@ -355,6 +355,10 @@ func (o ContainerStorageAccountMapOutput) MapIndex(k pulumi.StringInput) Contain
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerStorageAccountInput)(nil)).Elem(), &ContainerStorageAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerStorageAccountPtrInput)(nil)).Elem(), &ContainerStorageAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerStorageAccountArrayInput)(nil)).Elem(), ContainerStorageAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerStorageAccountMapInput)(nil)).Elem(), ContainerStorageAccountMap{})
 	pulumi.RegisterOutputType(ContainerStorageAccountOutput{})
 	pulumi.RegisterOutputType(ContainerStorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(ContainerStorageAccountArrayOutput{})

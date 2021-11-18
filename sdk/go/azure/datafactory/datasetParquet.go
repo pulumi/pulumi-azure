@@ -458,6 +458,10 @@ func (o DatasetParquetMapOutput) MapIndex(k pulumi.StringInput) DatasetParquetOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetParquetInput)(nil)).Elem(), &DatasetParquet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetParquetPtrInput)(nil)).Elem(), &DatasetParquet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetParquetArrayInput)(nil)).Elem(), DatasetParquetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetParquetMapInput)(nil)).Elem(), DatasetParquetMap{})
 	pulumi.RegisterOutputType(DatasetParquetOutput{})
 	pulumi.RegisterOutputType(DatasetParquetPtrOutput{})
 	pulumi.RegisterOutputType(DatasetParquetArrayOutput{})

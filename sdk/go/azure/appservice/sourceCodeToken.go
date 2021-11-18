@@ -323,6 +323,10 @@ func (o SourceCodeTokenMapOutput) MapIndex(k pulumi.StringInput) SourceCodeToken
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceCodeTokenInput)(nil)).Elem(), &SourceCodeToken{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceCodeTokenPtrInput)(nil)).Elem(), &SourceCodeToken{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceCodeTokenArrayInput)(nil)).Elem(), SourceCodeTokenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceCodeTokenMapInput)(nil)).Elem(), SourceCodeTokenMap{})
 	pulumi.RegisterOutputType(SourceCodeTokenOutput{})
 	pulumi.RegisterOutputType(SourceCodeTokenPtrOutput{})
 	pulumi.RegisterOutputType(SourceCodeTokenArrayOutput{})

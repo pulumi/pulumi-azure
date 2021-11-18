@@ -411,6 +411,10 @@ func (o EnrichmentMapOutput) MapIndex(k pulumi.StringInput) EnrichmentOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnrichmentInput)(nil)).Elem(), &Enrichment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnrichmentPtrInput)(nil)).Elem(), &Enrichment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnrichmentArrayInput)(nil)).Elem(), EnrichmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnrichmentMapInput)(nil)).Elem(), EnrichmentMap{})
 	pulumi.RegisterOutputType(EnrichmentOutput{})
 	pulumi.RegisterOutputType(EnrichmentPtrOutput{})
 	pulumi.RegisterOutputType(EnrichmentArrayOutput{})

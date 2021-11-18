@@ -343,6 +343,10 @@ func (o DdosProtectionPlanMapOutput) MapIndex(k pulumi.StringInput) DdosProtecti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DdosProtectionPlanInput)(nil)).Elem(), &DdosProtectionPlan{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DdosProtectionPlanPtrInput)(nil)).Elem(), &DdosProtectionPlan{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DdosProtectionPlanArrayInput)(nil)).Elem(), DdosProtectionPlanArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DdosProtectionPlanMapInput)(nil)).Elem(), DdosProtectionPlanMap{})
 	pulumi.RegisterOutputType(DdosProtectionPlanOutput{})
 	pulumi.RegisterOutputType(DdosProtectionPlanPtrOutput{})
 	pulumi.RegisterOutputType(DdosProtectionPlanArrayOutput{})

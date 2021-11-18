@@ -420,6 +420,10 @@ func (o EventGridTopicMapOutput) MapIndex(k pulumi.StringInput) EventGridTopicOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventGridTopicInput)(nil)).Elem(), &EventGridTopic{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventGridTopicPtrInput)(nil)).Elem(), &EventGridTopic{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventGridTopicArrayInput)(nil)).Elem(), EventGridTopicArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventGridTopicMapInput)(nil)).Elem(), EventGridTopicMap{})
 	pulumi.RegisterOutputType(EventGridTopicOutput{})
 	pulumi.RegisterOutputType(EventGridTopicPtrOutput{})
 	pulumi.RegisterOutputType(EventGridTopicArrayOutput{})

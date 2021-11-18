@@ -556,6 +556,10 @@ func (o LinkedServiceAzureDatabricksMapOutput) MapIndex(k pulumi.StringInput) Li
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureDatabricksInput)(nil)).Elem(), &LinkedServiceAzureDatabricks{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureDatabricksPtrInput)(nil)).Elem(), &LinkedServiceAzureDatabricks{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureDatabricksArrayInput)(nil)).Elem(), LinkedServiceAzureDatabricksArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureDatabricksMapInput)(nil)).Elem(), LinkedServiceAzureDatabricksMap{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksArrayOutput{})

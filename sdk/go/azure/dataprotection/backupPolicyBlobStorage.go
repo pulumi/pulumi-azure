@@ -337,6 +337,10 @@ func (o BackupPolicyBlobStorageMapOutput) MapIndex(k pulumi.StringInput) BackupP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageInput)(nil)).Elem(), &BackupPolicyBlobStorage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStoragePtrInput)(nil)).Elem(), &BackupPolicyBlobStorage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageArrayInput)(nil)).Elem(), BackupPolicyBlobStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBlobStorageMapInput)(nil)).Elem(), BackupPolicyBlobStorageMap{})
 	pulumi.RegisterOutputType(BackupPolicyBlobStorageOutput{})
 	pulumi.RegisterOutputType(BackupPolicyBlobStoragePtrOutput{})
 	pulumi.RegisterOutputType(BackupPolicyBlobStorageArrayOutput{})

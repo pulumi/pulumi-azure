@@ -351,6 +351,10 @@ func (o ApiReleaseMapOutput) MapIndex(k pulumi.StringInput) ApiReleaseOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiReleaseInput)(nil)).Elem(), &ApiRelease{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiReleasePtrInput)(nil)).Elem(), &ApiRelease{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiReleaseArrayInput)(nil)).Elem(), ApiReleaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiReleaseMapInput)(nil)).Elem(), ApiReleaseMap{})
 	pulumi.RegisterOutputType(ApiReleaseOutput{})
 	pulumi.RegisterOutputType(ApiReleasePtrOutput{})
 	pulumi.RegisterOutputType(ApiReleaseArrayOutput{})

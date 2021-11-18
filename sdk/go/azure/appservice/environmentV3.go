@@ -489,6 +489,10 @@ func (o EnvironmentV3MapOutput) MapIndex(k pulumi.StringInput) EnvironmentV3Outp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentV3Input)(nil)).Elem(), &EnvironmentV3{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentV3PtrInput)(nil)).Elem(), &EnvironmentV3{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentV3ArrayInput)(nil)).Elem(), EnvironmentV3Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentV3MapInput)(nil)).Elem(), EnvironmentV3Map{})
 	pulumi.RegisterOutputType(EnvironmentV3Output{})
 	pulumi.RegisterOutputType(EnvironmentV3PtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentV3ArrayOutput{})

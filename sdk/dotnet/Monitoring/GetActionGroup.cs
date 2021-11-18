@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Monitoring
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args ?? new GetActionGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access the properties of an Action Group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Monitoring.GetActionGroup.InvokeAsync(new Azure.Monitoring.GetActionGroupArgs
+        ///         {
+        ///             ResourceGroupName = "example-rg",
+        ///             Name = "tfex-actiongroup",
+        ///         }));
+        ///         this.ActionGroupId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("actionGroupId")]
+        ///     public Output&lt;string&gt; ActionGroupId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.Monitoring
         public string ResourceGroupName { get; set; } = null!;
 
         public GetActionGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetActionGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Action Group.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the resource group the Action Group is located in.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetActionGroupInvokeArgs()
         {
         }
     }

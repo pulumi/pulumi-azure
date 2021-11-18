@@ -383,6 +383,10 @@ func (o CassandraClusterMapOutput) MapIndex(k pulumi.StringInput) CassandraClust
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraClusterInput)(nil)).Elem(), &CassandraCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraClusterPtrInput)(nil)).Elem(), &CassandraCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraClusterArrayInput)(nil)).Elem(), CassandraClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CassandraClusterMapInput)(nil)).Elem(), CassandraClusterMap{})
 	pulumi.RegisterOutputType(CassandraClusterOutput{})
 	pulumi.RegisterOutputType(CassandraClusterPtrOutput{})
 	pulumi.RegisterOutputType(CassandraClusterArrayOutput{})

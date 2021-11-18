@@ -361,6 +361,10 @@ func (o ChannelDirectLineMapOutput) MapIndex(k pulumi.StringInput) ChannelDirect
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDirectLineInput)(nil)).Elem(), &ChannelDirectLine{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDirectLinePtrInput)(nil)).Elem(), &ChannelDirectLine{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDirectLineArrayInput)(nil)).Elem(), ChannelDirectLineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDirectLineMapInput)(nil)).Elem(), ChannelDirectLineMap{})
 	pulumi.RegisterOutputType(ChannelDirectLineOutput{})
 	pulumi.RegisterOutputType(ChannelDirectLinePtrOutput{})
 	pulumi.RegisterOutputType(ChannelDirectLineArrayOutput{})

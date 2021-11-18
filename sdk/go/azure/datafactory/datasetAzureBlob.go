@@ -462,6 +462,10 @@ func (o DatasetAzureBlobMapOutput) MapIndex(k pulumi.StringInput) DatasetAzureBl
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobInput)(nil)).Elem(), &DatasetAzureBlob{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobPtrInput)(nil)).Elem(), &DatasetAzureBlob{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobArrayInput)(nil)).Elem(), DatasetAzureBlobArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobMapInput)(nil)).Elem(), DatasetAzureBlobMap{})
 	pulumi.RegisterOutputType(DatasetAzureBlobOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobPtrOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobArrayOutput{})

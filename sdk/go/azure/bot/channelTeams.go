@@ -364,6 +364,10 @@ func (o ChannelTeamsMapOutput) MapIndex(k pulumi.StringInput) ChannelTeamsOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTeamsInput)(nil)).Elem(), &ChannelTeams{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTeamsPtrInput)(nil)).Elem(), &ChannelTeams{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTeamsArrayInput)(nil)).Elem(), ChannelTeamsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTeamsMapInput)(nil)).Elem(), ChannelTeamsMap{})
 	pulumi.RegisterOutputType(ChannelTeamsOutput{})
 	pulumi.RegisterOutputType(ChannelTeamsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelTeamsArrayOutput{})

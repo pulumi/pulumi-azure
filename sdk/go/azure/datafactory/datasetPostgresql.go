@@ -427,6 +427,10 @@ func (o DatasetPostgresqlMapOutput) MapIndex(k pulumi.StringInput) DatasetPostgr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetPostgresqlInput)(nil)).Elem(), &DatasetPostgresql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetPostgresqlPtrInput)(nil)).Elem(), &DatasetPostgresql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetPostgresqlArrayInput)(nil)).Elem(), DatasetPostgresqlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetPostgresqlMapInput)(nil)).Elem(), DatasetPostgresqlMap{})
 	pulumi.RegisterOutputType(DatasetPostgresqlOutput{})
 	pulumi.RegisterOutputType(DatasetPostgresqlPtrOutput{})
 	pulumi.RegisterOutputType(DatasetPostgresqlArrayOutput{})

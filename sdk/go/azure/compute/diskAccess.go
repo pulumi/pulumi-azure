@@ -328,6 +328,10 @@ func (o DiskAccessMapOutput) MapIndex(k pulumi.StringInput) DiskAccessOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskAccessInput)(nil)).Elem(), &DiskAccess{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskAccessPtrInput)(nil)).Elem(), &DiskAccess{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskAccessArrayInput)(nil)).Elem(), DiskAccessArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskAccessMapInput)(nil)).Elem(), DiskAccessMap{})
 	pulumi.RegisterOutputType(DiskAccessOutput{})
 	pulumi.RegisterOutputType(DiskAccessPtrOutput{})
 	pulumi.RegisterOutputType(DiskAccessArrayOutput{})

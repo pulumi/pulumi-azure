@@ -338,6 +338,10 @@ func (o DomainTopicMapOutput) MapIndex(k pulumi.StringInput) DomainTopicOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTopicInput)(nil)).Elem(), &DomainTopic{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTopicPtrInput)(nil)).Elem(), &DomainTopic{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTopicArrayInput)(nil)).Elem(), DomainTopicArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTopicMapInput)(nil)).Elem(), DomainTopicMap{})
 	pulumi.RegisterOutputType(DomainTopicOutput{})
 	pulumi.RegisterOutputType(DomainTopicPtrOutput{})
 	pulumi.RegisterOutputType(DomainTopicArrayOutput{})

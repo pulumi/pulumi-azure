@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.EventGrid
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure:eventgrid/getDomain:getDomain", args ?? new GetDomainArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing EventGrid Domain
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.EventGrid.GetDomain.InvokeAsync(new Azure.EventGrid.GetDomainArgs
+        ///         {
+        ///             Name = "my-eventgrid-domain",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.EventgridDomainMappingTopic = example.Apply(example =&gt; example.InputMappingFields?[0]?.Topic);
+        ///     }
+        /// 
+        ///     [Output("eventgridDomainMappingTopic")]
+        ///     public Output&lt;string&gt; EventgridDomainMappingTopic { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure:eventgrid/getDomain:getDomain", args ?? new GetDomainInvokeArgs(), options.WithVersion());
     }
 
 
@@ -91,6 +125,55 @@ namespace Pulumi.Azure.EventGrid
         }
 
         public GetDomainArgs()
+        {
+        }
+    }
+
+    public sealed class GetDomainInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("inboundIpRules")]
+        private InputList<Inputs.GetDomainInboundIpRuleInputArgs>? _inboundIpRules;
+
+        /// <summary>
+        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.GetDomainInboundIpRuleInputArgs> InboundIpRules
+        {
+            get => _inboundIpRules ?? (_inboundIpRules = new InputList<Inputs.GetDomainInboundIpRuleInputArgs>());
+            set => _inboundIpRules = value;
+        }
+
+        /// <summary>
+        /// The name of the EventGrid Domain resource.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Whether or not public network access is allowed for this server.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
+        /// The name of the resource group in which the EventGrid Domain exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the EventGrid Domain.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetDomainInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Task<GetPublicIPsResult> InvokeAsync(GetPublicIPsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? new GetPublicIPsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about a set of existing Public IP Addresses.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetPublicIPs.InvokeAsync(new Azure.Network.GetPublicIPsArgs
+        ///         {
+        ///             Attached = false,
+        ///             ResourceGroupName = "pip-test",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPublicIPsResult> Invoke(GetPublicIPsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? new GetPublicIPsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -73,6 +104,40 @@ namespace Pulumi.Azure.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPublicIPsArgs()
+        {
+        }
+    }
+
+    public sealed class GetPublicIPsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
+        /// </summary>
+        [Input("allocationType")]
+        public Input<string>? AllocationType { get; set; }
+
+        [Input("attached")]
+        public Input<bool>? Attached { get; set; }
+
+        /// <summary>
+        /// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`). To allow for both, use `All`.
+        /// </summary>
+        [Input("attachmentStatus")]
+        public Input<string>? AttachmentStatus { get; set; }
+
+        /// <summary>
+        /// A prefix match used for the IP Addresses `name` field, case sensitive.
+        /// </summary>
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the resource group.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPublicIPsInvokeArgs()
         {
         }
     }

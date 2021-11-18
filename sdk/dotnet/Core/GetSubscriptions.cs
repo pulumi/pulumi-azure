@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Core
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public static Task<GetSubscriptionsResult> InvokeAsync(GetSubscriptionsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? new GetSubscriptionsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about all the Subscriptions currently available.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var available = Output.Create(Azure.Core.GetSubscriptions.InvokeAsync());
+        ///         this.AvailableSubscriptions = available.Apply(available =&gt; available.Subscriptions);
+        ///         this.FirstAvailableSubscriptionDisplayName = available.Apply(available =&gt; available.Subscriptions?[0]?.DisplayName);
+        ///     }
+        /// 
+        ///     [Output("availableSubscriptions")]
+        ///     public Output&lt;string&gt; AvailableSubscriptions { get; set; }
+        ///     [Output("firstAvailableSubscriptionDisplayName")]
+        ///     public Output&lt;string&gt; FirstAvailableSubscriptionDisplayName { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSubscriptionsResult> Invoke(GetSubscriptionsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? new GetSubscriptionsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -60,6 +93,25 @@ namespace Pulumi.Azure.Core
         public string? DisplayNamePrefix { get; set; }
 
         public GetSubscriptionsArgs()
+        {
+        }
+    }
+
+    public sealed class GetSubscriptionsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// A case-insensitive value which must be contained within the `display_name` field, used to filter the results
+        /// </summary>
+        [Input("displayNameContains")]
+        public Input<string>? DisplayNameContains { get; set; }
+
+        /// <summary>
+        /// A case-insensitive prefix which can be used to filter on the `display_name` field
+        /// </summary>
+        [Input("displayNamePrefix")]
+        public Input<string>? DisplayNamePrefix { get; set; }
+
+        public GetSubscriptionsInvokeArgs()
         {
         }
     }

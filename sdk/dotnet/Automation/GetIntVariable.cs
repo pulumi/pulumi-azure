@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Automation
 {
@@ -45,6 +46,41 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         public static Task<GetIntVariableResult> InvokeAsync(GetIntVariableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? new GetIntVariableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Automation Int Variable.
+        /// 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Automation.GetIntVariable.InvokeAsync(new Azure.Automation.GetIntVariableArgs
+        ///         {
+        ///             Name = "tfex-example-var",
+        ///             ResourceGroupName = "tfex-example-rg",
+        ///             AutomationAccountName = "tfex-example-account",
+        ///         }));
+        ///         this.VariableId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("variableId")]
+        ///     public Output&lt;string&gt; VariableId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetIntVariableResult> Invoke(GetIntVariableInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? new GetIntVariableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -69,6 +105,31 @@ namespace Pulumi.Azure.Automation
         public string ResourceGroupName { get; set; } = null!;
 
         public GetIntVariableArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntVariableInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the automation account in which the Automation Variable exists.
+        /// </summary>
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Automation Variable.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where the automation account exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetIntVariableInvokeArgs()
         {
         }
     }

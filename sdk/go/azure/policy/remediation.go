@@ -401,6 +401,10 @@ func (o RemediationMapOutput) MapIndex(k pulumi.StringInput) RemediationOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RemediationInput)(nil)).Elem(), &Remediation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemediationPtrInput)(nil)).Elem(), &Remediation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemediationArrayInput)(nil)).Elem(), RemediationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemediationMapInput)(nil)).Elem(), RemediationMap{})
 	pulumi.RegisterOutputType(RemediationOutput{})
 	pulumi.RegisterOutputType(RemediationPtrOutput{})
 	pulumi.RegisterOutputType(RemediationArrayOutput{})

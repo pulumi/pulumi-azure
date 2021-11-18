@@ -393,6 +393,10 @@ func (o TemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput) TemplateDepl
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDeploymentInput)(nil)).Elem(), &TemplateDeployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDeploymentPtrInput)(nil)).Elem(), &TemplateDeployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDeploymentArrayInput)(nil)).Elem(), TemplateDeploymentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDeploymentMapInput)(nil)).Elem(), TemplateDeploymentMap{})
 	pulumi.RegisterOutputType(TemplateDeploymentOutput{})
 	pulumi.RegisterOutputType(TemplateDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(TemplateDeploymentArrayOutput{})

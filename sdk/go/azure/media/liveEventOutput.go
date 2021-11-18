@@ -301,6 +301,10 @@ func (o LiveEventOutputResourceMapOutput) MapIndex(k pulumi.StringInput) LiveEve
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventOutputResourceInput)(nil)).Elem(), &LiveEventOutputResource{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventOutputResourcePtrInput)(nil)).Elem(), &LiveEventOutputResource{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventOutputResourceArrayInput)(nil)).Elem(), LiveEventOutputResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventOutputResourceMapInput)(nil)).Elem(), LiveEventOutputResourceMap{})
 	pulumi.RegisterOutputType(LiveEventOutputResourceOutput{})
 	pulumi.RegisterOutputType(LiveEventOutputResourcePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventOutputResourceArrayOutput{})

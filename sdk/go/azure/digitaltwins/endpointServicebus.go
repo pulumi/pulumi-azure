@@ -386,6 +386,10 @@ func (o EndpointServicebusMapOutput) MapIndex(k pulumi.StringInput) EndpointServ
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicebusInput)(nil)).Elem(), &EndpointServicebus{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicebusPtrInput)(nil)).Elem(), &EndpointServicebus{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicebusArrayInput)(nil)).Elem(), EndpointServicebusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicebusMapInput)(nil)).Elem(), EndpointServicebusMap{})
 	pulumi.RegisterOutputType(EndpointServicebusOutput{})
 	pulumi.RegisterOutputType(EndpointServicebusPtrOutput{})
 	pulumi.RegisterOutputType(EndpointServicebusArrayOutput{})

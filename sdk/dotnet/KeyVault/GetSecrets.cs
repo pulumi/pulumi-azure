@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.KeyVault
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public static Task<GetSecretsResult> InvokeAsync(GetSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("azure:keyvault/getSecrets:getSecrets", args ?? new GetSecretsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+        /// </summary>
+        public static Output<GetSecretsResult> Invoke(GetSecretsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("azure:keyvault/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.Azure.KeyVault
         public string KeyVaultId { get; set; } = null!;
 
         public GetSecretsArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecretsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+        /// </summary>
+        [Input("keyVaultId", required: true)]
+        public Input<string> KeyVaultId { get; set; } = null!;
+
+        public GetSecretsInvokeArgs()
         {
         }
     }

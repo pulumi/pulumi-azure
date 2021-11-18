@@ -767,6 +767,10 @@ func (o LinuxVirtualMachineMapOutput) MapIndex(k pulumi.StringInput) LinuxVirtua
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineInput)(nil)).Elem(), &LinuxVirtualMachine{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachinePtrInput)(nil)).Elem(), &LinuxVirtualMachine{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineArrayInput)(nil)).Elem(), LinuxVirtualMachineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineMapInput)(nil)).Elem(), LinuxVirtualMachineMap{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachinePtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineArrayOutput{})

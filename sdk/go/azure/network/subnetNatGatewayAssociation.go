@@ -345,6 +345,10 @@ func (o SubnetNatGatewayAssociationMapOutput) MapIndex(k pulumi.StringInput) Sub
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetNatGatewayAssociationInput)(nil)).Elem(), &SubnetNatGatewayAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetNatGatewayAssociationPtrInput)(nil)).Elem(), &SubnetNatGatewayAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetNatGatewayAssociationArrayInput)(nil)).Elem(), SubnetNatGatewayAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetNatGatewayAssociationMapInput)(nil)).Elem(), SubnetNatGatewayAssociationMap{})
 	pulumi.RegisterOutputType(SubnetNatGatewayAssociationOutput{})
 	pulumi.RegisterOutputType(SubnetNatGatewayAssociationPtrOutput{})
 	pulumi.RegisterOutputType(SubnetNatGatewayAssociationArrayOutput{})

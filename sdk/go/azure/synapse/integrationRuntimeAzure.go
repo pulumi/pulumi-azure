@@ -407,6 +407,10 @@ func (o IntegrationRuntimeAzureMapOutput) MapIndex(k pulumi.StringInput) Integra
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeAzureInput)(nil)).Elem(), &IntegrationRuntimeAzure{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeAzurePtrInput)(nil)).Elem(), &IntegrationRuntimeAzure{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeAzureArrayInput)(nil)).Elem(), IntegrationRuntimeAzureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeAzureMapInput)(nil)).Elem(), IntegrationRuntimeAzureMap{})
 	pulumi.RegisterOutputType(IntegrationRuntimeAzureOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeAzurePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeAzureArrayOutput{})

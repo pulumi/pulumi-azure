@@ -372,6 +372,10 @@ func (o HciClusterMapOutput) MapIndex(k pulumi.StringInput) HciClusterOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HciClusterInput)(nil)).Elem(), &HciCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciClusterPtrInput)(nil)).Elem(), &HciCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciClusterArrayInput)(nil)).Elem(), HciClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciClusterMapInput)(nil)).Elem(), HciClusterMap{})
 	pulumi.RegisterOutputType(HciClusterOutput{})
 	pulumi.RegisterOutputType(HciClusterPtrOutput{})
 	pulumi.RegisterOutputType(HciClusterArrayOutput{})

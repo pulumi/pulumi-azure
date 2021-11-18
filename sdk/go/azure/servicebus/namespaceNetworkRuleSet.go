@@ -405,6 +405,10 @@ func (o NamespaceNetworkRuleSetMapOutput) MapIndex(k pulumi.StringInput) Namespa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetInput)(nil)).Elem(), &NamespaceNetworkRuleSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetPtrInput)(nil)).Elem(), &NamespaceNetworkRuleSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetArrayInput)(nil)).Elem(), NamespaceNetworkRuleSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetMapInput)(nil)).Elem(), NamespaceNetworkRuleSetMap{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetOutput{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetArrayOutput{})

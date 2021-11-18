@@ -663,6 +663,10 @@ func (o ReplicatedVMMapOutput) MapIndex(k pulumi.StringInput) ReplicatedVMOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMInput)(nil)).Elem(), &ReplicatedVM{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMPtrInput)(nil)).Elem(), &ReplicatedVM{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMArrayInput)(nil)).Elem(), ReplicatedVMArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMMapInput)(nil)).Elem(), ReplicatedVMMap{})
 	pulumi.RegisterOutputType(ReplicatedVMOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMArrayOutput{})

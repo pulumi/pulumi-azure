@@ -448,6 +448,10 @@ func (o TriggerScheduleMapOutput) MapIndex(k pulumi.StringInput) TriggerSchedule
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerScheduleInput)(nil)).Elem(), &TriggerSchedule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerSchedulePtrInput)(nil)).Elem(), &TriggerSchedule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerScheduleArrayInput)(nil)).Elem(), TriggerScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerScheduleMapInput)(nil)).Elem(), TriggerScheduleMap{})
 	pulumi.RegisterOutputType(TriggerScheduleOutput{})
 	pulumi.RegisterOutputType(TriggerSchedulePtrOutput{})
 	pulumi.RegisterOutputType(TriggerScheduleArrayOutput{})

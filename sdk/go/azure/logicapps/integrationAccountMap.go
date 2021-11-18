@@ -384,6 +384,10 @@ func (o IntegrationAccountMapMapOutput) MapIndex(k pulumi.StringInput) Integrati
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapInput)(nil)).Elem(), &IntegrationAccountMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapPtrInput)(nil)).Elem(), &IntegrationAccountMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapArrayInput)(nil)).Elem(), IntegrationAccountMapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapMapInput)(nil)).Elem(), IntegrationAccountMapMap{})
 	pulumi.RegisterOutputType(IntegrationAccountMapOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapArrayOutput{})

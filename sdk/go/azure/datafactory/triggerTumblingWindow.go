@@ -342,6 +342,10 @@ func (o TriggerTumblingWindowMapOutput) MapIndex(k pulumi.StringInput) TriggerTu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTumblingWindowInput)(nil)).Elem(), &TriggerTumblingWindow{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTumblingWindowPtrInput)(nil)).Elem(), &TriggerTumblingWindow{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTumblingWindowArrayInput)(nil)).Elem(), TriggerTumblingWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTumblingWindowMapInput)(nil)).Elem(), TriggerTumblingWindowMap{})
 	pulumi.RegisterOutputType(TriggerTumblingWindowOutput{})
 	pulumi.RegisterOutputType(TriggerTumblingWindowPtrOutput{})
 	pulumi.RegisterOutputType(TriggerTumblingWindowArrayOutput{})

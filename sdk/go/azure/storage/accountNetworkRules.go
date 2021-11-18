@@ -447,6 +447,10 @@ func (o AccountNetworkRulesMapOutput) MapIndex(k pulumi.StringInput) AccountNetw
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesInput)(nil)).Elem(), &AccountNetworkRules{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesPtrInput)(nil)).Elem(), &AccountNetworkRules{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesArrayInput)(nil)).Elem(), AccountNetworkRulesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesMapInput)(nil)).Elem(), AccountNetworkRulesMap{})
 	pulumi.RegisterOutputType(AccountNetworkRulesOutput{})
 	pulumi.RegisterOutputType(AccountNetworkRulesPtrOutput{})
 	pulumi.RegisterOutputType(AccountNetworkRulesArrayOutput{})

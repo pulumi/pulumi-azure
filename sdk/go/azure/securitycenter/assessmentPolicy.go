@@ -378,6 +378,10 @@ func (o AssessmentPolicyMapOutput) MapIndex(k pulumi.StringInput) AssessmentPoli
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentPolicyInput)(nil)).Elem(), &AssessmentPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentPolicyPtrInput)(nil)).Elem(), &AssessmentPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentPolicyArrayInput)(nil)).Elem(), AssessmentPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentPolicyMapInput)(nil)).Elem(), AssessmentPolicyMap{})
 	pulumi.RegisterOutputType(AssessmentPolicyOutput{})
 	pulumi.RegisterOutputType(AssessmentPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentPolicyArrayOutput{})

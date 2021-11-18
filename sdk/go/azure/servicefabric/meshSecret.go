@@ -322,6 +322,10 @@ func (o MeshSecretMapOutput) MapIndex(k pulumi.StringInput) MeshSecretOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshSecretInput)(nil)).Elem(), &MeshSecret{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshSecretPtrInput)(nil)).Elem(), &MeshSecret{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshSecretArrayInput)(nil)).Elem(), MeshSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshSecretMapInput)(nil)).Elem(), MeshSecretMap{})
 	pulumi.RegisterOutputType(MeshSecretOutput{})
 	pulumi.RegisterOutputType(MeshSecretPtrOutput{})
 	pulumi.RegisterOutputType(MeshSecretArrayOutput{})

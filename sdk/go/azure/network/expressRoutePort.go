@@ -425,6 +425,10 @@ func (o ExpressRoutePortMapOutput) MapIndex(k pulumi.StringInput) ExpressRoutePo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRoutePortInput)(nil)).Elem(), &ExpressRoutePort{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRoutePortPtrInput)(nil)).Elem(), &ExpressRoutePort{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRoutePortArrayInput)(nil)).Elem(), ExpressRoutePortArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRoutePortMapInput)(nil)).Elem(), ExpressRoutePortMap{})
 	pulumi.RegisterOutputType(ExpressRoutePortOutput{})
 	pulumi.RegisterOutputType(ExpressRoutePortPtrOutput{})
 	pulumi.RegisterOutputType(ExpressRoutePortArrayOutput{})

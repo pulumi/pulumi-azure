@@ -354,6 +354,10 @@ func (o FabricMapOutput) MapIndex(k pulumi.StringInput) FabricOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FabricInput)(nil)).Elem(), &Fabric{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FabricPtrInput)(nil)).Elem(), &Fabric{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FabricArrayInput)(nil)).Elem(), FabricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FabricMapInput)(nil)).Elem(), FabricMap{})
 	pulumi.RegisterOutputType(FabricOutput{})
 	pulumi.RegisterOutputType(FabricPtrOutput{})
 	pulumi.RegisterOutputType(FabricArrayOutput{})

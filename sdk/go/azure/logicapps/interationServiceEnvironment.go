@@ -465,6 +465,10 @@ func (o InterationServiceEnvironmentMapOutput) MapIndex(k pulumi.StringInput) In
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InterationServiceEnvironmentInput)(nil)).Elem(), &InterationServiceEnvironment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InterationServiceEnvironmentPtrInput)(nil)).Elem(), &InterationServiceEnvironment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InterationServiceEnvironmentArrayInput)(nil)).Elem(), InterationServiceEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InterationServiceEnvironmentMapInput)(nil)).Elem(), InterationServiceEnvironmentMap{})
 	pulumi.RegisterOutputType(InterationServiceEnvironmentOutput{})
 	pulumi.RegisterOutputType(InterationServiceEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(InterationServiceEnvironmentArrayOutput{})

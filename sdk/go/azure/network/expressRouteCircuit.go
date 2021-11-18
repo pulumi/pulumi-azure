@@ -430,6 +430,10 @@ func (o ExpressRouteCircuitMapOutput) MapIndex(k pulumi.StringInput) ExpressRout
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCircuitInput)(nil)).Elem(), &ExpressRouteCircuit{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCircuitPtrInput)(nil)).Elem(), &ExpressRouteCircuit{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCircuitArrayInput)(nil)).Elem(), ExpressRouteCircuitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCircuitMapInput)(nil)).Elem(), ExpressRouteCircuitMap{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitPtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitArrayOutput{})

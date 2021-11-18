@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.EventHub
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure:eventhub/getEventHub:getEventHub", args ?? new GetEventHubArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing EventHub.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.EventHub.GetEventHub.InvokeAsync(new Azure.EventHub.GetEventHubArgs
+        ///         {
+        ///             Name = "search-eventhub",
+        ///             ResourceGroupName = "search-service",
+        ///             NamespaceName = "search-eventhubns",
+        ///         }));
+        ///         this.EventhubId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("eventhubId")]
+        ///     public Output&lt;string&gt; EventhubId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure:eventhub/getEventHub:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +103,31 @@ namespace Pulumi.Azure.EventHub
         public string ResourceGroupName { get; set; } = null!;
 
         public GetEventHubArgs()
+        {
+        }
+    }
+
+    public sealed class GetEventHubInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of this EventHub.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the EventHub Namespace where the EventHub exists.
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the EventHub exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetEventHubInvokeArgs()
         {
         }
     }

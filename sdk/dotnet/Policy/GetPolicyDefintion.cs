@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Policy
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         public static Task<GetPolicyDefintionResult> InvokeAsync(GetPolicyDefintionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefintionResult>("azure:policy/getPolicyDefintion:getPolicyDefintion", args ?? new GetPolicyDefintionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Policy.GetPolicyDefintion.InvokeAsync(new Azure.Policy.GetPolicyDefintionArgs
+        ///         {
+        ///             DisplayName = "Allowed resource types",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPolicyDefintionResult> Invoke(GetPolicyDefintionInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyDefintionResult>("azure:policy/getPolicyDefintion:getPolicyDefintion", args ?? new GetPolicyDefintionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -69,6 +102,34 @@ namespace Pulumi.Azure.Policy
         public string? Name { get; set; }
 
         public GetPolicyDefintionArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicyDefintionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the display name of the Policy Definition. Conflicts with `name`.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        [Input("managementGroupId")]
+        public Input<string>? ManagementGroupId { get; set; }
+
+        /// <summary>
+        /// Only retrieve Policy Definitions from this Management Group.
+        /// </summary>
+        [Input("managementGroupName")]
+        public Input<string>? ManagementGroupName { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the Policy Definition. Conflicts with `display_name`.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetPolicyDefintionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Compute
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public static Task<GetSharedImageVersionsResult> InvokeAsync(GetSharedImageVersionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageVersionsResult>("azure:compute/getSharedImageVersions:getSharedImageVersions", args ?? new GetSharedImageVersionsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Compute.GetSharedImageVersions.InvokeAsync(new Azure.Compute.GetSharedImageVersionsArgs
+        ///         {
+        ///             GalleryName = "my-image-gallery",
+        ///             ImageName = "my-image",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSharedImageVersionsResult> Invoke(GetSharedImageVersionsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSharedImageVersionsResult>("azure:compute/getSharedImageVersions:getSharedImageVersions", args ?? new GetSharedImageVersionsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -77,6 +109,43 @@ namespace Pulumi.Azure.Compute
         }
 
         public GetSharedImageVersionsArgs()
+        {
+        }
+    }
+
+    public sealed class GetSharedImageVersionsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Shared Image in which the Shared Image exists.
+        /// </summary>
+        [Input("galleryName", required: true)]
+        public Input<string> GalleryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Shared Image in which this Version exists.
+        /// </summary>
+        [Input("imageName", required: true)]
+        public Input<string> ImageName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group in which the Shared Image Gallery exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tagsFilter")]
+        private InputMap<string>? _tagsFilter;
+
+        /// <summary>
+        /// A mapping of tags to filter the list of images against.
+        /// </summary>
+        public InputMap<string> TagsFilter
+        {
+            get => _tagsFilter ?? (_tagsFilter = new InputMap<string>());
+            set => _tagsFilter = value;
+        }
+
+        public GetSharedImageVersionsInvokeArgs()
         {
         }
     }
