@@ -51,6 +51,11 @@ namespace Pulumi.Azure.StreamAnalytics
     ///             ServicebusNamespace = exampleNamespace.Name,
     ///             SharedAccessPolicyKey = exampleNamespace.DefaultPrimaryKey,
     ///             SharedAccessPolicyName = "RootManageSharedAccessKey",
+    ///             PropertyColumns = 
+    ///             {
+    ///                 "col1",
+    ///                 "col2",
+    ///             },
     ///             Serialization = new Azure.StreamAnalytics.Inputs.OutputServicebusTopicSerializationArgs
     ///             {
     ///                 Format = "Avro",
@@ -77,6 +82,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of property columns to add to the Service Bus Topic output.
+        /// </summary>
+        [Output("propertyColumns")]
+        public Output<ImmutableArray<string>> PropertyColumns { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -172,6 +183,18 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("propertyColumns")]
+        private InputList<string>? _propertyColumns;
+
+        /// <summary>
+        /// A list of property columns to add to the Service Bus Topic output.
+        /// </summary>
+        public InputList<string> PropertyColumns
+        {
+            get => _propertyColumns ?? (_propertyColumns = new InputList<string>());
+            set => _propertyColumns = value;
+        }
+
         /// <summary>
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -226,6 +249,18 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("propertyColumns")]
+        private InputList<string>? _propertyColumns;
+
+        /// <summary>
+        /// A list of property columns to add to the Service Bus Topic output.
+        /// </summary>
+        public InputList<string> PropertyColumns
+        {
+            get => _propertyColumns ?? (_propertyColumns = new InputList<string>());
+            set => _propertyColumns = value;
+        }
 
         /// <summary>
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.

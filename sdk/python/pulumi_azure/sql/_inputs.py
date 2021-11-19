@@ -529,10 +529,7 @@ class SqlServerExtendedAuditingPolicyArgs:
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] log_monitoring_enabled: (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
-        :param pulumi.Input[int] retention_in_days: (Optional) Specifies the number of days to retain logs for in the storage account.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-        :param pulumi.Input[bool] storage_account_access_key_is_secondary: (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
         if log_monitoring_enabled is not None:
@@ -549,9 +546,6 @@ class SqlServerExtendedAuditingPolicyArgs:
     @property
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
-        """
         return pulumi.get(self, "log_monitoring_enabled")
 
     @log_monitoring_enabled.setter
@@ -561,9 +555,6 @@ class SqlServerExtendedAuditingPolicyArgs:
     @property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        (Optional) Specifies the number of days to retain logs for in the storage account.
-        """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
@@ -585,9 +576,6 @@ class SqlServerExtendedAuditingPolicyArgs:
     @property
     @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
     def storage_account_access_key_is_secondary(self) -> Optional[pulumi.Input[bool]]:
-        """
-        (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        """
         return pulumi.get(self, "storage_account_access_key_is_secondary")
 
     @storage_account_access_key_is_secondary.setter

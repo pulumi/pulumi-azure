@@ -1096,6 +1096,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "automation/webhook",
+  "fqn": "pulumi_azure.automation",
+  "classes": {
+   "azure:automation/webhook:Webhook": "Webhook"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "avs/cluster",
   "fqn": "pulumi_azure.avs",
   "classes": {
@@ -1656,6 +1664,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "core/resourceGroupCostManagementExport",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport": "ResourceGroupCostManagementExport"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "core/resourceGroupPolicyAssignment",
   "fqn": "pulumi_azure.core",
   "classes": {
@@ -1692,6 +1708,14 @@ _utilities.register(
   "fqn": "pulumi_azure.core",
   "classes": {
    "azure:core/subscription:Subscription": "Subscription"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "core/subscriptionCostManagementExport",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport": "SubscriptionCostManagementExport"
   }
  },
  {
@@ -4048,6 +4072,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "monitoring/logzTagRule",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/logzTagRule:LogzTagRule": "LogzTagRule"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "monitoring/metricAlert",
   "fqn": "pulumi_azure.monitoring",
   "classes": {
@@ -4060,6 +4092,14 @@ _utilities.register(
   "fqn": "pulumi_azure.monitoring",
   "classes": {
    "azure:monitoring/privateLinkScope:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "monitoring/privateLinkScopedService",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/privateLinkScopedService:PrivateLinkScopedService": "PrivateLinkScopedService"
   }
  },
  {
@@ -5748,6 +5788,14 @@ _utilities.register(
   "fqn": "pulumi_azure.storage",
   "classes": {
    "azure:storage/dataLakeGen2Path:DataLakeGen2Path": "DataLakeGen2Path"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/disksPool",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/disksPool:DisksPool": "DisksPool"
   }
  },
  {

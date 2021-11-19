@@ -38,6 +38,10 @@ import * as utilities from "../utilities";
  *     servicebusNamespace: exampleNamespace.name,
  *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,
  *     sharedAccessPolicyName: "RootManageSharedAccessKey",
+ *     propertyColumns: [
+ *         "col1",
+ *         "col2",
+ *     ],
  *     serialization: {
  *         format: "Avro",
  *     },
@@ -85,6 +89,10 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A list of property columns to add to the Service Bus Topic output.
+     */
+    public readonly propertyColumns!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -127,6 +135,7 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as OutputServicebusTopicState | undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["propertyColumns"] = state ? state.propertyColumns : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serialization"] = state ? state.serialization : undefined;
             inputs["servicebusNamespace"] = state ? state.servicebusNamespace : undefined;
@@ -158,6 +167,7 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["name"] = args ? args.name : undefined;
+            inputs["propertyColumns"] = args ? args.propertyColumns : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serialization"] = args ? args.serialization : undefined;
             inputs["servicebusNamespace"] = args ? args.servicebusNamespace : undefined;
@@ -181,6 +191,10 @@ export interface OutputServicebusTopicState {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A list of property columns to add to the Service Bus Topic output.
+     */
+    propertyColumns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
@@ -219,6 +233,10 @@ export interface OutputServicebusTopicArgs {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A list of property columns to add to the Service Bus Topic output.
+     */
+    propertyColumns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */

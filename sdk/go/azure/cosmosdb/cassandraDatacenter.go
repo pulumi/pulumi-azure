@@ -78,6 +78,7 @@ import (
 // 			NodeCount:                   pulumi.Int(3),
 // 			DiskCount:                   pulumi.Int(4),
 // 			SkuName:                     pulumi.String("Standard_DS14_v2"),
+// 			AvailabilityZonesEnabled:    pulumi.Bool(false),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -97,17 +98,19 @@ import (
 type CassandraDatacenter struct {
 	pulumi.CustomResourceState
 
+	// Determines whether availability zones are enabled. Defaults to `true`.
+	AvailabilityZonesEnabled pulumi.BoolPtrOutput `pulumi:"availabilityZonesEnabled"`
 	// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
 	CassandraClusterId pulumi.StringOutput `pulumi:"cassandraClusterId"`
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId pulumi.StringOutput `pulumi:"delegatedManagementSubnetId"`
-	// Determines the number of p30 disks that are attached to each node. Defaults to 4.
+	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
 	DiskCount pulumi.IntPtrOutput `pulumi:"diskCount"`
 	// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrOutput `pulumi:"nodeCount"`
 	// Determines the selected sku. Defaults to Standard_DS14_v2.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
@@ -148,34 +151,38 @@ func GetCassandraDatacenter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CassandraDatacenter resources.
 type cassandraDatacenterState struct {
+	// Determines whether availability zones are enabled. Defaults to `true`.
+	AvailabilityZonesEnabled *bool `pulumi:"availabilityZonesEnabled"`
 	// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
 	CassandraClusterId *string `pulumi:"cassandraClusterId"`
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId *string `pulumi:"delegatedManagementSubnetId"`
-	// Determines the number of p30 disks that are attached to each node. Defaults to 4.
+	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
 	DiskCount *int `pulumi:"diskCount"`
 	// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	Name *string `pulumi:"name"`
-	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount *int `pulumi:"nodeCount"`
 	// Determines the selected sku. Defaults to Standard_DS14_v2.
 	SkuName *string `pulumi:"skuName"`
 }
 
 type CassandraDatacenterState struct {
+	// Determines whether availability zones are enabled. Defaults to `true`.
+	AvailabilityZonesEnabled pulumi.BoolPtrInput
 	// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
 	CassandraClusterId pulumi.StringPtrInput
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId pulumi.StringPtrInput
-	// Determines the number of p30 disks that are attached to each node. Defaults to 4.
+	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
 	DiskCount pulumi.IntPtrInput
 	// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	Name pulumi.StringPtrInput
-	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrInput
 	// Determines the selected sku. Defaults to Standard_DS14_v2.
 	SkuName pulumi.StringPtrInput
@@ -186,17 +193,19 @@ func (CassandraDatacenterState) ElementType() reflect.Type {
 }
 
 type cassandraDatacenterArgs struct {
+	// Determines whether availability zones are enabled. Defaults to `true`.
+	AvailabilityZonesEnabled *bool `pulumi:"availabilityZonesEnabled"`
 	// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
 	CassandraClusterId string `pulumi:"cassandraClusterId"`
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId string `pulumi:"delegatedManagementSubnetId"`
-	// Determines the number of p30 disks that are attached to each node. Defaults to 4.
+	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
 	DiskCount *int `pulumi:"diskCount"`
 	// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	Name *string `pulumi:"name"`
-	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount *int `pulumi:"nodeCount"`
 	// Determines the selected sku. Defaults to Standard_DS14_v2.
 	SkuName *string `pulumi:"skuName"`
@@ -204,17 +213,19 @@ type cassandraDatacenterArgs struct {
 
 // The set of arguments for constructing a CassandraDatacenter resource.
 type CassandraDatacenterArgs struct {
+	// Determines whether availability zones are enabled. Defaults to `true`.
+	AvailabilityZonesEnabled pulumi.BoolPtrInput
 	// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
 	CassandraClusterId pulumi.StringInput
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId pulumi.StringInput
-	// Determines the number of p30 disks that are attached to each node. Defaults to 4.
+	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
 	DiskCount pulumi.IntPtrInput
 	// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	Name pulumi.StringPtrInput
-	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrInput
 	// Determines the selected sku. Defaults to Standard_DS14_v2.
 	SkuName pulumi.StringPtrInput

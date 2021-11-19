@@ -182,6 +182,8 @@ type WindowsVirtualMachineScaleSet struct {
 	ScaleInPolicy pulumi.StringPtrOutput `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineScaleSetSecretArrayOutput `pulumi:"secrets"`
+	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrOutput `pulumi:"secureBootEnabled"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
@@ -200,6 +202,8 @@ type WindowsVirtualMachineScaleSet struct {
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrOutput `pulumi:"upgradeMode"`
+	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineScaleSetWinrmListenerArrayOutput `pulumi:"winrmListeners"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -328,6 +332,8 @@ type windowsVirtualMachineScaleSetState struct {
 	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []WindowsVirtualMachineScaleSetSecret `pulumi:"secrets"`
+	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
@@ -346,6 +352,8 @@ type windowsVirtualMachineScaleSetState struct {
 	UniqueId *string `pulumi:"uniqueId"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode *string `pulumi:"upgradeMode"`
+	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners []WindowsVirtualMachineScaleSetWinrmListener `pulumi:"winrmListeners"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -425,6 +433,8 @@ type WindowsVirtualMachineScaleSetState struct {
 	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineScaleSetSecretArrayInput
+	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
@@ -443,6 +453,8 @@ type WindowsVirtualMachineScaleSetState struct {
 	UniqueId pulumi.StringPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrInput
+	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	VtpmEnabled pulumi.BoolPtrInput
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineScaleSetWinrmListenerArrayInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -526,6 +538,8 @@ type windowsVirtualMachineScaleSetArgs struct {
 	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []WindowsVirtualMachineScaleSetSecret `pulumi:"secrets"`
+	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
@@ -542,6 +556,8 @@ type windowsVirtualMachineScaleSetArgs struct {
 	Timezone *string `pulumi:"timezone"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode *string `pulumi:"upgradeMode"`
+	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners []WindowsVirtualMachineScaleSetWinrmListener `pulumi:"winrmListeners"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -622,6 +638,8 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineScaleSetSecretArrayInput
+	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
@@ -638,6 +656,8 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	Timezone pulumi.StringPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrInput
+	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	VtpmEnabled pulumi.BoolPtrInput
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineScaleSetWinrmListenerArrayInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.

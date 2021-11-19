@@ -63,6 +63,100 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     /// }
     /// ```
+    /// ### With Data Encryption
+    /// 
+    /// &gt; **NOTE:** The Key Vault must enable purge protection.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationType = "web",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "premium",
+    ///             PurgeProtectionEnabled = true,
+    ///         });
+    ///         var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new Azure.KeyVault.AccessPolicyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///             KeyPermissions = 
+    ///             {
+    ///                 "Create",
+    ///                 "Get",
+    ///                 "Delete",
+    ///                 "Purge",
+    ///             },
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "GRS",
+    ///         });
+    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             KeyType = "RSA",
+    ///             KeySize = 2048,
+    ///             KeyOpts = 
+    ///             {
+    ///                 "decrypt",
+    ///                 "encrypt",
+    ///                 "sign",
+    ///                 "unwrapKey",
+    ///                 "verify",
+    ///                 "wrapKey",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleKeyVault,
+    ///                 exampleAccessPolicy,
+    ///             },
+    ///         });
+    ///         var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new Azure.MachineLearning.WorkspaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationInsightsId = exampleInsights.Id,
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             StorageAccountId = exampleAccount.Id,
+    ///             Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Encryption = new Azure.MachineLearning.Inputs.WorkspaceEncryptionArgs
+    ///             {
+    ///                 KeyVaultId = exampleKeyVault.Id,
+    ///                 KeyId = exampleKey.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -98,6 +192,9 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Output("discoveryUrl")]
         public Output<string> DiscoveryUrl { get; private set; } = null!;
+
+        [Output("encryption")]
+        public Output<Outputs.WorkspaceEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// Friendly name for this Machine Learning Workspace.
@@ -235,6 +332,9 @@ namespace Pulumi.Azure.MachineLearning
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("encryption")]
+        public Input<Inputs.WorkspaceEncryptionArgs>? Encryption { get; set; }
+
         /// <summary>
         /// Friendly name for this Machine Learning Workspace.
         /// </summary>
@@ -343,6 +443,9 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("discoveryUrl")]
         public Input<string>? DiscoveryUrl { get; set; }
+
+        [Input("encryption")]
+        public Input<Inputs.WorkspaceEncryptionGetArgs>? Encryption { get; set; }
 
         /// <summary>
         /// Friendly name for this Machine Learning Workspace.

@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * Network ACLs for a SignalR service can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:signalr/serviceNetworkAcl:ServiceNetworkAcl example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/SignalR/signalr1
+ *  $ pulumi import azure:signalr/serviceNetworkAcl:ServiceNetworkAcl example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1
  * ```
  */
 export class ServiceNetworkAcl extends pulumi.CustomResource {

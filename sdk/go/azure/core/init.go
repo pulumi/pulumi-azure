@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PortalTenantConfiguration{}
 	case "azure:core/resourceGroup:ResourceGroup":
 		r = &ResourceGroup{}
+	case "azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport":
+		r = &ResourceGroupCostManagementExport{}
 	case "azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment":
 		r = &ResourceGroupPolicyAssignment{}
 	case "azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment":
@@ -37,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResourceProviderRegistration{}
 	case "azure:core/subscription:Subscription":
 		r = &Subscription{}
+	case "azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport":
+		r = &SubscriptionCostManagementExport{}
 	case "azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment":
 		r = &SubscriptionPolicyAssignment{}
 	case "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment":
@@ -75,6 +79,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"core/resourceGroupCostManagementExport",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"core/resourceGroupPolicyAssignment",
 		&module{version},
 	)
@@ -96,6 +105,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"core/subscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"core/subscriptionCostManagementExport",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

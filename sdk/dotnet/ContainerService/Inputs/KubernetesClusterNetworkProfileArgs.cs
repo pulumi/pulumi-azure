@@ -37,6 +37,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? LoadBalancerSku { get; set; }
 
         /// <summary>
+        /// A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        /// </summary>
+        [Input("natGatewayProfile")]
+        public Input<Inputs.KubernetesClusterNetworkProfileNatGatewayProfileArgs>? NatGatewayProfile { get; set; }
+
+        /// <summary>
         /// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkMode")]
@@ -55,7 +61,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
         /// </summary>
         [Input("outboundType")]
         public Input<string>? OutboundType { get; set; }

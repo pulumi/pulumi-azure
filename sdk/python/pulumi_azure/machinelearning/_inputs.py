@@ -18,6 +18,7 @@ __all__ = [
     'InferenceClusterIdentityArgs',
     'InferenceClusterSslArgs',
     'SynapseSparkIdentityArgs',
+    'WorkspaceEncryptionArgs',
     'WorkspaceIdentityArgs',
 ]
 
@@ -585,6 +586,43 @@ class SynapseSparkIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class WorkspaceEncryptionArgs:
+    def __init__(__self__, *,
+                 key_id: pulumi.Input[str],
+                 key_vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key_id: The Key Vault URI to access the encryption key.
+        :param pulumi.Input[str] key_vault_id: The ID of the keyVault where the customer owned encryption key is present.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Input[str]:
+        """
+        The Key Vault URI to access the encryption key.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the keyVault where the customer owned encryption key is present.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_id", value)
 
 
 @pulumi.input_type

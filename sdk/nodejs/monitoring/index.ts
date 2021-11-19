@@ -19,8 +19,10 @@ export * from "./getScheduledQueryRulesAlert";
 export * from "./getScheduledQueryRulesLog";
 export * from "./logProfile";
 export * from "./logzMonitor";
+export * from "./logzTagRule";
 export * from "./metricAlert";
 export * from "./privateLinkScope";
+export * from "./privateLinkScopedService";
 export * from "./scheduledQueryRulesAlert";
 export * from "./scheduledQueryRulesLog";
 export * from "./smartDetectorAlertRule";
@@ -35,8 +37,10 @@ import { AutoscaleSetting } from "./autoscaleSetting";
 import { DiagnosticSetting } from "./diagnosticSetting";
 import { LogProfile } from "./logProfile";
 import { LogzMonitor } from "./logzMonitor";
+import { LogzTagRule } from "./logzTagRule";
 import { MetricAlert } from "./metricAlert";
 import { PrivateLinkScope } from "./privateLinkScope";
+import { PrivateLinkScopedService } from "./privateLinkScopedService";
 import { ScheduledQueryRulesAlert } from "./scheduledQueryRulesAlert";
 import { ScheduledQueryRulesLog } from "./scheduledQueryRulesLog";
 import { SmartDetectorAlertRule } from "./smartDetectorAlertRule";
@@ -63,10 +67,14 @@ const _module = {
                 return new LogProfile(name, <any>undefined, { urn })
             case "azure:monitoring/logzMonitor:LogzMonitor":
                 return new LogzMonitor(name, <any>undefined, { urn })
+            case "azure:monitoring/logzTagRule:LogzTagRule":
+                return new LogzTagRule(name, <any>undefined, { urn })
             case "azure:monitoring/metricAlert:MetricAlert":
                 return new MetricAlert(name, <any>undefined, { urn })
             case "azure:monitoring/privateLinkScope:PrivateLinkScope":
                 return new PrivateLinkScope(name, <any>undefined, { urn })
+            case "azure:monitoring/privateLinkScopedService:PrivateLinkScopedService":
+                return new PrivateLinkScopedService(name, <any>undefined, { urn })
             case "azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert":
                 return new ScheduledQueryRulesAlert(name, <any>undefined, { urn })
             case "azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog":
@@ -87,8 +95,10 @@ pulumi.runtime.registerResourceModule("azure", "monitoring/autoscaleSetting", _m
 pulumi.runtime.registerResourceModule("azure", "monitoring/diagnosticSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logProfile", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logzMonitor", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/logzTagRule", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/metricAlert", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/privateLinkScope", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/privateLinkScopedService", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/scheduledQueryRulesAlert", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/scheduledQueryRulesLog", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/smartDetectorAlertRule", _module)

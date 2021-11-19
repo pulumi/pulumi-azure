@@ -154,6 +154,10 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly networkAccessPolicy!: pulumi.Output<string | undefined>;
     /**
+     * Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+     */
+    public readonly onDemandBurstingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
@@ -222,6 +226,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["maxShares"] = state ? state.maxShares : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkAccessPolicy"] = state ? state.networkAccessPolicy : undefined;
+            inputs["onDemandBurstingEnabled"] = state ? state.onDemandBurstingEnabled : undefined;
             inputs["osType"] = state ? state.osType : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
@@ -258,6 +263,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["maxShares"] = args ? args.maxShares : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
+            inputs["onDemandBurstingEnabled"] = args ? args.onDemandBurstingEnabled : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
@@ -340,6 +346,10 @@ export interface ManagedDiskState {
      * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
      */
     networkAccessPolicy?: pulumi.Input<string>;
+    /**
+     * Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+     */
+    onDemandBurstingEnabled?: pulumi.Input<boolean>;
     /**
      * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
@@ -446,6 +456,10 @@ export interface ManagedDiskArgs {
      * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
      */
     networkAccessPolicy?: pulumi.Input<string>;
+    /**
+     * Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+     */
+    onDemandBurstingEnabled?: pulumi.Input<boolean>;
     /**
      * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */

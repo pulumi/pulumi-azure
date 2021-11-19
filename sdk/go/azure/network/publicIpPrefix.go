@@ -62,6 +62,8 @@ type PublicIpPrefix struct {
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// The IP address prefix value that was allocated.
 	IpPrefix pulumi.StringOutput `pulumi:"ipPrefix"`
+	// The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+	IpVersion pulumi.StringPtrOutput `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
@@ -114,6 +116,8 @@ type publicIpPrefixState struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The IP address prefix value that was allocated.
 	IpPrefix *string `pulumi:"ipPrefix"`
+	// The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+	IpVersion *string `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
@@ -135,6 +139,8 @@ type PublicIpPrefixState struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// The IP address prefix value that was allocated.
 	IpPrefix pulumi.StringPtrInput
+	// The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+	IpVersion pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
@@ -158,6 +164,8 @@ func (PublicIpPrefixState) ElementType() reflect.Type {
 type publicIpPrefixArgs struct {
 	// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+	IpVersion *string `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
@@ -178,6 +186,8 @@ type publicIpPrefixArgs struct {
 type PublicIpPrefixArgs struct {
 	// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
 	AvailabilityZone pulumi.StringPtrInput
+	// The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+	IpVersion pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.

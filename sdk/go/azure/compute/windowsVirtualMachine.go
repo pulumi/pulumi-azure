@@ -187,6 +187,8 @@ type WindowsVirtualMachine struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineSecretArrayOutput `pulumi:"secrets"`
+	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrOutput `pulumi:"secureBootEnabled"`
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringOutput `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -201,6 +203,8 @@ type WindowsVirtualMachine struct {
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"virtualMachineScaleSetId"`
+	// Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayOutput `pulumi:"winrmListeners"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -320,6 +324,8 @@ type windowsVirtualMachineState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `secret` blocks as defined below.
 	Secrets []WindowsVirtualMachineSecret `pulumi:"secrets"`
+	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size *string `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -334,6 +340,8 @@ type windowsVirtualMachineState struct {
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
+	// Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners []WindowsVirtualMachineWinrmListener `pulumi:"winrmListeners"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -407,6 +415,8 @@ type WindowsVirtualMachineState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineSecretArrayInput
+	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrInput
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringPtrInput
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -421,6 +431,8 @@ type WindowsVirtualMachineState struct {
 	VirtualMachineId pulumi.StringPtrInput
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId pulumi.StringPtrInput
+	// Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	VtpmEnabled pulumi.BoolPtrInput
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayInput
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -490,6 +502,8 @@ type windowsVirtualMachineArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `secret` blocks as defined below.
 	Secrets []WindowsVirtualMachineSecret `pulumi:"secrets"`
+	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size string `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -502,6 +516,8 @@ type windowsVirtualMachineArgs struct {
 	Timezone *string `pulumi:"timezone"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
+	// Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners []WindowsVirtualMachineWinrmListener `pulumi:"winrmListeners"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -568,6 +584,8 @@ type WindowsVirtualMachineArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineSecretArrayInput
+	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrInput
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringInput
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -580,6 +598,8 @@ type WindowsVirtualMachineArgs struct {
 	Timezone pulumi.StringPtrInput
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId pulumi.StringPtrInput
+	// Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+	VtpmEnabled pulumi.BoolPtrInput
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayInput
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.

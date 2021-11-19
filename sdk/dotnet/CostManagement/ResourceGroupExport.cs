@@ -12,6 +12,8 @@ namespace Pulumi.Azure.CostManagement
     /// <summary>
     /// Manages an Azure Cost Management Export for a Resource Group.
     /// 
+    /// !&gt; **Note:** The `azure.costmanagement.ResourceGroupExport` resource has been deprecated in favour of the `azure.core.ResourceGroupCostManagementExport` resource and will be removed in v3.0 of the Azure Provider.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

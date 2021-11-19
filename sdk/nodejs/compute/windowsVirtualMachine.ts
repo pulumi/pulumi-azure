@@ -237,6 +237,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly secrets!: pulumi.Output<outputs.compute.WindowsVirtualMachineSecret[] | undefined>;
     /**
+     * Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     */
+    public readonly secureBootEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
      */
     public readonly size!: pulumi.Output<string>;
@@ -264,6 +268,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
      */
     public readonly virtualMachineScaleSetId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     */
+    public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * One or more `winrmListener` blocks as defined below.
      */
@@ -319,6 +327,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secrets"] = state ? state.secrets : undefined;
+            inputs["secureBootEnabled"] = state ? state.secureBootEnabled : undefined;
             inputs["size"] = state ? state.size : undefined;
             inputs["sourceImageId"] = state ? state.sourceImageId : undefined;
             inputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
@@ -326,6 +335,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["timezone"] = state ? state.timezone : undefined;
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
             inputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
+            inputs["vtpmEnabled"] = state ? state.vtpmEnabled : undefined;
             inputs["winrmListeners"] = state ? state.winrmListeners : undefined;
             inputs["zone"] = state ? state.zone : undefined;
         } else {
@@ -377,12 +387,14 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["secrets"] = args ? args.secrets : undefined;
+            inputs["secureBootEnabled"] = args ? args.secureBootEnabled : undefined;
             inputs["size"] = args ? args.size : undefined;
             inputs["sourceImageId"] = args ? args.sourceImageId : undefined;
             inputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
             inputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
+            inputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
             inputs["winrmListeners"] = args ? args.winrmListeners : undefined;
             inputs["zone"] = args ? args.zone : undefined;
             inputs["privateIpAddress"] = undefined /*out*/;
@@ -535,6 +547,10 @@ export interface WindowsVirtualMachineState {
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineSecret>[]>;
     /**
+     * Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     */
+    secureBootEnabled?: pulumi.Input<boolean>;
+    /**
      * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
      */
     size?: pulumi.Input<string>;
@@ -562,6 +578,10 @@ export interface WindowsVirtualMachineState {
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
+    /**
+     * Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     */
+    vtpmEnabled?: pulumi.Input<boolean>;
     /**
      * One or more `winrmListener` blocks as defined below.
      */
@@ -693,6 +713,10 @@ export interface WindowsVirtualMachineArgs {
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineSecret>[]>;
     /**
+     * Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     */
+    secureBootEnabled?: pulumi.Input<boolean>;
+    /**
      * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
      */
     size: pulumi.Input<string>;
@@ -716,6 +740,10 @@ export interface WindowsVirtualMachineArgs {
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
+    /**
+     * Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     */
+    vtpmEnabled?: pulumi.Input<boolean>;
     /**
      * One or more `winrmListener` blocks as defined below.
      */

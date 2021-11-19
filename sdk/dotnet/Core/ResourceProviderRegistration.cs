@@ -16,6 +16,8 @@ namespace Pulumi.Azure.Core
     /// 
     /// !&gt; **Note:** The errors returned from the Azure API when a Resource Provider is unregistered are unclear (example `API version '2019-01-01' was not found for 'Microsoft.Foo'`) - please ensure that all of the necessary Resource Providers you're using are registered - if in doubt **we strongly recommend letting the provider register these for you**.
     /// 
+    /// &gt; **Note:** Adding or Removing a Preview Feature will re-register the Resource Provider.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -33,6 +35,31 @@ namespace Pulumi.Azure.Core
     /// 
     /// }
     /// ```
+    /// ### Registering A Preview Feature)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.Core.ResourceProviderRegistration("example", new Azure.Core.ResourceProviderRegistrationArgs
+    ///         {
+    ///             Features = 
+    ///             {
+    ///                 new Azure.Core.Inputs.ResourceProviderRegistrationFeatureArgs
+    ///                 {
+    ///                     Name = "AKS-DataPlaneAutoApprove",
+    ///                     Registered = true,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -45,6 +72,12 @@ namespace Pulumi.Azure.Core
     [AzureResourceType("azure:core/resourceProviderRegistration:ResourceProviderRegistration")]
     public partial class ResourceProviderRegistration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of `feature` blocks as defined below.
+        /// </summary>
+        [Output("features")]
+        public Output<ImmutableArray<Outputs.ResourceProviderRegistrationFeature>> Features { get; private set; } = null!;
+
         /// <summary>
         /// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         /// </summary>
@@ -97,6 +130,18 @@ namespace Pulumi.Azure.Core
 
     public sealed class ResourceProviderRegistrationArgs : Pulumi.ResourceArgs
     {
+        [Input("features")]
+        private InputList<Inputs.ResourceProviderRegistrationFeatureArgs>? _features;
+
+        /// <summary>
+        /// A list of `feature` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ResourceProviderRegistrationFeatureArgs> Features
+        {
+            get => _features ?? (_features = new InputList<Inputs.ResourceProviderRegistrationFeatureArgs>());
+            set => _features = value;
+        }
+
         /// <summary>
         /// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         /// </summary>
@@ -110,6 +155,18 @@ namespace Pulumi.Azure.Core
 
     public sealed class ResourceProviderRegistrationState : Pulumi.ResourceArgs
     {
+        [Input("features")]
+        private InputList<Inputs.ResourceProviderRegistrationFeatureGetArgs>? _features;
+
+        /// <summary>
+        /// A list of `feature` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ResourceProviderRegistrationFeatureGetArgs> Features
+        {
+            get => _features ?? (_features = new InputList<Inputs.ResourceProviderRegistrationFeatureGetArgs>());
+            set => _features = value;
+        }
+
         /// <summary>
         /// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         /// </summary>

@@ -412,7 +412,7 @@ class ElasticPoolSkuArgs:
         :param pulumi.Input[int] capacity: The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
         :param pulumi.Input[str] name: Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
         :param pulumi.Input[str] tier: The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-        :param pulumi.Input[str] family: The `family` of hardware `Gen4` or `Gen5`.
+        :param pulumi.Input[str] family: The `family` of hardware `Gen4`, `Gen5` or `Fsv2`.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "name", name)
@@ -460,7 +460,7 @@ class ElasticPoolSkuArgs:
     @pulumi.getter
     def family(self) -> Optional[pulumi.Input[str]]:
         """
-        The `family` of hardware `Gen4` or `Gen5`.
+        The `family` of hardware `Gen4`, `Gen5` or `Fsv2`.
         """
         return pulumi.get(self, "family")
 
@@ -569,10 +569,10 @@ class ServerAzureadAdministratorArgs:
                  azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] login_username: (Required)  The login username of the Azure AD Administrator of this SQL Server.
-        :param pulumi.Input[str] object_id: (Required) The object id of the Azure AD Administrator of this SQL Server.
-        :param pulumi.Input[bool] azuread_authentication_only: (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administrator_login`).
-        :param pulumi.Input[str] tenant_id: (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+        :param pulumi.Input[str] login_username: The login username of the Azure AD Administrator of this SQL Server.
+        :param pulumi.Input[str] object_id: The object id of the Azure AD Administrator of this SQL Server.
+        :param pulumi.Input[bool] azuread_authentication_only: Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administrator_login`).
+        :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
         """
         pulumi.set(__self__, "login_username", login_username)
         pulumi.set(__self__, "object_id", object_id)
@@ -585,7 +585,7 @@ class ServerAzureadAdministratorArgs:
     @pulumi.getter(name="loginUsername")
     def login_username(self) -> pulumi.Input[str]:
         """
-        (Required)  The login username of the Azure AD Administrator of this SQL Server.
+        The login username of the Azure AD Administrator of this SQL Server.
         """
         return pulumi.get(self, "login_username")
 
@@ -597,7 +597,7 @@ class ServerAzureadAdministratorArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Input[str]:
         """
-        (Required) The object id of the Azure AD Administrator of this SQL Server.
+        The object id of the Azure AD Administrator of this SQL Server.
         """
         return pulumi.get(self, "object_id")
 
@@ -609,7 +609,7 @@ class ServerAzureadAdministratorArgs:
     @pulumi.getter(name="azureadAuthenticationOnly")
     def azuread_authentication_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administrator_login`).
+        Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administrator_login`).
         """
         return pulumi.get(self, "azuread_authentication_only")
 
@@ -621,7 +621,7 @@ class ServerAzureadAdministratorArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+        The tenant id of the Azure AD Administrator of this SQL Server.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -638,13 +638,6 @@ class ServerExtendedAuditingPolicyArgs:
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[bool] log_monitoring_enabled: (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
-        :param pulumi.Input[int] retention_in_days: (Optional) Specifies the number of days to retain logs for in the storage account.
-        :param pulumi.Input[str] storage_account_access_key: (Optional)  Specifies the access key to use for the auditing storage account.
-        :param pulumi.Input[bool] storage_account_access_key_is_secondary: (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        :param pulumi.Input[str] storage_endpoint: (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        """
         if log_monitoring_enabled is not None:
             pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
         if retention_in_days is not None:
@@ -659,9 +652,6 @@ class ServerExtendedAuditingPolicyArgs:
     @property
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
-        """
         return pulumi.get(self, "log_monitoring_enabled")
 
     @log_monitoring_enabled.setter
@@ -671,9 +661,6 @@ class ServerExtendedAuditingPolicyArgs:
     @property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        (Optional) Specifies the number of days to retain logs for in the storage account.
-        """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
@@ -683,9 +670,6 @@ class ServerExtendedAuditingPolicyArgs:
     @property
     @pulumi.getter(name="storageAccountAccessKey")
     def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        (Optional)  Specifies the access key to use for the auditing storage account.
-        """
         return pulumi.get(self, "storage_account_access_key")
 
     @storage_account_access_key.setter
@@ -695,9 +679,6 @@ class ServerExtendedAuditingPolicyArgs:
     @property
     @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
     def storage_account_access_key_is_secondary(self) -> Optional[pulumi.Input[bool]]:
-        """
-        (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        """
         return pulumi.get(self, "storage_account_access_key_is_secondary")
 
     @storage_account_access_key_is_secondary.setter
@@ -707,9 +688,6 @@ class ServerExtendedAuditingPolicyArgs:
     @property
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        """
         return pulumi.get(self, "storage_endpoint")
 
     @storage_endpoint.setter
@@ -727,7 +705,7 @@ class ServerIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `user_assigned_identity_ids` field.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-        :param pulumi.Input[str] tenant_id: (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+        :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identity_ids: Specifies a list of User Assigned Identity IDs to be assigned. Required if `type` is `UserAssigned` and should be combined with `primary_user_assigned_identity_id`.
         """
         pulumi.set(__self__, "type", type)
@@ -766,7 +744,7 @@ class ServerIdentityArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+        The tenant id of the Azure AD Administrator of this SQL Server.
         """
         return pulumi.get(self, "tenant_id")
 

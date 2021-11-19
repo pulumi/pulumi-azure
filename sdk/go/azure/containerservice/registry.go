@@ -132,6 +132,10 @@ type Registry struct {
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+	AnonymousPullEnabled pulumi.BoolPtrOutput `pulumi:"anonymousPullEnabled"`
+	// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+	DataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"dataEndpointEnabled"`
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionOutput `pulumi:"encryption"`
 	// A list of Azure locations where the container registry should be geo-replicated.
@@ -148,6 +152,8 @@ type Registry struct {
 	LoginServer pulumi.StringOutput `pulumi:"loginServer"`
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+	NetworkRuleBypassOption pulumi.StringPtrOutput `pulumi:"networkRuleBypassOption"`
 	// A `networkRuleSet` block as documented below.
 	NetworkRuleSet RegistryNetworkRuleSetOutput `pulumi:"networkRuleSet"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
@@ -208,6 +214,10 @@ type registryState struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername *string `pulumi:"adminUsername"`
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+	AnonymousPullEnabled *bool `pulumi:"anonymousPullEnabled"`
+	// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
 	// An `encryption` block as documented below.
 	Encryption *RegistryEncryption `pulumi:"encryption"`
 	// A list of Azure locations where the container registry should be geo-replicated.
@@ -224,6 +234,8 @@ type registryState struct {
 	LoginServer *string `pulumi:"loginServer"`
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+	NetworkRuleBypassOption *string `pulumi:"networkRuleBypassOption"`
 	// A `networkRuleSet` block as documented below.
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
@@ -253,6 +265,10 @@ type RegistryState struct {
 	AdminPassword pulumi.StringPtrInput
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername pulumi.StringPtrInput
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+	AnonymousPullEnabled pulumi.BoolPtrInput
+	// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+	DataEndpointEnabled pulumi.BoolPtrInput
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionPtrInput
 	// A list of Azure locations where the container registry should be geo-replicated.
@@ -269,6 +285,8 @@ type RegistryState struct {
 	LoginServer pulumi.StringPtrInput
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+	NetworkRuleBypassOption pulumi.StringPtrInput
 	// A `networkRuleSet` block as documented below.
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
@@ -298,6 +316,10 @@ func (RegistryState) ElementType() reflect.Type {
 type registryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
 	AdminEnabled *bool `pulumi:"adminEnabled"`
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+	AnonymousPullEnabled *bool `pulumi:"anonymousPullEnabled"`
+	// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
 	// An `encryption` block as documented below.
 	Encryption *RegistryEncryption `pulumi:"encryption"`
 	// A list of Azure locations where the container registry should be geo-replicated.
@@ -312,6 +334,8 @@ type registryArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+	NetworkRuleBypassOption *string `pulumi:"networkRuleBypassOption"`
 	// A `networkRuleSet` block as documented below.
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
@@ -338,6 +362,10 @@ type registryArgs struct {
 type RegistryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
 	AdminEnabled pulumi.BoolPtrInput
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+	AnonymousPullEnabled pulumi.BoolPtrInput
+	// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+	DataEndpointEnabled pulumi.BoolPtrInput
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionPtrInput
 	// A list of Azure locations where the container registry should be geo-replicated.
@@ -352,6 +380,8 @@ type RegistryArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+	NetworkRuleBypassOption pulumi.StringPtrInput
 	// A `networkRuleSet` block as documented below.
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
 	// Whether public network access is allowed for the container registry. Defaults to `true`.

@@ -113,20 +113,6 @@ import (
 // 				Contents: filebase64OrPanic("certificate-to-import.pfx"),
 // 				Password: pulumi.String(""),
 // 			},
-// 			CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
-// 				IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
-// 					Name: pulumi.String("Self"),
-// 				},
-// 				KeyProperties: &keyvault.CertificateCertificatePolicyKeyPropertiesArgs{
-// 					Exportable: pulumi.Bool(true),
-// 					KeySize:    pulumi.Int(2048),
-// 					KeyType:    pulumi.String("RSA"),
-// 					ReuseKey:   pulumi.Bool(false),
-// 				},
-// 				SecretProperties: &keyvault.CertificateCertificatePolicySecretPropertiesArgs{
-// 					ContentType: pulumi.String("application/x-pkcs12"),
-// 				},
-// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -301,7 +287,7 @@ type Certifiate struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the associated Key Vault Secret.
 	SecretId pulumi.StringOutput `pulumi:"secretId"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
@@ -316,9 +302,6 @@ func NewCertifiate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CertificatePolicy == nil {
-		return nil, errors.New("invalid value for required argument 'CertificatePolicy'")
-	}
 	if args.KeyVaultId == nil {
 		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
 	}
@@ -360,7 +343,7 @@ type certifiateState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the associated Key Vault Secret.
 	SecretId *string `pulumi:"secretId"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
 	Thumbprint *string `pulumi:"thumbprint"`
@@ -385,7 +368,7 @@ type CertifiateState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the associated Key Vault Secret.
 	SecretId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
 	Thumbprint pulumi.StringPtrInput
@@ -401,12 +384,12 @@ type certifiateArgs struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate *CertifiateCertificate `pulumi:"certificate"`
 	// A `certificatePolicy` block as defined below.
-	CertificatePolicy CertifiateCertificatePolicy `pulumi:"certificatePolicy"`
+	CertificatePolicy *CertifiateCertificatePolicy `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -415,12 +398,12 @@ type CertifiateArgs struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate CertifiateCertificatePtrInput
 	// A `certificatePolicy` block as defined below.
-	CertificatePolicy CertifiateCertificatePolicyInput
+	CertificatePolicy CertifiateCertificatePolicyPtrInput
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId pulumi.StringInput
 	// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
 

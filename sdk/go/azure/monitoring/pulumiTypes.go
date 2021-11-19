@@ -7723,7 +7723,7 @@ type LogzMonitorPlan struct {
 	EffectiveDate string `pulumi:"effectiveDate"`
 	// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
 	PlanId string `pulumi:"planId"`
-	// Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+	// Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
 	UsageType string `pulumi:"usageType"`
 }
 
@@ -7745,7 +7745,7 @@ type LogzMonitorPlanArgs struct {
 	EffectiveDate pulumi.StringInput `pulumi:"effectiveDate"`
 	// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
 	PlanId pulumi.StringInput `pulumi:"planId"`
-	// Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+	// Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
 	UsageType pulumi.StringInput `pulumi:"usageType"`
 }
 
@@ -7841,7 +7841,7 @@ func (o LogzMonitorPlanOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v LogzMonitorPlan) string { return v.PlanId }).(pulumi.StringOutput)
 }
 
-// Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+// Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
 func (o LogzMonitorPlanOutput) UsageType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogzMonitorPlan) string { return v.UsageType }).(pulumi.StringOutput)
 }
@@ -7900,7 +7900,7 @@ func (o LogzMonitorPlanPtrOutput) PlanId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+// Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
 func (o LogzMonitorPlanPtrOutput) UsageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogzMonitorPlan) *string {
 		if v == nil {
@@ -8102,6 +8102,121 @@ func (o LogzMonitorUserPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 		}
 		return &v.PhoneNumber
 	}).(pulumi.StringPtrOutput)
+}
+
+type LogzTagRuleTagFilter struct {
+	// The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+	Action string `pulumi:"action"`
+	// The name of this `tagFilter`.
+	Name string `pulumi:"name"`
+	// The value of this `tagFilter`.
+	Value *string `pulumi:"value"`
+}
+
+// LogzTagRuleTagFilterInput is an input type that accepts LogzTagRuleTagFilterArgs and LogzTagRuleTagFilterOutput values.
+// You can construct a concrete instance of `LogzTagRuleTagFilterInput` via:
+//
+//          LogzTagRuleTagFilterArgs{...}
+type LogzTagRuleTagFilterInput interface {
+	pulumi.Input
+
+	ToLogzTagRuleTagFilterOutput() LogzTagRuleTagFilterOutput
+	ToLogzTagRuleTagFilterOutputWithContext(context.Context) LogzTagRuleTagFilterOutput
+}
+
+type LogzTagRuleTagFilterArgs struct {
+	// The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The name of this `tagFilter`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of this `tagFilter`.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LogzTagRuleTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogzTagRuleTagFilter)(nil)).Elem()
+}
+
+func (i LogzTagRuleTagFilterArgs) ToLogzTagRuleTagFilterOutput() LogzTagRuleTagFilterOutput {
+	return i.ToLogzTagRuleTagFilterOutputWithContext(context.Background())
+}
+
+func (i LogzTagRuleTagFilterArgs) ToLogzTagRuleTagFilterOutputWithContext(ctx context.Context) LogzTagRuleTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogzTagRuleTagFilterOutput)
+}
+
+// LogzTagRuleTagFilterArrayInput is an input type that accepts LogzTagRuleTagFilterArray and LogzTagRuleTagFilterArrayOutput values.
+// You can construct a concrete instance of `LogzTagRuleTagFilterArrayInput` via:
+//
+//          LogzTagRuleTagFilterArray{ LogzTagRuleTagFilterArgs{...} }
+type LogzTagRuleTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToLogzTagRuleTagFilterArrayOutput() LogzTagRuleTagFilterArrayOutput
+	ToLogzTagRuleTagFilterArrayOutputWithContext(context.Context) LogzTagRuleTagFilterArrayOutput
+}
+
+type LogzTagRuleTagFilterArray []LogzTagRuleTagFilterInput
+
+func (LogzTagRuleTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogzTagRuleTagFilter)(nil)).Elem()
+}
+
+func (i LogzTagRuleTagFilterArray) ToLogzTagRuleTagFilterArrayOutput() LogzTagRuleTagFilterArrayOutput {
+	return i.ToLogzTagRuleTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i LogzTagRuleTagFilterArray) ToLogzTagRuleTagFilterArrayOutputWithContext(ctx context.Context) LogzTagRuleTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogzTagRuleTagFilterArrayOutput)
+}
+
+type LogzTagRuleTagFilterOutput struct{ *pulumi.OutputState }
+
+func (LogzTagRuleTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogzTagRuleTagFilter)(nil)).Elem()
+}
+
+func (o LogzTagRuleTagFilterOutput) ToLogzTagRuleTagFilterOutput() LogzTagRuleTagFilterOutput {
+	return o
+}
+
+func (o LogzTagRuleTagFilterOutput) ToLogzTagRuleTagFilterOutputWithContext(ctx context.Context) LogzTagRuleTagFilterOutput {
+	return o
+}
+
+// The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+func (o LogzTagRuleTagFilterOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzTagRuleTagFilter) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The name of this `tagFilter`.
+func (o LogzTagRuleTagFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LogzTagRuleTagFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of this `tagFilter`.
+func (o LogzTagRuleTagFilterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogzTagRuleTagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LogzTagRuleTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (LogzTagRuleTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogzTagRuleTagFilter)(nil)).Elem()
+}
+
+func (o LogzTagRuleTagFilterArrayOutput) ToLogzTagRuleTagFilterArrayOutput() LogzTagRuleTagFilterArrayOutput {
+	return o
+}
+
+func (o LogzTagRuleTagFilterArrayOutput) ToLogzTagRuleTagFilterArrayOutputWithContext(ctx context.Context) LogzTagRuleTagFilterArrayOutput {
+	return o
+}
+
+func (o LogzTagRuleTagFilterArrayOutput) Index(i pulumi.IntInput) LogzTagRuleTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogzTagRuleTagFilter {
+		return vs[0].([]LogzTagRuleTagFilter)[vs[1].(int)]
+	}).(LogzTagRuleTagFilterOutput)
 }
 
 type MetricAlertAction struct {
@@ -12183,6 +12298,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorPlanPtrInput)(nil)).Elem(), LogzMonitorPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorUserInput)(nil)).Elem(), LogzMonitorUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorUserPtrInput)(nil)).Elem(), LogzMonitorUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRuleTagFilterInput)(nil)).Elem(), LogzTagRuleTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRuleTagFilterArrayInput)(nil)).Elem(), LogzTagRuleTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertActionInput)(nil)).Elem(), MetricAlertActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertActionArrayInput)(nil)).Elem(), MetricAlertActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaInput)(nil)).Elem(), MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs{})
@@ -12345,6 +12462,8 @@ func init() {
 	pulumi.RegisterOutputType(LogzMonitorPlanPtrOutput{})
 	pulumi.RegisterOutputType(LogzMonitorUserOutput{})
 	pulumi.RegisterOutputType(LogzMonitorUserPtrOutput{})
+	pulumi.RegisterOutputType(LogzTagRuleTagFilterOutput{})
+	pulumi.RegisterOutputType(LogzTagRuleTagFilterArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput{})

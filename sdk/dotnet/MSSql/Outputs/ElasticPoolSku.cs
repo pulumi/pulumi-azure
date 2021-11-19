@@ -18,7 +18,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// The `family` of hardware `Gen4` or `Gen5`.
+        /// The `family` of hardware `Gen4`, `Gen5` or `Fsv2`.
         /// </summary>
         public readonly string? Family;
         /// <summary>

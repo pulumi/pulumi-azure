@@ -90,6 +90,7 @@ import (
 // 			PrivateDnsZoneId:      exampleZone.ID(),
 // 			AdministratorLogin:    pulumi.String("psqladmin"),
 // 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
+// 			Zone:                  pulumi.String("1"),
 // 			StorageMb:             pulumi.Int(32768),
 // 			SkuName:               pulumi.String("GP_Standard_D4s_v3"),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
@@ -152,11 +153,12 @@ type FlexibleServer struct {
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	StorageMb pulumi.IntOutput `pulumi:"storageMb"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+	// *
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
-	Zone pulumi.StringOutput `pulumi:"zone"`
+	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
 // NewFlexibleServer registers a new resource with the given unique name, arguments, and options.
@@ -230,6 +232,7 @@ type flexibleServerState struct {
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	StorageMb *int `pulumi:"storageMb"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+	// *
 	Tags map[string]string `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version *string `pulumi:"version"`
@@ -277,6 +280,7 @@ type FlexibleServerState struct {
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	StorageMb pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+	// *
 	Tags pulumi.StringMapInput
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version pulumi.StringPtrInput
@@ -320,6 +324,7 @@ type flexibleServerArgs struct {
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	StorageMb *int `pulumi:"storageMb"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+	// *
 	Tags map[string]string `pulumi:"tags"`
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version *string `pulumi:"version"`
@@ -360,6 +365,7 @@ type FlexibleServerArgs struct {
 	// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	StorageMb pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+	// *
 	Tags pulumi.StringMapInput
 	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version pulumi.StringPtrInput

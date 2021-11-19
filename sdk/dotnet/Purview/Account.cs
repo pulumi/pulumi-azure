@@ -84,6 +84,12 @@ namespace Pulumi.Azure.Purview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+        /// </summary>
+        [Output("managedResourceGroupName")]
+        public Output<string> ManagedResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         /// </summary>
         [Output("name")]
@@ -169,6 +175,12 @@ namespace Pulumi.Azure.Purview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+        /// </summary>
+        [Input("managedResourceGroupName")]
+        public Input<string>? ManagedResourceGroupName { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         /// </summary>
         [Input("name")]
@@ -249,6 +261,12 @@ namespace Pulumi.Azure.Purview
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+        /// </summary>
+        [Input("managedResourceGroupName")]
+        public Input<string>? ManagedResourceGroupName { get; set; }
 
         /// <summary>
         /// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.

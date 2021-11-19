@@ -12,9 +12,13 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages an Orchestrated Virtual Machine Scale Set.
     /// 
-    /// &gt; **Note:** Orchestrated Virtual Machine Scale Sets are in Public Preview and it may receive breaking changes - [more details can be found in the Azure Documentation](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/orchestration-modes).
+    /// ## Disclaimers
     /// 
-    /// &gt; **Note:** Azure is planning to deprecate the `single_placement_group` attribute in the Orchestrated Virtual Machine Scale Set starting from api-version `2019-12-01` and there will be a breaking change in the Orchestrated Virtual Machine Scale Set.
+    /// &gt; **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// 
+    /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets are in Public Preview and it may receive breaking changes - [more details can be found in the Azure Documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/orchestration-modes).
+    /// 
+    /// &gt; **NOTE:** Due to a bug in the service code `extensions` are not currently supported in the `azure.compute.OrchestratedVirtualMachineScaleSet` resource. The ETA for `extensions` support is tentatively set for January 15, 2022.
     /// 
     /// ## Example Usage
     /// 
@@ -56,11 +60,41 @@ namespace Pulumi.Azure.Compute
     [AzureResourceType("azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet")]
     public partial class OrchestratedVirtualMachineScaleSet : Pulumi.CustomResource
     {
+        [Output("automaticInstanceRepair")]
+        public Output<Outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> AutomaticInstanceRepair { get; private set; } = null!;
+
+        [Output("bootDiagnostics")]
+        public Output<Outputs.OrchestratedVirtualMachineScaleSetBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
+
+        [Output("dataDisks")]
+        public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetDataDisk>> DataDisks { get; private set; } = null!;
+
+        [Output("encryptionAtHostEnabled")]
+        public Output<bool?> EncryptionAtHostEnabled { get; private set; } = null!;
+
+        [Output("evictionPolicy")]
+        public Output<string?> EvictionPolicy { get; private set; } = null!;
+
+        [Output("identity")]
+        public Output<Outputs.OrchestratedVirtualMachineScaleSetIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
+        /// </summary>
+        [Output("instances")]
+        public Output<int> Instances { get; private set; } = null!;
+
+        [Output("licenseType")]
+        public Output<string?> LicenseType { get; private set; } = null!;
+
         /// <summary>
         /// The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        [Output("maxBidPrice")]
+        public Output<double?> MaxBidPrice { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
@@ -68,14 +102,29 @@ namespace Pulumi.Azure.Compute
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("networkInterfaces")]
+        public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
+
+        [Output("osDisk")]
+        public Output<Outputs.OrchestratedVirtualMachineScaleSetOsDisk?> OsDisk { get; private set; } = null!;
+
+        [Output("osProfile")]
+        public Output<Outputs.OrchestratedVirtualMachineScaleSetOsProfile?> OsProfile { get; private set; } = null!;
+
+        [Output("plan")]
+        public Output<Outputs.OrchestratedVirtualMachineScaleSetPlan?> Plan { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         /// </summary>
         [Output("platformFaultDomainCount")]
         public Output<int> PlatformFaultDomainCount { get; private set; } = null!;
 
+        [Output("priority")]
+        public Output<string?> Priority { get; private set; } = null!;
+
         /// <summary>
-        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        /// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("proximityPlacementGroupId")]
         public Output<string?> ProximityPlacementGroupId { get; private set; } = null!;
@@ -86,11 +135,17 @@ namespace Pulumi.Azure.Compute
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        [Output("skuName")]
+        public Output<string?> SkuName { get; private set; } = null!;
+
+        [Output("sourceImageId")]
+        public Output<string?> SourceImageId { get; private set; } = null!;
+
         /// <summary>
-        /// Should the Orchestrated Virtual Machine Scale Set use single placement group? Defaults to `false`.
+        /// A `source_image_reference` block as defined below.
         /// </summary>
-        [Output("singlePlacementGroup")]
-        public Output<bool?> SinglePlacementGroup { get; private set; } = null!;
+        [Output("sourceImageReference")]
+        public Output<Outputs.OrchestratedVirtualMachineScaleSetSourceImageReference?> SourceImageReference { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
@@ -98,17 +153,23 @@ namespace Pulumi.Azure.Compute
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        [Output("terminationNotification")]
+        public Output<Outputs.OrchestratedVirtualMachineScaleSetTerminationNotification> TerminationNotification { get; private set; } = null!;
+
         /// <summary>
         /// The Unique ID for the Orchestrated Virtual Machine Scale Set.
         /// </summary>
         [Output("uniqueId")]
         public Output<string> UniqueId { get; private set; } = null!;
 
+        [Output("zoneBalance")]
+        public Output<bool?> ZoneBalance { get; private set; } = null!;
+
         /// <summary>
         /// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zones")]
-        public Output<string?> Zones { get; private set; } = null!;
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -156,11 +217,46 @@ namespace Pulumi.Azure.Compute
 
     public sealed class OrchestratedVirtualMachineScaleSetArgs : Pulumi.ResourceArgs
     {
+        [Input("automaticInstanceRepair")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs>? AutomaticInstanceRepair { get; set; }
+
+        [Input("bootDiagnostics")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs>? BootDiagnostics { get; set; }
+
+        [Input("dataDisks")]
+        private InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskArgs>? _dataDisks;
+        public InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskArgs> DataDisks
+        {
+            get => _dataDisks ?? (_dataDisks = new InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskArgs>());
+            set => _dataDisks = value;
+        }
+
+        [Input("encryptionAtHostEnabled")]
+        public Input<bool>? EncryptionAtHostEnabled { get; set; }
+
+        [Input("evictionPolicy")]
+        public Input<string>? EvictionPolicy { get; set; }
+
+        [Input("identity")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
+        /// </summary>
+        [Input("instances")]
+        public Input<int>? Instances { get; set; }
+
+        [Input("licenseType")]
+        public Input<string>? LicenseType { get; set; }
+
         /// <summary>
         /// The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("maxBidPrice")]
+        public Input<double>? MaxBidPrice { get; set; }
 
         /// <summary>
         /// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
@@ -168,14 +264,34 @@ namespace Pulumi.Azure.Compute
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("networkInterfaces")]
+        private InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs>? _networkInterfaces;
+        public InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs> NetworkInterfaces
+        {
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs>());
+            set => _networkInterfaces = value;
+        }
+
+        [Input("osDisk")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetOsDiskArgs>? OsDisk { get; set; }
+
+        [Input("osProfile")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileArgs>? OsProfile { get; set; }
+
+        [Input("plan")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetPlanArgs>? Plan { get; set; }
+
         /// <summary>
         /// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         /// </summary>
         [Input("platformFaultDomainCount", required: true)]
         public Input<int> PlatformFaultDomainCount { get; set; } = null!;
 
+        [Input("priority")]
+        public Input<string>? Priority { get; set; }
+
         /// <summary>
-        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        /// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }
@@ -186,11 +302,17 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
+
+        [Input("sourceImageId")]
+        public Input<string>? SourceImageId { get; set; }
+
         /// <summary>
-        /// Should the Orchestrated Virtual Machine Scale Set use single placement group? Defaults to `false`.
+        /// A `source_image_reference` block as defined below.
         /// </summary>
-        [Input("singlePlacementGroup")]
-        public Input<bool>? SinglePlacementGroup { get; set; }
+        [Input("sourceImageReference")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs>? SourceImageReference { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -204,11 +326,23 @@ namespace Pulumi.Azure.Compute
             set => _tags = value;
         }
 
+        [Input("terminationNotification")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetTerminationNotificationArgs>? TerminationNotification { get; set; }
+
+        [Input("zoneBalance")]
+        public Input<bool>? ZoneBalance { get; set; }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
         /// <summary>
         /// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("zones")]
-        public Input<string>? Zones { get; set; }
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public OrchestratedVirtualMachineScaleSetArgs()
         {
@@ -217,11 +351,46 @@ namespace Pulumi.Azure.Compute
 
     public sealed class OrchestratedVirtualMachineScaleSetState : Pulumi.ResourceArgs
     {
+        [Input("automaticInstanceRepair")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairGetArgs>? AutomaticInstanceRepair { get; set; }
+
+        [Input("bootDiagnostics")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
+
+        [Input("dataDisks")]
+        private InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskGetArgs>? _dataDisks;
+        public InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskGetArgs> DataDisks
+        {
+            get => _dataDisks ?? (_dataDisks = new InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskGetArgs>());
+            set => _dataDisks = value;
+        }
+
+        [Input("encryptionAtHostEnabled")]
+        public Input<bool>? EncryptionAtHostEnabled { get; set; }
+
+        [Input("evictionPolicy")]
+        public Input<string>? EvictionPolicy { get; set; }
+
+        [Input("identity")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
+        /// </summary>
+        [Input("instances")]
+        public Input<int>? Instances { get; set; }
+
+        [Input("licenseType")]
+        public Input<string>? LicenseType { get; set; }
+
         /// <summary>
         /// The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("maxBidPrice")]
+        public Input<double>? MaxBidPrice { get; set; }
 
         /// <summary>
         /// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
@@ -229,14 +398,34 @@ namespace Pulumi.Azure.Compute
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("networkInterfaces")]
+        private InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceGetArgs>? _networkInterfaces;
+        public InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceGetArgs> NetworkInterfaces
+        {
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceGetArgs>());
+            set => _networkInterfaces = value;
+        }
+
+        [Input("osDisk")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetOsDiskGetArgs>? OsDisk { get; set; }
+
+        [Input("osProfile")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileGetArgs>? OsProfile { get; set; }
+
+        [Input("plan")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetPlanGetArgs>? Plan { get; set; }
+
         /// <summary>
         /// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         /// </summary>
         [Input("platformFaultDomainCount")]
         public Input<int>? PlatformFaultDomainCount { get; set; }
 
+        [Input("priority")]
+        public Input<string>? Priority { get; set; }
+
         /// <summary>
-        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        /// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }
@@ -247,11 +436,17 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
+
+        [Input("sourceImageId")]
+        public Input<string>? SourceImageId { get; set; }
+
         /// <summary>
-        /// Should the Orchestrated Virtual Machine Scale Set use single placement group? Defaults to `false`.
+        /// A `source_image_reference` block as defined below.
         /// </summary>
-        [Input("singlePlacementGroup")]
-        public Input<bool>? SinglePlacementGroup { get; set; }
+        [Input("sourceImageReference")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetSourceImageReferenceGetArgs>? SourceImageReference { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -265,17 +460,29 @@ namespace Pulumi.Azure.Compute
             set => _tags = value;
         }
 
+        [Input("terminationNotification")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetTerminationNotificationGetArgs>? TerminationNotification { get; set; }
+
         /// <summary>
         /// The Unique ID for the Orchestrated Virtual Machine Scale Set.
         /// </summary>
         [Input("uniqueId")]
         public Input<string>? UniqueId { get; set; }
 
+        [Input("zoneBalance")]
+        public Input<bool>? ZoneBalance { get; set; }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
         /// <summary>
         /// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("zones")]
-        public Input<string>? Zones { get; set; }
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public OrchestratedVirtualMachineScaleSetState()
         {

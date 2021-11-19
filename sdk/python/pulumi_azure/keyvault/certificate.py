@@ -15,39 +15,28 @@ __all__ = ['CertificateArgs', 'Certificate']
 @pulumi.input_type
 class CertificateArgs:
     def __init__(__self__, *,
-                 certificate_policy: pulumi.Input['CertificateCertificatePolicyArgs'],
                  key_vault_id: pulumi.Input[str],
                  certificate: Optional[pulumi.Input['CertificateCertificateArgs']] = None,
+                 certificate_policy: Optional[pulumi.Input['CertificateCertificatePolicyArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
-        :param pulumi.Input['CertificateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input['CertificateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate.
+        :param pulumi.Input['CertificateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "certificate_policy", certificate_policy)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if certificate_policy is not None:
+            pulumi.set(__self__, "certificate_policy", certificate_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="certificatePolicy")
-    def certificate_policy(self) -> pulumi.Input['CertificateCertificatePolicyArgs']:
-        """
-        A `certificate_policy` block as defined below.
-        """
-        return pulumi.get(self, "certificate_policy")
-
-    @certificate_policy.setter
-    def certificate_policy(self, value: pulumi.Input['CertificateCertificatePolicyArgs']):
-        pulumi.set(self, "certificate_policy", value)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -74,6 +63,18 @@ class CertificateArgs:
         pulumi.set(self, "certificate", value)
 
     @property
+    @pulumi.getter(name="certificatePolicy")
+    def certificate_policy(self) -> Optional[pulumi.Input['CertificateCertificatePolicyArgs']]:
+        """
+        A `certificate_policy` block as defined below.
+        """
+        return pulumi.get(self, "certificate_policy")
+
+    @certificate_policy.setter
+    def certificate_policy(self, value: Optional[pulumi.Input['CertificateCertificatePolicyArgs']]):
+        pulumi.set(self, "certificate_policy", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -89,7 +90,7 @@ class CertificateArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -122,7 +123,7 @@ class _CertificateState:
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secret_id: The ID of the associated Key Vault Secret.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
         :param pulumi.Input[str] version: The current version of the Key Vault Certificate.
         """
@@ -249,7 +250,7 @@ class _CertificateState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -364,20 +365,6 @@ class Certificate(pulumi.CustomResource):
             certificate=azure.keyvault.CertificateCertificateArgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
                 password="",
-            ),
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
-                    name="Self",
-                ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
-                    exportable=True,
-                    key_size=2048,
-                    key_type="RSA",
-                    reuse_key=False,
-                ),
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
-                    content_type="application/x-pkcs12",
-                ),
             ))
         ```
         ### Generating a new certificate
@@ -500,7 +487,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CertificateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
@@ -579,20 +566,6 @@ class Certificate(pulumi.CustomResource):
             certificate=azure.keyvault.CertificateCertificateArgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
                 password="",
-            ),
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
-                    name="Self",
-                ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
-                    exportable=True,
-                    key_size=2048,
-                    key_type="RSA",
-                    reuse_key=False,
-                ),
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
-                    content_type="application/x-pkcs12",
-                ),
             ))
         ```
         ### Generating a new certificate
@@ -742,8 +715,6 @@ class Certificate(pulumi.CustomResource):
             __props__ = CertificateArgs.__new__(CertificateArgs)
 
             __props__.__dict__["certificate"] = certificate
-            if certificate_policy is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_policy'")
             __props__.__dict__["certificate_policy"] = certificate_policy
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
@@ -794,7 +765,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secret_id: The ID of the associated Key Vault Secret.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
         :param pulumi.Input[str] version: The current version of the Key Vault Certificate.
         """
@@ -883,7 +854,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 

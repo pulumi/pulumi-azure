@@ -241,6 +241,10 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly secrets!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetSecret[] | undefined>;
     /**
+     * Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     */
+    public readonly secureBootEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      */
     public readonly singlePlacementGroup!: pulumi.Output<boolean | undefined>;
@@ -276,6 +280,10 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
      */
     public readonly upgradeMode!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     */
+    public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * One or more `winrmListener` blocks as defined below.
      */
@@ -337,6 +345,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["rollingUpgradePolicy"] = state ? state.rollingUpgradePolicy : undefined;
             inputs["scaleInPolicy"] = state ? state.scaleInPolicy : undefined;
             inputs["secrets"] = state ? state.secrets : undefined;
+            inputs["secureBootEnabled"] = state ? state.secureBootEnabled : undefined;
             inputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["sourceImageId"] = state ? state.sourceImageId : undefined;
@@ -346,6 +355,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["timezone"] = state ? state.timezone : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
             inputs["upgradeMode"] = state ? state.upgradeMode : undefined;
+            inputs["vtpmEnabled"] = state ? state.vtpmEnabled : undefined;
             inputs["winrmListeners"] = state ? state.winrmListeners : undefined;
             inputs["zoneBalance"] = state ? state.zoneBalance : undefined;
             inputs["zones"] = state ? state.zones : undefined;
@@ -407,6 +417,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["rollingUpgradePolicy"] = args ? args.rollingUpgradePolicy : undefined;
             inputs["scaleInPolicy"] = args ? args.scaleInPolicy : undefined;
             inputs["secrets"] = args ? args.secrets : undefined;
+            inputs["secureBootEnabled"] = args ? args.secureBootEnabled : undefined;
             inputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["sourceImageId"] = args ? args.sourceImageId : undefined;
@@ -415,6 +426,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["terminateNotification"] = args ? args.terminateNotification : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
             inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
+            inputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
             inputs["winrmListeners"] = args ? args.winrmListeners : undefined;
             inputs["zoneBalance"] = args ? args.zoneBalance : undefined;
             inputs["zones"] = args ? args.zones : undefined;
@@ -572,6 +584,10 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSecret>[]>;
     /**
+     * Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     */
+    secureBootEnabled?: pulumi.Input<boolean>;
+    /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
@@ -607,6 +623,10 @@ export interface WindowsVirtualMachineScaleSetState {
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
      */
     upgradeMode?: pulumi.Input<string>;
+    /**
+     * Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     */
+    vtpmEnabled?: pulumi.Input<boolean>;
     /**
      * One or more `winrmListener` blocks as defined below.
      */
@@ -766,6 +786,10 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSecret>[]>;
     /**
+     * Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     */
+    secureBootEnabled?: pulumi.Input<boolean>;
+    /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
@@ -797,6 +821,10 @@ export interface WindowsVirtualMachineScaleSetArgs {
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
      */
     upgradeMode?: pulumi.Input<string>;
+    /**
+     * Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+     */
+    vtpmEnabled?: pulumi.Input<boolean>;
     /**
      * One or more `winrmListener` blocks as defined below.
      */

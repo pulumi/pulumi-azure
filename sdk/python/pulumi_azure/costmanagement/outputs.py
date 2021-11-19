@@ -97,7 +97,7 @@ class ResourceGroupExportQuery(dict):
                  time_frame: str,
                  type: str):
         """
-        :param str time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
+        :param str time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
         :param str type: The type of the query.
         """
         pulumi.set(__self__, "time_frame", time_frame)
@@ -107,7 +107,7 @@ class ResourceGroupExportQuery(dict):
     @pulumi.getter(name="timeFrame")
     def time_frame(self) -> str:
         """
-        The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
+        The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
         """
         return pulumi.get(self, "time_frame")
 

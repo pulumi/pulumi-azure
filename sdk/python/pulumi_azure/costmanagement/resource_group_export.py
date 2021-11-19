@@ -295,6 +295,8 @@ class ResourceGroupExport(pulumi.CustomResource):
         """
         Manages an Azure Cost Management Export for a Resource Group.
 
+        !> **Note:** The `costmanagement.ResourceGroupExport` resource has been deprecated in favour of the `core.ResourceGroupCostManagementExport` resource and will be removed in v3.0 of the Azure Provider.
+
         ## Example Usage
 
         ```python
@@ -350,6 +352,8 @@ class ResourceGroupExport(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Cost Management Export for a Resource Group.
+
+        !> **Note:** The `costmanagement.ResourceGroupExport` resource has been deprecated in favour of the `core.ResourceGroupCostManagementExport` resource and will be removed in v3.0 of the Azure Provider.
 
         ## Example Usage
 

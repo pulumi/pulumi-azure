@@ -16,6 +16,7 @@ class ApplicationGroupArgs:
                  host_pool_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 default_desktop_display_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,7 @@ class ApplicationGroupArgs:
                a new resource to be created.
         :param pulumi.Input[str] type: Type of Virtual Desktop Application Group.
                Valid options are `RemoteApp` or `Desktop` application groups.
+        :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application Group.
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Application Group is
@@ -40,6 +42,8 @@ class ApplicationGroupArgs:
         pulumi.set(__self__, "host_pool_id", host_pool_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "type", type)
+        if default_desktop_display_name is not None:
+            pulumi.set(__self__, "default_desktop_display_name", default_desktop_display_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if friendly_name is not None:
@@ -90,6 +94,18 @@ class ApplicationGroupArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="defaultDesktopDisplayName")
+    def default_desktop_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        """
+        return pulumi.get(self, "default_desktop_display_name")
+
+    @default_desktop_display_name.setter
+    def default_desktop_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_desktop_display_name", value)
 
     @property
     @pulumi.getter
@@ -156,6 +172,7 @@ class ApplicationGroupArgs:
 @pulumi.input_type
 class _ApplicationGroupState:
     def __init__(__self__, *,
+                 default_desktop_display_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  host_pool_id: Optional[pulumi.Input[str]] = None,
@@ -166,6 +183,7 @@ class _ApplicationGroupState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApplicationGroup resources.
+        :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application Group.
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
         :param pulumi.Input[str] host_pool_id: Resource ID for a Virtual Desktop Host Pool to associate with the
@@ -180,6 +198,8 @@ class _ApplicationGroupState:
         :param pulumi.Input[str] type: Type of Virtual Desktop Application Group.
                Valid options are `RemoteApp` or `Desktop` application groups.
         """
+        if default_desktop_display_name is not None:
+            pulumi.set(__self__, "default_desktop_display_name", default_desktop_display_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if friendly_name is not None:
@@ -196,6 +216,18 @@ class _ApplicationGroupState:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="defaultDesktopDisplayName")
+    def default_desktop_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        """
+        return pulumi.get(self, "default_desktop_display_name")
+
+    @default_desktop_display_name.setter
+    def default_desktop_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_desktop_display_name", value)
 
     @property
     @pulumi.getter
@@ -304,6 +336,7 @@ class ApplicationGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_desktop_display_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  host_pool_id: Optional[pulumi.Input[str]] = None,
@@ -359,6 +392,7 @@ class ApplicationGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application Group.
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
         :param pulumi.Input[str] host_pool_id: Resource ID for a Virtual Desktop Host Pool to associate with the
@@ -438,6 +472,7 @@ class ApplicationGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_desktop_display_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  host_pool_id: Optional[pulumi.Input[str]] = None,
@@ -458,6 +493,7 @@ class ApplicationGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationGroupArgs.__new__(ApplicationGroupArgs)
 
+            __props__.__dict__["default_desktop_display_name"] = default_desktop_display_name
             __props__.__dict__["description"] = description
             __props__.__dict__["friendly_name"] = friendly_name
             if host_pool_id is None and not opts.urn:
@@ -482,6 +518,7 @@ class ApplicationGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            default_desktop_display_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
             host_pool_id: Optional[pulumi.Input[str]] = None,
@@ -497,6 +534,7 @@ class ApplicationGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application Group.
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
         :param pulumi.Input[str] host_pool_id: Resource ID for a Virtual Desktop Host Pool to associate with the
@@ -515,6 +553,7 @@ class ApplicationGroup(pulumi.CustomResource):
 
         __props__ = _ApplicationGroupState.__new__(_ApplicationGroupState)
 
+        __props__.__dict__["default_desktop_display_name"] = default_desktop_display_name
         __props__.__dict__["description"] = description
         __props__.__dict__["friendly_name"] = friendly_name
         __props__.__dict__["host_pool_id"] = host_pool_id
@@ -524,6 +563,14 @@ class ApplicationGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["type"] = type
         return ApplicationGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="defaultDesktopDisplayName")
+    def default_desktop_display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        """
+        return pulumi.get(self, "default_desktop_display_name")
 
     @property
     @pulumi.getter

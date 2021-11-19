@@ -44,6 +44,78 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### With Data Encryption
+ *
+ * > **NOTE:** The Key Vault must enable purge protection.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationType: "web",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     purgeProtectionEnabled: true,
+ * });
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
+ *     keyPermissions: [
+ *         "Create",
+ *         "Get",
+ *         "Delete",
+ *         "Purge",
+ *     ],
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "GRS",
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [
+ *         exampleKeyVault,
+ *         exampleAccessPolicy,
+ *     ],
+ * });
+ * const exampleWorkspace = new azure.machinelearning.Workspace("exampleWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationInsightsId: exampleInsights.id,
+ *     keyVaultId: exampleKeyVault.id,
+ *     storageAccountId: exampleAccount.id,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     encryption: {
+ *         keyVaultId: exampleKeyVault.id,
+ *         keyId: exampleKey.id,
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -97,6 +169,7 @@ export class Workspace extends pulumi.CustomResource {
      * The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
      */
     public /*out*/ readonly discoveryUrl!: pulumi.Output<string>;
+    public readonly encryption!: pulumi.Output<outputs.machinelearning.WorkspaceEncryption | undefined>;
     /**
      * Friendly name for this Machine Learning Workspace.
      */
@@ -163,6 +236,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["discoveryUrl"] = state ? state.discoveryUrl : undefined;
+            inputs["encryption"] = state ? state.encryption : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
             inputs["highBusinessImpact"] = state ? state.highBusinessImpact : undefined;
             inputs["identity"] = state ? state.identity : undefined;
@@ -195,6 +269,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
             inputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["highBusinessImpact"] = args ? args.highBusinessImpact : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -236,6 +311,7 @@ export interface WorkspaceState {
      * The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
      */
     discoveryUrl?: pulumi.Input<string>;
+    encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption>;
     /**
      * Friendly name for this Machine Learning Workspace.
      */
@@ -302,6 +378,7 @@ export interface WorkspaceArgs {
      * The description of this Machine Learning Workspace.
      */
     description?: pulumi.Input<string>;
+    encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption>;
     /**
      * Friendly name for this Machine Learning Workspace.
      */

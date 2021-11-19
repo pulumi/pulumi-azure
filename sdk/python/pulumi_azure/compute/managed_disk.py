@@ -32,6 +32,7 @@ class ManagedDiskArgs:
                  max_shares: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
+                 on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
@@ -59,6 +60,7 @@ class ManagedDiskArgs:
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
@@ -99,6 +101,8 @@ class ManagedDiskArgs:
             pulumi.set(__self__, "name", name)
         if network_access_policy is not None:
             pulumi.set(__self__, "network_access_policy", network_access_policy)
+        if on_demand_bursting_enabled is not None:
+            pulumi.set(__self__, "on_demand_bursting_enabled", on_demand_bursting_enabled)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if source_resource_id is not None:
@@ -321,6 +325,18 @@ class ManagedDiskArgs:
         pulumi.set(self, "network_access_policy", value)
 
     @property
+    @pulumi.getter(name="onDemandBurstingEnabled")
+    def on_demand_bursting_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+        """
+        return pulumi.get(self, "on_demand_bursting_enabled")
+
+    @on_demand_bursting_enabled.setter
+    def on_demand_bursting_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_demand_bursting_enabled", value)
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -435,6 +451,7 @@ class _ManagedDiskState:
                  max_shares: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
+                 on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -462,6 +479,7 @@ class _ManagedDiskState:
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
@@ -503,6 +521,8 @@ class _ManagedDiskState:
             pulumi.set(__self__, "name", name)
         if network_access_policy is not None:
             pulumi.set(__self__, "network_access_policy", network_access_policy)
+        if on_demand_bursting_enabled is not None:
+            pulumi.set(__self__, "on_demand_bursting_enabled", on_demand_bursting_enabled)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if resource_group_name is not None:
@@ -705,6 +725,18 @@ class _ManagedDiskState:
         pulumi.set(self, "network_access_policy", value)
 
     @property
+    @pulumi.getter(name="onDemandBurstingEnabled")
+    def on_demand_bursting_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+        """
+        return pulumi.get(self, "on_demand_bursting_enabled")
+
+    @on_demand_bursting_enabled.setter
+    def on_demand_bursting_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_demand_bursting_enabled", value)
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -845,6 +877,7 @@ class ManagedDisk(pulumi.CustomResource):
                  max_shares: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
+                 on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -930,6 +963,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
@@ -1034,6 +1068,7 @@ class ManagedDisk(pulumi.CustomResource):
                  max_shares: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
+                 on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -1073,6 +1108,7 @@ class ManagedDisk(pulumi.CustomResource):
             __props__.__dict__["max_shares"] = max_shares
             __props__.__dict__["name"] = name
             __props__.__dict__["network_access_policy"] = network_access_policy
+            __props__.__dict__["on_demand_bursting_enabled"] = on_demand_bursting_enabled
             __props__.__dict__["os_type"] = os_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -1112,6 +1148,7 @@ class ManagedDisk(pulumi.CustomResource):
             max_shares: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_access_policy: Optional[pulumi.Input[str]] = None,
+            on_demand_bursting_enabled: Optional[pulumi.Input[bool]] = None,
             os_type: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -1144,6 +1181,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
@@ -1174,6 +1212,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__.__dict__["max_shares"] = max_shares
         __props__.__dict__["name"] = name
         __props__.__dict__["network_access_policy"] = network_access_policy
+        __props__.__dict__["on_demand_bursting_enabled"] = on_demand_bursting_enabled
         __props__.__dict__["os_type"] = os_type
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["source_resource_id"] = source_resource_id
@@ -1305,6 +1344,14 @@ class ManagedDisk(pulumi.CustomResource):
         Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         """
         return pulumi.get(self, "network_access_policy")
+
+    @property
+    @pulumi.getter(name="onDemandBurstingEnabled")
+    def on_demand_bursting_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+        """
+        return pulumi.get(self, "on_demand_bursting_enabled")
 
     @property
     @pulumi.getter(name="osType")

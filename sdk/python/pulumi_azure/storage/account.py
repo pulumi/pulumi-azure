@@ -33,11 +33,13 @@ class AccountArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input['AccountNetworkRulesArgs']] = None,
                  nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
+                 queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
                  routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
                  share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
                  shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
+                 table_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
@@ -60,10 +62,12 @@ class AccountArgs:
         :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input['AccountNetworkRulesArgs'] network_rules: A `network_rules` block as documented below.
         :param pulumi.Input[bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
+        :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "account_replication_type", account_replication_type)
@@ -99,6 +103,8 @@ class AccountArgs:
             pulumi.set(__self__, "network_rules", network_rules)
         if nfsv3_enabled is not None:
             pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
+        if queue_encryption_key_type is not None:
+            pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
         if queue_properties is not None:
             pulumi.set(__self__, "queue_properties", queue_properties)
         if routing is not None:
@@ -109,6 +115,8 @@ class AccountArgs:
             pulumi.set(__self__, "shared_access_key_enabled", shared_access_key_enabled)
         if static_website is not None:
             pulumi.set(__self__, "static_website", static_website)
+        if table_encryption_key_type is not None:
+            pulumi.set(__self__, "table_encryption_key_type", table_encryption_key_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -330,6 +338,18 @@ class AccountArgs:
         pulumi.set(self, "nfsv3_enabled", value)
 
     @property
+    @pulumi.getter(name="queueEncryptionKeyType")
+    def queue_encryption_key_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+        """
+        return pulumi.get(self, "queue_encryption_key_type")
+
+    @queue_encryption_key_type.setter
+    def queue_encryption_key_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_encryption_key_type", value)
+
+    @property
     @pulumi.getter(name="queueProperties")
     def queue_properties(self) -> Optional[pulumi.Input['AccountQueuePropertiesArgs']]:
         """
@@ -387,6 +407,18 @@ class AccountArgs:
         pulumi.set(self, "static_website", value)
 
     @property
+    @pulumi.getter(name="tableEncryptionKeyType")
+    def table_encryption_key_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+        """
+        return pulumi.get(self, "table_encryption_key_type")
+
+    @table_encryption_key_type.setter
+    def table_encryption_key_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_encryption_key_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -435,6 +467,7 @@ class _AccountState:
                  primary_table_host: Optional[pulumi.Input[str]] = None,
                  primary_web_endpoint: Optional[pulumi.Input[str]] = None,
                  primary_web_host: Optional[pulumi.Input[str]] = None,
+                 queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
@@ -457,6 +490,7 @@ class _AccountState:
                  share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
                  shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
+                 table_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
@@ -494,6 +528,7 @@ class _AccountState:
         :param pulumi.Input[str] primary_table_host: The hostname with port if applicable for table storage in the primary location.
         :param pulumi.Input[str] primary_web_endpoint: The endpoint URL for web storage in the primary location.
         :param pulumi.Input[str] primary_web_host: The hostname with port if applicable for web storage in the primary location.
+        :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
@@ -515,6 +550,7 @@ class _AccountState:
         :param pulumi.Input[str] secondary_web_host: The hostname with port if applicable for web storage in the secondary location.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
+        :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if access_tier is not None:
@@ -583,6 +619,8 @@ class _AccountState:
             pulumi.set(__self__, "primary_web_endpoint", primary_web_endpoint)
         if primary_web_host is not None:
             pulumi.set(__self__, "primary_web_host", primary_web_host)
+        if queue_encryption_key_type is not None:
+            pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
         if queue_properties is not None:
             pulumi.set(__self__, "queue_properties", queue_properties)
         if resource_group_name is not None:
@@ -627,6 +665,8 @@ class _AccountState:
             pulumi.set(__self__, "shared_access_key_enabled", shared_access_key_enabled)
         if static_website is not None:
             pulumi.set(__self__, "static_website", static_website)
+        if table_encryption_key_type is not None:
+            pulumi.set(__self__, "table_encryption_key_type", table_encryption_key_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -1028,6 +1068,18 @@ class _AccountState:
         pulumi.set(self, "primary_web_host", value)
 
     @property
+    @pulumi.getter(name="queueEncryptionKeyType")
+    def queue_encryption_key_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+        """
+        return pulumi.get(self, "queue_encryption_key_type")
+
+    @queue_encryption_key_type.setter
+    def queue_encryption_key_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_encryption_key_type", value)
+
+    @property
     @pulumi.getter(name="queueProperties")
     def queue_properties(self) -> Optional[pulumi.Input['AccountQueuePropertiesArgs']]:
         """
@@ -1289,6 +1341,18 @@ class _AccountState:
         pulumi.set(self, "static_website", value)
 
     @property
+    @pulumi.getter(name="tableEncryptionKeyType")
+    def table_encryption_key_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+        """
+        return pulumi.get(self, "table_encryption_key_type")
+
+    @table_encryption_key_type.setter
+    def table_encryption_key_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_encryption_key_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -1323,12 +1387,14 @@ class Account(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input[pulumi.InputType['AccountNetworkRulesArgs']]] = None,
                  nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
+                 queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
                  share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
                  shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
+                 table_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -1412,11 +1478,13 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[pulumi.InputType['AccountNetworkRulesArgs']] network_rules: A `network_rules` block as documented below.
         :param pulumi.Input[bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountRoutingArgs']] routing: A `routing` block as defined below.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
+        :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -1518,12 +1586,14 @@ class Account(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input[pulumi.InputType['AccountNetworkRulesArgs']]] = None,
                  nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
+                 queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
                  share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
                  shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
+                 table_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -1558,6 +1628,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["network_rules"] = network_rules
             __props__.__dict__["nfsv3_enabled"] = nfsv3_enabled
+            __props__.__dict__["queue_encryption_key_type"] = queue_encryption_key_type
             __props__.__dict__["queue_properties"] = queue_properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -1566,6 +1637,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["share_properties"] = share_properties
             __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
             __props__.__dict__["static_website"] = static_website
+            __props__.__dict__["table_encryption_key_type"] = table_encryption_key_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["primary_access_key"] = None
             __props__.__dict__["primary_blob_connection_string"] = None
@@ -1642,6 +1714,7 @@ class Account(pulumi.CustomResource):
             primary_table_host: Optional[pulumi.Input[str]] = None,
             primary_web_endpoint: Optional[pulumi.Input[str]] = None,
             primary_web_host: Optional[pulumi.Input[str]] = None,
+            queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
             queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
@@ -1664,6 +1737,7 @@ class Account(pulumi.CustomResource):
             share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
             shared_access_key_enabled: Optional[pulumi.Input[bool]] = None,
             static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
+            table_encryption_key_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
@@ -1706,6 +1780,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] primary_table_host: The hostname with port if applicable for table storage in the primary location.
         :param pulumi.Input[str] primary_web_endpoint: The endpoint URL for web storage in the primary location.
         :param pulumi.Input[str] primary_web_host: The hostname with port if applicable for web storage in the primary location.
+        :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountRoutingArgs']] routing: A `routing` block as defined below.
@@ -1727,6 +1802,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_web_host: The hostname with port if applicable for web storage in the secondary location.
         :param pulumi.Input[bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
+        :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1766,6 +1842,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["primary_table_host"] = primary_table_host
         __props__.__dict__["primary_web_endpoint"] = primary_web_endpoint
         __props__.__dict__["primary_web_host"] = primary_web_host
+        __props__.__dict__["queue_encryption_key_type"] = queue_encryption_key_type
         __props__.__dict__["queue_properties"] = queue_properties
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["routing"] = routing
@@ -1788,6 +1865,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["share_properties"] = share_properties
         __props__.__dict__["shared_access_key_enabled"] = shared_access_key_enabled
         __props__.__dict__["static_website"] = static_website
+        __props__.__dict__["table_encryption_key_type"] = table_encryption_key_type
         __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
@@ -2057,6 +2135,14 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "primary_web_host")
 
     @property
+    @pulumi.getter(name="queueEncryptionKeyType")
+    def queue_encryption_key_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+        """
+        return pulumi.get(self, "queue_encryption_key_type")
+
+    @property
     @pulumi.getter(name="queueProperties")
     def queue_properties(self) -> pulumi.Output['outputs.AccountQueueProperties']:
         """
@@ -2228,6 +2314,14 @@ class Account(pulumi.CustomResource):
         A `static_website` block as defined below.
         """
         return pulumi.get(self, "static_website")
+
+    @property
+    @pulumi.getter(name="tableEncryptionKeyType")
+    def table_encryption_key_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+        """
+        return pulumi.get(self, "table_encryption_key_type")
 
     @property
     @pulumi.getter

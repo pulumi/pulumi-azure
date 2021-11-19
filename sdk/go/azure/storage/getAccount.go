@@ -114,8 +114,10 @@ type LookupAccountResult struct {
 	// The endpoint URL for web storage in the primary location.
 	PrimaryWebEndpoint string `pulumi:"primaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the primary location.
-	PrimaryWebHost    string `pulumi:"primaryWebHost"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PrimaryWebHost string `pulumi:"primaryWebHost"`
+	// The encryption key type of the queue.
+	QueueEncryptionKeyType string `pulumi:"queueEncryptionKeyType"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	// The secondary access key for the Storage Account.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
 	// The connection string associated with the secondary blob location
@@ -148,6 +150,8 @@ type LookupAccountResult struct {
 	SecondaryWebEndpoint string `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost string `pulumi:"secondaryWebHost"`
+	// The encryption key type of the table.
+	TableEncryptionKeyType string `pulumi:"tableEncryptionKeyType"`
 	// A mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -331,6 +335,11 @@ func (o LookupAccountResultOutput) PrimaryWebHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryWebHost }).(pulumi.StringOutput)
 }
 
+// The encryption key type of the queue.
+func (o LookupAccountResultOutput) QueueEncryptionKeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.QueueEncryptionKeyType }).(pulumi.StringOutput)
+}
+
 func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -413,6 +422,11 @@ func (o LookupAccountResultOutput) SecondaryWebEndpoint() pulumi.StringOutput {
 // The hostname with port if applicable for web storage in the secondary location.
 func (o LookupAccountResultOutput) SecondaryWebHost() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryWebHost }).(pulumi.StringOutput)
+}
+
+// The encryption key type of the table.
+func (o LookupAccountResultOutput) TableEncryptionKeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.TableEncryptionKeyType }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assigned to the resource.

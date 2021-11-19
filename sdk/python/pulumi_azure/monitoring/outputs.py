@@ -64,6 +64,7 @@ __all__ = [
     'LogProfileRetentionPolicy',
     'LogzMonitorPlan',
     'LogzMonitorUser',
+    'LogzTagRuleTagFilter',
     'MetricAlertAction',
     'MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria',
     'MetricAlertCriteria',
@@ -3007,7 +3008,7 @@ class LogzMonitorPlan(dict):
         :param str billing_cycle: Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
         :param str effective_date: Date when plan was applied. Changing this forces a new logz Monitor to be created.
         :param str plan_id: Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
-        :param str usage_type: Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+        :param str usage_type: Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
         """
         pulumi.set(__self__, "billing_cycle", billing_cycle)
         pulumi.set(__self__, "effective_date", effective_date)
@@ -3042,7 +3043,7 @@ class LogzMonitorPlan(dict):
     @pulumi.getter(name="usageType")
     def usage_type(self) -> str:
         """
-        Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+        Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
         """
         return pulumi.get(self, "usage_type")
 
@@ -3117,6 +3118,47 @@ class LogzMonitorUser(dict):
         Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
         """
         return pulumi.get(self, "phone_number")
+
+
+@pulumi.output_type
+class LogzTagRuleTagFilter(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 name: str,
+                 value: Optional[str] = None):
+        """
+        :param str action: The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+        :param str name: The name of this `tag_filter`.
+        :param str value: The value of this `tag_filter`.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this `tag_filter`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of this `tag_filter`.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

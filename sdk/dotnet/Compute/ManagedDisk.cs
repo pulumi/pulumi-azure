@@ -189,6 +189,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> NetworkAccessPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+        /// </summary>
+        [Output("onDemandBurstingEnabled")]
+        public Output<bool?> OnDemandBurstingEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         /// </summary>
         [Output("osType")]
@@ -385,6 +391,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? NetworkAccessPolicy { get; set; }
 
         /// <summary>
+        /// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+        /// </summary>
+        [Input("onDemandBurstingEnabled")]
+        public Input<bool>? OnDemandBurstingEnabled { get; set; }
+
+        /// <summary>
         /// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         /// </summary>
         [Input("osType")]
@@ -546,6 +558,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("networkAccessPolicy")]
         public Input<string>? NetworkAccessPolicy { get; set; }
+
+        /// <summary>
+        /// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+        /// </summary>
+        [Input("onDemandBurstingEnabled")]
+        public Input<bool>? OnDemandBurstingEnabled { get; set; }
 
         /// <summary>
         /// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.

@@ -42,13 +42,6 @@ namespace Pulumi.Azure.Sql
     ///             Version = "12.0",
     ///             AdministratorLogin = "mradministrator",
     ///             AdministratorLoginPassword = "thisIsDog11",
-    ///             ExtendedAuditingPolicy = new Azure.Sql.Inputs.SqlServerExtendedAuditingPolicyArgs
-    ///             {
-    ///                 StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
-    ///                 StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///                 StorageAccountAccessKeyIsSecondary = true,
-    ///                 RetentionInDays = 6,
-    ///             },
     ///             Tags = 
     ///             {
     ///                 { "environment", "production" },
@@ -88,9 +81,6 @@ namespace Pulumi.Azure.Sql
         [Output("connectionPolicy")]
         public Output<string?> ConnectionPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// A `extended_auditing_policy` block as defined below.
-        /// </summary>
         [Output("extendedAuditingPolicy")]
         public Output<Outputs.SqlServerExtendedAuditingPolicy> ExtendedAuditingPolicy { get; private set; } = null!;
 
@@ -206,9 +196,6 @@ namespace Pulumi.Azure.Sql
         [Input("connectionPolicy")]
         public Input<string>? ConnectionPolicy { get; set; }
 
-        /// <summary>
-        /// A `extended_auditing_policy` block as defined below.
-        /// </summary>
         [Input("extendedAuditingPolicy")]
         public Input<Inputs.SqlServerExtendedAuditingPolicyArgs>? ExtendedAuditingPolicy { get; set; }
 
@@ -285,9 +272,6 @@ namespace Pulumi.Azure.Sql
         [Input("connectionPolicy")]
         public Input<string>? ConnectionPolicy { get; set; }
 
-        /// <summary>
-        /// A `extended_auditing_policy` block as defined below.
-        /// </summary>
         [Input("extendedAuditingPolicy")]
         public Input<Inputs.SqlServerExtendedAuditingPolicyGetArgs>? ExtendedAuditingPolicy { get; set; }
 

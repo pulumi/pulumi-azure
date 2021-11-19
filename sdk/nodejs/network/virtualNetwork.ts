@@ -116,6 +116,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly dnsServers!: pulumi.Output<string[]>;
     /**
+     * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+     */
+    public readonly flowTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    /**
      * The GUID of the virtual network.
      */
     public /*out*/ readonly guid!: pulumi.Output<string>;
@@ -161,6 +165,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["bgpCommunity"] = state ? state.bgpCommunity : undefined;
             inputs["ddosProtectionPlan"] = state ? state.ddosProtectionPlan : undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;
+            inputs["flowTimeoutInMinutes"] = state ? state.flowTimeoutInMinutes : undefined;
             inputs["guid"] = state ? state.guid : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -180,6 +185,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["bgpCommunity"] = args ? args.bgpCommunity : undefined;
             inputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
             inputs["dnsServers"] = args ? args.dnsServers : undefined;
+            inputs["flowTimeoutInMinutes"] = args ? args.flowTimeoutInMinutes : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -215,6 +221,10 @@ export interface VirtualNetworkState {
      * List of IP addresses of DNS servers
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+     */
+    flowTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The GUID of the virtual network.
      */
@@ -265,6 +275,10 @@ export interface VirtualNetworkArgs {
      * List of IP addresses of DNS servers
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+     */
+    flowTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      */

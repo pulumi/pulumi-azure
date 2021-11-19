@@ -113,6 +113,10 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      */
     public readonly autoKeyRotationEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+     */
+    public readonly encryptionType!: pulumi.Output<string | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.compute.DiskEncryptionSetIdentity>;
@@ -151,6 +155,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DiskEncryptionSetState | undefined;
             inputs["autoKeyRotationEnabled"] = state ? state.autoKeyRotationEnabled : undefined;
+            inputs["encryptionType"] = state ? state.encryptionType : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -169,6 +174,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoKeyRotationEnabled"] = args ? args.autoKeyRotationEnabled : undefined;
+            inputs["encryptionType"] = args ? args.encryptionType : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -191,6 +197,10 @@ export interface DiskEncryptionSetState {
      * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
      */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
+    /**
+     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+     */
+    encryptionType?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
@@ -225,6 +235,10 @@ export interface DiskEncryptionSetArgs {
      * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
      */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
+    /**
+     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+     */
+    encryptionType?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */

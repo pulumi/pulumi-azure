@@ -529,6 +529,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_automation_connection_service_principal": {
 				Tok: azureResource(azureAutomation, "ConnectionServicePrincipal"),
 			},
+			"azurerm_automation_webhook": {Tok: azureResource(azureAutomation, "Webhook")},
 
 			// Azure Container Service
 			"azurerm_container_registry": {
@@ -616,17 +617,19 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_template_deployment":                {Tok: azureResource(azureCore, "TemplateDeployment")},
-			"azurerm_resource_group_template_deployment": {Tok: azureResource(azureCore, "ResourceGroupTemplateDeployment")},
-			"azurerm_resource_group_policy_assignment":   {Tok: azureResource(azureCore, "ResourceGroupPolicyAssignment")},
-			"azurerm_resource_policy_assignment":         {Tok: azureResource(azureCore, "ResourcePolicyAssignment")},
-			"azurerm_subscription_template_deployment":   {Tok: azureResource(azureCore, "SubscriptionTemplateDeployment")},
-			"azurerm_custom_provider":                    {Tok: azureResource(azureCore, "CustomProvider")},
-			"azurerm_resource_provider_registration":     {Tok: azureResource(azureCore, "ResourceProviderRegistration")},
-			"azurerm_subscription":                       {Tok: azureResource(azureCore, "Subscription")},
-			"azurerm_subscription_policy_assignment":     {Tok: azureResource(azureCore, "SubscriptionPolicyAssignment")},
-			"azurerm_tenant_template_deployment":         {Tok: azureResource(azureCore, "TenantTemplateDeployment")},
-			"azurerm_portal_tenant_configuration":        {Tok: azureResource(azureCore, "PortalTenantConfiguration")},
+			"azurerm_template_deployment":                   {Tok: azureResource(azureCore, "TemplateDeployment")},
+			"azurerm_resource_group_template_deployment":    {Tok: azureResource(azureCore, "ResourceGroupTemplateDeployment")},
+			"azurerm_resource_group_policy_assignment":      {Tok: azureResource(azureCore, "ResourceGroupPolicyAssignment")},
+			"azurerm_resource_policy_assignment":            {Tok: azureResource(azureCore, "ResourcePolicyAssignment")},
+			"azurerm_subscription_template_deployment":      {Tok: azureResource(azureCore, "SubscriptionTemplateDeployment")},
+			"azurerm_custom_provider":                       {Tok: azureResource(azureCore, "CustomProvider")},
+			"azurerm_resource_provider_registration":        {Tok: azureResource(azureCore, "ResourceProviderRegistration")},
+			"azurerm_subscription":                          {Tok: azureResource(azureCore, "Subscription")},
+			"azurerm_subscription_policy_assignment":        {Tok: azureResource(azureCore, "SubscriptionPolicyAssignment")},
+			"azurerm_tenant_template_deployment":            {Tok: azureResource(azureCore, "TenantTemplateDeployment")},
+			"azurerm_portal_tenant_configuration":           {Tok: azureResource(azureCore, "PortalTenantConfiguration")},
+			"azurerm_resource_group_cost_management_export": {Tok: azureResource(azureCore, "ResourceGroupCostManagementExport")},
+			"azurerm_subscription_cost_management_export":   {Tok: azureResource(azureCore, "SubscriptionCostManagementExport")},
 
 			// CDN
 			"azurerm_cdn_endpoint":               {Tok: azureResource(azureCDN, "Endpoint")},
@@ -730,8 +733,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_orchestrated_virtual_machine_scale_set": {
 				Tok: azureResource(azureCompute, "OrchestratedVirtualMachineScaleSet"),
 			},
-			"azurerm_disk_access":    {Tok: azureResource(azureCompute, "DiskAccess")},
-			"azurerm_ssh_public_key": {Tok: azureResource(azureCompute, "SshPublicKey")},
+			"azurerm_disk_access":        {Tok: azureResource(azureCompute, "DiskAccess")},
+			"azurerm_ssh_public_key":     {Tok: azureResource(azureCompute, "SshPublicKey")},
+			"azurerm_linux_function_app": {Tok: azureResource(azureCompute, "LinuxFunctionApp")},
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
@@ -1189,6 +1193,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_aad_diagnostic_setting":      {Tok: azureResource(azureMonitoring, "AadDiagnosticSetting")},
 			"azurerm_monitor_private_link_scope":          {Tok: azureResource(azureMonitoring, "PrivateLinkScope")},
 			"azurerm_logz_monitor":                        {Tok: azureResource(azureMonitoring, "LogzMonitor")},
+			"azurerm_logz_tag_rule":                       {Tok: azureResource(azureMonitoring, "LogzTagRule")},
+			"azurerm_monitor_private_link_scoped_service": {Tok: azureResource(azureMonitoring, "PrivateLinkScopedService")},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
@@ -1673,6 +1679,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_object_replication": {
 				Tok: azureResource(azureStorage, "ObjectReplication"),
 			},
+			"azurerm_storage_disks_pool": {Tok: azureResource(azureStorage, "DisksPool")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {

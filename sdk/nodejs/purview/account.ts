@@ -82,6 +82,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+     */
+    public readonly managedResourceGroupName!: pulumi.Output<string>;
+    /**
      * The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -125,6 +129,7 @@ export class Account extends pulumi.CustomResource {
             inputs["guardianEndpoint"] = state ? state.guardianEndpoint : undefined;
             inputs["identities"] = state ? state.identities : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["publicNetworkEnabled"] = state ? state.publicNetworkEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -137,6 +142,7 @@ export class Account extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["publicNetworkEnabled"] = args ? args.publicNetworkEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -185,6 +191,10 @@ export interface AccountState {
      */
     location?: pulumi.Input<string>;
     /**
+     * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+     */
+    managedResourceGroupName?: pulumi.Input<string>;
+    /**
      * The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
      */
     name?: pulumi.Input<string>;
@@ -218,6 +228,10 @@ export interface AccountArgs {
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+     */
+    managedResourceGroupName?: pulumi.Input<string>;
     /**
      * The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
      */

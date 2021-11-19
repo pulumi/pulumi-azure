@@ -1680,6 +1680,162 @@ func (o SynapseSparkIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkspaceEncryption struct {
+	// The Key Vault URI to access the encryption key.
+	KeyId string `pulumi:"keyId"`
+	// The ID of the keyVault where the customer owned encryption key is present.
+	KeyVaultId string `pulumi:"keyVaultId"`
+}
+
+// WorkspaceEncryptionInput is an input type that accepts WorkspaceEncryptionArgs and WorkspaceEncryptionOutput values.
+// You can construct a concrete instance of `WorkspaceEncryptionInput` via:
+//
+//          WorkspaceEncryptionArgs{...}
+type WorkspaceEncryptionInput interface {
+	pulumi.Input
+
+	ToWorkspaceEncryptionOutput() WorkspaceEncryptionOutput
+	ToWorkspaceEncryptionOutputWithContext(context.Context) WorkspaceEncryptionOutput
+}
+
+type WorkspaceEncryptionArgs struct {
+	// The Key Vault URI to access the encryption key.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// The ID of the keyVault where the customer owned encryption key is present.
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+}
+
+func (WorkspaceEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceEncryption)(nil)).Elem()
+}
+
+func (i WorkspaceEncryptionArgs) ToWorkspaceEncryptionOutput() WorkspaceEncryptionOutput {
+	return i.ToWorkspaceEncryptionOutputWithContext(context.Background())
+}
+
+func (i WorkspaceEncryptionArgs) ToWorkspaceEncryptionOutputWithContext(ctx context.Context) WorkspaceEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceEncryptionOutput)
+}
+
+func (i WorkspaceEncryptionArgs) ToWorkspaceEncryptionPtrOutput() WorkspaceEncryptionPtrOutput {
+	return i.ToWorkspaceEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceEncryptionArgs) ToWorkspaceEncryptionPtrOutputWithContext(ctx context.Context) WorkspaceEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceEncryptionOutput).ToWorkspaceEncryptionPtrOutputWithContext(ctx)
+}
+
+// WorkspaceEncryptionPtrInput is an input type that accepts WorkspaceEncryptionArgs, WorkspaceEncryptionPtr and WorkspaceEncryptionPtrOutput values.
+// You can construct a concrete instance of `WorkspaceEncryptionPtrInput` via:
+//
+//          WorkspaceEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceEncryptionPtrOutput() WorkspaceEncryptionPtrOutput
+	ToWorkspaceEncryptionPtrOutputWithContext(context.Context) WorkspaceEncryptionPtrOutput
+}
+
+type workspaceEncryptionPtrType WorkspaceEncryptionArgs
+
+func WorkspaceEncryptionPtr(v *WorkspaceEncryptionArgs) WorkspaceEncryptionPtrInput {
+	return (*workspaceEncryptionPtrType)(v)
+}
+
+func (*workspaceEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceEncryption)(nil)).Elem()
+}
+
+func (i *workspaceEncryptionPtrType) ToWorkspaceEncryptionPtrOutput() WorkspaceEncryptionPtrOutput {
+	return i.ToWorkspaceEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceEncryptionPtrType) ToWorkspaceEncryptionPtrOutputWithContext(ctx context.Context) WorkspaceEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceEncryptionPtrOutput)
+}
+
+type WorkspaceEncryptionOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceEncryption)(nil)).Elem()
+}
+
+func (o WorkspaceEncryptionOutput) ToWorkspaceEncryptionOutput() WorkspaceEncryptionOutput {
+	return o
+}
+
+func (o WorkspaceEncryptionOutput) ToWorkspaceEncryptionOutputWithContext(ctx context.Context) WorkspaceEncryptionOutput {
+	return o
+}
+
+func (o WorkspaceEncryptionOutput) ToWorkspaceEncryptionPtrOutput() WorkspaceEncryptionPtrOutput {
+	return o.ToWorkspaceEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceEncryptionOutput) ToWorkspaceEncryptionPtrOutputWithContext(ctx context.Context) WorkspaceEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceEncryption) *WorkspaceEncryption {
+		return &v
+	}).(WorkspaceEncryptionPtrOutput)
+}
+
+// The Key Vault URI to access the encryption key.
+func (o WorkspaceEncryptionOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceEncryption) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// The ID of the keyVault where the customer owned encryption key is present.
+func (o WorkspaceEncryptionOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceEncryption) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+type WorkspaceEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceEncryption)(nil)).Elem()
+}
+
+func (o WorkspaceEncryptionPtrOutput) ToWorkspaceEncryptionPtrOutput() WorkspaceEncryptionPtrOutput {
+	return o
+}
+
+func (o WorkspaceEncryptionPtrOutput) ToWorkspaceEncryptionPtrOutputWithContext(ctx context.Context) WorkspaceEncryptionPtrOutput {
+	return o
+}
+
+func (o WorkspaceEncryptionPtrOutput) Elem() WorkspaceEncryptionOutput {
+	return o.ApplyT(func(v *WorkspaceEncryption) WorkspaceEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceEncryption
+		return ret
+	}).(WorkspaceEncryptionOutput)
+}
+
+// The Key Vault URI to access the encryption key.
+func (o WorkspaceEncryptionPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the keyVault where the customer owned encryption key is present.
+func (o WorkspaceEncryptionPtrOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceIdentity struct {
 	// The (Client) ID of the Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1980,6 +2136,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceClusterSslPtrInput)(nil)).Elem(), InferenceClusterSslArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SynapseSparkIdentityInput)(nil)).Elem(), SynapseSparkIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SynapseSparkIdentityPtrInput)(nil)).Elem(), SynapseSparkIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceEncryptionInput)(nil)).Elem(), WorkspaceEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceEncryptionPtrInput)(nil)).Elem(), WorkspaceEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityInput)(nil)).Elem(), WorkspaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityPtrInput)(nil)).Elem(), WorkspaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceIdentityInput)(nil)).Elem(), GetWorkspaceIdentityArgs{})
@@ -2002,6 +2160,8 @@ func init() {
 	pulumi.RegisterOutputType(InferenceClusterSslPtrOutput{})
 	pulumi.RegisterOutputType(SynapseSparkIdentityOutput{})
 	pulumi.RegisterOutputType(SynapseSparkIdentityPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceEncryptionOutput{})
+	pulumi.RegisterOutputType(WorkspaceEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityOutput{})

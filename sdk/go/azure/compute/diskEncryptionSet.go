@@ -127,6 +127,8 @@ type DiskEncryptionSet struct {
 
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled pulumi.BoolPtrOutput `pulumi:"autoKeyRotationEnabled"`
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityOutput `pulumi:"identity"`
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
@@ -181,6 +183,8 @@ func GetDiskEncryptionSet(ctx *pulumi.Context,
 type diskEncryptionSetState struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	EncryptionType *string `pulumi:"encryptionType"`
 	// An `identity` block as defined below.
 	Identity *DiskEncryptionSetIdentity `pulumi:"identity"`
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
@@ -198,6 +202,8 @@ type diskEncryptionSetState struct {
 type DiskEncryptionSetState struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	EncryptionType pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityPtrInput
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
@@ -219,6 +225,8 @@ func (DiskEncryptionSetState) ElementType() reflect.Type {
 type diskEncryptionSetArgs struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	EncryptionType *string `pulumi:"encryptionType"`
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentity `pulumi:"identity"`
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
@@ -237,6 +245,8 @@ type diskEncryptionSetArgs struct {
 type DiskEncryptionSetArgs struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
+	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+	EncryptionType pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityInput
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).

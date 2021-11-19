@@ -555,10 +555,7 @@ class SqlServerExtendedAuditingPolicy(dict):
                  storage_account_access_key_is_secondary: Optional[bool] = None,
                  storage_endpoint: Optional[str] = None):
         """
-        :param bool log_monitoring_enabled: (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
-        :param int retention_in_days: (Optional) Specifies the number of days to retain logs for in the storage account.
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-        :param bool storage_account_access_key_is_secondary: (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
         if log_monitoring_enabled is not None:
@@ -575,17 +572,11 @@ class SqlServerExtendedAuditingPolicy(dict):
     @property
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> Optional[bool]:
-        """
-        (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
-        """
         return pulumi.get(self, "log_monitoring_enabled")
 
     @property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[int]:
-        """
-        (Optional) Specifies the number of days to retain logs for in the storage account.
-        """
         return pulumi.get(self, "retention_in_days")
 
     @property
@@ -599,9 +590,6 @@ class SqlServerExtendedAuditingPolicy(dict):
     @property
     @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
     def storage_account_access_key_is_secondary(self) -> Optional[bool]:
-        """
-        (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        """
         return pulumi.get(self, "storage_account_access_key_is_secondary")
 
     @property

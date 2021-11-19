@@ -51,6 +51,7 @@ __all__ = [
     'KubernetesClusterMaintenanceWindowNotAllowedArgs',
     'KubernetesClusterNetworkProfileArgs',
     'KubernetesClusterNetworkProfileLoadBalancerProfileArgs',
+    'KubernetesClusterNetworkProfileNatGatewayProfileArgs',
     'KubernetesClusterNodePoolKubeletConfigArgs',
     'KubernetesClusterNodePoolLinuxOsConfigArgs',
     'KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs',
@@ -3702,6 +3703,7 @@ class KubernetesClusterNetworkProfileArgs:
                  docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
                  load_balancer_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']] = None,
                  load_balancer_sku: Optional[pulumi.Input[str]] = None,
+                 nat_gateway_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs']] = None,
                  network_mode: Optional[pulumi.Input[str]] = None,
                  network_policy: Optional[pulumi.Input[str]] = None,
                  outbound_type: Optional[pulumi.Input[str]] = None,
@@ -3713,9 +3715,10 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[str] docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
         :param pulumi.Input[str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+        :param pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs'] nat_gateway_profile: A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
         :param pulumi.Input[str] network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+        :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
         :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_cidr: The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
         """
@@ -3728,6 +3731,8 @@ class KubernetesClusterNetworkProfileArgs:
             pulumi.set(__self__, "load_balancer_profile", load_balancer_profile)
         if load_balancer_sku is not None:
             pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
+        if nat_gateway_profile is not None:
+            pulumi.set(__self__, "nat_gateway_profile", nat_gateway_profile)
         if network_mode is not None:
             pulumi.set(__self__, "network_mode", network_mode)
         if network_policy is not None:
@@ -3800,6 +3805,18 @@ class KubernetesClusterNetworkProfileArgs:
         pulumi.set(self, "load_balancer_sku", value)
 
     @property
+    @pulumi.getter(name="natGatewayProfile")
+    def nat_gateway_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs']]:
+        """
+        A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        """
+        return pulumi.get(self, "nat_gateway_profile")
+
+    @nat_gateway_profile.setter
+    def nat_gateway_profile(self, value: Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs']]):
+        pulumi.set(self, "nat_gateway_profile", value)
+
+    @property
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -3827,7 +3844,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="outboundType")
     def outbound_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+        The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
         """
         return pulumi.get(self, "outbound_type")
 
@@ -3961,6 +3978,61 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
     @outbound_ports_allocated.setter
     def outbound_ports_allocated(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "outbound_ports_allocated", value)
+
+
+@pulumi.input_type
+class KubernetesClusterNetworkProfileNatGatewayProfileArgs:
+    def __init__(__self__, *,
+                 effective_outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 managed_outbound_ip_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] effective_outbound_ips: The outcome (resource IDs) of the specified arguments.
+        :param pulumi.Input[int] idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+        :param pulumi.Input[int] managed_outbound_ip_count: Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+        """
+        if effective_outbound_ips is not None:
+            pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if managed_outbound_ip_count is not None:
+            pulumi.set(__self__, "managed_outbound_ip_count", managed_outbound_ip_count)
+
+    @property
+    @pulumi.getter(name="effectiveOutboundIps")
+    def effective_outbound_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The outcome (resource IDs) of the specified arguments.
+        """
+        return pulumi.get(self, "effective_outbound_ips")
+
+    @effective_outbound_ips.setter
+    def effective_outbound_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "effective_outbound_ips", value)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @idle_timeout_in_minutes.setter
+    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_timeout_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="managedOutboundIpCount")
+    def managed_outbound_ip_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+        """
+        return pulumi.get(self, "managed_outbound_ip_count")
+
+    @managed_outbound_ip_count.setter
+    def managed_outbound_ip_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "managed_outbound_ip_count", value)
 
 
 @pulumi.input_type

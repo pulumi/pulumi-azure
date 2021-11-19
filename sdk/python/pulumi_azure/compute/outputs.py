@@ -49,6 +49,28 @@ __all__ = [
     'ManagedDiskEncryptionSettings',
     'ManagedDiskEncryptionSettingsDiskEncryptionKey',
     'ManagedDiskEncryptionSettingsKeyEncryptionKey',
+    'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair',
+    'OrchestratedVirtualMachineScaleSetBootDiagnostics',
+    'OrchestratedVirtualMachineScaleSetDataDisk',
+    'OrchestratedVirtualMachineScaleSetIdentity',
+    'OrchestratedVirtualMachineScaleSetNetworkInterface',
+    'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration',
+    'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress',
+    'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag',
+    'OrchestratedVirtualMachineScaleSetOsDisk',
+    'OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings',
+    'OrchestratedVirtualMachineScaleSetOsProfile',
+    'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration',
+    'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey',
+    'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret',
+    'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate',
+    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration',
+    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret',
+    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate',
+    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener',
+    'OrchestratedVirtualMachineScaleSetPlan',
+    'OrchestratedVirtualMachineScaleSetSourceImageReference',
+    'OrchestratedVirtualMachineScaleSetTerminationNotification',
     'ScaleSetBootDiagnostics',
     'ScaleSetExtension',
     'ScaleSetIdentity',
@@ -2471,6 +2493,1116 @@ class ManagedDiskEncryptionSettingsKeyEncryptionKey(dict):
         The ID of the source Key Vault.
         """
         return pulumi.get(self, "source_vault_id")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gracePeriod":
+            suggest = "grace_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 grace_period: Optional[str] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if grace_period is not None:
+            pulumi.set(__self__, "grace_period", grace_period)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="gracePeriod")
+    def grace_period(self) -> Optional[str]:
+        return pulumi.get(self, "grace_period")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetBootDiagnostics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountUri":
+            suggest = "storage_account_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetBootDiagnostics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetBootDiagnostics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetBootDiagnostics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_account_uri: Optional[str] = None):
+        if storage_account_uri is not None:
+            pulumi.set(__self__, "storage_account_uri", storage_account_uri)
+
+    @property
+    @pulumi.getter(name="storageAccountUri")
+    def storage_account_uri(self) -> Optional[str]:
+        return pulumi.get(self, "storage_account_uri")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetDataDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeGb":
+            suggest = "disk_size_gb"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
+        elif key == "createOption":
+            suggest = "create_option"
+        elif key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "diskIopsReadWrite":
+            suggest = "disk_iops_read_write"
+        elif key == "diskMbpsReadWrite":
+            suggest = "disk_mbps_read_write"
+        elif key == "writeAcceleratorEnabled":
+            suggest = "write_accelerator_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetDataDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetDataDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetDataDisk.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 caching: str,
+                 disk_size_gb: int,
+                 lun: int,
+                 storage_account_type: str,
+                 create_option: Optional[str] = None,
+                 disk_encryption_set_id: Optional[str] = None,
+                 disk_iops_read_write: Optional[int] = None,
+                 disk_mbps_read_write: Optional[int] = None,
+                 write_accelerator_enabled: Optional[bool] = None):
+        pulumi.set(__self__, "caching", caching)
+        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        pulumi.set(__self__, "lun", lun)
+        pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if create_option is not None:
+            pulumi.set(__self__, "create_option", create_option)
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_iops_read_write is not None:
+            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_mbps_read_write is not None:
+            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
+        if write_accelerator_enabled is not None:
+            pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
+
+    @property
+    @pulumi.getter
+    def caching(self) -> str:
+        return pulumi.get(self, "caching")
+
+    @property
+    @pulumi.getter(name="diskSizeGb")
+    def disk_size_gb(self) -> int:
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter
+    def lun(self) -> int:
+        return pulumi.get(self, "lun")
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> str:
+        return pulumi.get(self, "storage_account_type")
+
+    @property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> Optional[str]:
+        return pulumi.get(self, "create_option")
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[str]:
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @property
+    @pulumi.getter(name="diskIopsReadWrite")
+    def disk_iops_read_write(self) -> Optional[int]:
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @property
+    @pulumi.getter(name="diskMbpsReadWrite")
+    def disk_mbps_read_write(self) -> Optional[int]:
+        return pulumi.get(self, "disk_mbps_read_write")
+
+    @property
+    @pulumi.getter(name="writeAcceleratorEnabled")
+    def write_accelerator_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "write_accelerator_enabled")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 type: str,
+                 principal_id: Optional[str] = None):
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "enableAcceleratedNetworking":
+            suggest = "enable_accelerated_networking"
+        elif key == "enableIpForwarding":
+            suggest = "enable_ip_forwarding"
+        elif key == "networkSecurityGroupId":
+            suggest = "network_security_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_configurations: Sequence['outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
+                 name: str,
+                 dns_servers: Optional[Sequence[str]] = None,
+                 enable_accelerated_networking: Optional[bool] = None,
+                 enable_ip_forwarding: Optional[bool] = None,
+                 network_security_group_id: Optional[str] = None,
+                 primary: Optional[bool] = None):
+        """
+        :param str name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        pulumi.set(__self__, "name", name)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if enable_accelerated_networking is not None:
+            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+        if enable_ip_forwarding is not None:
+            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
+        if network_security_group_id is not None:
+            pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Sequence['outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration']:
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter(name="enableAcceleratedNetworking")
+    def enable_accelerated_networking(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_accelerated_networking")
+
+    @property
+    @pulumi.getter(name="enableIpForwarding")
+    def enable_ip_forwarding(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_ip_forwarding")
+
+    @property
+    @pulumi.getter(name="networkSecurityGroupId")
+    def network_security_group_id(self) -> Optional[str]:
+        return pulumi.get(self, "network_security_group_id")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        return pulumi.get(self, "primary")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationGatewayBackendAddressPoolIds":
+            suggest = "application_gateway_backend_address_pool_ids"
+        elif key == "applicationSecurityGroupIds":
+            suggest = "application_security_group_ids"
+        elif key == "loadBalancerBackendAddressPoolIds":
+            suggest = "load_balancer_backend_address_pool_ids"
+        elif key == "publicIpAddresses":
+            suggest = "public_ip_addresses"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 application_gateway_backend_address_pool_ids: Optional[Sequence[str]] = None,
+                 application_security_group_ids: Optional[Sequence[str]] = None,
+                 load_balancer_backend_address_pool_ids: Optional[Sequence[str]] = None,
+                 primary: Optional[bool] = None,
+                 public_ip_addresses: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress']] = None,
+                 subnet_id: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        :param str name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        if application_gateway_backend_address_pool_ids is not None:
+            pulumi.set(__self__, "application_gateway_backend_address_pool_ids", application_gateway_backend_address_pool_ids)
+        if application_security_group_ids is not None:
+            pulumi.set(__self__, "application_security_group_ids", application_security_group_ids)
+        if load_balancer_backend_address_pool_ids is not None:
+            pulumi.set(__self__, "load_balancer_backend_address_pool_ids", load_balancer_backend_address_pool_ids)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if public_ip_addresses is not None:
+            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="applicationGatewayBackendAddressPoolIds")
+    def application_gateway_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "application_gateway_backend_address_pool_ids")
+
+    @property
+    @pulumi.getter(name="applicationSecurityGroupIds")
+    def application_security_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "application_security_group_ids")
+
+    @property
+    @pulumi.getter(name="loadBalancerBackendAddressPoolIds")
+    def load_balancer_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "load_balancer_backend_address_pool_ids")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="publicIpAddresses")
+    def public_ip_addresses(self) -> Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress']]:
+        return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainNameLabel":
+            suggest = "domain_name_label"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "ipTags":
+            suggest = "ip_tags"
+        elif key == "publicIpPrefixId":
+            suggest = "public_ip_prefix_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 domain_name_label: Optional[str] = None,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 ip_tags: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']] = None,
+                 public_ip_prefix_id: Optional[str] = None):
+        """
+        :param str name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        if domain_name_label is not None:
+            pulumi.set(__self__, "domain_name_label", domain_name_label)
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if ip_tags is not None:
+            pulumi.set(__self__, "ip_tags", ip_tags)
+        if public_ip_prefix_id is not None:
+            pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="domainNameLabel")
+    def domain_name_label(self) -> Optional[str]:
+        return pulumi.get(self, "domain_name_label")
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']]:
+        return pulumi.get(self, "ip_tags")
+
+    @property
+    @pulumi.getter(name="publicIpPrefixId")
+    def public_ip_prefix_id(self) -> Optional[str]:
+        return pulumi.get(self, "public_ip_prefix_id")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(dict):
+    def __init__(__self__, *,
+                 tag: str,
+                 type: str):
+        pulumi.set(__self__, "tag", tag)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> str:
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetOsDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountType":
+            suggest = "storage_account_type"
+        elif key == "diffDiskSettings":
+            suggest = "diff_disk_settings"
+        elif key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "diskSizeGb":
+            suggest = "disk_size_gb"
+        elif key == "writeAcceleratorEnabled":
+            suggest = "write_accelerator_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetOsDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetOsDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetOsDisk.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 caching: str,
+                 storage_account_type: str,
+                 diff_disk_settings: Optional['outputs.OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings'] = None,
+                 disk_encryption_set_id: Optional[str] = None,
+                 disk_size_gb: Optional[int] = None,
+                 write_accelerator_enabled: Optional[bool] = None):
+        pulumi.set(__self__, "caching", caching)
+        pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if diff_disk_settings is not None:
+            pulumi.set(__self__, "diff_disk_settings", diff_disk_settings)
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_size_gb is not None:
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if write_accelerator_enabled is not None:
+            pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
+
+    @property
+    @pulumi.getter
+    def caching(self) -> str:
+        return pulumi.get(self, "caching")
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> str:
+        return pulumi.get(self, "storage_account_type")
+
+    @property
+    @pulumi.getter(name="diffDiskSettings")
+    def diff_disk_settings(self) -> Optional['outputs.OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings']:
+        return pulumi.get(self, "diff_disk_settings")
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[str]:
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @property
+    @pulumi.getter(name="diskSizeGb")
+    def disk_size_gb(self) -> Optional[int]:
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="writeAcceleratorEnabled")
+    def write_accelerator_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "write_accelerator_enabled")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
+    def __init__(__self__, *,
+                 option: str):
+        """
+        :param str option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "option", option)
+
+    @property
+    @pulumi.getter
+    def option(self) -> str:
+        """
+        Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "option")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetOsProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customData":
+            suggest = "custom_data"
+        elif key == "linuxConfiguration":
+            suggest = "linux_configuration"
+        elif key == "windowsConfiguration":
+            suggest = "windows_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetOsProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_data: Optional[str] = None,
+                 linux_configuration: Optional['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration'] = None,
+                 windows_configuration: Optional['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration'] = None):
+        if custom_data is not None:
+            pulumi.set(__self__, "custom_data", custom_data)
+        if linux_configuration is not None:
+            pulumi.set(__self__, "linux_configuration", linux_configuration)
+        if windows_configuration is not None:
+            pulumi.set(__self__, "windows_configuration", windows_configuration)
+
+    @property
+    @pulumi.getter(name="customData")
+    def custom_data(self) -> Optional[str]:
+        return pulumi.get(self, "custom_data")
+
+    @property
+    @pulumi.getter(name="linuxConfiguration")
+    def linux_configuration(self) -> Optional['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration']:
+        return pulumi.get(self, "linux_configuration")
+
+    @property
+    @pulumi.getter(name="windowsConfiguration")
+    def windows_configuration(self) -> Optional['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration']:
+        return pulumi.get(self, "windows_configuration")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "adminPassword":
+            suggest = "admin_password"
+        elif key == "adminSshKeys":
+            suggest = "admin_ssh_keys"
+        elif key == "computerNamePrefix":
+            suggest = "computer_name_prefix"
+        elif key == "disablePasswordAuthentication":
+            suggest = "disable_password_authentication"
+        elif key == "provisionVmAgent":
+            suggest = "provision_vm_agent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_username: str,
+                 admin_password: Optional[str] = None,
+                 admin_ssh_keys: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey']] = None,
+                 computer_name_prefix: Optional[str] = None,
+                 disable_password_authentication: Optional[bool] = None,
+                 provision_vm_agent: Optional[bool] = None,
+                 secrets: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret']] = None):
+        """
+        :param bool disable_password_authentication: When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
+        """
+        pulumi.set(__self__, "admin_username", admin_username)
+        if admin_password is not None:
+            pulumi.set(__self__, "admin_password", admin_password)
+        if admin_ssh_keys is not None:
+            pulumi.set(__self__, "admin_ssh_keys", admin_ssh_keys)
+        if computer_name_prefix is not None:
+            pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
+        if disable_password_authentication is not None:
+            pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
+        if provision_vm_agent is not None:
+            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> str:
+        return pulumi.get(self, "admin_username")
+
+    @property
+    @pulumi.getter(name="adminPassword")
+    def admin_password(self) -> Optional[str]:
+        return pulumi.get(self, "admin_password")
+
+    @property
+    @pulumi.getter(name="adminSshKeys")
+    def admin_ssh_keys(self) -> Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey']]:
+        return pulumi.get(self, "admin_ssh_keys")
+
+    @property
+    @pulumi.getter(name="computerNamePrefix")
+    def computer_name_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "computer_name_prefix")
+
+    @property
+    @pulumi.getter(name="disablePasswordAuthentication")
+    def disable_password_authentication(self) -> Optional[bool]:
+        """
+        When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "disable_password_authentication")
+
+    @property
+    @pulumi.getter(name="provisionVmAgent")
+    def provision_vm_agent(self) -> Optional[bool]:
+        return pulumi.get(self, "provision_vm_agent")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret']]:
+        return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicKey":
+            suggest = "public_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 public_key: str,
+                 username: str):
+        """
+        :param str public_key: The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+        :param str username: The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "public_key", public_key)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> str:
+        """
+        The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "public_key")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultId":
+            suggest = "key_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificates: Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate'],
+                 key_vault_id: str):
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate']:
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        return pulumi.get(self, "key_vault_id")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate(dict):
+    def __init__(__self__, *,
+                 url: str):
+        """
+        :param str url: The Secret URL of a Key Vault Certificate.
+        """
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The Secret URL of a Key Vault Certificate.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminPassword":
+            suggest = "admin_password"
+        elif key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "computerNamePrefix":
+            suggest = "computer_name_prefix"
+        elif key == "enableAutomaticUpdates":
+            suggest = "enable_automatic_updates"
+        elif key == "provisionVmAgent":
+            suggest = "provision_vm_agent"
+        elif key == "winrmListeners":
+            suggest = "winrm_listeners"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_password: str,
+                 admin_username: str,
+                 computer_name_prefix: Optional[str] = None,
+                 enable_automatic_updates: Optional[bool] = None,
+                 provision_vm_agent: Optional[bool] = None,
+                 secrets: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret']] = None,
+                 timezone: Optional[str] = None,
+                 winrm_listeners: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener']] = None):
+        pulumi.set(__self__, "admin_password", admin_password)
+        pulumi.set(__self__, "admin_username", admin_username)
+        if computer_name_prefix is not None:
+            pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
+        if enable_automatic_updates is not None:
+            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
+        if provision_vm_agent is not None:
+            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if winrm_listeners is not None:
+            pulumi.set(__self__, "winrm_listeners", winrm_listeners)
+
+    @property
+    @pulumi.getter(name="adminPassword")
+    def admin_password(self) -> str:
+        return pulumi.get(self, "admin_password")
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> str:
+        return pulumi.get(self, "admin_username")
+
+    @property
+    @pulumi.getter(name="computerNamePrefix")
+    def computer_name_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "computer_name_prefix")
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpdates")
+    def enable_automatic_updates(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_automatic_updates")
+
+    @property
+    @pulumi.getter(name="provisionVmAgent")
+    def provision_vm_agent(self) -> Optional[bool]:
+        return pulumi.get(self, "provision_vm_agent")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret']]:
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter(name="winrmListeners")
+    def winrm_listeners(self) -> Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener']]:
+        return pulumi.get(self, "winrm_listeners")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultId":
+            suggest = "key_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificates: Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate'],
+                 key_vault_id: str):
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate']:
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        return pulumi.get(self, "key_vault_id")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate(dict):
+    def __init__(__self__, *,
+                 store: str,
+                 url: str):
+        """
+        :param str url: The Secret URL of a Key Vault Certificate.
+        """
+        pulumi.set(__self__, "store", store)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def store(self) -> str:
+        return pulumi.get(self, "store")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The Secret URL of a Key Vault Certificate.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateUrl":
+            suggest = "certificate_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 protocol: str,
+                 certificate_url: Optional[str] = None):
+        pulumi.set(__self__, "protocol", protocol)
+        if certificate_url is not None:
+            pulumi.set(__self__, "certificate_url", certificate_url)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="certificateUrl")
+    def certificate_url(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_url")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetPlan(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 product: str,
+                 publisher: str):
+        """
+        :param str name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> str:
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        return pulumi.get(self, "publisher")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetSourceImageReference(dict):
+    def __init__(__self__, *,
+                 offer: str,
+                 publisher: str,
+                 sku: str,
+                 version: str):
+        pulumi.set(__self__, "offer", offer)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "sku", sku)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def offer(self) -> str:
+        return pulumi.get(self, "offer")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> str:
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetTerminationNotification(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 timeout: Optional[str] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[str]:
+        return pulumi.get(self, "timeout")
 
 
 @pulumi.output_type

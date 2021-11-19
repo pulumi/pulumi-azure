@@ -81,6 +81,10 @@ export class ApplicationGroup extends pulumi.CustomResource {
     }
 
     /**
+     * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+     */
+    public readonly defaultDesktopDisplayName!: pulumi.Output<string | undefined>;
+    /**
      * Option to set a description for the Virtual Desktop Application Group.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -131,6 +135,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationGroupState | undefined;
+            inputs["defaultDesktopDisplayName"] = state ? state.defaultDesktopDisplayName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
             inputs["hostPoolId"] = state ? state.hostPoolId : undefined;
@@ -150,6 +155,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            inputs["defaultDesktopDisplayName"] = args ? args.defaultDesktopDisplayName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["hostPoolId"] = args ? args.hostPoolId : undefined;
@@ -170,6 +176,10 @@ export class ApplicationGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApplicationGroup resources.
  */
 export interface ApplicationGroupState {
+    /**
+     * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+     */
+    defaultDesktopDisplayName?: pulumi.Input<string>;
     /**
      * Option to set a description for the Virtual Desktop Application Group.
      */
@@ -213,6 +223,10 @@ export interface ApplicationGroupState {
  * The set of arguments for constructing a ApplicationGroup resource.
  */
 export interface ApplicationGroupArgs {
+    /**
+     * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+     */
+    defaultDesktopDisplayName?: pulumi.Input<string>;
     /**
      * Option to set a description for the Virtual Desktop Application Group.
      */

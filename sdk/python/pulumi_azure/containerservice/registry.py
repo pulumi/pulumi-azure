@@ -17,12 +17,15 @@ class RegistryArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  admin_enabled: Optional[pulumi.Input[bool]] = None,
+                 anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
+                 data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['RegistryEncryptionArgs']] = None,
                  georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
                  identity: Optional[pulumi.Input['RegistryIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_rule_bypass_option: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input['RegistryNetworkRuleSetArgs']] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
@@ -36,12 +39,15 @@ class RegistryArgs:
         The set of arguments for constructing a Registry resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
+        :param pulumi.Input[bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
@@ -54,6 +60,10 @@ class RegistryArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if admin_enabled is not None:
             pulumi.set(__self__, "admin_enabled", admin_enabled)
+        if anonymous_pull_enabled is not None:
+            pulumi.set(__self__, "anonymous_pull_enabled", anonymous_pull_enabled)
+        if data_endpoint_enabled is not None:
+            pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if georeplication_locations is not None:
@@ -69,6 +79,8 @@ class RegistryArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_rule_bypass_option is not None:
+            pulumi.set(__self__, "network_rule_bypass_option", network_rule_bypass_option)
         if network_rule_set is not None:
             pulumi.set(__self__, "network_rule_set", network_rule_set)
         if public_network_access_enabled is not None:
@@ -114,6 +126,30 @@ class RegistryArgs:
     @admin_enabled.setter
     def admin_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "admin_enabled", value)
+
+    @property
+    @pulumi.getter(name="anonymousPullEnabled")
+    def anonymous_pull_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        """
+        return pulumi.get(self, "anonymous_pull_enabled")
+
+    @anonymous_pull_enabled.setter
+    def anonymous_pull_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "anonymous_pull_enabled", value)
+
+    @property
+    @pulumi.getter(name="dataEndpointEnabled")
+    def data_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+        """
+        return pulumi.get(self, "data_endpoint_enabled")
+
+    @data_endpoint_enabled.setter
+    def data_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_endpoint_enabled", value)
 
     @property
     @pulumi.getter
@@ -186,6 +222,18 @@ class RegistryArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkRuleBypassOption")
+    def network_rule_bypass_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        """
+        return pulumi.get(self, "network_rule_bypass_option")
+
+    @network_rule_bypass_option.setter
+    def network_rule_bypass_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_rule_bypass_option", value)
 
     @property
     @pulumi.getter(name="networkRuleSet")
@@ -299,6 +347,8 @@ class _RegistryState:
                  admin_enabled: Optional[pulumi.Input[bool]] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
+                 anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
+                 data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['RegistryEncryptionArgs']] = None,
                  georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
@@ -306,6 +356,7 @@ class _RegistryState:
                  location: Optional[pulumi.Input[str]] = None,
                  login_server: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_rule_bypass_option: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input['RegistryNetworkRuleSetArgs']] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
@@ -321,6 +372,8 @@ class _RegistryState:
         :param pulumi.Input[bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
         :param pulumi.Input[str] admin_password: The Password associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[str] admin_username: The Username associated with the Container Registry Admin account - if the admin account is enabled.
+        :param pulumi.Input[bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
@@ -328,6 +381,7 @@ class _RegistryState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] login_server: The URL that can be used to log into the container registry.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
@@ -344,6 +398,10 @@ class _RegistryState:
             pulumi.set(__self__, "admin_password", admin_password)
         if admin_username is not None:
             pulumi.set(__self__, "admin_username", admin_username)
+        if anonymous_pull_enabled is not None:
+            pulumi.set(__self__, "anonymous_pull_enabled", anonymous_pull_enabled)
+        if data_endpoint_enabled is not None:
+            pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if georeplication_locations is not None:
@@ -361,6 +419,8 @@ class _RegistryState:
             pulumi.set(__self__, "login_server", login_server)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_rule_bypass_option is not None:
+            pulumi.set(__self__, "network_rule_bypass_option", network_rule_bypass_option)
         if network_rule_set is not None:
             pulumi.set(__self__, "network_rule_set", network_rule_set)
         if public_network_access_enabled is not None:
@@ -420,6 +480,30 @@ class _RegistryState:
     @admin_username.setter
     def admin_username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_username", value)
+
+    @property
+    @pulumi.getter(name="anonymousPullEnabled")
+    def anonymous_pull_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        """
+        return pulumi.get(self, "anonymous_pull_enabled")
+
+    @anonymous_pull_enabled.setter
+    def anonymous_pull_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "anonymous_pull_enabled", value)
+
+    @property
+    @pulumi.getter(name="dataEndpointEnabled")
+    def data_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+        """
+        return pulumi.get(self, "data_endpoint_enabled")
+
+    @data_endpoint_enabled.setter
+    def data_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_endpoint_enabled", value)
 
     @property
     @pulumi.getter
@@ -504,6 +588,18 @@ class _RegistryState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkRuleBypassOption")
+    def network_rule_bypass_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        """
+        return pulumi.get(self, "network_rule_bypass_option")
+
+    @network_rule_bypass_option.setter
+    def network_rule_bypass_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_rule_bypass_option", value)
 
     @property
     @pulumi.getter(name="networkRuleSet")
@@ -629,12 +725,15 @@ class Registry(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_enabled: Optional[pulumi.Input[bool]] = None,
+                 anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
+                 data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']]] = None,
                  georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['RegistryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_rule_bypass_option: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
@@ -712,12 +811,15 @@ class Registry(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
+        :param pulumi.Input[bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input[pulumi.InputType['RegistryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         :param pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
@@ -813,12 +915,15 @@ class Registry(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_enabled: Optional[pulumi.Input[bool]] = None,
+                 anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
+                 data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']]] = None,
                  georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['RegistryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_rule_bypass_option: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
@@ -842,6 +947,8 @@ class Registry(pulumi.CustomResource):
             __props__ = RegistryArgs.__new__(RegistryArgs)
 
             __props__.__dict__["admin_enabled"] = admin_enabled
+            __props__.__dict__["anonymous_pull_enabled"] = anonymous_pull_enabled
+            __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
             __props__.__dict__["encryption"] = encryption
             if georeplication_locations is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `georeplications`""", DeprecationWarning)
@@ -851,6 +958,7 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_rule_bypass_option"] = network_rule_bypass_option
             __props__.__dict__["network_rule_set"] = network_rule_set
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["quarantine_policy_enabled"] = quarantine_policy_enabled
@@ -882,6 +990,8 @@ class Registry(pulumi.CustomResource):
             admin_enabled: Optional[pulumi.Input[bool]] = None,
             admin_password: Optional[pulumi.Input[str]] = None,
             admin_username: Optional[pulumi.Input[str]] = None,
+            anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
+            data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
             encryption: Optional[pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']]] = None,
             georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]]] = None,
@@ -889,6 +999,7 @@ class Registry(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             login_server: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network_rule_bypass_option: Optional[pulumi.Input[str]] = None,
             network_rule_set: Optional[pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
@@ -909,6 +1020,8 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
         :param pulumi.Input[str] admin_password: The Password associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[str] admin_username: The Username associated with the Container Registry Admin account - if the admin account is enabled.
+        :param pulumi.Input[bool] anonymous_pull_enabled: Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]] georeplications: A `georeplications` block as documented below.
@@ -916,6 +1029,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] login_server: The URL that can be used to log into the container registry.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         :param pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
@@ -933,6 +1047,8 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["admin_enabled"] = admin_enabled
         __props__.__dict__["admin_password"] = admin_password
         __props__.__dict__["admin_username"] = admin_username
+        __props__.__dict__["anonymous_pull_enabled"] = anonymous_pull_enabled
+        __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
         __props__.__dict__["encryption"] = encryption
         __props__.__dict__["georeplication_locations"] = georeplication_locations
         __props__.__dict__["georeplications"] = georeplications
@@ -940,6 +1056,7 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["login_server"] = login_server
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_rule_bypass_option"] = network_rule_bypass_option
         __props__.__dict__["network_rule_set"] = network_rule_set
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["quarantine_policy_enabled"] = quarantine_policy_enabled
@@ -975,6 +1092,22 @@ class Registry(pulumi.CustomResource):
         The Username associated with the Container Registry Admin account - if the admin account is enabled.
         """
         return pulumi.get(self, "admin_username")
+
+    @property
+    @pulumi.getter(name="anonymousPullEnabled")
+    def anonymous_pull_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        """
+        return pulumi.get(self, "anonymous_pull_enabled")
+
+    @property
+    @pulumi.getter(name="dataEndpointEnabled")
+    def data_endpoint_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+        """
+        return pulumi.get(self, "data_endpoint_enabled")
 
     @property
     @pulumi.getter
@@ -1031,6 +1164,14 @@ class Registry(pulumi.CustomResource):
         Specifies the name of the Container Registry. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkRuleBypassOption")
+    def network_rule_bypass_option(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        """
+        return pulumi.get(self, "network_rule_bypass_option")
 
     @property
     @pulumi.getter(name="networkRuleSet")

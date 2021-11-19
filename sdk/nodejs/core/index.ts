@@ -15,11 +15,13 @@ export * from "./getTemplateSpecVersion";
 export * from "./getUserAssignedIdentity";
 export * from "./portalTenantConfiguration";
 export * from "./resourceGroup";
+export * from "./resourceGroupCostManagementExport";
 export * from "./resourceGroupPolicyAssignment";
 export * from "./resourceGroupTemplateDeployment";
 export * from "./resourcePolicyAssignment";
 export * from "./resourceProviderRegistration";
 export * from "./subscription";
+export * from "./subscriptionCostManagementExport";
 export * from "./subscriptionPolicyAssignment";
 export * from "./subscriptionTemplateDeployment";
 export * from "./templateDeployment";
@@ -30,11 +32,13 @@ export * from "./zMixins";
 import { CustomProvider } from "./customProvider";
 import { PortalTenantConfiguration } from "./portalTenantConfiguration";
 import { ResourceGroup } from "./resourceGroup";
+import { ResourceGroupCostManagementExport } from "./resourceGroupCostManagementExport";
 import { ResourceGroupPolicyAssignment } from "./resourceGroupPolicyAssignment";
 import { ResourceGroupTemplateDeployment } from "./resourceGroupTemplateDeployment";
 import { ResourcePolicyAssignment } from "./resourcePolicyAssignment";
 import { ResourceProviderRegistration } from "./resourceProviderRegistration";
 import { Subscription } from "./subscription";
+import { SubscriptionCostManagementExport } from "./subscriptionCostManagementExport";
 import { SubscriptionPolicyAssignment } from "./subscriptionPolicyAssignment";
 import { SubscriptionTemplateDeployment } from "./subscriptionTemplateDeployment";
 import { TemplateDeployment } from "./templateDeployment";
@@ -50,6 +54,8 @@ const _module = {
                 return new PortalTenantConfiguration(name, <any>undefined, { urn })
             case "azure:core/resourceGroup:ResourceGroup":
                 return new ResourceGroup(name, <any>undefined, { urn })
+            case "azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport":
+                return new ResourceGroupCostManagementExport(name, <any>undefined, { urn })
             case "azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment":
                 return new ResourceGroupPolicyAssignment(name, <any>undefined, { urn })
             case "azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment":
@@ -60,6 +66,8 @@ const _module = {
                 return new ResourceProviderRegistration(name, <any>undefined, { urn })
             case "azure:core/subscription:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
+            case "azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport":
+                return new SubscriptionCostManagementExport(name, <any>undefined, { urn })
             case "azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment":
                 return new SubscriptionPolicyAssignment(name, <any>undefined, { urn })
             case "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment":
@@ -76,11 +84,13 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "core/customProvider", _module)
 pulumi.runtime.registerResourceModule("azure", "core/portalTenantConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "core/resourceGroupCostManagementExport", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupPolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupTemplateDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourcePolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceProviderRegistration", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscription", _module)
+pulumi.runtime.registerResourceModule("azure", "core/subscriptionCostManagementExport", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionPolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionTemplateDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/templateDeployment", _module)

@@ -171,6 +171,10 @@ export interface GetAccountResult {
      * The hostname with port if applicable for web storage in the primary location.
      */
     readonly primaryWebHost: string;
+    /**
+     * The encryption key type of the queue.
+     */
+    readonly queueEncryptionKeyType: string;
     readonly resourceGroupName: string;
     /**
      * The secondary access key for the Storage Account.
@@ -236,6 +240,10 @@ export interface GetAccountResult {
      * The hostname with port if applicable for web storage in the secondary location.
      */
     readonly secondaryWebHost: string;
+    /**
+     * The encryption key type of the table.
+     */
+    readonly tableEncryptionKeyType: string;
     /**
      * A mapping of tags to assigned to the resource.
      */

@@ -12,15 +12,9 @@ namespace Pulumi.Azure.Sql.Inputs
 
     public sealed class SqlServerExtendedAuditingPolicyGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
-        /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
 
-        /// <summary>
-        /// (Optional) Specifies the number of days to retain logs for in the storage account.
-        /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
 
@@ -30,9 +24,6 @@ namespace Pulumi.Azure.Sql.Inputs
         [Input("storageAccountAccessKey")]
         public Input<string>? StorageAccountAccessKey { get; set; }
 
-        /// <summary>
-        /// (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        /// </summary>
         [Input("storageAccountAccessKeyIsSecondary")]
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
 

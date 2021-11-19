@@ -45,11 +45,13 @@ class WindowsVirtualMachineArgs:
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]] = None,
+                 secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
@@ -84,11 +86,13 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
         """
@@ -146,6 +150,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
+        if secure_boot_enabled is not None:
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
         if source_image_id is not None:
             pulumi.set(__self__, "source_image_id", source_image_id)
         if source_image_reference is not None:
@@ -156,6 +162,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "timezone", timezone)
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+        if vtpm_enabled is not None:
+            pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if winrm_listeners is not None:
             pulumi.set(__self__, "winrm_listeners", winrm_listeners)
         if zone is not None:
@@ -522,6 +530,18 @@ class WindowsVirtualMachineArgs:
         pulumi.set(self, "secrets", value)
 
     @property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @secure_boot_enabled.setter
+    def secure_boot_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure_boot_enabled", value)
+
+    @property
     @pulumi.getter(name="sourceImageId")
     def source_image_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -580,6 +600,18 @@ class WindowsVirtualMachineArgs:
     @virtual_machine_scale_set_id.setter
     def virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_machine_scale_set_id", value)
+
+    @property
+    @pulumi.getter(name="vtpmEnabled")
+    def vtpm_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vtpm_enabled")
+
+    @vtpm_enabled.setter
+    def vtpm_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vtpm_enabled", value)
 
     @property
     @pulumi.getter(name="winrmListeners")
@@ -642,6 +674,7 @@ class _WindowsVirtualMachineState:
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]]] = None,
+                 secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs']] = None,
@@ -649,6 +682,7 @@ class _WindowsVirtualMachineState:
                  timezone: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
@@ -686,6 +720,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretArgs']]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
@@ -693,6 +728,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
         """
@@ -762,6 +798,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
+        if secure_boot_enabled is not None:
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if source_image_id is not None:
@@ -776,6 +814,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+        if vtpm_enabled is not None:
+            pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if winrm_listeners is not None:
             pulumi.set(__self__, "winrm_listeners", winrm_listeners)
         if zone is not None:
@@ -1178,6 +1218,18 @@ class _WindowsVirtualMachineState:
         pulumi.set(self, "secrets", value)
 
     @property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @secure_boot_enabled.setter
+    def secure_boot_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure_boot_enabled", value)
+
+    @property
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1262,6 +1314,18 @@ class _WindowsVirtualMachineState:
         pulumi.set(self, "virtual_machine_scale_set_id", value)
 
     @property
+    @pulumi.getter(name="vtpmEnabled")
+    def vtpm_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vtpm_enabled")
+
+    @vtpm_enabled.setter
+    def vtpm_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vtpm_enabled", value)
+
+    @property
     @pulumi.getter(name="winrmListeners")
     def winrm_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]]:
         """
@@ -1320,12 +1384,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]]] = None,
+                 secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1427,12 +1493,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
         """
@@ -1553,12 +1621,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]]] = None,
+                 secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1612,6 +1682,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["secrets"] = secrets
+            __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
             if size is None and not opts.urn:
                 raise TypeError("Missing required property 'size'")
             __props__.__dict__["size"] = size
@@ -1620,6 +1691,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
+            __props__.__dict__["vtpm_enabled"] = vtpm_enabled
             __props__.__dict__["winrm_listeners"] = winrm_listeners
             __props__.__dict__["zone"] = zone
             __props__.__dict__["private_ip_address"] = None
@@ -1670,6 +1742,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]]] = None,
+            secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
             size: Optional[pulumi.Input[str]] = None,
             source_image_id: Optional[pulumi.Input[str]] = None,
             source_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']]] = None,
@@ -1677,6 +1750,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             timezone: Optional[pulumi.Input[str]] = None,
             virtual_machine_id: Optional[pulumi.Input[str]] = None,
             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+            vtpm_enabled: Optional[pulumi.Input[bool]] = None,
             winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]]] = None,
             zone: Optional[pulumi.Input[str]] = None) -> 'WindowsVirtualMachine':
         """
@@ -1719,6 +1793,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
@@ -1726,6 +1801,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
         """
@@ -1766,6 +1842,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["public_ip_addresses"] = public_ip_addresses
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secrets"] = secrets
+        __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
         __props__.__dict__["size"] = size
         __props__.__dict__["source_image_id"] = source_image_id
         __props__.__dict__["source_image_reference"] = source_image_reference
@@ -1773,6 +1850,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["timezone"] = timezone
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
+        __props__.__dict__["vtpm_enabled"] = vtpm_enabled
         __props__.__dict__["winrm_listeners"] = winrm_listeners
         __props__.__dict__["zone"] = zone
         return WindowsVirtualMachine(resource_name, opts=opts, __props__=__props__)
@@ -2042,6 +2120,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "secrets")
 
     @property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @property
     @pulumi.getter
     def size(self) -> pulumi.Output[str]:
         """
@@ -2096,6 +2182,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_scale_set_id")
+
+    @property
+    @pulumi.getter(name="vtpmEnabled")
+    def vtpm_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vtpm_enabled")
 
     @property
     @pulumi.getter(name="winrmListeners")
