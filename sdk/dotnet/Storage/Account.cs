@@ -317,6 +317,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> PrimaryWebHost { get; private set; } = null!;
 
         /// <summary>
+        /// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+        /// </summary>
+        [Output("queueEncryptionKeyType")]
+        public Output<string?> QueueEncryptionKeyType { get; private set; } = null!;
+
+        /// <summary>
         /// A `queue_properties` block as defined below.
         /// </summary>
         [Output("queueProperties")]
@@ -444,6 +450,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Output("staticWebsite")]
         public Output<Outputs.AccountStaticWebsite?> StaticWebsite { get; private set; } = null!;
+
+        /// <summary>
+        /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+        /// </summary>
+        [Output("tableEncryptionKeyType")]
+        public Output<string?> TableEncryptionKeyType { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -601,6 +613,12 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? Nfsv3Enabled { get; set; }
 
         /// <summary>
+        /// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+        /// </summary>
+        [Input("queueEncryptionKeyType")]
+        public Input<string>? QueueEncryptionKeyType { get; set; }
+
+        /// <summary>
         /// A `queue_properties` block as defined below.
         /// </summary>
         [Input("queueProperties")]
@@ -632,6 +650,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("staticWebsite")]
         public Input<Inputs.AccountStaticWebsiteArgs>? StaticWebsite { get; set; }
+
+        /// <summary>
+        /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+        /// </summary>
+        [Input("tableEncryptionKeyType")]
+        public Input<string>? TableEncryptionKeyType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -852,6 +876,12 @@ namespace Pulumi.Azure.Storage
         public Input<string>? PrimaryWebHost { get; set; }
 
         /// <summary>
+        /// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+        /// </summary>
+        [Input("queueEncryptionKeyType")]
+        public Input<string>? QueueEncryptionKeyType { get; set; }
+
+        /// <summary>
         /// A `queue_properties` block as defined below.
         /// </summary>
         [Input("queueProperties")]
@@ -979,6 +1009,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("staticWebsite")]
         public Input<Inputs.AccountStaticWebsiteGetArgs>? StaticWebsite { get; set; }
+
+        /// <summary>
+        /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+        /// </summary>
+        [Input("tableEncryptionKeyType")]
+        public Input<string>? TableEncryptionKeyType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -319,6 +319,12 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineScaleSetSecret>> Secrets { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("secureBootEnabled")]
+        public Output<bool?> SecureBootEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         /// </summary>
         [Output("singlePlacementGroup")]
@@ -371,6 +377,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("upgradeMode")]
         public Output<string?> UpgradeMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("vtpmEnabled")]
+        public Output<bool?> VtpmEnabled { get; private set; } = null!;
 
         /// <summary>
         /// One or more `winrm_listener` blocks as defined below.
@@ -677,6 +689,12 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
+        /// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("secureBootEnabled")]
+        public Input<bool>? SecureBootEnabled { get; set; }
+
+        /// <summary>
         /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         /// </summary>
         [Input("singlePlacementGroup")]
@@ -729,6 +747,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("upgradeMode")]
         public Input<string>? UpgradeMode { get; set; }
+
+        /// <summary>
+        /// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("vtpmEnabled")]
+        public Input<bool>? VtpmEnabled { get; set; }
 
         [Input("winrmListeners")]
         private InputList<Inputs.WindowsVirtualMachineScaleSetWinrmListenerArgs>? _winrmListeners;
@@ -1008,6 +1032,12 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
+        /// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("secureBootEnabled")]
+        public Input<bool>? SecureBootEnabled { get; set; }
+
+        /// <summary>
         /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         /// </summary>
         [Input("singlePlacementGroup")]
@@ -1066,6 +1096,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("upgradeMode")]
         public Input<string>? UpgradeMode { get; set; }
+
+        /// <summary>
+        /// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("vtpmEnabled")]
+        public Input<bool>? VtpmEnabled { get; set; }
 
         [Input("winrmListeners")]
         private InputList<Inputs.WindowsVirtualMachineScaleSetWinrmListenerGetArgs>? _winrmListeners;

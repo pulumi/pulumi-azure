@@ -27,6 +27,7 @@ export * from "./module";
 export * from "./runBook";
 export * from "./schedule";
 export * from "./stringVariable";
+export * from "./webhook";
 
 // Import resources to register:
 import { Account } from "./account";
@@ -46,6 +47,7 @@ import { Module } from "./module";
 import { RunBook } from "./runBook";
 import { Schedule } from "./schedule";
 import { StringVariable } from "./stringVariable";
+import { Webhook } from "./webhook";
 
 const _module = {
     version: utilities.getVersion(),
@@ -85,6 +87,8 @@ const _module = {
                 return new Schedule(name, <any>undefined, { urn })
             case "azure:automation/stringVariable:StringVariable":
                 return new StringVariable(name, <any>undefined, { urn })
+            case "azure:automation/webhook:Webhook":
+                return new Webhook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -107,3 +111,4 @@ pulumi.runtime.registerResourceModule("azure", "automation/module", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/runBook", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/schedule", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/stringVariable", _module)
+pulumi.runtime.registerResourceModule("azure", "automation/webhook", _module)

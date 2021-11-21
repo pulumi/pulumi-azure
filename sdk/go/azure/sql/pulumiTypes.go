@@ -1324,14 +1324,11 @@ func (o ManagedInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type SqlServerExtendedAuditingPolicy struct {
-	// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
-	// (Optional) Specifies the number of days to retain logs for in the storage account.
-	RetentionInDays *int `pulumi:"retentionInDays"`
+	RetentionInDays      *int  `pulumi:"retentionInDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
+	StorageAccountAccessKey            *string `pulumi:"storageAccountAccessKey"`
+	StorageAccountAccessKeyIsSecondary *bool   `pulumi:"storageAccountAccessKeyIsSecondary"`
 	// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
@@ -1348,14 +1345,11 @@ type SqlServerExtendedAuditingPolicyInput interface {
 }
 
 type SqlServerExtendedAuditingPolicyArgs struct {
-	// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
 	LogMonitoringEnabled pulumi.BoolPtrInput `pulumi:"logMonitoringEnabled"`
-	// (Optional) Specifies the number of days to retain logs for in the storage account.
-	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	RetentionInDays      pulumi.IntPtrInput  `pulumi:"retentionInDays"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
-	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
-	// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput `pulumi:"storageAccountAccessKeyIsSecondary"`
+	StorageAccountAccessKey            pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
+	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput   `pulumi:"storageAccountAccessKeyIsSecondary"`
 	// Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
 }
@@ -1437,12 +1431,10 @@ func (o SqlServerExtendedAuditingPolicyOutput) ToSqlServerExtendedAuditingPolicy
 	}).(SqlServerExtendedAuditingPolicyPtrOutput)
 }
 
-// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
 func (o SqlServerExtendedAuditingPolicyOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *bool { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Specifies the number of days to retain logs for in the storage account.
 func (o SqlServerExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
@@ -1452,7 +1444,6 @@ func (o SqlServerExtendedAuditingPolicyOutput) StorageAccountAccessKey() pulumi.
 	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 func (o SqlServerExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
 }
@@ -1486,7 +1477,6 @@ func (o SqlServerExtendedAuditingPolicyPtrOutput) Elem() SqlServerExtendedAuditi
 	}).(SqlServerExtendedAuditingPolicyOutput)
 }
 
-// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
 func (o SqlServerExtendedAuditingPolicyPtrOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *bool {
 		if v == nil {
@@ -1496,7 +1486,6 @@ func (o SqlServerExtendedAuditingPolicyPtrOutput) LogMonitoringEnabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Specifies the number of days to retain logs for in the storage account.
 func (o SqlServerExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *int {
 		if v == nil {
@@ -1516,7 +1505,6 @@ func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *bool {
 		if v == nil {

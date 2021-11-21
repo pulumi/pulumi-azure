@@ -114,6 +114,14 @@ export class Registry extends pulumi.CustomResource {
      */
     public /*out*/ readonly adminUsername!: pulumi.Output<string>;
     /**
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+     */
+    public readonly anonymousPullEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+     */
+    public readonly dataEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * An `encryption` block as documented below.
      */
     public readonly encryption!: pulumi.Output<outputs.containerservice.RegistryEncryption>;
@@ -143,6 +151,10 @@ export class Registry extends pulumi.CustomResource {
      * Specifies the name of the Container Registry. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+     */
+    public readonly networkRuleBypassOption!: pulumi.Output<string | undefined>;
     /**
      * A `networkRuleSet` block as documented below.
      */
@@ -200,6 +212,8 @@ export class Registry extends pulumi.CustomResource {
             inputs["adminEnabled"] = state ? state.adminEnabled : undefined;
             inputs["adminPassword"] = state ? state.adminPassword : undefined;
             inputs["adminUsername"] = state ? state.adminUsername : undefined;
+            inputs["anonymousPullEnabled"] = state ? state.anonymousPullEnabled : undefined;
+            inputs["dataEndpointEnabled"] = state ? state.dataEndpointEnabled : undefined;
             inputs["encryption"] = state ? state.encryption : undefined;
             inputs["georeplicationLocations"] = state ? state.georeplicationLocations : undefined;
             inputs["georeplications"] = state ? state.georeplications : undefined;
@@ -207,6 +221,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["loginServer"] = state ? state.loginServer : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkRuleBypassOption"] = state ? state.networkRuleBypassOption : undefined;
             inputs["networkRuleSet"] = state ? state.networkRuleSet : undefined;
             inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["quarantinePolicyEnabled"] = state ? state.quarantinePolicyEnabled : undefined;
@@ -223,12 +238,15 @@ export class Registry extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["adminEnabled"] = args ? args.adminEnabled : undefined;
+            inputs["anonymousPullEnabled"] = args ? args.anonymousPullEnabled : undefined;
+            inputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
             inputs["encryption"] = args ? args.encryption : undefined;
             inputs["georeplicationLocations"] = args ? args.georeplicationLocations : undefined;
             inputs["georeplications"] = args ? args.georeplications : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networkRuleBypassOption"] = args ? args.networkRuleBypassOption : undefined;
             inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["quarantinePolicyEnabled"] = args ? args.quarantinePolicyEnabled : undefined;
@@ -267,6 +285,14 @@ export interface RegistryState {
      */
     adminUsername?: pulumi.Input<string>;
     /**
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+     */
+    anonymousPullEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+     */
+    dataEndpointEnabled?: pulumi.Input<boolean>;
+    /**
      * An `encryption` block as documented below.
      */
     encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption>;
@@ -296,6 +322,10 @@ export interface RegistryState {
      * Specifies the name of the Container Registry. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+     */
+    networkRuleBypassOption?: pulumi.Input<string>;
     /**
      * A `networkRuleSet` block as documented below.
      */
@@ -347,6 +377,14 @@ export interface RegistryArgs {
      */
     adminEnabled?: pulumi.Input<boolean>;
     /**
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+     */
+    anonymousPullEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+     */
+    dataEndpointEnabled?: pulumi.Input<boolean>;
+    /**
      * An `encryption` block as documented below.
      */
     encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption>;
@@ -372,6 +410,10 @@ export interface RegistryArgs {
      * Specifies the name of the Container Registry. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+     */
+    networkRuleBypassOption?: pulumi.Input<string>;
     /**
      * A `networkRuleSet` block as documented below.
      */

@@ -21,7 +21,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_blob_public_access=None, custom_domains=None, enable_https_traffic_only=None, id=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, tags=None):
+    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_blob_public_access=None, custom_domains=None, enable_https_traffic_only=None, id=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, table_encryption_key_type=None, tags=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -106,6 +106,9 @@ class GetAccountResult:
         if primary_web_host and not isinstance(primary_web_host, str):
             raise TypeError("Expected argument 'primary_web_host' to be a str")
         pulumi.set(__self__, "primary_web_host", primary_web_host)
+        if queue_encryption_key_type and not isinstance(queue_encryption_key_type, str):
+            raise TypeError("Expected argument 'queue_encryption_key_type' to be a str")
+        pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -157,6 +160,9 @@ class GetAccountResult:
         if secondary_web_host and not isinstance(secondary_web_host, str):
             raise TypeError("Expected argument 'secondary_web_host' to be a str")
         pulumi.set(__self__, "secondary_web_host", secondary_web_host)
+        if table_encryption_key_type and not isinstance(table_encryption_key_type, str):
+            raise TypeError("Expected argument 'table_encryption_key_type' to be a str")
+        pulumi.set(__self__, "table_encryption_key_type", table_encryption_key_type)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -387,6 +393,14 @@ class GetAccountResult:
         return pulumi.get(self, "primary_web_host")
 
     @property
+    @pulumi.getter(name="queueEncryptionKeyType")
+    def queue_encryption_key_type(self) -> str:
+        """
+        The encryption key type of the queue.
+        """
+        return pulumi.get(self, "queue_encryption_key_type")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -520,6 +534,14 @@ class GetAccountResult:
         return pulumi.get(self, "secondary_web_host")
 
     @property
+    @pulumi.getter(name="tableEncryptionKeyType")
+    def table_encryption_key_type(self) -> str:
+        """
+        The encryption key type of the table.
+        """
+        return pulumi.get(self, "table_encryption_key_type")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -562,6 +584,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             primary_table_host=self.primary_table_host,
             primary_web_endpoint=self.primary_web_endpoint,
             primary_web_host=self.primary_web_host,
+            queue_encryption_key_type=self.queue_encryption_key_type,
             resource_group_name=self.resource_group_name,
             secondary_access_key=self.secondary_access_key,
             secondary_blob_connection_string=self.secondary_blob_connection_string,
@@ -579,6 +602,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             secondary_table_host=self.secondary_table_host,
             secondary_web_endpoint=self.secondary_web_endpoint,
             secondary_web_host=self.secondary_web_host,
+            table_encryption_key_type=self.table_encryption_key_type,
             tags=self.tags)
 
 
@@ -644,6 +668,7 @@ def get_account(min_tls_version: Optional[str] = None,
         primary_table_host=__ret__.primary_table_host,
         primary_web_endpoint=__ret__.primary_web_endpoint,
         primary_web_host=__ret__.primary_web_host,
+        queue_encryption_key_type=__ret__.queue_encryption_key_type,
         resource_group_name=__ret__.resource_group_name,
         secondary_access_key=__ret__.secondary_access_key,
         secondary_blob_connection_string=__ret__.secondary_blob_connection_string,
@@ -661,6 +686,7 @@ def get_account(min_tls_version: Optional[str] = None,
         secondary_table_host=__ret__.secondary_table_host,
         secondary_web_endpoint=__ret__.secondary_web_endpoint,
         secondary_web_host=__ret__.secondary_web_host,
+        table_encryption_key_type=__ret__.table_encryption_key_type,
         tags=__ret__.tags)
 
 

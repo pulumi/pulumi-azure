@@ -7807,13 +7807,15 @@ type KubernetesClusterNetworkProfile struct {
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
 	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
 	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
+	// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+	NatGatewayProfile *KubernetesClusterNetworkProfileNatGatewayProfile `pulumi:"natGatewayProfile"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	NetworkMode *string `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
 	NetworkPlugin string `pulumi:"networkPlugin"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
 	OutboundType *string `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 	PodCidr *string `pulumi:"podCidr"`
@@ -7841,13 +7843,15 @@ type KubernetesClusterNetworkProfileArgs struct {
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
 	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
 	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
+	// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+	NatGatewayProfile KubernetesClusterNetworkProfileNatGatewayProfilePtrInput `pulumi:"natGatewayProfile"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
-	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
@@ -7954,6 +7958,13 @@ func (o KubernetesClusterNetworkProfileOutput) LoadBalancerSku() pulumi.StringPt
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
+// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+func (o KubernetesClusterNetworkProfileOutput) NatGatewayProfile() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileNatGatewayProfile {
+		return v.NatGatewayProfile
+	}).(KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput)
+}
+
 // Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) NetworkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkMode }).(pulumi.StringPtrOutput)
@@ -7969,7 +7980,7 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrO
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
 func (o KubernetesClusterNetworkProfileOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.OutboundType }).(pulumi.StringPtrOutput)
 }
@@ -8048,6 +8059,16 @@ func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerSku() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+func (o KubernetesClusterNetworkProfilePtrOutput) NatGatewayProfile() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileNatGatewayProfile {
+		if v == nil {
+			return nil
+		}
+		return v.NatGatewayProfile
+	}).(KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput)
+}
+
 // Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
@@ -8078,7 +8099,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
 func (o KubernetesClusterNetworkProfilePtrOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -8337,6 +8358,181 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundPor
 			return nil
 		}
 		return v.OutboundPortsAllocated
+	}).(pulumi.IntPtrOutput)
+}
+
+type KubernetesClusterNetworkProfileNatGatewayProfile struct {
+	// The outcome (resource IDs) of the specified arguments.
+	EffectiveOutboundIps []string `pulumi:"effectiveOutboundIps"`
+	// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+	ManagedOutboundIpCount *int `pulumi:"managedOutboundIpCount"`
+}
+
+// KubernetesClusterNetworkProfileNatGatewayProfileInput is an input type that accepts KubernetesClusterNetworkProfileNatGatewayProfileArgs and KubernetesClusterNetworkProfileNatGatewayProfileOutput values.
+// You can construct a concrete instance of `KubernetesClusterNetworkProfileNatGatewayProfileInput` via:
+//
+//          KubernetesClusterNetworkProfileNatGatewayProfileArgs{...}
+type KubernetesClusterNetworkProfileNatGatewayProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNetworkProfileNatGatewayProfileOutput() KubernetesClusterNetworkProfileNatGatewayProfileOutput
+	ToKubernetesClusterNetworkProfileNatGatewayProfileOutputWithContext(context.Context) KubernetesClusterNetworkProfileNatGatewayProfileOutput
+}
+
+type KubernetesClusterNetworkProfileNatGatewayProfileArgs struct {
+	// The outcome (resource IDs) of the specified arguments.
+	EffectiveOutboundIps pulumi.StringArrayInput `pulumi:"effectiveOutboundIps"`
+	// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+	ManagedOutboundIpCount pulumi.IntPtrInput `pulumi:"managedOutboundIpCount"`
+}
+
+func (KubernetesClusterNetworkProfileNatGatewayProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNetworkProfileNatGatewayProfile)(nil)).Elem()
+}
+
+func (i KubernetesClusterNetworkProfileNatGatewayProfileArgs) ToKubernetesClusterNetworkProfileNatGatewayProfileOutput() KubernetesClusterNetworkProfileNatGatewayProfileOutput {
+	return i.ToKubernetesClusterNetworkProfileNatGatewayProfileOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNetworkProfileNatGatewayProfileArgs) ToKubernetesClusterNetworkProfileNatGatewayProfileOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileNatGatewayProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileNatGatewayProfileOutput)
+}
+
+func (i KubernetesClusterNetworkProfileNatGatewayProfileArgs) ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutput() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
+	return i.ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNetworkProfileNatGatewayProfileArgs) ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileNatGatewayProfileOutput).ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterNetworkProfileNatGatewayProfilePtrInput is an input type that accepts KubernetesClusterNetworkProfileNatGatewayProfileArgs, KubernetesClusterNetworkProfileNatGatewayProfilePtr and KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterNetworkProfileNatGatewayProfilePtrInput` via:
+//
+//          KubernetesClusterNetworkProfileNatGatewayProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterNetworkProfileNatGatewayProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutput() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput
+	ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutputWithContext(context.Context) KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput
+}
+
+type kubernetesClusterNetworkProfileNatGatewayProfilePtrType KubernetesClusterNetworkProfileNatGatewayProfileArgs
+
+func KubernetesClusterNetworkProfileNatGatewayProfilePtr(v *KubernetesClusterNetworkProfileNatGatewayProfileArgs) KubernetesClusterNetworkProfileNatGatewayProfilePtrInput {
+	return (*kubernetesClusterNetworkProfileNatGatewayProfilePtrType)(v)
+}
+
+func (*kubernetesClusterNetworkProfileNatGatewayProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNetworkProfileNatGatewayProfile)(nil)).Elem()
+}
+
+func (i *kubernetesClusterNetworkProfileNatGatewayProfilePtrType) ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutput() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
+	return i.ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterNetworkProfileNatGatewayProfilePtrType) ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput)
+}
+
+type KubernetesClusterNetworkProfileNatGatewayProfileOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNetworkProfileNatGatewayProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNetworkProfileNatGatewayProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterNetworkProfileNatGatewayProfileOutput) ToKubernetesClusterNetworkProfileNatGatewayProfileOutput() KubernetesClusterNetworkProfileNatGatewayProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterNetworkProfileNatGatewayProfileOutput) ToKubernetesClusterNetworkProfileNatGatewayProfileOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileNatGatewayProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterNetworkProfileNatGatewayProfileOutput) ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutput() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
+	return o.ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterNetworkProfileNatGatewayProfileOutput) ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNetworkProfileNatGatewayProfile) *KubernetesClusterNetworkProfileNatGatewayProfile {
+		return &v
+	}).(KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput)
+}
+
+// The outcome (resource IDs) of the specified arguments.
+func (o KubernetesClusterNetworkProfileNatGatewayProfileOutput) EffectiveOutboundIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileNatGatewayProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
+}
+
+// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+func (o KubernetesClusterNetworkProfileNatGatewayProfileOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileNatGatewayProfile) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+func (o KubernetesClusterNetworkProfileNatGatewayProfileOutput) ManagedOutboundIpCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileNatGatewayProfile) *int { return v.ManagedOutboundIpCount }).(pulumi.IntPtrOutput)
+}
+
+type KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNetworkProfileNatGatewayProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutput() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) ToKubernetesClusterNetworkProfileNatGatewayProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) Elem() KubernetesClusterNetworkProfileNatGatewayProfileOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileNatGatewayProfile) KubernetesClusterNetworkProfileNatGatewayProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNetworkProfileNatGatewayProfile
+		return ret
+	}).(KubernetesClusterNetworkProfileNatGatewayProfileOutput)
+}
+
+// The outcome (resource IDs) of the specified arguments.
+func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) EffectiveOutboundIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileNatGatewayProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EffectiveOutboundIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileNatGatewayProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) ManagedOutboundIpCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileNatGatewayProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedOutboundIpCount
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -14460,6 +14656,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfilePtrInput)(nil)).Elem(), KubernetesClusterNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileLoadBalancerProfileInput)(nil)).Elem(), KubernetesClusterNetworkProfileLoadBalancerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput)(nil)).Elem(), KubernetesClusterNetworkProfileLoadBalancerProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileNatGatewayProfileInput)(nil)).Elem(), KubernetesClusterNetworkProfileNatGatewayProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileNatGatewayProfilePtrInput)(nil)).Elem(), KubernetesClusterNetworkProfileNatGatewayProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolKubeletConfigInput)(nil)).Elem(), KubernetesClusterNodePoolKubeletConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolKubeletConfigPtrInput)(nil)).Elem(), KubernetesClusterNodePoolKubeletConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolLinuxOsConfigInput)(nil)).Elem(), KubernetesClusterNodePoolLinuxOsConfigArgs{})
@@ -14622,6 +14820,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileLoadBalancerProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileNatGatewayProfileOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolKubeletConfigOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolKubeletConfigPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolLinuxOsConfigOutput{})

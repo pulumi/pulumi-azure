@@ -195,6 +195,8 @@ type Account struct {
 	PrimaryWebEndpoint pulumi.StringOutput `pulumi:"primaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the primary location.
 	PrimaryWebHost pulumi.StringOutput `pulumi:"primaryWebHost"`
+	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+	QueueEncryptionKeyType pulumi.StringPtrOutput `pulumi:"queueEncryptionKeyType"`
 	// A `queueProperties` block as defined below.
 	QueueProperties AccountQueuePropertiesOutput `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -238,6 +240,8 @@ type Account struct {
 	SharedAccessKeyEnabled pulumi.BoolPtrOutput `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
 	StaticWebsite AccountStaticWebsitePtrOutput `pulumi:"staticWebsite"`
+	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+	TableEncryptionKeyType pulumi.StringPtrOutput `pulumi:"tableEncryptionKeyType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -347,6 +351,8 @@ type accountState struct {
 	PrimaryWebEndpoint *string `pulumi:"primaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the primary location.
 	PrimaryWebHost *string `pulumi:"primaryWebHost"`
+	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+	QueueEncryptionKeyType *string `pulumi:"queueEncryptionKeyType"`
 	// A `queueProperties` block as defined below.
 	QueueProperties *AccountQueueProperties `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -390,6 +396,8 @@ type accountState struct {
 	SharedAccessKeyEnabled *bool `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
+	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+	TableEncryptionKeyType *string `pulumi:"tableEncryptionKeyType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -462,6 +470,8 @@ type AccountState struct {
 	PrimaryWebEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for web storage in the primary location.
 	PrimaryWebHost pulumi.StringPtrInput
+	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+	QueueEncryptionKeyType pulumi.StringPtrInput
 	// A `queueProperties` block as defined below.
 	QueueProperties AccountQueuePropertiesPtrInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -505,6 +515,8 @@ type AccountState struct {
 	SharedAccessKeyEnabled pulumi.BoolPtrInput
 	// A `staticWebsite` block as defined below.
 	StaticWebsite AccountStaticWebsitePtrInput
+	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+	TableEncryptionKeyType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -549,6 +561,8 @@ type accountArgs struct {
 	NetworkRules *AccountNetworkRulesType `pulumi:"networkRules"`
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	Nfsv3Enabled *bool `pulumi:"nfsv3Enabled"`
+	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+	QueueEncryptionKeyType *string `pulumi:"queueEncryptionKeyType"`
 	// A `queueProperties` block as defined below.
 	QueueProperties *AccountQueueProperties `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -560,6 +574,8 @@ type accountArgs struct {
 	SharedAccessKeyEnabled *bool `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
+	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+	TableEncryptionKeyType *string `pulumi:"tableEncryptionKeyType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -601,6 +617,8 @@ type AccountArgs struct {
 	NetworkRules AccountNetworkRulesTypePtrInput
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	Nfsv3Enabled pulumi.BoolPtrInput
+	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+	QueueEncryptionKeyType pulumi.StringPtrInput
 	// A `queueProperties` block as defined below.
 	QueueProperties AccountQueuePropertiesPtrInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -612,6 +630,8 @@ type AccountArgs struct {
 	SharedAccessKeyEnabled pulumi.BoolPtrInput
 	// A `staticWebsite` block as defined below.
 	StaticWebsite AccountStaticWebsitePtrInput
+	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+	TableEncryptionKeyType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

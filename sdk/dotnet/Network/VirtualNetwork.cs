@@ -126,6 +126,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
 
         /// <summary>
+        /// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+        /// </summary>
+        [Output("flowTimeoutInMinutes")]
+        public Output<int?> FlowTimeoutInMinutes { get; private set; } = null!;
+
+        /// <summary>
         /// The GUID of the virtual network.
         /// </summary>
         [Output("guid")]
@@ -247,6 +253,12 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
+        /// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+        /// </summary>
+        [Input("flowTimeoutInMinutes")]
+        public Input<int>? FlowTimeoutInMinutes { get; set; }
+
+        /// <summary>
         /// The location/region where the virtual network is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -333,6 +345,12 @@ namespace Pulumi.Azure.Network
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
+
+        /// <summary>
+        /// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+        /// </summary>
+        [Input("flowTimeoutInMinutes")]
+        public Input<int>? FlowTimeoutInMinutes { get; set; }
 
         /// <summary>
         /// The GUID of the virtual network.

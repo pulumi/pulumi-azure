@@ -7,19 +7,37 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ResourceProviderRegistrationArgs', 'ResourceProviderRegistration']
 
 @pulumi.input_type
 class ResourceProviderRegistrationArgs:
     def __init__(__self__, *,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourceProviderRegistration resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]] features: A list of `feature` blocks as defined below.
         :param pulumi.Input[str] name: The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         """
+        if features is not None:
+            pulumi.set(__self__, "features", features)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]]:
+        """
+        A list of `feature` blocks as defined below.
+        """
+        return pulumi.get(self, "features")
+
+    @features.setter
+    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]]):
+        pulumi.set(self, "features", value)
 
     @property
     @pulumi.getter
@@ -37,13 +55,29 @@ class ResourceProviderRegistrationArgs:
 @pulumi.input_type
 class _ResourceProviderRegistrationState:
     def __init__(__self__, *,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResourceProviderRegistration resources.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]] features: A list of `feature` blocks as defined below.
         :param pulumi.Input[str] name: The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         """
+        if features is not None:
+            pulumi.set(__self__, "features", features)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]]:
+        """
+        A list of `feature` blocks as defined below.
+        """
+        return pulumi.get(self, "features")
+
+    @features.setter
+    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]]):
+        pulumi.set(self, "features", value)
 
     @property
     @pulumi.getter
@@ -63,6 +97,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceProviderRegistrationFeatureArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -72,6 +107,8 @@ class ResourceProviderRegistration(pulumi.CustomResource):
 
         !> **Note:** The errors returned from the Azure API when a Resource Provider is unregistered are unclear (example `API version '2019-01-01' was not found for 'Microsoft.Foo'`) - please ensure that all of the necessary Resource Providers you're using are registered - if in doubt **we strongly recommend letting the provider register these for you**.
 
+        > **Note:** Adding or Removing a Preview Feature will re-register the Resource Provider.
+
         ## Example Usage
 
         ```python
@@ -79,6 +116,17 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceProviderRegistration("example")
+        ```
+        ### Registering A Preview Feature)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceProviderRegistration("example", features=[azure.core.ResourceProviderRegistrationFeatureArgs(
+            name="AKS-DataPlaneAutoApprove",
+            registered=True,
+        )])
         ```
 
         ## Import
@@ -91,6 +139,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceProviderRegistrationFeatureArgs']]]] features: A list of `feature` blocks as defined below.
         :param pulumi.Input[str] name: The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         """
         ...
@@ -106,6 +155,8 @@ class ResourceProviderRegistration(pulumi.CustomResource):
 
         !> **Note:** The errors returned from the Azure API when a Resource Provider is unregistered are unclear (example `API version '2019-01-01' was not found for 'Microsoft.Foo'`) - please ensure that all of the necessary Resource Providers you're using are registered - if in doubt **we strongly recommend letting the provider register these for you**.
 
+        > **Note:** Adding or Removing a Preview Feature will re-register the Resource Provider.
+
         ## Example Usage
 
         ```python
@@ -113,6 +164,17 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceProviderRegistration("example")
+        ```
+        ### Registering A Preview Feature)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceProviderRegistration("example", features=[azure.core.ResourceProviderRegistrationFeatureArgs(
+            name="AKS-DataPlaneAutoApprove",
+            registered=True,
+        )])
         ```
 
         ## Import
@@ -138,6 +200,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceProviderRegistrationFeatureArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -151,6 +214,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceProviderRegistrationArgs.__new__(ResourceProviderRegistrationArgs)
 
+            __props__.__dict__["features"] = features
             __props__.__dict__["name"] = name
         super(ResourceProviderRegistration, __self__).__init__(
             'azure:core/resourceProviderRegistration:ResourceProviderRegistration',
@@ -162,6 +226,7 @@ class ResourceProviderRegistration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceProviderRegistrationFeatureArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'ResourceProviderRegistration':
         """
         Get an existing ResourceProviderRegistration resource's state with the given name, id, and optional extra
@@ -170,14 +235,24 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceProviderRegistrationFeatureArgs']]]] features: A list of `feature` blocks as defined below.
         :param pulumi.Input[str] name: The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ResourceProviderRegistrationState.__new__(_ResourceProviderRegistrationState)
 
+        __props__.__dict__["features"] = features
         __props__.__dict__["name"] = name
         return ResourceProviderRegistration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def features(self) -> pulumi.Output[Optional[Sequence['outputs.ResourceProviderRegistrationFeature']]]:
+        """
+        A list of `feature` blocks as defined below.
+        """
+        return pulumi.get(self, "features")
 
     @property
     @pulumi.getter

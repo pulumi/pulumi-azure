@@ -30,6 +30,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? LoadBalancerSku;
         /// <summary>
+        /// A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        /// </summary>
+        public readonly Outputs.KubernetesClusterNetworkProfileNatGatewayProfile? NatGatewayProfile;
+        /// <summary>
         /// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? NetworkMode;
@@ -42,7 +46,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? NetworkPolicy;
         /// <summary>
-        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
         /// </summary>
         public readonly string? OutboundType;
         /// <summary>
@@ -64,6 +68,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? loadBalancerSku,
 
+            Outputs.KubernetesClusterNetworkProfileNatGatewayProfile? natGatewayProfile,
+
             string? networkMode,
 
             string networkPlugin,
@@ -80,6 +86,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             DockerBridgeCidr = dockerBridgeCidr;
             LoadBalancerProfile = loadBalancerProfile;
             LoadBalancerSku = loadBalancerSku;
+            NatGatewayProfile = natGatewayProfile;
             NetworkMode = networkMode;
             NetworkPlugin = networkPlugin;
             NetworkPolicy = networkPolicy;

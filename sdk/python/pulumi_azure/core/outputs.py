@@ -12,8 +12,13 @@ __all__ = [
     'CustomProviderAction',
     'CustomProviderResourceType',
     'CustomProviderValidation',
+    'ResourceGroupCostManagementExportExportDataOptions',
+    'ResourceGroupCostManagementExportExportDataStorageLocation',
     'ResourceGroupPolicyAssignmentIdentity',
     'ResourcePolicyAssignmentIdentity',
+    'ResourceProviderRegistrationFeature',
+    'SubscriptionCostManagementExportExportDataOptions',
+    'SubscriptionCostManagementExportExportDataStorageLocation',
     'SubscriptionPolicyAssignmentIdentity',
     'GetResourcesResourceResult',
     'GetSubscriptionsSubscriptionResult',
@@ -122,6 +127,100 @@ class CustomProviderValidation(dict):
         The endpoint where the validation specification is located.
         """
         return pulumi.get(self, "specification")
+
+
+@pulumi.output_type
+class ResourceGroupCostManagementExportExportDataOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeFrame":
+            suggest = "time_frame"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGroupCostManagementExportExportDataOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGroupCostManagementExportExportDataOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGroupCostManagementExportExportDataOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time_frame: str,
+                 type: str):
+        """
+        :param str time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+        :param str type: The type of the query.
+        """
+        pulumi.set(__self__, "time_frame", time_frame)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="timeFrame")
+    def time_frame(self) -> str:
+        """
+        The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+        """
+        return pulumi.get(self, "time_frame")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the query.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ResourceGroupCostManagementExportExportDataStorageLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerId":
+            suggest = "container_id"
+        elif key == "rootFolderPath":
+            suggest = "root_folder_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGroupCostManagementExportExportDataStorageLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGroupCostManagementExportExportDataStorageLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGroupCostManagementExportExportDataStorageLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_id: str,
+                 root_folder_path: str):
+        """
+        :param str container_id: The Resource Manager ID of the container where exports will be uploaded.
+        :param str root_folder_path: The path of the directory where exports will be uploaded.
+        """
+        pulumi.set(__self__, "container_id", container_id)
+        pulumi.set(__self__, "root_folder_path", root_folder_path)
+
+    @property
+    @pulumi.getter(name="containerId")
+    def container_id(self) -> str:
+        """
+        The Resource Manager ID of the container where exports will be uploaded.
+        """
+        return pulumi.get(self, "container_id")
+
+    @property
+    @pulumi.getter(name="rootFolderPath")
+    def root_folder_path(self) -> str:
+        """
+        The path of the directory where exports will be uploaded.
+        """
+        return pulumi.get(self, "root_folder_path")
 
 
 @pulumi.output_type
@@ -246,6 +345,129 @@ class ResourcePolicyAssignmentIdentity(dict):
         The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ResourceProviderRegistrationFeature(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 registered: bool):
+        """
+        :param str name: Specifies the name of the feature to register.
+        :param bool registered: Should this feature be Registered or Unregistered?
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "registered", registered)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the feature to register.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def registered(self) -> bool:
+        """
+        Should this feature be Registered or Unregistered?
+        """
+        return pulumi.get(self, "registered")
+
+
+@pulumi.output_type
+class SubscriptionCostManagementExportExportDataOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeFrame":
+            suggest = "time_frame"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubscriptionCostManagementExportExportDataOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubscriptionCostManagementExportExportDataOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubscriptionCostManagementExportExportDataOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time_frame: str,
+                 type: str):
+        """
+        :param str time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+        :param str type: The type of the query.
+        """
+        pulumi.set(__self__, "time_frame", time_frame)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="timeFrame")
+    def time_frame(self) -> str:
+        """
+        The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+        """
+        return pulumi.get(self, "time_frame")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the query.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SubscriptionCostManagementExportExportDataStorageLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerId":
+            suggest = "container_id"
+        elif key == "rootFolderPath":
+            suggest = "root_folder_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubscriptionCostManagementExportExportDataStorageLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubscriptionCostManagementExportExportDataStorageLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubscriptionCostManagementExportExportDataStorageLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_id: str,
+                 root_folder_path: str):
+        """
+        :param str container_id: The Resource Manager ID of the container where exports will be uploaded.
+        :param str root_folder_path: The path of the directory where exports will be uploaded.
+        """
+        pulumi.set(__self__, "container_id", container_id)
+        pulumi.set(__self__, "root_folder_path", root_folder_path)
+
+    @property
+    @pulumi.getter(name="containerId")
+    def container_id(self) -> str:
+        """
+        The Resource Manager ID of the container where exports will be uploaded.
+        """
+        return pulumi.get(self, "container_id")
+
+    @property
+    @pulumi.getter(name="rootFolderPath")
+    def root_folder_path(self) -> str:
+        """
+        The path of the directory where exports will be uploaded.
+        """
+        return pulumi.get(self, "root_folder_path")
 
 
 @pulumi.output_type

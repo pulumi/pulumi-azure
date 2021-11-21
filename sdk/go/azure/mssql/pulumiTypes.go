@@ -1076,7 +1076,7 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64Ptr
 type ElasticPoolSku struct {
 	// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Capacity int `pulumi:"capacity"`
-	// The `family` of hardware `Gen4` or `Gen5`.
+	// The `family` of hardware `Gen4`, `Gen5` or `Fsv2`.
 	Family *string `pulumi:"family"`
 	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 	Name string `pulumi:"name"`
@@ -1098,7 +1098,7 @@ type ElasticPoolSkuInput interface {
 type ElasticPoolSkuArgs struct {
 	// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The `family` of hardware `Gen4` or `Gen5`.
+	// The `family` of hardware `Gen4`, `Gen5` or `Fsv2`.
 	Family pulumi.StringPtrInput `pulumi:"family"`
 	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1188,7 +1188,7 @@ func (o ElasticPoolSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ElasticPoolSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The `family` of hardware `Gen4` or `Gen5`.
+// The `family` of hardware `Gen4`, `Gen5` or `Fsv2`.
 func (o ElasticPoolSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ElasticPoolSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
@@ -1237,7 +1237,7 @@ func (o ElasticPoolSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The `family` of hardware `Gen4` or `Gen5`.
+// The `family` of hardware `Gen4`, `Gen5` or `Fsv2`.
 func (o ElasticPoolSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticPoolSku) *string {
 		if v == nil {
@@ -1539,13 +1539,13 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.Str
 }
 
 type ServerAzureadAdministrator struct {
-	// (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
+	// Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
 	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
-	// (Required)  The login username of the Azure AD Administrator of this SQL Server.
+	// The login username of the Azure AD Administrator of this SQL Server.
 	LoginUsername string `pulumi:"loginUsername"`
-	// (Required) The object id of the Azure AD Administrator of this SQL Server.
+	// The object id of the Azure AD Administrator of this SQL Server.
 	ObjectId string `pulumi:"objectId"`
-	// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+	// The tenant id of the Azure AD Administrator of this SQL Server.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -1561,13 +1561,13 @@ type ServerAzureadAdministratorInput interface {
 }
 
 type ServerAzureadAdministratorArgs struct {
-	// (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
+	// Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
 	AzureadAuthenticationOnly pulumi.BoolPtrInput `pulumi:"azureadAuthenticationOnly"`
-	// (Required)  The login username of the Azure AD Administrator of this SQL Server.
+	// The login username of the Azure AD Administrator of this SQL Server.
 	LoginUsername pulumi.StringInput `pulumi:"loginUsername"`
-	// (Required) The object id of the Azure AD Administrator of this SQL Server.
+	// The object id of the Azure AD Administrator of this SQL Server.
 	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+	// The tenant id of the Azure AD Administrator of this SQL Server.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
@@ -1648,22 +1648,22 @@ func (o ServerAzureadAdministratorOutput) ToServerAzureadAdministratorPtrOutputW
 	}).(ServerAzureadAdministratorPtrOutput)
 }
 
-// (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
+// Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
 func (o ServerAzureadAdministratorOutput) AzureadAuthenticationOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServerAzureadAdministrator) *bool { return v.AzureadAuthenticationOnly }).(pulumi.BoolPtrOutput)
 }
 
-// (Required)  The login username of the Azure AD Administrator of this SQL Server.
+// The login username of the Azure AD Administrator of this SQL Server.
 func (o ServerAzureadAdministratorOutput) LoginUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerAzureadAdministrator) string { return v.LoginUsername }).(pulumi.StringOutput)
 }
 
-// (Required) The object id of the Azure AD Administrator of this SQL Server.
+// The object id of the Azure AD Administrator of this SQL Server.
 func (o ServerAzureadAdministratorOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerAzureadAdministrator) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+// The tenant id of the Azure AD Administrator of this SQL Server.
 func (o ServerAzureadAdministratorOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerAzureadAdministrator) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -1692,7 +1692,7 @@ func (o ServerAzureadAdministratorPtrOutput) Elem() ServerAzureadAdministratorOu
 	}).(ServerAzureadAdministratorOutput)
 }
 
-// (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
+// Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
 func (o ServerAzureadAdministratorPtrOutput) AzureadAuthenticationOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerAzureadAdministrator) *bool {
 		if v == nil {
@@ -1702,7 +1702,7 @@ func (o ServerAzureadAdministratorPtrOutput) AzureadAuthenticationOnly() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Required)  The login username of the Azure AD Administrator of this SQL Server.
+// The login username of the Azure AD Administrator of this SQL Server.
 func (o ServerAzureadAdministratorPtrOutput) LoginUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerAzureadAdministrator) *string {
 		if v == nil {
@@ -1712,7 +1712,7 @@ func (o ServerAzureadAdministratorPtrOutput) LoginUsername() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Required) The object id of the Azure AD Administrator of this SQL Server.
+// The object id of the Azure AD Administrator of this SQL Server.
 func (o ServerAzureadAdministratorPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerAzureadAdministrator) *string {
 		if v == nil {
@@ -1722,7 +1722,7 @@ func (o ServerAzureadAdministratorPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+// The tenant id of the Azure AD Administrator of this SQL Server.
 func (o ServerAzureadAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerAzureadAdministrator) *string {
 		if v == nil {
@@ -1733,16 +1733,11 @@ func (o ServerAzureadAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 type ServerExtendedAuditingPolicyType struct {
-	// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
-	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
-	// (Optional) Specifies the number of days to retain logs for in the storage account.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// (Optional)  Specifies the access key to use for the auditing storage account.
-	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-	StorageEndpoint *string `pulumi:"storageEndpoint"`
+	LogMonitoringEnabled               *bool   `pulumi:"logMonitoringEnabled"`
+	RetentionInDays                    *int    `pulumi:"retentionInDays"`
+	StorageAccountAccessKey            *string `pulumi:"storageAccountAccessKey"`
+	StorageAccountAccessKeyIsSecondary *bool   `pulumi:"storageAccountAccessKeyIsSecondary"`
+	StorageEndpoint                    *string `pulumi:"storageEndpoint"`
 }
 
 // ServerExtendedAuditingPolicyTypeInput is an input type that accepts ServerExtendedAuditingPolicyTypeArgs and ServerExtendedAuditingPolicyTypeOutput values.
@@ -1757,16 +1752,11 @@ type ServerExtendedAuditingPolicyTypeInput interface {
 }
 
 type ServerExtendedAuditingPolicyTypeArgs struct {
-	// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
-	LogMonitoringEnabled pulumi.BoolPtrInput `pulumi:"logMonitoringEnabled"`
-	// (Optional) Specifies the number of days to retain logs for in the storage account.
-	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
-	// (Optional)  Specifies the access key to use for the auditing storage account.
-	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
-	// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
+	LogMonitoringEnabled               pulumi.BoolPtrInput   `pulumi:"logMonitoringEnabled"`
+	RetentionInDays                    pulumi.IntPtrInput    `pulumi:"retentionInDays"`
+	StorageAccountAccessKey            pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
+	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput   `pulumi:"storageAccountAccessKeyIsSecondary"`
+	StorageEndpoint                    pulumi.StringPtrInput `pulumi:"storageEndpoint"`
 }
 
 func (ServerExtendedAuditingPolicyTypeArgs) ElementType() reflect.Type {
@@ -1846,27 +1836,22 @@ func (o ServerExtendedAuditingPolicyTypeOutput) ToServerExtendedAuditingPolicyTy
 	}).(ServerExtendedAuditingPolicyTypePtrOutput)
 }
 
-// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
 func (o ServerExtendedAuditingPolicyTypeOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *bool { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Specifies the number of days to retain logs for in the storage account.
 func (o ServerExtendedAuditingPolicyTypeOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// (Optional)  Specifies the access key to use for the auditing storage account.
 func (o ServerExtendedAuditingPolicyTypeOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 func (o ServerExtendedAuditingPolicyTypeOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
 func (o ServerExtendedAuditingPolicyTypeOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -1895,7 +1880,6 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) Elem() ServerExtendedAuditing
 	}).(ServerExtendedAuditingPolicyTypeOutput)
 }
 
-// (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
 func (o ServerExtendedAuditingPolicyTypePtrOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *bool {
 		if v == nil {
@@ -1905,7 +1889,6 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) LogMonitoringEnabled() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Specifies the number of days to retain logs for in the storage account.
 func (o ServerExtendedAuditingPolicyTypePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *int {
 		if v == nil {
@@ -1915,7 +1898,6 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) RetentionInDays() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Optional)  Specifies the access key to use for the auditing storage account.
 func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *string {
 		if v == nil {
@@ -1925,7 +1907,6 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKey() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *bool {
 		if v == nil {
@@ -1935,7 +1916,6 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKeyIsSeco
 	}).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
 func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *string {
 		if v == nil {
@@ -1948,7 +1928,7 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageEndpoint() pulumi.Stri
 type ServerIdentity struct {
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId *string `pulumi:"principalId"`
-	// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+	// The tenant id of the Azure AD Administrator of this SQL Server.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
 	Type string `pulumi:"type"`
@@ -1970,7 +1950,7 @@ type ServerIdentityInput interface {
 type ServerIdentityArgs struct {
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+	// The tenant id of the Azure AD Administrator of this SQL Server.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the identity type of the Microsoft SQL Server. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `userAssignedIdentityIds` field.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2060,7 +2040,7 @@ func (o ServerIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+// The tenant id of the Azure AD Administrator of this SQL Server.
 func (o ServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -2109,7 +2089,7 @@ func (o ServerIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+// The tenant id of the Azure AD Administrator of this SQL Server.
 func (o ServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerIdentity) *string {
 		if v == nil {

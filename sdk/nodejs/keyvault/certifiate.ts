@@ -78,20 +78,6 @@ import * as utilities from "../utilities";
  *         contents: Buffer.from(fs.readFileSync("certificate-to-import.pfx"), 'binary').toString('base64'),
  *         password: "",
  *     },
- *     certificatePolicy: {
- *         issuerParameters: {
- *             name: "Self",
- *         },
- *         keyProperties: {
- *             exportable: true,
- *             keySize: 2048,
- *             keyType: "RSA",
- *             reuseKey: false,
- *         },
- *         secretProperties: {
- *             contentType: "application/x-pkcs12",
- *         },
- *     },
  * });
  * ```
  * ### Generating a new certificate
@@ -274,7 +260,7 @@ export class Certifiate extends pulumi.CustomResource {
      */
     public /*out*/ readonly secretId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -315,9 +301,6 @@ export class Certifiate extends pulumi.CustomResource {
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as CertifiateArgs | undefined;
-            if ((!args || args.certificatePolicy === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'certificatePolicy'");
-            }
             if ((!args || args.keyVaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
@@ -377,7 +360,7 @@ export interface CertifiateState {
      */
     secretId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -401,7 +384,7 @@ export interface CertifiateArgs {
     /**
      * A `certificatePolicy` block as defined below.
      */
-    certificatePolicy: pulumi.Input<inputs.keyvault.CertifiateCertificatePolicy>;
+    certificatePolicy?: pulumi.Input<inputs.keyvault.CertifiateCertificatePolicy>;
     /**
      * The ID of the Key Vault where the Certificate should be created.
      */
@@ -411,7 +394,7 @@ export interface CertifiateArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

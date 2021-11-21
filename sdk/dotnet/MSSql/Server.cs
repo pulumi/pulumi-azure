@@ -46,13 +46,6 @@ namespace Pulumi.Azure.MSSql
     ///                 LoginUsername = "AzureAD Admin",
     ///                 ObjectId = "00000000-0000-0000-0000-000000000000",
     ///             },
-    ///             ExtendedAuditingPolicy = new Azure.MSSql.Inputs.ServerExtendedAuditingPolicyArgs
-    ///             {
-    ///                 StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
-    ///                 StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///                 StorageAccountAccessKeyIsSecondary = true,
-    ///                 RetentionInDays = 6,
-    ///             },
     ///             Tags = 
     ///             {
     ///                 { "environment", "production" },
@@ -98,9 +91,6 @@ namespace Pulumi.Azure.MSSql
         [Output("connectionPolicy")]
         public Output<string?> ConnectionPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// A `extended_auditing_policy` block as defined below.
-        /// </summary>
         [Output("extendedAuditingPolicy")]
         public Output<Outputs.ServerExtendedAuditingPolicy> ExtendedAuditingPolicy { get; private set; } = null!;
 
@@ -240,9 +230,6 @@ namespace Pulumi.Azure.MSSql
         [Input("connectionPolicy")]
         public Input<string>? ConnectionPolicy { get; set; }
 
-        /// <summary>
-        /// A `extended_auditing_policy` block as defined below.
-        /// </summary>
         [Input("extendedAuditingPolicy")]
         public Input<Inputs.ServerExtendedAuditingPolicyArgs>? ExtendedAuditingPolicy { get; set; }
 
@@ -337,9 +324,6 @@ namespace Pulumi.Azure.MSSql
         [Input("connectionPolicy")]
         public Input<string>? ConnectionPolicy { get; set; }
 
-        /// <summary>
-        /// A `extended_auditing_policy` block as defined below.
-        /// </summary>
         [Input("extendedAuditingPolicy")]
         public Input<Inputs.ServerExtendedAuditingPolicyGetArgs>? ExtendedAuditingPolicy { get; set; }
 

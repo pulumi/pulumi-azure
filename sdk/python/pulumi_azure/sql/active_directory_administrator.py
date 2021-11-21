@@ -17,7 +17,8 @@ class ActiveDirectoryAdministratorArgs:
                  object_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
-                 tenant_id: pulumi.Input[str]):
+                 tenant_id: pulumi.Input[str],
+                 azuread_authentication_only: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ActiveDirectoryAdministrator resource.
         :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
@@ -25,12 +26,15 @@ class ActiveDirectoryAdministratorArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID
+        :param pulumi.Input[bool] azuread_authentication_only: Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
         """
         pulumi.set(__self__, "login", login)
         pulumi.set(__self__, "object_id", object_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "tenant_id", tenant_id)
+        if azuread_authentication_only is not None:
+            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
 
     @property
     @pulumi.getter
@@ -92,10 +96,23 @@ class ActiveDirectoryAdministratorArgs:
     def tenant_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "tenant_id", value)
 
+    @property
+    @pulumi.getter(name="azureadAuthenticationOnly")
+    def azuread_authentication_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+        """
+        return pulumi.get(self, "azuread_authentication_only")
+
+    @azuread_authentication_only.setter
+    def azuread_authentication_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azuread_authentication_only", value)
+
 
 @pulumi.input_type
 class _ActiveDirectoryAdministratorState:
     def __init__(__self__, *,
+                 azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  login: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -103,12 +120,15 @@ class _ActiveDirectoryAdministratorState:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ActiveDirectoryAdministrator resources.
+        :param pulumi.Input[bool] azuread_authentication_only: Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
         :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
         :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID
         """
+        if azuread_authentication_only is not None:
+            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
         if login is not None:
             pulumi.set(__self__, "login", login)
         if object_id is not None:
@@ -119,6 +139,18 @@ class _ActiveDirectoryAdministratorState:
             pulumi.set(__self__, "server_name", server_name)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="azureadAuthenticationOnly")
+    def azuread_authentication_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+        """
+        return pulumi.get(self, "azuread_authentication_only")
+
+    @azuread_authentication_only.setter
+    def azuread_authentication_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azuread_authentication_only", value)
 
     @property
     @pulumi.getter
@@ -186,6 +218,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  login: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -227,6 +260,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] azuread_authentication_only: Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
         :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
         :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the SQL server. Changing this forces a new resource to be created.
@@ -287,6 +321,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  login: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -304,6 +339,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActiveDirectoryAdministratorArgs.__new__(ActiveDirectoryAdministratorArgs)
 
+            __props__.__dict__["azuread_authentication_only"] = azuread_authentication_only
             if login is None and not opts.urn:
                 raise TypeError("Missing required property 'login'")
             __props__.__dict__["login"] = login
@@ -329,6 +365,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
             login: Optional[pulumi.Input[str]] = None,
             object_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -341,6 +378,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] azuread_authentication_only: Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
         :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
         :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the SQL server. Changing this forces a new resource to be created.
@@ -351,12 +389,21 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
 
         __props__ = _ActiveDirectoryAdministratorState.__new__(_ActiveDirectoryAdministratorState)
 
+        __props__.__dict__["azuread_authentication_only"] = azuread_authentication_only
         __props__.__dict__["login"] = login
         __props__.__dict__["object_id"] = object_id
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["server_name"] = server_name
         __props__.__dict__["tenant_id"] = tenant_id
         return ActiveDirectoryAdministrator(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureadAuthenticationOnly")
+    def azuread_authentication_only(self) -> pulumi.Output[bool]:
+        """
+        Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+        """
+        return pulumi.get(self, "azuread_authentication_only")
 
     @property
     @pulumi.getter

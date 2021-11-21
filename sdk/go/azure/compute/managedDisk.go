@@ -141,6 +141,8 @@ type ManagedDisk struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy pulumi.StringPtrOutput `pulumi:"networkAccessPolicy"`
+	// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+	OnDemandBurstingEnabled pulumi.BoolPtrOutput `pulumi:"onDemandBurstingEnabled"`
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// The name of the Resource Group where the Managed Disk should exist.
@@ -231,6 +233,8 @@ type managedDiskState struct {
 	Name *string `pulumi:"name"`
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
+	// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+	OnDemandBurstingEnabled *bool `pulumi:"onDemandBurstingEnabled"`
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
 	// The name of the Resource Group where the Managed Disk should exist.
@@ -284,6 +288,8 @@ type ManagedDiskState struct {
 	Name pulumi.StringPtrInput
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy pulumi.StringPtrInput
+	// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+	OnDemandBurstingEnabled pulumi.BoolPtrInput
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
 	// The name of the Resource Group where the Managed Disk should exist.
@@ -341,6 +347,8 @@ type managedDiskArgs struct {
 	Name *string `pulumi:"name"`
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
+	// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+	OnDemandBurstingEnabled *bool `pulumi:"onDemandBurstingEnabled"`
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
 	// The name of the Resource Group where the Managed Disk should exist.
@@ -395,6 +403,8 @@ type ManagedDiskArgs struct {
 	Name pulumi.StringPtrInput
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy pulumi.StringPtrInput
+	// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+	OnDemandBurstingEnabled pulumi.BoolPtrInput
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
 	// The name of the Resource Group where the Managed Disk should exist.

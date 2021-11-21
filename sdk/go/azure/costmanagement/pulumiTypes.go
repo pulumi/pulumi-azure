@@ -186,7 +186,7 @@ func (o ResourceGroupExportDeliveryInfoPtrOutput) StorageAccountId() pulumi.Stri
 }
 
 type ResourceGroupExportQuery struct {
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 	TimeFrame string `pulumi:"timeFrame"`
 	// The type of the query.
 	Type string `pulumi:"type"`
@@ -204,7 +204,7 @@ type ResourceGroupExportQueryInput interface {
 }
 
 type ResourceGroupExportQueryArgs struct {
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 	TimeFrame pulumi.StringInput `pulumi:"timeFrame"`
 	// The type of the query.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -287,7 +287,7 @@ func (o ResourceGroupExportQueryOutput) ToResourceGroupExportQueryPtrOutputWithC
 	}).(ResourceGroupExportQueryPtrOutput)
 }
 
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 func (o ResourceGroupExportQueryOutput) TimeFrame() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupExportQuery) string { return v.TimeFrame }).(pulumi.StringOutput)
 }
@@ -321,7 +321,7 @@ func (o ResourceGroupExportQueryPtrOutput) Elem() ResourceGroupExportQueryOutput
 	}).(ResourceGroupExportQueryOutput)
 }
 
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 func (o ResourceGroupExportQueryPtrOutput) TimeFrame() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceGroupExportQuery) *string {
 		if v == nil {

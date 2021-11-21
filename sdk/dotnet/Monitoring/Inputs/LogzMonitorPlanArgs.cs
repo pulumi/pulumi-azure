@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> PlanId { get; set; } = null!;
 
         /// <summary>
-        /// Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+        /// Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
         /// </summary>
         [Input("usageType", required: true)]
         public Input<string> UsageType { get; set; } = null!;

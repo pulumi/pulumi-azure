@@ -32,12 +32,6 @@ import * as utilities from "../utilities";
  *         loginUsername: "AzureAD Admin",
  *         objectId: "00000000-0000-0000-0000-000000000000",
  *     },
- *     extendedAuditingPolicy: {
- *         storageEndpoint: exampleAccount.primaryBlobEndpoint,
- *         storageAccountAccessKey: exampleAccount.primaryAccessKey,
- *         storageAccountAccessKeyIsSecondary: true,
- *         retentionInDays: 6,
- *     },
  *     tags: {
  *         environment: "production",
  *     },
@@ -97,8 +91,6 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly connectionPolicy!: pulumi.Output<string | undefined>;
     /**
-     * A `extendedAuditingPolicy` block as defined below.
-     *
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
     public readonly extendedAuditingPolicy!: pulumi.Output<outputs.mssql.ServerExtendedAuditingPolicy>;
@@ -235,8 +227,6 @@ export interface ServerState {
      */
     connectionPolicy?: pulumi.Input<string>;
     /**
-     * A `extendedAuditingPolicy` block as defined below.
-     *
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
     extendedAuditingPolicy?: pulumi.Input<inputs.mssql.ServerExtendedAuditingPolicy>;
@@ -307,8 +297,6 @@ export interface ServerArgs {
      */
     connectionPolicy?: pulumi.Input<string>;
     /**
-     * A `extendedAuditingPolicy` block as defined below.
-     *
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
     extendedAuditingPolicy?: pulumi.Input<inputs.mssql.ServerExtendedAuditingPolicy>;

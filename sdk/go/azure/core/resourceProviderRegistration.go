@@ -16,6 +16,8 @@ import (
 //
 // !> **Note:** The errors returned from the Azure API when a Resource Provider is unregistered are unclear (example `API version '2019-01-01' was not found for 'Microsoft.Foo'`) - please ensure that all of the necessary Resource Providers you're using are registered - if in doubt **we strongly recommend letting the provider register these for you**.
 //
+// > **Note:** Adding or Removing a Preview Feature will re-register the Resource Provider.
+//
 // ## Example Usage
 //
 // ```go
@@ -36,6 +38,33 @@ import (
 // 	})
 // }
 // ```
+// ### Registering A Preview Feature)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := core.NewResourceProviderRegistration(ctx, "example", &core.ResourceProviderRegistrationArgs{
+// 			Features: core.ResourceProviderRegistrationFeatureArray{
+// 				&core.ResourceProviderRegistrationFeatureArgs{
+// 					Name:       pulumi.String("AKS-DataPlaneAutoApprove"),
+// 					Registered: pulumi.Bool(true),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -47,6 +76,8 @@ import (
 type ResourceProviderRegistration struct {
 	pulumi.CustomResourceState
 
+	// A list of `feature` blocks as defined below.
+	Features ResourceProviderRegistrationFeatureArrayOutput `pulumi:"features"`
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
@@ -80,11 +111,15 @@ func GetResourceProviderRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceProviderRegistration resources.
 type resourceProviderRegistrationState struct {
+	// A list of `feature` blocks as defined below.
+	Features []ResourceProviderRegistrationFeature `pulumi:"features"`
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 }
 
 type ResourceProviderRegistrationState struct {
+	// A list of `feature` blocks as defined below.
+	Features ResourceProviderRegistrationFeatureArrayInput
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 }
@@ -94,12 +129,16 @@ func (ResourceProviderRegistrationState) ElementType() reflect.Type {
 }
 
 type resourceProviderRegistrationArgs struct {
+	// A list of `feature` blocks as defined below.
+	Features []ResourceProviderRegistrationFeature `pulumi:"features"`
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ResourceProviderRegistration resource.
 type ResourceProviderRegistrationArgs struct {
+	// A list of `feature` blocks as defined below.
+	Features ResourceProviderRegistrationFeatureArrayInput
 	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 }

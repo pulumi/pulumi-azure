@@ -87,6 +87,8 @@ import (
 type ApplicationGroup struct {
 	pulumi.CustomResourceState
 
+	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+	DefaultDesktopDisplayName pulumi.StringPtrOutput `pulumi:"defaultDesktopDisplayName"`
 	// Option to set a description for the Virtual Desktop Application Group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Option to set a friendly name for the Virtual Desktop Application Group.
@@ -148,6 +150,8 @@ func GetApplicationGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationGroup resources.
 type applicationGroupState struct {
+	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+	DefaultDesktopDisplayName *string `pulumi:"defaultDesktopDisplayName"`
 	// Option to set a description for the Virtual Desktop Application Group.
 	Description *string `pulumi:"description"`
 	// Option to set a friendly name for the Virtual Desktop Application Group.
@@ -172,6 +176,8 @@ type applicationGroupState struct {
 }
 
 type ApplicationGroupState struct {
+	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+	DefaultDesktopDisplayName pulumi.StringPtrInput
 	// Option to set a description for the Virtual Desktop Application Group.
 	Description pulumi.StringPtrInput
 	// Option to set a friendly name for the Virtual Desktop Application Group.
@@ -200,6 +206,8 @@ func (ApplicationGroupState) ElementType() reflect.Type {
 }
 
 type applicationGroupArgs struct {
+	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+	DefaultDesktopDisplayName *string `pulumi:"defaultDesktopDisplayName"`
 	// Option to set a description for the Virtual Desktop Application Group.
 	Description *string `pulumi:"description"`
 	// Option to set a friendly name for the Virtual Desktop Application Group.
@@ -225,6 +233,8 @@ type applicationGroupArgs struct {
 
 // The set of arguments for constructing a ApplicationGroup resource.
 type ApplicationGroupArgs struct {
+	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+	DefaultDesktopDisplayName pulumi.StringPtrInput
 	// Option to set a description for the Virtual Desktop Application Group.
 	Description pulumi.StringPtrInput
 	// Option to set a friendly name for the Virtual Desktop Application Group.

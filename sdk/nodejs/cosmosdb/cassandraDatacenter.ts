@@ -42,6 +42,7 @@ import * as utilities from "../utilities";
  *     nodeCount: 3,
  *     diskCount: 4,
  *     skuName: "Standard_DS14_v2",
+ *     availabilityZonesEnabled: false,
  * });
  * ```
  *
@@ -82,6 +83,10 @@ export class CassandraDatacenter extends pulumi.CustomResource {
     }
 
     /**
+     * Determines whether availability zones are enabled. Defaults to `true`.
+     */
+    public readonly availabilityZonesEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
      */
     public readonly cassandraClusterId!: pulumi.Output<string>;
@@ -90,7 +95,7 @@ export class CassandraDatacenter extends pulumi.CustomResource {
      */
     public readonly delegatedManagementSubnetId!: pulumi.Output<string>;
     /**
-     * Determines the number of p30 disks that are attached to each node. Defaults to 4.
+     * Determines the number of p30 disks that are attached to each node. Defaults to `4`.
      */
     public readonly diskCount!: pulumi.Output<number | undefined>;
     /**
@@ -102,7 +107,7 @@ export class CassandraDatacenter extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+     * The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
      */
     public readonly nodeCount!: pulumi.Output<number | undefined>;
     /**
@@ -123,6 +128,7 @@ export class CassandraDatacenter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CassandraDatacenterState | undefined;
+            inputs["availabilityZonesEnabled"] = state ? state.availabilityZonesEnabled : undefined;
             inputs["cassandraClusterId"] = state ? state.cassandraClusterId : undefined;
             inputs["delegatedManagementSubnetId"] = state ? state.delegatedManagementSubnetId : undefined;
             inputs["diskCount"] = state ? state.diskCount : undefined;
@@ -138,6 +144,7 @@ export class CassandraDatacenter extends pulumi.CustomResource {
             if ((!args || args.delegatedManagementSubnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'delegatedManagementSubnetId'");
             }
+            inputs["availabilityZonesEnabled"] = args ? args.availabilityZonesEnabled : undefined;
             inputs["cassandraClusterId"] = args ? args.cassandraClusterId : undefined;
             inputs["delegatedManagementSubnetId"] = args ? args.delegatedManagementSubnetId : undefined;
             inputs["diskCount"] = args ? args.diskCount : undefined;
@@ -158,6 +165,10 @@ export class CassandraDatacenter extends pulumi.CustomResource {
  */
 export interface CassandraDatacenterState {
     /**
+     * Determines whether availability zones are enabled. Defaults to `true`.
+     */
+    availabilityZonesEnabled?: pulumi.Input<boolean>;
+    /**
      * The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
      */
     cassandraClusterId?: pulumi.Input<string>;
@@ -166,7 +177,7 @@ export interface CassandraDatacenterState {
      */
     delegatedManagementSubnetId?: pulumi.Input<string>;
     /**
-     * Determines the number of p30 disks that are attached to each node. Defaults to 4.
+     * Determines the number of p30 disks that are attached to each node. Defaults to `4`.
      */
     diskCount?: pulumi.Input<number>;
     /**
@@ -178,7 +189,7 @@ export interface CassandraDatacenterState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+     * The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
      */
     nodeCount?: pulumi.Input<number>;
     /**
@@ -192,6 +203,10 @@ export interface CassandraDatacenterState {
  */
 export interface CassandraDatacenterArgs {
     /**
+     * Determines whether availability zones are enabled. Defaults to `true`.
+     */
+    availabilityZonesEnabled?: pulumi.Input<boolean>;
+    /**
      * The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
      */
     cassandraClusterId: pulumi.Input<string>;
@@ -200,7 +215,7 @@ export interface CassandraDatacenterArgs {
      */
     delegatedManagementSubnetId: pulumi.Input<string>;
     /**
-     * Determines the number of p30 disks that are attached to each node. Defaults to 4.
+     * Determines the number of p30 disks that are attached to each node. Defaults to `4`.
      */
     diskCount?: pulumi.Input<number>;
     /**
@@ -212,7 +227,7 @@ export interface CassandraDatacenterArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+     * The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
      */
     nodeCount?: pulumi.Input<number>;
     /**

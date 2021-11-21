@@ -12,8 +12,13 @@ __all__ = [
     'CustomProviderActionArgs',
     'CustomProviderResourceTypeArgs',
     'CustomProviderValidationArgs',
+    'ResourceGroupCostManagementExportExportDataOptionsArgs',
+    'ResourceGroupCostManagementExportExportDataStorageLocationArgs',
     'ResourceGroupPolicyAssignmentIdentityArgs',
     'ResourcePolicyAssignmentIdentityArgs',
+    'ResourceProviderRegistrationFeatureArgs',
+    'SubscriptionCostManagementExportExportDataOptionsArgs',
+    'SubscriptionCostManagementExportExportDataStorageLocationArgs',
     'SubscriptionPolicyAssignmentIdentityArgs',
 ]
 
@@ -130,6 +135,80 @@ class CustomProviderValidationArgs:
 
 
 @pulumi.input_type
+class ResourceGroupCostManagementExportExportDataOptionsArgs:
+    def __init__(__self__, *,
+                 time_frame: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+        :param pulumi.Input[str] type: The type of the query.
+        """
+        pulumi.set(__self__, "time_frame", time_frame)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="timeFrame")
+    def time_frame(self) -> pulumi.Input[str]:
+        """
+        The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+        """
+        return pulumi.get(self, "time_frame")
+
+    @time_frame.setter
+    def time_frame(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_frame", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the query.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ResourceGroupCostManagementExportExportDataStorageLocationArgs:
+    def __init__(__self__, *,
+                 container_id: pulumi.Input[str],
+                 root_folder_path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] container_id: The Resource Manager ID of the container where exports will be uploaded.
+        :param pulumi.Input[str] root_folder_path: The path of the directory where exports will be uploaded.
+        """
+        pulumi.set(__self__, "container_id", container_id)
+        pulumi.set(__self__, "root_folder_path", root_folder_path)
+
+    @property
+    @pulumi.getter(name="containerId")
+    def container_id(self) -> pulumi.Input[str]:
+        """
+        The Resource Manager ID of the container where exports will be uploaded.
+        """
+        return pulumi.get(self, "container_id")
+
+    @container_id.setter
+    def container_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_id", value)
+
+    @property
+    @pulumi.getter(name="rootFolderPath")
+    def root_folder_path(self) -> pulumi.Input[str]:
+        """
+        The path of the directory where exports will be uploaded.
+        """
+        return pulumi.get(self, "root_folder_path")
+
+    @root_folder_path.setter
+    def root_folder_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "root_folder_path", value)
+
+
+@pulumi.input_type
 class ResourceGroupPolicyAssignmentIdentityArgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -237,6 +316,117 @@ class ResourcePolicyAssignmentIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ResourceProviderRegistrationFeatureArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 registered: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] name: Specifies the name of the feature to register.
+        :param pulumi.Input[bool] registered: Should this feature be Registered or Unregistered?
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "registered", registered)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the feature to register.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def registered(self) -> pulumi.Input[bool]:
+        """
+        Should this feature be Registered or Unregistered?
+        """
+        return pulumi.get(self, "registered")
+
+    @registered.setter
+    def registered(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "registered", value)
+
+
+@pulumi.input_type
+class SubscriptionCostManagementExportExportDataOptionsArgs:
+    def __init__(__self__, *,
+                 time_frame: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+        :param pulumi.Input[str] type: The type of the query.
+        """
+        pulumi.set(__self__, "time_frame", time_frame)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="timeFrame")
+    def time_frame(self) -> pulumi.Input[str]:
+        """
+        The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+        """
+        return pulumi.get(self, "time_frame")
+
+    @time_frame.setter
+    def time_frame(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_frame", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the query.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class SubscriptionCostManagementExportExportDataStorageLocationArgs:
+    def __init__(__self__, *,
+                 container_id: pulumi.Input[str],
+                 root_folder_path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] container_id: The Resource Manager ID of the container where exports will be uploaded.
+        :param pulumi.Input[str] root_folder_path: The path of the directory where exports will be uploaded.
+        """
+        pulumi.set(__self__, "container_id", container_id)
+        pulumi.set(__self__, "root_folder_path", root_folder_path)
+
+    @property
+    @pulumi.getter(name="containerId")
+    def container_id(self) -> pulumi.Input[str]:
+        """
+        The Resource Manager ID of the container where exports will be uploaded.
+        """
+        return pulumi.get(self, "container_id")
+
+    @container_id.setter
+    def container_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_id", value)
+
+    @property
+    @pulumi.getter(name="rootFolderPath")
+    def root_folder_path(self) -> pulumi.Input[str]:
+        """
+        The path of the directory where exports will be uploaded.
+        """
+        return pulumi.get(self, "root_folder_path")
+
+    @root_folder_path.setter
+    def root_folder_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "root_folder_path", value)
 
 
 @pulumi.input_type

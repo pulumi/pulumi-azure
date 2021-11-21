@@ -65,6 +65,12 @@ namespace Pulumi.Azure.Network
         public Output<string> IpPrefix { get; private set; } = null!;
 
         /// <summary>
+        /// The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+        /// </summary>
+        [Output("ipVersion")]
+        public Output<string?> IpVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -156,6 +162,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
+        /// The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+        /// </summary>
+        [Input("ipVersion")]
+        public Input<string>? IpVersion { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -218,6 +230,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("ipPrefix")]
         public Input<string>? IpPrefix { get; set; }
+
+        /// <summary>
+        /// The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+        /// </summary>
+        [Input("ipVersion")]
+        public Input<string>? IpVersion { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

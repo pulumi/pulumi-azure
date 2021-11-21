@@ -5689,6 +5689,184 @@ export namespace compute {
         sourceVaultId: pulumi.Input<string>;
     }
 
+    export interface OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
+        enabled: pulumi.Input<boolean>;
+        gracePeriod?: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetBootDiagnostics {
+        storageAccountUri?: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetDataDisk {
+        caching: pulumi.Input<string>;
+        createOption?: pulumi.Input<string>;
+        diskEncryptionSetId?: pulumi.Input<string>;
+        diskIopsReadWrite?: pulumi.Input<number>;
+        diskMbpsReadWrite?: pulumi.Input<number>;
+        diskSizeGb: pulumi.Input<number>;
+        lun: pulumi.Input<number>;
+        storageAccountType: pulumi.Input<string>;
+        writeAcceleratorEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetIdentity {
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetNetworkInterface {
+        dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        enableAcceleratedNetworking?: pulumi.Input<boolean>;
+        enableIpForwarding?: pulumi.Input<boolean>;
+        ipConfigurations: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration>[]>;
+        /**
+         * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        networkSecurityGroupId?: pulumi.Input<string>;
+        primary?: pulumi.Input<boolean>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
+        applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        primary?: pulumi.Input<boolean>;
+        publicIpAddresses?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress>[]>;
+        subnetId?: pulumi.Input<string>;
+        version?: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        domainNameLabel?: pulumi.Input<string>;
+        idleTimeoutInMinutes?: pulumi.Input<number>;
+        ipTags?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag>[]>;
+        /**
+         * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        publicIpPrefixId?: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        tag: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsDisk {
+        caching: pulumi.Input<string>;
+        diffDiskSettings?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings>;
+        diskEncryptionSetId?: pulumi.Input<string>;
+        diskSizeGb?: pulumi.Input<number>;
+        storageAccountType: pulumi.Input<string>;
+        writeAcceleratorEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings {
+        /**
+         * Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+         */
+        option: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsProfile {
+        customData?: pulumi.Input<string>;
+        linuxConfiguration?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration>;
+        windowsConfiguration?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration {
+        adminPassword?: pulumi.Input<string>;
+        adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey>[]>;
+        adminUsername: pulumi.Input<string>;
+        computerNamePrefix?: pulumi.Input<string>;
+        /**
+         * When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
+         */
+        disablePasswordAuthentication?: pulumi.Input<boolean>;
+        provisionVmAgent?: pulumi.Input<boolean>;
+        secrets?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret>[]>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey {
+        /**
+         * The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+         */
+        publicKey: pulumi.Input<string>;
+        /**
+         * The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret {
+        certificates: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate>[]>;
+        keyVaultId: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate {
+        /**
+         * The Secret URL of a Key Vault Certificate.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
+        adminPassword: pulumi.Input<string>;
+        adminUsername: pulumi.Input<string>;
+        computerNamePrefix?: pulumi.Input<string>;
+        enableAutomaticUpdates?: pulumi.Input<boolean>;
+        provisionVmAgent?: pulumi.Input<boolean>;
+        secrets?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret>[]>;
+        timezone?: pulumi.Input<string>;
+        winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener>[]>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
+        certificates: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate>[]>;
+        keyVaultId: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate {
+        store: pulumi.Input<string>;
+        /**
+         * The Secret URL of a Key Vault Certificate.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener {
+        certificateUrl?: pulumi.Input<string>;
+        protocol: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetPlan {
+        /**
+         * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        product: pulumi.Input<string>;
+        publisher: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetSourceImageReference {
+        offer: pulumi.Input<string>;
+        publisher: pulumi.Input<string>;
+        sku: pulumi.Input<string>;
+        version: pulumi.Input<string>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetTerminationNotification {
+        enabled: pulumi.Input<boolean>;
+        timeout?: pulumi.Input<string>;
+    }
+
     export interface ScaleSetBootDiagnostics {
         enabled?: pulumi.Input<boolean>;
         storageUri: pulumi.Input<string>;
@@ -8157,6 +8335,10 @@ export namespace containerservice {
          */
         loadBalancerSku?: pulumi.Input<string>;
         /**
+         * A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+         */
+        natGatewayProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfileNatGatewayProfile>;
+        /**
          * Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
          */
         networkMode?: pulumi.Input<string>;
@@ -8169,7 +8351,7 @@ export namespace containerservice {
          */
         networkPolicy?: pulumi.Input<string>;
         /**
-         * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+         * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
          */
         outboundType?: pulumi.Input<string>;
         /**
@@ -8207,6 +8389,21 @@ export namespace containerservice {
          * Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
          */
         outboundPortsAllocated?: pulumi.Input<number>;
+    }
+
+    export interface KubernetesClusterNetworkProfileNatGatewayProfile {
+        /**
+         * The outcome (resource IDs) of the specified arguments.
+         */
+        effectiveOutboundIps?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `4`.
+         */
+        idleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+         */
+        managedOutboundIpCount?: pulumi.Input<number>;
     }
 
     export interface KubernetesClusterNodePoolKubeletConfig {
@@ -8569,6 +8766,7 @@ export namespace containerservice {
          */
         enabled?: pulumi.Input<boolean>;
     }
+
 }
 
 export namespace core {
@@ -8605,6 +8803,28 @@ export namespace core {
         specification: pulumi.Input<string>;
     }
 
+    export interface ResourceGroupCostManagementExportExportDataOptions {
+        /**
+         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+         */
+        timeFrame: pulumi.Input<string>;
+        /**
+         * The type of the query.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ResourceGroupCostManagementExportExportDataStorageLocation {
+        /**
+         * The Resource Manager ID of the container where exports will be uploaded.
+         */
+        containerId: pulumi.Input<string>;
+        /**
+         * The path of the directory where exports will be uploaded.
+         */
+        rootFolderPath: pulumi.Input<string>;
+    }
+
     export interface ResourceGroupPolicyAssignmentIdentity {
         /**
          * The Principal ID of the Policy Assignment for this Resource Group.
@@ -8633,6 +8853,39 @@ export namespace core {
          * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface ResourceProviderRegistrationFeature {
+        /**
+         * Specifies the name of the feature to register.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Should this feature be Registered or Unregistered?
+         */
+        registered: pulumi.Input<boolean>;
+    }
+
+    export interface SubscriptionCostManagementExportExportDataOptions {
+        /**
+         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+         */
+        timeFrame: pulumi.Input<string>;
+        /**
+         * The type of the query.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface SubscriptionCostManagementExportExportDataStorageLocation {
+        /**
+         * The Resource Manager ID of the container where exports will be uploaded.
+         */
+        containerId: pulumi.Input<string>;
+        /**
+         * The path of the directory where exports will be uploaded.
+         */
+        rootFolderPath: pulumi.Input<string>;
     }
 
     export interface SubscriptionPolicyAssignmentIdentity {
@@ -9074,7 +9327,7 @@ export namespace costmanagement {
 
     export interface ResourceGroupExportQuery {
         /**
-         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
+         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
          */
         timeFrame: pulumi.Input<string>;
         /**
@@ -10421,7 +10674,7 @@ export namespace datalake {
         /**
          * The Type of Identity which should be used for this Data Lake Store Account. At this time the only possible value is `SystemAssigned`.
          */
-        type: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
     }
 }
 
@@ -17188,6 +17441,17 @@ export namespace machinelearning {
         type: pulumi.Input<string>;
     }
 
+    export interface WorkspaceEncryption {
+        /**
+         * The Key Vault URI to access the encryption key.
+         */
+        keyId: pulumi.Input<string>;
+        /**
+         * The ID of the keyVault where the customer owned encryption key is present.
+         */
+        keyVaultId: pulumi.Input<string>;
+    }
+
     export interface WorkspaceIdentity {
         /**
          * The (Client) ID of the Service Principal.
@@ -18919,7 +19183,7 @@ export namespace monitoring {
          */
         planId: pulumi.Input<string>;
         /**
-         * Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+         * Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
          */
         usageType: pulumi.Input<string>;
     }
@@ -18941,6 +19205,21 @@ export namespace monitoring {
          * Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
          */
         phoneNumber: pulumi.Input<string>;
+    }
+
+    export interface LogzTagRuleTagFilter {
+        /**
+         * The action for a filtering tag. Possible values are "Include" and "Exclude" is allowed. Note that the `Exclude` takes priority over the `Include`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The name of this `tagFilter`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of this `tagFilter`.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface MetricAlertAction {
@@ -19271,7 +19550,7 @@ export namespace mssql {
          */
         capacity: pulumi.Input<number>;
         /**
-         * The `family` of hardware `Gen4` or `Gen5`.
+         * The `family` of hardware `Gen4`, `Gen5` or `Fsv2`.
          */
         family?: pulumi.Input<string>;
         /**
@@ -19312,43 +19591,28 @@ export namespace mssql {
 
     export interface ServerAzureadAdministrator {
         /**
-         * (Optional) Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
+         * Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login or also local database users (like `administratorLogin`).
          */
         azureadAuthenticationOnly?: pulumi.Input<boolean>;
         /**
-         * (Required)  The login username of the Azure AD Administrator of this SQL Server.
+         * The login username of the Azure AD Administrator of this SQL Server.
          */
         loginUsername: pulumi.Input<string>;
         /**
-         * (Required) The object id of the Azure AD Administrator of this SQL Server.
+         * The object id of the Azure AD Administrator of this SQL Server.
          */
         objectId: pulumi.Input<string>;
         /**
-         * (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+         * The tenant id of the Azure AD Administrator of this SQL Server.
          */
         tenantId?: pulumi.Input<string>;
     }
 
     export interface ServerExtendedAuditingPolicy {
-        /**
-         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
-         */
         logMonitoringEnabled?: pulumi.Input<boolean>;
-        /**
-         * (Optional) Specifies the number of days to retain logs for in the storage account.
-         */
         retentionInDays?: pulumi.Input<number>;
-        /**
-         * (Optional)  Specifies the access key to use for the auditing storage account.
-         */
         storageAccountAccessKey?: pulumi.Input<string>;
-        /**
-         * (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-         */
         storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
-        /**
-         * (Optional) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-         */
         storageEndpoint?: pulumi.Input<string>;
     }
 
@@ -19358,7 +19622,7 @@ export namespace mssql {
          */
         principalId?: pulumi.Input<string>;
         /**
-         * (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+         * The tenant id of the Azure AD Administrator of this SQL Server.
          */
         tenantId?: pulumi.Input<string>;
         /**
@@ -24061,21 +24325,12 @@ export namespace sql {
     }
 
     export interface SqlServerExtendedAuditingPolicy {
-        /**
-         * (Optional) Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its primary database audit events to Azure Monitor.
-         */
         logMonitoringEnabled?: pulumi.Input<boolean>;
-        /**
-         * (Optional) Specifies the number of days to retain logs for in the storage account.
-         */
         retentionInDays?: pulumi.Input<number>;
         /**
          * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
          */
         storageAccountAccessKey?: pulumi.Input<string>;
-        /**
-         * (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-         */
         storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
         /**
          * Specifies the blob storage endpoint (e.g. `https://MyAccount.blob.core.windows.net`). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.

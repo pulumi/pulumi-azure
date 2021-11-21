@@ -55,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Schedule{}
 	case "azure:automation/stringVariable:StringVariable":
 		r = &StringVariable{}
+	case "azure:automation/webhook:Webhook":
+		r = &Webhook{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -151,6 +153,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"automation/stringVariable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"automation/webhook",
 		&module{version},
 	)
 }

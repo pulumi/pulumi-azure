@@ -47,6 +47,7 @@ import * as utilities from "../utilities";
  *     privateDnsZoneId: exampleZone.id,
  *     administratorLogin: "psqladmin",
  *     administratorPassword: "H@Sh1CoR3!",
+ *     zone: "1",
  *     storageMb: 32768,
  *     skuName: "GP_Standard_D4s_v3",
  * }, {
@@ -166,6 +167,7 @@ export class FlexibleServer extends pulumi.CustomResource {
     public readonly storageMb!: pulumi.Output<number>;
     /**
      * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+     * *
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -175,7 +177,7 @@ export class FlexibleServer extends pulumi.CustomResource {
     /**
      * The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
      */
-    public readonly zone!: pulumi.Output<string>;
+    public readonly zone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FlexibleServer resource with the given unique name, arguments, and options.
@@ -325,6 +327,7 @@ export interface FlexibleServerState {
     storageMb?: pulumi.Input<number>;
     /**
      * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+     * *
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -403,6 +406,7 @@ export interface FlexibleServerArgs {
     storageMb?: pulumi.Input<number>;
     /**
      * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+     * *
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

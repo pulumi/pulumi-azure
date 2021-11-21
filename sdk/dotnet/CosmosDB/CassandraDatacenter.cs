@@ -65,6 +65,7 @@ namespace Pulumi.Azure.CosmosDB
     ///             NodeCount = 3,
     ///             DiskCount = 4,
     ///             SkuName = "Standard_DS14_v2",
+    ///             AvailabilityZonesEnabled = false,
     ///         });
     ///     }
     /// 
@@ -83,6 +84,12 @@ namespace Pulumi.Azure.CosmosDB
     public partial class CassandraDatacenter : Pulumi.CustomResource
     {
         /// <summary>
+        /// Determines whether availability zones are enabled. Defaults to `true`.
+        /// </summary>
+        [Output("availabilityZonesEnabled")]
+        public Output<bool?> AvailabilityZonesEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         /// </summary>
         [Output("cassandraClusterId")]
@@ -95,7 +102,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> DelegatedManagementSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the number of p30 disks that are attached to each node. Defaults to 4.
+        /// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
         /// </summary>
         [Output("diskCount")]
         public Output<int?> DiskCount { get; private set; } = null!;
@@ -113,7 +120,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+        /// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         /// </summary>
         [Output("nodeCount")]
         public Output<int?> NodeCount { get; private set; } = null!;
@@ -171,6 +178,12 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class CassandraDatacenterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Determines whether availability zones are enabled. Defaults to `true`.
+        /// </summary>
+        [Input("availabilityZonesEnabled")]
+        public Input<bool>? AvailabilityZonesEnabled { get; set; }
+
+        /// <summary>
         /// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         /// </summary>
         [Input("cassandraClusterId", required: true)]
@@ -183,7 +196,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> DelegatedManagementSubnetId { get; set; } = null!;
 
         /// <summary>
-        /// Determines the number of p30 disks that are attached to each node. Defaults to 4.
+        /// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
         /// </summary>
         [Input("diskCount")]
         public Input<int>? DiskCount { get; set; }
@@ -201,7 +214,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+        /// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
@@ -220,6 +233,12 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class CassandraDatacenterState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Determines whether availability zones are enabled. Defaults to `true`.
+        /// </summary>
+        [Input("availabilityZonesEnabled")]
+        public Input<bool>? AvailabilityZonesEnabled { get; set; }
+
+        /// <summary>
         /// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         /// </summary>
         [Input("cassandraClusterId")]
@@ -232,7 +251,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? DelegatedManagementSubnetId { get; set; }
 
         /// <summary>
-        /// Determines the number of p30 disks that are attached to each node. Defaults to 4.
+        /// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
         /// </summary>
         [Input("diskCount")]
         public Input<int>? DiskCount { get; set; }
@@ -250,7 +269,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+        /// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }

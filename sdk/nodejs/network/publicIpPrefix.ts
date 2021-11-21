@@ -69,6 +69,10 @@ export class PublicIpPrefix extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipPrefix!: pulumi.Output<string>;
     /**
+     * The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+     */
+    public readonly ipVersion!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -112,6 +116,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
             const state = argsOrState as PublicIpPrefixState | undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["ipPrefix"] = state ? state.ipPrefix : undefined;
+            inputs["ipVersion"] = state ? state.ipVersion : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["prefixLength"] = state ? state.prefixLength : undefined;
@@ -125,6 +130,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            inputs["ipVersion"] = args ? args.ipVersion : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["prefixLength"] = args ? args.prefixLength : undefined;
@@ -153,6 +159,10 @@ export interface PublicIpPrefixState {
      * The IP address prefix value that was allocated.
      */
     ipPrefix?: pulumi.Input<string>;
+    /**
+     * The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+     */
+    ipVersion?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -191,6 +201,10 @@ export interface PublicIpPrefixArgs {
      * The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
      */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+     */
+    ipVersion?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

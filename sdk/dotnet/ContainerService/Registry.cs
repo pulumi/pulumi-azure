@@ -131,6 +131,18 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> AdminUsername { get; private set; } = null!;
 
         /// <summary>
+        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        /// </summary>
+        [Output("anonymousPullEnabled")]
+        public Output<bool?> AnonymousPullEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+        /// </summary>
+        [Output("dataEndpointEnabled")]
+        public Output<bool?> DataEndpointEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// An `encryption` block as documented below.
         /// </summary>
         [Output("encryption")]
@@ -171,6 +183,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        /// </summary>
+        [Output("networkRuleBypassOption")]
+        public Output<string?> NetworkRuleBypassOption { get; private set; } = null!;
 
         /// <summary>
         /// A `network_rule_set` block as documented below.
@@ -282,6 +300,18 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? AdminEnabled { get; set; }
 
         /// <summary>
+        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        /// </summary>
+        [Input("anonymousPullEnabled")]
+        public Input<bool>? AnonymousPullEnabled { get; set; }
+
+        /// <summary>
+        /// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+        /// </summary>
+        [Input("dataEndpointEnabled")]
+        public Input<bool>? DataEndpointEnabled { get; set; }
+
+        /// <summary>
         /// An `encryption` block as documented below.
         /// </summary>
         [Input("encryption")]
@@ -329,6 +359,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        /// </summary>
+        [Input("networkRuleBypassOption")]
+        public Input<string>? NetworkRuleBypassOption { get; set; }
 
         /// <summary>
         /// A `network_rule_set` block as documented below.
@@ -419,6 +455,18 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
+        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        /// </summary>
+        [Input("anonymousPullEnabled")]
+        public Input<bool>? AnonymousPullEnabled { get; set; }
+
+        /// <summary>
+        /// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+        /// </summary>
+        [Input("dataEndpointEnabled")]
+        public Input<bool>? DataEndpointEnabled { get; set; }
+
+        /// <summary>
         /// An `encryption` block as documented below.
         /// </summary>
         [Input("encryption")]
@@ -472,6 +520,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        /// </summary>
+        [Input("networkRuleBypassOption")]
+        public Input<string>? NetworkRuleBypassOption { get; set; }
 
         /// <summary>
         /// A `network_rule_set` block as documented below.

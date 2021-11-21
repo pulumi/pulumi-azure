@@ -328,6 +328,318 @@ func (o CustomProviderValidationArrayOutput) Index(i pulumi.IntInput) CustomProv
 	}).(CustomProviderValidationOutput)
 }
 
+type ResourceGroupCostManagementExportExportDataOptions struct {
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+	TimeFrame string `pulumi:"timeFrame"`
+	// The type of the query.
+	Type string `pulumi:"type"`
+}
+
+// ResourceGroupCostManagementExportExportDataOptionsInput is an input type that accepts ResourceGroupCostManagementExportExportDataOptionsArgs and ResourceGroupCostManagementExportExportDataOptionsOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementExportExportDataOptionsInput` via:
+//
+//          ResourceGroupCostManagementExportExportDataOptionsArgs{...}
+type ResourceGroupCostManagementExportExportDataOptionsInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementExportExportDataOptionsOutput() ResourceGroupCostManagementExportExportDataOptionsOutput
+	ToResourceGroupCostManagementExportExportDataOptionsOutputWithContext(context.Context) ResourceGroupCostManagementExportExportDataOptionsOutput
+}
+
+type ResourceGroupCostManagementExportExportDataOptionsArgs struct {
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+	TimeFrame pulumi.StringInput `pulumi:"timeFrame"`
+	// The type of the query.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ResourceGroupCostManagementExportExportDataOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementExportExportDataOptions)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementExportExportDataOptionsArgs) ToResourceGroupCostManagementExportExportDataOptionsOutput() ResourceGroupCostManagementExportExportDataOptionsOutput {
+	return i.ToResourceGroupCostManagementExportExportDataOptionsOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementExportExportDataOptionsArgs) ToResourceGroupCostManagementExportExportDataOptionsOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportExportDataOptionsOutput)
+}
+
+func (i ResourceGroupCostManagementExportExportDataOptionsArgs) ToResourceGroupCostManagementExportExportDataOptionsPtrOutput() ResourceGroupCostManagementExportExportDataOptionsPtrOutput {
+	return i.ToResourceGroupCostManagementExportExportDataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementExportExportDataOptionsArgs) ToResourceGroupCostManagementExportExportDataOptionsPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportExportDataOptionsOutput).ToResourceGroupCostManagementExportExportDataOptionsPtrOutputWithContext(ctx)
+}
+
+// ResourceGroupCostManagementExportExportDataOptionsPtrInput is an input type that accepts ResourceGroupCostManagementExportExportDataOptionsArgs, ResourceGroupCostManagementExportExportDataOptionsPtr and ResourceGroupCostManagementExportExportDataOptionsPtrOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementExportExportDataOptionsPtrInput` via:
+//
+//          ResourceGroupCostManagementExportExportDataOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceGroupCostManagementExportExportDataOptionsPtrInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementExportExportDataOptionsPtrOutput() ResourceGroupCostManagementExportExportDataOptionsPtrOutput
+	ToResourceGroupCostManagementExportExportDataOptionsPtrOutputWithContext(context.Context) ResourceGroupCostManagementExportExportDataOptionsPtrOutput
+}
+
+type resourceGroupCostManagementExportExportDataOptionsPtrType ResourceGroupCostManagementExportExportDataOptionsArgs
+
+func ResourceGroupCostManagementExportExportDataOptionsPtr(v *ResourceGroupCostManagementExportExportDataOptionsArgs) ResourceGroupCostManagementExportExportDataOptionsPtrInput {
+	return (*resourceGroupCostManagementExportExportDataOptionsPtrType)(v)
+}
+
+func (*resourceGroupCostManagementExportExportDataOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGroupCostManagementExportExportDataOptions)(nil)).Elem()
+}
+
+func (i *resourceGroupCostManagementExportExportDataOptionsPtrType) ToResourceGroupCostManagementExportExportDataOptionsPtrOutput() ResourceGroupCostManagementExportExportDataOptionsPtrOutput {
+	return i.ToResourceGroupCostManagementExportExportDataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceGroupCostManagementExportExportDataOptionsPtrType) ToResourceGroupCostManagementExportExportDataOptionsPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportExportDataOptionsPtrOutput)
+}
+
+type ResourceGroupCostManagementExportExportDataOptionsOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementExportExportDataOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementExportExportDataOptions)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementExportExportDataOptionsOutput) ToResourceGroupCostManagementExportExportDataOptionsOutput() ResourceGroupCostManagementExportExportDataOptionsOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementExportExportDataOptionsOutput) ToResourceGroupCostManagementExportExportDataOptionsOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataOptionsOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementExportExportDataOptionsOutput) ToResourceGroupCostManagementExportExportDataOptionsPtrOutput() ResourceGroupCostManagementExportExportDataOptionsPtrOutput {
+	return o.ToResourceGroupCostManagementExportExportDataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGroupCostManagementExportExportDataOptionsOutput) ToResourceGroupCostManagementExportExportDataOptionsPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupCostManagementExportExportDataOptions) *ResourceGroupCostManagementExportExportDataOptions {
+		return &v
+	}).(ResourceGroupCostManagementExportExportDataOptionsPtrOutput)
+}
+
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+func (o ResourceGroupCostManagementExportExportDataOptionsOutput) TimeFrame() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementExportExportDataOptions) string { return v.TimeFrame }).(pulumi.StringOutput)
+}
+
+// The type of the query.
+func (o ResourceGroupCostManagementExportExportDataOptionsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementExportExportDataOptions) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ResourceGroupCostManagementExportExportDataOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementExportExportDataOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGroupCostManagementExportExportDataOptions)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) ToResourceGroupCostManagementExportExportDataOptionsPtrOutput() ResourceGroupCostManagementExportExportDataOptionsPtrOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) ToResourceGroupCostManagementExportExportDataOptionsPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataOptionsPtrOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) Elem() ResourceGroupCostManagementExportExportDataOptionsOutput {
+	return o.ApplyT(func(v *ResourceGroupCostManagementExportExportDataOptions) ResourceGroupCostManagementExportExportDataOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGroupCostManagementExportExportDataOptions
+		return ret
+	}).(ResourceGroupCostManagementExportExportDataOptionsOutput)
+}
+
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) TimeFrame() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupCostManagementExportExportDataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeFrame
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the query.
+func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupCostManagementExportExportDataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceGroupCostManagementExportExportDataStorageLocation struct {
+	// The Resource Manager ID of the container where exports will be uploaded.
+	ContainerId string `pulumi:"containerId"`
+	// The path of the directory where exports will be uploaded.
+	RootFolderPath string `pulumi:"rootFolderPath"`
+}
+
+// ResourceGroupCostManagementExportExportDataStorageLocationInput is an input type that accepts ResourceGroupCostManagementExportExportDataStorageLocationArgs and ResourceGroupCostManagementExportExportDataStorageLocationOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementExportExportDataStorageLocationInput` via:
+//
+//          ResourceGroupCostManagementExportExportDataStorageLocationArgs{...}
+type ResourceGroupCostManagementExportExportDataStorageLocationInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementExportExportDataStorageLocationOutput() ResourceGroupCostManagementExportExportDataStorageLocationOutput
+	ToResourceGroupCostManagementExportExportDataStorageLocationOutputWithContext(context.Context) ResourceGroupCostManagementExportExportDataStorageLocationOutput
+}
+
+type ResourceGroupCostManagementExportExportDataStorageLocationArgs struct {
+	// The Resource Manager ID of the container where exports will be uploaded.
+	ContainerId pulumi.StringInput `pulumi:"containerId"`
+	// The path of the directory where exports will be uploaded.
+	RootFolderPath pulumi.StringInput `pulumi:"rootFolderPath"`
+}
+
+func (ResourceGroupCostManagementExportExportDataStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementExportExportDataStorageLocation)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementExportExportDataStorageLocationArgs) ToResourceGroupCostManagementExportExportDataStorageLocationOutput() ResourceGroupCostManagementExportExportDataStorageLocationOutput {
+	return i.ToResourceGroupCostManagementExportExportDataStorageLocationOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementExportExportDataStorageLocationArgs) ToResourceGroupCostManagementExportExportDataStorageLocationOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportExportDataStorageLocationOutput)
+}
+
+func (i ResourceGroupCostManagementExportExportDataStorageLocationArgs) ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutput() ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput {
+	return i.ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementExportExportDataStorageLocationArgs) ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportExportDataStorageLocationOutput).ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx)
+}
+
+// ResourceGroupCostManagementExportExportDataStorageLocationPtrInput is an input type that accepts ResourceGroupCostManagementExportExportDataStorageLocationArgs, ResourceGroupCostManagementExportExportDataStorageLocationPtr and ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementExportExportDataStorageLocationPtrInput` via:
+//
+//          ResourceGroupCostManagementExportExportDataStorageLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceGroupCostManagementExportExportDataStorageLocationPtrInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutput() ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput
+	ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutputWithContext(context.Context) ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput
+}
+
+type resourceGroupCostManagementExportExportDataStorageLocationPtrType ResourceGroupCostManagementExportExportDataStorageLocationArgs
+
+func ResourceGroupCostManagementExportExportDataStorageLocationPtr(v *ResourceGroupCostManagementExportExportDataStorageLocationArgs) ResourceGroupCostManagementExportExportDataStorageLocationPtrInput {
+	return (*resourceGroupCostManagementExportExportDataStorageLocationPtrType)(v)
+}
+
+func (*resourceGroupCostManagementExportExportDataStorageLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGroupCostManagementExportExportDataStorageLocation)(nil)).Elem()
+}
+
+func (i *resourceGroupCostManagementExportExportDataStorageLocationPtrType) ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutput() ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput {
+	return i.ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceGroupCostManagementExportExportDataStorageLocationPtrType) ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput)
+}
+
+type ResourceGroupCostManagementExportExportDataStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementExportExportDataStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementExportExportDataStorageLocation)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) ToResourceGroupCostManagementExportExportDataStorageLocationOutput() ResourceGroupCostManagementExportExportDataStorageLocationOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) ToResourceGroupCostManagementExportExportDataStorageLocationOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataStorageLocationOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutput() ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput {
+	return o.ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupCostManagementExportExportDataStorageLocation) *ResourceGroupCostManagementExportExportDataStorageLocation {
+		return &v
+	}).(ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput)
+}
+
+// The Resource Manager ID of the container where exports will be uploaded.
+func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) ContainerId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementExportExportDataStorageLocation) string { return v.ContainerId }).(pulumi.StringOutput)
+}
+
+// The path of the directory where exports will be uploaded.
+func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) RootFolderPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementExportExportDataStorageLocation) string { return v.RootFolderPath }).(pulumi.StringOutput)
+}
+
+type ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGroupCostManagementExportExportDataStorageLocation)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutput() ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) ToResourceGroupCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) Elem() ResourceGroupCostManagementExportExportDataStorageLocationOutput {
+	return o.ApplyT(func(v *ResourceGroupCostManagementExportExportDataStorageLocation) ResourceGroupCostManagementExportExportDataStorageLocation {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGroupCostManagementExportExportDataStorageLocation
+		return ret
+	}).(ResourceGroupCostManagementExportExportDataStorageLocationOutput)
+}
+
+// The Resource Manager ID of the container where exports will be uploaded.
+func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) ContainerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupCostManagementExportExportDataStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path of the directory where exports will be uploaded.
+func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupCostManagementExportExportDataStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootFolderPath
+	}).(pulumi.StringPtrOutput)
+}
+
 type ResourceGroupPolicyAssignmentIdentity struct {
 	// The Principal ID of the Policy Assignment for this Resource Group.
 	PrincipalId *string `pulumi:"principalId"`
@@ -675,6 +987,424 @@ func (o ResourcePolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput
 			return nil
 		}
 		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceProviderRegistrationFeature struct {
+	// Specifies the name of the feature to register.
+	Name string `pulumi:"name"`
+	// Should this feature be Registered or Unregistered?
+	Registered bool `pulumi:"registered"`
+}
+
+// ResourceProviderRegistrationFeatureInput is an input type that accepts ResourceProviderRegistrationFeatureArgs and ResourceProviderRegistrationFeatureOutput values.
+// You can construct a concrete instance of `ResourceProviderRegistrationFeatureInput` via:
+//
+//          ResourceProviderRegistrationFeatureArgs{...}
+type ResourceProviderRegistrationFeatureInput interface {
+	pulumi.Input
+
+	ToResourceProviderRegistrationFeatureOutput() ResourceProviderRegistrationFeatureOutput
+	ToResourceProviderRegistrationFeatureOutputWithContext(context.Context) ResourceProviderRegistrationFeatureOutput
+}
+
+type ResourceProviderRegistrationFeatureArgs struct {
+	// Specifies the name of the feature to register.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Should this feature be Registered or Unregistered?
+	Registered pulumi.BoolInput `pulumi:"registered"`
+}
+
+func (ResourceProviderRegistrationFeatureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceProviderRegistrationFeature)(nil)).Elem()
+}
+
+func (i ResourceProviderRegistrationFeatureArgs) ToResourceProviderRegistrationFeatureOutput() ResourceProviderRegistrationFeatureOutput {
+	return i.ToResourceProviderRegistrationFeatureOutputWithContext(context.Background())
+}
+
+func (i ResourceProviderRegistrationFeatureArgs) ToResourceProviderRegistrationFeatureOutputWithContext(ctx context.Context) ResourceProviderRegistrationFeatureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceProviderRegistrationFeatureOutput)
+}
+
+// ResourceProviderRegistrationFeatureArrayInput is an input type that accepts ResourceProviderRegistrationFeatureArray and ResourceProviderRegistrationFeatureArrayOutput values.
+// You can construct a concrete instance of `ResourceProviderRegistrationFeatureArrayInput` via:
+//
+//          ResourceProviderRegistrationFeatureArray{ ResourceProviderRegistrationFeatureArgs{...} }
+type ResourceProviderRegistrationFeatureArrayInput interface {
+	pulumi.Input
+
+	ToResourceProviderRegistrationFeatureArrayOutput() ResourceProviderRegistrationFeatureArrayOutput
+	ToResourceProviderRegistrationFeatureArrayOutputWithContext(context.Context) ResourceProviderRegistrationFeatureArrayOutput
+}
+
+type ResourceProviderRegistrationFeatureArray []ResourceProviderRegistrationFeatureInput
+
+func (ResourceProviderRegistrationFeatureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceProviderRegistrationFeature)(nil)).Elem()
+}
+
+func (i ResourceProviderRegistrationFeatureArray) ToResourceProviderRegistrationFeatureArrayOutput() ResourceProviderRegistrationFeatureArrayOutput {
+	return i.ToResourceProviderRegistrationFeatureArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceProviderRegistrationFeatureArray) ToResourceProviderRegistrationFeatureArrayOutputWithContext(ctx context.Context) ResourceProviderRegistrationFeatureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceProviderRegistrationFeatureArrayOutput)
+}
+
+type ResourceProviderRegistrationFeatureOutput struct{ *pulumi.OutputState }
+
+func (ResourceProviderRegistrationFeatureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceProviderRegistrationFeature)(nil)).Elem()
+}
+
+func (o ResourceProviderRegistrationFeatureOutput) ToResourceProviderRegistrationFeatureOutput() ResourceProviderRegistrationFeatureOutput {
+	return o
+}
+
+func (o ResourceProviderRegistrationFeatureOutput) ToResourceProviderRegistrationFeatureOutputWithContext(ctx context.Context) ResourceProviderRegistrationFeatureOutput {
+	return o
+}
+
+// Specifies the name of the feature to register.
+func (o ResourceProviderRegistrationFeatureOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceProviderRegistrationFeature) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Should this feature be Registered or Unregistered?
+func (o ResourceProviderRegistrationFeatureOutput) Registered() pulumi.BoolOutput {
+	return o.ApplyT(func(v ResourceProviderRegistrationFeature) bool { return v.Registered }).(pulumi.BoolOutput)
+}
+
+type ResourceProviderRegistrationFeatureArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceProviderRegistrationFeatureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceProviderRegistrationFeature)(nil)).Elem()
+}
+
+func (o ResourceProviderRegistrationFeatureArrayOutput) ToResourceProviderRegistrationFeatureArrayOutput() ResourceProviderRegistrationFeatureArrayOutput {
+	return o
+}
+
+func (o ResourceProviderRegistrationFeatureArrayOutput) ToResourceProviderRegistrationFeatureArrayOutputWithContext(ctx context.Context) ResourceProviderRegistrationFeatureArrayOutput {
+	return o
+}
+
+func (o ResourceProviderRegistrationFeatureArrayOutput) Index(i pulumi.IntInput) ResourceProviderRegistrationFeatureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceProviderRegistrationFeature {
+		return vs[0].([]ResourceProviderRegistrationFeature)[vs[1].(int)]
+	}).(ResourceProviderRegistrationFeatureOutput)
+}
+
+type SubscriptionCostManagementExportExportDataOptions struct {
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+	TimeFrame string `pulumi:"timeFrame"`
+	// The type of the query.
+	Type string `pulumi:"type"`
+}
+
+// SubscriptionCostManagementExportExportDataOptionsInput is an input type that accepts SubscriptionCostManagementExportExportDataOptionsArgs and SubscriptionCostManagementExportExportDataOptionsOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementExportExportDataOptionsInput` via:
+//
+//          SubscriptionCostManagementExportExportDataOptionsArgs{...}
+type SubscriptionCostManagementExportExportDataOptionsInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementExportExportDataOptionsOutput() SubscriptionCostManagementExportExportDataOptionsOutput
+	ToSubscriptionCostManagementExportExportDataOptionsOutputWithContext(context.Context) SubscriptionCostManagementExportExportDataOptionsOutput
+}
+
+type SubscriptionCostManagementExportExportDataOptionsArgs struct {
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+	TimeFrame pulumi.StringInput `pulumi:"timeFrame"`
+	// The type of the query.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SubscriptionCostManagementExportExportDataOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementExportExportDataOptions)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementExportExportDataOptionsArgs) ToSubscriptionCostManagementExportExportDataOptionsOutput() SubscriptionCostManagementExportExportDataOptionsOutput {
+	return i.ToSubscriptionCostManagementExportExportDataOptionsOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementExportExportDataOptionsArgs) ToSubscriptionCostManagementExportExportDataOptionsOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportExportDataOptionsOutput)
+}
+
+func (i SubscriptionCostManagementExportExportDataOptionsArgs) ToSubscriptionCostManagementExportExportDataOptionsPtrOutput() SubscriptionCostManagementExportExportDataOptionsPtrOutput {
+	return i.ToSubscriptionCostManagementExportExportDataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementExportExportDataOptionsArgs) ToSubscriptionCostManagementExportExportDataOptionsPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportExportDataOptionsOutput).ToSubscriptionCostManagementExportExportDataOptionsPtrOutputWithContext(ctx)
+}
+
+// SubscriptionCostManagementExportExportDataOptionsPtrInput is an input type that accepts SubscriptionCostManagementExportExportDataOptionsArgs, SubscriptionCostManagementExportExportDataOptionsPtr and SubscriptionCostManagementExportExportDataOptionsPtrOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementExportExportDataOptionsPtrInput` via:
+//
+//          SubscriptionCostManagementExportExportDataOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type SubscriptionCostManagementExportExportDataOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementExportExportDataOptionsPtrOutput() SubscriptionCostManagementExportExportDataOptionsPtrOutput
+	ToSubscriptionCostManagementExportExportDataOptionsPtrOutputWithContext(context.Context) SubscriptionCostManagementExportExportDataOptionsPtrOutput
+}
+
+type subscriptionCostManagementExportExportDataOptionsPtrType SubscriptionCostManagementExportExportDataOptionsArgs
+
+func SubscriptionCostManagementExportExportDataOptionsPtr(v *SubscriptionCostManagementExportExportDataOptionsArgs) SubscriptionCostManagementExportExportDataOptionsPtrInput {
+	return (*subscriptionCostManagementExportExportDataOptionsPtrType)(v)
+}
+
+func (*subscriptionCostManagementExportExportDataOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionCostManagementExportExportDataOptions)(nil)).Elem()
+}
+
+func (i *subscriptionCostManagementExportExportDataOptionsPtrType) ToSubscriptionCostManagementExportExportDataOptionsPtrOutput() SubscriptionCostManagementExportExportDataOptionsPtrOutput {
+	return i.ToSubscriptionCostManagementExportExportDataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *subscriptionCostManagementExportExportDataOptionsPtrType) ToSubscriptionCostManagementExportExportDataOptionsPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportExportDataOptionsPtrOutput)
+}
+
+type SubscriptionCostManagementExportExportDataOptionsOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementExportExportDataOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementExportExportDataOptions)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementExportExportDataOptionsOutput) ToSubscriptionCostManagementExportExportDataOptionsOutput() SubscriptionCostManagementExportExportDataOptionsOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementExportExportDataOptionsOutput) ToSubscriptionCostManagementExportExportDataOptionsOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataOptionsOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementExportExportDataOptionsOutput) ToSubscriptionCostManagementExportExportDataOptionsPtrOutput() SubscriptionCostManagementExportExportDataOptionsPtrOutput {
+	return o.ToSubscriptionCostManagementExportExportDataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionCostManagementExportExportDataOptionsOutput) ToSubscriptionCostManagementExportExportDataOptionsPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionCostManagementExportExportDataOptions) *SubscriptionCostManagementExportExportDataOptions {
+		return &v
+	}).(SubscriptionCostManagementExportExportDataOptionsPtrOutput)
+}
+
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+func (o SubscriptionCostManagementExportExportDataOptionsOutput) TimeFrame() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementExportExportDataOptions) string { return v.TimeFrame }).(pulumi.StringOutput)
+}
+
+// The type of the query.
+func (o SubscriptionCostManagementExportExportDataOptionsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementExportExportDataOptions) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SubscriptionCostManagementExportExportDataOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementExportExportDataOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionCostManagementExportExportDataOptions)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) ToSubscriptionCostManagementExportExportDataOptionsPtrOutput() SubscriptionCostManagementExportExportDataOptionsPtrOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) ToSubscriptionCostManagementExportExportDataOptionsPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataOptionsPtrOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) Elem() SubscriptionCostManagementExportExportDataOptionsOutput {
+	return o.ApplyT(func(v *SubscriptionCostManagementExportExportDataOptions) SubscriptionCostManagementExportExportDataOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionCostManagementExportExportDataOptions
+		return ret
+	}).(SubscriptionCostManagementExportExportDataOptionsOutput)
+}
+
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) TimeFrame() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionCostManagementExportExportDataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeFrame
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the query.
+func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionCostManagementExportExportDataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubscriptionCostManagementExportExportDataStorageLocation struct {
+	// The Resource Manager ID of the container where exports will be uploaded.
+	ContainerId string `pulumi:"containerId"`
+	// The path of the directory where exports will be uploaded.
+	RootFolderPath string `pulumi:"rootFolderPath"`
+}
+
+// SubscriptionCostManagementExportExportDataStorageLocationInput is an input type that accepts SubscriptionCostManagementExportExportDataStorageLocationArgs and SubscriptionCostManagementExportExportDataStorageLocationOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementExportExportDataStorageLocationInput` via:
+//
+//          SubscriptionCostManagementExportExportDataStorageLocationArgs{...}
+type SubscriptionCostManagementExportExportDataStorageLocationInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementExportExportDataStorageLocationOutput() SubscriptionCostManagementExportExportDataStorageLocationOutput
+	ToSubscriptionCostManagementExportExportDataStorageLocationOutputWithContext(context.Context) SubscriptionCostManagementExportExportDataStorageLocationOutput
+}
+
+type SubscriptionCostManagementExportExportDataStorageLocationArgs struct {
+	// The Resource Manager ID of the container where exports will be uploaded.
+	ContainerId pulumi.StringInput `pulumi:"containerId"`
+	// The path of the directory where exports will be uploaded.
+	RootFolderPath pulumi.StringInput `pulumi:"rootFolderPath"`
+}
+
+func (SubscriptionCostManagementExportExportDataStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementExportExportDataStorageLocation)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementExportExportDataStorageLocationArgs) ToSubscriptionCostManagementExportExportDataStorageLocationOutput() SubscriptionCostManagementExportExportDataStorageLocationOutput {
+	return i.ToSubscriptionCostManagementExportExportDataStorageLocationOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementExportExportDataStorageLocationArgs) ToSubscriptionCostManagementExportExportDataStorageLocationOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportExportDataStorageLocationOutput)
+}
+
+func (i SubscriptionCostManagementExportExportDataStorageLocationArgs) ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutput() SubscriptionCostManagementExportExportDataStorageLocationPtrOutput {
+	return i.ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementExportExportDataStorageLocationArgs) ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportExportDataStorageLocationOutput).ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx)
+}
+
+// SubscriptionCostManagementExportExportDataStorageLocationPtrInput is an input type that accepts SubscriptionCostManagementExportExportDataStorageLocationArgs, SubscriptionCostManagementExportExportDataStorageLocationPtr and SubscriptionCostManagementExportExportDataStorageLocationPtrOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementExportExportDataStorageLocationPtrInput` via:
+//
+//          SubscriptionCostManagementExportExportDataStorageLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type SubscriptionCostManagementExportExportDataStorageLocationPtrInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutput() SubscriptionCostManagementExportExportDataStorageLocationPtrOutput
+	ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutputWithContext(context.Context) SubscriptionCostManagementExportExportDataStorageLocationPtrOutput
+}
+
+type subscriptionCostManagementExportExportDataStorageLocationPtrType SubscriptionCostManagementExportExportDataStorageLocationArgs
+
+func SubscriptionCostManagementExportExportDataStorageLocationPtr(v *SubscriptionCostManagementExportExportDataStorageLocationArgs) SubscriptionCostManagementExportExportDataStorageLocationPtrInput {
+	return (*subscriptionCostManagementExportExportDataStorageLocationPtrType)(v)
+}
+
+func (*subscriptionCostManagementExportExportDataStorageLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionCostManagementExportExportDataStorageLocation)(nil)).Elem()
+}
+
+func (i *subscriptionCostManagementExportExportDataStorageLocationPtrType) ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutput() SubscriptionCostManagementExportExportDataStorageLocationPtrOutput {
+	return i.ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *subscriptionCostManagementExportExportDataStorageLocationPtrType) ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportExportDataStorageLocationPtrOutput)
+}
+
+type SubscriptionCostManagementExportExportDataStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementExportExportDataStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementExportExportDataStorageLocation)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) ToSubscriptionCostManagementExportExportDataStorageLocationOutput() SubscriptionCostManagementExportExportDataStorageLocationOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) ToSubscriptionCostManagementExportExportDataStorageLocationOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataStorageLocationOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutput() SubscriptionCostManagementExportExportDataStorageLocationPtrOutput {
+	return o.ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataStorageLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionCostManagementExportExportDataStorageLocation) *SubscriptionCostManagementExportExportDataStorageLocation {
+		return &v
+	}).(SubscriptionCostManagementExportExportDataStorageLocationPtrOutput)
+}
+
+// The Resource Manager ID of the container where exports will be uploaded.
+func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) ContainerId() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementExportExportDataStorageLocation) string { return v.ContainerId }).(pulumi.StringOutput)
+}
+
+// The path of the directory where exports will be uploaded.
+func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) RootFolderPath() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementExportExportDataStorageLocation) string { return v.RootFolderPath }).(pulumi.StringOutput)
+}
+
+type SubscriptionCostManagementExportExportDataStorageLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionCostManagementExportExportDataStorageLocation)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutput() SubscriptionCostManagementExportExportDataStorageLocationPtrOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) ToSubscriptionCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportExportDataStorageLocationPtrOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) Elem() SubscriptionCostManagementExportExportDataStorageLocationOutput {
+	return o.ApplyT(func(v *SubscriptionCostManagementExportExportDataStorageLocation) SubscriptionCostManagementExportExportDataStorageLocation {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionCostManagementExportExportDataStorageLocation
+		return ret
+	}).(SubscriptionCostManagementExportExportDataStorageLocationOutput)
+}
+
+// The Resource Manager ID of the container where exports will be uploaded.
+func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) ContainerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionCostManagementExportExportDataStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path of the directory where exports will be uploaded.
+func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionCostManagementExportExportDataStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootFolderPath
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1162,10 +1892,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderResourceTypeArrayInput)(nil)).Elem(), CustomProviderResourceTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderValidationInput)(nil)).Elem(), CustomProviderValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderValidationArrayInput)(nil)).Elem(), CustomProviderValidationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportExportDataOptionsInput)(nil)).Elem(), ResourceGroupCostManagementExportExportDataOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportExportDataOptionsPtrInput)(nil)).Elem(), ResourceGroupCostManagementExportExportDataOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportExportDataStorageLocationInput)(nil)).Elem(), ResourceGroupCostManagementExportExportDataStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportExportDataStorageLocationPtrInput)(nil)).Elem(), ResourceGroupCostManagementExportExportDataStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupPolicyAssignmentIdentityInput)(nil)).Elem(), ResourceGroupPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupPolicyAssignmentIdentityPtrInput)(nil)).Elem(), ResourceGroupPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyAssignmentIdentityInput)(nil)).Elem(), ResourcePolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyAssignmentIdentityPtrInput)(nil)).Elem(), ResourcePolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProviderRegistrationFeatureInput)(nil)).Elem(), ResourceProviderRegistrationFeatureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProviderRegistrationFeatureArrayInput)(nil)).Elem(), ResourceProviderRegistrationFeatureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportExportDataOptionsInput)(nil)).Elem(), SubscriptionCostManagementExportExportDataOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportExportDataOptionsPtrInput)(nil)).Elem(), SubscriptionCostManagementExportExportDataOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportExportDataStorageLocationInput)(nil)).Elem(), SubscriptionCostManagementExportExportDataStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportExportDataStorageLocationPtrInput)(nil)).Elem(), SubscriptionCostManagementExportExportDataStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentIdentityInput)(nil)).Elem(), SubscriptionPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentIdentityPtrInput)(nil)).Elem(), SubscriptionPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceInput)(nil)).Elem(), GetResourcesResourceArgs{})
@@ -1178,10 +1918,20 @@ func init() {
 	pulumi.RegisterOutputType(CustomProviderResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(CustomProviderValidationOutput{})
 	pulumi.RegisterOutputType(CustomProviderValidationArrayOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementExportExportDataOptionsOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementExportExportDataOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementExportExportDataStorageLocationOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupPolicyAssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceGroupPolicyAssignmentIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyAssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyAssignmentIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceProviderRegistrationFeatureOutput{})
+	pulumi.RegisterOutputType(ResourceProviderRegistrationFeatureArrayOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementExportExportDataOptionsOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementExportExportDataOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementExportExportDataStorageLocationOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementExportExportDataStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceOutput{})

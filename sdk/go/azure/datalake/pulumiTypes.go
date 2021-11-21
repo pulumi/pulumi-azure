@@ -14,7 +14,7 @@ type StoreIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	TenantId    *string `pulumi:"tenantId"`
 	// The Type of Identity which should be used for this Data Lake Store Account. At this time the only possible value is `SystemAssigned`.
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // StoreIdentityInput is an input type that accepts StoreIdentityArgs and StoreIdentityOutput values.
@@ -32,7 +32,7 @@ type StoreIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The Type of Identity which should be used for this Data Lake Store Account. At this time the only possible value is `SystemAssigned`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (StoreIdentityArgs) ElementType() reflect.Type {
@@ -121,8 +121,8 @@ func (o StoreIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // The Type of Identity which should be used for this Data Lake Store Account. At this time the only possible value is `SystemAssigned`.
-func (o StoreIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StoreIdentity) string { return v.Type }).(pulumi.StringOutput)
+func (o StoreIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StoreIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type StoreIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -173,7 +173,7 @@ func (o StoreIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Type
+		return v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

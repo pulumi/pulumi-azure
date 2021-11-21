@@ -19,7 +19,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+        /// The tenant id of the Azure AD Administrator of this SQL Server.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

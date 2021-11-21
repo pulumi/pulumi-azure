@@ -75,6 +75,12 @@ namespace Pulumi.Azure.DesktopVirtualization
     public partial class ApplicationGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        /// </summary>
+        [Output("defaultDesktopDisplayName")]
+        public Output<string?> DefaultDesktopDisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// Option to set a description for the Virtual Desktop Application Group.
         /// </summary>
         [Output("description")]
@@ -174,6 +180,12 @@ namespace Pulumi.Azure.DesktopVirtualization
     public sealed class ApplicationGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        /// </summary>
+        [Input("defaultDesktopDisplayName")]
+        public Input<string>? DefaultDesktopDisplayName { get; set; }
+
+        /// <summary>
         /// Option to set a description for the Virtual Desktop Application Group.
         /// </summary>
         [Input("description")]
@@ -239,6 +251,12 @@ namespace Pulumi.Azure.DesktopVirtualization
 
     public sealed class ApplicationGroupState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        /// </summary>
+        [Input("defaultDesktopDisplayName")]
+        public Input<string>? DefaultDesktopDisplayName { get; set; }
+
         /// <summary>
         /// Option to set a description for the Virtual Desktop Application Group.
         /// </summary>

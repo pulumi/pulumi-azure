@@ -71,6 +71,8 @@ import (
 type ActiveDirectoryAdministrator struct {
 	pulumi.CustomResourceState
 
+	// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+	AzureadAuthenticationOnly pulumi.BoolOutput `pulumi:"azureadAuthenticationOnly"`
 	// The login name of the principal to set as the server administrator
 	Login pulumi.StringOutput `pulumi:"login"`
 	// The ID of the principal to set as the server administrator
@@ -127,6 +129,8 @@ func GetActiveDirectoryAdministrator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActiveDirectoryAdministrator resources.
 type activeDirectoryAdministratorState struct {
+	// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
 	// The login name of the principal to set as the server administrator
 	Login *string `pulumi:"login"`
 	// The ID of the principal to set as the server administrator
@@ -140,6 +144,8 @@ type activeDirectoryAdministratorState struct {
 }
 
 type ActiveDirectoryAdministratorState struct {
+	// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+	AzureadAuthenticationOnly pulumi.BoolPtrInput
 	// The login name of the principal to set as the server administrator
 	Login pulumi.StringPtrInput
 	// The ID of the principal to set as the server administrator
@@ -157,6 +163,8 @@ func (ActiveDirectoryAdministratorState) ElementType() reflect.Type {
 }
 
 type activeDirectoryAdministratorArgs struct {
+	// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
 	// The login name of the principal to set as the server administrator
 	Login string `pulumi:"login"`
 	// The ID of the principal to set as the server administrator
@@ -171,6 +179,8 @@ type activeDirectoryAdministratorArgs struct {
 
 // The set of arguments for constructing a ActiveDirectoryAdministrator resource.
 type ActiveDirectoryAdministratorArgs struct {
+	// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+	AzureadAuthenticationOnly pulumi.BoolPtrInput
 	// The login name of the principal to set as the server administrator
 	Login pulumi.StringInput
 	// The ID of the principal to set as the server administrator

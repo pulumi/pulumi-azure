@@ -22,6 +22,7 @@ class WorkspaceArgs:
                  storage_account_id: pulumi.Input[str],
                  container_registry_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input['WorkspaceEncryptionArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
                  image_build_compute_name: Optional[pulumi.Input[str]] = None,
@@ -57,6 +58,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "container_registry_id", container_registry_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if high_business_impact is not None:
@@ -157,6 +160,15 @@ class WorkspaceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['WorkspaceEncryptionArgs']]:
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['WorkspaceEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -262,6 +274,7 @@ class _WorkspaceState:
                  container_registry_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input['WorkspaceEncryptionArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
@@ -301,6 +314,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "description", description)
         if discovery_url is not None:
             pulumi.set(__self__, "discovery_url", discovery_url)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if high_business_impact is not None:
@@ -373,6 +388,15 @@ class _WorkspaceState:
     @discovery_url.setter
     def discovery_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "discovery_url", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['WorkspaceEncryptionArgs']]:
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['WorkspaceEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -527,6 +551,7 @@ class Workspace(pulumi.CustomResource):
                  application_insights_id: Optional[pulumi.Input[str]] = None,
                  container_registry_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
@@ -573,6 +598,71 @@ class Workspace(pulumi.CustomResource):
             storage_account_id=example_account.id,
             identity=azure.machinelearning.WorkspaceIdentityArgs(
                 type="SystemAssigned",
+            ))
+        ```
+        ### With Data Encryption
+
+        > **NOTE:** The Key Vault must enable purge protection.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            purge_protection_enabled=True)
+        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "Create",
+                "Get",
+                "Delete",
+                "Purge",
+            ])
+        example_account = azure.storage.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_key_vault,
+                    example_access_policy,
+                ]))
+        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_insights_id=example_insights.id,
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            identity=azure.machinelearning.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            encryption=azure.machinelearning.WorkspaceEncryptionArgs(
+                key_vault_id=example_key_vault.id,
+                key_id=example_key.id,
             ))
         ```
 
@@ -643,6 +733,71 @@ class Workspace(pulumi.CustomResource):
                 type="SystemAssigned",
             ))
         ```
+        ### With Data Encryption
+
+        > **NOTE:** The Key Vault must enable purge protection.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            purge_protection_enabled=True)
+        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
+            key_vault_id=example_key_vault.id,
+            tenant_id=current.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "Create",
+                "Get",
+                "Delete",
+                "Purge",
+            ])
+        example_account = azure.storage.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_key_vault,
+                    example_access_policy,
+                ]))
+        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_insights_id=example_insights.id,
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            identity=azure.machinelearning.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            encryption=azure.machinelearning.WorkspaceEncryptionArgs(
+                key_vault_id=example_key_vault.id,
+                key_id=example_key.id,
+            ))
+        ```
 
         ## Import
 
@@ -670,6 +825,7 @@ class Workspace(pulumi.CustomResource):
                  application_insights_id: Optional[pulumi.Input[str]] = None,
                  container_registry_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
@@ -699,6 +855,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["application_insights_id"] = application_insights_id
             __props__.__dict__["container_registry_id"] = container_registry_id
             __props__.__dict__["description"] = description
+            __props__.__dict__["encryption"] = encryption
             __props__.__dict__["friendly_name"] = friendly_name
             __props__.__dict__["high_business_impact"] = high_business_impact
             if identity is None and not opts.urn:
@@ -734,6 +891,7 @@ class Workspace(pulumi.CustomResource):
             container_registry_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             discovery_url: Optional[pulumi.Input[str]] = None,
+            encryption: Optional[pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
             high_business_impact: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
@@ -778,6 +936,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["container_registry_id"] = container_registry_id
         __props__.__dict__["description"] = description
         __props__.__dict__["discovery_url"] = discovery_url
+        __props__.__dict__["encryption"] = encryption
         __props__.__dict__["friendly_name"] = friendly_name
         __props__.__dict__["high_business_impact"] = high_business_impact
         __props__.__dict__["identity"] = identity
@@ -823,6 +982,11 @@ class Workspace(pulumi.CustomResource):
         The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
         """
         return pulumi.get(self, "discovery_url")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.WorkspaceEncryption']]:
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="friendlyName")

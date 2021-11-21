@@ -60,6 +60,12 @@ namespace Pulumi.Azure.Sql
     public partial class ActiveDirectoryAdministrator : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+        /// </summary>
+        [Output("azureadAuthenticationOnly")]
+        public Output<bool> AzureadAuthenticationOnly { get; private set; } = null!;
+
+        /// <summary>
         /// The login name of the principal to set as the server administrator
         /// </summary>
         [Output("login")]
@@ -136,6 +142,12 @@ namespace Pulumi.Azure.Sql
     public sealed class ActiveDirectoryAdministratorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+        /// </summary>
+        [Input("azureadAuthenticationOnly")]
+        public Input<bool>? AzureadAuthenticationOnly { get; set; }
+
+        /// <summary>
         /// The login name of the principal to set as the server administrator
         /// </summary>
         [Input("login", required: true)]
@@ -172,6 +184,12 @@ namespace Pulumi.Azure.Sql
 
     public sealed class ActiveDirectoryAdministratorState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+        /// </summary>
+        [Input("azureadAuthenticationOnly")]
+        public Input<bool>? AzureadAuthenticationOnly { get; set; }
+
         /// <summary>
         /// The login name of the principal to set as the server administrator
         /// </summary>

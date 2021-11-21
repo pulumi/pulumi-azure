@@ -82,6 +82,7 @@ namespace Pulumi.Azure.PostgreSql
     ///             PrivateDnsZoneId = exampleZone.Id,
     ///             AdministratorLogin = "psqladmin",
     ///             AdministratorPassword = "H@Sh1CoR3!",
+    ///             Zone = "1",
     ///             StorageMb = 32768,
     ///             SkuName = "GP_Standard_D4s_v3",
     ///         }, new CustomResourceOptions
@@ -217,6 +218,7 @@ namespace Pulumi.Azure.PostgreSql
 
         /// <summary>
         /// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+        /// *
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -231,7 +233,7 @@ namespace Pulumi.Azure.PostgreSql
         /// The Availability Zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`.
         /// </summary>
         [Output("zone")]
-        public Output<string> Zone { get; private set; } = null!;
+        public Output<string?> Zone { get; private set; } = null!;
 
 
         /// <summary>
@@ -374,6 +376,7 @@ namespace Pulumi.Azure.PostgreSql
 
         /// <summary>
         /// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+        /// *
         /// </summary>
         public InputMap<string> Tags
         {
@@ -513,6 +516,7 @@ namespace Pulumi.Azure.PostgreSql
 
         /// <summary>
         /// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
+        /// *
         /// </summary>
         public InputMap<string> Tags
         {

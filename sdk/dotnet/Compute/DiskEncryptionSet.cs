@@ -117,6 +117,12 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AutoKeyRotationEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+        /// </summary>
+        [Output("encryptionType")]
+        public Output<string?> EncryptionType { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -205,6 +211,12 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutoKeyRotationEnabled { get; set; }
 
         /// <summary>
+        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+        /// </summary>
+        [Input("encryptionType")]
+        public Input<string>? EncryptionType { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
@@ -258,6 +270,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("autoKeyRotationEnabled")]
         public Input<bool>? AutoKeyRotationEnabled { get; set; }
+
+        /// <summary>
+        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey` and `EncryptionAtRestWithPlatformAndCustomerKeys`. Defaults to `EncryptionAtRestWithCustomerKey`.
+        /// </summary>
+        [Input("encryptionType")]
+        public Input<string>? EncryptionType { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.

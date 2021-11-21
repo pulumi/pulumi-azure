@@ -18,6 +18,7 @@ __all__ = [
     'InferenceClusterIdentity',
     'InferenceClusterSsl',
     'SynapseSparkIdentity',
+    'WorkspaceEncryption',
     'WorkspaceIdentity',
     'GetWorkspaceIdentityResult',
 ]
@@ -639,6 +640,54 @@ class SynapseSparkIdentity(dict):
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class WorkspaceEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyId":
+            suggest = "key_id"
+        elif key == "keyVaultId":
+            suggest = "key_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_id: str,
+                 key_vault_id: str):
+        """
+        :param str key_id: The Key Vault URI to access the encryption key.
+        :param str key_vault_id: The ID of the keyVault where the customer owned encryption key is present.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        The Key Vault URI to access the encryption key.
+        """
+        return pulumi.get(self, "key_id")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        """
+        The ID of the keyVault where the customer owned encryption key is present.
+        """
+        return pulumi.get(self, "key_vault_id")
 
 
 @pulumi.output_type

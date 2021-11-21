@@ -63,6 +63,10 @@ import (
 // 			ServicebusNamespace:    exampleNamespace.Name,
 // 			SharedAccessPolicyKey:  exampleNamespace.DefaultPrimaryKey,
 // 			SharedAccessPolicyName: pulumi.String("RootManageSharedAccessKey"),
+// 			PropertyColumns: pulumi.StringArray{
+// 				pulumi.String("col1"),
+// 				pulumi.String("col2"),
+// 			},
 // 			Serialization: &streamanalytics.OutputServicebusTopicSerializationArgs{
 // 				Format: pulumi.String("Avro"),
 // 			},
@@ -87,6 +91,8 @@ type OutputServicebusTopic struct {
 
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of property columns to add to the Service Bus Topic output.
+	PropertyColumns pulumi.StringArrayOutput `pulumi:"propertyColumns"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
@@ -155,6 +161,8 @@ func GetOutputServicebusTopic(ctx *pulumi.Context,
 type outputServicebusTopicState struct {
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A list of property columns to add to the Service Bus Topic output.
+	PropertyColumns []string `pulumi:"propertyColumns"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
@@ -174,6 +182,8 @@ type outputServicebusTopicState struct {
 type OutputServicebusTopicState struct {
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A list of property columns to add to the Service Bus Topic output.
+	PropertyColumns pulumi.StringArrayInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `serialization` block as defined below.
@@ -197,6 +207,8 @@ func (OutputServicebusTopicState) ElementType() reflect.Type {
 type outputServicebusTopicArgs struct {
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A list of property columns to add to the Service Bus Topic output.
+	PropertyColumns []string `pulumi:"propertyColumns"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
@@ -217,6 +229,8 @@ type outputServicebusTopicArgs struct {
 type OutputServicebusTopicArgs struct {
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A list of property columns to add to the Service Bus Topic output.
+	PropertyColumns pulumi.StringArrayInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `serialization` block as defined below.

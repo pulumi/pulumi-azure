@@ -112,6 +112,8 @@ type VirtualNetwork struct {
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrOutput `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
+	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+	FlowTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"flowTimeoutInMinutes"`
 	// The GUID of the virtual network.
 	Guid pulumi.StringOutput `pulumi:"guid"`
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -171,6 +173,8 @@ type virtualNetworkState struct {
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
 	DnsServers []string `pulumi:"dnsServers"`
+	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
 	// The GUID of the virtual network.
 	Guid *string `pulumi:"guid"`
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -196,6 +200,8 @@ type VirtualNetworkState struct {
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
 	// List of IP addresses of DNS servers
 	DnsServers pulumi.StringArrayInput
+	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+	FlowTimeoutInMinutes pulumi.IntPtrInput
 	// The GUID of the virtual network.
 	Guid pulumi.StringPtrInput
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
@@ -225,6 +231,8 @@ type virtualNetworkArgs struct {
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
 	DnsServers []string `pulumi:"dnsServers"`
+	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+	FlowTimeoutInMinutes *int `pulumi:"flowTimeoutInMinutes"`
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
@@ -249,6 +257,8 @@ type VirtualNetworkArgs struct {
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
 	// List of IP addresses of DNS servers
 	DnsServers pulumi.StringArrayInput
+	// The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
+	FlowTimeoutInMinutes pulumi.IntPtrInput
 	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the virtual network. Changing this forces a new resource to be created.

@@ -6127,6 +6127,3227 @@ func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) SourceVaultId() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair struct {
+	Enabled     bool    `pulumi:"enabled"`
+	GracePeriod *string `pulumi:"gracePeriod"`
+}
+
+// OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairInput is an input type that accepts OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs and OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
+type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput() OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput
+	ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput
+}
+
+type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
+	Enabled     pulumi.BoolInput      `pulumi:"enabled"`
+	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
+}
+
+func (OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput() OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput).ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs, OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtr and OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
+//
+//  or:
+//
+//          nil
+type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput
+	ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrType OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
+
+func OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtr(v *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs) OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput {
+	return (*orchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrType) ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrType) ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput() OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) GracePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) ToOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Elem() OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GracePeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetBootDiagnostics struct {
+	StorageAccountUri *string `pulumi:"storageAccountUri"`
+}
+
+// OrchestratedVirtualMachineScaleSetBootDiagnosticsInput is an input type that accepts OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs and OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetBootDiagnosticsInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs{...}
+type OrchestratedVirtualMachineScaleSetBootDiagnosticsInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetBootDiagnosticsOutput() OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput
+	ToOrchestratedVirtualMachineScaleSetBootDiagnosticsOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput
+}
+
+type OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs struct {
+	StorageAccountUri pulumi.StringPtrInput `pulumi:"storageAccountUri"`
+}
+
+func (OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs) ToOrchestratedVirtualMachineScaleSetBootDiagnosticsOutput() OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetBootDiagnosticsOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs) ToOrchestratedVirtualMachineScaleSetBootDiagnosticsOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs) ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput() OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs) ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput).ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs, OrchestratedVirtualMachineScaleSetBootDiagnosticsPtr and OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs{...}
+//
+//  or:
+//
+//          nil
+type OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput() OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput
+	ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetBootDiagnosticsPtrType OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs
+
+func OrchestratedVirtualMachineScaleSetBootDiagnosticsPtr(v *OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs) OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput {
+	return (*orchestratedVirtualMachineScaleSetBootDiagnosticsPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetBootDiagnosticsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetBootDiagnosticsPtrType) ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput() OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetBootDiagnosticsPtrType) ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput) ToOrchestratedVirtualMachineScaleSetBootDiagnosticsOutput() OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput) ToOrchestratedVirtualMachineScaleSetBootDiagnosticsOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput) ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput() OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput) ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetBootDiagnostics) *OrchestratedVirtualMachineScaleSetBootDiagnostics {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput) StorageAccountUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetBootDiagnostics) *string { return v.StorageAccountUri }).(pulumi.StringPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetBootDiagnostics)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput) ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput() OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput) ToOrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput) Elem() OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetBootDiagnostics) OrchestratedVirtualMachineScaleSetBootDiagnostics {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetBootDiagnostics
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetBootDiagnostics) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetDataDisk struct {
+	Caching                 string  `pulumi:"caching"`
+	CreateOption            *string `pulumi:"createOption"`
+	DiskEncryptionSetId     *string `pulumi:"diskEncryptionSetId"`
+	DiskIopsReadWrite       *int    `pulumi:"diskIopsReadWrite"`
+	DiskMbpsReadWrite       *int    `pulumi:"diskMbpsReadWrite"`
+	DiskSizeGb              int     `pulumi:"diskSizeGb"`
+	Lun                     int     `pulumi:"lun"`
+	StorageAccountType      string  `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled *bool   `pulumi:"writeAcceleratorEnabled"`
+}
+
+// OrchestratedVirtualMachineScaleSetDataDiskInput is an input type that accepts OrchestratedVirtualMachineScaleSetDataDiskArgs and OrchestratedVirtualMachineScaleSetDataDiskOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetDataDiskInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetDataDiskArgs{...}
+type OrchestratedVirtualMachineScaleSetDataDiskInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetDataDiskOutput() OrchestratedVirtualMachineScaleSetDataDiskOutput
+	ToOrchestratedVirtualMachineScaleSetDataDiskOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetDataDiskOutput
+}
+
+type OrchestratedVirtualMachineScaleSetDataDiskArgs struct {
+	Caching                 pulumi.StringInput    `pulumi:"caching"`
+	CreateOption            pulumi.StringPtrInput `pulumi:"createOption"`
+	DiskEncryptionSetId     pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	DiskIopsReadWrite       pulumi.IntPtrInput    `pulumi:"diskIopsReadWrite"`
+	DiskMbpsReadWrite       pulumi.IntPtrInput    `pulumi:"diskMbpsReadWrite"`
+	DiskSizeGb              pulumi.IntInput       `pulumi:"diskSizeGb"`
+	Lun                     pulumi.IntInput       `pulumi:"lun"`
+	StorageAccountType      pulumi.StringInput    `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled pulumi.BoolPtrInput   `pulumi:"writeAcceleratorEnabled"`
+}
+
+func (OrchestratedVirtualMachineScaleSetDataDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetDataDisk)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetDataDiskArgs) ToOrchestratedVirtualMachineScaleSetDataDiskOutput() OrchestratedVirtualMachineScaleSetDataDiskOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetDataDiskOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetDataDiskArgs) ToOrchestratedVirtualMachineScaleSetDataDiskOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetDataDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetDataDiskOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetDataDiskArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetDataDiskArray and OrchestratedVirtualMachineScaleSetDataDiskArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetDataDiskArrayInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetDataDiskArray{ OrchestratedVirtualMachineScaleSetDataDiskArgs{...} }
+type OrchestratedVirtualMachineScaleSetDataDiskArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetDataDiskArrayOutput() OrchestratedVirtualMachineScaleSetDataDiskArrayOutput
+	ToOrchestratedVirtualMachineScaleSetDataDiskArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetDataDiskArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetDataDiskArray []OrchestratedVirtualMachineScaleSetDataDiskInput
+
+func (OrchestratedVirtualMachineScaleSetDataDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetDataDisk)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetDataDiskArray) ToOrchestratedVirtualMachineScaleSetDataDiskArrayOutput() OrchestratedVirtualMachineScaleSetDataDiskArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetDataDiskArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetDataDiskArray) ToOrchestratedVirtualMachineScaleSetDataDiskArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetDataDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetDataDiskArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetDataDiskOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetDataDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetDataDisk)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) ToOrchestratedVirtualMachineScaleSetDataDiskOutput() OrchestratedVirtualMachineScaleSetDataDiskOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) ToOrchestratedVirtualMachineScaleSetDataDiskOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetDataDiskOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *string { return v.CreateOption }).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskIopsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.DiskIopsReadWrite }).(pulumi.IntPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskMbpsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.DiskMbpsReadWrite }).(pulumi.IntPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) int { return v.DiskSizeGb }).(pulumi.IntOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetDataDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetDataDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetDataDisk)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskArrayOutput) ToOrchestratedVirtualMachineScaleSetDataDiskArrayOutput() OrchestratedVirtualMachineScaleSetDataDiskArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskArrayOutput) ToOrchestratedVirtualMachineScaleSetDataDiskArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetDataDiskArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetDataDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetDataDisk {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetDataDisk)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetDataDiskOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	Type        string   `pulumi:"type"`
+}
+
+// OrchestratedVirtualMachineScaleSetIdentityInput is an input type that accepts OrchestratedVirtualMachineScaleSetIdentityArgs and OrchestratedVirtualMachineScaleSetIdentityOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetIdentityInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetIdentityArgs{...}
+type OrchestratedVirtualMachineScaleSetIdentityInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetIdentityOutput() OrchestratedVirtualMachineScaleSetIdentityOutput
+	ToOrchestratedVirtualMachineScaleSetIdentityOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetIdentityOutput
+}
+
+type OrchestratedVirtualMachineScaleSetIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	Type        pulumi.StringInput      `pulumi:"type"`
+}
+
+func (OrchestratedVirtualMachineScaleSetIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetIdentityArgs) ToOrchestratedVirtualMachineScaleSetIdentityOutput() OrchestratedVirtualMachineScaleSetIdentityOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetIdentityOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetIdentityArgs) ToOrchestratedVirtualMachineScaleSetIdentityOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetIdentityOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetIdentityArgs) ToOrchestratedVirtualMachineScaleSetIdentityPtrOutput() OrchestratedVirtualMachineScaleSetIdentityPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetIdentityArgs) ToOrchestratedVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetIdentityOutput).ToOrchestratedVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetIdentityPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetIdentityArgs, OrchestratedVirtualMachineScaleSetIdentityPtr and OrchestratedVirtualMachineScaleSetIdentityPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetIdentityPtrInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type OrchestratedVirtualMachineScaleSetIdentityPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetIdentityPtrOutput() OrchestratedVirtualMachineScaleSetIdentityPtrOutput
+	ToOrchestratedVirtualMachineScaleSetIdentityPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetIdentityPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetIdentityPtrType OrchestratedVirtualMachineScaleSetIdentityArgs
+
+func OrchestratedVirtualMachineScaleSetIdentityPtr(v *OrchestratedVirtualMachineScaleSetIdentityArgs) OrchestratedVirtualMachineScaleSetIdentityPtrInput {
+	return (*orchestratedVirtualMachineScaleSetIdentityPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetIdentityPtrType) ToOrchestratedVirtualMachineScaleSetIdentityPtrOutput() OrchestratedVirtualMachineScaleSetIdentityPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetIdentityPtrType) ToOrchestratedVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetIdentityPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetIdentityOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityOutput) ToOrchestratedVirtualMachineScaleSetIdentityOutput() OrchestratedVirtualMachineScaleSetIdentityOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityOutput) ToOrchestratedVirtualMachineScaleSetIdentityOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetIdentityOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityOutput) ToOrchestratedVirtualMachineScaleSetIdentityPtrOutput() OrchestratedVirtualMachineScaleSetIdentityPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityOutput) ToOrchestratedVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetIdentity) *OrchestratedVirtualMachineScaleSetIdentity {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetIdentityPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) ToOrchestratedVirtualMachineScaleSetIdentityPtrOutput() OrchestratedVirtualMachineScaleSetIdentityPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) ToOrchestratedVirtualMachineScaleSetIdentityPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetIdentityPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) Elem() OrchestratedVirtualMachineScaleSetIdentityOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetIdentity) OrchestratedVirtualMachineScaleSetIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetIdentity
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetIdentityOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterface struct {
+	DnsServers                  []string                                                            `pulumi:"dnsServers"`
+	EnableAcceleratedNetworking *bool                                                               `pulumi:"enableAcceleratedNetworking"`
+	EnableIpForwarding          *bool                                                               `pulumi:"enableIpForwarding"`
+	IpConfigurations            []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
+	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name                   string  `pulumi:"name"`
+	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
+	Primary                *bool   `pulumi:"primary"`
+}
+
+// OrchestratedVirtualMachineScaleSetNetworkInterfaceInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs and OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{...}
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	DnsServers                  pulumi.StringArrayInput                                                     `pulumi:"dnsServers"`
+	EnableAcceleratedNetworking pulumi.BoolPtrInput                                                         `pulumi:"enableAcceleratedNetworking"`
+	EnableIpForwarding          pulumi.BoolPtrInput                                                         `pulumi:"enableIpForwarding"`
+	IpConfigurations            OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name                   pulumi.StringInput    `pulumi:"name"`
+	NetworkSecurityGroupId pulumi.StringPtrInput `pulumi:"networkSecurityGroupId"`
+	Primary                pulumi.BoolPtrInput   `pulumi:"primary"`
+}
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceArray and OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetNetworkInterfaceArray{ OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{...} }
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceArray []OrchestratedVirtualMachineScaleSetNetworkInterfaceInput
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceArray) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceArray) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *bool { return v.EnableIpForwarding }).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+		return v.IpConfigurations
+	}).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) NetworkSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *string { return v.NetworkSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetNetworkInterface {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetNetworkInterface)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
+	ApplicationGatewayBackendAddressPoolIds []string `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	ApplicationSecurityGroupIds             []string `pulumi:"applicationSecurityGroupIds"`
+	LoadBalancerBackendAddressPoolIds       []string `pulumi:"loadBalancerBackendAddressPoolIds"`
+	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name              string                                                                             `pulumi:"name"`
+	Primary           *bool                                                                              `pulumi:"primary"`
+	PublicIpAddresses []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
+	SubnetId          *string                                                                            `pulumi:"subnetId"`
+	Version           *string                                                                            `pulumi:"version"`
+}
+
+// OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...}
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
+	ApplicationGatewayBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	ApplicationSecurityGroupIds             pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
+	LoadBalancerBackendAddressPoolIds       pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
+	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name              pulumi.StringInput                                                                         `pulumi:"name"`
+	Primary           pulumi.BoolPtrInput                                                                        `pulumi:"primary"`
+	PublicIpAddresses OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
+	SubnetId          pulumi.StringPtrInput                                                                      `pulumi:"subnetId"`
+	Version           pulumi.StringPtrInput                                                                      `pulumi:"version"`
+}
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{ OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...} }
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationGatewayBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) PublicIpAddresses() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+		return v.PublicIpAddresses
+	}).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress struct {
+	DomainNameLabel      *string                                                                                 `pulumi:"domainNameLabel"`
+	IdleTimeoutInMinutes *int                                                                                    `pulumi:"idleTimeoutInMinutes"`
+	IpTags               []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag `pulumi:"ipTags"`
+	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name             string  `pulumi:"name"`
+	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
+}
+
+// OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...}
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs struct {
+	DomainNameLabel      pulumi.StringPtrInput                                                                           `pulumi:"domainNameLabel"`
+	IdleTimeoutInMinutes pulumi.IntPtrInput                                                                              `pulumi:"idleTimeoutInMinutes"`
+	IpTags               OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput `pulumi:"ipTags"`
+	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name             pulumi.StringInput    `pulumi:"name"`
+	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
+}
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{ OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...} }
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) DomainNameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.DomainNameLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IpTags() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+		return v.IpTags
+	}).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
+}
+
+// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) PublicIpPrefixId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.PublicIpPrefixId
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag struct {
+	Tag  string `pulumi:"tag"`
+	Type string `pulumi:"type"`
+}
+
+// OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...}
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs struct {
+	Tag  pulumi.StringInput `pulumi:"tag"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{ OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...} }
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput
+	ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Tag
+	}).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ToOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsDisk struct {
+	Caching                 string                                                    `pulumi:"caching"`
+	DiffDiskSettings        *OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
+	DiskEncryptionSetId     *string                                                   `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb              *int                                                      `pulumi:"diskSizeGb"`
+	StorageAccountType      string                                                    `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled *bool                                                     `pulumi:"writeAcceleratorEnabled"`
+}
+
+// OrchestratedVirtualMachineScaleSetOsDiskInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsDiskArgs and OrchestratedVirtualMachineScaleSetOsDiskOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsDiskInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsDiskArgs{...}
+type OrchestratedVirtualMachineScaleSetOsDiskInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsDiskOutput() OrchestratedVirtualMachineScaleSetOsDiskOutput
+	ToOrchestratedVirtualMachineScaleSetOsDiskOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsDiskOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsDiskArgs struct {
+	Caching                 pulumi.StringInput                                               `pulumi:"caching"`
+	DiffDiskSettings        OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
+	DiskEncryptionSetId     pulumi.StringPtrInput                                            `pulumi:"diskEncryptionSetId"`
+	DiskSizeGb              pulumi.IntPtrInput                                               `pulumi:"diskSizeGb"`
+	StorageAccountType      pulumi.StringInput                                               `pulumi:"storageAccountType"`
+	WriteAcceleratorEnabled pulumi.BoolPtrInput                                              `pulumi:"writeAcceleratorEnabled"`
+}
+
+func (OrchestratedVirtualMachineScaleSetOsDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsDisk)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsDiskArgs) ToOrchestratedVirtualMachineScaleSetOsDiskOutput() OrchestratedVirtualMachineScaleSetOsDiskOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsDiskOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsDiskArgs) ToOrchestratedVirtualMachineScaleSetOsDiskOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsDiskOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsDiskArgs) ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutput() OrchestratedVirtualMachineScaleSetOsDiskPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsDiskArgs) ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsDiskOutput).ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetOsDiskPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsDiskArgs, OrchestratedVirtualMachineScaleSetOsDiskPtr and OrchestratedVirtualMachineScaleSetOsDiskPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsDiskPtrInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsDiskArgs{...}
+//
+//  or:
+//
+//          nil
+type OrchestratedVirtualMachineScaleSetOsDiskPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutput() OrchestratedVirtualMachineScaleSetOsDiskPtrOutput
+	ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsDiskPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetOsDiskPtrType OrchestratedVirtualMachineScaleSetOsDiskArgs
+
+func OrchestratedVirtualMachineScaleSetOsDiskPtr(v *OrchestratedVirtualMachineScaleSetOsDiskArgs) OrchestratedVirtualMachineScaleSetOsDiskPtrInput {
+	return (*orchestratedVirtualMachineScaleSetOsDiskPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetOsDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetOsDisk)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetOsDiskPtrType) ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutput() OrchestratedVirtualMachineScaleSetOsDiskPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetOsDiskPtrType) ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsDiskPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsDiskOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsDisk)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) ToOrchestratedVirtualMachineScaleSetOsDiskOutput() OrchestratedVirtualMachineScaleSetOsDiskOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) ToOrchestratedVirtualMachineScaleSetOsDiskOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsDiskOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutput() OrchestratedVirtualMachineScaleSetOsDiskPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsDiskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetOsDisk) *OrchestratedVirtualMachineScaleSetOsDisk {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetOsDiskPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) DiffDiskSettings() OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDisk) *OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return v.DiffDiskSettings
+	}).(OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetOsDisk)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutput() OrchestratedVirtualMachineScaleSetOsDiskPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) ToOrchestratedVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsDiskPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) Elem() OrchestratedVirtualMachineScaleSetOsDiskOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDisk) OrchestratedVirtualMachineScaleSetOsDisk {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetOsDisk
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetOsDiskOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Caching
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) DiffDiskSettings() OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDisk) *OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DiffDiskSettings
+	}).(OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskEncryptionSetId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDisk) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DiskSizeGb
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDisk) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WriteAcceleratorEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
+	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+	Option string `pulumi:"option"`
+}
+
+// OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs and OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
+type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput() OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput
+	ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs struct {
+	// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+	Option pulumi.StringInput `pulumi:"option"`
+}
+
+func (OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput() OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput).ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs, OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtr and OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput
+	ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs
+
+func OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtr(v *OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput {
+	return (*orchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrType) ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput() OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) *OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
+}
+
+// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput) Option() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) string { return v.Option }).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput() OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) ToOrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Elem() OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput)
+}
+
+// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Option
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfile struct {
+	CustomData           *string                                                          `pulumi:"customData"`
+	LinuxConfiguration   *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration   `pulumi:"linuxConfiguration"`
+	WindowsConfiguration *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration `pulumi:"windowsConfiguration"`
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileArgs and OrchestratedVirtualMachineScaleSetOsProfileOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileArgs{...}
+type OrchestratedVirtualMachineScaleSetOsProfileInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileOutput() OrchestratedVirtualMachineScaleSetOsProfileOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileArgs struct {
+	CustomData           pulumi.StringPtrInput                                                   `pulumi:"customData"`
+	LinuxConfiguration   OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrInput   `pulumi:"linuxConfiguration"`
+	WindowsConfiguration OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrInput `pulumi:"windowsConfiguration"`
+}
+
+func (OrchestratedVirtualMachineScaleSetOsProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfile)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileArgs) ToOrchestratedVirtualMachineScaleSetOsProfileOutput() OrchestratedVirtualMachineScaleSetOsProfileOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileArgs) ToOrchestratedVirtualMachineScaleSetOsProfileOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileArgs) ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutput() OrchestratedVirtualMachineScaleSetOsProfilePtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileArgs) ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileOutput).ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfilePtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileArgs, OrchestratedVirtualMachineScaleSetOsProfilePtr and OrchestratedVirtualMachineScaleSetOsProfilePtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfilePtrInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type OrchestratedVirtualMachineScaleSetOsProfilePtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutput() OrchestratedVirtualMachineScaleSetOsProfilePtrOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfilePtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetOsProfilePtrType OrchestratedVirtualMachineScaleSetOsProfileArgs
+
+func OrchestratedVirtualMachineScaleSetOsProfilePtr(v *OrchestratedVirtualMachineScaleSetOsProfileArgs) OrchestratedVirtualMachineScaleSetOsProfilePtrInput {
+	return (*orchestratedVirtualMachineScaleSetOsProfilePtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetOsProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetOsProfile)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetOsProfilePtrType) ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutput() OrchestratedVirtualMachineScaleSetOsProfilePtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetOsProfilePtrType) ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfilePtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfile)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileOutput) ToOrchestratedVirtualMachineScaleSetOsProfileOutput() OrchestratedVirtualMachineScaleSetOsProfileOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileOutput) ToOrchestratedVirtualMachineScaleSetOsProfileOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileOutput) ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutput() OrchestratedVirtualMachineScaleSetOsProfilePtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileOutput) ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetOsProfile) *OrchestratedVirtualMachineScaleSetOsProfile {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetOsProfilePtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileOutput) CustomData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileOutput) LinuxConfiguration() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfile) *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration {
+		return v.LinuxConfiguration
+	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileOutput) WindowsConfiguration() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfile) *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
+		return v.WindowsConfiguration
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetOsProfile)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutput() OrchestratedVirtualMachineScaleSetOsProfilePtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) ToOrchestratedVirtualMachineScaleSetOsProfilePtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfilePtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) Elem() OrchestratedVirtualMachineScaleSetOsProfileOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfile) OrchestratedVirtualMachineScaleSetOsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetOsProfile
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetOsProfileOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomData
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) LinuxConfiguration() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfile) *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LinuxConfiguration
+	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) WindowsConfiguration() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfile) *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.WindowsConfiguration
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration struct {
+	AdminPassword      *string                                                                    `pulumi:"adminPassword"`
+	AdminSshKeys       []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey `pulumi:"adminSshKeys"`
+	AdminUsername      string                                                                     `pulumi:"adminUsername"`
+	ComputerNamePrefix *string                                                                    `pulumi:"computerNamePrefix"`
+	// When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
+	DisablePasswordAuthentication *bool                                                                 `pulumi:"disablePasswordAuthentication"`
+	ProvisionVmAgent              *bool                                                                 `pulumi:"provisionVmAgent"`
+	Secrets                       []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret `pulumi:"secrets"`
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs{...}
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs struct {
+	AdminPassword      pulumi.StringPtrInput                                                              `pulumi:"adminPassword"`
+	AdminSshKeys       OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayInput `pulumi:"adminSshKeys"`
+	AdminUsername      pulumi.StringInput                                                                 `pulumi:"adminUsername"`
+	ComputerNamePrefix pulumi.StringPtrInput                                                              `pulumi:"computerNamePrefix"`
+	// When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
+	DisablePasswordAuthentication pulumi.BoolPtrInput                                                           `pulumi:"disablePasswordAuthentication"`
+	ProvisionVmAgent              pulumi.BoolPtrInput                                                           `pulumi:"provisionVmAgent"`
+	Secrets                       OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayInput `pulumi:"secrets"`
+}
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput).ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs, OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtr and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrType OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs
+
+func OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtr(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrInput {
+	return (*orchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrType) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrType) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) AdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) AdminSshKeys() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey {
+		return v.AdminSshKeys
+	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) AdminUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) string { return v.AdminUsername }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) ComputerNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string {
+		return v.ComputerNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) DisablePasswordAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *bool {
+		return v.DisablePasswordAuthentication
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) Secrets() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret {
+		return v.Secrets
+	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) Elem() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) AdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) AdminSshKeys() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey {
+		if v == nil {
+			return nil
+		}
+		return v.AdminSshKeys
+	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) AdminUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdminUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) ComputerNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputerNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) DisablePasswordAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisablePasswordAuthentication
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionVmAgent
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) Secrets() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret {
+		if v == nil {
+			return nil
+		}
+		return v.Secrets
+	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey struct {
+	// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+	PublicKey string `pulumi:"publicKey"`
+	// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+	Username string `pulumi:"username"`
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs{...}
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs struct {
+	// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+	PublicKey pulumi.StringInput `pulumi:"publicKey"`
+	// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArray and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArray{ OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs{...} }
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArray []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyInput
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArray) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArray) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput {
+	return o
+}
+
+// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput) PublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey) string {
+		return v.PublicKey
+	}).(pulumi.StringOutput)
+}
+
+// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret struct {
+	Certificates []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate `pulumi:"certificates"`
+	KeyVaultId   string                                                                           `pulumi:"keyVaultId"`
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs{...}
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs struct {
+	Certificates OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayInput `pulumi:"certificates"`
+	KeyVaultId   pulumi.StringInput                                                                       `pulumi:"keyVaultId"`
+}
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArray and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArray{ OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs{...} }
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArray []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretInput
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArray) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArray) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput) Certificates() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret) []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate {
+		return v.Certificates
+	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret) string {
+		return v.KeyVaultId
+	}).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate struct {
+	// The Secret URL of a Key Vault Certificate.
+	Url string `pulumi:"url"`
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs{...}
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs struct {
+	// The Secret URL of a Key Vault Certificate.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArray and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArray{ OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs{...} }
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArray []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateInput
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArray) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArray) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput {
+	return o
+}
+
+// The Secret URL of a Key Vault Certificate.
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate) string {
+		return v.Url
+	}).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration struct {
+	AdminPassword          string                                                                         `pulumi:"adminPassword"`
+	AdminUsername          string                                                                         `pulumi:"adminUsername"`
+	ComputerNamePrefix     *string                                                                        `pulumi:"computerNamePrefix"`
+	EnableAutomaticUpdates *bool                                                                          `pulumi:"enableAutomaticUpdates"`
+	ProvisionVmAgent       *bool                                                                          `pulumi:"provisionVmAgent"`
+	Secrets                []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret        `pulumi:"secrets"`
+	Timezone               *string                                                                        `pulumi:"timezone"`
+	WinrmListeners         []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener `pulumi:"winrmListeners"`
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs{...}
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs struct {
+	AdminPassword          pulumi.StringInput                                                                     `pulumi:"adminPassword"`
+	AdminUsername          pulumi.StringInput                                                                     `pulumi:"adminUsername"`
+	ComputerNamePrefix     pulumi.StringPtrInput                                                                  `pulumi:"computerNamePrefix"`
+	EnableAutomaticUpdates pulumi.BoolPtrInput                                                                    `pulumi:"enableAutomaticUpdates"`
+	ProvisionVmAgent       pulumi.BoolPtrInput                                                                    `pulumi:"provisionVmAgent"`
+	Secrets                OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput        `pulumi:"secrets"`
+	Timezone               pulumi.StringPtrInput                                                                  `pulumi:"timezone"`
+	WinrmListeners         OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayInput `pulumi:"winrmListeners"`
+}
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput).ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs, OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtr and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrType OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs
+
+func OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtr(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrInput {
+	return (*orchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrType) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrType) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) AdminPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) string { return v.AdminPassword }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) AdminUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) string { return v.AdminUsername }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) ComputerNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
+		return v.ComputerNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) EnableAutomaticUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
+		return v.EnableAutomaticUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
+		return v.ProvisionVmAgent
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) Secrets() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
+		return v.Secrets
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) WinrmListeners() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener {
+		return v.WinrmListeners
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) Elem() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) AdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdminPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) AdminUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdminUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) ComputerNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputerNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) EnableAutomaticUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAutomaticUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionVmAgent
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) Secrets() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
+		if v == nil {
+			return nil
+		}
+		return v.Secrets
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) WinrmListeners() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener {
+		if v == nil {
+			return nil
+		}
+		return v.WinrmListeners
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret struct {
+	Certificates []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate `pulumi:"certificates"`
+	KeyVaultId   string                                                                             `pulumi:"keyVaultId"`
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs{...}
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs struct {
+	Certificates OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayInput `pulumi:"certificates"`
+	KeyVaultId   pulumi.StringInput                                                                         `pulumi:"keyVaultId"`
+}
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArray and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArray{ OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs{...} }
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArray []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretInput
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArray) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArray) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput) Certificates() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate {
+		return v.Certificates
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret) string {
+		return v.KeyVaultId
+	}).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate struct {
+	Store string `pulumi:"store"`
+	// The Secret URL of a Key Vault Certificate.
+	Url string `pulumi:"url"`
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs{...}
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs struct {
+	Store pulumi.StringInput `pulumi:"store"`
+	// The Secret URL of a Key Vault Certificate.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArray and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArray{ OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs{...} }
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArray []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateInput
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArray) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArray) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput) Store() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate) string {
+		return v.Store
+	}).(pulumi.StringOutput)
+}
+
+// The Secret URL of a Key Vault Certificate.
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate) string {
+		return v.Url
+	}).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener struct {
+	CertificateUrl *string `pulumi:"certificateUrl"`
+	Protocol       string  `pulumi:"protocol"`
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs{...}
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs struct {
+	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
+	Protocol       pulumi.StringInput    `pulumi:"protocol"`
+}
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArray and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArray{ OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs{...} }
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArray []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerInput
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArray) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArray) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput) CertificateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener) *string {
+		return v.CertificateUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetPlan struct {
+	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name      string `pulumi:"name"`
+	Product   string `pulumi:"product"`
+	Publisher string `pulumi:"publisher"`
+}
+
+// OrchestratedVirtualMachineScaleSetPlanInput is an input type that accepts OrchestratedVirtualMachineScaleSetPlanArgs and OrchestratedVirtualMachineScaleSetPlanOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetPlanInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetPlanArgs{...}
+type OrchestratedVirtualMachineScaleSetPlanInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetPlanOutput() OrchestratedVirtualMachineScaleSetPlanOutput
+	ToOrchestratedVirtualMachineScaleSetPlanOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetPlanOutput
+}
+
+type OrchestratedVirtualMachineScaleSetPlanArgs struct {
+	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name      pulumi.StringInput `pulumi:"name"`
+	Product   pulumi.StringInput `pulumi:"product"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (OrchestratedVirtualMachineScaleSetPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPlan)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetPlanArgs) ToOrchestratedVirtualMachineScaleSetPlanOutput() OrchestratedVirtualMachineScaleSetPlanOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetPlanOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetPlanArgs) ToOrchestratedVirtualMachineScaleSetPlanOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetPlanOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetPlanArgs) ToOrchestratedVirtualMachineScaleSetPlanPtrOutput() OrchestratedVirtualMachineScaleSetPlanPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetPlanPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetPlanArgs) ToOrchestratedVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetPlanOutput).ToOrchestratedVirtualMachineScaleSetPlanPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetPlanPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetPlanArgs, OrchestratedVirtualMachineScaleSetPlanPtr and OrchestratedVirtualMachineScaleSetPlanPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetPlanPtrInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetPlanArgs{...}
+//
+//  or:
+//
+//          nil
+type OrchestratedVirtualMachineScaleSetPlanPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetPlanPtrOutput() OrchestratedVirtualMachineScaleSetPlanPtrOutput
+	ToOrchestratedVirtualMachineScaleSetPlanPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetPlanPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetPlanPtrType OrchestratedVirtualMachineScaleSetPlanArgs
+
+func OrchestratedVirtualMachineScaleSetPlanPtr(v *OrchestratedVirtualMachineScaleSetPlanArgs) OrchestratedVirtualMachineScaleSetPlanPtrInput {
+	return (*orchestratedVirtualMachineScaleSetPlanPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetPlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetPlan)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetPlanPtrType) ToOrchestratedVirtualMachineScaleSetPlanPtrOutput() OrchestratedVirtualMachineScaleSetPlanPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetPlanPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetPlanPtrType) ToOrchestratedVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetPlanPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetPlanOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPlan)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetPlanOutput) ToOrchestratedVirtualMachineScaleSetPlanOutput() OrchestratedVirtualMachineScaleSetPlanOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetPlanOutput) ToOrchestratedVirtualMachineScaleSetPlanOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPlanOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetPlanOutput) ToOrchestratedVirtualMachineScaleSetPlanPtrOutput() OrchestratedVirtualMachineScaleSetPlanPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetPlanPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetPlanOutput) ToOrchestratedVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPlanPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetPlan) *OrchestratedVirtualMachineScaleSetPlan {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetPlanPtrOutput)
+}
+
+// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetPlanOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetPlanOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetPlanPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetPlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetPlan)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetPlanPtrOutput) ToOrchestratedVirtualMachineScaleSetPlanPtrOutput() OrchestratedVirtualMachineScaleSetPlanPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetPlanPtrOutput) ToOrchestratedVirtualMachineScaleSetPlanPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetPlanPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetPlanPtrOutput) Elem() OrchestratedVirtualMachineScaleSetPlanOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetPlan) OrchestratedVirtualMachineScaleSetPlan {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetPlan
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetPlanOutput)
+}
+
+// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetPlanPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Product
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetSourceImageReference struct {
+	Offer     string `pulumi:"offer"`
+	Publisher string `pulumi:"publisher"`
+	Sku       string `pulumi:"sku"`
+	Version   string `pulumi:"version"`
+}
+
+// OrchestratedVirtualMachineScaleSetSourceImageReferenceInput is an input type that accepts OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs and OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetSourceImageReferenceInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{...}
+type OrchestratedVirtualMachineScaleSetSourceImageReferenceInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetSourceImageReferenceOutput() OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput
+	ToOrchestratedVirtualMachineScaleSetSourceImageReferenceOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput
+}
+
+type OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs struct {
+	Offer     pulumi.StringInput `pulumi:"offer"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	Sku       pulumi.StringInput `pulumi:"sku"`
+	Version   pulumi.StringInput `pulumi:"version"`
+}
+
+func (OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs) ToOrchestratedVirtualMachineScaleSetSourceImageReferenceOutput() OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetSourceImageReferenceOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs) ToOrchestratedVirtualMachineScaleSetSourceImageReferenceOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs) ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput() OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs) ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput).ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs, OrchestratedVirtualMachineScaleSetSourceImageReferencePtr and OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput() OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput
+	ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetSourceImageReferencePtrType OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs
+
+func OrchestratedVirtualMachineScaleSetSourceImageReferencePtr(v *OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs) OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput {
+	return (*orchestratedVirtualMachineScaleSetSourceImageReferencePtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetSourceImageReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetSourceImageReferencePtrType) ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput() OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetSourceImageReferencePtrType) ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) ToOrchestratedVirtualMachineScaleSetSourceImageReferenceOutput() OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) ToOrchestratedVirtualMachineScaleSetSourceImageReferenceOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput() OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetSourceImageReference) *OrchestratedVirtualMachineScaleSetSourceImageReference {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) Offer() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetSourceImageReference)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput() OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) ToOrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) Elem() OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSourceImageReference) OrchestratedVirtualMachineScaleSetSourceImageReference {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetSourceImageReference
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSourceImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Offer
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSourceImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSourceImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sku
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSourceImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetTerminationNotification struct {
+	Enabled bool    `pulumi:"enabled"`
+	Timeout *string `pulumi:"timeout"`
+}
+
+// OrchestratedVirtualMachineScaleSetTerminationNotificationInput is an input type that accepts OrchestratedVirtualMachineScaleSetTerminationNotificationArgs and OrchestratedVirtualMachineScaleSetTerminationNotificationOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetTerminationNotificationInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetTerminationNotificationArgs{...}
+type OrchestratedVirtualMachineScaleSetTerminationNotificationInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetTerminationNotificationOutput() OrchestratedVirtualMachineScaleSetTerminationNotificationOutput
+	ToOrchestratedVirtualMachineScaleSetTerminationNotificationOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetTerminationNotificationOutput
+}
+
+type OrchestratedVirtualMachineScaleSetTerminationNotificationArgs struct {
+	Enabled pulumi.BoolInput      `pulumi:"enabled"`
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (OrchestratedVirtualMachineScaleSetTerminationNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetTerminationNotification)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetTerminationNotificationArgs) ToOrchestratedVirtualMachineScaleSetTerminationNotificationOutput() OrchestratedVirtualMachineScaleSetTerminationNotificationOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetTerminationNotificationOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetTerminationNotificationArgs) ToOrchestratedVirtualMachineScaleSetTerminationNotificationOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetTerminationNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetTerminationNotificationOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetTerminationNotificationArgs) ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput() OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetTerminationNotificationArgs) ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetTerminationNotificationOutput).ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetTerminationNotificationArgs, OrchestratedVirtualMachineScaleSetTerminationNotificationPtr and OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetTerminationNotificationArgs{...}
+//
+//  or:
+//
+//          nil
+type OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput() OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput
+	ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetTerminationNotificationPtrType OrchestratedVirtualMachineScaleSetTerminationNotificationArgs
+
+func OrchestratedVirtualMachineScaleSetTerminationNotificationPtr(v *OrchestratedVirtualMachineScaleSetTerminationNotificationArgs) OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput {
+	return (*orchestratedVirtualMachineScaleSetTerminationNotificationPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetTerminationNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetTerminationNotification)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetTerminationNotificationPtrType) ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput() OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetTerminationNotificationPtrType) ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetTerminationNotificationOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetTerminationNotification)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) ToOrchestratedVirtualMachineScaleSetTerminationNotificationOutput() OrchestratedVirtualMachineScaleSetTerminationNotificationOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) ToOrchestratedVirtualMachineScaleSetTerminationNotificationOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetTerminationNotificationOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput() OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetTerminationNotification) *OrchestratedVirtualMachineScaleSetTerminationNotification {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetTerminationNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetTerminationNotification)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput) ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput() OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput) ToOrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput) Elem() OrchestratedVirtualMachineScaleSetTerminationNotificationOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetTerminationNotification) OrchestratedVirtualMachineScaleSetTerminationNotification {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetTerminationNotification
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetTerminationNotificationOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetTerminationNotification) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetTerminationNotification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.StringPtrOutput)
+}
+
 type ScaleSetBootDiagnostics struct {
 	Enabled    *bool  `pulumi:"enabled"`
 	StorageUri string `pulumi:"storageUri"`
@@ -20077,6 +23298,50 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput)(nil)).Elem(), ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDiskEncryptionSettingsKeyEncryptionKeyInput)(nil)).Elem(), ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput)(nil)).Elem(), ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetBootDiagnosticsInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetDataDiskInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetDataDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetDataDiskArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetDataDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetIdentityInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetIdentityPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsDiskInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsDiskPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfilePtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPlanInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPlanPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSourceImageReferenceInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetTerminationNotificationInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetTerminationNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetTerminationNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetBootDiagnosticsInput)(nil)).Elem(), ScaleSetBootDiagnosticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetBootDiagnosticsPtrInput)(nil)).Elem(), ScaleSetBootDiagnosticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetExtensionInput)(nil)).Elem(), ScaleSetExtensionArgs{})
@@ -20339,6 +23604,50 @@ func init() {
 	pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput{})
 	pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetDataDiskOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetDataDiskArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetIdentityOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetIdentityPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsDiskOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsDiskPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfilePtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetPlanOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetPlanPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetTerminationNotificationOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetBootDiagnosticsOutput{})
 	pulumi.RegisterOutputType(ScaleSetBootDiagnosticsPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetExtensionOutput{})

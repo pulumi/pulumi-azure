@@ -104,24 +104,6 @@ namespace Pulumi.Azure.KeyVault
     ///                 Contents = ReadFileBase64("certificate-to-import.pfx"),
     ///                 Password = "",
     ///             },
-    ///             CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
-    ///             {
-    ///                 IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
-    ///                 {
-    ///                     Name = "Self",
-    ///                 },
-    ///                 KeyProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyKeyPropertiesArgs
-    ///                 {
-    ///                     Exportable = true,
-    ///                     KeySize = 2048,
-    ///                     KeyType = "RSA",
-    ///                     ReuseKey = false,
-    ///                 },
-    ///                 SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
-    ///                 {
-    ///                     ContentType = "application/x-pkcs12",
-    ///                 },
-    ///             },
     ///         });
     ///     }
     /// 
@@ -332,7 +314,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> SecretId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -404,8 +386,8 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// A `certificate_policy` block as defined below.
         /// </summary>
-        [Input("certificatePolicy", required: true)]
-        public Input<Inputs.CertifiateCertificatePolicyArgs> CertificatePolicy { get; set; } = null!;
+        [Input("certificatePolicy")]
+        public Input<Inputs.CertifiateCertificatePolicyArgs>? CertificatePolicy { get; set; }
 
         /// <summary>
         /// The ID of the Key Vault where the Certificate should be created.
@@ -423,7 +405,7 @@ namespace Pulumi.Azure.KeyVault
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -496,7 +478,7 @@ namespace Pulumi.Azure.KeyVault
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {

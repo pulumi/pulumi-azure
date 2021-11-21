@@ -232,6 +232,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryWebHost!: pulumi.Output<string>;
     /**
+     * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+     */
+    public readonly queueEncryptionKeyType!: pulumi.Output<string | undefined>;
+    /**
      * A `queueProperties` block as defined below.
      */
     public readonly queueProperties!: pulumi.Output<outputs.storage.AccountQueueProperties>;
@@ -317,6 +321,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly staticWebsite!: pulumi.Output<outputs.storage.AccountStaticWebsite | undefined>;
     /**
+     * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+     */
+    public readonly tableEncryptionKeyType!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -367,6 +375,7 @@ export class Account extends pulumi.CustomResource {
             inputs["primaryTableHost"] = state ? state.primaryTableHost : undefined;
             inputs["primaryWebEndpoint"] = state ? state.primaryWebEndpoint : undefined;
             inputs["primaryWebHost"] = state ? state.primaryWebHost : undefined;
+            inputs["queueEncryptionKeyType"] = state ? state.queueEncryptionKeyType : undefined;
             inputs["queueProperties"] = state ? state.queueProperties : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["routing"] = state ? state.routing : undefined;
@@ -389,6 +398,7 @@ export class Account extends pulumi.CustomResource {
             inputs["shareProperties"] = state ? state.shareProperties : undefined;
             inputs["sharedAccessKeyEnabled"] = state ? state.sharedAccessKeyEnabled : undefined;
             inputs["staticWebsite"] = state ? state.staticWebsite : undefined;
+            inputs["tableEncryptionKeyType"] = state ? state.tableEncryptionKeyType : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
@@ -418,12 +428,14 @@ export class Account extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["networkRules"] = args ? args.networkRules : undefined;
             inputs["nfsv3Enabled"] = args ? args.nfsv3Enabled : undefined;
+            inputs["queueEncryptionKeyType"] = args ? args.queueEncryptionKeyType : undefined;
             inputs["queueProperties"] = args ? args.queueProperties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routing"] = args ? args.routing : undefined;
             inputs["shareProperties"] = args ? args.shareProperties : undefined;
             inputs["sharedAccessKeyEnabled"] = args ? args.sharedAccessKeyEnabled : undefined;
             inputs["staticWebsite"] = args ? args.staticWebsite : undefined;
+            inputs["tableEncryptionKeyType"] = args ? args.tableEncryptionKeyType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["primaryAccessKey"] = undefined /*out*/;
             inputs["primaryBlobConnectionString"] = undefined /*out*/;
@@ -603,6 +615,10 @@ export interface AccountState {
      */
     primaryWebHost?: pulumi.Input<string>;
     /**
+     * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+     */
+    queueEncryptionKeyType?: pulumi.Input<string>;
+    /**
      * A `queueProperties` block as defined below.
      */
     queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
@@ -688,6 +704,10 @@ export interface AccountState {
      */
     staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
     /**
+     * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+     */
+    tableEncryptionKeyType?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -767,6 +787,10 @@ export interface AccountArgs {
      */
     nfsv3Enabled?: pulumi.Input<boolean>;
     /**
+     * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+     */
+    queueEncryptionKeyType?: pulumi.Input<string>;
+    /**
      * A `queueProperties` block as defined below.
      */
     queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
@@ -787,6 +811,10 @@ export interface AccountArgs {
      * A `staticWebsite` block as defined below.
      */
     staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
+    /**
+     * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
+     */
+    tableEncryptionKeyType?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

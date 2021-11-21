@@ -15,6 +15,7 @@ class PublicIpPrefixArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 ip_version: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
@@ -25,6 +26,7 @@ class PublicIpPrefixArgs:
         The set of arguments for constructing a PublicIpPrefix resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix.
         :param pulumi.Input[str] availability_zone: The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+        :param pulumi.Input[str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
@@ -34,6 +36,8 @@ class PublicIpPrefixArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if ip_version is not None:
+            pulumi.set(__self__, "ip_version", ip_version)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -73,6 +77,18 @@ class PublicIpPrefixArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="ipVersion")
+    def ip_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+        """
+        return pulumi.get(self, "ip_version")
+
+    @ip_version.setter
+    def ip_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_version", value)
 
     @property
     @pulumi.getter
@@ -149,6 +165,7 @@ class _PublicIpPrefixState:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  ip_prefix: Optional[pulumi.Input[str]] = None,
+                 ip_version: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
@@ -160,6 +177,7 @@ class _PublicIpPrefixState:
         Input properties used for looking up and filtering PublicIpPrefix resources.
         :param pulumi.Input[str] availability_zone: The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
         :param pulumi.Input[str] ip_prefix: The IP address prefix value that was allocated.
+        :param pulumi.Input[str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
@@ -171,6 +189,8 @@ class _PublicIpPrefixState:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if ip_prefix is not None:
             pulumi.set(__self__, "ip_prefix", ip_prefix)
+        if ip_version is not None:
+            pulumi.set(__self__, "ip_version", ip_version)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -212,6 +232,18 @@ class _PublicIpPrefixState:
     @ip_prefix.setter
     def ip_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_prefix", value)
+
+    @property
+    @pulumi.getter(name="ipVersion")
+    def ip_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+        """
+        return pulumi.get(self, "ip_version")
+
+    @ip_version.setter
+    def ip_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_version", value)
 
     @property
     @pulumi.getter
@@ -301,6 +333,7 @@ class PublicIpPrefix(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 ip_version: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
@@ -339,6 +372,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+        :param pulumi.Input[str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
@@ -395,6 +429,7 @@ class PublicIpPrefix(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 ip_version: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
@@ -415,6 +450,7 @@ class PublicIpPrefix(pulumi.CustomResource):
             __props__ = PublicIpPrefixArgs.__new__(PublicIpPrefixArgs)
 
             __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["ip_version"] = ip_version
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["prefix_length"] = prefix_length
@@ -440,6 +476,7 @@ class PublicIpPrefix(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             ip_prefix: Optional[pulumi.Input[str]] = None,
+            ip_version: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             prefix_length: Optional[pulumi.Input[int]] = None,
@@ -456,6 +493,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
         :param pulumi.Input[str] ip_prefix: The IP address prefix value that was allocated.
+        :param pulumi.Input[str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
@@ -469,6 +507,7 @@ class PublicIpPrefix(pulumi.CustomResource):
 
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["ip_prefix"] = ip_prefix
+        __props__.__dict__["ip_version"] = ip_version
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["prefix_length"] = prefix_length
@@ -493,6 +532,14 @@ class PublicIpPrefix(pulumi.CustomResource):
         The IP address prefix value that was allocated.
         """
         return pulumi.get(self, "ip_prefix")
+
+    @property
+    @pulumi.getter(name="ipVersion")
+    def ip_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
+        """
+        return pulumi.get(self, "ip_version")
 
     @property
     @pulumi.getter

@@ -66,6 +66,8 @@ type Account struct {
 	Identities AccountIdentityArrayOutput `pulumi:"identities"`
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+	ManagedResourceGroupName pulumi.StringOutput `pulumi:"managedResourceGroupName"`
 	// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Should the Purview Account be visible to the public network? Defaults to `true`.
@@ -124,6 +126,8 @@ type accountState struct {
 	Identities []AccountIdentity `pulumi:"identities"`
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location *string `pulumi:"location"`
+	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
 	Name *string `pulumi:"name"`
 	// Should the Purview Account be visible to the public network? Defaults to `true`.
@@ -151,6 +155,8 @@ type AccountState struct {
 	Identities AccountIdentityArrayInput
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location pulumi.StringPtrInput
+	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+	ManagedResourceGroupName pulumi.StringPtrInput
 	// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
 	Name pulumi.StringPtrInput
 	// Should the Purview Account be visible to the public network? Defaults to `true`.
@@ -172,6 +178,8 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location *string `pulumi:"location"`
+	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
 	Name *string `pulumi:"name"`
 	// Should the Purview Account be visible to the public network? Defaults to `true`.
@@ -188,6 +196,8 @@ type accountArgs struct {
 type AccountArgs struct {
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location pulumi.StringPtrInput
+	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+	ManagedResourceGroupName pulumi.StringPtrInput
 	// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
 	Name pulumi.StringPtrInput
 	// Should the Purview Account be visible to the public network? Defaults to `true`.

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string PlanId;
         /// <summary>
-        /// Different usage type. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+        /// Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
         /// </summary>
         public readonly string UsageType;
 

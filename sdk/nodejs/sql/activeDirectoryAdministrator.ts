@@ -68,6 +68,10 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+     */
+    public readonly azureadAuthenticationOnly!: pulumi.Output<boolean>;
+    /**
      * The login name of the principal to set as the server administrator
      */
     public readonly login!: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActiveDirectoryAdministratorState | undefined;
+            inputs["azureadAuthenticationOnly"] = state ? state.azureadAuthenticationOnly : undefined;
             inputs["login"] = state ? state.login : undefined;
             inputs["objectId"] = state ? state.objectId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -123,6 +128,7 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
             if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
+            inputs["azureadAuthenticationOnly"] = args ? args.azureadAuthenticationOnly : undefined;
             inputs["login"] = args ? args.login : undefined;
             inputs["objectId"] = args ? args.objectId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -140,6 +146,10 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ActiveDirectoryAdministrator resources.
  */
 export interface ActiveDirectoryAdministratorState {
+    /**
+     * Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+     */
+    azureadAuthenticationOnly?: pulumi.Input<boolean>;
     /**
      * The login name of the principal to set as the server administrator
      */
@@ -166,6 +176,10 @@ export interface ActiveDirectoryAdministratorState {
  * The set of arguments for constructing a ActiveDirectoryAdministrator resource.
  */
 export interface ActiveDirectoryAdministratorArgs {
+    /**
+     * Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
+     */
+    azureadAuthenticationOnly?: pulumi.Input<boolean>;
     /**
      * The login name of the principal to set as the server administrator
      */

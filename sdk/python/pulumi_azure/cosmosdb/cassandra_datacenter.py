@@ -15,6 +15,7 @@ class CassandraDatacenterArgs:
     def __init__(__self__, *,
                  cassandra_cluster_id: pulumi.Input[str],
                  delegated_management_subnet_id: pulumi.Input[str],
+                 availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_count: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -24,14 +25,17 @@ class CassandraDatacenterArgs:
         The set of arguments for constructing a CassandraDatacenter resource.
         :param pulumi.Input[str] cassandra_cluster_id: The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node. Defaults to 4.
+        :param pulumi.Input[bool] availability_zones_enabled: Determines whether availability zones are enabled. Defaults to `true`.
+        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node. Defaults to `4`.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+        :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[str] sku_name: Determines the selected sku. Defaults to Standard_DS14_v2.
         """
         pulumi.set(__self__, "cassandra_cluster_id", cassandra_cluster_id)
         pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
+        if availability_zones_enabled is not None:
+            pulumi.set(__self__, "availability_zones_enabled", availability_zones_enabled)
         if disk_count is not None:
             pulumi.set(__self__, "disk_count", disk_count)
         if location is not None:
@@ -68,10 +72,22 @@ class CassandraDatacenterArgs:
         pulumi.set(self, "delegated_management_subnet_id", value)
 
     @property
+    @pulumi.getter(name="availabilityZonesEnabled")
+    def availability_zones_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether availability zones are enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "availability_zones_enabled")
+
+    @availability_zones_enabled.setter
+    def availability_zones_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "availability_zones_enabled", value)
+
+    @property
     @pulumi.getter(name="diskCount")
     def disk_count(self) -> Optional[pulumi.Input[int]]:
         """
-        Determines the number of p30 disks that are attached to each node. Defaults to 4.
+        Determines the number of p30 disks that are attached to each node. Defaults to `4`.
         """
         return pulumi.get(self, "disk_count")
 
@@ -107,7 +123,7 @@ class CassandraDatacenterArgs:
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+        The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         """
         return pulumi.get(self, "node_count")
 
@@ -131,6 +147,7 @@ class CassandraDatacenterArgs:
 @pulumi.input_type
 class _CassandraDatacenterState:
     def __init__(__self__, *,
+                 availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
                  cassandra_cluster_id: Optional[pulumi.Input[str]] = None,
                  delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
                  disk_count: Optional[pulumi.Input[int]] = None,
@@ -140,14 +157,17 @@ class _CassandraDatacenterState:
                  sku_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CassandraDatacenter resources.
+        :param pulumi.Input[bool] availability_zones_enabled: Determines whether availability zones are enabled. Defaults to `true`.
         :param pulumi.Input[str] cassandra_cluster_id: The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node. Defaults to 4.
+        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node. Defaults to `4`.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+        :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[str] sku_name: Determines the selected sku. Defaults to Standard_DS14_v2.
         """
+        if availability_zones_enabled is not None:
+            pulumi.set(__self__, "availability_zones_enabled", availability_zones_enabled)
         if cassandra_cluster_id is not None:
             pulumi.set(__self__, "cassandra_cluster_id", cassandra_cluster_id)
         if delegated_management_subnet_id is not None:
@@ -162,6 +182,18 @@ class _CassandraDatacenterState:
             pulumi.set(__self__, "node_count", node_count)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
+
+    @property
+    @pulumi.getter(name="availabilityZonesEnabled")
+    def availability_zones_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether availability zones are enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "availability_zones_enabled")
+
+    @availability_zones_enabled.setter
+    def availability_zones_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "availability_zones_enabled", value)
 
     @property
     @pulumi.getter(name="cassandraClusterId")
@@ -191,7 +223,7 @@ class _CassandraDatacenterState:
     @pulumi.getter(name="diskCount")
     def disk_count(self) -> Optional[pulumi.Input[int]]:
         """
-        Determines the number of p30 disks that are attached to each node. Defaults to 4.
+        Determines the number of p30 disks that are attached to each node. Defaults to `4`.
         """
         return pulumi.get(self, "disk_count")
 
@@ -227,7 +259,7 @@ class _CassandraDatacenterState:
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+        The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         """
         return pulumi.get(self, "node_count")
 
@@ -253,6 +285,7 @@ class CassandraDatacenter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
                  cassandra_cluster_id: Optional[pulumi.Input[str]] = None,
                  delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
                  disk_count: Optional[pulumi.Input[int]] = None,
@@ -294,7 +327,8 @@ class CassandraDatacenter(pulumi.CustomResource):
             delegated_management_subnet_id=example_subnet.id,
             node_count=3,
             disk_count=4,
-            sku_name="Standard_DS14_v2")
+            sku_name="Standard_DS14_v2",
+            availability_zones_enabled=False)
         ```
 
         ## Import
@@ -307,12 +341,13 @@ class CassandraDatacenter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] availability_zones_enabled: Determines whether availability zones are enabled. Defaults to `true`.
         :param pulumi.Input[str] cassandra_cluster_id: The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node. Defaults to 4.
+        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node. Defaults to `4`.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+        :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[str] sku_name: Determines the selected sku. Defaults to Standard_DS14_v2.
         """
         ...
@@ -354,7 +389,8 @@ class CassandraDatacenter(pulumi.CustomResource):
             delegated_management_subnet_id=example_subnet.id,
             node_count=3,
             disk_count=4,
-            sku_name="Standard_DS14_v2")
+            sku_name="Standard_DS14_v2",
+            availability_zones_enabled=False)
         ```
 
         ## Import
@@ -380,6 +416,7 @@ class CassandraDatacenter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
                  cassandra_cluster_id: Optional[pulumi.Input[str]] = None,
                  delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
                  disk_count: Optional[pulumi.Input[int]] = None,
@@ -399,6 +436,7 @@ class CassandraDatacenter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CassandraDatacenterArgs.__new__(CassandraDatacenterArgs)
 
+            __props__.__dict__["availability_zones_enabled"] = availability_zones_enabled
             if cassandra_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cassandra_cluster_id'")
             __props__.__dict__["cassandra_cluster_id"] = cassandra_cluster_id
@@ -420,6 +458,7 @@ class CassandraDatacenter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
             cassandra_cluster_id: Optional[pulumi.Input[str]] = None,
             delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
             disk_count: Optional[pulumi.Input[int]] = None,
@@ -434,18 +473,20 @@ class CassandraDatacenter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] availability_zones_enabled: Determines whether availability zones are enabled. Defaults to `true`.
         :param pulumi.Input[str] cassandra_cluster_id: The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node. Defaults to 4.
+        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node. Defaults to `4`.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+        :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[str] sku_name: Determines the selected sku. Defaults to Standard_DS14_v2.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _CassandraDatacenterState.__new__(_CassandraDatacenterState)
 
+        __props__.__dict__["availability_zones_enabled"] = availability_zones_enabled
         __props__.__dict__["cassandra_cluster_id"] = cassandra_cluster_id
         __props__.__dict__["delegated_management_subnet_id"] = delegated_management_subnet_id
         __props__.__dict__["disk_count"] = disk_count
@@ -454,6 +495,14 @@ class CassandraDatacenter(pulumi.CustomResource):
         __props__.__dict__["node_count"] = node_count
         __props__.__dict__["sku_name"] = sku_name
         return CassandraDatacenter(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="availabilityZonesEnabled")
+    def availability_zones_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Determines whether availability zones are enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "availability_zones_enabled")
 
     @property
     @pulumi.getter(name="cassandraClusterId")
@@ -475,7 +524,7 @@ class CassandraDatacenter(pulumi.CustomResource):
     @pulumi.getter(name="diskCount")
     def disk_count(self) -> pulumi.Output[Optional[int]]:
         """
-        Determines the number of p30 disks that are attached to each node. Defaults to 4.
+        Determines the number of p30 disks that are attached to each node. Defaults to `4`.
         """
         return pulumi.get(self, "disk_count")
 
@@ -499,7 +548,7 @@ class CassandraDatacenter(pulumi.CustomResource):
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than 3. Defaults to 3.
+        The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         """
         return pulumi.get(self, "node_count")
 

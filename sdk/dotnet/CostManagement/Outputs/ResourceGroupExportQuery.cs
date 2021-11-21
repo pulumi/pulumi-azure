@@ -14,7 +14,7 @@ namespace Pulumi.Azure.CostManagement.Outputs
     public sealed class ResourceGroupExportQuery
     {
         /// <summary>
-        /// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
+        /// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
         /// </summary>
         public readonly string TimeFrame;
         /// <summary>

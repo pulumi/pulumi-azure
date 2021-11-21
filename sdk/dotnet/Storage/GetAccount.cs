@@ -188,6 +188,10 @@ namespace Pulumi.Azure.Storage
         /// The hostname with port if applicable for web storage in the primary location.
         /// </summary>
         public readonly string PrimaryWebHost;
+        /// <summary>
+        /// The encryption key type of the queue.
+        /// </summary>
+        public readonly string QueueEncryptionKeyType;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The secondary access key for the Storage Account.
@@ -254,6 +258,10 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string SecondaryWebHost;
         /// <summary>
+        /// The encryption key type of the table.
+        /// </summary>
+        public readonly string TableEncryptionKeyType;
+        /// <summary>
         /// A mapping of tags to assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -316,6 +324,8 @@ namespace Pulumi.Azure.Storage
 
             string primaryWebHost,
 
+            string queueEncryptionKeyType,
+
             string resourceGroupName,
 
             string secondaryAccessKey,
@@ -350,6 +360,8 @@ namespace Pulumi.Azure.Storage
 
             string secondaryWebHost,
 
+            string tableEncryptionKeyType,
+
             ImmutableDictionary<string, string> tags)
         {
             AccessTier = accessTier;
@@ -380,6 +392,7 @@ namespace Pulumi.Azure.Storage
             PrimaryTableHost = primaryTableHost;
             PrimaryWebEndpoint = primaryWebEndpoint;
             PrimaryWebHost = primaryWebHost;
+            QueueEncryptionKeyType = queueEncryptionKeyType;
             ResourceGroupName = resourceGroupName;
             SecondaryAccessKey = secondaryAccessKey;
             SecondaryBlobConnectionString = secondaryBlobConnectionString;
@@ -397,6 +410,7 @@ namespace Pulumi.Azure.Storage
             SecondaryTableHost = secondaryTableHost;
             SecondaryWebEndpoint = secondaryWebEndpoint;
             SecondaryWebHost = secondaryWebHost;
+            TableEncryptionKeyType = tableEncryptionKeyType;
             Tags = tags;
         }
     }
