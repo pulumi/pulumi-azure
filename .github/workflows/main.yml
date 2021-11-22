@@ -448,11 +448,11 @@ jobs:
         - 14.x
         pythonversion:
         - "3.7"
-name: master
+name: main
 "on":
   push:
     branches:
-    - master
+    - main
     paths-ignore:
     - CHANGELOG.md
     tags-ignore:
