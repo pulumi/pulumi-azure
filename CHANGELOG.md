@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.86.0 of the AzureRM Terraform Provider
-  * Please note `singlePlacementGroup` has been removed from `azure.compute.OrchestratedVirtualMachineScaleSet` as per the upstream provider
+_(none)_
 
 ---
+
+## 4.28.0 (2021-11-22)
+* Upgrade to v2.86.0 of the AzureRM Terraform Provider
+  * Please note `singlePlacementGroup` has been removed from `azure.compute.OrchestratedVirtualMachineScaleSet` as per the upstream provider
 
 ## 4.27.0 (2021-11-16)
 * Upgrade to v2.85.0 of the AzureRM Terraform Provider
