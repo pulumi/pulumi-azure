@@ -325,6 +325,10 @@ func (o ChannelEmailMapOutput) MapIndex(k pulumi.StringInput) ChannelEmailOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEmailInput)(nil)).Elem(), &ChannelEmail{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEmailPtrInput)(nil)).Elem(), &ChannelEmail{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEmailArrayInput)(nil)).Elem(), ChannelEmailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEmailMapInput)(nil)).Elem(), ChannelEmailMap{})
 	pulumi.RegisterOutputType(ChannelEmailOutput{})
 	pulumi.RegisterOutputType(ChannelEmailPtrOutput{})
 	pulumi.RegisterOutputType(ChannelEmailArrayOutput{})

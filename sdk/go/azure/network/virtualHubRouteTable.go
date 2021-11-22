@@ -405,6 +405,10 @@ func (o VirtualHubRouteTableMapOutput) MapIndex(k pulumi.StringInput) VirtualHub
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTableInput)(nil)).Elem(), &VirtualHubRouteTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTablePtrInput)(nil)).Elem(), &VirtualHubRouteTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTableArrayInput)(nil)).Elem(), VirtualHubRouteTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubRouteTableMapInput)(nil)).Elem(), VirtualHubRouteTableMap{})
 	pulumi.RegisterOutputType(VirtualHubRouteTableOutput{})
 	pulumi.RegisterOutputType(VirtualHubRouteTablePtrOutput{})
 	pulumi.RegisterOutputType(VirtualHubRouteTableArrayOutput{})

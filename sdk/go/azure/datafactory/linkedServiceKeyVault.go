@@ -418,6 +418,10 @@ func (o LinkedServiceKeyVaultMapOutput) MapIndex(k pulumi.StringInput) LinkedSer
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceKeyVaultInput)(nil)).Elem(), &LinkedServiceKeyVault{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceKeyVaultPtrInput)(nil)).Elem(), &LinkedServiceKeyVault{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceKeyVaultArrayInput)(nil)).Elem(), LinkedServiceKeyVaultArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceKeyVaultMapInput)(nil)).Elem(), LinkedServiceKeyVaultMap{})
 	pulumi.RegisterOutputType(LinkedServiceKeyVaultOutput{})
 	pulumi.RegisterOutputType(LinkedServiceKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceKeyVaultArrayOutput{})

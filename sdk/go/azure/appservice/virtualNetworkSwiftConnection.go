@@ -467,6 +467,10 @@ func (o VirtualNetworkSwiftConnectionMapOutput) MapIndex(k pulumi.StringInput) V
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSwiftConnectionInput)(nil)).Elem(), &VirtualNetworkSwiftConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSwiftConnectionPtrInput)(nil)).Elem(), &VirtualNetworkSwiftConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSwiftConnectionArrayInput)(nil)).Elem(), VirtualNetworkSwiftConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSwiftConnectionMapInput)(nil)).Elem(), VirtualNetworkSwiftConnectionMap{})
 	pulumi.RegisterOutputType(VirtualNetworkSwiftConnectionOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSwiftConnectionPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSwiftConnectionArrayOutput{})

@@ -347,6 +347,10 @@ func (o DataConnectorAzureSecurityCenterMapOutput) MapIndex(k pulumi.StringInput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureSecurityCenterInput)(nil)).Elem(), &DataConnectorAzureSecurityCenter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureSecurityCenterPtrInput)(nil)).Elem(), &DataConnectorAzureSecurityCenter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureSecurityCenterArrayInput)(nil)).Elem(), DataConnectorAzureSecurityCenterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureSecurityCenterMapInput)(nil)).Elem(), DataConnectorAzureSecurityCenterMap{})
 	pulumi.RegisterOutputType(DataConnectorAzureSecurityCenterOutput{})
 	pulumi.RegisterOutputType(DataConnectorAzureSecurityCenterPtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorAzureSecurityCenterArrayOutput{})

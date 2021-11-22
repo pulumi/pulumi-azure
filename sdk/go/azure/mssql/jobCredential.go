@@ -367,6 +367,10 @@ func (o JobCredentialMapOutput) MapIndex(k pulumi.StringInput) JobCredentialOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*JobCredentialInput)(nil)).Elem(), &JobCredential{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobCredentialPtrInput)(nil)).Elem(), &JobCredential{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobCredentialArrayInput)(nil)).Elem(), JobCredentialArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobCredentialMapInput)(nil)).Elem(), JobCredentialMap{})
 	pulumi.RegisterOutputType(JobCredentialOutput{})
 	pulumi.RegisterOutputType(JobCredentialPtrOutput{})
 	pulumi.RegisterOutputType(JobCredentialArrayOutput{})

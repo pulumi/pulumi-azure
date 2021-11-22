@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.DigitalTwins
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.DigitalTwins
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("azure:digitaltwins/getInstance:getInstance", args ?? new GetInstanceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Digital Twins instance.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.DigitalTwins.GetInstance.InvokeAsync(new Azure.DigitalTwins.GetInstanceArgs
+        ///         {
+        ///             Name = "existing-digital-twins",
+        ///             ResourceGroupName = "existing-resgroup",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure:digitaltwins/getInstance:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.DigitalTwins
         public string ResourceGroupName { get; set; } = null!;
 
         public GetInstanceArgs()
+        {
+        }
+    }
+
+    public sealed class GetInstanceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of this Digital Twins instance.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the Digital Twins instance exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetInstanceInvokeArgs()
         {
         }
     }

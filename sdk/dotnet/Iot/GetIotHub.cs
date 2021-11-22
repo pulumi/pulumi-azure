@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Iot
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         public static Task<GetIotHubResult> InvokeAsync(GetIotHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResult>("azure:iot/getIotHub:getIotHub", args ?? new GetIotHubArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing IoTHub.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Iot.GetIotHub.InvokeAsync(new Azure.Iot.GetIotHubArgs
+        ///         {
+        ///             Name = "existing",
+        ///             ResourceGroupName = "existing",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetIotHubResult> Invoke(GetIotHubInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIotHubResult>("azure:iot/getIotHub:getIotHub", args ?? new GetIotHubInvokeArgs(), options.WithVersion());
     }
 
 
@@ -73,6 +107,37 @@ namespace Pulumi.Azure.Iot
         }
 
         public GetIotHubArgs()
+        {
+        }
+    }
+
+    public sealed class GetIotHubInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of this IoTHub.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the IoTHub exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the IoTHub.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetIotHubInvokeArgs()
         {
         }
     }

@@ -485,6 +485,10 @@ func (o LinkedServiceSqlServerMapOutput) MapIndex(k pulumi.StringInput) LinkedSe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSqlServerInput)(nil)).Elem(), &LinkedServiceSqlServer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSqlServerPtrInput)(nil)).Elem(), &LinkedServiceSqlServer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSqlServerArrayInput)(nil)).Elem(), LinkedServiceSqlServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSqlServerMapInput)(nil)).Elem(), LinkedServiceSqlServerMap{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerArrayOutput{})

@@ -472,6 +472,10 @@ func (o LinkServiceMapOutput) MapIndex(k pulumi.StringInput) LinkServiceOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkServiceInput)(nil)).Elem(), &LinkService{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkServicePtrInput)(nil)).Elem(), &LinkService{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkServiceArrayInput)(nil)).Elem(), LinkServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkServiceMapInput)(nil)).Elem(), LinkServiceMap{})
 	pulumi.RegisterOutputType(LinkServiceOutput{})
 	pulumi.RegisterOutputType(LinkServicePtrOutput{})
 	pulumi.RegisterOutputType(LinkServiceArrayOutput{})

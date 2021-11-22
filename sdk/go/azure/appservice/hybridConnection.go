@@ -436,6 +436,10 @@ func (o HybridConnectionMapOutput) MapIndex(k pulumi.StringInput) HybridConnecti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionInput)(nil)).Elem(), &HybridConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionPtrInput)(nil)).Elem(), &HybridConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionArrayInput)(nil)).Elem(), HybridConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionMapInput)(nil)).Elem(), HybridConnectionMap{})
 	pulumi.RegisterOutputType(HybridConnectionOutput{})
 	pulumi.RegisterOutputType(HybridConnectionPtrOutput{})
 	pulumi.RegisterOutputType(HybridConnectionArrayOutput{})

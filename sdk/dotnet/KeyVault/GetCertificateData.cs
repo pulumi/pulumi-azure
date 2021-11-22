@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.KeyVault
 {
@@ -50,6 +51,46 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public static Task<GetCertificateDataResult> InvokeAsync(GetCertificateDataArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateDataResult>("azure:keyvault/getCertificateData:getCertificateData", args ?? new GetCertificateDataArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access data stored in an existing Key Vault Certificate.
+        /// 
+        /// &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleKeyVault = Output.Create(Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
+        ///         {
+        ///             Name = "examplekv",
+        ///             ResourceGroupName = "some-resource-group",
+        ///         }));
+        ///         var exampleCertificateData = exampleKeyVault.Apply(exampleKeyVault =&gt; Output.Create(Azure.KeyVault.GetCertificateData.InvokeAsync(new Azure.KeyVault.GetCertificateDataArgs
+        ///         {
+        ///             Name = "secret-sauce",
+        ///             KeyVaultId = exampleKeyVault.Id,
+        ///         })));
+        ///         this.ExamplePem = exampleCertificateData.Apply(exampleCertificateData =&gt; exampleCertificateData.Pem);
+        ///     }
+        /// 
+        ///     [Output("examplePem")]
+        ///     public Output&lt;string&gt; ExamplePem { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetCertificateDataResult> Invoke(GetCertificateDataInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateDataResult>("azure:keyvault/getCertificateData:getCertificateData", args ?? new GetCertificateDataInvokeArgs(), options.WithVersion());
     }
 
 
@@ -74,6 +115,31 @@ namespace Pulumi.Azure.KeyVault
         public string? Version { get; set; }
 
         public GetCertificateDataArgs()
+        {
+        }
+    }
+
+    public sealed class GetCertificateDataInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+        /// </summary>
+        [Input("keyVaultId", required: true)]
+        public Input<string> KeyVaultId { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Key Vault Secret.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the version of the certificate to look up.  (Defaults to latest)
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        public GetCertificateDataInvokeArgs()
         {
         }
     }

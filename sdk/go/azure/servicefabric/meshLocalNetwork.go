@@ -325,6 +325,10 @@ func (o MeshLocalNetworkMapOutput) MapIndex(k pulumi.StringInput) MeshLocalNetwo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshLocalNetworkInput)(nil)).Elem(), &MeshLocalNetwork{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshLocalNetworkPtrInput)(nil)).Elem(), &MeshLocalNetwork{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshLocalNetworkArrayInput)(nil)).Elem(), MeshLocalNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshLocalNetworkMapInput)(nil)).Elem(), MeshLocalNetworkMap{})
 	pulumi.RegisterOutputType(MeshLocalNetworkOutput{})
 	pulumi.RegisterOutputType(MeshLocalNetworkPtrOutput{})
 	pulumi.RegisterOutputType(MeshLocalNetworkArrayOutput{})

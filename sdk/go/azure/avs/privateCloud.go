@@ -435,6 +435,10 @@ func (o PrivateCloudMapOutput) MapIndex(k pulumi.StringInput) PrivateCloudOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudInput)(nil)).Elem(), &PrivateCloud{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudPtrInput)(nil)).Elem(), &PrivateCloud{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudArrayInput)(nil)).Elem(), PrivateCloudArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudMapInput)(nil)).Elem(), PrivateCloudMap{})
 	pulumi.RegisterOutputType(PrivateCloudOutput{})
 	pulumi.RegisterOutputType(PrivateCloudPtrOutput{})
 	pulumi.RegisterOutputType(PrivateCloudArrayOutput{})

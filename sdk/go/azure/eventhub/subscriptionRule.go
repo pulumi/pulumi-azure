@@ -500,6 +500,10 @@ func (o SubscriptionRuleMapOutput) MapIndex(k pulumi.StringInput) SubscriptionRu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleInput)(nil)).Elem(), &SubscriptionRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRulePtrInput)(nil)).Elem(), &SubscriptionRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleArrayInput)(nil)).Elem(), SubscriptionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleMapInput)(nil)).Elem(), SubscriptionRuleMap{})
 	pulumi.RegisterOutputType(SubscriptionRuleOutput{})
 	pulumi.RegisterOutputType(SubscriptionRulePtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionRuleArrayOutput{})

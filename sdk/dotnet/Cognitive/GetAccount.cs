@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Cognitive
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:cognitive/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Cognitive Services Account.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Azure.Cognitive.GetAccount.InvokeAsync(new Azure.Cognitive.GetAccountArgs
+        ///         {
+        ///             Name = "example-account",
+        ///             ResourceGroupName = "cognitive_account_rg",
+        ///         }));
+        ///         this.PrimaryAccessKey = test.Apply(test =&gt; test.PrimaryAccessKey);
+        ///     }
+        /// 
+        ///     [Output("primaryAccessKey")]
+        ///     public Output&lt;string&gt; PrimaryAccessKey { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:cognitive/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.Cognitive
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Cognitive Services Account.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the resource group where the Cognitive Services Account resides.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAccountInvokeArgs()
         {
         }
     }

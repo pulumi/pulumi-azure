@@ -416,6 +416,10 @@ func (o SubscriptionPolicyAssignmentMapOutput) MapIndex(k pulumi.StringInput) Su
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentInput)(nil)).Elem(), &SubscriptionPolicyAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentPtrInput)(nil)).Elem(), &SubscriptionPolicyAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentArrayInput)(nil)).Elem(), SubscriptionPolicyAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentMapInput)(nil)).Elem(), SubscriptionPolicyAssignmentMap{})
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentOutput{})
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentArrayOutput{})

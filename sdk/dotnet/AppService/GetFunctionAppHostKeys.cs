@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppService
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public static Task<GetFunctionAppHostKeysResult> InvokeAsync(GetFunctionAppHostKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionAppHostKeysResult>("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args ?? new GetFunctionAppHostKeysArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to fetch the Host Keys of an existing Function App
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.AppService.GetFunctionAppHostKeys.InvokeAsync(new Azure.AppService.GetFunctionAppHostKeysArgs
+        ///         {
+        ///             Name = "example-function",
+        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetFunctionAppHostKeysResult> Invoke(GetFunctionAppHostKeysInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFunctionAppHostKeysResult>("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args ?? new GetFunctionAppHostKeysInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Azure.AppService
         public string ResourceGroupName { get; set; } = null!;
 
         public GetFunctionAppHostKeysArgs()
+        {
+        }
+    }
+
+    public sealed class GetFunctionAppHostKeysInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Function App.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the Function App exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetFunctionAppHostKeysInvokeArgs()
         {
         }
     }

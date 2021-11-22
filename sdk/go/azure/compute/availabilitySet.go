@@ -378,6 +378,10 @@ func (o AvailabilitySetMapOutput) MapIndex(k pulumi.StringInput) AvailabilitySet
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilitySetInput)(nil)).Elem(), &AvailabilitySet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilitySetPtrInput)(nil)).Elem(), &AvailabilitySet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilitySetArrayInput)(nil)).Elem(), AvailabilitySetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilitySetMapInput)(nil)).Elem(), AvailabilitySetMap{})
 	pulumi.RegisterOutputType(AvailabilitySetOutput{})
 	pulumi.RegisterOutputType(AvailabilitySetPtrOutput{})
 	pulumi.RegisterOutputType(AvailabilitySetArrayOutput{})

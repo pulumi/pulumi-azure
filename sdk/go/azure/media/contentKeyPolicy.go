@@ -449,6 +449,10 @@ func (o ContentKeyPolicyMapOutput) MapIndex(k pulumi.StringInput) ContentKeyPoli
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentKeyPolicyInput)(nil)).Elem(), &ContentKeyPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentKeyPolicyPtrInput)(nil)).Elem(), &ContentKeyPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentKeyPolicyArrayInput)(nil)).Elem(), ContentKeyPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentKeyPolicyMapInput)(nil)).Elem(), ContentKeyPolicyMap{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyArrayOutput{})

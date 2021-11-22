@@ -386,6 +386,10 @@ func (o PropertyMapOutput) MapIndex(k pulumi.StringInput) PropertyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PropertyInput)(nil)).Elem(), &Property{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PropertyPtrInput)(nil)).Elem(), &Property{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PropertyArrayInput)(nil)).Elem(), PropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PropertyMapInput)(nil)).Elem(), PropertyMap{})
 	pulumi.RegisterOutputType(PropertyOutput{})
 	pulumi.RegisterOutputType(PropertyPtrOutput{})
 	pulumi.RegisterOutputType(PropertyArrayOutput{})

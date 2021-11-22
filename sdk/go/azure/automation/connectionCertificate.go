@@ -333,6 +333,10 @@ func (o ConnectionCertificateMapOutput) MapIndex(k pulumi.StringInput) Connectio
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionCertificateInput)(nil)).Elem(), &ConnectionCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionCertificatePtrInput)(nil)).Elem(), &ConnectionCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionCertificateArrayInput)(nil)).Elem(), ConnectionCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionCertificateMapInput)(nil)).Elem(), ConnectionCertificateMap{})
 	pulumi.RegisterOutputType(ConnectionCertificateOutput{})
 	pulumi.RegisterOutputType(ConnectionCertificatePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionCertificateArrayOutput{})

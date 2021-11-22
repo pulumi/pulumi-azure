@@ -501,6 +501,10 @@ func (o StormClusterMapOutput) MapIndex(k pulumi.StringInput) StormClusterOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterInput)(nil)).Elem(), &StormCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterPtrInput)(nil)).Elem(), &StormCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterArrayInput)(nil)).Elem(), StormClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterMapInput)(nil)).Elem(), StormClusterMap{})
 	pulumi.RegisterOutputType(StormClusterOutput{})
 	pulumi.RegisterOutputType(StormClusterPtrOutput{})
 	pulumi.RegisterOutputType(StormClusterArrayOutput{})

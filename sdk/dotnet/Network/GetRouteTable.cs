@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure:network/getRouteTable:getRouteTable", args ?? new GetRouteTableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Route Table.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetRouteTable.InvokeAsync(new Azure.Network.GetRouteTableArgs
+        ///         {
+        ///             Name = "myroutetable",
+        ///             ResourceGroupName = "some-resource-group",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("azure:network/getRouteTable:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Azure.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRouteTableArgs()
+        {
+        }
+    }
+
+    public sealed class GetRouteTableInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Route Table.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group in which the Route Table exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRouteTableInvokeArgs()
         {
         }
     }

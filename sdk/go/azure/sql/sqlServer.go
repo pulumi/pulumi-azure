@@ -438,6 +438,10 @@ func (o SqlServerMapOutput) MapIndex(k pulumi.StringInput) SqlServerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerInput)(nil)).Elem(), &SqlServer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerPtrInput)(nil)).Elem(), &SqlServer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerArrayInput)(nil)).Elem(), SqlServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerMapInput)(nil)).Elem(), SqlServerMap{})
 	pulumi.RegisterOutputType(SqlServerOutput{})
 	pulumi.RegisterOutputType(SqlServerPtrOutput{})
 	pulumi.RegisterOutputType(SqlServerArrayOutput{})

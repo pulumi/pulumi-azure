@@ -457,6 +457,10 @@ func (o NatPoolMapOutput) MapIndex(k pulumi.StringInput) NatPoolOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NatPoolInput)(nil)).Elem(), &NatPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatPoolPtrInput)(nil)).Elem(), &NatPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatPoolArrayInput)(nil)).Elem(), NatPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatPoolMapInput)(nil)).Elem(), NatPoolMap{})
 	pulumi.RegisterOutputType(NatPoolOutput{})
 	pulumi.RegisterOutputType(NatPoolPtrOutput{})
 	pulumi.RegisterOutputType(NatPoolArrayOutput{})

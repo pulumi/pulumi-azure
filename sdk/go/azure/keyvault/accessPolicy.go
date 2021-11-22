@@ -443,6 +443,10 @@ func (o AccessPolicyMapOutput) MapIndex(k pulumi.StringInput) AccessPolicyOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyInput)(nil)).Elem(), &AccessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyPtrInput)(nil)).Elem(), &AccessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyArrayInput)(nil)).Elem(), AccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyMapInput)(nil)).Elem(), AccessPolicyMap{})
 	pulumi.RegisterOutputType(AccessPolicyOutput{})
 	pulumi.RegisterOutputType(AccessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Task<GetSyncResult> InvokeAsync(GetSyncArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSyncResult>("azure:storage/getSync:getSync", args ?? new GetSyncArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Storage Sync.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Storage.GetSync.InvokeAsync(new Azure.Storage.GetSyncArgs
+        ///         {
+        ///             Name = "existingStorageSyncName",
+        ///             ResourceGroupName = "existingResGroup",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSyncResult> Invoke(GetSyncInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSyncResult>("azure:storage/getSync:getSync", args ?? new GetSyncInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.Storage
         public string ResourceGroupName { get; set; } = null!;
 
         public GetSyncArgs()
+        {
+        }
+    }
+
+    public sealed class GetSyncInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of this Storage Sync.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the Storage Sync exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetSyncInvokeArgs()
         {
         }
     }

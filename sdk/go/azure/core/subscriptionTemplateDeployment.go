@@ -362,6 +362,10 @@ func (o SubscriptionTemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput) 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTemplateDeploymentInput)(nil)).Elem(), &SubscriptionTemplateDeployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTemplateDeploymentPtrInput)(nil)).Elem(), &SubscriptionTemplateDeployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTemplateDeploymentArrayInput)(nil)).Elem(), SubscriptionTemplateDeploymentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionTemplateDeploymentMapInput)(nil)).Elem(), SubscriptionTemplateDeploymentMap{})
 	pulumi.RegisterOutputType(SubscriptionTemplateDeploymentOutput{})
 	pulumi.RegisterOutputType(SubscriptionTemplateDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionTemplateDeploymentArrayOutput{})

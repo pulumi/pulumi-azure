@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Core
 {
@@ -51,6 +52,46 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing User Assigned Identity.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Reference An Existing)
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Authorization.GetUserAssignedIdentity.InvokeAsync(new Azure.Authorization.GetUserAssignedIdentityArgs
+        ///         {
+        ///             Name = "name_of_user_assigned_identity",
+        ///             ResourceGroupName = "name_of_resource_group",
+        ///         }));
+        ///         this.UaiClientId = example.Apply(example =&gt; example.ClientId);
+        ///         this.UaiPrincipalId = example.Apply(example =&gt; example.PrincipalId);
+        ///         this.UaiTenantId = example.Apply(example =&gt; example.TenantId);
+        ///     }
+        /// 
+        ///     [Output("uaiClientId")]
+        ///     public Output&lt;string&gt; UaiClientId { get; set; }
+        ///     [Output("uaiPrincipalId")]
+        ///     public Output&lt;string&gt; UaiPrincipalId { get; set; }
+        ///     [Output("uaiTenantId")]
+        ///     public Output&lt;string&gt; UaiTenantId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithVersion());
     }
 
 
@@ -69,6 +110,25 @@ namespace Pulumi.Azure.Core
         public string ResourceGroupName { get; set; } = null!;
 
         public GetUserAssignedIdentityArgs()
+        {
+        }
+    }
+
+    public sealed class GetUserAssignedIdentityInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the User Assigned Identity.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group in which the User Assigned Identity exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetUserAssignedIdentityInvokeArgs()
         {
         }
     }

@@ -343,6 +343,10 @@ func (o ExpressRouteAuthorizationMapOutput) MapIndex(k pulumi.StringInput) Expre
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteAuthorizationInput)(nil)).Elem(), &ExpressRouteAuthorization{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteAuthorizationPtrInput)(nil)).Elem(), &ExpressRouteAuthorization{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteAuthorizationArrayInput)(nil)).Elem(), ExpressRouteAuthorizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteAuthorizationMapInput)(nil)).Elem(), ExpressRouteAuthorizationMap{})
 	pulumi.RegisterOutputType(ExpressRouteAuthorizationOutput{})
 	pulumi.RegisterOutputType(ExpressRouteAuthorizationPtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteAuthorizationArrayOutput{})

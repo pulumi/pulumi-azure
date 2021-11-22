@@ -395,6 +395,10 @@ func (o DataLakeGen2PathMapOutput) MapIndex(k pulumi.StringInput) DataLakeGen2Pa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathInput)(nil)).Elem(), &DataLakeGen2Path{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathPtrInput)(nil)).Elem(), &DataLakeGen2Path{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathArrayInput)(nil)).Elem(), DataLakeGen2PathArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathMapInput)(nil)).Elem(), DataLakeGen2PathMap{})
 	pulumi.RegisterOutputType(DataLakeGen2PathOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2PathPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2PathArrayOutput{})

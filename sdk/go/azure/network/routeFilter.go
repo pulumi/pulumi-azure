@@ -346,6 +346,10 @@ func (o RouteFilterMapOutput) MapIndex(k pulumi.StringInput) RouteFilterOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteFilterInput)(nil)).Elem(), &RouteFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteFilterPtrInput)(nil)).Elem(), &RouteFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteFilterArrayInput)(nil)).Elem(), RouteFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteFilterMapInput)(nil)).Elem(), RouteFilterMap{})
 	pulumi.RegisterOutputType(RouteFilterOutput{})
 	pulumi.RegisterOutputType(RouteFilterPtrOutput{})
 	pulumi.RegisterOutputType(RouteFilterArrayOutput{})

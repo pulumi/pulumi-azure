@@ -305,6 +305,10 @@ func (o PortalTenantConfigurationMapOutput) MapIndex(k pulumi.StringInput) Porta
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalTenantConfigurationInput)(nil)).Elem(), &PortalTenantConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalTenantConfigurationPtrInput)(nil)).Elem(), &PortalTenantConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalTenantConfigurationArrayInput)(nil)).Elem(), PortalTenantConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalTenantConfigurationMapInput)(nil)).Elem(), PortalTenantConfigurationMap{})
 	pulumi.RegisterOutputType(PortalTenantConfigurationOutput{})
 	pulumi.RegisterOutputType(PortalTenantConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PortalTenantConfigurationArrayOutput{})

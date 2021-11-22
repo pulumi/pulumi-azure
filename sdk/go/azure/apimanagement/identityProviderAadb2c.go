@@ -398,6 +398,10 @@ func (o IdentityProviderAadb2cMapOutput) MapIndex(k pulumi.StringInput) Identity
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderAadb2cInput)(nil)).Elem(), &IdentityProviderAadb2c{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderAadb2cPtrInput)(nil)).Elem(), &IdentityProviderAadb2c{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderAadb2cArrayInput)(nil)).Elem(), IdentityProviderAadb2cArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderAadb2cMapInput)(nil)).Elem(), IdentityProviderAadb2cMap{})
 	pulumi.RegisterOutputType(IdentityProviderAadb2cOutput{})
 	pulumi.RegisterOutputType(IdentityProviderAadb2cPtrOutput{})
 	pulumi.RegisterOutputType(IdentityProviderAadb2cArrayOutput{})

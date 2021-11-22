@@ -449,6 +449,10 @@ func (o NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationInput)(nil)).Elem(), &NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrInput)(nil)).Elem(), &NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayInput)(nil)).Elem(), NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapInput)(nil)).Elem(), NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMap{})
 	pulumi.RegisterOutputType(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput{})

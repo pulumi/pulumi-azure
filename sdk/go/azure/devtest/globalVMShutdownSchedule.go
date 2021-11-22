@@ -444,6 +444,10 @@ func (o GlobalVMShutdownScheduleMapOutput) MapIndex(k pulumi.StringInput) Global
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalVMShutdownScheduleInput)(nil)).Elem(), &GlobalVMShutdownSchedule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalVMShutdownSchedulePtrInput)(nil)).Elem(), &GlobalVMShutdownSchedule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalVMShutdownScheduleArrayInput)(nil)).Elem(), GlobalVMShutdownScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalVMShutdownScheduleMapInput)(nil)).Elem(), GlobalVMShutdownScheduleMap{})
 	pulumi.RegisterOutputType(GlobalVMShutdownScheduleOutput{})
 	pulumi.RegisterOutputType(GlobalVMShutdownSchedulePtrOutput{})
 	pulumi.RegisterOutputType(GlobalVMShutdownScheduleArrayOutput{})

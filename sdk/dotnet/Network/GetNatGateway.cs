@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure:network/getNatGateway:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing NAT Gateway.
+        /// </summary>
+        public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure:network/getNatGateway:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +65,49 @@ namespace Pulumi.Azure.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNatGatewayArgs()
+        {
+        }
+    }
+
+    public sealed class GetNatGatewayInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the Name of the NAT Gateway.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("publicIpAddressIds")]
+        private InputList<string>? _publicIpAddressIds;
+
+        /// <summary>
+        /// A list of existing Public IP Address resource IDs which the NAT Gateway is using.
+        /// </summary>
+        public InputList<string> PublicIpAddressIds
+        {
+            get => _publicIpAddressIds ?? (_publicIpAddressIds = new InputList<string>());
+            set => _publicIpAddressIds = value;
+        }
+
+        [Input("publicIpPrefixIds")]
+        private InputList<string>? _publicIpPrefixIds;
+
+        /// <summary>
+        /// A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
+        /// </summary>
+        public InputList<string> PublicIpPrefixIds
+        {
+            get => _publicIpPrefixIds ?? (_publicIpPrefixIds = new InputList<string>());
+            set => _publicIpPrefixIds = value;
+        }
+
+        /// <summary>
+        /// Specifies the name of the Resource Group where the NAT Gateway exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNatGatewayInvokeArgs()
         {
         }
     }

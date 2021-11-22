@@ -540,6 +540,10 @@ func (o SystemTopicEventSubscriptionMapOutput) MapIndex(k pulumi.StringInput) Sy
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionInput)(nil)).Elem(), &SystemTopicEventSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionPtrInput)(nil)).Elem(), &SystemTopicEventSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionArrayInput)(nil)).Elem(), SystemTopicEventSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionMapInput)(nil)).Elem(), SystemTopicEventSubscriptionMap{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionArrayOutput{})

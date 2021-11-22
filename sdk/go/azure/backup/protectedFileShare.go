@@ -409,6 +409,10 @@ func (o ProtectedFileShareMapOutput) MapIndex(k pulumi.StringInput) ProtectedFil
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedFileShareInput)(nil)).Elem(), &ProtectedFileShare{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedFileSharePtrInput)(nil)).Elem(), &ProtectedFileShare{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedFileShareArrayInput)(nil)).Elem(), ProtectedFileShareArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedFileShareMapInput)(nil)).Elem(), ProtectedFileShareMap{})
 	pulumi.RegisterOutputType(ProtectedFileShareOutput{})
 	pulumi.RegisterOutputType(ProtectedFileSharePtrOutput{})
 	pulumi.RegisterOutputType(ProtectedFileShareArrayOutput{})

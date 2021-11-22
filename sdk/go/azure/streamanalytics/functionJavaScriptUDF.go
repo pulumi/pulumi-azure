@@ -385,6 +385,10 @@ func (o FunctionJavaScriptUDFMapOutput) MapIndex(k pulumi.StringInput) FunctionJ
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavaScriptUDFInput)(nil)).Elem(), &FunctionJavaScriptUDF{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavaScriptUDFPtrInput)(nil)).Elem(), &FunctionJavaScriptUDF{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavaScriptUDFArrayInput)(nil)).Elem(), FunctionJavaScriptUDFArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavaScriptUDFMapInput)(nil)).Elem(), FunctionJavaScriptUDFMap{})
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFOutput{})
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFPtrOutput{})
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFArrayOutput{})

@@ -501,6 +501,10 @@ func (o ManagedStorageAccountMapOutput) MapIndex(k pulumi.StringInput) ManagedSt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountInput)(nil)).Elem(), &ManagedStorageAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountPtrInput)(nil)).Elem(), &ManagedStorageAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountArrayInput)(nil)).Elem(), ManagedStorageAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountMapInput)(nil)).Elem(), ManagedStorageAccountMap{})
 	pulumi.RegisterOutputType(ManagedStorageAccountOutput{})
 	pulumi.RegisterOutputType(ManagedStorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(ManagedStorageAccountArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ServiceBus
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing ServiceBus Namespace.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ServiceBus.GetNamespace.InvokeAsync(new Azure.ServiceBus.GetNamespaceArgs
+        ///         {
+        ///             Name = "examplenamespace",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.Location = example.Apply(example =&gt; example.Location);
+        ///     }
+        /// 
+        ///     [Output("location")]
+        ///     public Output&lt;string&gt; Location { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.ServiceBus
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNamespaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetNamespaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the ServiceBus Namespace.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNamespaceInvokeArgs()
         {
         }
     }

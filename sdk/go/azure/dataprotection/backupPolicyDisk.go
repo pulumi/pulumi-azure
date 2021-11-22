@@ -381,6 +381,10 @@ func (o BackupPolicyDiskMapOutput) MapIndex(k pulumi.StringInput) BackupPolicyDi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskInput)(nil)).Elem(), &BackupPolicyDisk{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskPtrInput)(nil)).Elem(), &BackupPolicyDisk{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskArrayInput)(nil)).Elem(), BackupPolicyDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskMapInput)(nil)).Elem(), BackupPolicyDiskMap{})
 	pulumi.RegisterOutputType(BackupPolicyDiskOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskPtrOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskArrayOutput{})

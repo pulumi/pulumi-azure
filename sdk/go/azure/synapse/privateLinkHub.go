@@ -328,6 +328,10 @@ func (o PrivateLinkHubMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkHubOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkHubInput)(nil)).Elem(), &PrivateLinkHub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkHubPtrInput)(nil)).Elem(), &PrivateLinkHub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkHubArrayInput)(nil)).Elem(), PrivateLinkHubArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkHubMapInput)(nil)).Elem(), PrivateLinkHubMap{})
 	pulumi.RegisterOutputType(PrivateLinkHubOutput{})
 	pulumi.RegisterOutputType(PrivateLinkHubPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkHubArrayOutput{})

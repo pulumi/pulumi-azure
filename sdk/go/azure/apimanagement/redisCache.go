@@ -385,6 +385,10 @@ func (o RedisCacheMapOutput) MapIndex(k pulumi.StringInput) RedisCacheOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RedisCacheInput)(nil)).Elem(), &RedisCache{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RedisCachePtrInput)(nil)).Elem(), &RedisCache{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RedisCacheArrayInput)(nil)).Elem(), RedisCacheArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RedisCacheMapInput)(nil)).Elem(), RedisCacheMap{})
 	pulumi.RegisterOutputType(RedisCacheOutput{})
 	pulumi.RegisterOutputType(RedisCachePtrOutput{})
 	pulumi.RegisterOutputType(RedisCacheArrayOutput{})

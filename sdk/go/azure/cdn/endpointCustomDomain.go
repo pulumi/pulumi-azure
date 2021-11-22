@@ -382,6 +382,10 @@ func (o EndpointCustomDomainMapOutput) MapIndex(k pulumi.StringInput) EndpointCu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainInput)(nil)).Elem(), &EndpointCustomDomain{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainPtrInput)(nil)).Elem(), &EndpointCustomDomain{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainArrayInput)(nil)).Elem(), EndpointCustomDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainMapInput)(nil)).Elem(), EndpointCustomDomainMap{})
 	pulumi.RegisterOutputType(EndpointCustomDomainOutput{})
 	pulumi.RegisterOutputType(EndpointCustomDomainPtrOutput{})
 	pulumi.RegisterOutputType(EndpointCustomDomainArrayOutput{})

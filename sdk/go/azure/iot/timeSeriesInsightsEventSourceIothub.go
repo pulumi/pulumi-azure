@@ -463,6 +463,10 @@ func (o TimeSeriesInsightsEventSourceIothubMapOutput) MapIndex(k pulumi.StringIn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsEventSourceIothubInput)(nil)).Elem(), &TimeSeriesInsightsEventSourceIothub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsEventSourceIothubPtrInput)(nil)).Elem(), &TimeSeriesInsightsEventSourceIothub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsEventSourceIothubArrayInput)(nil)).Elem(), TimeSeriesInsightsEventSourceIothubArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsEventSourceIothubMapInput)(nil)).Elem(), TimeSeriesInsightsEventSourceIothubMap{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsEventSourceIothubOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsEventSourceIothubPtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsEventSourceIothubArrayOutput{})

@@ -419,6 +419,10 @@ func (o HybridConnectionAuthorizationRuleMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionAuthorizationRuleInput)(nil)).Elem(), &HybridConnectionAuthorizationRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionAuthorizationRulePtrInput)(nil)).Elem(), &HybridConnectionAuthorizationRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionAuthorizationRuleArrayInput)(nil)).Elem(), HybridConnectionAuthorizationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridConnectionAuthorizationRuleMapInput)(nil)).Elem(), HybridConnectionAuthorizationRuleMap{})
 	pulumi.RegisterOutputType(HybridConnectionAuthorizationRuleOutput{})
 	pulumi.RegisterOutputType(HybridConnectionAuthorizationRulePtrOutput{})
 	pulumi.RegisterOutputType(HybridConnectionAuthorizationRuleArrayOutput{})

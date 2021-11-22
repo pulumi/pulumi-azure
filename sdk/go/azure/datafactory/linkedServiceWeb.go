@@ -428,6 +428,10 @@ func (o LinkedServiceWebMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceW
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceWebInput)(nil)).Elem(), &LinkedServiceWeb{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceWebPtrInput)(nil)).Elem(), &LinkedServiceWeb{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceWebArrayInput)(nil)).Elem(), LinkedServiceWebArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceWebMapInput)(nil)).Elem(), LinkedServiceWebMap{})
 	pulumi.RegisterOutputType(LinkedServiceWebOutput{})
 	pulumi.RegisterOutputType(LinkedServiceWebPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceWebArrayOutput{})

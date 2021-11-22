@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Backup
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         public static Task<GetPolicyFileshareResult> InvokeAsync(GetPolicyFileshareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyFileshareResult>("azure:backup/getPolicyFileshare:getPolicyFileshare", args ?? new GetPolicyFileshareArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing File Share Backup Policy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var policy = Output.Create(Azure.Backup.GetPolicyFileshare.InvokeAsync(new Azure.Backup.GetPolicyFileshareArgs
+        ///         {
+        ///             Name = "policy",
+        ///             RecoveryVaultName = "recovery_vault",
+        ///             ResourceGroupName = "resource_group",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPolicyFileshareResult> Invoke(GetPolicyFileshareInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyFileshareResult>("azure:backup/getPolicyFileshare:getPolicyFileshare", args ?? new GetPolicyFileshareInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +97,31 @@ namespace Pulumi.Azure.Backup
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPolicyFileshareArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicyFileshareInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the File Share Backup Policy.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Recovery Services Vault.
+        /// </summary>
+        [Input("recoveryVaultName", required: true)]
+        public Input<string> RecoveryVaultName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group in which the File Share Backup Policy resides.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPolicyFileshareInvokeArgs()
         {
         }
     }

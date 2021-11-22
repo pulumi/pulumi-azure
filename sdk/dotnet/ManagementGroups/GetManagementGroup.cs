@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ManagementGroups
 {
@@ -43,6 +44,38 @@ namespace Pulumi.Azure.ManagementGroups
         /// </summary>
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Management Group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Management.GetGroup.InvokeAsync(new Azure.Management.GetGroupArgs
+        ///         {
+        ///             Name = "00000000-0000-0000-0000-000000000000",
+        ///         }));
+        ///         this.DisplayName = example.Apply(example =&gt; example.DisplayName);
+        ///     }
+        /// 
+        ///     [Output("displayName")]
+        ///     public Output&lt;string&gt; DisplayName { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetManagementGroupResult> Invoke(GetManagementGroupInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? new GetManagementGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -67,6 +100,31 @@ namespace Pulumi.Azure.ManagementGroups
         public string? Name { get; set; }
 
         public GetManagementGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagementGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the display name of this Management Group.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// Specifies the name or UUID of this Management Group.
+        /// </summary>
+        [Input("groupId")]
+        public Input<string>? GroupId { get; set; }
+
+        /// <summary>
+        /// Specifies the name or UUID of this Management Group.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetManagementGroupInvokeArgs()
         {
         }
     }

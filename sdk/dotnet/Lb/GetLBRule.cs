@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Lb
 {
@@ -49,6 +50,45 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         public static Task<GetLBRuleResult> InvokeAsync(GetLBRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLBRuleResult>("azure:lb/getLBRule:getLBRule", args ?? new GetLBRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Load Balancer Rule.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleLB = Output.Create(Azure.Lb.GetLB.InvokeAsync(new Azure.Lb.GetLBArgs
+        ///         {
+        ///             Name = "example-lb",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         var exampleLBRule = exampleLB.Apply(exampleLB =&gt; Output.Create(Azure.Lb.GetLBRule.InvokeAsync(new Azure.Lb.GetLBRuleArgs
+        ///         {
+        ///             Name = "first",
+        ///             ResourceGroupName = "example-resources",
+        ///             LoadbalancerId = exampleLB.Id,
+        ///         })));
+        ///         this.LbRuleId = exampleLBRule.Apply(exampleLBRule =&gt; exampleLBRule.Id);
+        ///     }
+        /// 
+        ///     [Output("lbRuleId")]
+        ///     public Output&lt;string&gt; LbRuleId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLBRuleResult> Invoke(GetLBRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLBRuleResult>("azure:lb/getLBRule:getLBRule", args ?? new GetLBRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -73,6 +113,31 @@ namespace Pulumi.Azure.Lb
         public string ResourceGroupName { get; set; } = null!;
 
         public GetLBRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetLBRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID of the Load Balancer Rule.
+        /// </summary>
+        [Input("loadbalancerId", required: true)]
+        public Input<string> LoadbalancerId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of this Load Balancer Rule.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the Load Balancer Rule exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetLBRuleInvokeArgs()
         {
         }
     }

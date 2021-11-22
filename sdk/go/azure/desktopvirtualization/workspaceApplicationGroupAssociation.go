@@ -343,6 +343,10 @@ func (o WorkspaceApplicationGroupAssociationMapOutput) MapIndex(k pulumi.StringI
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceApplicationGroupAssociationInput)(nil)).Elem(), &WorkspaceApplicationGroupAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceApplicationGroupAssociationPtrInput)(nil)).Elem(), &WorkspaceApplicationGroupAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceApplicationGroupAssociationArrayInput)(nil)).Elem(), WorkspaceApplicationGroupAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceApplicationGroupAssociationMapInput)(nil)).Elem(), WorkspaceApplicationGroupAssociationMap{})
 	pulumi.RegisterOutputType(WorkspaceApplicationGroupAssociationOutput{})
 	pulumi.RegisterOutputType(WorkspaceApplicationGroupAssociationPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceApplicationGroupAssociationArrayOutput{})

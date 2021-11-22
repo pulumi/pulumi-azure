@@ -417,6 +417,10 @@ func (o LockMapOutput) MapIndex(k pulumi.StringInput) LockOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LockInput)(nil)).Elem(), &Lock{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LockPtrInput)(nil)).Elem(), &Lock{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LockArrayInput)(nil)).Elem(), LockArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LockMapInput)(nil)).Elem(), LockMap{})
 	pulumi.RegisterOutputType(LockOutput{})
 	pulumi.RegisterOutputType(LockPtrOutput{})
 	pulumi.RegisterOutputType(LockArrayOutput{})

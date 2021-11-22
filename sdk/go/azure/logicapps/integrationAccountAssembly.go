@@ -402,6 +402,10 @@ func (o IntegrationAccountAssemblyMapOutput) MapIndex(k pulumi.StringInput) Inte
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAssemblyInput)(nil)).Elem(), &IntegrationAccountAssembly{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAssemblyPtrInput)(nil)).Elem(), &IntegrationAccountAssembly{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAssemblyArrayInput)(nil)).Elem(), IntegrationAccountAssemblyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAssemblyMapInput)(nil)).Elem(), IntegrationAccountAssemblyMap{})
 	pulumi.RegisterOutputType(IntegrationAccountAssemblyOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountAssemblyPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountAssemblyArrayOutput{})

@@ -387,6 +387,10 @@ func (o SqlStoredProcedureMapOutput) MapIndex(k pulumi.StringInput) SqlStoredPro
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlStoredProcedureInput)(nil)).Elem(), &SqlStoredProcedure{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlStoredProcedurePtrInput)(nil)).Elem(), &SqlStoredProcedure{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlStoredProcedureArrayInput)(nil)).Elem(), SqlStoredProcedureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlStoredProcedureMapInput)(nil)).Elem(), SqlStoredProcedureMap{})
 	pulumi.RegisterOutputType(SqlStoredProcedureOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedurePtrOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureArrayOutput{})

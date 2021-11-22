@@ -380,6 +380,10 @@ func (o ConsumerGroupMapOutput) MapIndex(k pulumi.StringInput) ConsumerGroupOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsumerGroupInput)(nil)).Elem(), &ConsumerGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsumerGroupPtrInput)(nil)).Elem(), &ConsumerGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsumerGroupArrayInput)(nil)).Elem(), ConsumerGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsumerGroupMapInput)(nil)).Elem(), ConsumerGroupMap{})
 	pulumi.RegisterOutputType(ConsumerGroupOutput{})
 	pulumi.RegisterOutputType(ConsumerGroupPtrOutput{})
 	pulumi.RegisterOutputType(ConsumerGroupArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.LogicApps
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args ?? new GetWorkflowArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Logic App Workflow.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.LogicApps.GetWorkflow.InvokeAsync(new Azure.LogicApps.GetWorkflowArgs
+        ///         {
+        ///             Name = "workflow1",
+        ///             ResourceGroupName = "my-resource-group",
+        ///         }));
+        ///         this.AccessEndpoint = example.Apply(example =&gt; example.AccessEndpoint);
+        ///     }
+        /// 
+        ///     [Output("accessEndpoint")]
+        ///     public Output&lt;string&gt; AccessEndpoint { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.LogicApps
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWorkflowArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkflowInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Logic App Workflow.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group in which the Logic App Workflow exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWorkflowInvokeArgs()
         {
         }
     }

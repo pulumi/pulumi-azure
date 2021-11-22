@@ -354,6 +354,10 @@ func (o ShareDirectoryMapOutput) MapIndex(k pulumi.StringInput) ShareDirectoryOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareDirectoryInput)(nil)).Elem(), &ShareDirectory{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareDirectoryPtrInput)(nil)).Elem(), &ShareDirectory{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareDirectoryArrayInput)(nil)).Elem(), ShareDirectoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareDirectoryMapInput)(nil)).Elem(), ShareDirectoryMap{})
 	pulumi.RegisterOutputType(ShareDirectoryOutput{})
 	pulumi.RegisterOutputType(ShareDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(ShareDirectoryArrayOutput{})

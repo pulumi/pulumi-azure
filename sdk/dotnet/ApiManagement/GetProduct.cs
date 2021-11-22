@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ApiManagement
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? new GetProductArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing API Management Product.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ApiManagement.GetProduct.InvokeAsync(new Azure.ApiManagement.GetProductArgs
+        ///         {
+        ///             ProductId = "my-product",
+        ///             ApiManagementName = "example-apim",
+        ///             ResourceGroupName = "search-service",
+        ///         }));
+        ///         this.ProductTerms = example.Apply(example =&gt; example.Terms);
+        ///     }
+        /// 
+        ///     [Output("productTerms")]
+        ///     public Output&lt;string&gt; ProductTerms { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +103,31 @@ namespace Pulumi.Azure.ApiManagement
         public string ResourceGroupName { get; set; } = null!;
 
         public GetProductArgs()
+        {
+        }
+    }
+
+    public sealed class GetProductInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Name of the API Management Service in which this Product exists.
+        /// </summary>
+        [Input("apiManagementName", required: true)]
+        public Input<string> ApiManagementName { get; set; } = null!;
+
+        /// <summary>
+        /// The Identifier for the API Management Product.
+        /// </summary>
+        [Input("productId", required: true)]
+        public Input<string> ProductId { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group in which the API Management Service exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetProductInvokeArgs()
         {
         }
     }

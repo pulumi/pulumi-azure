@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppService
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public static Task<GetEnvironmentV3Result> InvokeAsync(GetEnvironmentV3Args args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentV3Result>("azure:appservice/getEnvironmentV3:getEnvironmentV3", args ?? new GetEnvironmentV3Args(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.AppService.GetEnvironmentV3.InvokeAsync(new Azure.AppService.GetEnvironmentV3Args
+        ///         {
+        ///             Name = "example-ASE",
+        ///             ResourceGroupName = "example-resource-group",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetEnvironmentV3Result> Invoke(GetEnvironmentV3InvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentV3Result>("azure:appservice/getEnvironmentV3:getEnvironmentV3", args ?? new GetEnvironmentV3InvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.AppService
         public string ResourceGroupName { get; set; } = null!;
 
         public GetEnvironmentV3Args()
+        {
+        }
+    }
+
+    public sealed class GetEnvironmentV3InvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of this v3 App Service Environment.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the v3 App Service Environment exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetEnvironmentV3InvokeArgs()
         {
         }
     }

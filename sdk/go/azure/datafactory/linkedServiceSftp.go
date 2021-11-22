@@ -480,6 +480,10 @@ func (o LinkedServiceSftpMapOutput) MapIndex(k pulumi.StringInput) LinkedService
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSftpInput)(nil)).Elem(), &LinkedServiceSftp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSftpPtrInput)(nil)).Elem(), &LinkedServiceSftp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSftpArrayInput)(nil)).Elem(), LinkedServiceSftpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSftpMapInput)(nil)).Elem(), LinkedServiceSftpMap{})
 	pulumi.RegisterOutputType(LinkedServiceSftpOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSftpPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSftpArrayOutput{})

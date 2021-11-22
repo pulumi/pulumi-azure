@@ -424,6 +424,10 @@ func (o RegistryWebhookMapOutput) MapIndex(k pulumi.StringInput) RegistryWebhook
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryWebhookInput)(nil)).Elem(), &RegistryWebhook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryWebhookPtrInput)(nil)).Elem(), &RegistryWebhook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryWebhookArrayInput)(nil)).Elem(), RegistryWebhookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryWebhookMapInput)(nil)).Elem(), RegistryWebhookMap{})
 	pulumi.RegisterOutputType(RegistryWebhookOutput{})
 	pulumi.RegisterOutputType(RegistryWebhookPtrOutput{})
 	pulumi.RegisterOutputType(RegistryWebhookArrayOutput{})

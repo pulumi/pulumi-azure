@@ -411,6 +411,10 @@ func (o ScriptMapOutput) MapIndex(k pulumi.StringInput) ScriptOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptInput)(nil)).Elem(), &Script{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptPtrInput)(nil)).Elem(), &Script{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptArrayInput)(nil)).Elem(), ScriptArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScriptMapInput)(nil)).Elem(), ScriptMap{})
 	pulumi.RegisterOutputType(ScriptOutput{})
 	pulumi.RegisterOutputType(ScriptPtrOutput{})
 	pulumi.RegisterOutputType(ScriptArrayOutput{})

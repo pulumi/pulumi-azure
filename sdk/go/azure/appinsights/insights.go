@@ -508,6 +508,10 @@ func (o InsightsMapOutput) MapIndex(k pulumi.StringInput) InsightsOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightsInput)(nil)).Elem(), &Insights{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightsPtrInput)(nil)).Elem(), &Insights{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightsArrayInput)(nil)).Elem(), InsightsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightsMapInput)(nil)).Elem(), InsightsMap{})
 	pulumi.RegisterOutputType(InsightsOutput{})
 	pulumi.RegisterOutputType(InsightsPtrOutput{})
 	pulumi.RegisterOutputType(InsightsArrayOutput{})

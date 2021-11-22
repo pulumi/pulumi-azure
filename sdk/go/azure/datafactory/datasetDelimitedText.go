@@ -550,6 +550,10 @@ func (o DatasetDelimitedTextMapOutput) MapIndex(k pulumi.StringInput) DatasetDel
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDelimitedTextInput)(nil)).Elem(), &DatasetDelimitedText{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDelimitedTextPtrInput)(nil)).Elem(), &DatasetDelimitedText{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDelimitedTextArrayInput)(nil)).Elem(), DatasetDelimitedTextArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDelimitedTextMapInput)(nil)).Elem(), DatasetDelimitedTextMap{})
 	pulumi.RegisterOutputType(DatasetDelimitedTextOutput{})
 	pulumi.RegisterOutputType(DatasetDelimitedTextPtrOutput{})
 	pulumi.RegisterOutputType(DatasetDelimitedTextArrayOutput{})

@@ -440,6 +440,10 @@ func (o ProtectionContainerMappingMapOutput) MapIndex(k pulumi.StringInput) Prot
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionContainerMappingInput)(nil)).Elem(), &ProtectionContainerMapping{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionContainerMappingPtrInput)(nil)).Elem(), &ProtectionContainerMapping{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionContainerMappingArrayInput)(nil)).Elem(), ProtectionContainerMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionContainerMappingMapInput)(nil)).Elem(), ProtectionContainerMappingMap{})
 	pulumi.RegisterOutputType(ProtectionContainerMappingOutput{})
 	pulumi.RegisterOutputType(ProtectionContainerMappingPtrOutput{})
 	pulumi.RegisterOutputType(ProtectionContainerMappingArrayOutput{})

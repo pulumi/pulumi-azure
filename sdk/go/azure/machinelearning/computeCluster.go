@@ -517,6 +517,10 @@ func (o ComputeClusterMapOutput) MapIndex(k pulumi.StringInput) ComputeClusterOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterInput)(nil)).Elem(), &ComputeCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterPtrInput)(nil)).Elem(), &ComputeCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterArrayInput)(nil)).Elem(), ComputeClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterMapInput)(nil)).Elem(), ComputeClusterMap{})
 	pulumi.RegisterOutputType(ComputeClusterOutput{})
 	pulumi.RegisterOutputType(ComputeClusterPtrOutput{})
 	pulumi.RegisterOutputType(ComputeClusterArrayOutput{})

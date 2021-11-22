@@ -353,6 +353,10 @@ func (o SubnetRouteTableAssociationMapOutput) MapIndex(k pulumi.StringInput) Sub
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetRouteTableAssociationInput)(nil)).Elem(), &SubnetRouteTableAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetRouteTableAssociationPtrInput)(nil)).Elem(), &SubnetRouteTableAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetRouteTableAssociationArrayInput)(nil)).Elem(), SubnetRouteTableAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetRouteTableAssociationMapInput)(nil)).Elem(), SubnetRouteTableAssociationMap{})
 	pulumi.RegisterOutputType(SubnetRouteTableAssociationOutput{})
 	pulumi.RegisterOutputType(SubnetRouteTableAssociationPtrOutput{})
 	pulumi.RegisterOutputType(SubnetRouteTableAssociationArrayOutput{})

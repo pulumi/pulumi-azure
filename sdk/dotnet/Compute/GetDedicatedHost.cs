@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Compute
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure:compute/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Dedicated Host.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Compute.GetDedicatedHost.InvokeAsync(new Azure.Compute.GetDedicatedHostArgs
+        ///         {
+        ///             Name = "example-host",
+        ///             DedicatedHostGroupName = "example-host-group",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.DedicatedHostId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("dedicatedHostId")]
+        ///     public Output&lt;string&gt; DedicatedHostId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("azure:compute/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +103,31 @@ namespace Pulumi.Azure.Compute
         public string ResourceGroupName { get; set; } = null!;
 
         public GetDedicatedHostArgs()
+        {
+        }
+    }
+
+    public sealed class GetDedicatedHostInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Dedicated Host Group the Dedicated Host is located in.
+        /// </summary>
+        [Input("dedicatedHostGroupName", required: true)]
+        public Input<string> DedicatedHostGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Dedicated Host.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the resource group the Dedicated Host is located in.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetDedicatedHostInvokeArgs()
         {
         }
     }

@@ -439,6 +439,10 @@ func (o SpringCloudAppCosmosDBAssociationMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCosmosDBAssociationInput)(nil)).Elem(), &SpringCloudAppCosmosDBAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCosmosDBAssociationPtrInput)(nil)).Elem(), &SpringCloudAppCosmosDBAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCosmosDBAssociationArrayInput)(nil)).Elem(), SpringCloudAppCosmosDBAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCosmosDBAssociationMapInput)(nil)).Elem(), SpringCloudAppCosmosDBAssociationMap{})
 	pulumi.RegisterOutputType(SpringCloudAppCosmosDBAssociationOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppCosmosDBAssociationPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppCosmosDBAssociationArrayOutput{})

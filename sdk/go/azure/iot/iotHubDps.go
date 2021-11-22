@@ -391,6 +391,10 @@ func (o IotHubDpsMapOutput) MapIndex(k pulumi.StringInput) IotHubDpsOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsInput)(nil)).Elem(), &IotHubDps{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsPtrInput)(nil)).Elem(), &IotHubDps{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsArrayInput)(nil)).Elem(), IotHubDpsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsMapInput)(nil)).Elem(), IotHubDpsMap{})
 	pulumi.RegisterOutputType(IotHubDpsOutput{})
 	pulumi.RegisterOutputType(IotHubDpsPtrOutput{})
 	pulumi.RegisterOutputType(IotHubDpsArrayOutput{})

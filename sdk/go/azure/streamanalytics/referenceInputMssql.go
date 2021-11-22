@@ -459,6 +459,10 @@ func (o ReferenceInputMssqlMapOutput) MapIndex(k pulumi.StringInput) ReferenceIn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceInputMssqlInput)(nil)).Elem(), &ReferenceInputMssql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceInputMssqlPtrInput)(nil)).Elem(), &ReferenceInputMssql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceInputMssqlArrayInput)(nil)).Elem(), ReferenceInputMssqlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceInputMssqlMapInput)(nil)).Elem(), ReferenceInputMssqlMap{})
 	pulumi.RegisterOutputType(ReferenceInputMssqlOutput{})
 	pulumi.RegisterOutputType(ReferenceInputMssqlPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceInputMssqlArrayOutput{})

@@ -400,6 +400,10 @@ func (o ChannelDirectLineSpeechMapOutput) MapIndex(k pulumi.StringInput) Channel
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDirectLineSpeechInput)(nil)).Elem(), &ChannelDirectLineSpeech{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDirectLineSpeechPtrInput)(nil)).Elem(), &ChannelDirectLineSpeech{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDirectLineSpeechArrayInput)(nil)).Elem(), ChannelDirectLineSpeechArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDirectLineSpeechMapInput)(nil)).Elem(), ChannelDirectLineSpeechMap{})
 	pulumi.RegisterOutputType(ChannelDirectLineSpeechOutput{})
 	pulumi.RegisterOutputType(ChannelDirectLineSpeechPtrOutput{})
 	pulumi.RegisterOutputType(ChannelDirectLineSpeechArrayOutput{})

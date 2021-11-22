@@ -446,6 +446,10 @@ func (o NatRuleMapOutput) MapIndex(k pulumi.StringInput) NatRuleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NatRuleInput)(nil)).Elem(), &NatRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatRulePtrInput)(nil)).Elem(), &NatRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatRuleArrayInput)(nil)).Elem(), NatRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatRuleMapInput)(nil)).Elem(), NatRuleMap{})
 	pulumi.RegisterOutputType(NatRuleOutput{})
 	pulumi.RegisterOutputType(NatRulePtrOutput{})
 	pulumi.RegisterOutputType(NatRuleArrayOutput{})

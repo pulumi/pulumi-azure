@@ -380,6 +380,10 @@ func (o DatasetCosmosDBApiMapOutput) MapIndex(k pulumi.StringInput) DatasetCosmo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetCosmosDBApiInput)(nil)).Elem(), &DatasetCosmosDBApi{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetCosmosDBApiPtrInput)(nil)).Elem(), &DatasetCosmosDBApi{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetCosmosDBApiArrayInput)(nil)).Elem(), DatasetCosmosDBApiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetCosmosDBApiMapInput)(nil)).Elem(), DatasetCosmosDBApiMap{})
 	pulumi.RegisterOutputType(DatasetCosmosDBApiOutput{})
 	pulumi.RegisterOutputType(DatasetCosmosDBApiPtrOutput{})
 	pulumi.RegisterOutputType(DatasetCosmosDBApiArrayOutput{})

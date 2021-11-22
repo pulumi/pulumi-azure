@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.MachineLearning
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure:machinelearning/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Machine Learning Workspace.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var existing = Output.Create(Azure.MachineLearning.GetWorkspace.InvokeAsync(new Azure.MachineLearning.GetWorkspaceArgs
+        ///         {
+        ///             Name = "example-workspace",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.Id = azurerm_machine_learning_workspace.Existing.Id;
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure:machinelearning/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.MachineLearning
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWorkspaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Machine Learning Workspace exists.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the Machine Learning Workspace exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWorkspaceInvokeArgs()
         {
         }
     }

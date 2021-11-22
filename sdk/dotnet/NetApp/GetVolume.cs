@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.NetApp
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Uses this data source to access information about an existing NetApp Volume.
+        /// 
+        /// ## NetApp Volume Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.NetApp.GetVolume.InvokeAsync(new Azure.NetApp.GetVolumeArgs
+        ///         {
+        ///             ResourceGroupName = "acctestRG",
+        ///             AccountName = "acctestnetappaccount",
+        ///             PoolName = "acctestnetapppool",
+        ///             Name = "example-volume",
+        ///         }));
+        ///         this.NetappVolumeId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("netappVolumeId")]
+        ///     public Output&lt;string&gt; NetappVolumeId { get; set; }
+        /// }
+        /// ```
+        /// </summary>
+        public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -77,6 +109,43 @@ namespace Pulumi.Azure.NetApp
         public string? SecurityStyle { get; set; }
 
         public GetVolumeArgs()
+        {
+        }
+    }
+
+    public sealed class GetVolumeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the NetApp account where the NetApp pool exists.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the NetApp Volume.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the NetApp pool where the NetApp volume exists.
+        /// </summary>
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where the NetApp Volume exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Volume security style
+        /// </summary>
+        [Input("securityStyle")]
+        public Input<string>? SecurityStyle { get; set; }
+
+        public GetVolumeInvokeArgs()
         {
         }
     }

@@ -371,6 +371,10 @@ func (o AnalyticsFirewallRuleMapOutput) MapIndex(k pulumi.StringInput) Analytics
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsFirewallRuleInput)(nil)).Elem(), &AnalyticsFirewallRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsFirewallRulePtrInput)(nil)).Elem(), &AnalyticsFirewallRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsFirewallRuleArrayInput)(nil)).Elem(), AnalyticsFirewallRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsFirewallRuleMapInput)(nil)).Elem(), AnalyticsFirewallRuleMap{})
 	pulumi.RegisterOutputType(AnalyticsFirewallRuleOutput{})
 	pulumi.RegisterOutputType(AnalyticsFirewallRulePtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsFirewallRuleArrayOutput{})

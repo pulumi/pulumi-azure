@@ -660,6 +660,10 @@ func (o AutoscaleSettingMapOutput) MapIndex(k pulumi.StringInput) AutoscaleSetti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingInput)(nil)).Elem(), &AutoscaleSetting{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingPtrInput)(nil)).Elem(), &AutoscaleSetting{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingArrayInput)(nil)).Elem(), AutoscaleSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingMapInput)(nil)).Elem(), AutoscaleSettingMap{})
 	pulumi.RegisterOutputType(AutoscaleSettingOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingPtrOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingArrayOutput{})

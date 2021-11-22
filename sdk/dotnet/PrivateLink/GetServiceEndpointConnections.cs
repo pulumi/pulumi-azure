@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.PrivateLink
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         public static Task<GetServiceEndpointConnectionsResult> InvokeAsync(GetServiceEndpointConnectionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access endpoint connection information about an existing Private Link Service.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.PrivateLink.GetServiceEndpointConnections.InvokeAsync(new Azure.PrivateLink.GetServiceEndpointConnectionsArgs
+        ///         {
+        ///             ServiceId = azurerm_private_link_service.Example.Id,
+        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         }));
+        ///         this.PrivateEndpointStatus = example.Apply(example =&gt; example.PrivateEndpointConnections?[0]?.Status);
+        ///     }
+        /// 
+        ///     [Output("privateEndpointStatus")]
+        ///     public Output&lt;string&gt; PrivateEndpointStatus { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetServiceEndpointConnectionsResult> Invoke(GetServiceEndpointConnectionsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.PrivateLink
         public string ServiceId { get; set; } = null!;
 
         public GetServiceEndpointConnectionsArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceEndpointConnectionsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the resource group in which the private link service resides.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource ID of the private link service.
+        /// </summary>
+        [Input("serviceId", required: true)]
+        public Input<string> ServiceId { get; set; } = null!;
+
+        public GetServiceEndpointConnectionsInvokeArgs()
         {
         }
     }

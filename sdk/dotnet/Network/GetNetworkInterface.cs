@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Network Interface.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetNetworkInterface.InvokeAsync(new Azure.Network.GetNetworkInterfaceArgs
+        ///         {
+        ///             Name = "acctest-nic",
+        ///             ResourceGroupName = "networking",
+        ///         }));
+        ///         this.NetworkInterfaceId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("networkInterfaceId")]
+        ///     public Output&lt;string&gt; NetworkInterfaceId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNetworkInterfaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkInterfaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Network Interface.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the resource group the Network Interface is located in.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNetworkInterfaceInvokeArgs()
         {
         }
     }

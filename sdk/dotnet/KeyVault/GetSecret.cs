@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.KeyVault
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure:keyvault/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Key Vault Secret.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.KeyVault.GetSecret.InvokeAsync(new Azure.KeyVault.GetSecretArgs
+        ///         {
+        ///             Name = "secret-sauce",
+        ///             KeyVaultId = data.Azurerm_key_vault.Existing.Id,
+        ///         }));
+        ///         this.SecretValue = example.Apply(example =&gt; example.Value);
+        ///     }
+        /// 
+        ///     [Output("secretValue")]
+        ///     public Output&lt;string&gt; SecretValue { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure:keyvault/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.KeyVault
         public string Name { get; set; } = null!;
 
         public GetSecretArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+        /// </summary>
+        [Input("keyVaultId", required: true)]
+        public Input<string> KeyVaultId { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Key Vault Secret.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetSecretInvokeArgs()
         {
         }
     }

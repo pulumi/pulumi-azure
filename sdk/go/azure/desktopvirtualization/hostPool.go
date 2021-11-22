@@ -509,6 +509,10 @@ func (o HostPoolMapOutput) MapIndex(k pulumi.StringInput) HostPoolOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolInput)(nil)).Elem(), &HostPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolPtrInput)(nil)).Elem(), &HostPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolArrayInput)(nil)).Elem(), HostPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolMapInput)(nil)).Elem(), HostPoolMap{})
 	pulumi.RegisterOutputType(HostPoolOutput{})
 	pulumi.RegisterOutputType(HostPoolPtrOutput{})
 	pulumi.RegisterOutputType(HostPoolArrayOutput{})

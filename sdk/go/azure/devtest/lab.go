@@ -384,6 +384,10 @@ func (o LabMapOutput) MapIndex(k pulumi.StringInput) LabOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LabInput)(nil)).Elem(), &Lab{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabPtrInput)(nil)).Elem(), &Lab{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabArrayInput)(nil)).Elem(), LabArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabMapInput)(nil)).Elem(), LabMap{})
 	pulumi.RegisterOutputType(LabOutput{})
 	pulumi.RegisterOutputType(LabPtrOutput{})
 	pulumi.RegisterOutputType(LabArrayOutput{})

@@ -448,6 +448,10 @@ func (o PolicyFileShareMapOutput) MapIndex(k pulumi.StringInput) PolicyFileShare
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareInput)(nil)).Elem(), &PolicyFileShare{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileSharePtrInput)(nil)).Elem(), &PolicyFileShare{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareArrayInput)(nil)).Elem(), PolicyFileShareArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareMapInput)(nil)).Elem(), PolicyFileShareMap{})
 	pulumi.RegisterOutputType(PolicyFileShareOutput{})
 	pulumi.RegisterOutputType(PolicyFileSharePtrOutput{})
 	pulumi.RegisterOutputType(PolicyFileShareArrayOutput{})

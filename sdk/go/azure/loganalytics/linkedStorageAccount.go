@@ -367,6 +367,10 @@ func (o LinkedStorageAccountMapOutput) MapIndex(k pulumi.StringInput) LinkedStor
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedStorageAccountInput)(nil)).Elem(), &LinkedStorageAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedStorageAccountPtrInput)(nil)).Elem(), &LinkedStorageAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedStorageAccountArrayInput)(nil)).Elem(), LinkedStorageAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedStorageAccountMapInput)(nil)).Elem(), LinkedStorageAccountMap{})
 	pulumi.RegisterOutputType(LinkedStorageAccountOutput{})
 	pulumi.RegisterOutputType(LinkedStorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(LinkedStorageAccountArrayOutput{})

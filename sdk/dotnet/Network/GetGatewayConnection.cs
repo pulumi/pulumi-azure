@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Task<GetGatewayConnectionResult> InvokeAsync(GetGatewayConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayConnectionResult>("azure:network/getGatewayConnection:getGatewayConnection", args ?? new GetGatewayConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Virtual Network Gateway Connection.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetGatewayConnection.InvokeAsync(new Azure.Network.GetGatewayConnectionArgs
+        ///         {
+        ///             Name = "production",
+        ///             ResourceGroupName = "networking",
+        ///         }));
+        ///         this.VirtualNetworkGatewayConnectionId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("virtualNetworkGatewayConnectionId")]
+        ///     public Output&lt;string&gt; VirtualNetworkGatewayConnectionId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetGatewayConnectionResult> Invoke(GetGatewayConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGatewayConnectionResult>("azure:network/getGatewayConnection:getGatewayConnection", args ?? new GetGatewayConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetGatewayConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetGatewayConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Virtual Network Gateway Connection.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the resource group the Virtual Network Gateway Connection is located in.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetGatewayConnectionInvokeArgs()
         {
         }
     }

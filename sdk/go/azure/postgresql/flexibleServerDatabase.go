@@ -348,6 +348,10 @@ func (o FlexibleServerDatabaseMapOutput) MapIndex(k pulumi.StringInput) Flexible
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerDatabaseInput)(nil)).Elem(), &FlexibleServerDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerDatabasePtrInput)(nil)).Elem(), &FlexibleServerDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerDatabaseArrayInput)(nil)).Elem(), FlexibleServerDatabaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerDatabaseMapInput)(nil)).Elem(), FlexibleServerDatabaseMap{})
 	pulumi.RegisterOutputType(FlexibleServerDatabaseOutput{})
 	pulumi.RegisterOutputType(FlexibleServerDatabasePtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerDatabaseArrayOutput{})

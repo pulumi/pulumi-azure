@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ContainerService
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? new GetRegistryArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Container Registry.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ContainerService.GetRegistry.InvokeAsync(new Azure.ContainerService.GetRegistryArgs
+        ///         {
+        ///             Name = "testacr",
+        ///             ResourceGroupName = "test",
+        ///         }));
+        ///         this.LoginServer = example.Apply(example =&gt; example.LoginServer);
+        ///     }
+        /// 
+        ///     [Output("loginServer")]
+        ///     public Output&lt;string&gt; LoginServer { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.ContainerService
         public string ResourceGroupName { get; set; } = null!;
 
         public GetRegistryArgs()
+        {
+        }
+    }
+
+    public sealed class GetRegistryInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Container Registry.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where this Container Registry exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetRegistryInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ServiceBus
 {
@@ -45,6 +46,41 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public static Task<GetTopicAuthorizationRuleResult> InvokeAsync(GetTopicAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ServiceBus.GetTopicAuthorizationRule.InvokeAsync(new Azure.ServiceBus.GetTopicAuthorizationRuleArgs
+        ///         {
+        ///             Name = "example-tfex_name",
+        ///             NamespaceName = "example-namespace",
+        ///             ResourceGroupName = "example-resources",
+        ///             TopicName = "example-servicebus_topic",
+        ///         }));
+        ///         this.ServicebusAuthorizationRuleId = data.Azurem_servicebus_topic_authorization_rule.Example.Id;
+        ///     }
+        /// 
+        ///     [Output("servicebusAuthorizationRuleId")]
+        ///     public Output&lt;string&gt; ServicebusAuthorizationRuleId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetTopicAuthorizationRuleResult> Invoke(GetTopicAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -75,6 +111,37 @@ namespace Pulumi.Azure.ServiceBus
         public string TopicName { get; set; } = null!;
 
         public GetTopicAuthorizationRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetTopicAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the ServiceBus Topic Authorization Rule resource.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the ServiceBus Namespace.
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group in which the ServiceBus Namespace exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the ServiceBus Topic.
+        /// </summary>
+        [Input("topicName", required: true)]
+        public Input<string> TopicName { get; set; } = null!;
+
+        public GetTopicAuthorizationRuleInvokeArgs()
         {
         }
     }

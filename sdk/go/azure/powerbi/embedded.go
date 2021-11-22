@@ -375,6 +375,10 @@ func (o EmbeddedMapOutput) MapIndex(k pulumi.StringInput) EmbeddedOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EmbeddedInput)(nil)).Elem(), &Embedded{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmbeddedPtrInput)(nil)).Elem(), &Embedded{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmbeddedArrayInput)(nil)).Elem(), EmbeddedArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmbeddedMapInput)(nil)).Elem(), EmbeddedMap{})
 	pulumi.RegisterOutputType(EmbeddedOutput{})
 	pulumi.RegisterOutputType(EmbeddedPtrOutput{})
 	pulumi.RegisterOutputType(EmbeddedArrayOutput{})

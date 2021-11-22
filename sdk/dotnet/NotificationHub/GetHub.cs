@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.NotificationHub
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Azure.NotificationHub
         /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? new GetHubArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.NotificationHub.GetHub.InvokeAsync(new Azure.NotificationHub.GetHubArgs
+        ///         {
+        ///             Name = "notification-hub",
+        ///             NamespaceName = "namespace-name",
+        ///             ResourceGroupName = "resource-group-name",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? new GetHubInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +103,31 @@ namespace Pulumi.Azure.NotificationHub
         public string ResourceGroupName { get; set; } = null!;
 
         public GetHubArgs()
+        {
+        }
+    }
+
+    public sealed class GetHubInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the Name of the Notification Hub.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the Name of the Notification Hub Namespace which contains the Notification Hub.
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the Name of the Resource Group within which the Notification Hub exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetHubInvokeArgs()
         {
         }
     }

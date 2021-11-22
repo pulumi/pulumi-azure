@@ -335,6 +335,10 @@ func (o ZipBlobMapOutput) MapIndex(k pulumi.StringInput) ZipBlobOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ZipBlobInput)(nil)).Elem(), &ZipBlob{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZipBlobPtrInput)(nil)).Elem(), &ZipBlob{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZipBlobArrayInput)(nil)).Elem(), ZipBlobArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZipBlobMapInput)(nil)).Elem(), ZipBlobMap{})
 	pulumi.RegisterOutputType(ZipBlobOutput{})
 	pulumi.RegisterOutputType(ZipBlobPtrOutput{})
 	pulumi.RegisterOutputType(ZipBlobArrayOutput{})

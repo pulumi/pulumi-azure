@@ -467,6 +467,10 @@ func (o DataFlowMapOutput) MapIndex(k pulumi.StringInput) DataFlowOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowInput)(nil)).Elem(), &DataFlow{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowPtrInput)(nil)).Elem(), &DataFlow{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowArrayInput)(nil)).Elem(), DataFlowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowMapInput)(nil)).Elem(), DataFlowMap{})
 	pulumi.RegisterOutputType(DataFlowOutput{})
 	pulumi.RegisterOutputType(DataFlowPtrOutput{})
 	pulumi.RegisterOutputType(DataFlowArrayOutput{})

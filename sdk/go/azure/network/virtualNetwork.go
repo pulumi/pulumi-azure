@@ -464,6 +464,10 @@ func (o VirtualNetworkMapOutput) MapIndex(k pulumi.StringInput) VirtualNetworkOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkInput)(nil)).Elem(), &VirtualNetwork{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkPtrInput)(nil)).Elem(), &VirtualNetwork{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkArrayInput)(nil)).Elem(), VirtualNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkMapInput)(nil)).Elem(), VirtualNetworkMap{})
 	pulumi.RegisterOutputType(VirtualNetworkOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkArrayOutput{})

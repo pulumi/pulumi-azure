@@ -380,6 +380,10 @@ func (o AssessmentMetadataMapOutput) MapIndex(k pulumi.StringInput) AssessmentMe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentMetadataInput)(nil)).Elem(), &AssessmentMetadata{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentMetadataPtrInput)(nil)).Elem(), &AssessmentMetadata{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentMetadataArrayInput)(nil)).Elem(), AssessmentMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentMetadataMapInput)(nil)).Elem(), AssessmentMetadataMap{})
 	pulumi.RegisterOutputType(AssessmentMetadataOutput{})
 	pulumi.RegisterOutputType(AssessmentMetadataPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentMetadataArrayOutput{})

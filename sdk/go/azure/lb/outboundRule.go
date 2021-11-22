@@ -432,6 +432,10 @@ func (o OutboundRuleMapOutput) MapIndex(k pulumi.StringInput) OutboundRuleOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundRuleInput)(nil)).Elem(), &OutboundRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundRulePtrInput)(nil)).Elem(), &OutboundRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundRuleArrayInput)(nil)).Elem(), OutboundRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundRuleMapInput)(nil)).Elem(), OutboundRuleMap{})
 	pulumi.RegisterOutputType(OutboundRuleOutput{})
 	pulumi.RegisterOutputType(OutboundRulePtrOutput{})
 	pulumi.RegisterOutputType(OutboundRuleArrayOutput{})

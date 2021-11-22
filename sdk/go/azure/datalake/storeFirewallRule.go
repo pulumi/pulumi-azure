@@ -365,6 +365,10 @@ func (o StoreFirewallRuleMapOutput) MapIndex(k pulumi.StringInput) StoreFirewall
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StoreFirewallRuleInput)(nil)).Elem(), &StoreFirewallRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StoreFirewallRulePtrInput)(nil)).Elem(), &StoreFirewallRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StoreFirewallRuleArrayInput)(nil)).Elem(), StoreFirewallRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StoreFirewallRuleMapInput)(nil)).Elem(), StoreFirewallRuleMap{})
 	pulumi.RegisterOutputType(StoreFirewallRuleOutput{})
 	pulumi.RegisterOutputType(StoreFirewallRulePtrOutput{})
 	pulumi.RegisterOutputType(StoreFirewallRuleArrayOutput{})

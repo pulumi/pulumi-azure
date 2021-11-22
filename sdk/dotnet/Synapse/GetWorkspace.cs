@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Synapse
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure:synapse/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Synapse Workspace.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Synapse.GetWorkspace.InvokeAsync(new Azure.Synapse.GetWorkspaceArgs
+        ///         {
+        ///             Name = "existing",
+        ///             ResourceGroupName = "example-resource-group",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure:synapse/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.Synapse
         public string ResourceGroupName { get; set; } = null!;
 
         public GetWorkspaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of this Synapse Workspace.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the Synapse Workspace exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetWorkspaceInvokeArgs()
         {
         }
     }

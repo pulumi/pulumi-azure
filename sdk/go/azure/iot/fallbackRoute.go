@@ -409,6 +409,10 @@ func (o FallbackRouteMapOutput) MapIndex(k pulumi.StringInput) FallbackRouteOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FallbackRouteInput)(nil)).Elem(), &FallbackRoute{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FallbackRoutePtrInput)(nil)).Elem(), &FallbackRoute{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FallbackRouteArrayInput)(nil)).Elem(), FallbackRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FallbackRouteMapInput)(nil)).Elem(), FallbackRouteMap{})
 	pulumi.RegisterOutputType(FallbackRouteOutput{})
 	pulumi.RegisterOutputType(FallbackRoutePtrOutput{})
 	pulumi.RegisterOutputType(FallbackRouteArrayOutput{})

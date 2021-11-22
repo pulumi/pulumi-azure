@@ -304,6 +304,10 @@ func (o SpringCloudCustomDomainMapOutput) MapIndex(k pulumi.StringInput) SpringC
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomDomainInput)(nil)).Elem(), &SpringCloudCustomDomain{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomDomainPtrInput)(nil)).Elem(), &SpringCloudCustomDomain{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomDomainArrayInput)(nil)).Elem(), SpringCloudCustomDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomDomainMapInput)(nil)).Elem(), SpringCloudCustomDomainMap{})
 	pulumi.RegisterOutputType(SpringCloudCustomDomainOutput{})
 	pulumi.RegisterOutputType(SpringCloudCustomDomainPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudCustomDomainArrayOutput{})

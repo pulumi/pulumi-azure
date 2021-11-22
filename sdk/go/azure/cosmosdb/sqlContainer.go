@@ -455,6 +455,10 @@ func (o SqlContainerMapOutput) MapIndex(k pulumi.StringInput) SqlContainerOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlContainerInput)(nil)).Elem(), &SqlContainer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlContainerPtrInput)(nil)).Elem(), &SqlContainer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlContainerArrayInput)(nil)).Elem(), SqlContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlContainerMapInput)(nil)).Elem(), SqlContainerMap{})
 	pulumi.RegisterOutputType(SqlContainerOutput{})
 	pulumi.RegisterOutputType(SqlContainerPtrOutput{})
 	pulumi.RegisterOutputType(SqlContainerArrayOutput{})

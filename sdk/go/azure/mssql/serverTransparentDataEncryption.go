@@ -459,6 +459,10 @@ func (o ServerTransparentDataEncryptionMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerTransparentDataEncryptionInput)(nil)).Elem(), &ServerTransparentDataEncryption{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerTransparentDataEncryptionPtrInput)(nil)).Elem(), &ServerTransparentDataEncryption{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerTransparentDataEncryptionArrayInput)(nil)).Elem(), ServerTransparentDataEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerTransparentDataEncryptionMapInput)(nil)).Elem(), ServerTransparentDataEncryptionMap{})
 	pulumi.RegisterOutputType(ServerTransparentDataEncryptionOutput{})
 	pulumi.RegisterOutputType(ServerTransparentDataEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(ServerTransparentDataEncryptionArrayOutput{})

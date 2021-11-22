@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("azure:network/getFirewall:getFirewall", args ?? new GetFirewallArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Azure Firewall.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetFirewall.InvokeAsync(new Azure.Network.GetFirewallArgs
+        ///         {
+        ///             Name = "firewall1",
+        ///             ResourceGroupName = "firewall-RG",
+        ///         }));
+        ///         this.FirewallPrivateIp = example.Apply(example =&gt; example.IpConfigurations?[0]?.PrivateIpAddress);
+        ///     }
+        /// 
+        ///     [Output("firewallPrivateIp")]
+        ///     public Output&lt;string&gt; FirewallPrivateIp { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("azure:network/getFirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetFirewallArgs()
+        {
+        }
+    }
+
+    public sealed class GetFirewallInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Azure Firewall.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group in which the Azure Firewall exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetFirewallInvokeArgs()
         {
         }
     }

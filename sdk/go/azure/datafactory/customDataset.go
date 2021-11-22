@@ -468,6 +468,10 @@ func (o CustomDatasetMapOutput) MapIndex(k pulumi.StringInput) CustomDatasetOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetInput)(nil)).Elem(), &CustomDataset{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetPtrInput)(nil)).Elem(), &CustomDataset{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetArrayInput)(nil)).Elem(), CustomDatasetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetMapInput)(nil)).Elem(), CustomDatasetMap{})
 	pulumi.RegisterOutputType(CustomDatasetOutput{})
 	pulumi.RegisterOutputType(CustomDatasetPtrOutput{})
 	pulumi.RegisterOutputType(CustomDatasetArrayOutput{})

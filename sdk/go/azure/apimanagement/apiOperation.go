@@ -436,6 +436,10 @@ func (o ApiOperationMapOutput) MapIndex(k pulumi.StringInput) ApiOperationOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationInput)(nil)).Elem(), &ApiOperation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationPtrInput)(nil)).Elem(), &ApiOperation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationArrayInput)(nil)).Elem(), ApiOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationMapInput)(nil)).Elem(), ApiOperationMap{})
 	pulumi.RegisterOutputType(ApiOperationOutput{})
 	pulumi.RegisterOutputType(ApiOperationPtrOutput{})
 	pulumi.RegisterOutputType(ApiOperationArrayOutput{})

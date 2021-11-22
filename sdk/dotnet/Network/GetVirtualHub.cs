@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure:network/getVirtualHub:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Uses this data source to access information about an existing Virtual Hub.
+        /// 
+        /// ## Virtual Hub Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetVirtualHub.InvokeAsync(new Azure.Network.GetVirtualHubArgs
+        ///         {
+        ///             Name = "example-hub",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.VirtualHubId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("virtualHubId")]
+        ///     public Output&lt;string&gt; VirtualHubId { get; set; }
+        /// }
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualHubResult> Invoke(GetVirtualHubInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure:network/getVirtualHub:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithVersion());
     }
 
 
@@ -57,6 +87,25 @@ namespace Pulumi.Azure.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetVirtualHubArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualHubInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Virtual Hub.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where the Virtual Hub exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetVirtualHubInvokeArgs()
         {
         }
     }

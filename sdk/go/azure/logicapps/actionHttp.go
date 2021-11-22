@@ -379,6 +379,10 @@ func (o ActionHttpMapOutput) MapIndex(k pulumi.StringInput) ActionHttpOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpInput)(nil)).Elem(), &ActionHttp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpPtrInput)(nil)).Elem(), &ActionHttp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpArrayInput)(nil)).Elem(), ActionHttpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpMapInput)(nil)).Elem(), ActionHttpMap{})
 	pulumi.RegisterOutputType(ActionHttpOutput{})
 	pulumi.RegisterOutputType(ActionHttpPtrOutput{})
 	pulumi.RegisterOutputType(ActionHttpArrayOutput{})

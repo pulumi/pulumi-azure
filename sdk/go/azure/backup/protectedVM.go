@@ -398,6 +398,10 @@ func (o ProtectedVMMapOutput) MapIndex(k pulumi.StringInput) ProtectedVMOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedVMInput)(nil)).Elem(), &ProtectedVM{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedVMPtrInput)(nil)).Elem(), &ProtectedVM{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedVMArrayInput)(nil)).Elem(), ProtectedVMArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedVMMapInput)(nil)).Elem(), ProtectedVMMap{})
 	pulumi.RegisterOutputType(ProtectedVMOutput{})
 	pulumi.RegisterOutputType(ProtectedVMPtrOutput{})
 	pulumi.RegisterOutputType(ProtectedVMArrayOutput{})

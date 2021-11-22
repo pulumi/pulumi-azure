@@ -405,6 +405,10 @@ func (o LogProfileMapOutput) MapIndex(k pulumi.StringInput) LogProfileOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogProfileInput)(nil)).Elem(), &LogProfile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogProfilePtrInput)(nil)).Elem(), &LogProfile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogProfileArrayInput)(nil)).Elem(), LogProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogProfileMapInput)(nil)).Elem(), LogProfileMap{})
 	pulumi.RegisterOutputType(LogProfileOutput{})
 	pulumi.RegisterOutputType(LogProfilePtrOutput{})
 	pulumi.RegisterOutputType(LogProfileArrayOutput{})

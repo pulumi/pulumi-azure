@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Sql
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:sql/getServer:getServer", args ?? new GetServerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing SQL Azure Database Server.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Sql.GetServer.InvokeAsync(new Azure.Sql.GetServerArgs
+        ///         {
+        ///             Name = "examplesqlservername",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.SqlServerId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("sqlServerId")]
+        ///     public Output&lt;string&gt; SqlServerId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure:sql/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.Sql
         public string ResourceGroupName { get; set; } = null!;
 
         public GetServerArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the SQL Server.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Resource Group where the SQL Server exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetServerInvokeArgs()
         {
         }
     }

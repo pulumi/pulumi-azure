@@ -643,6 +643,10 @@ func (o KubernetesClusterMapOutput) MapIndex(k pulumi.StringInput) KubernetesClu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterInput)(nil)).Elem(), &KubernetesCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterPtrInput)(nil)).Elem(), &KubernetesCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterArrayInput)(nil)).Elem(), KubernetesClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMapInput)(nil)).Elem(), KubernetesClusterMap{})
 	pulumi.RegisterOutputType(KubernetesClusterOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterArrayOutput{})

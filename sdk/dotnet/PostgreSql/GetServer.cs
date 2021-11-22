@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.PostgreSql
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:postgresql/getServer:getServer", args ?? new GetServerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing PostgreSQL Azure Database Server.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.PostgreSql.GetServer.InvokeAsync(new Azure.PostgreSql.GetServerArgs
+        ///         {
+        ///             Name = "postgresql-server-1",
+        ///             ResourceGroupName = "api-rg-pro",
+        ///         }));
+        ///         this.PostgresqlServerId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("postgresqlServerId")]
+        ///     public Output&lt;string&gt; PostgresqlServerId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure:postgresql/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.PostgreSql
         public string ResourceGroupName { get; set; } = null!;
 
         public GetServerArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the PostgreSQL Server.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Resource Group where the PostgreSQL Server exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetServerInvokeArgs()
         {
         }
     }

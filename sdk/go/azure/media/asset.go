@@ -392,6 +392,10 @@ func (o AssetMapOutput) MapIndex(k pulumi.StringInput) AssetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetInput)(nil)).Elem(), &Asset{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetPtrInput)(nil)).Elem(), &Asset{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetArrayInput)(nil)).Elem(), AssetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetMapInput)(nil)).Elem(), AssetMap{})
 	pulumi.RegisterOutputType(AssetOutput{})
 	pulumi.RegisterOutputType(AssetPtrOutput{})
 	pulumi.RegisterOutputType(AssetArrayOutput{})

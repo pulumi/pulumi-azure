@@ -427,6 +427,10 @@ func (o ManagedStorageAccountSasTokenDefinitionMapOutput) MapIndex(k pulumi.Stri
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountSasTokenDefinitionInput)(nil)).Elem(), &ManagedStorageAccountSasTokenDefinition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountSasTokenDefinitionPtrInput)(nil)).Elem(), &ManagedStorageAccountSasTokenDefinition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountSasTokenDefinitionArrayInput)(nil)).Elem(), ManagedStorageAccountSasTokenDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountSasTokenDefinitionMapInput)(nil)).Elem(), ManagedStorageAccountSasTokenDefinitionMap{})
 	pulumi.RegisterOutputType(ManagedStorageAccountSasTokenDefinitionOutput{})
 	pulumi.RegisterOutputType(ManagedStorageAccountSasTokenDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ManagedStorageAccountSasTokenDefinitionArrayOutput{})

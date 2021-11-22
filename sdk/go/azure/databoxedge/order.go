@@ -405,6 +405,10 @@ func (o OrderMapOutput) MapIndex(k pulumi.StringInput) OrderOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderInput)(nil)).Elem(), &Order{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderPtrInput)(nil)).Elem(), &Order{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderArrayInput)(nil)).Elem(), OrderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrderMapInput)(nil)).Elem(), OrderMap{})
 	pulumi.RegisterOutputType(OrderOutput{})
 	pulumi.RegisterOutputType(OrderPtrOutput{})
 	pulumi.RegisterOutputType(OrderArrayOutput{})

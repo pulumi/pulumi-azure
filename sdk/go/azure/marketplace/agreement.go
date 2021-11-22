@@ -331,6 +331,10 @@ func (o AgreementMapOutput) MapIndex(k pulumi.StringInput) AgreementOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgreementInput)(nil)).Elem(), &Agreement{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgreementPtrInput)(nil)).Elem(), &Agreement{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgreementArrayInput)(nil)).Elem(), AgreementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgreementMapInput)(nil)).Elem(), AgreementMap{})
 	pulumi.RegisterOutputType(AgreementOutput{})
 	pulumi.RegisterOutputType(AgreementPtrOutput{})
 	pulumi.RegisterOutputType(AgreementArrayOutput{})

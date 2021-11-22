@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ContainerService
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public static Task<GetClusterNodePoolResult> InvokeAsync(GetClusterNodePoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Kubernetes Cluster Node Pool.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ContainerService.GetClusterNodePool.InvokeAsync(new Azure.ContainerService.GetClusterNodePoolArgs
+        ///         {
+        ///             Name = "existing",
+        ///             KubernetesClusterName = "existing-cluster",
+        ///             ResourceGroupName = "existing-resource-group",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetClusterNodePoolResult> Invoke(GetClusterNodePoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +103,31 @@ namespace Pulumi.Azure.ContainerService
         public string ResourceGroupName { get; set; } = null!;
 
         public GetClusterNodePoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetClusterNodePoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Name of the Kubernetes Cluster where this Node Pool is located.
+        /// </summary>
+        [Input("kubernetesClusterName", required: true)]
+        public Input<string> KubernetesClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of this Kubernetes Cluster Node Pool.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the Kubernetes Cluster exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetClusterNodePoolInvokeArgs()
         {
         }
     }

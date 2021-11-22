@@ -342,6 +342,10 @@ func (o NotificationRecipientEmailMapOutput) MapIndex(k pulumi.StringInput) Noti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRecipientEmailInput)(nil)).Elem(), &NotificationRecipientEmail{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRecipientEmailPtrInput)(nil)).Elem(), &NotificationRecipientEmail{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRecipientEmailArrayInput)(nil)).Elem(), NotificationRecipientEmailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRecipientEmailMapInput)(nil)).Elem(), NotificationRecipientEmailMap{})
 	pulumi.RegisterOutputType(NotificationRecipientEmailOutput{})
 	pulumi.RegisterOutputType(NotificationRecipientEmailPtrOutput{})
 	pulumi.RegisterOutputType(NotificationRecipientEmailArrayOutput{})

@@ -458,6 +458,10 @@ func (o SynapseSparkMapOutput) MapIndex(k pulumi.StringInput) SynapseSparkOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SynapseSparkInput)(nil)).Elem(), &SynapseSpark{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SynapseSparkPtrInput)(nil)).Elem(), &SynapseSpark{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SynapseSparkArrayInput)(nil)).Elem(), SynapseSparkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SynapseSparkMapInput)(nil)).Elem(), SynapseSparkMap{})
 	pulumi.RegisterOutputType(SynapseSparkOutput{})
 	pulumi.RegisterOutputType(SynapseSparkPtrOutput{})
 	pulumi.RegisterOutputType(SynapseSparkArrayOutput{})

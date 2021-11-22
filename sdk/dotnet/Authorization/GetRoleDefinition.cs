@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Authorization
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Azure.Authorization
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:authorization/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Role Definition.
+        /// </summary>
+        public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure:authorization/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -40,6 +47,31 @@ namespace Pulumi.Azure.Authorization
         public string? Scope { get; set; }
 
         public GetRoleDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetRoleDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the Name of either a built-in or custom Role Definition.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the ID of the Role Definition as a UUID/GUID.
+        /// </summary>
+        [Input("roleDefinitionId")]
+        public Input<string>? RoleDefinitionId { get; set; }
+
+        /// <summary>
+        /// Specifies the Scope at which the Custom Role Definition exists.
+        /// </summary>
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        public GetRoleDefinitionInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Task<GetStorageContainerResult> InvokeAsync(GetStorageContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? new GetStorageContainerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Storage Container.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Storage.GetStorageContainer.InvokeAsync(new Azure.Storage.GetStorageContainerArgs
+        ///         {
+        ///             Name = "example-container-name",
+        ///             StorageAccountName = "example-storage-account-name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetStorageContainerResult> Invoke(GetStorageContainerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? new GetStorageContainerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -70,6 +101,37 @@ namespace Pulumi.Azure.Storage
         public string StorageAccountName { get; set; } = null!;
 
         public GetStorageContainerArgs()
+        {
+        }
+    }
+
+    public sealed class GetStorageContainerInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("metadata")]
+        private InputMap<string>? _metadata;
+
+        /// <summary>
+        /// A mapping of MetaData for this Container.
+        /// </summary>
+        public InputMap<string> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<string>());
+            set => _metadata = value;
+        }
+
+        /// <summary>
+        /// The name of the Container.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Storage Account where the Container exists.
+        /// </summary>
+        [Input("storageAccountName", required: true)]
+        public Input<string> StorageAccountName { get; set; } = null!;
+
+        public GetStorageContainerInvokeArgs()
         {
         }
     }

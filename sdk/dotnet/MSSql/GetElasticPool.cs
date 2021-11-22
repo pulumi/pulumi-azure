@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.MSSql
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing SQL elastic pool.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.MSSql.GetElasticPool.InvokeAsync(new Azure.MSSql.GetElasticPoolArgs
+        ///         {
+        ///             Name = "mssqlelasticpoolname",
+        ///             ResourceGroupName = "example-resources",
+        ///             ServerName = "example-sql-server",
+        ///         }));
+        ///         this.ElasticpoolId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("elasticpoolId")]
+        ///     public Output&lt;string&gt; ElasticpoolId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +103,31 @@ namespace Pulumi.Azure.MSSql
         public string ServerName { get; set; } = null!;
 
         public GetElasticPoolArgs()
+        {
+        }
+    }
+
+    public sealed class GetElasticPoolInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the elastic pool.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group which contains the elastic pool.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the SQL Server which contains the elastic pool.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        public GetElasticPoolInvokeArgs()
         {
         }
     }

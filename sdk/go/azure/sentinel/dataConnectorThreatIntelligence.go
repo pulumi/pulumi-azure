@@ -347,6 +347,10 @@ func (o DataConnectorThreatIntelligenceMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorThreatIntelligenceInput)(nil)).Elem(), &DataConnectorThreatIntelligence{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorThreatIntelligencePtrInput)(nil)).Elem(), &DataConnectorThreatIntelligence{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorThreatIntelligenceArrayInput)(nil)).Elem(), DataConnectorThreatIntelligenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorThreatIntelligenceMapInput)(nil)).Elem(), DataConnectorThreatIntelligenceMap{})
 	pulumi.RegisterOutputType(DataConnectorThreatIntelligenceOutput{})
 	pulumi.RegisterOutputType(DataConnectorThreatIntelligencePtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorThreatIntelligenceArrayOutput{})

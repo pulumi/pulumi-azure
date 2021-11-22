@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Dns
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Dns
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure:dns/getZone:getZone", args ?? new GetZoneArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing DNS Zone.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Dns.GetZone.InvokeAsync(new Azure.Dns.GetZoneArgs
+        ///         {
+        ///             Name = "search-eventhubns",
+        ///             ResourceGroupName = "search-service",
+        ///         }));
+        ///         this.DnsZoneId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("dnsZoneId")]
+        ///     public Output&lt;string&gt; DnsZoneId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetZoneResult>("azure:dns/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +97,27 @@ namespace Pulumi.Azure.Dns
         public string? ResourceGroupName { get; set; }
 
         public GetZoneArgs()
+        {
+        }
+    }
+
+    public sealed class GetZoneInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the DNS Zone.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where the DNS Zone exists.
+        /// If the Name of the Resource Group is not provided, the first DNS Zone from the list of DNS Zones
+        /// in your subscription that matches `name` will be returned.
+        /// </summary>
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
+
+        public GetZoneInvokeArgs()
         {
         }
     }

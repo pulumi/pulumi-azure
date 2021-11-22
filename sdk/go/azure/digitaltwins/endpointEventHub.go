@@ -388,6 +388,10 @@ func (o EndpointEventHubMapOutput) MapIndex(k pulumi.StringInput) EndpointEventH
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointEventHubInput)(nil)).Elem(), &EndpointEventHub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointEventHubPtrInput)(nil)).Elem(), &EndpointEventHub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointEventHubArrayInput)(nil)).Elem(), EndpointEventHubArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointEventHubMapInput)(nil)).Elem(), EndpointEventHubMap{})
 	pulumi.RegisterOutputType(EndpointEventHubOutput{})
 	pulumi.RegisterOutputType(EndpointEventHubPtrOutput{})
 	pulumi.RegisterOutputType(EndpointEventHubArrayOutput{})

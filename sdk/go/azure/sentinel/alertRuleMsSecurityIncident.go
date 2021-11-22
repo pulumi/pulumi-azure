@@ -441,6 +441,10 @@ func (o AlertRuleMsSecurityIncidentMapOutput) MapIndex(k pulumi.StringInput) Ale
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMsSecurityIncidentInput)(nil)).Elem(), &AlertRuleMsSecurityIncident{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMsSecurityIncidentPtrInput)(nil)).Elem(), &AlertRuleMsSecurityIncident{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMsSecurityIncidentArrayInput)(nil)).Elem(), AlertRuleMsSecurityIncidentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMsSecurityIncidentMapInput)(nil)).Elem(), AlertRuleMsSecurityIncidentMap{})
 	pulumi.RegisterOutputType(AlertRuleMsSecurityIncidentOutput{})
 	pulumi.RegisterOutputType(AlertRuleMsSecurityIncidentPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleMsSecurityIncidentArrayOutput{})

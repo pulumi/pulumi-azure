@@ -384,6 +384,10 @@ func (o PoolMapOutput) MapIndex(k pulumi.StringInput) PoolOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolInput)(nil)).Elem(), &Pool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolPtrInput)(nil)).Elem(), &Pool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolArrayInput)(nil)).Elem(), PoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolMapInput)(nil)).Elem(), PoolMap{})
 	pulumi.RegisterOutputType(PoolOutput{})
 	pulumi.RegisterOutputType(PoolPtrOutput{})
 	pulumi.RegisterOutputType(PoolArrayOutput{})

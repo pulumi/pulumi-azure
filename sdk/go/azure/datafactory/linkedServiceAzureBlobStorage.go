@@ -533,6 +533,10 @@ func (o LinkedServiceAzureBlobStorageMapOutput) MapIndex(k pulumi.StringInput) L
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStorageInput)(nil)).Elem(), &LinkedServiceAzureBlobStorage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStoragePtrInput)(nil)).Elem(), &LinkedServiceAzureBlobStorage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStorageArrayInput)(nil)).Elem(), LinkedServiceAzureBlobStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStorageMapInput)(nil)).Elem(), LinkedServiceAzureBlobStorageMap{})
 	pulumi.RegisterOutputType(LinkedServiceAzureBlobStorageOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureBlobStoragePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureBlobStorageArrayOutput{})

@@ -347,6 +347,10 @@ func (o DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapOutput) MapInde
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftDefenderAdvancedThreatProtectionInput)(nil)).Elem(), &DataConnectorMicrosoftDefenderAdvancedThreatProtection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrInput)(nil)).Elem(), &DataConnectorMicrosoftDefenderAdvancedThreatProtection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayInput)(nil)).Elem(), DataConnectorMicrosoftDefenderAdvancedThreatProtectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftDefenderAdvancedThreatProtectionMapInput)(nil)).Elem(), DataConnectorMicrosoftDefenderAdvancedThreatProtectionMap{})
 	pulumi.RegisterOutputType(DataConnectorMicrosoftDefenderAdvancedThreatProtectionOutput{})
 	pulumi.RegisterOutputType(DataConnectorMicrosoftDefenderAdvancedThreatProtectionPtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorMicrosoftDefenderAdvancedThreatProtectionArrayOutput{})

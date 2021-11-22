@@ -367,6 +367,10 @@ func (o DataSourceWindowsEventMapOutput) MapIndex(k pulumi.StringInput) DataSour
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWindowsEventInput)(nil)).Elem(), &DataSourceWindowsEvent{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWindowsEventPtrInput)(nil)).Elem(), &DataSourceWindowsEvent{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWindowsEventArrayInput)(nil)).Elem(), DataSourceWindowsEventArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWindowsEventMapInput)(nil)).Elem(), DataSourceWindowsEventMap{})
 	pulumi.RegisterOutputType(DataSourceWindowsEventOutput{})
 	pulumi.RegisterOutputType(DataSourceWindowsEventPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceWindowsEventArrayOutput{})

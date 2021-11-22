@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Iot
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         public static Task<GetSharedAccessPolicyResult> InvokeAsync(GetSharedAccessPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSharedAccessPolicyResult>("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args ?? new GetSharedAccessPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing IotHub Shared Access Policy
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Iot.GetSharedAccessPolicy.InvokeAsync(new Azure.Iot.GetSharedAccessPolicyArgs
+        ///         {
+        ///             Name = "example",
+        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///             IothubName = azurerm_iothub.Example.Name,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSharedAccessPolicyResult> Invoke(GetSharedAccessPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSharedAccessPolicyResult>("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args ?? new GetSharedAccessPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +97,31 @@ namespace Pulumi.Azure.Iot
         public string ResourceGroupName { get; set; } = null!;
 
         public GetSharedAccessPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetSharedAccessPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the IoTHub to which this Shared Access Policy belongs.
+        /// </summary>
+        [Input("iothubName", required: true)]
+        public Input<string> IothubName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the IotHub Shared Access Policy resource.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group under which the IotHub Shared Access Policy resource has to be created.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetSharedAccessPolicyInvokeArgs()
         {
         }
     }

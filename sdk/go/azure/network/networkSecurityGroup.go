@@ -365,6 +365,10 @@ func (o NetworkSecurityGroupMapOutput) MapIndex(k pulumi.StringInput) NetworkSec
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityGroupInput)(nil)).Elem(), &NetworkSecurityGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityGroupPtrInput)(nil)).Elem(), &NetworkSecurityGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityGroupArrayInput)(nil)).Elem(), NetworkSecurityGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityGroupMapInput)(nil)).Elem(), NetworkSecurityGroupMap{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupPtrOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupArrayOutput{})

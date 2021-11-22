@@ -424,6 +424,10 @@ func (o OutputServiceBusQueueMapOutput) MapIndex(k pulumi.StringInput) OutputSer
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputServiceBusQueueInput)(nil)).Elem(), &OutputServiceBusQueue{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputServiceBusQueuePtrInput)(nil)).Elem(), &OutputServiceBusQueue{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputServiceBusQueueArrayInput)(nil)).Elem(), OutputServiceBusQueueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputServiceBusQueueMapInput)(nil)).Elem(), OutputServiceBusQueueMap{})
 	pulumi.RegisterOutputType(OutputServiceBusQueueOutput{})
 	pulumi.RegisterOutputType(OutputServiceBusQueuePtrOutput{})
 	pulumi.RegisterOutputType(OutputServiceBusQueueArrayOutput{})

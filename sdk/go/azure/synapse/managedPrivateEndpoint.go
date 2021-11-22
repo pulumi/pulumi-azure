@@ -391,6 +391,10 @@ func (o ManagedPrivateEndpointMapOutput) MapIndex(k pulumi.StringInput) ManagedP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrivateEndpointInput)(nil)).Elem(), &ManagedPrivateEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrivateEndpointPtrInput)(nil)).Elem(), &ManagedPrivateEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrivateEndpointArrayInput)(nil)).Elem(), ManagedPrivateEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrivateEndpointMapInput)(nil)).Elem(), ManagedPrivateEndpointMap{})
 	pulumi.RegisterOutputType(ManagedPrivateEndpointOutput{})
 	pulumi.RegisterOutputType(ManagedPrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ManagedPrivateEndpointArrayOutput{})

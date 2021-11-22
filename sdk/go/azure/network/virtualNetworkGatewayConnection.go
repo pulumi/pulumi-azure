@@ -851,6 +851,10 @@ func (o VirtualNetworkGatewayConnectionMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayConnectionInput)(nil)).Elem(), &VirtualNetworkGatewayConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayConnectionPtrInput)(nil)).Elem(), &VirtualNetworkGatewayConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayConnectionArrayInput)(nil)).Elem(), VirtualNetworkGatewayConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayConnectionMapInput)(nil)).Elem(), VirtualNetworkGatewayConnectionMap{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionArrayOutput{})

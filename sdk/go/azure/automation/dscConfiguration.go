@@ -353,6 +353,10 @@ func (o DscConfigurationMapOutput) MapIndex(k pulumi.StringInput) DscConfigurati
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DscConfigurationInput)(nil)).Elem(), &DscConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DscConfigurationPtrInput)(nil)).Elem(), &DscConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DscConfigurationArrayInput)(nil)).Elem(), DscConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DscConfigurationMapInput)(nil)).Elem(), DscConfigurationMap{})
 	pulumi.RegisterOutputType(DscConfigurationOutput{})
 	pulumi.RegisterOutputType(DscConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DscConfigurationArrayOutput{})

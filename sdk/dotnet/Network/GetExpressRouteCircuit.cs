@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -46,6 +47,42 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Task<GetExpressRouteCircuitResult> InvokeAsync(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing ExpressRoute circuit.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetExpressRouteCircuit.InvokeAsync(new Azure.Network.GetExpressRouteCircuitArgs
+        ///         {
+        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///             Name = azurerm_express_route_circuit.Example.Name,
+        ///         }));
+        ///         this.ExpressRouteCircuitId = example.Apply(example =&gt; example.Id);
+        ///         this.ServiceKey = example.Apply(example =&gt; example.ServiceKey);
+        ///     }
+        /// 
+        ///     [Output("expressRouteCircuitId")]
+        ///     public Output&lt;string&gt; ExpressRouteCircuitId { get; set; }
+        ///     [Output("serviceKey")]
+        ///     public Output&lt;string&gt; ServiceKey { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetExpressRouteCircuitResult> Invoke(GetExpressRouteCircuitInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +101,25 @@ namespace Pulumi.Azure.Network
         public string ResourceGroupName { get; set; } = null!;
 
         public GetExpressRouteCircuitArgs()
+        {
+        }
+    }
+
+    public sealed class GetExpressRouteCircuitInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the ExpressRoute circuit.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where the ExpressRoute circuit exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetExpressRouteCircuitInvokeArgs()
         {
         }
     }

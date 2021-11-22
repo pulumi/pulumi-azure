@@ -519,6 +519,10 @@ func (o HBaseClusterMapOutput) MapIndex(k pulumi.StringInput) HBaseClusterOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterInput)(nil)).Elem(), &HBaseCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterPtrInput)(nil)).Elem(), &HBaseCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterArrayInput)(nil)).Elem(), HBaseClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterMapInput)(nil)).Elem(), HBaseClusterMap{})
 	pulumi.RegisterOutputType(HBaseClusterOutput{})
 	pulumi.RegisterOutputType(HBaseClusterPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterArrayOutput{})

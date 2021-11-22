@@ -387,6 +387,10 @@ func (o CustomHostnameBindingMapOutput) MapIndex(k pulumi.StringInput) CustomHos
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomHostnameBindingInput)(nil)).Elem(), &CustomHostnameBinding{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomHostnameBindingPtrInput)(nil)).Elem(), &CustomHostnameBinding{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomHostnameBindingArrayInput)(nil)).Elem(), CustomHostnameBindingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomHostnameBindingMapInput)(nil)).Elem(), CustomHostnameBindingMap{})
 	pulumi.RegisterOutputType(CustomHostnameBindingOutput{})
 	pulumi.RegisterOutputType(CustomHostnameBindingPtrOutput{})
 	pulumi.RegisterOutputType(CustomHostnameBindingArrayOutput{})

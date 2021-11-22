@@ -368,6 +368,10 @@ func (o EventhubNamespaceDisasterRecoveryConfigMapOutput) MapIndex(k pulumi.Stri
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventhubNamespaceDisasterRecoveryConfigInput)(nil)).Elem(), &EventhubNamespaceDisasterRecoveryConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventhubNamespaceDisasterRecoveryConfigPtrInput)(nil)).Elem(), &EventhubNamespaceDisasterRecoveryConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventhubNamespaceDisasterRecoveryConfigArrayInput)(nil)).Elem(), EventhubNamespaceDisasterRecoveryConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventhubNamespaceDisasterRecoveryConfigMapInput)(nil)).Elem(), EventhubNamespaceDisasterRecoveryConfigMap{})
 	pulumi.RegisterOutputType(EventhubNamespaceDisasterRecoveryConfigOutput{})
 	pulumi.RegisterOutputType(EventhubNamespaceDisasterRecoveryConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventhubNamespaceDisasterRecoveryConfigArrayOutput{})

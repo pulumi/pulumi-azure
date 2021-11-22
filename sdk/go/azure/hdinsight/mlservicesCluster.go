@@ -490,6 +490,10 @@ func (o MLServicesClusterMapOutput) MapIndex(k pulumi.StringInput) MLServicesClu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterInput)(nil)).Elem(), &MLServicesCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterPtrInput)(nil)).Elem(), &MLServicesCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterArrayInput)(nil)).Elem(), MLServicesClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterMapInput)(nil)).Elem(), MLServicesClusterMap{})
 	pulumi.RegisterOutputType(MLServicesClusterOutput{})
 	pulumi.RegisterOutputType(MLServicesClusterPtrOutput{})
 	pulumi.RegisterOutputType(MLServicesClusterArrayOutput{})

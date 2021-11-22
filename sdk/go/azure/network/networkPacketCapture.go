@@ -363,6 +363,10 @@ func (o NetworkPacketCaptureMapOutput) MapIndex(k pulumi.StringInput) NetworkPac
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCaptureInput)(nil)).Elem(), &NetworkPacketCapture{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCapturePtrInput)(nil)).Elem(), &NetworkPacketCapture{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCaptureArrayInput)(nil)).Elem(), NetworkPacketCaptureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCaptureMapInput)(nil)).Elem(), NetworkPacketCaptureMap{})
 	pulumi.RegisterOutputType(NetworkPacketCaptureOutput{})
 	pulumi.RegisterOutputType(NetworkPacketCapturePtrOutput{})
 	pulumi.RegisterOutputType(NetworkPacketCaptureArrayOutput{})

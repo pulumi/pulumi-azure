@@ -315,6 +315,10 @@ func (o MeshApplicationMapOutput) MapIndex(k pulumi.StringInput) MeshApplication
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshApplicationInput)(nil)).Elem(), &MeshApplication{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshApplicationPtrInput)(nil)).Elem(), &MeshApplication{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshApplicationArrayInput)(nil)).Elem(), MeshApplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MeshApplicationMapInput)(nil)).Elem(), MeshApplicationMap{})
 	pulumi.RegisterOutputType(MeshApplicationOutput{})
 	pulumi.RegisterOutputType(MeshApplicationPtrOutput{})
 	pulumi.RegisterOutputType(MeshApplicationArrayOutput{})

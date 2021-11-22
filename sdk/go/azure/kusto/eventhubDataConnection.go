@@ -491,6 +491,10 @@ func (o EventhubDataConnectionMapOutput) MapIndex(k pulumi.StringInput) Eventhub
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventhubDataConnectionInput)(nil)).Elem(), &EventhubDataConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventhubDataConnectionPtrInput)(nil)).Elem(), &EventhubDataConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventhubDataConnectionArrayInput)(nil)).Elem(), EventhubDataConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventhubDataConnectionMapInput)(nil)).Elem(), EventhubDataConnectionMap{})
 	pulumi.RegisterOutputType(EventhubDataConnectionOutput{})
 	pulumi.RegisterOutputType(EventhubDataConnectionPtrOutput{})
 	pulumi.RegisterOutputType(EventhubDataConnectionArrayOutput{})

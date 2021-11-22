@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Storage
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing File Share.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Storage.GetShare.InvokeAsync(new Azure.Storage.GetShareArgs
+        ///         {
+        ///             Name = "existing",
+        ///             StorageAccountName = "existing",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithVersion());
     }
 
 
@@ -85,6 +119,49 @@ namespace Pulumi.Azure.Storage
         public string StorageAccountName { get; set; } = null!;
 
         public GetShareArgs()
+        {
+        }
+    }
+
+    public sealed class GetShareInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("acls")]
+        private InputList<Inputs.GetShareAclInputArgs>? _acls;
+
+        /// <summary>
+        /// One or more acl blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.GetShareAclInputArgs> Acls
+        {
+            get => _acls ?? (_acls = new InputList<Inputs.GetShareAclInputArgs>());
+            set => _acls = value;
+        }
+
+        [Input("metadata")]
+        private InputMap<string>? _metadata;
+
+        /// <summary>
+        /// A map of custom file share metadata.
+        /// </summary>
+        public InputMap<string> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<string>());
+            set => _metadata = value;
+        }
+
+        /// <summary>
+        /// The name of the share.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the storage account.
+        /// </summary>
+        [Input("storageAccountName", required: true)]
+        public Input<string> StorageAccountName { get; set; } = null!;
+
+        public GetShareInvokeArgs()
         {
         }
     }

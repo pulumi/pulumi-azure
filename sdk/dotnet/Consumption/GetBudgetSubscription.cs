@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Consumption
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Consumption
         /// </summary>
         public static Task<GetBudgetSubscriptionResult> InvokeAsync(GetBudgetSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetSubscriptionResult>("azure:consumption/getBudgetSubscription:getBudgetSubscription", args ?? new GetBudgetSubscriptionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Consumption Budget for a specific subscription.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Consumption.GetBudgetSubscription.InvokeAsync(new Azure.Consumption.GetBudgetSubscriptionArgs
+        ///         {
+        ///             Name = "existing",
+        ///             SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000000/",
+        ///         }));
+        ///         this.Id = data.Azurerm_consumption_budget.Example.Id;
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetBudgetSubscriptionResult> Invoke(GetBudgetSubscriptionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBudgetSubscriptionResult>("azure:consumption/getBudgetSubscription:getBudgetSubscription", args ?? new GetBudgetSubscriptionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.Consumption
         public string SubscriptionId { get; set; } = null!;
 
         public GetBudgetSubscriptionArgs()
+        {
+        }
+    }
+
+    public sealed class GetBudgetSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of this Consumption Budget.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of the subscription.
+        /// </summary>
+        [Input("subscriptionId", required: true)]
+        public Input<string> SubscriptionId { get; set; } = null!;
+
+        public GetBudgetSubscriptionInvokeArgs()
         {
         }
     }

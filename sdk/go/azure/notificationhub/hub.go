@@ -378,6 +378,10 @@ func (o HubMapOutput) MapIndex(k pulumi.StringInput) HubOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HubInput)(nil)).Elem(), &Hub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubPtrInput)(nil)).Elem(), &Hub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubArrayInput)(nil)).Elem(), HubArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubMapInput)(nil)).Elem(), HubMap{})
 	pulumi.RegisterOutputType(HubOutput{})
 	pulumi.RegisterOutputType(HubPtrOutput{})
 	pulumi.RegisterOutputType(HubArrayOutput{})

@@ -539,6 +539,10 @@ func (o SparkClusterMapOutput) MapIndex(k pulumi.StringInput) SparkClusterOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterInput)(nil)).Elem(), &SparkCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterPtrInput)(nil)).Elem(), &SparkCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterArrayInput)(nil)).Elem(), SparkClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterMapInput)(nil)).Elem(), SparkClusterMap{})
 	pulumi.RegisterOutputType(SparkClusterOutput{})
 	pulumi.RegisterOutputType(SparkClusterPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterArrayOutput{})

@@ -408,6 +408,10 @@ func (o NamespaceCustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) Nam
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceCustomerManagedKeyInput)(nil)).Elem(), &NamespaceCustomerManagedKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceCustomerManagedKeyPtrInput)(nil)).Elem(), &NamespaceCustomerManagedKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceCustomerManagedKeyArrayInput)(nil)).Elem(), NamespaceCustomerManagedKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceCustomerManagedKeyMapInput)(nil)).Elem(), NamespaceCustomerManagedKeyMap{})
 	pulumi.RegisterOutputType(NamespaceCustomerManagedKeyOutput{})
 	pulumi.RegisterOutputType(NamespaceCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceCustomerManagedKeyArrayOutput{})

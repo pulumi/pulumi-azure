@@ -368,6 +368,10 @@ func (o ZoneVirtualNetworkLinkMapOutput) MapIndex(k pulumi.StringInput) ZoneVirt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneVirtualNetworkLinkInput)(nil)).Elem(), &ZoneVirtualNetworkLink{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneVirtualNetworkLinkPtrInput)(nil)).Elem(), &ZoneVirtualNetworkLink{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneVirtualNetworkLinkArrayInput)(nil)).Elem(), ZoneVirtualNetworkLinkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneVirtualNetworkLinkMapInput)(nil)).Elem(), ZoneVirtualNetworkLinkMap{})
 	pulumi.RegisterOutputType(ZoneVirtualNetworkLinkOutput{})
 	pulumi.RegisterOutputType(ZoneVirtualNetworkLinkPtrOutput{})
 	pulumi.RegisterOutputType(ZoneVirtualNetworkLinkArrayOutput{})

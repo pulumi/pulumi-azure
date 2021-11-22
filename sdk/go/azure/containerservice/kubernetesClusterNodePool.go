@@ -595,6 +595,10 @@ func (o KubernetesClusterNodePoolMapOutput) MapIndex(k pulumi.StringInput) Kuber
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolInput)(nil)).Elem(), &KubernetesClusterNodePool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolPtrInput)(nil)).Elem(), &KubernetesClusterNodePool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolArrayInput)(nil)).Elem(), KubernetesClusterNodePoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolMapInput)(nil)).Elem(), KubernetesClusterNodePoolMap{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolArrayOutput{})

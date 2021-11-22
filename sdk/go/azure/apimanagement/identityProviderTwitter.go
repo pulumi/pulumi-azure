@@ -356,6 +356,10 @@ func (o IdentityProviderTwitterMapOutput) MapIndex(k pulumi.StringInput) Identit
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderTwitterInput)(nil)).Elem(), &IdentityProviderTwitter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderTwitterPtrInput)(nil)).Elem(), &IdentityProviderTwitter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderTwitterArrayInput)(nil)).Elem(), IdentityProviderTwitterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderTwitterMapInput)(nil)).Elem(), IdentityProviderTwitterMap{})
 	pulumi.RegisterOutputType(IdentityProviderTwitterOutput{})
 	pulumi.RegisterOutputType(IdentityProviderTwitterPtrOutput{})
 	pulumi.RegisterOutputType(IdentityProviderTwitterArrayOutput{})

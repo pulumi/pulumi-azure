@@ -529,6 +529,10 @@ func (o HadoopClusterMapOutput) MapIndex(k pulumi.StringInput) HadoopClusterOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterInput)(nil)).Elem(), &HadoopCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterPtrInput)(nil)).Elem(), &HadoopCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterArrayInput)(nil)).Elem(), HadoopClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterMapInput)(nil)).Elem(), HadoopClusterMap{})
 	pulumi.RegisterOutputType(HadoopClusterOutput{})
 	pulumi.RegisterOutputType(HadoopClusterPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterArrayOutput{})

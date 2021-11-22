@@ -492,6 +492,10 @@ func (o IotHubDataConnectionMapOutput) MapIndex(k pulumi.StringInput) IotHubData
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDataConnectionInput)(nil)).Elem(), &IotHubDataConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDataConnectionPtrInput)(nil)).Elem(), &IotHubDataConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDataConnectionArrayInput)(nil)).Elem(), IotHubDataConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDataConnectionMapInput)(nil)).Elem(), IotHubDataConnectionMap{})
 	pulumi.RegisterOutputType(IotHubDataConnectionOutput{})
 	pulumi.RegisterOutputType(IotHubDataConnectionPtrOutput{})
 	pulumi.RegisterOutputType(IotHubDataConnectionArrayOutput{})

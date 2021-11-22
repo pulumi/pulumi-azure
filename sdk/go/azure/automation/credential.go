@@ -375,6 +375,10 @@ func (o CredentialMapOutput) MapIndex(k pulumi.StringInput) CredentialOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CredentialInput)(nil)).Elem(), &Credential{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CredentialPtrInput)(nil)).Elem(), &Credential{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CredentialArrayInput)(nil)).Elem(), CredentialArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CredentialMapInput)(nil)).Elem(), CredentialMap{})
 	pulumi.RegisterOutputType(CredentialOutput{})
 	pulumi.RegisterOutputType(CredentialPtrOutput{})
 	pulumi.RegisterOutputType(CredentialArrayOutput{})

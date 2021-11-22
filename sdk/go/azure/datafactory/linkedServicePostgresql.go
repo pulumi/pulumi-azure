@@ -404,6 +404,10 @@ func (o LinkedServicePostgresqlMapOutput) MapIndex(k pulumi.StringInput) LinkedS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServicePostgresqlInput)(nil)).Elem(), &LinkedServicePostgresql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServicePostgresqlPtrInput)(nil)).Elem(), &LinkedServicePostgresql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServicePostgresqlArrayInput)(nil)).Elem(), LinkedServicePostgresqlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServicePostgresqlMapInput)(nil)).Elem(), LinkedServicePostgresqlMap{})
 	pulumi.RegisterOutputType(LinkedServicePostgresqlOutput{})
 	pulumi.RegisterOutputType(LinkedServicePostgresqlPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServicePostgresqlArrayOutput{})

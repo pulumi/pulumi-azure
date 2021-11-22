@@ -285,6 +285,10 @@ func (o WorkspaceCustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) Wor
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomerManagedKeyInput)(nil)).Elem(), &WorkspaceCustomerManagedKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomerManagedKeyPtrInput)(nil)).Elem(), &WorkspaceCustomerManagedKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomerManagedKeyArrayInput)(nil)).Elem(), WorkspaceCustomerManagedKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomerManagedKeyMapInput)(nil)).Elem(), WorkspaceCustomerManagedKeyMap{})
 	pulumi.RegisterOutputType(WorkspaceCustomerManagedKeyOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomerManagedKeyArrayOutput{})

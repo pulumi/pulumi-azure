@@ -464,6 +464,10 @@ func (o GroupTemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput) GroupTe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupTemplateDeploymentInput)(nil)).Elem(), &GroupTemplateDeployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupTemplateDeploymentPtrInput)(nil)).Elem(), &GroupTemplateDeployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupTemplateDeploymentArrayInput)(nil)).Elem(), GroupTemplateDeploymentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupTemplateDeploymentMapInput)(nil)).Elem(), GroupTemplateDeploymentMap{})
 	pulumi.RegisterOutputType(GroupTemplateDeploymentOutput{})
 	pulumi.RegisterOutputType(GroupTemplateDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(GroupTemplateDeploymentArrayOutput{})

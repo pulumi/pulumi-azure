@@ -377,6 +377,10 @@ func (o EndpointServicebusQueueMapOutput) MapIndex(k pulumi.StringInput) Endpoin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicebusQueueInput)(nil)).Elem(), &EndpointServicebusQueue{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicebusQueuePtrInput)(nil)).Elem(), &EndpointServicebusQueue{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicebusQueueArrayInput)(nil)).Elem(), EndpointServicebusQueueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicebusQueueMapInput)(nil)).Elem(), EndpointServicebusQueueMap{})
 	pulumi.RegisterOutputType(EndpointServicebusQueueOutput{})
 	pulumi.RegisterOutputType(EndpointServicebusQueuePtrOutput{})
 	pulumi.RegisterOutputType(EndpointServicebusQueueArrayOutput{})

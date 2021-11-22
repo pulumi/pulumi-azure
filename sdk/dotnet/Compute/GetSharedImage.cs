@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Compute
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public static Task<GetSharedImageResult> InvokeAsync(GetSharedImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageResult>("azure:compute/getSharedImage:getSharedImage", args ?? new GetSharedImageArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Compute.GetSharedImage.InvokeAsync(new Azure.Compute.GetSharedImageArgs
+        ///         {
+        ///             GalleryName = "my-image-gallery",
+        ///             Name = "my-image",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSharedImageResult> Invoke(GetSharedImageInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSharedImageResult>("azure:compute/getSharedImage:getSharedImage", args ?? new GetSharedImageInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +97,31 @@ namespace Pulumi.Azure.Compute
         public string ResourceGroupName { get; set; } = null!;
 
         public GetSharedImageArgs()
+        {
+        }
+    }
+
+    public sealed class GetSharedImageInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Shared Image Gallery in which the Shared Image exists.
+        /// </summary>
+        [Input("galleryName", required: true)]
+        public Input<string> GalleryName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Shared Image.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group in which the Shared Image Gallery exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetSharedImageInvokeArgs()
         {
         }
     }

@@ -383,6 +383,10 @@ func (o TimeSeriesInsightsStandardEnvironmentMapOutput) MapIndex(k pulumi.String
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsStandardEnvironmentInput)(nil)).Elem(), &TimeSeriesInsightsStandardEnvironment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsStandardEnvironmentPtrInput)(nil)).Elem(), &TimeSeriesInsightsStandardEnvironment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsStandardEnvironmentArrayInput)(nil)).Elem(), TimeSeriesInsightsStandardEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsStandardEnvironmentMapInput)(nil)).Elem(), TimeSeriesInsightsStandardEnvironmentMap{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsStandardEnvironmentOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsStandardEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsStandardEnvironmentArrayOutput{})

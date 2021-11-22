@@ -397,6 +397,10 @@ func (o VirtualHubIpMapOutput) MapIndex(k pulumi.StringInput) VirtualHubIpOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubIpInput)(nil)).Elem(), &VirtualHubIp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubIpPtrInput)(nil)).Elem(), &VirtualHubIp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubIpArrayInput)(nil)).Elem(), VirtualHubIpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualHubIpMapInput)(nil)).Elem(), VirtualHubIpMap{})
 	pulumi.RegisterOutputType(VirtualHubIpOutput{})
 	pulumi.RegisterOutputType(VirtualHubIpPtrOutput{})
 	pulumi.RegisterOutputType(VirtualHubIpArrayOutput{})

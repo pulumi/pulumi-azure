@@ -373,6 +373,10 @@ func (o TimeSeriesInsightsReferenceDataSetMapOutput) MapIndex(k pulumi.StringInp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetInput)(nil)).Elem(), &TimeSeriesInsightsReferenceDataSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetPtrInput)(nil)).Elem(), &TimeSeriesInsightsReferenceDataSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetArrayInput)(nil)).Elem(), TimeSeriesInsightsReferenceDataSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetMapInput)(nil)).Elem(), TimeSeriesInsightsReferenceDataSetMap{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsReferenceDataSetOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsReferenceDataSetPtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsReferenceDataSetArrayOutput{})

@@ -419,6 +419,10 @@ func (o AssetFilterMapOutput) MapIndex(k pulumi.StringInput) AssetFilterOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetFilterInput)(nil)).Elem(), &AssetFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetFilterPtrInput)(nil)).Elem(), &AssetFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetFilterArrayInput)(nil)).Elem(), AssetFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetFilterMapInput)(nil)).Elem(), AssetFilterMap{})
 	pulumi.RegisterOutputType(AssetFilterOutput{})
 	pulumi.RegisterOutputType(AssetFilterPtrOutput{})
 	pulumi.RegisterOutputType(AssetFilterArrayOutput{})

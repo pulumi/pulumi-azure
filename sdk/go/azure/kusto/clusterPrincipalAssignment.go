@@ -406,6 +406,10 @@ func (o ClusterPrincipalAssignmentMapOutput) MapIndex(k pulumi.StringInput) Clus
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPrincipalAssignmentInput)(nil)).Elem(), &ClusterPrincipalAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPrincipalAssignmentPtrInput)(nil)).Elem(), &ClusterPrincipalAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPrincipalAssignmentArrayInput)(nil)).Elem(), ClusterPrincipalAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPrincipalAssignmentMapInput)(nil)).Elem(), ClusterPrincipalAssignmentMap{})
 	pulumi.RegisterOutputType(ClusterPrincipalAssignmentOutput{})
 	pulumi.RegisterOutputType(ClusterPrincipalAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(ClusterPrincipalAssignmentArrayOutput{})

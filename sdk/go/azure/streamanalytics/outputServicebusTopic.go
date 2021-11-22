@@ -438,6 +438,10 @@ func (o OutputServicebusTopicMapOutput) MapIndex(k pulumi.StringInput) OutputSer
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputServicebusTopicInput)(nil)).Elem(), &OutputServicebusTopic{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputServicebusTopicPtrInput)(nil)).Elem(), &OutputServicebusTopic{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputServicebusTopicArrayInput)(nil)).Elem(), OutputServicebusTopicArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutputServicebusTopicMapInput)(nil)).Elem(), OutputServicebusTopicMap{})
 	pulumi.RegisterOutputType(OutputServicebusTopicOutput{})
 	pulumi.RegisterOutputType(OutputServicebusTopicPtrOutput{})
 	pulumi.RegisterOutputType(OutputServicebusTopicArrayOutput{})

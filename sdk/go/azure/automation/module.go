@@ -310,6 +310,10 @@ func (o ModuleMapOutput) MapIndex(k pulumi.StringInput) ModuleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleInput)(nil)).Elem(), &Module{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModulePtrInput)(nil)).Elem(), &Module{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleArrayInput)(nil)).Elem(), ModuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModuleMapInput)(nil)).Elem(), ModuleMap{})
 	pulumi.RegisterOutputType(ModuleOutput{})
 	pulumi.RegisterOutputType(ModulePtrOutput{})
 	pulumi.RegisterOutputType(ModuleArrayOutput{})

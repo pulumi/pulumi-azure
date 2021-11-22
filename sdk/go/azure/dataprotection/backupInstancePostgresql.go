@@ -500,6 +500,10 @@ func (o BackupInstancePostgresqlMapOutput) MapIndex(k pulumi.StringInput) Backup
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstancePostgresqlInput)(nil)).Elem(), &BackupInstancePostgresql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstancePostgresqlPtrInput)(nil)).Elem(), &BackupInstancePostgresql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstancePostgresqlArrayInput)(nil)).Elem(), BackupInstancePostgresqlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInstancePostgresqlMapInput)(nil)).Elem(), BackupInstancePostgresqlMap{})
 	pulumi.RegisterOutputType(BackupInstancePostgresqlOutput{})
 	pulumi.RegisterOutputType(BackupInstancePostgresqlPtrOutput{})
 	pulumi.RegisterOutputType(BackupInstancePostgresqlArrayOutput{})

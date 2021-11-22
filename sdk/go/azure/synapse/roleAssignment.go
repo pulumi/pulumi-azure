@@ -381,6 +381,10 @@ func (o RoleAssignmentMapOutput) MapIndex(k pulumi.StringInput) RoleAssignmentOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleAssignmentInput)(nil)).Elem(), &RoleAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleAssignmentPtrInput)(nil)).Elem(), &RoleAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleAssignmentArrayInput)(nil)).Elem(), RoleAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleAssignmentMapInput)(nil)).Elem(), RoleAssignmentMap{})
 	pulumi.RegisterOutputType(RoleAssignmentOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentArrayOutput{})

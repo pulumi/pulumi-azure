@@ -413,6 +413,10 @@ func (o ResourceGroupExportMapOutput) MapIndex(k pulumi.StringInput) ResourceGro
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupExportInput)(nil)).Elem(), &ResourceGroupExport{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupExportPtrInput)(nil)).Elem(), &ResourceGroupExport{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupExportArrayInput)(nil)).Elem(), ResourceGroupExportArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupExportMapInput)(nil)).Elem(), ResourceGroupExportMap{})
 	pulumi.RegisterOutputType(ResourceGroupExportOutput{})
 	pulumi.RegisterOutputType(ResourceGroupExportPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupExportArrayOutput{})

@@ -407,6 +407,10 @@ func (o DatasetDataLakeGen1MapOutput) MapIndex(k pulumi.StringInput) DatasetData
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataLakeGen1Input)(nil)).Elem(), &DatasetDataLakeGen1{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataLakeGen1PtrInput)(nil)).Elem(), &DatasetDataLakeGen1{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataLakeGen1ArrayInput)(nil)).Elem(), DatasetDataLakeGen1Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataLakeGen1MapInput)(nil)).Elem(), DatasetDataLakeGen1Map{})
 	pulumi.RegisterOutputType(DatasetDataLakeGen1Output{})
 	pulumi.RegisterOutputType(DatasetDataLakeGen1PtrOutput{})
 	pulumi.RegisterOutputType(DatasetDataLakeGen1ArrayOutput{})

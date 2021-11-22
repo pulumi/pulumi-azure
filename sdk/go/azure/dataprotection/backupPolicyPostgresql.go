@@ -417,6 +417,10 @@ func (o BackupPolicyPostgresqlMapOutput) MapIndex(k pulumi.StringInput) BackupPo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlInput)(nil)).Elem(), &BackupPolicyPostgresql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlPtrInput)(nil)).Elem(), &BackupPolicyPostgresql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlArrayInput)(nil)).Elem(), BackupPolicyPostgresqlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlMapInput)(nil)).Elem(), BackupPolicyPostgresqlMap{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlPtrOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlArrayOutput{})

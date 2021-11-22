@@ -375,6 +375,10 @@ func (o ShareMapOutput) MapIndex(k pulumi.StringInput) ShareOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareInput)(nil)).Elem(), &Share{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharePtrInput)(nil)).Elem(), &Share{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareArrayInput)(nil)).Elem(), ShareArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ShareMapInput)(nil)).Elem(), ShareMap{})
 	pulumi.RegisterOutputType(ShareOutput{})
 	pulumi.RegisterOutputType(SharePtrOutput{})
 	pulumi.RegisterOutputType(ShareArrayOutput{})

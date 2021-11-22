@@ -406,6 +406,10 @@ func (o StorageInsightsMapOutput) MapIndex(k pulumi.StringInput) StorageInsights
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageInsightsInput)(nil)).Elem(), &StorageInsights{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageInsightsPtrInput)(nil)).Elem(), &StorageInsights{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageInsightsArrayInput)(nil)).Elem(), StorageInsightsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageInsightsMapInput)(nil)).Elem(), StorageInsightsMap{})
 	pulumi.RegisterOutputType(StorageInsightsOutput{})
 	pulumi.RegisterOutputType(StorageInsightsPtrOutput{})
 	pulumi.RegisterOutputType(StorageInsightsArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Network
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Task<GetTrafficManagerResult> InvokeAsync(GetTrafficManagerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerResult>("azure:network/getTrafficManager:getTrafficManager", args ?? new GetTrafficManagerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### World)
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetTrafficManager.InvokeAsync(new Azure.Network.GetTrafficManagerArgs
+        ///         {
+        ///             Name = "World",
+        ///         }));
+        ///         this.LocationCode = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("locationCode")]
+        ///     public Output&lt;string&gt; LocationCode { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetTrafficManagerResult> Invoke(GetTrafficManagerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTrafficManagerResult>("azure:network/getTrafficManager:getTrafficManager", args ?? new GetTrafficManagerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -55,6 +89,19 @@ namespace Pulumi.Azure.Network
         public string Name { get; set; } = null!;
 
         public GetTrafficManagerArgs()
+        {
+        }
+    }
+
+    public sealed class GetTrafficManagerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetTrafficManagerInvokeArgs()
         {
         }
     }

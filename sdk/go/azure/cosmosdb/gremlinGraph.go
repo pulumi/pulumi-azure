@@ -457,6 +457,10 @@ func (o GremlinGraphMapOutput) MapIndex(k pulumi.StringInput) GremlinGraphOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphInput)(nil)).Elem(), &GremlinGraph{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphPtrInput)(nil)).Elem(), &GremlinGraph{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphArrayInput)(nil)).Elem(), GremlinGraphArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphMapInput)(nil)).Elem(), GremlinGraphMap{})
 	pulumi.RegisterOutputType(GremlinGraphOutput{})
 	pulumi.RegisterOutputType(GremlinGraphPtrOutput{})
 	pulumi.RegisterOutputType(GremlinGraphArrayOutput{})

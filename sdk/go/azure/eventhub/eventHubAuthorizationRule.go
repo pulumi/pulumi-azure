@@ -434,6 +434,10 @@ func (o EventHubAuthorizationRuleMapOutput) MapIndex(k pulumi.StringInput) Event
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHubAuthorizationRuleInput)(nil)).Elem(), &EventHubAuthorizationRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHubAuthorizationRulePtrInput)(nil)).Elem(), &EventHubAuthorizationRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHubAuthorizationRuleArrayInput)(nil)).Elem(), EventHubAuthorizationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHubAuthorizationRuleMapInput)(nil)).Elem(), EventHubAuthorizationRuleMap{})
 	pulumi.RegisterOutputType(EventHubAuthorizationRuleOutput{})
 	pulumi.RegisterOutputType(EventHubAuthorizationRulePtrOutput{})
 	pulumi.RegisterOutputType(EventHubAuthorizationRuleArrayOutput{})

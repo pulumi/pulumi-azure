@@ -420,6 +420,10 @@ func (o RegistryWebookMapOutput) MapIndex(k pulumi.StringInput) RegistryWebookOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryWebookInput)(nil)).Elem(), &RegistryWebook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryWebookPtrInput)(nil)).Elem(), &RegistryWebook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryWebookArrayInput)(nil)).Elem(), RegistryWebookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryWebookMapInput)(nil)).Elem(), RegistryWebookMap{})
 	pulumi.RegisterOutputType(RegistryWebookOutput{})
 	pulumi.RegisterOutputType(RegistryWebookPtrOutput{})
 	pulumi.RegisterOutputType(RegistryWebookArrayOutput{})

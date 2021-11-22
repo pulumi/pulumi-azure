@@ -334,6 +334,10 @@ func (o ResourceProviderRegistrationMapOutput) MapIndex(k pulumi.StringInput) Re
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProviderRegistrationInput)(nil)).Elem(), &ResourceProviderRegistration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProviderRegistrationPtrInput)(nil)).Elem(), &ResourceProviderRegistration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProviderRegistrationArrayInput)(nil)).Elem(), ResourceProviderRegistrationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProviderRegistrationMapInput)(nil)).Elem(), ResourceProviderRegistrationMap{})
 	pulumi.RegisterOutputType(ResourceProviderRegistrationOutput{})
 	pulumi.RegisterOutputType(ResourceProviderRegistrationPtrOutput{})
 	pulumi.RegisterOutputType(ResourceProviderRegistrationArrayOutput{})

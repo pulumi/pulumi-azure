@@ -359,6 +359,10 @@ func (o ControllerMapOutput) MapIndex(k pulumi.StringInput) ControllerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ControllerInput)(nil)).Elem(), &Controller{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ControllerPtrInput)(nil)).Elem(), &Controller{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ControllerArrayInput)(nil)).Elem(), ControllerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ControllerMapInput)(nil)).Elem(), ControllerMap{})
 	pulumi.RegisterOutputType(ControllerOutput{})
 	pulumi.RegisterOutputType(ControllerPtrOutput{})
 	pulumi.RegisterOutputType(ControllerArrayOutput{})

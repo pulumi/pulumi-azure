@@ -509,6 +509,10 @@ func (o NetworkSecurityRuleMapOutput) MapIndex(k pulumi.StringInput) NetworkSecu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityRuleInput)(nil)).Elem(), &NetworkSecurityRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityRulePtrInput)(nil)).Elem(), &NetworkSecurityRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityRuleArrayInput)(nil)).Elem(), NetworkSecurityRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkSecurityRuleMapInput)(nil)).Elem(), NetworkSecurityRuleMap{})
 	pulumi.RegisterOutputType(NetworkSecurityRuleOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityRulePtrOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityRuleArrayOutput{})

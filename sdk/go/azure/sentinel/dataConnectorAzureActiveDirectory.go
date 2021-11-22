@@ -347,6 +347,10 @@ func (o DataConnectorAzureActiveDirectoryMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureActiveDirectoryInput)(nil)).Elem(), &DataConnectorAzureActiveDirectory{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureActiveDirectoryPtrInput)(nil)).Elem(), &DataConnectorAzureActiveDirectory{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureActiveDirectoryArrayInput)(nil)).Elem(), DataConnectorAzureActiveDirectoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureActiveDirectoryMapInput)(nil)).Elem(), DataConnectorAzureActiveDirectoryMap{})
 	pulumi.RegisterOutputType(DataConnectorAzureActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(DataConnectorAzureActiveDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorAzureActiveDirectoryArrayOutput{})

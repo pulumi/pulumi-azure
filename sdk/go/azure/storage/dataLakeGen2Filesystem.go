@@ -350,6 +350,10 @@ func (o DataLakeGen2FilesystemMapOutput) MapIndex(k pulumi.StringInput) DataLake
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2FilesystemInput)(nil)).Elem(), &DataLakeGen2Filesystem{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2FilesystemPtrInput)(nil)).Elem(), &DataLakeGen2Filesystem{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2FilesystemArrayInput)(nil)).Elem(), DataLakeGen2FilesystemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2FilesystemMapInput)(nil)).Elem(), DataLakeGen2FilesystemMap{})
 	pulumi.RegisterOutputType(DataLakeGen2FilesystemOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2FilesystemPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2FilesystemArrayOutput{})

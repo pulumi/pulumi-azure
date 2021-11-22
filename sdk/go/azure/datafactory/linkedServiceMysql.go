@@ -404,6 +404,10 @@ func (o LinkedServiceMysqlMapOutput) MapIndex(k pulumi.StringInput) LinkedServic
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceMysqlInput)(nil)).Elem(), &LinkedServiceMysql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceMysqlPtrInput)(nil)).Elem(), &LinkedServiceMysql{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceMysqlArrayInput)(nil)).Elem(), LinkedServiceMysqlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceMysqlMapInput)(nil)).Elem(), LinkedServiceMysqlMap{})
 	pulumi.RegisterOutputType(LinkedServiceMysqlOutput{})
 	pulumi.RegisterOutputType(LinkedServiceMysqlPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceMysqlArrayOutput{})

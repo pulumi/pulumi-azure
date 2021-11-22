@@ -544,6 +544,10 @@ func (o EventGridDataConnectionMapOutput) MapIndex(k pulumi.StringInput) EventGr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventGridDataConnectionInput)(nil)).Elem(), &EventGridDataConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventGridDataConnectionPtrInput)(nil)).Elem(), &EventGridDataConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventGridDataConnectionArrayInput)(nil)).Elem(), EventGridDataConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventGridDataConnectionMapInput)(nil)).Elem(), EventGridDataConnectionMap{})
 	pulumi.RegisterOutputType(EventGridDataConnectionOutput{})
 	pulumi.RegisterOutputType(EventGridDataConnectionPtrOutput{})
 	pulumi.RegisterOutputType(EventGridDataConnectionArrayOutput{})

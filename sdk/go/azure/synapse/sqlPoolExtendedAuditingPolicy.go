@@ -324,6 +324,10 @@ func (o SqlPoolExtendedAuditingPolicyMapOutput) MapIndex(k pulumi.StringInput) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolExtendedAuditingPolicyInput)(nil)).Elem(), &SqlPoolExtendedAuditingPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolExtendedAuditingPolicyPtrInput)(nil)).Elem(), &SqlPoolExtendedAuditingPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolExtendedAuditingPolicyArrayInput)(nil)).Elem(), SqlPoolExtendedAuditingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolExtendedAuditingPolicyMapInput)(nil)).Elem(), SqlPoolExtendedAuditingPolicyMap{})
 	pulumi.RegisterOutputType(SqlPoolExtendedAuditingPolicyOutput{})
 	pulumi.RegisterOutputType(SqlPoolExtendedAuditingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SqlPoolExtendedAuditingPolicyArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Monitoring
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public static Task<GetLogProfileResult> InvokeAsync(GetLogProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure:monitoring/getLogProfile:getLogProfile", args ?? new GetLogProfileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access the properties of a Log Profile.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Monitoring.GetLogProfile.InvokeAsync(new Azure.Monitoring.GetLogProfileArgs
+        ///         {
+        ///             Name = "test-logprofile",
+        ///         }));
+        ///         this.LogProfileStorageAccountId = example.Apply(example =&gt; example.StorageAccountId);
+        ///     }
+        /// 
+        ///     [Output("logProfileStorageAccountId")]
+        ///     public Output&lt;string&gt; LogProfileStorageAccountId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLogProfileResult> Invoke(GetLogProfileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLogProfileResult>("azure:monitoring/getLogProfile:getLogProfile", args ?? new GetLogProfileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -54,6 +87,19 @@ namespace Pulumi.Azure.Monitoring
         public string Name { get; set; } = null!;
 
         public GetLogProfileArgs()
+        {
+        }
+    }
+
+    public sealed class GetLogProfileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the Name of the Log Profile.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetLogProfileInvokeArgs()
         {
         }
     }

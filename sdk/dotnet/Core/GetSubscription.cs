@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Core
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure:core/getSubscription:getSubscription", args ?? new GetSubscriptionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Subscription.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
+        ///         this.CurrentSubscriptionDisplayName = current.Apply(current =&gt; current.DisplayName);
+        ///     }
+        /// 
+        ///     [Output("currentSubscriptionDisplayName")]
+        ///     public Output&lt;string&gt; CurrentSubscriptionDisplayName { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure:core/getSubscription:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Azure.Core
         public string? SubscriptionId { get; set; }
 
         public GetSubscriptionArgs()
+        {
+        }
+    }
+
+    public sealed class GetSubscriptionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
+        public GetSubscriptionInvokeArgs()
         {
         }
     }

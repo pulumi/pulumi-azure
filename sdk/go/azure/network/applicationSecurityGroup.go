@@ -338,6 +338,10 @@ func (o ApplicationSecurityGroupMapOutput) MapIndex(k pulumi.StringInput) Applic
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSecurityGroupInput)(nil)).Elem(), &ApplicationSecurityGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSecurityGroupPtrInput)(nil)).Elem(), &ApplicationSecurityGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSecurityGroupArrayInput)(nil)).Elem(), ApplicationSecurityGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSecurityGroupMapInput)(nil)).Elem(), ApplicationSecurityGroupMap{})
 	pulumi.RegisterOutputType(ApplicationSecurityGroupOutput{})
 	pulumi.RegisterOutputType(ApplicationSecurityGroupPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSecurityGroupArrayOutput{})

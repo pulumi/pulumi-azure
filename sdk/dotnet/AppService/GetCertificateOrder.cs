@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppService
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public static Task<GetCertificateOrderResult> InvokeAsync(GetCertificateOrderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? new GetCertificateOrderArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing App Service Certificate Order.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.AppService.GetCertificateOrder.InvokeAsync(new Azure.AppService.GetCertificateOrderArgs
+        ///         {
+        ///             Name = "example-cert-order",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.CertificateOrderId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("certificateOrderId")]
+        ///     public Output&lt;string&gt; CertificateOrderId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetCertificateOrderResult> Invoke(GetCertificateOrderInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? new GetCertificateOrderInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.AppService
         public string ResourceGroupName { get; set; } = null!;
 
         public GetCertificateOrderArgs()
+        {
+        }
+    }
+
+    public sealed class GetCertificateOrderInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the App Service.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where the App Service exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetCertificateOrderInvokeArgs()
         {
         }
     }

@@ -399,6 +399,10 @@ func (o NetworkInterfaceNatRuleAssociationMapOutput) MapIndex(k pulumi.StringInp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceNatRuleAssociationInput)(nil)).Elem(), &NetworkInterfaceNatRuleAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceNatRuleAssociationPtrInput)(nil)).Elem(), &NetworkInterfaceNatRuleAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceNatRuleAssociationArrayInput)(nil)).Elem(), NetworkInterfaceNatRuleAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceNatRuleAssociationMapInput)(nil)).Elem(), NetworkInterfaceNatRuleAssociationMap{})
 	pulumi.RegisterOutputType(NetworkInterfaceNatRuleAssociationOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceNatRuleAssociationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceNatRuleAssociationArrayOutput{})

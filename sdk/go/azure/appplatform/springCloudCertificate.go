@@ -446,6 +446,10 @@ func (o SpringCloudCertificateMapOutput) MapIndex(k pulumi.StringInput) SpringCl
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCertificateInput)(nil)).Elem(), &SpringCloudCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCertificatePtrInput)(nil)).Elem(), &SpringCloudCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCertificateArrayInput)(nil)).Elem(), SpringCloudCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCertificateMapInput)(nil)).Elem(), SpringCloudCertificateMap{})
 	pulumi.RegisterOutputType(SpringCloudCertificateOutput{})
 	pulumi.RegisterOutputType(SpringCloudCertificatePtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudCertificateArrayOutput{})

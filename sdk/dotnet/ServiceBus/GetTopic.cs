@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.ServiceBus
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure:servicebus/getTopic:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Service Bus Topic.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ServiceBus.GetTopic.InvokeAsync(new Azure.ServiceBus.GetTopicArgs
+        ///         {
+        ///             Name = "existing",
+        ///             ResourceGroupName = "existing",
+        ///             NamespaceName = "existing",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure:servicebus/getTopic:getTopic", args ?? new GetTopicInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +103,31 @@ namespace Pulumi.Azure.ServiceBus
         public string ResourceGroupName { get; set; } = null!;
 
         public GetTopicArgs()
+        {
+        }
+    }
+
+    public sealed class GetTopicInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of this Service Bus Topic.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Service Bus Namespace.
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the Service Bus Topic exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetTopicInvokeArgs()
         {
         }
     }

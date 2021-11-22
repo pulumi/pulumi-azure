@@ -393,6 +393,10 @@ func (o BackendMapOutput) MapIndex(k pulumi.StringInput) BackendOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendInput)(nil)).Elem(), &Backend{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendPtrInput)(nil)).Elem(), &Backend{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendArrayInput)(nil)).Elem(), BackendArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendMapInput)(nil)).Elem(), BackendMap{})
 	pulumi.RegisterOutputType(BackendOutput{})
 	pulumi.RegisterOutputType(BackendPtrOutput{})
 	pulumi.RegisterOutputType(BackendArrayOutput{})

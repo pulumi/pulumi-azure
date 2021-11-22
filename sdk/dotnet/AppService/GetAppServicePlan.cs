@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppService
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.AppService.GetAppServicePlan.InvokeAsync(new Azure.AppService.GetAppServicePlanArgs
+        ///         {
+        ///             Name = "search-app-service-plan",
+        ///             ResourceGroupName = "search-service",
+        ///         }));
+        ///         this.AppServicePlanId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("appServicePlanId")]
+        ///     public Output&lt;string&gt; AppServicePlanId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAppServicePlanResult> Invoke(GetAppServicePlanInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.AppService
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAppServicePlanArgs()
+        {
+        }
+    }
+
+    public sealed class GetAppServicePlanInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the App Service Plan.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where the App Service Plan exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAppServicePlanInvokeArgs()
         {
         }
     }

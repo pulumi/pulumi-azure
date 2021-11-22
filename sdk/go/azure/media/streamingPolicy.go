@@ -416,6 +416,10 @@ func (o StreamingPolicyMapOutput) MapIndex(k pulumi.StringInput) StreamingPolicy
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingPolicyInput)(nil)).Elem(), &StreamingPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingPolicyPtrInput)(nil)).Elem(), &StreamingPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingPolicyArrayInput)(nil)).Elem(), StreamingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamingPolicyMapInput)(nil)).Elem(), StreamingPolicyMap{})
 	pulumi.RegisterOutputType(StreamingPolicyOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyArrayOutput{})

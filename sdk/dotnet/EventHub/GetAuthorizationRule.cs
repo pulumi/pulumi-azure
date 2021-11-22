@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.EventHub
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public static Task<GetAuthorizationRuleResult> InvokeAsync(GetAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Azure.EventHub.GetAuthorizationRule.InvokeAsync(new Azure.EventHub.GetAuthorizationRuleArgs
+        ///         {
+        ///             EventhubName = azurerm_eventhub.Test.Name,
+        ///             Name = "test",
+        ///             NamespaceName = azurerm_eventhub_namespace.Test.Name,
+        ///             ResourceGroupName = azurerm_resource_group.Test.Name,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAuthorizationRuleResult> Invoke(GetAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -81,6 +114,46 @@ namespace Pulumi.Azure.EventHub
         public bool? Send { get; set; }
 
         public GetAuthorizationRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the EventHub.
+        /// </summary>
+        [Input("eventhubName", required: true)]
+        public Input<string> EventhubName { get; set; } = null!;
+
+        [Input("listen")]
+        public Input<bool>? Listen { get; set; }
+
+        [Input("manage")]
+        public Input<bool>? Manage { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the EventHub Authorization Rule resource. be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the grandparent EventHub Namespace.
+        /// </summary>
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group in which the EventHub Authorization Rule's grandparent Namespace exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("send")]
+        public Input<bool>? Send { get; set; }
+
+        public GetAuthorizationRuleInvokeArgs()
         {
         }
     }

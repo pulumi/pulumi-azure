@@ -604,6 +604,10 @@ func (o SlotMapOutput) MapIndex(k pulumi.StringInput) SlotOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SlotInput)(nil)).Elem(), &Slot{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlotPtrInput)(nil)).Elem(), &Slot{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlotArrayInput)(nil)).Elem(), SlotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlotMapInput)(nil)).Elem(), SlotMap{})
 	pulumi.RegisterOutputType(SlotOutput{})
 	pulumi.RegisterOutputType(SlotPtrOutput{})
 	pulumi.RegisterOutputType(SlotArrayOutput{})

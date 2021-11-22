@@ -416,6 +416,10 @@ func (o SqlPoolMapOutput) MapIndex(k pulumi.StringInput) SqlPoolOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolInput)(nil)).Elem(), &SqlPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolPtrInput)(nil)).Elem(), &SqlPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolArrayInput)(nil)).Elem(), SqlPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolMapInput)(nil)).Elem(), SqlPoolMap{})
 	pulumi.RegisterOutputType(SqlPoolOutput{})
 	pulumi.RegisterOutputType(SqlPoolPtrOutput{})
 	pulumi.RegisterOutputType(SqlPoolArrayOutput{})

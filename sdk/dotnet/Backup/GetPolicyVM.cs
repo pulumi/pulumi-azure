@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Backup
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         public static Task<GetPolicyVMResult> InvokeAsync(GetPolicyVMArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing VM Backup Policy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var policy = Output.Create(Azure.Backup.GetPolicyVM.InvokeAsync(new Azure.Backup.GetPolicyVMArgs
+        ///         {
+        ///             Name = "policy",
+        ///             RecoveryVaultName = "recovery_vault",
+        ///             ResourceGroupName = "resource_group",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPolicyVMResult> Invoke(GetPolicyVMInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +97,31 @@ namespace Pulumi.Azure.Backup
         public string ResourceGroupName { get; set; } = null!;
 
         public GetPolicyVMArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicyVMInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the VM Backup Policy.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Recovery Services Vault.
+        /// </summary>
+        [Input("recoveryVaultName", required: true)]
+        public Input<string> RecoveryVaultName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group in which the VM Backup Policy resides.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetPolicyVMInvokeArgs()
         {
         }
     }

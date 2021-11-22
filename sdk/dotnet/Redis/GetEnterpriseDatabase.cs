@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Redis
 {
@@ -47,6 +48,43 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         public static Task<GetEnterpriseDatabaseResult> InvokeAsync(GetEnterpriseDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseDatabaseResult>("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args ?? new GetEnterpriseDatabaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Redis Enterprise Database
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Redis.GetEnterpriseDatabase.InvokeAsync(new Azure.Redis.GetEnterpriseDatabaseArgs
+        ///         {
+        ///             Name = "default",
+        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///             ClusterId = azurerm_redis_enterprise_cluster.Example.Id,
+        ///         }));
+        ///         this.RedisEnterpriseDatabasePrimaryKey = example.Apply(example =&gt; example.PrimaryAccessKey);
+        ///         this.RedisEnterpriseDatabaseSecondaryKey = example.Apply(example =&gt; example.SecondaryAccessKey);
+        ///     }
+        /// 
+        ///     [Output("redisEnterpriseDatabasePrimaryKey")]
+        ///     public Output&lt;string&gt; RedisEnterpriseDatabasePrimaryKey { get; set; }
+        ///     [Output("redisEnterpriseDatabaseSecondaryKey")]
+        ///     public Output&lt;string&gt; RedisEnterpriseDatabaseSecondaryKey { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetEnterpriseDatabaseResult> Invoke(GetEnterpriseDatabaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEnterpriseDatabaseResult>("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args ?? new GetEnterpriseDatabaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -71,6 +109,31 @@ namespace Pulumi.Azure.Redis
         public string ResourceGroupName { get; set; } = null!;
 
         public GetEnterpriseDatabaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetEnterpriseDatabaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The resource ID of Redis Enterprise Cluster which hosts the Redis Enterprise Database instance.
+        /// </summary>
+        [Input("clusterId", required: true)]
+        public Input<string> ClusterId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Redis Enterprise Database.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group the Redis Enterprise Database instance is located in.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetEnterpriseDatabaseInvokeArgs()
         {
         }
     }

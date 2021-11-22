@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.EventGrid
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure:eventgrid/getTopic:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing EventGrid Topic
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.EventGrid.GetTopic.InvokeAsync(new Azure.EventGrid.GetTopicArgs
+        ///         {
+        ///             Name = "my-eventgrid-topic",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure:eventgrid/getTopic:getTopic", args ?? new GetTopicInvokeArgs(), options.WithVersion());
     }
 
 
@@ -66,6 +97,33 @@ namespace Pulumi.Azure.EventGrid
         }
 
         public GetTopicArgs()
+        {
+        }
+    }
+
+    public sealed class GetTopicInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the EventGrid Topic resource.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group in which the EventGrid Topic exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetTopicInvokeArgs()
         {
         }
     }

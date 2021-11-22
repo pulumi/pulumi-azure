@@ -447,6 +447,10 @@ func (o BudgetSubscriptionMapOutput) MapIndex(k pulumi.StringInput) BudgetSubscr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionInput)(nil)).Elem(), &BudgetSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionPtrInput)(nil)).Elem(), &BudgetSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionArrayInput)(nil)).Elem(), BudgetSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionMapInput)(nil)).Elem(), BudgetSubscriptionMap{})
 	pulumi.RegisterOutputType(BudgetSubscriptionOutput{})
 	pulumi.RegisterOutputType(BudgetSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(BudgetSubscriptionArrayOutput{})

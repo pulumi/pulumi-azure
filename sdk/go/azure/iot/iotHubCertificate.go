@@ -364,6 +364,10 @@ func (o IotHubCertificateMapOutput) MapIndex(k pulumi.StringInput) IotHubCertifi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubCertificateInput)(nil)).Elem(), &IotHubCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubCertificatePtrInput)(nil)).Elem(), &IotHubCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubCertificateArrayInput)(nil)).Elem(), IotHubCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IotHubCertificateMapInput)(nil)).Elem(), IotHubCertificateMap{})
 	pulumi.RegisterOutputType(IotHubCertificateOutput{})
 	pulumi.RegisterOutputType(IotHubCertificatePtrOutput{})
 	pulumi.RegisterOutputType(IotHubCertificateArrayOutput{})

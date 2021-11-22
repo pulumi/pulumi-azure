@@ -369,6 +369,10 @@ func (o DataConnectorMicrosoftCloudAppSecurityMapOutput) MapIndex(k pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftCloudAppSecurityInput)(nil)).Elem(), &DataConnectorMicrosoftCloudAppSecurity{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftCloudAppSecurityPtrInput)(nil)).Elem(), &DataConnectorMicrosoftCloudAppSecurity{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftCloudAppSecurityArrayInput)(nil)).Elem(), DataConnectorMicrosoftCloudAppSecurityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftCloudAppSecurityMapInput)(nil)).Elem(), DataConnectorMicrosoftCloudAppSecurityMap{})
 	pulumi.RegisterOutputType(DataConnectorMicrosoftCloudAppSecurityOutput{})
 	pulumi.RegisterOutputType(DataConnectorMicrosoftCloudAppSecurityPtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorMicrosoftCloudAppSecurityArrayOutput{})

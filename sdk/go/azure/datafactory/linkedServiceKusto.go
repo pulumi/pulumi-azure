@@ -484,6 +484,10 @@ func (o LinkedServiceKustoMapOutput) MapIndex(k pulumi.StringInput) LinkedServic
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceKustoInput)(nil)).Elem(), &LinkedServiceKusto{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceKustoPtrInput)(nil)).Elem(), &LinkedServiceKusto{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceKustoArrayInput)(nil)).Elem(), LinkedServiceKustoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceKustoMapInput)(nil)).Elem(), LinkedServiceKustoMap{})
 	pulumi.RegisterOutputType(LinkedServiceKustoOutput{})
 	pulumi.RegisterOutputType(LinkedServiceKustoPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceKustoArrayOutput{})

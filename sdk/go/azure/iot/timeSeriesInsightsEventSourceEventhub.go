@@ -491,6 +491,10 @@ func (o TimeSeriesInsightsEventSourceEventhubMapOutput) MapIndex(k pulumi.String
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsEventSourceEventhubInput)(nil)).Elem(), &TimeSeriesInsightsEventSourceEventhub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsEventSourceEventhubPtrInput)(nil)).Elem(), &TimeSeriesInsightsEventSourceEventhub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsEventSourceEventhubArrayInput)(nil)).Elem(), TimeSeriesInsightsEventSourceEventhubArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsEventSourceEventhubMapInput)(nil)).Elem(), TimeSeriesInsightsEventSourceEventhubMap{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsEventSourceEventhubOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsEventSourceEventhubPtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsEventSourceEventhubArrayOutput{})

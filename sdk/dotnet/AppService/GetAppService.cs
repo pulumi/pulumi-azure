@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.AppService
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public static Task<GetAppServiceResult> InvokeAsync(GetAppServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceResult>("azure:appservice/getAppService:getAppService", args ?? new GetAppServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing App Service.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.AppService.GetAppService.InvokeAsync(new Azure.AppService.GetAppServiceArgs
+        ///         {
+        ///             Name = "search-app-service",
+        ///             ResourceGroupName = "search-service",
+        ///         }));
+        ///         this.AppServiceId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("appServiceId")]
+        ///     public Output&lt;string&gt; AppServiceId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAppServiceResult> Invoke(GetAppServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAppServiceResult>("azure:appservice/getAppService:getAppService", args ?? new GetAppServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.AppService
         public string ResourceGroupName { get; set; } = null!;
 
         public GetAppServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetAppServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the App Service.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where the App Service exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetAppServiceInvokeArgs()
         {
         }
     }

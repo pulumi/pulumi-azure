@@ -573,6 +573,10 @@ func (o AssignmentMapOutput) MapIndex(k pulumi.StringInput) AssignmentOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentInput)(nil)).Elem(), &Assignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentPtrInput)(nil)).Elem(), &Assignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentArrayInput)(nil)).Elem(), AssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentMapInput)(nil)).Elem(), AssignmentMap{})
 	pulumi.RegisterOutputType(AssignmentOutput{})
 	pulumi.RegisterOutputType(AssignmentPtrOutput{})
 	pulumi.RegisterOutputType(AssignmentArrayOutput{})

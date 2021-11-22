@@ -358,6 +358,10 @@ func (o SubnetNetworkSecurityGroupAssociationMapOutput) MapIndex(k pulumi.String
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetNetworkSecurityGroupAssociationInput)(nil)).Elem(), &SubnetNetworkSecurityGroupAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetNetworkSecurityGroupAssociationPtrInput)(nil)).Elem(), &SubnetNetworkSecurityGroupAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetNetworkSecurityGroupAssociationArrayInput)(nil)).Elem(), SubnetNetworkSecurityGroupAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetNetworkSecurityGroupAssociationMapInput)(nil)).Elem(), SubnetNetworkSecurityGroupAssociationMap{})
 	pulumi.RegisterOutputType(SubnetNetworkSecurityGroupAssociationOutput{})
 	pulumi.RegisterOutputType(SubnetNetworkSecurityGroupAssociationPtrOutput{})
 	pulumi.RegisterOutputType(SubnetNetworkSecurityGroupAssociationArrayOutput{})

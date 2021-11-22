@@ -478,6 +478,10 @@ func (o LinkedServiceSnowflakeMapOutput) MapIndex(k pulumi.StringInput) LinkedSe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSnowflakeInput)(nil)).Elem(), &LinkedServiceSnowflake{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSnowflakePtrInput)(nil)).Elem(), &LinkedServiceSnowflake{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSnowflakeArrayInput)(nil)).Elem(), LinkedServiceSnowflakeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSnowflakeMapInput)(nil)).Elem(), LinkedServiceSnowflakeMap{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeArrayOutput{})

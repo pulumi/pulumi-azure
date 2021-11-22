@@ -356,6 +356,10 @@ func (o IdentityProviderGoogleMapOutput) MapIndex(k pulumi.StringInput) Identity
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderGoogleInput)(nil)).Elem(), &IdentityProviderGoogle{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderGooglePtrInput)(nil)).Elem(), &IdentityProviderGoogle{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderGoogleArrayInput)(nil)).Elem(), IdentityProviderGoogleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderGoogleMapInput)(nil)).Elem(), IdentityProviderGoogleMap{})
 	pulumi.RegisterOutputType(IdentityProviderGoogleOutput{})
 	pulumi.RegisterOutputType(IdentityProviderGooglePtrOutput{})
 	pulumi.RegisterOutputType(IdentityProviderGoogleArrayOutput{})

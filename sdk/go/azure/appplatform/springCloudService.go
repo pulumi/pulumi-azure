@@ -412,6 +412,10 @@ func (o SpringCloudServiceMapOutput) MapIndex(k pulumi.StringInput) SpringCloudS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceInput)(nil)).Elem(), &SpringCloudService{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServicePtrInput)(nil)).Elem(), &SpringCloudService{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceArrayInput)(nil)).Elem(), SpringCloudServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceMapInput)(nil)).Elem(), SpringCloudServiceMap{})
 	pulumi.RegisterOutputType(SpringCloudServiceOutput{})
 	pulumi.RegisterOutputType(SpringCloudServicePtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceArrayOutput{})

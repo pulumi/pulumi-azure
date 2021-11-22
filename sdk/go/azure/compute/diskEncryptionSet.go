@@ -452,6 +452,10 @@ func (o DiskEncryptionSetMapOutput) MapIndex(k pulumi.StringInput) DiskEncryptio
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetInput)(nil)).Elem(), &DiskEncryptionSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetPtrInput)(nil)).Elem(), &DiskEncryptionSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetArrayInput)(nil)).Elem(), DiskEncryptionSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetMapInput)(nil)).Elem(), DiskEncryptionSetMap{})
 	pulumi.RegisterOutputType(DiskEncryptionSetOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetPtrOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetArrayOutput{})

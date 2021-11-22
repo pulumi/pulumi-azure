@@ -358,6 +358,10 @@ func (o ChannelWebChatMapOutput) MapIndex(k pulumi.StringInput) ChannelWebChatOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelWebChatInput)(nil)).Elem(), &ChannelWebChat{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelWebChatPtrInput)(nil)).Elem(), &ChannelWebChat{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelWebChatArrayInput)(nil)).Elem(), ChannelWebChatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelWebChatMapInput)(nil)).Elem(), ChannelWebChatMap{})
 	pulumi.RegisterOutputType(ChannelWebChatOutput{})
 	pulumi.RegisterOutputType(ChannelWebChatPtrOutput{})
 	pulumi.RegisterOutputType(ChannelWebChatArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.NetApp
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Uses this data source to access information about an existing NetApp Snapshot.
+        /// 
+        /// ## NetApp Snapshot Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Azure.NetApp.GetSnapshot.InvokeAsync(new Azure.NetApp.GetSnapshotArgs
+        ///         {
+        ///             ResourceGroupName = "acctestRG",
+        ///             Name = "acctestnetappsnapshot",
+        ///             AccountName = "acctestnetappaccount",
+        ///             PoolName = "acctestnetapppool",
+        ///             VolumeName = "acctestnetappvolume",
+        ///         }));
+        ///         this.NetappSnapshotId = data.Azurerm_netapp_snapshot.Example.Id;
+        ///     }
+        /// 
+        ///     [Output("netappSnapshotId")]
+        ///     public Output&lt;string&gt; NetappSnapshotId { get; set; }
+        /// }
+        /// ```
+        /// </summary>
+        public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -78,6 +111,43 @@ namespace Pulumi.Azure.NetApp
         public string VolumeName { get; set; } = null!;
 
         public GetSnapshotArgs()
+        {
+        }
+    }
+
+    public sealed class GetSnapshotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the NetApp Account where the NetApp Pool exists.
+        /// </summary>
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the NetApp Snapshot.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the NetApp Pool where the NetApp Volume exists.
+        /// </summary>
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
+
+        /// <summary>
+        /// The Name of the Resource Group where the NetApp Snapshot exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the NetApp Volume where the NetApp Snapshot exists.
+        /// </summary>
+        [Input("volumeName", required: true)]
+        public Input<string> VolumeName { get; set; } = null!;
+
+        public GetSnapshotInvokeArgs()
         {
         }
     }

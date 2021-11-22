@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Core
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public static Task<GetTemplateSpecVersionResult> InvokeAsync(GetTemplateSpecVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Template Spec Version.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Core.GetTemplateSpecVersion.InvokeAsync(new Azure.Core.GetTemplateSpecVersionArgs
+        ///         {
+        ///             Name = "exampleTemplateSpec",
+        ///             ResourceGroupName = "MyResourceGroup",
+        ///             Version = "v1.0.4",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetTemplateSpecVersionResult> Invoke(GetTemplateSpecVersionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +103,31 @@ namespace Pulumi.Azure.Core
         public string Version { get; set; } = null!;
 
         public GetTemplateSpecVersionArgs()
+        {
+        }
+    }
+
+    public sealed class GetTemplateSpecVersionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of this Template Spec.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Resource Group where the Template Spec exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Version Name of the Template Spec.
+        /// </summary>
+        [Input("version", required: true)]
+        public Input<string> Version { get; set; } = null!;
+
+        public GetTemplateSpecVersionInvokeArgs()
         {
         }
     }

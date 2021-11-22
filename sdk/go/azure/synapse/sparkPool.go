@@ -440,6 +440,10 @@ func (o SparkPoolMapOutput) MapIndex(k pulumi.StringInput) SparkPoolOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolInput)(nil)).Elem(), &SparkPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolPtrInput)(nil)).Elem(), &SparkPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolArrayInput)(nil)).Elem(), SparkPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkPoolMapInput)(nil)).Elem(), SparkPoolMap{})
 	pulumi.RegisterOutputType(SparkPoolOutput{})
 	pulumi.RegisterOutputType(SparkPoolPtrOutput{})
 	pulumi.RegisterOutputType(SparkPoolArrayOutput{})

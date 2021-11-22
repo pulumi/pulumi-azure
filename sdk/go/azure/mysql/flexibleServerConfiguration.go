@@ -356,6 +356,10 @@ func (o FlexibleServerConfigurationMapOutput) MapIndex(k pulumi.StringInput) Fle
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerConfigurationInput)(nil)).Elem(), &FlexibleServerConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerConfigurationPtrInput)(nil)).Elem(), &FlexibleServerConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerConfigurationArrayInput)(nil)).Elem(), FlexibleServerConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerConfigurationMapInput)(nil)).Elem(), FlexibleServerConfigurationMap{})
 	pulumi.RegisterOutputType(FlexibleServerConfigurationOutput{})
 	pulumi.RegisterOutputType(FlexibleServerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerConfigurationArrayOutput{})

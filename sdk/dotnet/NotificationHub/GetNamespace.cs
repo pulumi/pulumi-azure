@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.NotificationHub
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Azure.NotificationHub
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:notificationhub/getNamespace:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Notification Hub Namespace.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.NotificationHub.GetNamespace.InvokeAsync(new Azure.NotificationHub.GetNamespaceArgs
+        ///         {
+        ///             Name = "my-namespace",
+        ///             ResourceGroupName = "my-resource-group",
+        ///         }));
+        ///         this.ServicebusEndpoint = example.Apply(example =&gt; example.ServicebusEndpoint);
+        ///     }
+        /// 
+        ///     [Output("servicebusEndpoint")]
+        ///     public Output&lt;string&gt; ServicebusEndpoint { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure:notificationhub/getNamespace:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +95,25 @@ namespace Pulumi.Azure.NotificationHub
         public string ResourceGroupName { get; set; } = null!;
 
         public GetNamespaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetNamespaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the Name of the Notification Hub Namespace.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the Name of the Resource Group within which the Notification Hub exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetNamespaceInvokeArgs()
         {
         }
     }

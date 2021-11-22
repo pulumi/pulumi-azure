@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.EventGrid
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public static Task<GetSystemTopicResult> InvokeAsync(GetSystemTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicResult>("azure:eventgrid/getSystemTopic:getSystemTopic", args ?? new GetSystemTopicArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing EventGrid System Topic
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.EventGrid.GetSystemTopic.InvokeAsync(new Azure.EventGrid.GetSystemTopicArgs
+        ///         {
+        ///             Name = "eventgrid-system-topic",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSystemTopicResult> Invoke(GetSystemTopicInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSystemTopicResult>("azure:eventgrid/getSystemTopic:getSystemTopic", args ?? new GetSystemTopicInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +95,31 @@ namespace Pulumi.Azure.EventGrid
         public string ResourceGroupName { get; set; } = null!;
 
         public GetSystemTopicArgs()
+        {
+        }
+    }
+
+    public sealed class GetSystemTopicInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.GetSystemTopicIdentityInputArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The name of the EventGrid System Topic resource.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group in which the EventGrid System Topic exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        public GetSystemTopicInvokeArgs()
         {
         }
     }

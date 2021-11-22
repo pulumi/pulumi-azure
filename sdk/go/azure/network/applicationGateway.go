@@ -704,6 +704,10 @@ func (o ApplicationGatewayMapOutput) MapIndex(k pulumi.StringInput) ApplicationG
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayInput)(nil)).Elem(), &ApplicationGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayPtrInput)(nil)).Elem(), &ApplicationGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayArrayInput)(nil)).Elem(), ApplicationGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayMapInput)(nil)).Elem(), ApplicationGatewayMap{})
 	pulumi.RegisterOutputType(ApplicationGatewayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayArrayOutput{})

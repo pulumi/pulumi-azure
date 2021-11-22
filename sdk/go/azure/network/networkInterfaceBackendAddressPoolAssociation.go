@@ -395,6 +395,10 @@ func (o NetworkInterfaceBackendAddressPoolAssociationMapOutput) MapIndex(k pulum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceBackendAddressPoolAssociationInput)(nil)).Elem(), &NetworkInterfaceBackendAddressPoolAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceBackendAddressPoolAssociationPtrInput)(nil)).Elem(), &NetworkInterfaceBackendAddressPoolAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceBackendAddressPoolAssociationArrayInput)(nil)).Elem(), NetworkInterfaceBackendAddressPoolAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceBackendAddressPoolAssociationMapInput)(nil)).Elem(), NetworkInterfaceBackendAddressPoolAssociationMap{})
 	pulumi.RegisterOutputType(NetworkInterfaceBackendAddressPoolAssociationOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceBackendAddressPoolAssociationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceBackendAddressPoolAssociationArrayOutput{})

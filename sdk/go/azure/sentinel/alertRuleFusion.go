@@ -361,6 +361,10 @@ func (o AlertRuleFusionMapOutput) MapIndex(k pulumi.StringInput) AlertRuleFusion
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionInput)(nil)).Elem(), &AlertRuleFusion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionPtrInput)(nil)).Elem(), &AlertRuleFusion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionArrayInput)(nil)).Elem(), AlertRuleFusionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionMapInput)(nil)).Elem(), AlertRuleFusionMap{})
 	pulumi.RegisterOutputType(AlertRuleFusionOutput{})
 	pulumi.RegisterOutputType(AlertRuleFusionPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleFusionArrayOutput{})

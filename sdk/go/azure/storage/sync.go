@@ -348,6 +348,10 @@ func (o SyncMapOutput) MapIndex(k pulumi.StringInput) SyncOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncInput)(nil)).Elem(), &Sync{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncPtrInput)(nil)).Elem(), &Sync{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncArrayInput)(nil)).Elem(), SyncArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyncMapInput)(nil)).Elem(), SyncMap{})
 	pulumi.RegisterOutputType(SyncOutput{})
 	pulumi.RegisterOutputType(SyncPtrOutput{})
 	pulumi.RegisterOutputType(SyncArrayOutput{})

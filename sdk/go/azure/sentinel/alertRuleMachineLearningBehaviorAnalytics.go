@@ -361,6 +361,10 @@ func (o AlertRuleMachineLearningBehaviorAnalyticsMapOutput) MapIndex(k pulumi.St
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMachineLearningBehaviorAnalyticsInput)(nil)).Elem(), &AlertRuleMachineLearningBehaviorAnalytics{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMachineLearningBehaviorAnalyticsPtrInput)(nil)).Elem(), &AlertRuleMachineLearningBehaviorAnalytics{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMachineLearningBehaviorAnalyticsArrayInput)(nil)).Elem(), AlertRuleMachineLearningBehaviorAnalyticsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMachineLearningBehaviorAnalyticsMapInput)(nil)).Elem(), AlertRuleMachineLearningBehaviorAnalyticsMap{})
 	pulumi.RegisterOutputType(AlertRuleMachineLearningBehaviorAnalyticsOutput{})
 	pulumi.RegisterOutputType(AlertRuleMachineLearningBehaviorAnalyticsPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleMachineLearningBehaviorAnalyticsArrayOutput{})

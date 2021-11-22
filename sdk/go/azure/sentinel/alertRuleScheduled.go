@@ -501,6 +501,10 @@ func (o AlertRuleScheduledMapOutput) MapIndex(k pulumi.StringInput) AlertRuleSch
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledInput)(nil)).Elem(), &AlertRuleScheduled{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledPtrInput)(nil)).Elem(), &AlertRuleScheduled{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledArrayInput)(nil)).Elem(), AlertRuleScheduledArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledMapInput)(nil)).Elem(), AlertRuleScheduledMap{})
 	pulumi.RegisterOutputType(AlertRuleScheduledOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledArrayOutput{})

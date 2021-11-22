@@ -389,6 +389,10 @@ func (o SecurityPartnerProviderMapOutput) MapIndex(k pulumi.StringInput) Securit
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityPartnerProviderInput)(nil)).Elem(), &SecurityPartnerProvider{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityPartnerProviderPtrInput)(nil)).Elem(), &SecurityPartnerProvider{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityPartnerProviderArrayInput)(nil)).Elem(), SecurityPartnerProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityPartnerProviderMapInput)(nil)).Elem(), SecurityPartnerProviderMap{})
 	pulumi.RegisterOutputType(SecurityPartnerProviderOutput{})
 	pulumi.RegisterOutputType(SecurityPartnerProviderPtrOutput{})
 	pulumi.RegisterOutputType(SecurityPartnerProviderArrayOutput{})

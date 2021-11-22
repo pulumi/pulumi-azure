@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Iot
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         public static Task<GetDpsResult> InvokeAsync(GetDpsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDpsResult>("azure:iot/getDps:getDps", args ?? new GetDpsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing IotHub Device Provisioning Service.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Iot.GetDps.InvokeAsync(new Azure.Iot.GetDpsArgs
+        ///         {
+        ///             Name = "iot_hub_dps_test",
+        ///             ResourceGroupName = "iothub_dps_rg",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDpsResult> Invoke(GetDpsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDpsResult>("azure:iot/getDps:getDps", args ?? new GetDpsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -66,6 +97,33 @@ namespace Pulumi.Azure.Iot
         }
 
         public GetDpsArgs()
+        {
+        }
+    }
+
+    public sealed class GetDpsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies the name of the Iot Device Provisioning Service resource.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the resource group under which the Iot Device Provisioning Service is located in.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetDpsInvokeArgs()
         {
         }
     }

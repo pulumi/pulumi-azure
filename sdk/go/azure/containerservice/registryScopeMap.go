@@ -361,6 +361,10 @@ func (o RegistryScopeMapMapOutput) MapIndex(k pulumi.StringInput) RegistryScopeM
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScopeMapInput)(nil)).Elem(), &RegistryScopeMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScopeMapPtrInput)(nil)).Elem(), &RegistryScopeMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScopeMapArrayInput)(nil)).Elem(), RegistryScopeMapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScopeMapMapInput)(nil)).Elem(), RegistryScopeMapMap{})
 	pulumi.RegisterOutputType(RegistryScopeMapOutput{})
 	pulumi.RegisterOutputType(RegistryScopeMapPtrOutput{})
 	pulumi.RegisterOutputType(RegistryScopeMapArrayOutput{})

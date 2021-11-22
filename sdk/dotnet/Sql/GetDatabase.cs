@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Azure.Sql
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing SQL Azure Database.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Sql.GetDatabase.InvokeAsync(new Azure.Sql.GetDatabaseArgs
+        ///         {
+        ///             Name = "example_db",
+        ///             ServerName = "example_db_server",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.SqlDatabaseId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("sqlDatabaseId")]
+        ///     public Output&lt;string&gt; SqlDatabaseId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithVersion());
     }
 
 
@@ -80,6 +115,43 @@ namespace Pulumi.Azure.Sql
         }
 
         public GetDatabaseArgs()
+        {
+        }
+    }
+
+    public sealed class GetDatabaseInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the SQL Database.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Resource Group where the Azure SQL Database exists.
+        /// </summary>
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the SQL Server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetDatabaseInvokeArgs()
         {
         }
     }
