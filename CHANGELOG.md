@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to v2.86.0 of the AzureRM Terraform Provider
+  * Please note `singlePlacementGroup` has been removed from `azure.compute.OrchestratedVirtualMachineScaleSet` as per the upstream provider
 
 ---
 
