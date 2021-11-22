@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Compute
         /// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zones")]
-        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
+        public Output<string?> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -332,17 +332,11 @@ namespace Pulumi.Azure.Compute
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
 
-        [Input("zones")]
-        private InputList<string>? _zones;
-
         /// <summary>
         /// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<string> Zones
-        {
-            get => _zones ?? (_zones = new InputList<string>());
-            set => _zones = value;
-        }
+        [Input("zones")]
+        public Input<string>? Zones { get; set; }
 
         public OrchestratedVirtualMachineScaleSetArgs()
         {
@@ -472,17 +466,11 @@ namespace Pulumi.Azure.Compute
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
 
-        [Input("zones")]
-        private InputList<string>? _zones;
-
         /// <summary>
         /// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<string> Zones
-        {
-            get => _zones ?? (_zones = new InputList<string>());
-            set => _zones = value;
-        }
+        [Input("zones")]
+        public Input<string>? Zones { get; set; }
 
         public OrchestratedVirtualMachineScaleSetState()
         {

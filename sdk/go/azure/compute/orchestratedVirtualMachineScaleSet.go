@@ -44,8 +44,8 @@ import (
 // 			Location:                 exampleResourceGroup.Location,
 // 			ResourceGroupName:        exampleResourceGroup.Name,
 // 			PlatformFaultDomainCount: pulumi.Int(1),
-// 			Zones: pulumi.StringArray{
-// 				pulumi.String("1"),
+// 			Zones: pulumi.String{
+// 				"1",
 // 			},
 // 		})
 // 		if err != nil {
@@ -102,7 +102,7 @@ type OrchestratedVirtualMachineScaleSet struct {
 	UniqueId    pulumi.StringOutput  `pulumi:"uniqueId"`
 	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
 	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
-	Zones pulumi.StringArrayOutput `pulumi:"zones"`
+	Zones pulumi.StringPtrOutput `pulumi:"zones"`
 }
 
 // NewOrchestratedVirtualMachineScaleSet registers a new resource with the given unique name, arguments, and options.
@@ -176,7 +176,7 @@ type orchestratedVirtualMachineScaleSetState struct {
 	UniqueId    *string `pulumi:"uniqueId"`
 	ZoneBalance *bool   `pulumi:"zoneBalance"`
 	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
-	Zones []string `pulumi:"zones"`
+	Zones *string `pulumi:"zones"`
 }
 
 type OrchestratedVirtualMachineScaleSetState struct {
@@ -216,7 +216,7 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	UniqueId    pulumi.StringPtrInput
 	ZoneBalance pulumi.BoolPtrInput
 	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
-	Zones pulumi.StringArrayInput
+	Zones pulumi.StringPtrInput
 }
 
 func (OrchestratedVirtualMachineScaleSetState) ElementType() reflect.Type {
@@ -258,7 +258,7 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	TerminationNotification *OrchestratedVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	ZoneBalance             *bool                                                      `pulumi:"zoneBalance"`
 	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
-	Zones []string `pulumi:"zones"`
+	Zones *string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a OrchestratedVirtualMachineScaleSet resource.
@@ -297,7 +297,7 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	TerminationNotification OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput
 	ZoneBalance             pulumi.BoolPtrInput
 	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
-	Zones pulumi.StringArrayInput
+	Zones pulumi.StringPtrInput
 }
 
 func (OrchestratedVirtualMachineScaleSetArgs) ElementType() reflect.Type {

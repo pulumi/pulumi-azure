@@ -732,6 +732,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_windows_virtual_machine_scale_set":   {Tok: azureResource(azureCompute, "WindowsVirtualMachineScaleSet")},
 			"azurerm_orchestrated_virtual_machine_scale_set": {
 				Tok: azureResource(azureCompute, "OrchestratedVirtualMachineScaleSet"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"zones": {
+						MaxItemsOne: tfbridge.True(),
+						Name:        "zones",
+					},
+				},
 			},
 			"azurerm_disk_access":        {Tok: azureResource(azureCompute, "DiskAccess")},
 			"azurerm_ssh_public_key":     {Tok: azureResource(azureCompute, "SshPublicKey")},

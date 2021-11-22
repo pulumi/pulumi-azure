@@ -123,7 +123,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    public readonly zones!: pulumi.Output<string | undefined>;
 
     /**
      * Create a OrchestratedVirtualMachineScaleSet resource with the given unique name, arguments, and options.
@@ -268,7 +268,7 @@ export interface OrchestratedVirtualMachineScaleSetState {
     /**
      * A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<string>;
 }
 
 /**
@@ -327,5 +327,5 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
     /**
      * A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<string>;
 }
