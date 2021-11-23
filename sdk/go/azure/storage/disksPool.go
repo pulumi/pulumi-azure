@@ -414,6 +414,10 @@ func (o DisksPoolMapOutput) MapIndex(k pulumi.StringInput) DisksPoolOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DisksPoolInput)(nil)).Elem(), &DisksPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DisksPoolPtrInput)(nil)).Elem(), &DisksPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DisksPoolArrayInput)(nil)).Elem(), DisksPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DisksPoolMapInput)(nil)).Elem(), DisksPoolMap{})
 	pulumi.RegisterOutputType(DisksPoolOutput{})
 	pulumi.RegisterOutputType(DisksPoolPtrOutput{})
 	pulumi.RegisterOutputType(DisksPoolArrayOutput{})

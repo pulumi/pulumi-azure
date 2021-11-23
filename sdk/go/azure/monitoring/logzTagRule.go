@@ -378,6 +378,10 @@ func (o LogzTagRuleMapOutput) MapIndex(k pulumi.StringInput) LogzTagRuleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRuleInput)(nil)).Elem(), &LogzTagRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRulePtrInput)(nil)).Elem(), &LogzTagRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRuleArrayInput)(nil)).Elem(), LogzTagRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRuleMapInput)(nil)).Elem(), LogzTagRuleMap{})
 	pulumi.RegisterOutputType(LogzTagRuleOutput{})
 	pulumi.RegisterOutputType(LogzTagRulePtrOutput{})
 	pulumi.RegisterOutputType(LogzTagRuleArrayOutput{})
