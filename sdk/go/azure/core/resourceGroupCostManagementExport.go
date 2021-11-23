@@ -415,6 +415,10 @@ func (o ResourceGroupCostManagementExportMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportInput)(nil)).Elem(), &ResourceGroupCostManagementExport{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportPtrInput)(nil)).Elem(), &ResourceGroupCostManagementExport{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportArrayInput)(nil)).Elem(), ResourceGroupCostManagementExportArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportMapInput)(nil)).Elem(), ResourceGroupCostManagementExportMap{})
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportOutput{})
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportArrayOutput{})

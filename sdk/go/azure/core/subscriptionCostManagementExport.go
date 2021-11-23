@@ -414,6 +414,10 @@ func (o SubscriptionCostManagementExportMapOutput) MapIndex(k pulumi.StringInput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportInput)(nil)).Elem(), &SubscriptionCostManagementExport{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportPtrInput)(nil)).Elem(), &SubscriptionCostManagementExport{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportArrayInput)(nil)).Elem(), SubscriptionCostManagementExportArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportMapInput)(nil)).Elem(), SubscriptionCostManagementExportMap{})
 	pulumi.RegisterOutputType(SubscriptionCostManagementExportOutput{})
 	pulumi.RegisterOutputType(SubscriptionCostManagementExportPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionCostManagementExportArrayOutput{})
