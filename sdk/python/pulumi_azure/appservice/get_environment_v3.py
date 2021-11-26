@@ -116,7 +116,7 @@ class GetEnvironmentV3Result:
     @pulumi.getter(name="externalInboundIpAddresses")
     def external_inbound_ip_addresses(self) -> Sequence[str]:
         """
-        The external outbound IP addresses of the App Service Environment V3.
+        The external inbound IP addresses of the App Service Environment V3.
         """
         return pulumi.get(self, "external_inbound_ip_addresses")
 
@@ -140,7 +140,7 @@ class GetEnvironmentV3Result:
     @pulumi.getter(name="internalInboundIpAddresses")
     def internal_inbound_ip_addresses(self) -> Sequence[str]:
         """
-        The internal outbound IP addresses of the App Service Environment V3.
+        The internal inbound IP addresses of the App Service Environment V3.
         """
         return pulumi.get(self, "internal_inbound_ip_addresses")
 

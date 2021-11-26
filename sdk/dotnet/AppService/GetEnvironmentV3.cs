@@ -139,7 +139,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string DnsSuffix;
         /// <summary>
-        /// The external outbound IP addresses of the App Service Environment V3.
+        /// The external inbound IP addresses of the App Service Environment V3.
         /// </summary>
         public readonly ImmutableArray<string> ExternalInboundIpAddresses;
         /// <summary>
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEnvironmentV3InboundNetworkDependencyResult> InboundNetworkDependencies;
         /// <summary>
-        /// The internal outbound IP addresses of the App Service Environment V3.
+        /// The internal inbound IP addresses of the App Service Environment V3.
         /// </summary>
         public readonly ImmutableArray<string> InternalInboundIpAddresses;
         /// <summary>

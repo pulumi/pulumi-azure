@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _ipAddresses;
 
         /// <summary>
-        /// A list of IP addresses or IP address ranges that will be skipped for threat detection.
+        /// A list of IP addresses or CIDR ranges that will be skipped for threat detection.
         /// </summary>
         public InputList<string> IpAddresses
         {

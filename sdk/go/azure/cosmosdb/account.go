@@ -96,18 +96,24 @@ type Account struct {
 
 	// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
 	AccessKeyMetadataWritesEnabled pulumi.BoolPtrOutput `pulumi:"accessKeyMetadataWritesEnabled"`
+	// An `analyticalStorage` block as defined below.
+	AnalyticalStorage AccountAnalyticalStorageOutput `pulumi:"analyticalStorage"`
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrOutput `pulumi:"analyticalStorageEnabled"`
 	// A `backup` block as defined below.
 	Backup AccountBackupOutput `pulumi:"backup"`
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
 	Capabilities AccountCapabilityArrayOutput `pulumi:"capabilities"`
+	// A `capacity` block as defined below.
+	Capacity AccountCapacityPtrOutput `pulumi:"capacity"`
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings pulumi.StringArrayOutput `pulumi:"connectionStrings"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyOutput `pulumi:"consistencyPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRule AccountCorsRulePtrOutput `pulumi:"corsRule"`
+	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+	DefaultIdentityType pulumi.StringPtrOutput `pulumi:"defaultIdentityType"`
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrOutput `pulumi:"enableAutomaticFailover"`
 	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -215,18 +221,24 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
 	AccessKeyMetadataWritesEnabled *bool `pulumi:"accessKeyMetadataWritesEnabled"`
+	// An `analyticalStorage` block as defined below.
+	AnalyticalStorage *AccountAnalyticalStorage `pulumi:"analyticalStorage"`
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
 	// A `backup` block as defined below.
 	Backup *AccountBackup `pulumi:"backup"`
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
 	Capabilities []AccountCapability `pulumi:"capabilities"`
+	// A `capacity` block as defined below.
+	Capacity *AccountCapacity `pulumi:"capacity"`
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings []string `pulumi:"connectionStrings"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy *AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRule *AccountCorsRule `pulumi:"corsRule"`
+	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
 	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -294,18 +306,24 @@ type accountState struct {
 type AccountState struct {
 	// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
 	AccessKeyMetadataWritesEnabled pulumi.BoolPtrInput
+	// An `analyticalStorage` block as defined below.
+	AnalyticalStorage AccountAnalyticalStoragePtrInput
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
 	// A `backup` block as defined below.
 	Backup AccountBackupPtrInput
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
 	Capabilities AccountCapabilityArrayInput
+	// A `capacity` block as defined below.
+	Capacity AccountCapacityPtrInput
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings pulumi.StringArrayInput
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyPtrInput
 	// A `corsRule` block as defined below.
 	CorsRule AccountCorsRulePtrInput
+	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+	DefaultIdentityType pulumi.StringPtrInput
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
 	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -377,16 +395,22 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
 	AccessKeyMetadataWritesEnabled *bool `pulumi:"accessKeyMetadataWritesEnabled"`
+	// An `analyticalStorage` block as defined below.
+	AnalyticalStorage *AccountAnalyticalStorage `pulumi:"analyticalStorage"`
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
 	// A `backup` block as defined below.
 	Backup *AccountBackup `pulumi:"backup"`
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
 	Capabilities []AccountCapability `pulumi:"capabilities"`
+	// A `capacity` block as defined below.
+	Capacity *AccountCapacity `pulumi:"capacity"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRule *AccountCorsRule `pulumi:"corsRule"`
+	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
 	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -433,16 +457,22 @@ type accountArgs struct {
 type AccountArgs struct {
 	// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
 	AccessKeyMetadataWritesEnabled pulumi.BoolPtrInput
+	// An `analyticalStorage` block as defined below.
+	AnalyticalStorage AccountAnalyticalStoragePtrInput
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
 	// A `backup` block as defined below.
 	Backup AccountBackupPtrInput
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
 	Capabilities AccountCapabilityArrayInput
+	// A `capacity` block as defined below.
+	Capacity AccountCapacityPtrInput
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyInput
 	// A `corsRule` block as defined below.
 	CorsRule AccountCorsRulePtrInput
+	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+	DefaultIdentityType pulumi.StringPtrInput
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
 	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.

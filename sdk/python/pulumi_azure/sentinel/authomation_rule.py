@@ -22,6 +22,7 @@ class AuthomationRuleArgs:
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]] = None,
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 expiration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AuthomationRule resource.
@@ -32,6 +33,7 @@ class AuthomationRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]] action_playbooks: One or more `action_playbook` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]] conditions: One or more `condition` blocks as defined below.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
+        :param pulumi.Input[str] expiration: The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
         :param pulumi.Input[str] name: The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
         """
         pulumi.set(__self__, "display_name", display_name)
@@ -45,6 +47,8 @@ class AuthomationRuleArgs:
             pulumi.set(__self__, "conditions", conditions)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -134,6 +138,18 @@ class AuthomationRuleArgs:
 
     @property
     @pulumi.getter
+    def expiration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
+        """
+        return pulumi.get(self, "expiration")
+
+    @expiration.setter
+    def expiration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
@@ -153,6 +169,7 @@ class _AuthomationRuleState:
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 expiration: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None):
@@ -163,6 +180,7 @@ class _AuthomationRuleState:
         :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]] conditions: One or more `condition` blocks as defined below.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
+        :param pulumi.Input[str] expiration: The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[str] name: The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[int] order: The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
@@ -177,6 +195,8 @@ class _AuthomationRuleState:
             pulumi.set(__self__, "display_name", display_name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
@@ -245,6 +265,18 @@ class _AuthomationRuleState:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter
+    def expiration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
+        """
+        return pulumi.get(self, "expiration")
+
+    @expiration.setter
+    def expiration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration", value)
+
+    @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
     def log_analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -281,7 +313,12 @@ class _AuthomationRuleState:
         pulumi.set(self, "order", value)
 
 
+warnings.warn("""azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule""", DeprecationWarning)
+
+
 class AuthomationRule(pulumi.CustomResource):
+    warnings.warn("""azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -291,6 +328,7 @@ class AuthomationRule(pulumi.CustomResource):
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 expiration: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
@@ -319,11 +357,11 @@ class AuthomationRule(pulumi.CustomResource):
                 publisher="Microsoft",
                 product="OMSGallery/SecurityInsights",
             ))
-        example_authomation_rule = azure.sentinel.AuthomationRule("exampleAuthomationRule",
+        example_automation_rule = azure.sentinel.AutomationRule("exampleAutomationRule",
             log_analytics_workspace_id=sentinel.workspace_resource_id,
             display_name="automation_rule1",
             order=1,
-            action_incidents=[azure.sentinel.AuthomationRuleActionIncidentArgs(
+            action_incidents=[azure.sentinel.AutomationRuleActionIncidentArgs(
                 order=1,
                 status="Active",
             )])
@@ -344,6 +382,7 @@ class AuthomationRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]] conditions: One or more `condition` blocks as defined below.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
+        :param pulumi.Input[str] expiration: The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[str] name: The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[int] order: The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
@@ -378,11 +417,11 @@ class AuthomationRule(pulumi.CustomResource):
                 publisher="Microsoft",
                 product="OMSGallery/SecurityInsights",
             ))
-        example_authomation_rule = azure.sentinel.AuthomationRule("exampleAuthomationRule",
+        example_automation_rule = azure.sentinel.AutomationRule("exampleAutomationRule",
             log_analytics_workspace_id=sentinel.workspace_resource_id,
             display_name="automation_rule1",
             order=1,
-            action_incidents=[azure.sentinel.AuthomationRuleActionIncidentArgs(
+            action_incidents=[azure.sentinel.AutomationRuleActionIncidentArgs(
                 order=1,
                 status="Active",
             )])
@@ -416,10 +455,12 @@ class AuthomationRule(pulumi.CustomResource):
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 expiration: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  __props__=None):
+        pulumi.log.warn("""AuthomationRule is deprecated: azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -438,6 +479,7 @@ class AuthomationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["expiration"] = expiration
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
             __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
@@ -460,6 +502,7 @@ class AuthomationRule(pulumi.CustomResource):
             conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            expiration: Optional[pulumi.Input[str]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             order: Optional[pulumi.Input[int]] = None) -> 'AuthomationRule':
@@ -475,6 +518,7 @@ class AuthomationRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]] conditions: One or more `condition` blocks as defined below.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
+        :param pulumi.Input[str] expiration: The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[str] name: The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[int] order: The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
@@ -488,6 +532,7 @@ class AuthomationRule(pulumi.CustomResource):
         __props__.__dict__["conditions"] = conditions
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["expiration"] = expiration
         __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
         __props__.__dict__["name"] = name
         __props__.__dict__["order"] = order
@@ -532,6 +577,14 @@ class AuthomationRule(pulumi.CustomResource):
         Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> pulumi.Output[Optional[str]]:
+        """
+        The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
+        """
+        return pulumi.get(self, "expiration")
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")

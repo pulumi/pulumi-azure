@@ -99,6 +99,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly accessKeyMetadataWritesEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * An `analyticalStorage` block as defined below.
+     */
+    public readonly analyticalStorage!: pulumi.Output<outputs.cosmosdb.AccountAnalyticalStorage>;
+    /**
      * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly analyticalStorageEnabled!: pulumi.Output<boolean | undefined>;
@@ -111,6 +115,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly capabilities!: pulumi.Output<outputs.cosmosdb.AccountCapability[]>;
     /**
+     * A `capacity` block as defined below.
+     */
+    public readonly capacity!: pulumi.Output<outputs.cosmosdb.AccountCapacity | undefined>;
+    /**
      * A list of connection strings available for this CosmosDB account.
      */
     public /*out*/ readonly connectionStrings!: pulumi.Output<string[]>;
@@ -122,6 +130,10 @@ export class Account extends pulumi.CustomResource {
      * A `corsRule` block as defined below.
      */
     public readonly corsRule!: pulumi.Output<outputs.cosmosdb.AccountCorsRule | undefined>;
+    /**
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+     */
+    public readonly defaultIdentityType!: pulumi.Output<string | undefined>;
     /**
      * Enable automatic fail over for this Cosmos DB account.
      */
@@ -261,12 +273,15 @@ export class Account extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
             inputs["accessKeyMetadataWritesEnabled"] = state ? state.accessKeyMetadataWritesEnabled : undefined;
+            inputs["analyticalStorage"] = state ? state.analyticalStorage : undefined;
             inputs["analyticalStorageEnabled"] = state ? state.analyticalStorageEnabled : undefined;
             inputs["backup"] = state ? state.backup : undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;
+            inputs["capacity"] = state ? state.capacity : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["consistencyPolicy"] = state ? state.consistencyPolicy : undefined;
             inputs["corsRule"] = state ? state.corsRule : undefined;
+            inputs["defaultIdentityType"] = state ? state.defaultIdentityType : undefined;
             inputs["enableAutomaticFailover"] = state ? state.enableAutomaticFailover : undefined;
             inputs["enableFreeTier"] = state ? state.enableFreeTier : undefined;
             inputs["enableMultipleWriteLocations"] = state ? state.enableMultipleWriteLocations : undefined;
@@ -313,11 +328,14 @@ export class Account extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accessKeyMetadataWritesEnabled"] = args ? args.accessKeyMetadataWritesEnabled : undefined;
+            inputs["analyticalStorage"] = args ? args.analyticalStorage : undefined;
             inputs["analyticalStorageEnabled"] = args ? args.analyticalStorageEnabled : undefined;
             inputs["backup"] = args ? args.backup : undefined;
             inputs["capabilities"] = args ? args.capabilities : undefined;
+            inputs["capacity"] = args ? args.capacity : undefined;
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
             inputs["corsRule"] = args ? args.corsRule : undefined;
+            inputs["defaultIdentityType"] = args ? args.defaultIdentityType : undefined;
             inputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
             inputs["enableFreeTier"] = args ? args.enableFreeTier : undefined;
             inputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
@@ -367,6 +385,10 @@ export interface AccountState {
      */
     accessKeyMetadataWritesEnabled?: pulumi.Input<boolean>;
     /**
+     * An `analyticalStorage` block as defined below.
+     */
+    analyticalStorage?: pulumi.Input<inputs.cosmosdb.AccountAnalyticalStorage>;
+    /**
      * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
      */
     analyticalStorageEnabled?: pulumi.Input<boolean>;
@@ -379,6 +401,10 @@ export interface AccountState {
      */
     capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
     /**
+     * A `capacity` block as defined below.
+     */
+    capacity?: pulumi.Input<inputs.cosmosdb.AccountCapacity>;
+    /**
      * A list of connection strings available for this CosmosDB account.
      */
     connectionStrings?: pulumi.Input<pulumi.Input<string>[]>;
@@ -390,6 +416,10 @@ export interface AccountState {
      * A `corsRule` block as defined below.
      */
     corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule>;
+    /**
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+     */
+    defaultIdentityType?: pulumi.Input<string>;
     /**
      * Enable automatic fail over for this Cosmos DB account.
      */
@@ -525,6 +555,10 @@ export interface AccountArgs {
      */
     accessKeyMetadataWritesEnabled?: pulumi.Input<boolean>;
     /**
+     * An `analyticalStorage` block as defined below.
+     */
+    analyticalStorage?: pulumi.Input<inputs.cosmosdb.AccountAnalyticalStorage>;
+    /**
      * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
      */
     analyticalStorageEnabled?: pulumi.Input<boolean>;
@@ -537,6 +571,10 @@ export interface AccountArgs {
      */
     capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
     /**
+     * A `capacity` block as defined below.
+     */
+    capacity?: pulumi.Input<inputs.cosmosdb.AccountCapacity>;
+    /**
      * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
      */
     consistencyPolicy: pulumi.Input<inputs.cosmosdb.AccountConsistencyPolicy>;
@@ -544,6 +582,10 @@ export interface AccountArgs {
      * A `corsRule` block as defined below.
      */
     corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule>;
+    /**
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+     */
+    defaultIdentityType?: pulumi.Input<string>;
     /**
      * Enable automatic fail over for this Cosmos DB account.
      */

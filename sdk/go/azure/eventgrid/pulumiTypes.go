@@ -3402,8 +3402,9 @@ func (o EventSubscriptionAzureFunctionEndpointPtrOutput) PreferredBatchSizeInKil
 }
 
 type EventSubscriptionDeadLetterIdentity struct {
-	// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
-	Type string `pulumi:"type"`
+	// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
+	Type                 string  `pulumi:"type"`
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
 // EventSubscriptionDeadLetterIdentityInput is an input type that accepts EventSubscriptionDeadLetterIdentityArgs and EventSubscriptionDeadLetterIdentityOutput values.
@@ -3418,8 +3419,9 @@ type EventSubscriptionDeadLetterIdentityInput interface {
 }
 
 type EventSubscriptionDeadLetterIdentityArgs struct {
-	// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
-	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
+	Type                 pulumi.StringInput    `pulumi:"type"`
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
 }
 
 func (EventSubscriptionDeadLetterIdentityArgs) ElementType() reflect.Type {
@@ -3499,9 +3501,13 @@ func (o EventSubscriptionDeadLetterIdentityOutput) ToEventSubscriptionDeadLetter
 	}).(EventSubscriptionDeadLetterIdentityPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o EventSubscriptionDeadLetterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionDeadLetterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o EventSubscriptionDeadLetterIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionDeadLetterIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionDeadLetterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -3528,7 +3534,7 @@ func (o EventSubscriptionDeadLetterIdentityPtrOutput) Elem() EventSubscriptionDe
 	}).(EventSubscriptionDeadLetterIdentityOutput)
 }
 
-// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o EventSubscriptionDeadLetterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionDeadLetterIdentity) *string {
 		if v == nil {
@@ -3538,9 +3544,19 @@ func (o EventSubscriptionDeadLetterIdentityPtrOutput) Type() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o EventSubscriptionDeadLetterIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionDeadLetterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventSubscriptionDeliveryIdentity struct {
-	// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
-	Type string `pulumi:"type"`
+	// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
+	Type                 string  `pulumi:"type"`
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
 // EventSubscriptionDeliveryIdentityInput is an input type that accepts EventSubscriptionDeliveryIdentityArgs and EventSubscriptionDeliveryIdentityOutput values.
@@ -3555,8 +3571,9 @@ type EventSubscriptionDeliveryIdentityInput interface {
 }
 
 type EventSubscriptionDeliveryIdentityArgs struct {
-	// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
-	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
+	Type                 pulumi.StringInput    `pulumi:"type"`
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
 }
 
 func (EventSubscriptionDeliveryIdentityArgs) ElementType() reflect.Type {
@@ -3636,9 +3653,13 @@ func (o EventSubscriptionDeliveryIdentityOutput) ToEventSubscriptionDeliveryIden
 	}).(EventSubscriptionDeliveryIdentityPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o EventSubscriptionDeliveryIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionDeliveryIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o EventSubscriptionDeliveryIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionDeliveryIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionDeliveryIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -3665,13 +3686,22 @@ func (o EventSubscriptionDeliveryIdentityPtrOutput) Elem() EventSubscriptionDeli
 	}).(EventSubscriptionDeliveryIdentityOutput)
 }
 
-// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o EventSubscriptionDeliveryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionDeliveryIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EventSubscriptionDeliveryIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionDeliveryIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4395,6 +4425,8 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageBlobC
 }
 
 type EventSubscriptionStorageQueueEndpoint struct {
+	// Storage queue message time to live in seconds.
+	QueueMessageTimeToLiveInSeconds *int `pulumi:"queueMessageTimeToLiveInSeconds"`
 	// Specifies the name of the storage queue where the Event Subscription will receive events.
 	QueueName string `pulumi:"queueName"`
 	// Specifies the id of the storage account id where the storage queue is located.
@@ -4413,6 +4445,8 @@ type EventSubscriptionStorageQueueEndpointInput interface {
 }
 
 type EventSubscriptionStorageQueueEndpointArgs struct {
+	// Storage queue message time to live in seconds.
+	QueueMessageTimeToLiveInSeconds pulumi.IntPtrInput `pulumi:"queueMessageTimeToLiveInSeconds"`
 	// Specifies the name of the storage queue where the Event Subscription will receive events.
 	QueueName pulumi.StringInput `pulumi:"queueName"`
 	// Specifies the id of the storage account id where the storage queue is located.
@@ -4496,6 +4530,11 @@ func (o EventSubscriptionStorageQueueEndpointOutput) ToEventSubscriptionStorageQ
 	}).(EventSubscriptionStorageQueueEndpointPtrOutput)
 }
 
+// Storage queue message time to live in seconds.
+func (o EventSubscriptionStorageQueueEndpointOutput) QueueMessageTimeToLiveInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) *int { return v.QueueMessageTimeToLiveInSeconds }).(pulumi.IntPtrOutput)
+}
+
 // Specifies the name of the storage queue where the Event Subscription will receive events.
 func (o EventSubscriptionStorageQueueEndpointOutput) QueueName() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
@@ -4528,6 +4567,16 @@ func (o EventSubscriptionStorageQueueEndpointPtrOutput) Elem() EventSubscription
 		var ret EventSubscriptionStorageQueueEndpoint
 		return ret
 	}).(EventSubscriptionStorageQueueEndpointOutput)
+}
+
+// Storage queue message time to live in seconds.
+func (o EventSubscriptionStorageQueueEndpointPtrOutput) QueueMessageTimeToLiveInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionStorageQueueEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.QueueMessageTimeToLiveInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies the name of the storage queue where the Event Subscription will receive events.
@@ -7646,8 +7695,9 @@ func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) PreferredBat
 }
 
 type SystemTopicEventSubscriptionDeadLetterIdentity struct {
-	// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
-	Type string `pulumi:"type"`
+	// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
+	Type                 string  `pulumi:"type"`
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
 // SystemTopicEventSubscriptionDeadLetterIdentityInput is an input type that accepts SystemTopicEventSubscriptionDeadLetterIdentityArgs and SystemTopicEventSubscriptionDeadLetterIdentityOutput values.
@@ -7662,8 +7712,9 @@ type SystemTopicEventSubscriptionDeadLetterIdentityInput interface {
 }
 
 type SystemTopicEventSubscriptionDeadLetterIdentityArgs struct {
-	// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
-	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
+	Type                 pulumi.StringInput    `pulumi:"type"`
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
 }
 
 func (SystemTopicEventSubscriptionDeadLetterIdentityArgs) ElementType() reflect.Type {
@@ -7743,9 +7794,13 @@ func (o SystemTopicEventSubscriptionDeadLetterIdentityOutput) ToSystemTopicEvent
 	}).(SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o SystemTopicEventSubscriptionDeadLetterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemTopicEventSubscriptionDeadLetterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o SystemTopicEventSubscriptionDeadLetterIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionDeadLetterIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
 
 type SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -7772,7 +7827,7 @@ func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) Elem() SystemTo
 	}).(SystemTopicEventSubscriptionDeadLetterIdentityOutput)
 }
 
-// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscriptionDeadLetterIdentity) *string {
 		if v == nil {
@@ -7782,9 +7837,19 @@ func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) Type() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionDeadLetterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
 type SystemTopicEventSubscriptionDeliveryIdentity struct {
-	// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
-	Type string `pulumi:"type"`
+	// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
+	Type                 string  `pulumi:"type"`
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
 // SystemTopicEventSubscriptionDeliveryIdentityInput is an input type that accepts SystemTopicEventSubscriptionDeliveryIdentityArgs and SystemTopicEventSubscriptionDeliveryIdentityOutput values.
@@ -7799,8 +7864,9 @@ type SystemTopicEventSubscriptionDeliveryIdentityInput interface {
 }
 
 type SystemTopicEventSubscriptionDeliveryIdentityArgs struct {
-	// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
-	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
+	Type                 pulumi.StringInput    `pulumi:"type"`
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
 }
 
 func (SystemTopicEventSubscriptionDeliveryIdentityArgs) ElementType() reflect.Type {
@@ -7880,9 +7946,13 @@ func (o SystemTopicEventSubscriptionDeliveryIdentityOutput) ToSystemTopicEventSu
 	}).(SystemTopicEventSubscriptionDeliveryIdentityPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o SystemTopicEventSubscriptionDeliveryIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemTopicEventSubscriptionDeliveryIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o SystemTopicEventSubscriptionDeliveryIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionDeliveryIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
 
 type SystemTopicEventSubscriptionDeliveryIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -7909,13 +7979,22 @@ func (o SystemTopicEventSubscriptionDeliveryIdentityPtrOutput) Elem() SystemTopi
 	}).(SystemTopicEventSubscriptionDeliveryIdentityOutput)
 }
 
-// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o SystemTopicEventSubscriptionDeliveryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscriptionDeliveryIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemTopicEventSubscriptionDeliveryIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionDeliveryIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8234,6 +8313,8 @@ func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) S
 }
 
 type SystemTopicEventSubscriptionStorageQueueEndpoint struct {
+	// Storage queue message time to live in seconds.
+	QueueMessageTimeToLiveInSeconds *int `pulumi:"queueMessageTimeToLiveInSeconds"`
 	// Specifies the name of the storage queue where the Event Subscription will receive events.
 	QueueName string `pulumi:"queueName"`
 	// Specifies the id of the storage account id where the storage queue is located.
@@ -8252,6 +8333,8 @@ type SystemTopicEventSubscriptionStorageQueueEndpointInput interface {
 }
 
 type SystemTopicEventSubscriptionStorageQueueEndpointArgs struct {
+	// Storage queue message time to live in seconds.
+	QueueMessageTimeToLiveInSeconds pulumi.IntPtrInput `pulumi:"queueMessageTimeToLiveInSeconds"`
 	// Specifies the name of the storage queue where the Event Subscription will receive events.
 	QueueName pulumi.StringInput `pulumi:"queueName"`
 	// Specifies the id of the storage account id where the storage queue is located.
@@ -8335,6 +8418,13 @@ func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) ToSystemTopicEve
 	}).(SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput)
 }
 
+// Storage queue message time to live in seconds.
+func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) QueueMessageTimeToLiveInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SystemTopicEventSubscriptionStorageQueueEndpoint) *int {
+		return v.QueueMessageTimeToLiveInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 // Specifies the name of the storage queue where the Event Subscription will receive events.
 func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) QueueName() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemTopicEventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
@@ -8367,6 +8457,16 @@ func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) Elem() System
 		var ret SystemTopicEventSubscriptionStorageQueueEndpoint
 		return ret
 	}).(SystemTopicEventSubscriptionStorageQueueEndpointOutput)
+}
+
+// Storage queue message time to live in seconds.
+func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) QueueMessageTimeToLiveInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscriptionStorageQueueEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.QueueMessageTimeToLiveInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies the name of the storage queue where the Event Subscription will receive events.

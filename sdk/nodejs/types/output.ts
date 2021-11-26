@@ -7042,6 +7042,24 @@ export namespace compute {
         writeAcceleratorEnabled?: boolean;
     }
 
+    export interface OrchestratedVirtualMachineScaleSetExtension {
+        autoUpgradeMinorVersionEnabled?: boolean;
+        /**
+         * An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+         */
+        extensionsToProvisionAfterVmCreations?: string[];
+        forceExtensionExecutionOnChange?: string;
+        /**
+         * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        protectedSettings?: string;
+        publisher: string;
+        settings?: string;
+        type: string;
+        typeHandlerVersion: string;
+    }
+
     export interface OrchestratedVirtualMachineScaleSetIdentity {
         identityIds: string[];
         principalId: string;
@@ -10474,6 +10492,9 @@ export namespace containerservice {
          * Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
          */
         imageGcLowThreshold?: number;
+        /**
+         * Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+         */
         podMaxPid?: number;
         /**
          * Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
@@ -11003,6 +11024,13 @@ export namespace core {
 }
 
 export namespace cosmosdb {
+    export interface AccountAnalyticalStorage {
+        /**
+         * The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
+         */
+        schemaType: string;
+    }
+
     export interface AccountBackup {
         /**
          * The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
@@ -11012,6 +11040,10 @@ export namespace cosmosdb {
          * The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
          */
         retentionInHours: number;
+        /**
+         * The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+         */
+        storageRedundancy: string;
         /**
          * The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
          */
@@ -11023,6 +11055,13 @@ export namespace cosmosdb {
          * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
          */
         name: string;
+    }
+
+    export interface AccountCapacity {
+        /**
+         * The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
+         */
+        totalThroughputLimit: number;
     }
 
     export interface AccountConsistencyPolicy {
@@ -13929,16 +13968,18 @@ export namespace eventgrid {
 
     export interface EventSubscriptionDeadLetterIdentity {
         /**
-         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: string;
+        userAssignedIdentity?: string;
     }
 
     export interface EventSubscriptionDeliveryIdentity {
         /**
-         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: string;
+        userAssignedIdentity?: string;
     }
 
     export interface EventSubscriptionDeliveryProperty {
@@ -14001,6 +14042,10 @@ export namespace eventgrid {
     }
 
     export interface EventSubscriptionStorageQueueEndpoint {
+        /**
+         * Storage queue message time to live in seconds.
+         */
+        queueMessageTimeToLiveInSeconds?: number;
         /**
          * Specifies the name of the storage queue where the Event Subscription will receive events.
          */
@@ -14422,16 +14467,18 @@ export namespace eventgrid {
 
     export interface SystemTopicEventSubscriptionDeadLetterIdentity {
         /**
-         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: string;
+        userAssignedIdentity?: string;
     }
 
     export interface SystemTopicEventSubscriptionDeliveryIdentity {
         /**
-         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: string;
+        userAssignedIdentity?: string;
     }
 
     export interface SystemTopicEventSubscriptionRetryPolicy {
@@ -14457,6 +14504,10 @@ export namespace eventgrid {
     }
 
     export interface SystemTopicEventSubscriptionStorageQueueEndpoint {
+        /**
+         * Storage queue message time to live in seconds.
+         */
+        queueMessageTimeToLiveInSeconds?: number;
         /**
          * Specifies the name of the storage queue where the Event Subscription will receive events.
          */
@@ -15145,16 +15196,18 @@ export namespace eventhub {
 
     export interface EventSubscriptionDeadLetterIdentity {
         /**
-         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: string;
+        userAssignedIdentity?: string;
     }
 
     export interface EventSubscriptionDeliveryIdentity {
         /**
-         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: string;
+        userAssignedIdentity?: string;
     }
 
     export interface EventSubscriptionDeliveryProperty {
@@ -15217,6 +15270,10 @@ export namespace eventhub {
     }
 
     export interface EventSubscriptionStorageQueueEndpoint {
+        /**
+         * Storage queue message time to live in seconds.
+         */
+        queueMessageTimeToLiveInSeconds?: number;
         /**
          * Specifies the name of the storage queue where the Event Subscription will receive events.
          */
@@ -22587,7 +22644,7 @@ export namespace mssql {
          */
         capacity: number;
         /**
-         * The `family` of hardware `Gen4`, `Gen5` or `Fsv2`.
+         * The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
          */
         family?: string;
         /**
@@ -24648,7 +24705,7 @@ export namespace network {
          */
         fqdns?: string[];
         /**
-         * A list of IP addresses or IP address ranges that will be skipped for threat detection.
+         * A list of IP addresses or CIDR ranges that will be skipped for threat detection.
          */
         ipAddresses?: string[];
     }
@@ -27722,6 +27779,67 @@ export namespace sentinel {
         values: string[];
     }
 
+    export interface AutomationRuleActionIncident {
+        /**
+         * The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+         */
+        classification?: string;
+        /**
+         * The comment why the incident is to be closed.
+         */
+        classificationComment?: string;
+        /**
+         * Specifies a list of labels to add to the incident.
+         */
+        labels?: string[];
+        /**
+         * The execution order of this action.
+         */
+        order: number;
+        /**
+         * The object ID of the entity this incident is assigned to.
+         */
+        ownerId?: string;
+        /**
+         * The severity to add to the incident.
+         */
+        severity?: string;
+        /**
+         * The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
+         */
+        status?: string;
+    }
+
+    export interface AutomationRuleActionPlaybook {
+        /**
+         * The ID of the Logic App that defines the playbook's logic.
+         */
+        logicAppId: string;
+        /**
+         * The execution order of this action.
+         */
+        order: number;
+        /**
+         * The ID of the Tenant that owns the playbook.
+         */
+        tenantId: string;
+    }
+
+    export interface AutomationRuleCondition {
+        /**
+         * The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
+         */
+        operator: string;
+        /**
+         * The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+         */
+        property: string;
+        /**
+         * Specifies a list of values to use for evaluate the condition.
+         */
+        values: string[];
+    }
+
     export interface GetAlertRuleTemplateScheduledTemplate {
         /**
          * The description of this Sentinel Scheduled Alert Rule Template.
@@ -28092,6 +28210,182 @@ export namespace servicefabric {
     export interface ClusterUpgradePolicyHealthPolicy {
         maxUnhealthyApplicationsPercent?: number;
         maxUnhealthyNodesPercent?: number;
+    }
+
+    export interface ManagedClusterAuthentication {
+        /**
+         * A `activeDirectory` block as defined above.
+         */
+        activeDirectory?: outputs.servicefabric.ManagedClusterAuthenticationActiveDirectory;
+        /**
+         * One or more `certificate` blocks as defined below.
+         */
+        certificates?: outputs.servicefabric.ManagedClusterAuthenticationCertificate[];
+    }
+
+    export interface ManagedClusterAuthenticationActiveDirectory {
+        /**
+         * The ID of the Client Application.
+         */
+        clientApplicationId: string;
+        /**
+         * The ID of the Cluster Application.
+         */
+        clusterApplicationId: string;
+        /**
+         * The ID of the Tenant.
+         */
+        tenantId: string;
+    }
+
+    export interface ManagedClusterAuthenticationCertificate {
+        /**
+         * The certificate's CN.
+         */
+        commonName?: string;
+        /**
+         * The thumbprint of the certificate.
+         */
+        thumbprint: string;
+        /**
+         * The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
+         */
+        type: string;
+    }
+
+    export interface ManagedClusterCustomFabricSetting {
+        /**
+         * Parameter name.
+         */
+        parameter: string;
+        /**
+         * Section name.
+         */
+        section: string;
+        /**
+         * Parameter value.
+         */
+        value: string;
+    }
+
+    export interface ManagedClusterLbRule {
+        /**
+         * LB Backend port.
+         */
+        backendPort: number;
+        /**
+         * LB Frontend port.
+         */
+        frontendPort: number;
+        /**
+         * Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
+         */
+        probeProtocol: string;
+        /**
+         * Path for the probe to check, when probe protocol is set to `http`.
+         */
+        probeRequestPath?: string;
+        /**
+         * The transport protocol used in this rule. Can be one of `tcp` or `udp`.
+         */
+        protocol: string;
+    }
+
+    export interface ManagedClusterNodeType {
+        /**
+         * Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
+         */
+        applicationPortRange: string;
+        /**
+         * Specifies a list of key/value pairs used to set capacity tags for this node type.
+         */
+        capacities?: {[key: string]: string};
+        /**
+         * The size of the data disk in gigabytes..
+         */
+        dataDiskSizeGb: number;
+        /**
+         * The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+         */
+        dataDiskType?: string;
+        /**
+         * Sets the port range available for the OS. Format is `<from_port>-<to_port>`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
+         */
+        ephemeralPortRange: string;
+        /**
+         * The ID of the Resource Group.
+         */
+        id: string;
+        /**
+         * If set the node type can be composed of multiple placement groups.
+         */
+        multiplePlacementGroupsEnabled?: boolean;
+        /**
+         * The name which should be used for this node type.
+         */
+        name: string;
+        /**
+         * Specifies a list of placement tags that can be used to indicate where services should run..
+         */
+        placementProperties?: {[key: string]: string};
+        /**
+         * If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
+         */
+        primary?: boolean;
+        /**
+         * If set to true, only stateless workloads can run on this node type.
+         */
+        stateless?: boolean;
+        /**
+         * The offer type of the marketplace image cluster VMs will use.
+         */
+        vmImageOffer: string;
+        /**
+         * The publisher of the marketplace image cluster VMs will use.
+         */
+        vmImagePublisher: string;
+        /**
+         * The SKU of the marketplace image cluster VMs will use.
+         */
+        vmImageSku: string;
+        /**
+         * The version of the marketplace image cluster VMs will use.
+         */
+        vmImageVersion: string;
+        /**
+         * The number of instances this node type will launch.
+         */
+        vmInstanceCount: number;
+        /**
+         * One or more `vmSecrets` blocks as defined below.
+         */
+        vmSecrets?: outputs.servicefabric.ManagedClusterNodeTypeVmSecret[];
+        /**
+         * The size of the instances in this node type.
+         */
+        vmSize: string;
+    }
+
+    export interface ManagedClusterNodeTypeVmSecret {
+        /**
+         * One or more `certificates` blocks as defined above.
+         */
+        certificates: outputs.servicefabric.ManagedClusterNodeTypeVmSecretCertificate[];
+        /**
+         * The ID of the Vault that contain the certificates.
+         */
+        vaultId: string;
+    }
+
+    export interface ManagedClusterNodeTypeVmSecretCertificate {
+        /**
+         * The certificate store on the Virtual Machine to which the certificate should be added.
+         */
+        store: string;
+        /**
+         * The URL of a certificate that has been uploaded to Key Vault as a secret
+         */
+        url: string;
     }
 
     export interface MeshApplicationService {

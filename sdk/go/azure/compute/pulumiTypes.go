@@ -6550,6 +6550,156 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.In
 	}).(OrchestratedVirtualMachineScaleSetDataDiskOutput)
 }
 
+type OrchestratedVirtualMachineScaleSetExtension struct {
+	AutoUpgradeMinorVersionEnabled *bool `pulumi:"autoUpgradeMinorVersionEnabled"`
+	// An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+	ExtensionsToProvisionAfterVmCreations []string `pulumi:"extensionsToProvisionAfterVmCreations"`
+	ForceExtensionExecutionOnChange       *string  `pulumi:"forceExtensionExecutionOnChange"`
+	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name               string  `pulumi:"name"`
+	ProtectedSettings  *string `pulumi:"protectedSettings"`
+	Publisher          string  `pulumi:"publisher"`
+	Settings           *string `pulumi:"settings"`
+	Type               string  `pulumi:"type"`
+	TypeHandlerVersion string  `pulumi:"typeHandlerVersion"`
+}
+
+// OrchestratedVirtualMachineScaleSetExtensionInput is an input type that accepts OrchestratedVirtualMachineScaleSetExtensionArgs and OrchestratedVirtualMachineScaleSetExtensionOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetExtensionInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetExtensionArgs{...}
+type OrchestratedVirtualMachineScaleSetExtensionInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetExtensionOutput() OrchestratedVirtualMachineScaleSetExtensionOutput
+	ToOrchestratedVirtualMachineScaleSetExtensionOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetExtensionOutput
+}
+
+type OrchestratedVirtualMachineScaleSetExtensionArgs struct {
+	AutoUpgradeMinorVersionEnabled pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersionEnabled"`
+	// An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+	ExtensionsToProvisionAfterVmCreations pulumi.StringArrayInput `pulumi:"extensionsToProvisionAfterVmCreations"`
+	ForceExtensionExecutionOnChange       pulumi.StringPtrInput   `pulumi:"forceExtensionExecutionOnChange"`
+	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	Name               pulumi.StringInput    `pulumi:"name"`
+	ProtectedSettings  pulumi.StringPtrInput `pulumi:"protectedSettings"`
+	Publisher          pulumi.StringInput    `pulumi:"publisher"`
+	Settings           pulumi.StringPtrInput `pulumi:"settings"`
+	Type               pulumi.StringInput    `pulumi:"type"`
+	TypeHandlerVersion pulumi.StringInput    `pulumi:"typeHandlerVersion"`
+}
+
+func (OrchestratedVirtualMachineScaleSetExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetExtensionArgs) ToOrchestratedVirtualMachineScaleSetExtensionOutput() OrchestratedVirtualMachineScaleSetExtensionOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetExtensionOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetExtensionArgs) ToOrchestratedVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetExtensionOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetExtensionArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetExtensionArray and OrchestratedVirtualMachineScaleSetExtensionArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetExtensionArrayInput` via:
+//
+//          OrchestratedVirtualMachineScaleSetExtensionArray{ OrchestratedVirtualMachineScaleSetExtensionArgs{...} }
+type OrchestratedVirtualMachineScaleSetExtensionArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetExtensionArrayOutput() OrchestratedVirtualMachineScaleSetExtensionArrayOutput
+	ToOrchestratedVirtualMachineScaleSetExtensionArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetExtensionArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetExtensionArray []OrchestratedVirtualMachineScaleSetExtensionInput
+
+func (OrchestratedVirtualMachineScaleSetExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetExtensionArray) ToOrchestratedVirtualMachineScaleSetExtensionArrayOutput() OrchestratedVirtualMachineScaleSetExtensionArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetExtensionArray) ToOrchestratedVirtualMachineScaleSetExtensionArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetExtensionArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetExtensionOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ToOrchestratedVirtualMachineScaleSetExtensionOutput() OrchestratedVirtualMachineScaleSetExtensionOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ToOrchestratedVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetExtensionOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) AutoUpgradeMinorVersionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *bool { return v.AutoUpgradeMinorVersionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ExtensionsToProvisionAfterVmCreations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) []string {
+		return v.ExtensionsToProvisionAfterVmCreations
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ForceExtensionExecutionOnChange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *string { return v.ForceExtensionExecutionOnChange }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) Settings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *string { return v.Settings }).(pulumi.StringPtrOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) TypeHandlerVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionArrayOutput) ToOrchestratedVirtualMachineScaleSetExtensionArrayOutput() OrchestratedVirtualMachineScaleSetExtensionArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionArrayOutput) ToOrchestratedVirtualMachineScaleSetExtensionArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetExtensionArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetExtension {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetExtension)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetExtensionOutput)
+}
+
 type OrchestratedVirtualMachineScaleSetIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
@@ -23304,6 +23454,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetDataDiskInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetDataDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetDataDiskArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetDataDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetExtensionInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetExtensionArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetExtensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetIdentityInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetIdentityPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetNetworkInterfaceInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{})
@@ -23610,6 +23762,8 @@ func init() {
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetDataDiskOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetDataDiskArrayOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetExtensionOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetExtensionArrayOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetIdentityOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetIdentityPtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput{})

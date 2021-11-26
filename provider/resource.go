@@ -374,6 +374,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_gateway_api":                  {Tok: azureResource(azureAPIManagement, "GatewayApi")},
 			"azurerm_api_management_tag":                          {Tok: azureResource(azureAPIManagement, "Tag")},
 			"azurerm_api_management_notification_recipient_email": {Tok: azureResource(azureAPIManagement, "NotificationRecipientEmail")},
+			"azurerm_api_management_notification_recipient_user":  {Tok: azureResource(azureAPIManagement, "NotificationRecipientUser")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -495,6 +496,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_certificate_binding": {Tok: azureResource(azureAppService, "CertificateBinding")},
 			"azurerm_app_service_environment_v3":      {Tok: azureResource(azureAppService, "EnvironmentV3")},
 			"azurerm_static_site":                     {Tok: azureResource(azureAppService, "StaticSite")},
+			"azurerm_static_site_custom_domain":       {Tok: azureResource(azureAppService, "StaticSiteCustomDomain")},
+			"azurerm_app_service_public_certificate":  {Tok: azureResource(azureAppService, "PublicCertificate")},
 
 			// AppPlatform
 			"azurerm_spring_cloud_service":                  {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
@@ -1572,6 +1575,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_service_fabric_mesh_secret":        {Tok: azureResource(azureServiceFabric, "MeshSecret")},
 			"azurerm_service_fabric_mesh_secret_value":  {Tok: azureResource(azureServiceFabric, "MeshSecretValue")},
 			"azurerm_service_fabric_mesh_local_network": {Tok: azureResource(azureServiceFabric, "MeshLocalNetwork")},
+			"azurerm_service_fabric_managed_cluster":    {Tok: azureResource(azureServiceFabric, "ManagedCluster")},
 
 			// Search
 			"azurerm_search_service": {Tok: azureResource(azureSearch, "Service")},
@@ -1728,6 +1732,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_output_synapse": {
 				Tok: azureResource(azureStreamAnalytics, "OutputSynapse"),
 			},
+			"azurerm_stream_analytics_cluster":                  {Tok: azureResource(azureStreamAnalytics, "Cluster")},
+			"azurerm_stream_analytics_managed_private_endpoint": {Tok: azureResource(azureStreamAnalytics, "ManagedPrivateEndpoint")},
 
 			// Marketplace
 			"azurerm_marketplace_agreement": {Tok: azureResource(azureMarketPlace, "Agreement")},
@@ -1930,7 +1936,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule_machine_learning_behavior_analytics": {
 				Tok: azureResource(azureSentinel, "AlertRuleMachineLearningBehaviorAnalytics"),
 			},
-			"azurerm_sentinel_automation_rule": {Tok: azureResource(azureSentinel, "AuthomationRule")},
+			"azurerm_sentinel_watchlist": {Tok: azureResource(azureSentinel, "Watchlist")},
 
 			// Eventgrid
 			"azurerm_eventgrid_domain_topic": {Tok: azureResource(azureEventGrid, "DomainTopic")},
@@ -2591,6 +2597,11 @@ func Provider() tfbridge.ProviderInfo {
 	prov.RenameResourceWithAlias("azurerm_container_registry_webhook",
 		azureResource(azureContainerService, "RegistryWebook"),
 		azureResource(azureContainerService, "RegistryWebhook"), azureContainerService, azureContainerService, nil)
+
+	// fix spelling of sentinel.AutomationRule
+	prov.RenameResourceWithAlias("azurerm_sentinel_automation_rule",
+		azureResource(azureSentinel, "AuthomationRule"),
+		azureResource(azureSentinel, "AutomationRule"), azureSentinel, azureSentinel, nil)
 
 	// rename mediaServices to media
 	prov.RenameResourceWithAlias("azurerm_media_services_account",

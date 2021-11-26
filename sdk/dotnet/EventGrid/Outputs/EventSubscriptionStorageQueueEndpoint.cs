@@ -14,6 +14,10 @@ namespace Pulumi.Azure.EventGrid.Outputs
     public sealed class EventSubscriptionStorageQueueEndpoint
     {
         /// <summary>
+        /// Storage queue message time to live in seconds.
+        /// </summary>
+        public readonly int? QueueMessageTimeToLiveInSeconds;
+        /// <summary>
         /// Specifies the name of the storage queue where the Event Subscription will receive events.
         /// </summary>
         public readonly string QueueName;
@@ -24,10 +28,13 @@ namespace Pulumi.Azure.EventGrid.Outputs
 
         [OutputConstructor]
         private EventSubscriptionStorageQueueEndpoint(
+            int? queueMessageTimeToLiveInSeconds,
+
             string queueName,
 
             string storageAccountId)
         {
+            QueueMessageTimeToLiveInSeconds = queueMessageTimeToLiveInSeconds;
             QueueName = queueName;
             StorageAccountId = storageAccountId;
         }

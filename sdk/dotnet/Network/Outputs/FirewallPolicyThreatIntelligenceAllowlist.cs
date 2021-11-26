@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Fqdns;
         /// <summary>
-        /// A list of IP addresses or IP address ranges that will be skipped for threat detection.
+        /// A list of IP addresses or CIDR ranges that will be skipped for threat detection.
         /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
 

@@ -162,6 +162,10 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
+     * Whether it is allowed to access the disk via public network. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the Resource Group where the Managed Disk should exist.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -228,6 +232,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["networkAccessPolicy"] = state ? state.networkAccessPolicy : undefined;
             inputs["onDemandBurstingEnabled"] = state ? state.onDemandBurstingEnabled : undefined;
             inputs["osType"] = state ? state.osType : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
             inputs["sourceUri"] = state ? state.sourceUri : undefined;
@@ -265,6 +270,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
             inputs["onDemandBurstingEnabled"] = args ? args.onDemandBurstingEnabled : undefined;
             inputs["osType"] = args ? args.osType : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             inputs["sourceUri"] = args ? args.sourceUri : undefined;
@@ -354,6 +360,10 @@ export interface ManagedDiskState {
      * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
     osType?: pulumi.Input<string>;
+    /**
+     * Whether it is allowed to access the disk via public network. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Managed Disk should exist.
      */
@@ -464,6 +474,10 @@ export interface ManagedDiskArgs {
      * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
     osType?: pulumi.Input<string>;
+    /**
+     * Whether it is allowed to access the disk via public network. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Managed Disk should exist.
      */

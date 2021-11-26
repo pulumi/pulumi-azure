@@ -145,6 +145,8 @@ type ManagedDisk struct {
 	OnDemandBurstingEnabled pulumi.BoolPtrOutput `pulumi:"onDemandBurstingEnabled"`
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
+	// Whether it is allowed to access the disk via public network. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Managed Disk should exist.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
@@ -237,6 +239,8 @@ type managedDiskState struct {
 	OnDemandBurstingEnabled *bool `pulumi:"onDemandBurstingEnabled"`
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
+	// Whether it is allowed to access the disk via public network. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Managed Disk should exist.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
@@ -292,6 +296,8 @@ type ManagedDiskState struct {
 	OnDemandBurstingEnabled pulumi.BoolPtrInput
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
+	// Whether it is allowed to access the disk via public network. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Managed Disk should exist.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
@@ -351,6 +357,8 @@ type managedDiskArgs struct {
 	OnDemandBurstingEnabled *bool `pulumi:"onDemandBurstingEnabled"`
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
+	// Whether it is allowed to access the disk via public network. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Managed Disk should exist.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
@@ -407,6 +415,8 @@ type ManagedDiskArgs struct {
 	OnDemandBurstingEnabled pulumi.BoolPtrInput
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
+	// Whether it is allowed to access the disk via public network. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Managed Disk should exist.
 	ResourceGroupName pulumi.StringInput
 	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`

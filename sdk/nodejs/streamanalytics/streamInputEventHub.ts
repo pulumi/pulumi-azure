@@ -90,9 +90,9 @@ export class StreamInputEventHub extends pulumi.CustomResource {
     }
 
     /**
-     * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
+     * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
      */
-    public readonly eventhubConsumerGroupName!: pulumi.Output<string>;
+    public readonly eventhubConsumerGroupName!: pulumi.Output<string | undefined>;
     /**
      * The name of the Event Hub.
      */
@@ -150,9 +150,6 @@ export class StreamInputEventHub extends pulumi.CustomResource {
             inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
         } else {
             const args = argsOrState as StreamInputEventHubArgs | undefined;
-            if ((!args || args.eventhubConsumerGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'eventhubConsumerGroupName'");
-            }
             if ((!args || args.eventhubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventhubName'");
             }
@@ -196,7 +193,7 @@ export class StreamInputEventHub extends pulumi.CustomResource {
  */
 export interface StreamInputEventHubState {
     /**
-     * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
+     * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
      */
     eventhubConsumerGroupName?: pulumi.Input<string>;
     /**
@@ -238,9 +235,9 @@ export interface StreamInputEventHubState {
  */
 export interface StreamInputEventHubArgs {
     /**
-     * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
+     * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
      */
-    eventhubConsumerGroupName: pulumi.Input<string>;
+    eventhubConsumerGroupName?: pulumi.Input<string>;
     /**
      * The name of the Event Hub.
      */

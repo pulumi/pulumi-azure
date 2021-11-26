@@ -5761,7 +5761,7 @@ class FirewallPolicyThreatIntelligenceAllowlistArgs:
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: A list of FQDNs that will be skipped for threat detection.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: A list of IP addresses or IP address ranges that will be skipped for threat detection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: A list of IP addresses or CIDR ranges that will be skipped for threat detection.
         """
         if fqdns is not None:
             pulumi.set(__self__, "fqdns", fqdns)
@@ -5784,7 +5784,7 @@ class FirewallPolicyThreatIntelligenceAllowlistArgs:
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of IP addresses or IP address ranges that will be skipped for threat detection.
+        A list of IP addresses or CIDR ranges that will be skipped for threat detection.
         """
         return pulumi.get(self, "ip_addresses")
 

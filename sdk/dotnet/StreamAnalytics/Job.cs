@@ -30,7 +30,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
-    ///             CompatibilityLevel = "1.1",
+    ///             CompatibilityLevel = "1.2",
     ///             DataLocale = "en-GB",
     ///             EventsLateArrivalMaxDelayInSeconds = 60,
     ///             EventsOutOfOrderMaxDelayInSeconds = 50,
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.StreamAnalytics
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+        /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
         /// </summary>
         [Output("compatibilityLevel")]
         public Output<string> CompatibilityLevel { get; private set; } = null!;
@@ -127,6 +127,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
+        /// </summary>
+        [Output("streamAnalyticsClusterId")]
+        public Output<string?> StreamAnalyticsClusterId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
@@ -193,7 +199,7 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class JobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+        /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
         /// </summary>
         [Input("compatibilityLevel")]
         public Input<string>? CompatibilityLevel { get; set; }
@@ -253,6 +259,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
+        /// </summary>
+        [Input("streamAnalyticsClusterId")]
+        public Input<string>? StreamAnalyticsClusterId { get; set; }
+
+        /// <summary>
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         /// </summary>
         [Input("streamingUnits", required: true)]
@@ -284,7 +296,7 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class JobState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+        /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
         /// </summary>
         [Input("compatibilityLevel")]
         public Input<string>? CompatibilityLevel { get; set; }
@@ -348,6 +360,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
+        /// </summary>
+        [Input("streamAnalyticsClusterId")]
+        public Input<string>? StreamAnalyticsClusterId { get; set; }
 
         /// <summary>
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.

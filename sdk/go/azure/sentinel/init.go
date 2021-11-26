@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertRuleScheduled{}
 	case "azure:sentinel/authomationRule:AuthomationRule":
 		r = &AuthomationRule{}
+	case "azure:sentinel/automationRule:AutomationRule":
+		r = &AutomationRule{}
 	case "azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail":
 		r = &DataConnectorAwsCloudTrail{}
 	case "azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory":
@@ -47,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataConnectorOffice365{}
 	case "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
 		r = &DataConnectorThreatIntelligence{}
+	case "azure:sentinel/watchlist:Watchlist":
+		r = &Watchlist{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -87,6 +91,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"sentinel/automationRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"sentinel/dataConnectorAwsCloudTrail",
 		&module{version},
 	)
@@ -123,6 +132,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/dataConnectorThreatIntelligence",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/watchlist",
 		&module{version},
 	)
 }

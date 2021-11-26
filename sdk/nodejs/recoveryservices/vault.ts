@@ -68,7 +68,7 @@ export class Vault extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
+     * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export interface VaultState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
+     * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -178,7 +178,7 @@ export interface VaultArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
+     * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

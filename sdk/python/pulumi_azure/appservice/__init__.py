@@ -26,10 +26,12 @@ from .get_function_app_host_keys import *
 from .hybrid_connection import *
 from .managed_certificate import *
 from .plan import *
+from .public_certificate import *
 from .slot import *
 from .slot_virtual_network_swift_connection import *
 from .source_code_token import *
 from .static_site import *
+from .static_site_custom_domain import *
 from .virtual_network_swift_connection import *
 from ._inputs import *
 from . import outputs

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const exampleJob = new azure.streamanalytics.Job("exampleJob", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     compatibilityLevel: "1.1",
+ *     compatibilityLevel: "1.2",
  *     dataLocale: "en-GB",
  *     eventsLateArrivalMaxDelayInSeconds: 60,
  *     eventsOutOfOrderMaxDelayInSeconds: 50,
@@ -72,7 +72,7 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+     * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
      */
     public readonly compatibilityLevel!: pulumi.Output<string>;
     /**
@@ -116,6 +116,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
+     */
+    public readonly streamAnalyticsClusterId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      */
     public readonly streamingUnits!: pulumi.Output<number>;
@@ -152,6 +156,7 @@ export class Job extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["outputErrorPolicy"] = state ? state.outputErrorPolicy : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["streamAnalyticsClusterId"] = state ? state.streamAnalyticsClusterId : undefined;
             inputs["streamingUnits"] = state ? state.streamingUnits : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["transformationQuery"] = state ? state.transformationQuery : undefined;
@@ -176,6 +181,7 @@ export class Job extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["streamAnalyticsClusterId"] = args ? args.streamAnalyticsClusterId : undefined;
             inputs["streamingUnits"] = args ? args.streamingUnits : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["transformationQuery"] = args ? args.transformationQuery : undefined;
@@ -193,7 +199,7 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobState {
     /**
-     * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+     * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
      */
     compatibilityLevel?: pulumi.Input<string>;
     /**
@@ -237,6 +243,10 @@ export interface JobState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
+     */
+    streamAnalyticsClusterId?: pulumi.Input<string>;
+    /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      */
     streamingUnits?: pulumi.Input<number>;
@@ -255,7 +265,7 @@ export interface JobState {
  */
 export interface JobArgs {
     /**
-     * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+     * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
      */
     compatibilityLevel?: pulumi.Input<string>;
     /**
@@ -294,6 +304,10 @@ export interface JobArgs {
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
+     */
+    streamAnalyticsClusterId?: pulumi.Input<string>;
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      */

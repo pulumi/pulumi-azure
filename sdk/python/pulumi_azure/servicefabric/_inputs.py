@@ -26,6 +26,14 @@ __all__ = [
     'ClusterUpgradePolicyArgs',
     'ClusterUpgradePolicyDeltaHealthPolicyArgs',
     'ClusterUpgradePolicyHealthPolicyArgs',
+    'ManagedClusterAuthenticationArgs',
+    'ManagedClusterAuthenticationActiveDirectoryArgs',
+    'ManagedClusterAuthenticationCertificateArgs',
+    'ManagedClusterCustomFabricSettingArgs',
+    'ManagedClusterLbRuleArgs',
+    'ManagedClusterNodeTypeArgs',
+    'ManagedClusterNodeTypeVmSecretArgs',
+    'ManagedClusterNodeTypeVmSecretCertificateArgs',
     'MeshApplicationServiceArgs',
     'MeshApplicationServiceCodePackageArgs',
     'MeshApplicationServiceCodePackageResourcesArgs',
@@ -1046,6 +1054,644 @@ class ClusterUpgradePolicyHealthPolicyArgs:
     @max_unhealthy_nodes_percent.setter
     def max_unhealthy_nodes_percent(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_unhealthy_nodes_percent", value)
+
+
+@pulumi.input_type
+class ManagedClusterAuthenticationArgs:
+    def __init__(__self__, *,
+                 active_directory: Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs']] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]] = None):
+        """
+        :param pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs'] active_directory: A `active_directory` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]] certificates: One or more `certificate` blocks as defined below.
+        """
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs']]:
+        """
+        A `active_directory` block as defined above.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]]:
+        """
+        One or more `certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]]):
+        pulumi.set(self, "certificates", value)
+
+
+@pulumi.input_type
+class ManagedClusterAuthenticationActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 client_application_id: pulumi.Input[str],
+                 cluster_application_id: pulumi.Input[str],
+                 tenant_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] client_application_id: The ID of the Client Application.
+        :param pulumi.Input[str] cluster_application_id: The ID of the Cluster Application.
+        :param pulumi.Input[str] tenant_id: The ID of the Tenant.
+        """
+        pulumi.set(__self__, "client_application_id", client_application_id)
+        pulumi.set(__self__, "cluster_application_id", cluster_application_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientApplicationId")
+    def client_application_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client Application.
+        """
+        return pulumi.get(self, "client_application_id")
+
+    @client_application_id.setter
+    def client_application_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_application_id", value)
+
+    @property
+    @pulumi.getter(name="clusterApplicationId")
+    def cluster_application_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Cluster Application.
+        """
+        return pulumi.get(self, "cluster_application_id")
+
+    @cluster_application_id.setter
+    def cluster_application_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_application_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Tenant.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class ManagedClusterAuthenticationCertificateArgs:
+    def __init__(__self__, *,
+                 thumbprint: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 common_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] thumbprint: The thumbprint of the certificate.
+        :param pulumi.Input[str] type: The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
+        :param pulumi.Input[str] common_name: The certificate's CN.
+        """
+        pulumi.set(__self__, "thumbprint", thumbprint)
+        pulumi.set(__self__, "type", type)
+        if common_name is not None:
+            pulumi.set(__self__, "common_name", common_name)
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> pulumi.Input[str]:
+        """
+        The thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @thumbprint.setter
+    def thumbprint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "thumbprint", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="commonName")
+    def common_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate's CN.
+        """
+        return pulumi.get(self, "common_name")
+
+    @common_name.setter
+    def common_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "common_name", value)
+
+
+@pulumi.input_type
+class ManagedClusterCustomFabricSettingArgs:
+    def __init__(__self__, *,
+                 parameter: pulumi.Input[str],
+                 section: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] parameter: Parameter name.
+        :param pulumi.Input[str] section: Section name.
+        :param pulumi.Input[str] value: Parameter value.
+        """
+        pulumi.set(__self__, "parameter", parameter)
+        pulumi.set(__self__, "section", section)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def parameter(self) -> pulumi.Input[str]:
+        """
+        Parameter name.
+        """
+        return pulumi.get(self, "parameter")
+
+    @parameter.setter
+    def parameter(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter", value)
+
+    @property
+    @pulumi.getter
+    def section(self) -> pulumi.Input[str]:
+        """
+        Section name.
+        """
+        return pulumi.get(self, "section")
+
+    @section.setter
+    def section(self, value: pulumi.Input[str]):
+        pulumi.set(self, "section", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Parameter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ManagedClusterLbRuleArgs:
+    def __init__(__self__, *,
+                 backend_port: pulumi.Input[int],
+                 frontend_port: pulumi.Input[int],
+                 probe_protocol: pulumi.Input[str],
+                 protocol: pulumi.Input[str],
+                 probe_request_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] backend_port: LB Backend port.
+        :param pulumi.Input[int] frontend_port: LB Frontend port.
+        :param pulumi.Input[str] probe_protocol: Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
+        :param pulumi.Input[str] protocol: The transport protocol used in this rule. Can be one of `tcp` or `udp`.
+        :param pulumi.Input[str] probe_request_path: Path for the probe to check, when probe protocol is set to `http`.
+        """
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "frontend_port", frontend_port)
+        pulumi.set(__self__, "probe_protocol", probe_protocol)
+        pulumi.set(__self__, "protocol", protocol)
+        if probe_request_path is not None:
+            pulumi.set(__self__, "probe_request_path", probe_request_path)
+
+    @property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> pulumi.Input[int]:
+        """
+        LB Backend port.
+        """
+        return pulumi.get(self, "backend_port")
+
+    @backend_port.setter
+    def backend_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "backend_port", value)
+
+    @property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> pulumi.Input[int]:
+        """
+        LB Frontend port.
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @frontend_port.setter
+    def frontend_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "frontend_port", value)
+
+    @property
+    @pulumi.getter(name="probeProtocol")
+    def probe_protocol(self) -> pulumi.Input[str]:
+        """
+        Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
+        """
+        return pulumi.get(self, "probe_protocol")
+
+    @probe_protocol.setter
+    def probe_protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "probe_protocol", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        The transport protocol used in this rule. Can be one of `tcp` or `udp`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="probeRequestPath")
+    def probe_request_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path for the probe to check, when probe protocol is set to `http`.
+        """
+        return pulumi.get(self, "probe_request_path")
+
+    @probe_request_path.setter
+    def probe_request_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "probe_request_path", value)
+
+
+@pulumi.input_type
+class ManagedClusterNodeTypeArgs:
+    def __init__(__self__, *,
+                 application_port_range: pulumi.Input[str],
+                 data_disk_size_gb: pulumi.Input[int],
+                 ephemeral_port_range: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 vm_image_offer: pulumi.Input[str],
+                 vm_image_publisher: pulumi.Input[str],
+                 vm_image_sku: pulumi.Input[str],
+                 vm_image_version: pulumi.Input[str],
+                 vm_instance_count: pulumi.Input[int],
+                 vm_size: pulumi.Input[str],
+                 capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 data_disk_type: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 multiple_placement_groups_enabled: Optional[pulumi.Input[bool]] = None,
+                 placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 primary: Optional[pulumi.Input[bool]] = None,
+                 stateless: Optional[pulumi.Input[bool]] = None,
+                 vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]] = None):
+        """
+        :param pulumi.Input[str] application_port_range: Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
+        :param pulumi.Input[int] data_disk_size_gb: The size of the data disk in gigabytes..
+        :param pulumi.Input[str] ephemeral_port_range: Sets the port range available for the OS. Format is `<from_port>-<to_port>`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+        :param pulumi.Input[str] name: The name which should be used for this node type.
+        :param pulumi.Input[str] vm_image_offer: The offer type of the marketplace image cluster VMs will use.
+        :param pulumi.Input[str] vm_image_publisher: The publisher of the marketplace image cluster VMs will use.
+        :param pulumi.Input[str] vm_image_sku: The SKU of the marketplace image cluster VMs will use.
+        :param pulumi.Input[str] vm_image_version: The version of the marketplace image cluster VMs will use.
+        :param pulumi.Input[int] vm_instance_count: The number of instances this node type will launch.
+        :param pulumi.Input[str] vm_size: The size of the instances in this node type.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: Specifies a list of key/value pairs used to set capacity tags for this node type.
+        :param pulumi.Input[str] data_disk_type: The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+        :param pulumi.Input[str] id: The ID of the Resource Group.
+        :param pulumi.Input[bool] multiple_placement_groups_enabled: If set the node type can be composed of multiple placement groups.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: Specifies a list of placement tags that can be used to indicate where services should run..
+        :param pulumi.Input[bool] primary: If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
+        :param pulumi.Input[bool] stateless: If set to true, only stateless workloads can run on this node type.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]] vm_secrets: One or more `vm_secrets` blocks as defined below.
+        """
+        pulumi.set(__self__, "application_port_range", application_port_range)
+        pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
+        pulumi.set(__self__, "ephemeral_port_range", ephemeral_port_range)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "vm_image_offer", vm_image_offer)
+        pulumi.set(__self__, "vm_image_publisher", vm_image_publisher)
+        pulumi.set(__self__, "vm_image_sku", vm_image_sku)
+        pulumi.set(__self__, "vm_image_version", vm_image_version)
+        pulumi.set(__self__, "vm_instance_count", vm_instance_count)
+        pulumi.set(__self__, "vm_size", vm_size)
+        if capacities is not None:
+            pulumi.set(__self__, "capacities", capacities)
+        if data_disk_type is not None:
+            pulumi.set(__self__, "data_disk_type", data_disk_type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if multiple_placement_groups_enabled is not None:
+            pulumi.set(__self__, "multiple_placement_groups_enabled", multiple_placement_groups_enabled)
+        if placement_properties is not None:
+            pulumi.set(__self__, "placement_properties", placement_properties)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if stateless is not None:
+            pulumi.set(__self__, "stateless", stateless)
+        if vm_secrets is not None:
+            pulumi.set(__self__, "vm_secrets", vm_secrets)
+
+    @property
+    @pulumi.getter(name="applicationPortRange")
+    def application_port_range(self) -> pulumi.Input[str]:
+        """
+        Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
+        """
+        return pulumi.get(self, "application_port_range")
+
+    @application_port_range.setter
+    def application_port_range(self, value: pulumi.Input[str]):
+        pulumi.set(self, "application_port_range", value)
+
+    @property
+    @pulumi.getter(name="dataDiskSizeGb")
+    def data_disk_size_gb(self) -> pulumi.Input[int]:
+        """
+        The size of the data disk in gigabytes..
+        """
+        return pulumi.get(self, "data_disk_size_gb")
+
+    @data_disk_size_gb.setter
+    def data_disk_size_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "data_disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="ephemeralPortRange")
+    def ephemeral_port_range(self) -> pulumi.Input[str]:
+        """
+        Sets the port range available for the OS. Format is `<from_port>-<to_port>`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+        """
+        return pulumi.get(self, "ephemeral_port_range")
+
+    @ephemeral_port_range.setter
+    def ephemeral_port_range(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ephemeral_port_range", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this node type.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="vmImageOffer")
+    def vm_image_offer(self) -> pulumi.Input[str]:
+        """
+        The offer type of the marketplace image cluster VMs will use.
+        """
+        return pulumi.get(self, "vm_image_offer")
+
+    @vm_image_offer.setter
+    def vm_image_offer(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_image_offer", value)
+
+    @property
+    @pulumi.getter(name="vmImagePublisher")
+    def vm_image_publisher(self) -> pulumi.Input[str]:
+        """
+        The publisher of the marketplace image cluster VMs will use.
+        """
+        return pulumi.get(self, "vm_image_publisher")
+
+    @vm_image_publisher.setter
+    def vm_image_publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_image_publisher", value)
+
+    @property
+    @pulumi.getter(name="vmImageSku")
+    def vm_image_sku(self) -> pulumi.Input[str]:
+        """
+        The SKU of the marketplace image cluster VMs will use.
+        """
+        return pulumi.get(self, "vm_image_sku")
+
+    @vm_image_sku.setter
+    def vm_image_sku(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_image_sku", value)
+
+    @property
+    @pulumi.getter(name="vmImageVersion")
+    def vm_image_version(self) -> pulumi.Input[str]:
+        """
+        The version of the marketplace image cluster VMs will use.
+        """
+        return pulumi.get(self, "vm_image_version")
+
+    @vm_image_version.setter
+    def vm_image_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_image_version", value)
+
+    @property
+    @pulumi.getter(name="vmInstanceCount")
+    def vm_instance_count(self) -> pulumi.Input[int]:
+        """
+        The number of instances this node type will launch.
+        """
+        return pulumi.get(self, "vm_instance_count")
+
+    @vm_instance_count.setter
+    def vm_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "vm_instance_count", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> pulumi.Input[str]:
+        """
+        The size of the instances in this node type.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_size", value)
+
+    @property
+    @pulumi.getter
+    def capacities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a list of key/value pairs used to set capacity tags for this node type.
+        """
+        return pulumi.get(self, "capacities")
+
+    @capacities.setter
+    def capacities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "capacities", value)
+
+    @property
+    @pulumi.getter(name="dataDiskType")
+    def data_disk_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+        """
+        return pulumi.get(self, "data_disk_type")
+
+    @data_disk_type.setter
+    def data_disk_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_disk_type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Resource Group.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="multiplePlacementGroupsEnabled")
+    def multiple_placement_groups_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set the node type can be composed of multiple placement groups.
+        """
+        return pulumi.get(self, "multiple_placement_groups_enabled")
+
+    @multiple_placement_groups_enabled.setter
+    def multiple_placement_groups_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multiple_placement_groups_enabled", value)
+
+    @property
+    @pulumi.getter(name="placementProperties")
+    def placement_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a list of placement tags that can be used to indicate where services should run..
+        """
+        return pulumi.get(self, "placement_properties")
+
+    @placement_properties.setter
+    def placement_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "placement_properties", value)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
+        """
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "primary", value)
+
+    @property
+    @pulumi.getter
+    def stateless(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, only stateless workloads can run on this node type.
+        """
+        return pulumi.get(self, "stateless")
+
+    @stateless.setter
+    def stateless(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stateless", value)
+
+    @property
+    @pulumi.getter(name="vmSecrets")
+    def vm_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]]:
+        """
+        One or more `vm_secrets` blocks as defined below.
+        """
+        return pulumi.get(self, "vm_secrets")
+
+    @vm_secrets.setter
+    def vm_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]]):
+        pulumi.set(self, "vm_secrets", value)
+
+
+@pulumi.input_type
+class ManagedClusterNodeTypeVmSecretArgs:
+    def __init__(__self__, *,
+                 certificates: pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArgs']]],
+                 vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArgs']]] certificates: One or more `certificates` blocks as defined above.
+        :param pulumi.Input[str] vault_id: The ID of the Vault that contain the certificates.
+        """
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "vault_id", vault_id)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArgs']]]:
+        """
+        One or more `certificates` blocks as defined above.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArgs']]]):
+        pulumi.set(self, "certificates", value)
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Vault that contain the certificates.
+        """
+        return pulumi.get(self, "vault_id")
+
+    @vault_id.setter
+    def vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vault_id", value)
+
+
+@pulumi.input_type
+class ManagedClusterNodeTypeVmSecretCertificateArgs:
+    def __init__(__self__, *,
+                 store: pulumi.Input[str],
+                 url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] store: The certificate store on the Virtual Machine to which the certificate should be added.
+        :param pulumi.Input[str] url: The URL of a certificate that has been uploaded to Key Vault as a secret
+        """
+        pulumi.set(__self__, "store", store)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def store(self) -> pulumi.Input[str]:
+        """
+        The certificate store on the Virtual Machine to which the certificate should be added.
+        """
+        return pulumi.get(self, "store")
+
+    @store.setter
+    def store(self, value: pulumi.Input[str]):
+        pulumi.set(self, "store", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The URL of a certificate that has been uploaded to Key Vault as a secret
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.input_type

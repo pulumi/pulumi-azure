@@ -14,8 +14,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Orchestrated Virtual Machine Scale Sets are in Public Preview and it may receive breaking changes - [more details can be found in the Azure Documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/orchestration-modes).
  *
- * > **NOTE:** Due to a bug in the service code `extensions` are not currently supported in the `azure.compute.OrchestratedVirtualMachineScaleSet` resource. The ETA for `extensions` support is tentatively set for January 15, 2022.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -72,6 +70,11 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
     public readonly dataDisks!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetDataDisk[] | undefined>;
     public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    public readonly extensions!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetExtension[]>;
+    /**
+     * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+     */
+    public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     public readonly identity!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetIdentity | undefined>;
     /**
      * The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
@@ -143,6 +146,8 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["dataDisks"] = state ? state.dataDisks : undefined;
             inputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
+            inputs["extensions"] = state ? state.extensions : undefined;
+            inputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["instances"] = state ? state.instances : undefined;
             inputs["licenseType"] = state ? state.licenseType : undefined;
@@ -178,6 +183,8 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["dataDisks"] = args ? args.dataDisks : undefined;
             inputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            inputs["extensions"] = args ? args.extensions : undefined;
+            inputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["instances"] = args ? args.instances : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
@@ -217,6 +224,11 @@ export interface OrchestratedVirtualMachineScaleSetState {
     dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetDataDisk>[]>;
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     evictionPolicy?: pulumi.Input<string>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetExtension>[]>;
+    /**
+     * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+     */
+    extensionsTimeBudget?: pulumi.Input<string>;
     identity?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetIdentity>;
     /**
      * The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
@@ -280,6 +292,11 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
     dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetDataDisk>[]>;
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     evictionPolicy?: pulumi.Input<string>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetExtension>[]>;
+    /**
+     * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+     */
+    extensionsTimeBudget?: pulumi.Input<string>;
     identity?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetIdentity>;
     /**
      * The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.

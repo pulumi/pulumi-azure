@@ -13,6 +13,94 @@ import (
 
 // Manages a Backup Instance to back up Disk.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/authorization"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/dataprotection"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
+// 			Location:           rg.Location,
+// 			ResourceGroupName:  rg.Name,
+// 			StorageAccountType: pulumi.String("Standard_LRS"),
+// 			CreateOption:       pulumi.String("Empty"),
+// 			DiskSizeGb:         pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
+// 			ResourceGroupName: rg.Name,
+// 			Location:          rg.Location,
+// 			DatastoreType:     pulumi.String("VaultStore"),
+// 			Redundancy:        pulumi.String("LocallyRedundant"),
+// 			Identity: &dataprotection.BackupVaultIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = authorization.NewAssignment(ctx, "example1", &authorization.AssignmentArgs{
+// 			Scope:              rg.ID(),
+// 			RoleDefinitionName: pulumi.String("Disk Snapshot Contributor"),
+// 			PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (string, error) {
+// 				return identity.PrincipalId, nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = authorization.NewAssignment(ctx, "example2", &authorization.AssignmentArgs{
+// 			Scope:              exampleManagedDisk.ID(),
+// 			RoleDefinitionName: pulumi.String("Disk Backup Reader"),
+// 			PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (string, error) {
+// 				return identity.PrincipalId, nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleBackupPolicyDisk, err := dataprotection.NewBackupPolicyDisk(ctx, "exampleBackupPolicyDisk", &dataprotection.BackupPolicyDiskArgs{
+// 			VaultId: exampleBackupVault.ID(),
+// 			BackupRepeatingTimeIntervals: pulumi.StringArray{
+// 				pulumi.String("R/2021-05-19T06:33:16+00:00/PT4H"),
+// 			},
+// 			DefaultRetentionDuration: pulumi.String("P7D"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = dataprotection.NewBackupInstanceDisk(ctx, "exampleBackupInstanceDisk", &dataprotection.BackupInstanceDiskArgs{
+// 			Location:                  exampleBackupVault.Location,
+// 			VaultId:                   exampleBackupVault.ID(),
+// 			DiskId:                    exampleManagedDisk.ID(),
+// 			SnapshotResourceGroupName: rg.Name,
+// 			BackupPolicyId:            exampleBackupPolicyDisk.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Backup Instance Disks can be imported using the `resource id`, e.g.

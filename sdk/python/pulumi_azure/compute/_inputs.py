@@ -51,6 +51,7 @@ __all__ = [
     'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs',
     'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs',
     'OrchestratedVirtualMachineScaleSetDataDiskArgs',
+    'OrchestratedVirtualMachineScaleSetExtensionArgs',
     'OrchestratedVirtualMachineScaleSetIdentityArgs',
     'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs',
     'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs',
@@ -2595,6 +2596,125 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @write_accelerator_enabled.setter
     def write_accelerator_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "write_accelerator_enabled", value)
+
+
+@pulumi.input_type
+class OrchestratedVirtualMachineScaleSetExtensionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 publisher: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 type_handler_version: pulumi.Input[str],
+                 auto_upgrade_minor_version_enabled: Optional[pulumi.Input[bool]] = None,
+                 extensions_to_provision_after_vm_creations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 force_extension_execution_on_change: Optional[pulumi.Input[str]] = None,
+                 protected_settings: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extensions_to_provision_after_vm_creations: An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type_handler_version", type_handler_version)
+        if auto_upgrade_minor_version_enabled is not None:
+            pulumi.set(__self__, "auto_upgrade_minor_version_enabled", auto_upgrade_minor_version_enabled)
+        if extensions_to_provision_after_vm_creations is not None:
+            pulumi.set(__self__, "extensions_to_provision_after_vm_creations", extensions_to_provision_after_vm_creations)
+        if force_extension_execution_on_change is not None:
+            pulumi.set(__self__, "force_extension_execution_on_change", force_extension_execution_on_change)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type_handler_version")
+
+    @type_handler_version.setter
+    def type_handler_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type_handler_version", value)
+
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersionEnabled")
+    def auto_upgrade_minor_version_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "auto_upgrade_minor_version_enabled")
+
+    @auto_upgrade_minor_version_enabled.setter
+    def auto_upgrade_minor_version_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_upgrade_minor_version_enabled", value)
+
+    @property
+    @pulumi.getter(name="extensionsToProvisionAfterVmCreations")
+    def extensions_to_provision_after_vm_creations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+        """
+        return pulumi.get(self, "extensions_to_provision_after_vm_creations")
+
+    @extensions_to_provision_after_vm_creations.setter
+    def extensions_to_provision_after_vm_creations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "extensions_to_provision_after_vm_creations", value)
+
+    @property
+    @pulumi.getter(name="forceExtensionExecutionOnChange")
+    def force_extension_execution_on_change(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "force_extension_execution_on_change")
+
+    @force_extension_execution_on_change.setter
+    def force_extension_execution_on_change(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "force_extension_execution_on_change", value)
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protected_settings")
+
+    @protected_settings.setter
+    def protected_settings(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protected_settings", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "settings", value)
 
 
 @pulumi.input_type

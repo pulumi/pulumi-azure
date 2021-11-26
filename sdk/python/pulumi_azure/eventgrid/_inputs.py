@@ -1388,45 +1388,69 @@ class EventSubscriptionAzureFunctionEndpointArgs:
 @pulumi.input_type
 class EventSubscriptionDeadLetterIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
 
 
 @pulumi.input_type
 class EventSubscriptionDeliveryIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
 
 
 @pulumi.input_type
@@ -1638,13 +1662,17 @@ class EventSubscriptionStorageBlobDeadLetterDestinationArgs:
 class EventSubscriptionStorageQueueEndpointArgs:
     def __init__(__self__, *,
                  queue_name: pulumi.Input[str],
-                 storage_account_id: pulumi.Input[str]):
+                 storage_account_id: pulumi.Input[str],
+                 queue_message_time_to_live_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] queue_name: Specifies the name of the storage queue where the Event Subscription will receive events.
         :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account id where the storage queue is located.
+        :param pulumi.Input[int] queue_message_time_to_live_in_seconds: Storage queue message time to live in seconds.
         """
         pulumi.set(__self__, "queue_name", queue_name)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if queue_message_time_to_live_in_seconds is not None:
+            pulumi.set(__self__, "queue_message_time_to_live_in_seconds", queue_message_time_to_live_in_seconds)
 
     @property
     @pulumi.getter(name="queueName")
@@ -1669,6 +1697,18 @@ class EventSubscriptionStorageQueueEndpointArgs:
     @storage_account_id.setter
     def storage_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="queueMessageTimeToLiveInSeconds")
+    def queue_message_time_to_live_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Storage queue message time to live in seconds.
+        """
+        return pulumi.get(self, "queue_message_time_to_live_in_seconds")
+
+    @queue_message_time_to_live_in_seconds.setter
+    def queue_message_time_to_live_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "queue_message_time_to_live_in_seconds", value)
 
 
 @pulumi.input_type
@@ -2869,45 +2909,69 @@ class SystemTopicEventSubscriptionAzureFunctionEndpointArgs:
 @pulumi.input_type
 class SystemTopicEventSubscriptionDeadLetterIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
 
 
 @pulumi.input_type
 class SystemTopicEventSubscriptionDeliveryIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
 
 
 @pulumi.input_type
@@ -2988,13 +3052,17 @@ class SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs:
 class SystemTopicEventSubscriptionStorageQueueEndpointArgs:
     def __init__(__self__, *,
                  queue_name: pulumi.Input[str],
-                 storage_account_id: pulumi.Input[str]):
+                 storage_account_id: pulumi.Input[str],
+                 queue_message_time_to_live_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] queue_name: Specifies the name of the storage queue where the Event Subscription will receive events.
         :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account id where the storage queue is located.
+        :param pulumi.Input[int] queue_message_time_to_live_in_seconds: Storage queue message time to live in seconds.
         """
         pulumi.set(__self__, "queue_name", queue_name)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if queue_message_time_to_live_in_seconds is not None:
+            pulumi.set(__self__, "queue_message_time_to_live_in_seconds", queue_message_time_to_live_in_seconds)
 
     @property
     @pulumi.getter(name="queueName")
@@ -3019,6 +3087,18 @@ class SystemTopicEventSubscriptionStorageQueueEndpointArgs:
     @storage_account_id.setter
     def storage_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="queueMessageTimeToLiveInSeconds")
+    def queue_message_time_to_live_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Storage queue message time to live in seconds.
+        """
+        return pulumi.get(self, "queue_message_time_to_live_in_seconds")
+
+    @queue_message_time_to_live_in_seconds.setter
+    def queue_message_time_to_live_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "queue_message_time_to_live_in_seconds", value)
 
 
 @pulumi.input_type

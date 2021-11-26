@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagedCertificate{}
 	case "azure:appservice/plan:Plan":
 		r = &Plan{}
+	case "azure:appservice/publicCertificate:PublicCertificate":
+		r = &PublicCertificate{}
 	case "azure:appservice/slot:Slot":
 		r = &Slot{}
 	case "azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection":
@@ -55,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SourceCodeToken{}
 	case "azure:appservice/staticSite:StaticSite":
 		r = &StaticSite{}
+	case "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain":
+		r = &StaticSiteCustomDomain{}
 	case "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection":
 		r = &VirtualNetworkSwiftConnection{}
 	default:
@@ -137,6 +141,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"appservice/publicCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"appservice/slot",
 		&module{version},
 	)
@@ -153,6 +162,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appservice/staticSite",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/staticSiteCustomDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

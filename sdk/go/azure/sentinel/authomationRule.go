@@ -55,12 +55,12 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = sentinel.NewAuthomationRule(ctx, "exampleAuthomationRule", &sentinel.AuthomationRuleArgs{
+// 		_, err = sentinel.NewAutomationRule(ctx, "exampleAutomationRule", &sentinel.AutomationRuleArgs{
 // 			LogAnalyticsWorkspaceId: sentinel.WorkspaceResourceId,
 // 			DisplayName:             pulumi.String("automation_rule1"),
 // 			Order:                   pulumi.Int(1),
-// 			ActionIncidents: sentinel.AuthomationRuleActionIncidentArray{
-// 				&sentinel.AuthomationRuleActionIncidentArgs{
+// 			ActionIncidents: sentinel.AutomationRuleActionIncidentArray{
+// 				&sentinel.AutomationRuleActionIncidentArgs{
 // 					Order:  pulumi.Int(1),
 // 					Status: pulumi.String("Active"),
 // 				},
@@ -81,6 +81,8 @@ import (
 // ```sh
 //  $ pulumi import azure:sentinel/authomationRule:AuthomationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/AutomationRules/rule1
 // ```
+//
+// Deprecated: azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule
 type AuthomationRule struct {
 	pulumi.CustomResourceState
 
@@ -94,6 +96,8 @@ type AuthomationRule struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
+	Expiration pulumi.StringPtrOutput `pulumi:"expiration"`
 	// The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
@@ -150,6 +154,8 @@ type authomationRuleState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
+	Expiration *string `pulumi:"expiration"`
 	// The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
@@ -169,6 +175,8 @@ type AuthomationRuleState struct {
 	DisplayName pulumi.StringPtrInput
 	// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
+	Expiration pulumi.StringPtrInput
 	// The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
@@ -192,6 +200,8 @@ type authomationRuleArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
+	Expiration *string `pulumi:"expiration"`
 	// The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	// The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
@@ -212,6 +222,8 @@ type AuthomationRuleArgs struct {
 	DisplayName pulumi.StringInput
 	// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
+	Expiration pulumi.StringPtrInput
 	// The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringInput
 	// The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.

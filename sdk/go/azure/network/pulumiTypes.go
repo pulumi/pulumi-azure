@@ -10101,7 +10101,7 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput) I
 type FirewallPolicyThreatIntelligenceAllowlist struct {
 	// A list of FQDNs that will be skipped for threat detection.
 	Fqdns []string `pulumi:"fqdns"`
-	// A list of IP addresses or IP address ranges that will be skipped for threat detection.
+	// A list of IP addresses or CIDR ranges that will be skipped for threat detection.
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
@@ -10119,7 +10119,7 @@ type FirewallPolicyThreatIntelligenceAllowlistInput interface {
 type FirewallPolicyThreatIntelligenceAllowlistArgs struct {
 	// A list of FQDNs that will be skipped for threat detection.
 	Fqdns pulumi.StringArrayInput `pulumi:"fqdns"`
-	// A list of IP addresses or IP address ranges that will be skipped for threat detection.
+	// A list of IP addresses or CIDR ranges that will be skipped for threat detection.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
@@ -10205,7 +10205,7 @@ func (o FirewallPolicyThreatIntelligenceAllowlistOutput) Fqdns() pulumi.StringAr
 	return o.ApplyT(func(v FirewallPolicyThreatIntelligenceAllowlist) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
 }
 
-// A list of IP addresses or IP address ranges that will be skipped for threat detection.
+// A list of IP addresses or CIDR ranges that will be skipped for threat detection.
 func (o FirewallPolicyThreatIntelligenceAllowlistOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyThreatIntelligenceAllowlist) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -10244,7 +10244,7 @@ func (o FirewallPolicyThreatIntelligenceAllowlistPtrOutput) Fqdns() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of IP addresses or IP address ranges that will be skipped for threat detection.
+// A list of IP addresses or CIDR ranges that will be skipped for threat detection.
 func (o FirewallPolicyThreatIntelligenceAllowlistPtrOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FirewallPolicyThreatIntelligenceAllowlist) []string {
 		if v == nil {

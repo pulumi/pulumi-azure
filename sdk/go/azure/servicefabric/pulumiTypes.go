@@ -2715,6 +2715,1166 @@ func (o ClusterUpgradePolicyHealthPolicyPtrOutput) MaxUnhealthyNodesPercent() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+type ManagedClusterAuthentication struct {
+	// A `activeDirectory` block as defined above.
+	ActiveDirectory *ManagedClusterAuthenticationActiveDirectory `pulumi:"activeDirectory"`
+	// One or more `certificate` blocks as defined below.
+	Certificates []ManagedClusterAuthenticationCertificate `pulumi:"certificates"`
+}
+
+// ManagedClusterAuthenticationInput is an input type that accepts ManagedClusterAuthenticationArgs and ManagedClusterAuthenticationOutput values.
+// You can construct a concrete instance of `ManagedClusterAuthenticationInput` via:
+//
+//          ManagedClusterAuthenticationArgs{...}
+type ManagedClusterAuthenticationInput interface {
+	pulumi.Input
+
+	ToManagedClusterAuthenticationOutput() ManagedClusterAuthenticationOutput
+	ToManagedClusterAuthenticationOutputWithContext(context.Context) ManagedClusterAuthenticationOutput
+}
+
+type ManagedClusterAuthenticationArgs struct {
+	// A `activeDirectory` block as defined above.
+	ActiveDirectory ManagedClusterAuthenticationActiveDirectoryPtrInput `pulumi:"activeDirectory"`
+	// One or more `certificate` blocks as defined below.
+	Certificates ManagedClusterAuthenticationCertificateArrayInput `pulumi:"certificates"`
+}
+
+func (ManagedClusterAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAuthentication)(nil)).Elem()
+}
+
+func (i ManagedClusterAuthenticationArgs) ToManagedClusterAuthenticationOutput() ManagedClusterAuthenticationOutput {
+	return i.ToManagedClusterAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAuthenticationArgs) ToManagedClusterAuthenticationOutputWithContext(ctx context.Context) ManagedClusterAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationOutput)
+}
+
+func (i ManagedClusterAuthenticationArgs) ToManagedClusterAuthenticationPtrOutput() ManagedClusterAuthenticationPtrOutput {
+	return i.ToManagedClusterAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAuthenticationArgs) ToManagedClusterAuthenticationPtrOutputWithContext(ctx context.Context) ManagedClusterAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationOutput).ToManagedClusterAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ManagedClusterAuthenticationPtrInput is an input type that accepts ManagedClusterAuthenticationArgs, ManagedClusterAuthenticationPtr and ManagedClusterAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ManagedClusterAuthenticationPtrInput` via:
+//
+//          ManagedClusterAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterAuthenticationPtrOutput() ManagedClusterAuthenticationPtrOutput
+	ToManagedClusterAuthenticationPtrOutputWithContext(context.Context) ManagedClusterAuthenticationPtrOutput
+}
+
+type managedClusterAuthenticationPtrType ManagedClusterAuthenticationArgs
+
+func ManagedClusterAuthenticationPtr(v *ManagedClusterAuthenticationArgs) ManagedClusterAuthenticationPtrInput {
+	return (*managedClusterAuthenticationPtrType)(v)
+}
+
+func (*managedClusterAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterAuthentication)(nil)).Elem()
+}
+
+func (i *managedClusterAuthenticationPtrType) ToManagedClusterAuthenticationPtrOutput() ManagedClusterAuthenticationPtrOutput {
+	return i.ToManagedClusterAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterAuthenticationPtrType) ToManagedClusterAuthenticationPtrOutputWithContext(ctx context.Context) ManagedClusterAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationPtrOutput)
+}
+
+type ManagedClusterAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAuthentication)(nil)).Elem()
+}
+
+func (o ManagedClusterAuthenticationOutput) ToManagedClusterAuthenticationOutput() ManagedClusterAuthenticationOutput {
+	return o
+}
+
+func (o ManagedClusterAuthenticationOutput) ToManagedClusterAuthenticationOutputWithContext(ctx context.Context) ManagedClusterAuthenticationOutput {
+	return o
+}
+
+func (o ManagedClusterAuthenticationOutput) ToManagedClusterAuthenticationPtrOutput() ManagedClusterAuthenticationPtrOutput {
+	return o.ToManagedClusterAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterAuthenticationOutput) ToManagedClusterAuthenticationPtrOutputWithContext(ctx context.Context) ManagedClusterAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAuthentication) *ManagedClusterAuthentication {
+		return &v
+	}).(ManagedClusterAuthenticationPtrOutput)
+}
+
+// A `activeDirectory` block as defined above.
+func (o ManagedClusterAuthenticationOutput) ActiveDirectory() ManagedClusterAuthenticationActiveDirectoryPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAuthentication) *ManagedClusterAuthenticationActiveDirectory {
+		return v.ActiveDirectory
+	}).(ManagedClusterAuthenticationActiveDirectoryPtrOutput)
+}
+
+// One or more `certificate` blocks as defined below.
+func (o ManagedClusterAuthenticationOutput) Certificates() ManagedClusterAuthenticationCertificateArrayOutput {
+	return o.ApplyT(func(v ManagedClusterAuthentication) []ManagedClusterAuthenticationCertificate { return v.Certificates }).(ManagedClusterAuthenticationCertificateArrayOutput)
+}
+
+type ManagedClusterAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterAuthentication)(nil)).Elem()
+}
+
+func (o ManagedClusterAuthenticationPtrOutput) ToManagedClusterAuthenticationPtrOutput() ManagedClusterAuthenticationPtrOutput {
+	return o
+}
+
+func (o ManagedClusterAuthenticationPtrOutput) ToManagedClusterAuthenticationPtrOutputWithContext(ctx context.Context) ManagedClusterAuthenticationPtrOutput {
+	return o
+}
+
+func (o ManagedClusterAuthenticationPtrOutput) Elem() ManagedClusterAuthenticationOutput {
+	return o.ApplyT(func(v *ManagedClusterAuthentication) ManagedClusterAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterAuthentication
+		return ret
+	}).(ManagedClusterAuthenticationOutput)
+}
+
+// A `activeDirectory` block as defined above.
+func (o ManagedClusterAuthenticationPtrOutput) ActiveDirectory() ManagedClusterAuthenticationActiveDirectoryPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterAuthentication) *ManagedClusterAuthenticationActiveDirectory {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectory
+	}).(ManagedClusterAuthenticationActiveDirectoryPtrOutput)
+}
+
+// One or more `certificate` blocks as defined below.
+func (o ManagedClusterAuthenticationPtrOutput) Certificates() ManagedClusterAuthenticationCertificateArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterAuthentication) []ManagedClusterAuthenticationCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.Certificates
+	}).(ManagedClusterAuthenticationCertificateArrayOutput)
+}
+
+type ManagedClusterAuthenticationActiveDirectory struct {
+	// The ID of the Client Application.
+	ClientApplicationId string `pulumi:"clientApplicationId"`
+	// The ID of the Cluster Application.
+	ClusterApplicationId string `pulumi:"clusterApplicationId"`
+	// The ID of the Tenant.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// ManagedClusterAuthenticationActiveDirectoryInput is an input type that accepts ManagedClusterAuthenticationActiveDirectoryArgs and ManagedClusterAuthenticationActiveDirectoryOutput values.
+// You can construct a concrete instance of `ManagedClusterAuthenticationActiveDirectoryInput` via:
+//
+//          ManagedClusterAuthenticationActiveDirectoryArgs{...}
+type ManagedClusterAuthenticationActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToManagedClusterAuthenticationActiveDirectoryOutput() ManagedClusterAuthenticationActiveDirectoryOutput
+	ToManagedClusterAuthenticationActiveDirectoryOutputWithContext(context.Context) ManagedClusterAuthenticationActiveDirectoryOutput
+}
+
+type ManagedClusterAuthenticationActiveDirectoryArgs struct {
+	// The ID of the Client Application.
+	ClientApplicationId pulumi.StringInput `pulumi:"clientApplicationId"`
+	// The ID of the Cluster Application.
+	ClusterApplicationId pulumi.StringInput `pulumi:"clusterApplicationId"`
+	// The ID of the Tenant.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (ManagedClusterAuthenticationActiveDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAuthenticationActiveDirectory)(nil)).Elem()
+}
+
+func (i ManagedClusterAuthenticationActiveDirectoryArgs) ToManagedClusterAuthenticationActiveDirectoryOutput() ManagedClusterAuthenticationActiveDirectoryOutput {
+	return i.ToManagedClusterAuthenticationActiveDirectoryOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAuthenticationActiveDirectoryArgs) ToManagedClusterAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) ManagedClusterAuthenticationActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationActiveDirectoryOutput)
+}
+
+func (i ManagedClusterAuthenticationActiveDirectoryArgs) ToManagedClusterAuthenticationActiveDirectoryPtrOutput() ManagedClusterAuthenticationActiveDirectoryPtrOutput {
+	return i.ToManagedClusterAuthenticationActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAuthenticationActiveDirectoryArgs) ToManagedClusterAuthenticationActiveDirectoryPtrOutputWithContext(ctx context.Context) ManagedClusterAuthenticationActiveDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationActiveDirectoryOutput).ToManagedClusterAuthenticationActiveDirectoryPtrOutputWithContext(ctx)
+}
+
+// ManagedClusterAuthenticationActiveDirectoryPtrInput is an input type that accepts ManagedClusterAuthenticationActiveDirectoryArgs, ManagedClusterAuthenticationActiveDirectoryPtr and ManagedClusterAuthenticationActiveDirectoryPtrOutput values.
+// You can construct a concrete instance of `ManagedClusterAuthenticationActiveDirectoryPtrInput` via:
+//
+//          ManagedClusterAuthenticationActiveDirectoryArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterAuthenticationActiveDirectoryPtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterAuthenticationActiveDirectoryPtrOutput() ManagedClusterAuthenticationActiveDirectoryPtrOutput
+	ToManagedClusterAuthenticationActiveDirectoryPtrOutputWithContext(context.Context) ManagedClusterAuthenticationActiveDirectoryPtrOutput
+}
+
+type managedClusterAuthenticationActiveDirectoryPtrType ManagedClusterAuthenticationActiveDirectoryArgs
+
+func ManagedClusterAuthenticationActiveDirectoryPtr(v *ManagedClusterAuthenticationActiveDirectoryArgs) ManagedClusterAuthenticationActiveDirectoryPtrInput {
+	return (*managedClusterAuthenticationActiveDirectoryPtrType)(v)
+}
+
+func (*managedClusterAuthenticationActiveDirectoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterAuthenticationActiveDirectory)(nil)).Elem()
+}
+
+func (i *managedClusterAuthenticationActiveDirectoryPtrType) ToManagedClusterAuthenticationActiveDirectoryPtrOutput() ManagedClusterAuthenticationActiveDirectoryPtrOutput {
+	return i.ToManagedClusterAuthenticationActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterAuthenticationActiveDirectoryPtrType) ToManagedClusterAuthenticationActiveDirectoryPtrOutputWithContext(ctx context.Context) ManagedClusterAuthenticationActiveDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationActiveDirectoryPtrOutput)
+}
+
+type ManagedClusterAuthenticationActiveDirectoryOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAuthenticationActiveDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAuthenticationActiveDirectory)(nil)).Elem()
+}
+
+func (o ManagedClusterAuthenticationActiveDirectoryOutput) ToManagedClusterAuthenticationActiveDirectoryOutput() ManagedClusterAuthenticationActiveDirectoryOutput {
+	return o
+}
+
+func (o ManagedClusterAuthenticationActiveDirectoryOutput) ToManagedClusterAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) ManagedClusterAuthenticationActiveDirectoryOutput {
+	return o
+}
+
+func (o ManagedClusterAuthenticationActiveDirectoryOutput) ToManagedClusterAuthenticationActiveDirectoryPtrOutput() ManagedClusterAuthenticationActiveDirectoryPtrOutput {
+	return o.ToManagedClusterAuthenticationActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterAuthenticationActiveDirectoryOutput) ToManagedClusterAuthenticationActiveDirectoryPtrOutputWithContext(ctx context.Context) ManagedClusterAuthenticationActiveDirectoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAuthenticationActiveDirectory) *ManagedClusterAuthenticationActiveDirectory {
+		return &v
+	}).(ManagedClusterAuthenticationActiveDirectoryPtrOutput)
+}
+
+// The ID of the Client Application.
+func (o ManagedClusterAuthenticationActiveDirectoryOutput) ClientApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterAuthenticationActiveDirectory) string { return v.ClientApplicationId }).(pulumi.StringOutput)
+}
+
+// The ID of the Cluster Application.
+func (o ManagedClusterAuthenticationActiveDirectoryOutput) ClusterApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterAuthenticationActiveDirectory) string { return v.ClusterApplicationId }).(pulumi.StringOutput)
+}
+
+// The ID of the Tenant.
+func (o ManagedClusterAuthenticationActiveDirectoryOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterAuthenticationActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type ManagedClusterAuthenticationActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAuthenticationActiveDirectoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterAuthenticationActiveDirectory)(nil)).Elem()
+}
+
+func (o ManagedClusterAuthenticationActiveDirectoryPtrOutput) ToManagedClusterAuthenticationActiveDirectoryPtrOutput() ManagedClusterAuthenticationActiveDirectoryPtrOutput {
+	return o
+}
+
+func (o ManagedClusterAuthenticationActiveDirectoryPtrOutput) ToManagedClusterAuthenticationActiveDirectoryPtrOutputWithContext(ctx context.Context) ManagedClusterAuthenticationActiveDirectoryPtrOutput {
+	return o
+}
+
+func (o ManagedClusterAuthenticationActiveDirectoryPtrOutput) Elem() ManagedClusterAuthenticationActiveDirectoryOutput {
+	return o.ApplyT(func(v *ManagedClusterAuthenticationActiveDirectory) ManagedClusterAuthenticationActiveDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterAuthenticationActiveDirectory
+		return ret
+	}).(ManagedClusterAuthenticationActiveDirectoryOutput)
+}
+
+// The ID of the Client Application.
+func (o ManagedClusterAuthenticationActiveDirectoryPtrOutput) ClientApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterAuthenticationActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Cluster Application.
+func (o ManagedClusterAuthenticationActiveDirectoryPtrOutput) ClusterApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterAuthenticationActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Tenant.
+func (o ManagedClusterAuthenticationActiveDirectoryPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterAuthenticationActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedClusterAuthenticationCertificate struct {
+	// The certificate's CN.
+	CommonName *string `pulumi:"commonName"`
+	// The thumbprint of the certificate.
+	Thumbprint string `pulumi:"thumbprint"`
+	// The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
+	Type string `pulumi:"type"`
+}
+
+// ManagedClusterAuthenticationCertificateInput is an input type that accepts ManagedClusterAuthenticationCertificateArgs and ManagedClusterAuthenticationCertificateOutput values.
+// You can construct a concrete instance of `ManagedClusterAuthenticationCertificateInput` via:
+//
+//          ManagedClusterAuthenticationCertificateArgs{...}
+type ManagedClusterAuthenticationCertificateInput interface {
+	pulumi.Input
+
+	ToManagedClusterAuthenticationCertificateOutput() ManagedClusterAuthenticationCertificateOutput
+	ToManagedClusterAuthenticationCertificateOutputWithContext(context.Context) ManagedClusterAuthenticationCertificateOutput
+}
+
+type ManagedClusterAuthenticationCertificateArgs struct {
+	// The certificate's CN.
+	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
+	// The thumbprint of the certificate.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	// The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedClusterAuthenticationCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAuthenticationCertificate)(nil)).Elem()
+}
+
+func (i ManagedClusterAuthenticationCertificateArgs) ToManagedClusterAuthenticationCertificateOutput() ManagedClusterAuthenticationCertificateOutput {
+	return i.ToManagedClusterAuthenticationCertificateOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAuthenticationCertificateArgs) ToManagedClusterAuthenticationCertificateOutputWithContext(ctx context.Context) ManagedClusterAuthenticationCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationCertificateOutput)
+}
+
+// ManagedClusterAuthenticationCertificateArrayInput is an input type that accepts ManagedClusterAuthenticationCertificateArray and ManagedClusterAuthenticationCertificateArrayOutput values.
+// You can construct a concrete instance of `ManagedClusterAuthenticationCertificateArrayInput` via:
+//
+//          ManagedClusterAuthenticationCertificateArray{ ManagedClusterAuthenticationCertificateArgs{...} }
+type ManagedClusterAuthenticationCertificateArrayInput interface {
+	pulumi.Input
+
+	ToManagedClusterAuthenticationCertificateArrayOutput() ManagedClusterAuthenticationCertificateArrayOutput
+	ToManagedClusterAuthenticationCertificateArrayOutputWithContext(context.Context) ManagedClusterAuthenticationCertificateArrayOutput
+}
+
+type ManagedClusterAuthenticationCertificateArray []ManagedClusterAuthenticationCertificateInput
+
+func (ManagedClusterAuthenticationCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterAuthenticationCertificate)(nil)).Elem()
+}
+
+func (i ManagedClusterAuthenticationCertificateArray) ToManagedClusterAuthenticationCertificateArrayOutput() ManagedClusterAuthenticationCertificateArrayOutput {
+	return i.ToManagedClusterAuthenticationCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAuthenticationCertificateArray) ToManagedClusterAuthenticationCertificateArrayOutputWithContext(ctx context.Context) ManagedClusterAuthenticationCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationCertificateArrayOutput)
+}
+
+type ManagedClusterAuthenticationCertificateOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAuthenticationCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAuthenticationCertificate)(nil)).Elem()
+}
+
+func (o ManagedClusterAuthenticationCertificateOutput) ToManagedClusterAuthenticationCertificateOutput() ManagedClusterAuthenticationCertificateOutput {
+	return o
+}
+
+func (o ManagedClusterAuthenticationCertificateOutput) ToManagedClusterAuthenticationCertificateOutputWithContext(ctx context.Context) ManagedClusterAuthenticationCertificateOutput {
+	return o
+}
+
+// The certificate's CN.
+func (o ManagedClusterAuthenticationCertificateOutput) CommonName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAuthenticationCertificate) *string { return v.CommonName }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate.
+func (o ManagedClusterAuthenticationCertificateOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterAuthenticationCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
+func (o ManagedClusterAuthenticationCertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterAuthenticationCertificate) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ManagedClusterAuthenticationCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAuthenticationCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterAuthenticationCertificate)(nil)).Elem()
+}
+
+func (o ManagedClusterAuthenticationCertificateArrayOutput) ToManagedClusterAuthenticationCertificateArrayOutput() ManagedClusterAuthenticationCertificateArrayOutput {
+	return o
+}
+
+func (o ManagedClusterAuthenticationCertificateArrayOutput) ToManagedClusterAuthenticationCertificateArrayOutputWithContext(ctx context.Context) ManagedClusterAuthenticationCertificateArrayOutput {
+	return o
+}
+
+func (o ManagedClusterAuthenticationCertificateArrayOutput) Index(i pulumi.IntInput) ManagedClusterAuthenticationCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterAuthenticationCertificate {
+		return vs[0].([]ManagedClusterAuthenticationCertificate)[vs[1].(int)]
+	}).(ManagedClusterAuthenticationCertificateOutput)
+}
+
+type ManagedClusterCustomFabricSetting struct {
+	// Parameter name.
+	Parameter string `pulumi:"parameter"`
+	// Section name.
+	Section string `pulumi:"section"`
+	// Parameter value.
+	Value string `pulumi:"value"`
+}
+
+// ManagedClusterCustomFabricSettingInput is an input type that accepts ManagedClusterCustomFabricSettingArgs and ManagedClusterCustomFabricSettingOutput values.
+// You can construct a concrete instance of `ManagedClusterCustomFabricSettingInput` via:
+//
+//          ManagedClusterCustomFabricSettingArgs{...}
+type ManagedClusterCustomFabricSettingInput interface {
+	pulumi.Input
+
+	ToManagedClusterCustomFabricSettingOutput() ManagedClusterCustomFabricSettingOutput
+	ToManagedClusterCustomFabricSettingOutputWithContext(context.Context) ManagedClusterCustomFabricSettingOutput
+}
+
+type ManagedClusterCustomFabricSettingArgs struct {
+	// Parameter name.
+	Parameter pulumi.StringInput `pulumi:"parameter"`
+	// Section name.
+	Section pulumi.StringInput `pulumi:"section"`
+	// Parameter value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ManagedClusterCustomFabricSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterCustomFabricSetting)(nil)).Elem()
+}
+
+func (i ManagedClusterCustomFabricSettingArgs) ToManagedClusterCustomFabricSettingOutput() ManagedClusterCustomFabricSettingOutput {
+	return i.ToManagedClusterCustomFabricSettingOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterCustomFabricSettingArgs) ToManagedClusterCustomFabricSettingOutputWithContext(ctx context.Context) ManagedClusterCustomFabricSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterCustomFabricSettingOutput)
+}
+
+// ManagedClusterCustomFabricSettingArrayInput is an input type that accepts ManagedClusterCustomFabricSettingArray and ManagedClusterCustomFabricSettingArrayOutput values.
+// You can construct a concrete instance of `ManagedClusterCustomFabricSettingArrayInput` via:
+//
+//          ManagedClusterCustomFabricSettingArray{ ManagedClusterCustomFabricSettingArgs{...} }
+type ManagedClusterCustomFabricSettingArrayInput interface {
+	pulumi.Input
+
+	ToManagedClusterCustomFabricSettingArrayOutput() ManagedClusterCustomFabricSettingArrayOutput
+	ToManagedClusterCustomFabricSettingArrayOutputWithContext(context.Context) ManagedClusterCustomFabricSettingArrayOutput
+}
+
+type ManagedClusterCustomFabricSettingArray []ManagedClusterCustomFabricSettingInput
+
+func (ManagedClusterCustomFabricSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterCustomFabricSetting)(nil)).Elem()
+}
+
+func (i ManagedClusterCustomFabricSettingArray) ToManagedClusterCustomFabricSettingArrayOutput() ManagedClusterCustomFabricSettingArrayOutput {
+	return i.ToManagedClusterCustomFabricSettingArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterCustomFabricSettingArray) ToManagedClusterCustomFabricSettingArrayOutputWithContext(ctx context.Context) ManagedClusterCustomFabricSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterCustomFabricSettingArrayOutput)
+}
+
+type ManagedClusterCustomFabricSettingOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterCustomFabricSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterCustomFabricSetting)(nil)).Elem()
+}
+
+func (o ManagedClusterCustomFabricSettingOutput) ToManagedClusterCustomFabricSettingOutput() ManagedClusterCustomFabricSettingOutput {
+	return o
+}
+
+func (o ManagedClusterCustomFabricSettingOutput) ToManagedClusterCustomFabricSettingOutputWithContext(ctx context.Context) ManagedClusterCustomFabricSettingOutput {
+	return o
+}
+
+// Parameter name.
+func (o ManagedClusterCustomFabricSettingOutput) Parameter() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterCustomFabricSetting) string { return v.Parameter }).(pulumi.StringOutput)
+}
+
+// Section name.
+func (o ManagedClusterCustomFabricSettingOutput) Section() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterCustomFabricSetting) string { return v.Section }).(pulumi.StringOutput)
+}
+
+// Parameter value.
+func (o ManagedClusterCustomFabricSettingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterCustomFabricSetting) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ManagedClusterCustomFabricSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterCustomFabricSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterCustomFabricSetting)(nil)).Elem()
+}
+
+func (o ManagedClusterCustomFabricSettingArrayOutput) ToManagedClusterCustomFabricSettingArrayOutput() ManagedClusterCustomFabricSettingArrayOutput {
+	return o
+}
+
+func (o ManagedClusterCustomFabricSettingArrayOutput) ToManagedClusterCustomFabricSettingArrayOutputWithContext(ctx context.Context) ManagedClusterCustomFabricSettingArrayOutput {
+	return o
+}
+
+func (o ManagedClusterCustomFabricSettingArrayOutput) Index(i pulumi.IntInput) ManagedClusterCustomFabricSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterCustomFabricSetting {
+		return vs[0].([]ManagedClusterCustomFabricSetting)[vs[1].(int)]
+	}).(ManagedClusterCustomFabricSettingOutput)
+}
+
+type ManagedClusterLbRule struct {
+	// LB Backend port.
+	BackendPort int `pulumi:"backendPort"`
+	// LB Frontend port.
+	FrontendPort int `pulumi:"frontendPort"`
+	// Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
+	ProbeProtocol string `pulumi:"probeProtocol"`
+	// Path for the probe to check, when probe protocol is set to `http`.
+	ProbeRequestPath *string `pulumi:"probeRequestPath"`
+	// The transport protocol used in this rule. Can be one of `tcp` or `udp`.
+	Protocol string `pulumi:"protocol"`
+}
+
+// ManagedClusterLbRuleInput is an input type that accepts ManagedClusterLbRuleArgs and ManagedClusterLbRuleOutput values.
+// You can construct a concrete instance of `ManagedClusterLbRuleInput` via:
+//
+//          ManagedClusterLbRuleArgs{...}
+type ManagedClusterLbRuleInput interface {
+	pulumi.Input
+
+	ToManagedClusterLbRuleOutput() ManagedClusterLbRuleOutput
+	ToManagedClusterLbRuleOutputWithContext(context.Context) ManagedClusterLbRuleOutput
+}
+
+type ManagedClusterLbRuleArgs struct {
+	// LB Backend port.
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
+	// LB Frontend port.
+	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
+	// Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
+	ProbeProtocol pulumi.StringInput `pulumi:"probeProtocol"`
+	// Path for the probe to check, when probe protocol is set to `http`.
+	ProbeRequestPath pulumi.StringPtrInput `pulumi:"probeRequestPath"`
+	// The transport protocol used in this rule. Can be one of `tcp` or `udp`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (ManagedClusterLbRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLbRule)(nil)).Elem()
+}
+
+func (i ManagedClusterLbRuleArgs) ToManagedClusterLbRuleOutput() ManagedClusterLbRuleOutput {
+	return i.ToManagedClusterLbRuleOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLbRuleArgs) ToManagedClusterLbRuleOutputWithContext(ctx context.Context) ManagedClusterLbRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLbRuleOutput)
+}
+
+// ManagedClusterLbRuleArrayInput is an input type that accepts ManagedClusterLbRuleArray and ManagedClusterLbRuleArrayOutput values.
+// You can construct a concrete instance of `ManagedClusterLbRuleArrayInput` via:
+//
+//          ManagedClusterLbRuleArray{ ManagedClusterLbRuleArgs{...} }
+type ManagedClusterLbRuleArrayInput interface {
+	pulumi.Input
+
+	ToManagedClusterLbRuleArrayOutput() ManagedClusterLbRuleArrayOutput
+	ToManagedClusterLbRuleArrayOutputWithContext(context.Context) ManagedClusterLbRuleArrayOutput
+}
+
+type ManagedClusterLbRuleArray []ManagedClusterLbRuleInput
+
+func (ManagedClusterLbRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterLbRule)(nil)).Elem()
+}
+
+func (i ManagedClusterLbRuleArray) ToManagedClusterLbRuleArrayOutput() ManagedClusterLbRuleArrayOutput {
+	return i.ToManagedClusterLbRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLbRuleArray) ToManagedClusterLbRuleArrayOutputWithContext(ctx context.Context) ManagedClusterLbRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLbRuleArrayOutput)
+}
+
+type ManagedClusterLbRuleOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLbRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLbRule)(nil)).Elem()
+}
+
+func (o ManagedClusterLbRuleOutput) ToManagedClusterLbRuleOutput() ManagedClusterLbRuleOutput {
+	return o
+}
+
+func (o ManagedClusterLbRuleOutput) ToManagedClusterLbRuleOutputWithContext(ctx context.Context) ManagedClusterLbRuleOutput {
+	return o
+}
+
+// LB Backend port.
+func (o ManagedClusterLbRuleOutput) BackendPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedClusterLbRule) int { return v.BackendPort }).(pulumi.IntOutput)
+}
+
+// LB Frontend port.
+func (o ManagedClusterLbRuleOutput) FrontendPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedClusterLbRule) int { return v.FrontendPort }).(pulumi.IntOutput)
+}
+
+// Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
+func (o ManagedClusterLbRuleOutput) ProbeProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterLbRule) string { return v.ProbeProtocol }).(pulumi.StringOutput)
+}
+
+// Path for the probe to check, when probe protocol is set to `http`.
+func (o ManagedClusterLbRuleOutput) ProbeRequestPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLbRule) *string { return v.ProbeRequestPath }).(pulumi.StringPtrOutput)
+}
+
+// The transport protocol used in this rule. Can be one of `tcp` or `udp`.
+func (o ManagedClusterLbRuleOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterLbRule) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type ManagedClusterLbRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLbRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterLbRule)(nil)).Elem()
+}
+
+func (o ManagedClusterLbRuleArrayOutput) ToManagedClusterLbRuleArrayOutput() ManagedClusterLbRuleArrayOutput {
+	return o
+}
+
+func (o ManagedClusterLbRuleArrayOutput) ToManagedClusterLbRuleArrayOutputWithContext(ctx context.Context) ManagedClusterLbRuleArrayOutput {
+	return o
+}
+
+func (o ManagedClusterLbRuleArrayOutput) Index(i pulumi.IntInput) ManagedClusterLbRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterLbRule {
+		return vs[0].([]ManagedClusterLbRule)[vs[1].(int)]
+	}).(ManagedClusterLbRuleOutput)
+}
+
+type ManagedClusterNodeType struct {
+	// Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
+	ApplicationPortRange string `pulumi:"applicationPortRange"`
+	// Specifies a list of key/value pairs used to set capacity tags for this node type.
+	Capacities map[string]string `pulumi:"capacities"`
+	// The size of the data disk in gigabytes..
+	DataDiskSizeGb int `pulumi:"dataDiskSizeGb"`
+	// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+	DataDiskType *string `pulumi:"dataDiskType"`
+	// Sets the port range available for the OS. Format is `<from_port>-<to_port>`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
+	EphemeralPortRange string `pulumi:"ephemeralPortRange"`
+	// The ID of the Resource Group.
+	Id *string `pulumi:"id"`
+	// If set the node type can be composed of multiple placement groups.
+	MultiplePlacementGroupsEnabled *bool `pulumi:"multiplePlacementGroupsEnabled"`
+	// The name which should be used for this node type.
+	Name string `pulumi:"name"`
+	// Specifies a list of placement tags that can be used to indicate where services should run..
+	PlacementProperties map[string]string `pulumi:"placementProperties"`
+	// If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
+	Primary *bool `pulumi:"primary"`
+	// If set to true, only stateless workloads can run on this node type.
+	Stateless *bool `pulumi:"stateless"`
+	// The offer type of the marketplace image cluster VMs will use.
+	VmImageOffer string `pulumi:"vmImageOffer"`
+	// The publisher of the marketplace image cluster VMs will use.
+	VmImagePublisher string `pulumi:"vmImagePublisher"`
+	// The SKU of the marketplace image cluster VMs will use.
+	VmImageSku string `pulumi:"vmImageSku"`
+	// The version of the marketplace image cluster VMs will use.
+	VmImageVersion string `pulumi:"vmImageVersion"`
+	// The number of instances this node type will launch.
+	VmInstanceCount int `pulumi:"vmInstanceCount"`
+	// One or more `vmSecrets` blocks as defined below.
+	VmSecrets []ManagedClusterNodeTypeVmSecret `pulumi:"vmSecrets"`
+	// The size of the instances in this node type.
+	VmSize string `pulumi:"vmSize"`
+}
+
+// ManagedClusterNodeTypeInput is an input type that accepts ManagedClusterNodeTypeArgs and ManagedClusterNodeTypeOutput values.
+// You can construct a concrete instance of `ManagedClusterNodeTypeInput` via:
+//
+//          ManagedClusterNodeTypeArgs{...}
+type ManagedClusterNodeTypeInput interface {
+	pulumi.Input
+
+	ToManagedClusterNodeTypeOutput() ManagedClusterNodeTypeOutput
+	ToManagedClusterNodeTypeOutputWithContext(context.Context) ManagedClusterNodeTypeOutput
+}
+
+type ManagedClusterNodeTypeArgs struct {
+	// Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
+	ApplicationPortRange pulumi.StringInput `pulumi:"applicationPortRange"`
+	// Specifies a list of key/value pairs used to set capacity tags for this node type.
+	Capacities pulumi.StringMapInput `pulumi:"capacities"`
+	// The size of the data disk in gigabytes..
+	DataDiskSizeGb pulumi.IntInput `pulumi:"dataDiskSizeGb"`
+	// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+	DataDiskType pulumi.StringPtrInput `pulumi:"dataDiskType"`
+	// Sets the port range available for the OS. Format is `<from_port>-<to_port>`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
+	EphemeralPortRange pulumi.StringInput `pulumi:"ephemeralPortRange"`
+	// The ID of the Resource Group.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// If set the node type can be composed of multiple placement groups.
+	MultiplePlacementGroupsEnabled pulumi.BoolPtrInput `pulumi:"multiplePlacementGroupsEnabled"`
+	// The name which should be used for this node type.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a list of placement tags that can be used to indicate where services should run..
+	PlacementProperties pulumi.StringMapInput `pulumi:"placementProperties"`
+	// If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// If set to true, only stateless workloads can run on this node type.
+	Stateless pulumi.BoolPtrInput `pulumi:"stateless"`
+	// The offer type of the marketplace image cluster VMs will use.
+	VmImageOffer pulumi.StringInput `pulumi:"vmImageOffer"`
+	// The publisher of the marketplace image cluster VMs will use.
+	VmImagePublisher pulumi.StringInput `pulumi:"vmImagePublisher"`
+	// The SKU of the marketplace image cluster VMs will use.
+	VmImageSku pulumi.StringInput `pulumi:"vmImageSku"`
+	// The version of the marketplace image cluster VMs will use.
+	VmImageVersion pulumi.StringInput `pulumi:"vmImageVersion"`
+	// The number of instances this node type will launch.
+	VmInstanceCount pulumi.IntInput `pulumi:"vmInstanceCount"`
+	// One or more `vmSecrets` blocks as defined below.
+	VmSecrets ManagedClusterNodeTypeVmSecretArrayInput `pulumi:"vmSecrets"`
+	// The size of the instances in this node type.
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (ManagedClusterNodeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterNodeType)(nil)).Elem()
+}
+
+func (i ManagedClusterNodeTypeArgs) ToManagedClusterNodeTypeOutput() ManagedClusterNodeTypeOutput {
+	return i.ToManagedClusterNodeTypeOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterNodeTypeArgs) ToManagedClusterNodeTypeOutputWithContext(ctx context.Context) ManagedClusterNodeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterNodeTypeOutput)
+}
+
+// ManagedClusterNodeTypeArrayInput is an input type that accepts ManagedClusterNodeTypeArray and ManagedClusterNodeTypeArrayOutput values.
+// You can construct a concrete instance of `ManagedClusterNodeTypeArrayInput` via:
+//
+//          ManagedClusterNodeTypeArray{ ManagedClusterNodeTypeArgs{...} }
+type ManagedClusterNodeTypeArrayInput interface {
+	pulumi.Input
+
+	ToManagedClusterNodeTypeArrayOutput() ManagedClusterNodeTypeArrayOutput
+	ToManagedClusterNodeTypeArrayOutputWithContext(context.Context) ManagedClusterNodeTypeArrayOutput
+}
+
+type ManagedClusterNodeTypeArray []ManagedClusterNodeTypeInput
+
+func (ManagedClusterNodeTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterNodeType)(nil)).Elem()
+}
+
+func (i ManagedClusterNodeTypeArray) ToManagedClusterNodeTypeArrayOutput() ManagedClusterNodeTypeArrayOutput {
+	return i.ToManagedClusterNodeTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterNodeTypeArray) ToManagedClusterNodeTypeArrayOutputWithContext(ctx context.Context) ManagedClusterNodeTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterNodeTypeArrayOutput)
+}
+
+type ManagedClusterNodeTypeOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterNodeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterNodeType)(nil)).Elem()
+}
+
+func (o ManagedClusterNodeTypeOutput) ToManagedClusterNodeTypeOutput() ManagedClusterNodeTypeOutput {
+	return o
+}
+
+func (o ManagedClusterNodeTypeOutput) ToManagedClusterNodeTypeOutputWithContext(ctx context.Context) ManagedClusterNodeTypeOutput {
+	return o
+}
+
+// Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
+func (o ManagedClusterNodeTypeOutput) ApplicationPortRange() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) string { return v.ApplicationPortRange }).(pulumi.StringOutput)
+}
+
+// Specifies a list of key/value pairs used to set capacity tags for this node type.
+func (o ManagedClusterNodeTypeOutput) Capacities() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) map[string]string { return v.Capacities }).(pulumi.StringMapOutput)
+}
+
+// The size of the data disk in gigabytes..
+func (o ManagedClusterNodeTypeOutput) DataDiskSizeGb() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) int { return v.DataDiskSizeGb }).(pulumi.IntOutput)
+}
+
+// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+func (o ManagedClusterNodeTypeOutput) DataDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) *string { return v.DataDiskType }).(pulumi.StringPtrOutput)
+}
+
+// Sets the port range available for the OS. Format is `<from_port>-<to_port>`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
+func (o ManagedClusterNodeTypeOutput) EphemeralPortRange() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) string { return v.EphemeralPortRange }).(pulumi.StringOutput)
+}
+
+// The ID of the Resource Group.
+func (o ManagedClusterNodeTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// If set the node type can be composed of multiple placement groups.
+func (o ManagedClusterNodeTypeOutput) MultiplePlacementGroupsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) *bool { return v.MultiplePlacementGroupsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name which should be used for this node type.
+func (o ManagedClusterNodeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a list of placement tags that can be used to indicate where services should run..
+func (o ManagedClusterNodeTypeOutput) PlacementProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) map[string]string { return v.PlacementProperties }).(pulumi.StringMapOutput)
+}
+
+// If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
+func (o ManagedClusterNodeTypeOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// If set to true, only stateless workloads can run on this node type.
+func (o ManagedClusterNodeTypeOutput) Stateless() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) *bool { return v.Stateless }).(pulumi.BoolPtrOutput)
+}
+
+// The offer type of the marketplace image cluster VMs will use.
+func (o ManagedClusterNodeTypeOutput) VmImageOffer() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) string { return v.VmImageOffer }).(pulumi.StringOutput)
+}
+
+// The publisher of the marketplace image cluster VMs will use.
+func (o ManagedClusterNodeTypeOutput) VmImagePublisher() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) string { return v.VmImagePublisher }).(pulumi.StringOutput)
+}
+
+// The SKU of the marketplace image cluster VMs will use.
+func (o ManagedClusterNodeTypeOutput) VmImageSku() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) string { return v.VmImageSku }).(pulumi.StringOutput)
+}
+
+// The version of the marketplace image cluster VMs will use.
+func (o ManagedClusterNodeTypeOutput) VmImageVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) string { return v.VmImageVersion }).(pulumi.StringOutput)
+}
+
+// The number of instances this node type will launch.
+func (o ManagedClusterNodeTypeOutput) VmInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) int { return v.VmInstanceCount }).(pulumi.IntOutput)
+}
+
+// One or more `vmSecrets` blocks as defined below.
+func (o ManagedClusterNodeTypeOutput) VmSecrets() ManagedClusterNodeTypeVmSecretArrayOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) []ManagedClusterNodeTypeVmSecret { return v.VmSecrets }).(ManagedClusterNodeTypeVmSecretArrayOutput)
+}
+
+// The size of the instances in this node type.
+func (o ManagedClusterNodeTypeOutput) VmSize() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterNodeType) string { return v.VmSize }).(pulumi.StringOutput)
+}
+
+type ManagedClusterNodeTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterNodeTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterNodeType)(nil)).Elem()
+}
+
+func (o ManagedClusterNodeTypeArrayOutput) ToManagedClusterNodeTypeArrayOutput() ManagedClusterNodeTypeArrayOutput {
+	return o
+}
+
+func (o ManagedClusterNodeTypeArrayOutput) ToManagedClusterNodeTypeArrayOutputWithContext(ctx context.Context) ManagedClusterNodeTypeArrayOutput {
+	return o
+}
+
+func (o ManagedClusterNodeTypeArrayOutput) Index(i pulumi.IntInput) ManagedClusterNodeTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterNodeType {
+		return vs[0].([]ManagedClusterNodeType)[vs[1].(int)]
+	}).(ManagedClusterNodeTypeOutput)
+}
+
+type ManagedClusterNodeTypeVmSecret struct {
+	// One or more `certificates` blocks as defined above.
+	Certificates []ManagedClusterNodeTypeVmSecretCertificate `pulumi:"certificates"`
+	// The ID of the Vault that contain the certificates.
+	VaultId string `pulumi:"vaultId"`
+}
+
+// ManagedClusterNodeTypeVmSecretInput is an input type that accepts ManagedClusterNodeTypeVmSecretArgs and ManagedClusterNodeTypeVmSecretOutput values.
+// You can construct a concrete instance of `ManagedClusterNodeTypeVmSecretInput` via:
+//
+//          ManagedClusterNodeTypeVmSecretArgs{...}
+type ManagedClusterNodeTypeVmSecretInput interface {
+	pulumi.Input
+
+	ToManagedClusterNodeTypeVmSecretOutput() ManagedClusterNodeTypeVmSecretOutput
+	ToManagedClusterNodeTypeVmSecretOutputWithContext(context.Context) ManagedClusterNodeTypeVmSecretOutput
+}
+
+type ManagedClusterNodeTypeVmSecretArgs struct {
+	// One or more `certificates` blocks as defined above.
+	Certificates ManagedClusterNodeTypeVmSecretCertificateArrayInput `pulumi:"certificates"`
+	// The ID of the Vault that contain the certificates.
+	VaultId pulumi.StringInput `pulumi:"vaultId"`
+}
+
+func (ManagedClusterNodeTypeVmSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterNodeTypeVmSecret)(nil)).Elem()
+}
+
+func (i ManagedClusterNodeTypeVmSecretArgs) ToManagedClusterNodeTypeVmSecretOutput() ManagedClusterNodeTypeVmSecretOutput {
+	return i.ToManagedClusterNodeTypeVmSecretOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterNodeTypeVmSecretArgs) ToManagedClusterNodeTypeVmSecretOutputWithContext(ctx context.Context) ManagedClusterNodeTypeVmSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterNodeTypeVmSecretOutput)
+}
+
+// ManagedClusterNodeTypeVmSecretArrayInput is an input type that accepts ManagedClusterNodeTypeVmSecretArray and ManagedClusterNodeTypeVmSecretArrayOutput values.
+// You can construct a concrete instance of `ManagedClusterNodeTypeVmSecretArrayInput` via:
+//
+//          ManagedClusterNodeTypeVmSecretArray{ ManagedClusterNodeTypeVmSecretArgs{...} }
+type ManagedClusterNodeTypeVmSecretArrayInput interface {
+	pulumi.Input
+
+	ToManagedClusterNodeTypeVmSecretArrayOutput() ManagedClusterNodeTypeVmSecretArrayOutput
+	ToManagedClusterNodeTypeVmSecretArrayOutputWithContext(context.Context) ManagedClusterNodeTypeVmSecretArrayOutput
+}
+
+type ManagedClusterNodeTypeVmSecretArray []ManagedClusterNodeTypeVmSecretInput
+
+func (ManagedClusterNodeTypeVmSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterNodeTypeVmSecret)(nil)).Elem()
+}
+
+func (i ManagedClusterNodeTypeVmSecretArray) ToManagedClusterNodeTypeVmSecretArrayOutput() ManagedClusterNodeTypeVmSecretArrayOutput {
+	return i.ToManagedClusterNodeTypeVmSecretArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterNodeTypeVmSecretArray) ToManagedClusterNodeTypeVmSecretArrayOutputWithContext(ctx context.Context) ManagedClusterNodeTypeVmSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterNodeTypeVmSecretArrayOutput)
+}
+
+type ManagedClusterNodeTypeVmSecretOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterNodeTypeVmSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterNodeTypeVmSecret)(nil)).Elem()
+}
+
+func (o ManagedClusterNodeTypeVmSecretOutput) ToManagedClusterNodeTypeVmSecretOutput() ManagedClusterNodeTypeVmSecretOutput {
+	return o
+}
+
+func (o ManagedClusterNodeTypeVmSecretOutput) ToManagedClusterNodeTypeVmSecretOutputWithContext(ctx context.Context) ManagedClusterNodeTypeVmSecretOutput {
+	return o
+}
+
+// One or more `certificates` blocks as defined above.
+func (o ManagedClusterNodeTypeVmSecretOutput) Certificates() ManagedClusterNodeTypeVmSecretCertificateArrayOutput {
+	return o.ApplyT(func(v ManagedClusterNodeTypeVmSecret) []ManagedClusterNodeTypeVmSecretCertificate {
+		return v.Certificates
+	}).(ManagedClusterNodeTypeVmSecretCertificateArrayOutput)
+}
+
+// The ID of the Vault that contain the certificates.
+func (o ManagedClusterNodeTypeVmSecretOutput) VaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterNodeTypeVmSecret) string { return v.VaultId }).(pulumi.StringOutput)
+}
+
+type ManagedClusterNodeTypeVmSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterNodeTypeVmSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterNodeTypeVmSecret)(nil)).Elem()
+}
+
+func (o ManagedClusterNodeTypeVmSecretArrayOutput) ToManagedClusterNodeTypeVmSecretArrayOutput() ManagedClusterNodeTypeVmSecretArrayOutput {
+	return o
+}
+
+func (o ManagedClusterNodeTypeVmSecretArrayOutput) ToManagedClusterNodeTypeVmSecretArrayOutputWithContext(ctx context.Context) ManagedClusterNodeTypeVmSecretArrayOutput {
+	return o
+}
+
+func (o ManagedClusterNodeTypeVmSecretArrayOutput) Index(i pulumi.IntInput) ManagedClusterNodeTypeVmSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterNodeTypeVmSecret {
+		return vs[0].([]ManagedClusterNodeTypeVmSecret)[vs[1].(int)]
+	}).(ManagedClusterNodeTypeVmSecretOutput)
+}
+
+type ManagedClusterNodeTypeVmSecretCertificate struct {
+	// The certificate store on the Virtual Machine to which the certificate should be added.
+	Store string `pulumi:"store"`
+	// The URL of a certificate that has been uploaded to Key Vault as a secret
+	Url string `pulumi:"url"`
+}
+
+// ManagedClusterNodeTypeVmSecretCertificateInput is an input type that accepts ManagedClusterNodeTypeVmSecretCertificateArgs and ManagedClusterNodeTypeVmSecretCertificateOutput values.
+// You can construct a concrete instance of `ManagedClusterNodeTypeVmSecretCertificateInput` via:
+//
+//          ManagedClusterNodeTypeVmSecretCertificateArgs{...}
+type ManagedClusterNodeTypeVmSecretCertificateInput interface {
+	pulumi.Input
+
+	ToManagedClusterNodeTypeVmSecretCertificateOutput() ManagedClusterNodeTypeVmSecretCertificateOutput
+	ToManagedClusterNodeTypeVmSecretCertificateOutputWithContext(context.Context) ManagedClusterNodeTypeVmSecretCertificateOutput
+}
+
+type ManagedClusterNodeTypeVmSecretCertificateArgs struct {
+	// The certificate store on the Virtual Machine to which the certificate should be added.
+	Store pulumi.StringInput `pulumi:"store"`
+	// The URL of a certificate that has been uploaded to Key Vault as a secret
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (ManagedClusterNodeTypeVmSecretCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterNodeTypeVmSecretCertificate)(nil)).Elem()
+}
+
+func (i ManagedClusterNodeTypeVmSecretCertificateArgs) ToManagedClusterNodeTypeVmSecretCertificateOutput() ManagedClusterNodeTypeVmSecretCertificateOutput {
+	return i.ToManagedClusterNodeTypeVmSecretCertificateOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterNodeTypeVmSecretCertificateArgs) ToManagedClusterNodeTypeVmSecretCertificateOutputWithContext(ctx context.Context) ManagedClusterNodeTypeVmSecretCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterNodeTypeVmSecretCertificateOutput)
+}
+
+// ManagedClusterNodeTypeVmSecretCertificateArrayInput is an input type that accepts ManagedClusterNodeTypeVmSecretCertificateArray and ManagedClusterNodeTypeVmSecretCertificateArrayOutput values.
+// You can construct a concrete instance of `ManagedClusterNodeTypeVmSecretCertificateArrayInput` via:
+//
+//          ManagedClusterNodeTypeVmSecretCertificateArray{ ManagedClusterNodeTypeVmSecretCertificateArgs{...} }
+type ManagedClusterNodeTypeVmSecretCertificateArrayInput interface {
+	pulumi.Input
+
+	ToManagedClusterNodeTypeVmSecretCertificateArrayOutput() ManagedClusterNodeTypeVmSecretCertificateArrayOutput
+	ToManagedClusterNodeTypeVmSecretCertificateArrayOutputWithContext(context.Context) ManagedClusterNodeTypeVmSecretCertificateArrayOutput
+}
+
+type ManagedClusterNodeTypeVmSecretCertificateArray []ManagedClusterNodeTypeVmSecretCertificateInput
+
+func (ManagedClusterNodeTypeVmSecretCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterNodeTypeVmSecretCertificate)(nil)).Elem()
+}
+
+func (i ManagedClusterNodeTypeVmSecretCertificateArray) ToManagedClusterNodeTypeVmSecretCertificateArrayOutput() ManagedClusterNodeTypeVmSecretCertificateArrayOutput {
+	return i.ToManagedClusterNodeTypeVmSecretCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterNodeTypeVmSecretCertificateArray) ToManagedClusterNodeTypeVmSecretCertificateArrayOutputWithContext(ctx context.Context) ManagedClusterNodeTypeVmSecretCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterNodeTypeVmSecretCertificateArrayOutput)
+}
+
+type ManagedClusterNodeTypeVmSecretCertificateOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterNodeTypeVmSecretCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterNodeTypeVmSecretCertificate)(nil)).Elem()
+}
+
+func (o ManagedClusterNodeTypeVmSecretCertificateOutput) ToManagedClusterNodeTypeVmSecretCertificateOutput() ManagedClusterNodeTypeVmSecretCertificateOutput {
+	return o
+}
+
+func (o ManagedClusterNodeTypeVmSecretCertificateOutput) ToManagedClusterNodeTypeVmSecretCertificateOutputWithContext(ctx context.Context) ManagedClusterNodeTypeVmSecretCertificateOutput {
+	return o
+}
+
+// The certificate store on the Virtual Machine to which the certificate should be added.
+func (o ManagedClusterNodeTypeVmSecretCertificateOutput) Store() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterNodeTypeVmSecretCertificate) string { return v.Store }).(pulumi.StringOutput)
+}
+
+// The URL of a certificate that has been uploaded to Key Vault as a secret
+func (o ManagedClusterNodeTypeVmSecretCertificateOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterNodeTypeVmSecretCertificate) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type ManagedClusterNodeTypeVmSecretCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterNodeTypeVmSecretCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterNodeTypeVmSecretCertificate)(nil)).Elem()
+}
+
+func (o ManagedClusterNodeTypeVmSecretCertificateArrayOutput) ToManagedClusterNodeTypeVmSecretCertificateArrayOutput() ManagedClusterNodeTypeVmSecretCertificateArrayOutput {
+	return o
+}
+
+func (o ManagedClusterNodeTypeVmSecretCertificateArrayOutput) ToManagedClusterNodeTypeVmSecretCertificateArrayOutputWithContext(ctx context.Context) ManagedClusterNodeTypeVmSecretCertificateArrayOutput {
+	return o
+}
+
+func (o ManagedClusterNodeTypeVmSecretCertificateArrayOutput) Index(i pulumi.IntInput) ManagedClusterNodeTypeVmSecretCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterNodeTypeVmSecretCertificate {
+		return vs[0].([]ManagedClusterNodeTypeVmSecretCertificate)[vs[1].(int)]
+	}).(ManagedClusterNodeTypeVmSecretCertificateOutput)
+}
+
 type MeshApplicationService struct {
 	// Any number `codePackage` block as described below.
 	CodePackages []MeshApplicationServiceCodePackage `pulumi:"codePackages"`
@@ -3264,6 +4424,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicyDeltaHealthPolicyPtrInput)(nil)).Elem(), ClusterUpgradePolicyDeltaHealthPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicyHealthPolicyInput)(nil)).Elem(), ClusterUpgradePolicyHealthPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicyHealthPolicyPtrInput)(nil)).Elem(), ClusterUpgradePolicyHealthPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterAuthenticationInput)(nil)).Elem(), ManagedClusterAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterAuthenticationPtrInput)(nil)).Elem(), ManagedClusterAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterAuthenticationActiveDirectoryInput)(nil)).Elem(), ManagedClusterAuthenticationActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterAuthenticationActiveDirectoryPtrInput)(nil)).Elem(), ManagedClusterAuthenticationActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterAuthenticationCertificateInput)(nil)).Elem(), ManagedClusterAuthenticationCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterAuthenticationCertificateArrayInput)(nil)).Elem(), ManagedClusterAuthenticationCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterCustomFabricSettingInput)(nil)).Elem(), ManagedClusterCustomFabricSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterCustomFabricSettingArrayInput)(nil)).Elem(), ManagedClusterCustomFabricSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterLbRuleInput)(nil)).Elem(), ManagedClusterLbRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterLbRuleArrayInput)(nil)).Elem(), ManagedClusterLbRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterNodeTypeInput)(nil)).Elem(), ManagedClusterNodeTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterNodeTypeArrayInput)(nil)).Elem(), ManagedClusterNodeTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterNodeTypeVmSecretInput)(nil)).Elem(), ManagedClusterNodeTypeVmSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterNodeTypeVmSecretArrayInput)(nil)).Elem(), ManagedClusterNodeTypeVmSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterNodeTypeVmSecretCertificateInput)(nil)).Elem(), ManagedClusterNodeTypeVmSecretCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterNodeTypeVmSecretCertificateArrayInput)(nil)).Elem(), ManagedClusterNodeTypeVmSecretCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshApplicationServiceInput)(nil)).Elem(), MeshApplicationServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshApplicationServiceArrayInput)(nil)).Elem(), MeshApplicationServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshApplicationServiceCodePackageInput)(nil)).Elem(), MeshApplicationServiceCodePackageArgs{})
@@ -3306,6 +4482,22 @@ func init() {
 	pulumi.RegisterOutputType(ClusterUpgradePolicyDeltaHealthPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyHealthPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAuthenticationOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAuthenticationActiveDirectoryOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAuthenticationActiveDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAuthenticationCertificateOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAuthenticationCertificateArrayOutput{})
+	pulumi.RegisterOutputType(ManagedClusterCustomFabricSettingOutput{})
+	pulumi.RegisterOutputType(ManagedClusterCustomFabricSettingArrayOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLbRuleOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLbRuleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedClusterNodeTypeOutput{})
+	pulumi.RegisterOutputType(ManagedClusterNodeTypeArrayOutput{})
+	pulumi.RegisterOutputType(ManagedClusterNodeTypeVmSecretOutput{})
+	pulumi.RegisterOutputType(ManagedClusterNodeTypeVmSecretArrayOutput{})
+	pulumi.RegisterOutputType(ManagedClusterNodeTypeVmSecretCertificateOutput{})
+	pulumi.RegisterOutputType(ManagedClusterNodeTypeVmSecretCertificateArrayOutput{})
 	pulumi.RegisterOutputType(MeshApplicationServiceOutput{})
 	pulumi.RegisterOutputType(MeshApplicationServiceArrayOutput{})
 	pulumi.RegisterOutputType(MeshApplicationServiceCodePackageOutput{})

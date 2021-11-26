@@ -1912,38 +1912,88 @@ class EventSubscriptionAzureFunctionEndpoint(dict):
 
 @pulumi.output_type
 class EventSubscriptionDeadLetterIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionDeadLetterIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionDeadLetterIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionDeadLetterIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 type: str):
+                 type: str,
+                 user_assigned_identity: Optional[str] = None):
         """
-        :param str type: Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+        :param str type: Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        return pulumi.get(self, "user_assigned_identity")
 
 
 @pulumi.output_type
 class EventSubscriptionDeliveryIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionDeliveryIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionDeliveryIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionDeliveryIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 type: str):
+                 type: str,
+                 user_assigned_identity: Optional[str] = None):
         """
-        :param str type: Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+        :param str type: Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        return pulumi.get(self, "user_assigned_identity")
 
 
 @pulumi.output_type
@@ -2207,6 +2257,8 @@ class EventSubscriptionStorageQueueEndpoint(dict):
             suggest = "queue_name"
         elif key == "storageAccountId":
             suggest = "storage_account_id"
+        elif key == "queueMessageTimeToLiveInSeconds":
+            suggest = "queue_message_time_to_live_in_seconds"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionStorageQueueEndpoint. Access the value via the '{suggest}' property getter instead.")
@@ -2221,13 +2273,17 @@ class EventSubscriptionStorageQueueEndpoint(dict):
 
     def __init__(__self__, *,
                  queue_name: str,
-                 storage_account_id: str):
+                 storage_account_id: str,
+                 queue_message_time_to_live_in_seconds: Optional[int] = None):
         """
         :param str queue_name: Specifies the name of the storage queue where the Event Subscription will receive events.
         :param str storage_account_id: Specifies the id of the storage account id where the storage queue is located.
+        :param int queue_message_time_to_live_in_seconds: Storage queue message time to live in seconds.
         """
         pulumi.set(__self__, "queue_name", queue_name)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if queue_message_time_to_live_in_seconds is not None:
+            pulumi.set(__self__, "queue_message_time_to_live_in_seconds", queue_message_time_to_live_in_seconds)
 
     @property
     @pulumi.getter(name="queueName")
@@ -2244,6 +2300,14 @@ class EventSubscriptionStorageQueueEndpoint(dict):
         Specifies the id of the storage account id where the storage queue is located.
         """
         return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="queueMessageTimeToLiveInSeconds")
+    def queue_message_time_to_live_in_seconds(self) -> Optional[int]:
+        """
+        Storage queue message time to live in seconds.
+        """
+        return pulumi.get(self, "queue_message_time_to_live_in_seconds")
 
 
 @pulumi.output_type

@@ -21,10 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:streamanalytics/cluster:Cluster":
+		r = &Cluster{}
 	case "azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF":
 		r = &FunctionJavaScriptUDF{}
 	case "azure:streamanalytics/job:Job":
 		r = &Job{}
+	case "azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint":
+		r = &ManagedPrivateEndpoint{}
 	case "azure:streamanalytics/outputBlob:OutputBlob":
 		r = &OutputBlob{}
 	case "azure:streamanalytics/outputEventHub:OutputEventHub":
@@ -64,12 +68,22 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"azure",
+		"streamanalytics/cluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"streamanalytics/functionJavaScriptUDF",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"streamanalytics/job",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"streamanalytics/managedPrivateEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

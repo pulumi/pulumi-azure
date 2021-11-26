@@ -18,8 +18,6 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets are in Public Preview and it may receive breaking changes - [more details can be found in the Azure Documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/orchestration-modes).
     /// 
-    /// &gt; **NOTE:** Due to a bug in the service code `extensions` are not currently supported in the `azure.compute.OrchestratedVirtualMachineScaleSet` resource. The ETA for `extensions` support is tentatively set for January 15, 2022.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -74,6 +72,15 @@ namespace Pulumi.Azure.Compute
 
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
+
+        [Output("extensions")]
+        public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetExtension>> Extensions { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        /// </summary>
+        [Output("extensionsTimeBudget")]
+        public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
         [Output("identity")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetIdentity?> Identity { get; private set; } = null!;
@@ -237,6 +244,20 @@ namespace Pulumi.Azure.Compute
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
 
+        [Input("extensions")]
+        private InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionArgs>? _extensions;
+        public InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionArgs> Extensions
+        {
+            get => _extensions ?? (_extensions = new InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionArgs>());
+            set => _extensions = value;
+        }
+
+        /// <summary>
+        /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        /// </summary>
+        [Input("extensionsTimeBudget")]
+        public Input<string>? ExtensionsTimeBudget { get; set; }
+
         [Input("identity")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetIdentityArgs>? Identity { get; set; }
 
@@ -364,6 +385,20 @@ namespace Pulumi.Azure.Compute
 
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
+
+        [Input("extensions")]
+        private InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionGetArgs>? _extensions;
+        public InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionGetArgs> Extensions
+        {
+            get => _extensions ?? (_extensions = new InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionGetArgs>());
+            set => _extensions = value;
+        }
+
+        /// <summary>
+        /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        /// </summary>
+        [Input("extensionsTimeBudget")]
+        public Input<string>? ExtensionsTimeBudget { get; set; }
 
         [Input("identity")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetIdentityGetArgs>? Identity { get; set; }

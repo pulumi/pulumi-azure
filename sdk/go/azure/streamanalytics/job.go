@@ -37,7 +37,7 @@ import (
 // 		_, err = streamanalytics.NewJob(ctx, "exampleJob", &streamanalytics.JobArgs{
 // 			ResourceGroupName:                  exampleResourceGroup.Name,
 // 			Location:                           exampleResourceGroup.Location,
-// 			CompatibilityLevel:                 pulumi.String("1.1"),
+// 			CompatibilityLevel:                 pulumi.String("1.2"),
 // 			DataLocale:                         pulumi.String("en-GB"),
 // 			EventsLateArrivalMaxDelayInSeconds: pulumi.Int(60),
 // 			EventsOutOfOrderMaxDelayInSeconds:  pulumi.Int(50),
@@ -67,7 +67,7 @@ import (
 type Job struct {
 	pulumi.CustomResourceState
 
-	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
 	CompatibilityLevel pulumi.StringOutput `pulumi:"compatibilityLevel"`
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale pulumi.StringOutput `pulumi:"dataLocale"`
@@ -89,6 +89,8 @@ type Job struct {
 	OutputErrorPolicy pulumi.StringPtrOutput `pulumi:"outputErrorPolicy"`
 	// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
+	StreamAnalyticsClusterId pulumi.StringPtrOutput `pulumi:"streamAnalyticsClusterId"`
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	StreamingUnits pulumi.IntOutput `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
@@ -135,7 +137,7 @@ func GetJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
-	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale *string `pulumi:"dataLocale"`
@@ -157,6 +159,8 @@ type jobState struct {
 	OutputErrorPolicy *string `pulumi:"outputErrorPolicy"`
 	// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
+	StreamAnalyticsClusterId *string `pulumi:"streamAnalyticsClusterId"`
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	StreamingUnits *int `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
@@ -166,7 +170,7 @@ type jobState struct {
 }
 
 type JobState struct {
-	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
 	CompatibilityLevel pulumi.StringPtrInput
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale pulumi.StringPtrInput
@@ -188,6 +192,8 @@ type JobState struct {
 	OutputErrorPolicy pulumi.StringPtrInput
 	// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
+	StreamAnalyticsClusterId pulumi.StringPtrInput
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	StreamingUnits pulumi.IntPtrInput
 	// A mapping of tags assigned to the resource.
@@ -201,7 +207,7 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
-	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale *string `pulumi:"dataLocale"`
@@ -221,6 +227,8 @@ type jobArgs struct {
 	OutputErrorPolicy *string `pulumi:"outputErrorPolicy"`
 	// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
+	StreamAnalyticsClusterId *string `pulumi:"streamAnalyticsClusterId"`
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	StreamingUnits int `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
@@ -231,7 +239,7 @@ type jobArgs struct {
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
-	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
 	CompatibilityLevel pulumi.StringPtrInput
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale pulumi.StringPtrInput
@@ -251,6 +259,8 @@ type JobArgs struct {
 	OutputErrorPolicy pulumi.StringPtrInput
 	// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
+	StreamAnalyticsClusterId pulumi.StringPtrInput
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	StreamingUnits pulumi.IntInput
 	// A mapping of tags assigned to the resource.

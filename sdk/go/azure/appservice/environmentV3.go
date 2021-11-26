@@ -114,11 +114,11 @@ type EnvironmentV3 struct {
 	DedicatedHostCount pulumi.IntPtrOutput `pulumi:"dedicatedHostCount"`
 	// the DNS suffix for this App Service Environment V3.
 	DnsSuffix pulumi.StringOutput `pulumi:"dnsSuffix"`
-	// The external outbound IP addresses of the App Service Environment V3.
+	// The external inbound IP addresses of the App Service Environment V3.
 	ExternalInboundIpAddresses pulumi.StringArrayOutput `pulumi:"externalInboundIpAddresses"`
 	// An Inbound Network Dependencies block as defined below.
 	InboundNetworkDependencies EnvironmentV3InboundNetworkDependencyArrayOutput `pulumi:"inboundNetworkDependencies"`
-	// The internal outbound IP addresses of the App Service Environment V3.
+	// The internal inbound IP addresses of the App Service Environment V3.
 	InternalInboundIpAddresses pulumi.StringArrayOutput `pulumi:"internalInboundIpAddresses"`
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
 	InternalLoadBalancingMode pulumi.StringPtrOutput `pulumi:"internalLoadBalancingMode"`
@@ -186,11 +186,11 @@ type environmentV3State struct {
 	DedicatedHostCount *int `pulumi:"dedicatedHostCount"`
 	// the DNS suffix for this App Service Environment V3.
 	DnsSuffix *string `pulumi:"dnsSuffix"`
-	// The external outbound IP addresses of the App Service Environment V3.
+	// The external inbound IP addresses of the App Service Environment V3.
 	ExternalInboundIpAddresses []string `pulumi:"externalInboundIpAddresses"`
 	// An Inbound Network Dependencies block as defined below.
 	InboundNetworkDependencies []EnvironmentV3InboundNetworkDependency `pulumi:"inboundNetworkDependencies"`
-	// The internal outbound IP addresses of the App Service Environment V3.
+	// The internal inbound IP addresses of the App Service Environment V3.
 	InternalInboundIpAddresses []string `pulumi:"internalInboundIpAddresses"`
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
 	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
@@ -224,11 +224,11 @@ type EnvironmentV3State struct {
 	DedicatedHostCount pulumi.IntPtrInput
 	// the DNS suffix for this App Service Environment V3.
 	DnsSuffix pulumi.StringPtrInput
-	// The external outbound IP addresses of the App Service Environment V3.
+	// The external inbound IP addresses of the App Service Environment V3.
 	ExternalInboundIpAddresses pulumi.StringArrayInput
 	// An Inbound Network Dependencies block as defined below.
 	InboundNetworkDependencies EnvironmentV3InboundNetworkDependencyArrayInput
-	// The internal outbound IP addresses of the App Service Environment V3.
+	// The internal inbound IP addresses of the App Service Environment V3.
 	InternalInboundIpAddresses pulumi.StringArrayInput
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
 	InternalLoadBalancingMode pulumi.StringPtrInput

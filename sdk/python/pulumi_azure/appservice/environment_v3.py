@@ -185,9 +185,9 @@ class _EnvironmentV3State:
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] dedicated_host_count: This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_suffix: the DNS suffix for this App Service Environment V3.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_inbound_ip_addresses: The external outbound IP addresses of the App Service Environment V3.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_inbound_ip_addresses: The external inbound IP addresses of the App Service Environment V3.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentV3InboundNetworkDependencyArgs']]] inbound_network_dependencies: An Inbound Network Dependencies block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_inbound_ip_addresses: The internal outbound IP addresses of the App Service Environment V3.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_inbound_ip_addresses: The internal inbound IP addresses of the App Service Environment V3.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
         :param pulumi.Input[int] ip_ssl_address_count: The number of IP SSL addresses reserved for the App Service Environment V3.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linux_outbound_ip_addresses: Outbound addresses of Linux based Apps in this App Service Environment V3
@@ -288,7 +288,7 @@ class _EnvironmentV3State:
     @pulumi.getter(name="externalInboundIpAddresses")
     def external_inbound_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The external outbound IP addresses of the App Service Environment V3.
+        The external inbound IP addresses of the App Service Environment V3.
         """
         return pulumi.get(self, "external_inbound_ip_addresses")
 
@@ -312,7 +312,7 @@ class _EnvironmentV3State:
     @pulumi.getter(name="internalInboundIpAddresses")
     def internal_inbound_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The internal outbound IP addresses of the App Service Environment V3.
+        The internal inbound IP addresses of the App Service Environment V3.
         """
         return pulumi.get(self, "internal_inbound_ip_addresses")
 
@@ -695,9 +695,9 @@ class EnvironmentV3(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentV3ClusterSettingArgs']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] dedicated_host_count: This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_suffix: the DNS suffix for this App Service Environment V3.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_inbound_ip_addresses: The external outbound IP addresses of the App Service Environment V3.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_inbound_ip_addresses: The external inbound IP addresses of the App Service Environment V3.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentV3InboundNetworkDependencyArgs']]]] inbound_network_dependencies: An Inbound Network Dependencies block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_inbound_ip_addresses: The internal outbound IP addresses of the App Service Environment V3.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_inbound_ip_addresses: The internal inbound IP addresses of the App Service Environment V3.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
         :param pulumi.Input[int] ip_ssl_address_count: The number of IP SSL addresses reserved for the App Service Environment V3.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linux_outbound_ip_addresses: Outbound addresses of Linux based Apps in this App Service Environment V3
@@ -769,7 +769,7 @@ class EnvironmentV3(pulumi.CustomResource):
     @pulumi.getter(name="externalInboundIpAddresses")
     def external_inbound_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
-        The external outbound IP addresses of the App Service Environment V3.
+        The external inbound IP addresses of the App Service Environment V3.
         """
         return pulumi.get(self, "external_inbound_ip_addresses")
 
@@ -785,7 +785,7 @@ class EnvironmentV3(pulumi.CustomResource):
     @pulumi.getter(name="internalInboundIpAddresses")
     def internal_inbound_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
-        The internal outbound IP addresses of the App Service Environment V3.
+        The internal inbound IP addresses of the App Service Environment V3.
         """
         return pulumi.get(self, "internal_inbound_ip_addresses")
 

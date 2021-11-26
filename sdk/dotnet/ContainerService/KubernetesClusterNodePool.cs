@@ -49,7 +49,7 @@ namespace Pulumi.Azure.ContainerService
         /// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("evictionPolicy")]
-        public Output<string?> EvictionPolicy { get; private set; } = null!;
+        public Output<string> EvictionPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.

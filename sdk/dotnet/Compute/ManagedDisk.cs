@@ -201,6 +201,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> OsType { get; private set; } = null!;
 
         /// <summary>
+        /// Whether it is allowed to access the disk via public network. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Managed Disk should exist.
         /// </summary>
         [Output("resourceGroupName")]
@@ -403,6 +409,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? OsType { get; set; }
 
         /// <summary>
+        /// Whether it is allowed to access the disk via public network. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group where the Managed Disk should exist.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -570,6 +582,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
+
+        /// <summary>
+        /// Whether it is allowed to access the disk via public network. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Managed Disk should exist.
