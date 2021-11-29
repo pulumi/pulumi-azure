@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 4.29.0 (2021-11-29)
 * Upgrade to v2.87.0 of the AzureRM Terraform Provider
 * Upgrade to terraform-bridge 3.11.0
 * Upgrade to pulumi 3.17.0
-
----
 
 ## 4.28.0 (2021-11-22)
 * Upgrade to v2.86.0 of the AzureRM Terraform Provider
