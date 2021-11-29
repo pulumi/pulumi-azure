@@ -14,14 +14,19 @@ namespace Pulumi.Azure.EventGrid.Outputs
     public sealed class SystemTopicEventSubscriptionDeadLetterIdentity
     {
         /// <summary>
-        /// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
         /// </summary>
         public readonly string Type;
+        public readonly string? UserAssignedIdentity;
 
         [OutputConstructor]
-        private SystemTopicEventSubscriptionDeadLetterIdentity(string type)
+        private SystemTopicEventSubscriptionDeadLetterIdentity(
+            string type,
+
+            string? userAssignedIdentity)
         {
             Type = type;
+            UserAssignedIdentity = userAssignedIdentity;
         }
     }
 }

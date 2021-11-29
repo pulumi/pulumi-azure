@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to v2.87.0 of the AzureRM Terraform Provider
 * Upgrade to terraform-bridge 3.11.0
 * Upgrade to pulumi 3.17.0
 

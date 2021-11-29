@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .cluster import *
+from .managed_cluster import *
 from .mesh_application import *
 from .mesh_local_network import *
 from .mesh_secret import *

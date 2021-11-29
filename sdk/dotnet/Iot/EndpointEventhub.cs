@@ -57,7 +57,6 @@ namespace Pulumi.Azure.Iot
     ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
     ///             {
     ///                 Name = "B1",
-    ///                 Tier = "Basic",
     ///                 Capacity = 1,
     ///             },
     ///             Tags = 

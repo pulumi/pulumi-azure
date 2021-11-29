@@ -111,7 +111,7 @@ export class EnvironmentV3 extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsSuffix!: pulumi.Output<string>;
     /**
-     * The external outbound IP addresses of the App Service Environment V3.
+     * The external inbound IP addresses of the App Service Environment V3.
      */
     public /*out*/ readonly externalInboundIpAddresses!: pulumi.Output<string[]>;
     /**
@@ -119,7 +119,7 @@ export class EnvironmentV3 extends pulumi.CustomResource {
      */
     public /*out*/ readonly inboundNetworkDependencies!: pulumi.Output<outputs.appservice.EnvironmentV3InboundNetworkDependency[]>;
     /**
-     * The internal outbound IP addresses of the App Service Environment V3.
+     * The internal inbound IP addresses of the App Service Environment V3.
      */
     public /*out*/ readonly internalInboundIpAddresses!: pulumi.Output<string[]>;
     /**
@@ -250,7 +250,7 @@ export interface EnvironmentV3State {
      */
     dnsSuffix?: pulumi.Input<string>;
     /**
-     * The external outbound IP addresses of the App Service Environment V3.
+     * The external inbound IP addresses of the App Service Environment V3.
      */
     externalInboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -258,7 +258,7 @@ export interface EnvironmentV3State {
      */
     inboundNetworkDependencies?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentV3InboundNetworkDependency>[]>;
     /**
-     * The internal outbound IP addresses of the App Service Environment V3.
+     * The internal inbound IP addresses of the App Service Environment V3.
      */
     internalInboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**

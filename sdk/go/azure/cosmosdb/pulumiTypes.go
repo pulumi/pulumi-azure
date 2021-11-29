@@ -10,11 +10,150 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccountAnalyticalStorage struct {
+	// The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
+	SchemaType string `pulumi:"schemaType"`
+}
+
+// AccountAnalyticalStorageInput is an input type that accepts AccountAnalyticalStorageArgs and AccountAnalyticalStorageOutput values.
+// You can construct a concrete instance of `AccountAnalyticalStorageInput` via:
+//
+//          AccountAnalyticalStorageArgs{...}
+type AccountAnalyticalStorageInput interface {
+	pulumi.Input
+
+	ToAccountAnalyticalStorageOutput() AccountAnalyticalStorageOutput
+	ToAccountAnalyticalStorageOutputWithContext(context.Context) AccountAnalyticalStorageOutput
+}
+
+type AccountAnalyticalStorageArgs struct {
+	// The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
+	SchemaType pulumi.StringInput `pulumi:"schemaType"`
+}
+
+func (AccountAnalyticalStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAnalyticalStorage)(nil)).Elem()
+}
+
+func (i AccountAnalyticalStorageArgs) ToAccountAnalyticalStorageOutput() AccountAnalyticalStorageOutput {
+	return i.ToAccountAnalyticalStorageOutputWithContext(context.Background())
+}
+
+func (i AccountAnalyticalStorageArgs) ToAccountAnalyticalStorageOutputWithContext(ctx context.Context) AccountAnalyticalStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAnalyticalStorageOutput)
+}
+
+func (i AccountAnalyticalStorageArgs) ToAccountAnalyticalStoragePtrOutput() AccountAnalyticalStoragePtrOutput {
+	return i.ToAccountAnalyticalStoragePtrOutputWithContext(context.Background())
+}
+
+func (i AccountAnalyticalStorageArgs) ToAccountAnalyticalStoragePtrOutputWithContext(ctx context.Context) AccountAnalyticalStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAnalyticalStorageOutput).ToAccountAnalyticalStoragePtrOutputWithContext(ctx)
+}
+
+// AccountAnalyticalStoragePtrInput is an input type that accepts AccountAnalyticalStorageArgs, AccountAnalyticalStoragePtr and AccountAnalyticalStoragePtrOutput values.
+// You can construct a concrete instance of `AccountAnalyticalStoragePtrInput` via:
+//
+//          AccountAnalyticalStorageArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountAnalyticalStoragePtrInput interface {
+	pulumi.Input
+
+	ToAccountAnalyticalStoragePtrOutput() AccountAnalyticalStoragePtrOutput
+	ToAccountAnalyticalStoragePtrOutputWithContext(context.Context) AccountAnalyticalStoragePtrOutput
+}
+
+type accountAnalyticalStoragePtrType AccountAnalyticalStorageArgs
+
+func AccountAnalyticalStoragePtr(v *AccountAnalyticalStorageArgs) AccountAnalyticalStoragePtrInput {
+	return (*accountAnalyticalStoragePtrType)(v)
+}
+
+func (*accountAnalyticalStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAnalyticalStorage)(nil)).Elem()
+}
+
+func (i *accountAnalyticalStoragePtrType) ToAccountAnalyticalStoragePtrOutput() AccountAnalyticalStoragePtrOutput {
+	return i.ToAccountAnalyticalStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *accountAnalyticalStoragePtrType) ToAccountAnalyticalStoragePtrOutputWithContext(ctx context.Context) AccountAnalyticalStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAnalyticalStoragePtrOutput)
+}
+
+type AccountAnalyticalStorageOutput struct{ *pulumi.OutputState }
+
+func (AccountAnalyticalStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAnalyticalStorage)(nil)).Elem()
+}
+
+func (o AccountAnalyticalStorageOutput) ToAccountAnalyticalStorageOutput() AccountAnalyticalStorageOutput {
+	return o
+}
+
+func (o AccountAnalyticalStorageOutput) ToAccountAnalyticalStorageOutputWithContext(ctx context.Context) AccountAnalyticalStorageOutput {
+	return o
+}
+
+func (o AccountAnalyticalStorageOutput) ToAccountAnalyticalStoragePtrOutput() AccountAnalyticalStoragePtrOutput {
+	return o.ToAccountAnalyticalStoragePtrOutputWithContext(context.Background())
+}
+
+func (o AccountAnalyticalStorageOutput) ToAccountAnalyticalStoragePtrOutputWithContext(ctx context.Context) AccountAnalyticalStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAnalyticalStorage) *AccountAnalyticalStorage {
+		return &v
+	}).(AccountAnalyticalStoragePtrOutput)
+}
+
+// The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
+func (o AccountAnalyticalStorageOutput) SchemaType() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountAnalyticalStorage) string { return v.SchemaType }).(pulumi.StringOutput)
+}
+
+type AccountAnalyticalStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountAnalyticalStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAnalyticalStorage)(nil)).Elem()
+}
+
+func (o AccountAnalyticalStoragePtrOutput) ToAccountAnalyticalStoragePtrOutput() AccountAnalyticalStoragePtrOutput {
+	return o
+}
+
+func (o AccountAnalyticalStoragePtrOutput) ToAccountAnalyticalStoragePtrOutputWithContext(ctx context.Context) AccountAnalyticalStoragePtrOutput {
+	return o
+}
+
+func (o AccountAnalyticalStoragePtrOutput) Elem() AccountAnalyticalStorageOutput {
+	return o.ApplyT(func(v *AccountAnalyticalStorage) AccountAnalyticalStorage {
+		if v != nil {
+			return *v
+		}
+		var ret AccountAnalyticalStorage
+		return ret
+	}).(AccountAnalyticalStorageOutput)
+}
+
+// The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
+func (o AccountAnalyticalStoragePtrOutput) SchemaType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountAnalyticalStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SchemaType
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccountBackup struct {
 	// The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
 	IntervalInMinutes *int `pulumi:"intervalInMinutes"`
 	// The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
 	RetentionInHours *int `pulumi:"retentionInHours"`
+	// The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+	StorageRedundancy *string `pulumi:"storageRedundancy"`
 	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
@@ -35,6 +174,8 @@ type AccountBackupArgs struct {
 	IntervalInMinutes pulumi.IntPtrInput `pulumi:"intervalInMinutes"`
 	// The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
 	RetentionInHours pulumi.IntPtrInput `pulumi:"retentionInHours"`
+	// The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+	StorageRedundancy pulumi.StringPtrInput `pulumi:"storageRedundancy"`
 	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -126,6 +267,11 @@ func (o AccountBackupOutput) RetentionInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountBackup) *int { return v.RetentionInHours }).(pulumi.IntPtrOutput)
 }
 
+// The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+func (o AccountBackupOutput) StorageRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountBackup) *string { return v.StorageRedundancy }).(pulumi.StringPtrOutput)
+}
+
 // The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 func (o AccountBackupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountBackup) string { return v.Type }).(pulumi.StringOutput)
@@ -173,6 +319,16 @@ func (o AccountBackupPtrOutput) RetentionInHours() pulumi.IntPtrOutput {
 		}
 		return v.RetentionInHours
 	}).(pulumi.IntPtrOutput)
+}
+
+// The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+func (o AccountBackupPtrOutput) StorageRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountBackup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageRedundancy
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
@@ -280,6 +436,143 @@ func (o AccountCapabilityArrayOutput) Index(i pulumi.IntInput) AccountCapability
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountCapability {
 		return vs[0].([]AccountCapability)[vs[1].(int)]
 	}).(AccountCapabilityOutput)
+}
+
+type AccountCapacity struct {
+	// The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
+	TotalThroughputLimit int `pulumi:"totalThroughputLimit"`
+}
+
+// AccountCapacityInput is an input type that accepts AccountCapacityArgs and AccountCapacityOutput values.
+// You can construct a concrete instance of `AccountCapacityInput` via:
+//
+//          AccountCapacityArgs{...}
+type AccountCapacityInput interface {
+	pulumi.Input
+
+	ToAccountCapacityOutput() AccountCapacityOutput
+	ToAccountCapacityOutputWithContext(context.Context) AccountCapacityOutput
+}
+
+type AccountCapacityArgs struct {
+	// The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
+	TotalThroughputLimit pulumi.IntInput `pulumi:"totalThroughputLimit"`
+}
+
+func (AccountCapacityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountCapacity)(nil)).Elem()
+}
+
+func (i AccountCapacityArgs) ToAccountCapacityOutput() AccountCapacityOutput {
+	return i.ToAccountCapacityOutputWithContext(context.Background())
+}
+
+func (i AccountCapacityArgs) ToAccountCapacityOutputWithContext(ctx context.Context) AccountCapacityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCapacityOutput)
+}
+
+func (i AccountCapacityArgs) ToAccountCapacityPtrOutput() AccountCapacityPtrOutput {
+	return i.ToAccountCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i AccountCapacityArgs) ToAccountCapacityPtrOutputWithContext(ctx context.Context) AccountCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCapacityOutput).ToAccountCapacityPtrOutputWithContext(ctx)
+}
+
+// AccountCapacityPtrInput is an input type that accepts AccountCapacityArgs, AccountCapacityPtr and AccountCapacityPtrOutput values.
+// You can construct a concrete instance of `AccountCapacityPtrInput` via:
+//
+//          AccountCapacityArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountCapacityPtrInput interface {
+	pulumi.Input
+
+	ToAccountCapacityPtrOutput() AccountCapacityPtrOutput
+	ToAccountCapacityPtrOutputWithContext(context.Context) AccountCapacityPtrOutput
+}
+
+type accountCapacityPtrType AccountCapacityArgs
+
+func AccountCapacityPtr(v *AccountCapacityArgs) AccountCapacityPtrInput {
+	return (*accountCapacityPtrType)(v)
+}
+
+func (*accountCapacityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountCapacity)(nil)).Elem()
+}
+
+func (i *accountCapacityPtrType) ToAccountCapacityPtrOutput() AccountCapacityPtrOutput {
+	return i.ToAccountCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i *accountCapacityPtrType) ToAccountCapacityPtrOutputWithContext(ctx context.Context) AccountCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCapacityPtrOutput)
+}
+
+type AccountCapacityOutput struct{ *pulumi.OutputState }
+
+func (AccountCapacityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountCapacity)(nil)).Elem()
+}
+
+func (o AccountCapacityOutput) ToAccountCapacityOutput() AccountCapacityOutput {
+	return o
+}
+
+func (o AccountCapacityOutput) ToAccountCapacityOutputWithContext(ctx context.Context) AccountCapacityOutput {
+	return o
+}
+
+func (o AccountCapacityOutput) ToAccountCapacityPtrOutput() AccountCapacityPtrOutput {
+	return o.ToAccountCapacityPtrOutputWithContext(context.Background())
+}
+
+func (o AccountCapacityOutput) ToAccountCapacityPtrOutputWithContext(ctx context.Context) AccountCapacityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountCapacity) *AccountCapacity {
+		return &v
+	}).(AccountCapacityPtrOutput)
+}
+
+// The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
+func (o AccountCapacityOutput) TotalThroughputLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v AccountCapacity) int { return v.TotalThroughputLimit }).(pulumi.IntOutput)
+}
+
+type AccountCapacityPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountCapacityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountCapacity)(nil)).Elem()
+}
+
+func (o AccountCapacityPtrOutput) ToAccountCapacityPtrOutput() AccountCapacityPtrOutput {
+	return o
+}
+
+func (o AccountCapacityPtrOutput) ToAccountCapacityPtrOutputWithContext(ctx context.Context) AccountCapacityPtrOutput {
+	return o
+}
+
+func (o AccountCapacityPtrOutput) Elem() AccountCapacityOutput {
+	return o.ApplyT(func(v *AccountCapacity) AccountCapacity {
+		if v != nil {
+			return *v
+		}
+		var ret AccountCapacity
+		return ret
+	}).(AccountCapacityOutput)
+}
+
+// The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
+func (o AccountCapacityPtrOutput) TotalThroughputLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TotalThroughputLimit
+	}).(pulumi.IntPtrOutput)
 }
 
 type AccountConsistencyPolicy struct {
@@ -5095,10 +5388,14 @@ func (o GetAccountVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) GetAcc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAnalyticalStorageInput)(nil)).Elem(), AccountAnalyticalStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAnalyticalStoragePtrInput)(nil)).Elem(), AccountAnalyticalStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountBackupInput)(nil)).Elem(), AccountBackupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountBackupPtrInput)(nil)).Elem(), AccountBackupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCapabilityInput)(nil)).Elem(), AccountCapabilityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCapabilityArrayInput)(nil)).Elem(), AccountCapabilityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountCapacityInput)(nil)).Elem(), AccountCapacityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountCapacityPtrInput)(nil)).Elem(), AccountCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountConsistencyPolicyInput)(nil)).Elem(), AccountConsistencyPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountConsistencyPolicyPtrInput)(nil)).Elem(), AccountConsistencyPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCorsRuleInput)(nil)).Elem(), AccountCorsRuleArgs{})
@@ -5175,10 +5472,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountGeoLocationArrayInput)(nil)).Elem(), GetAccountGeoLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountVirtualNetworkRuleInput)(nil)).Elem(), GetAccountVirtualNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountVirtualNetworkRuleArrayInput)(nil)).Elem(), GetAccountVirtualNetworkRuleArray{})
+	pulumi.RegisterOutputType(AccountAnalyticalStorageOutput{})
+	pulumi.RegisterOutputType(AccountAnalyticalStoragePtrOutput{})
 	pulumi.RegisterOutputType(AccountBackupOutput{})
 	pulumi.RegisterOutputType(AccountBackupPtrOutput{})
 	pulumi.RegisterOutputType(AccountCapabilityOutput{})
 	pulumi.RegisterOutputType(AccountCapabilityArrayOutput{})
+	pulumi.RegisterOutputType(AccountCapacityOutput{})
+	pulumi.RegisterOutputType(AccountCapacityPtrOutput{})
 	pulumi.RegisterOutputType(AccountConsistencyPolicyOutput{})
 	pulumi.RegisterOutputType(AccountConsistencyPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AccountCorsRuleOutput{})

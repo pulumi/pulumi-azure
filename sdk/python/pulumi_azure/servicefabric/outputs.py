@@ -27,6 +27,14 @@ __all__ = [
     'ClusterUpgradePolicy',
     'ClusterUpgradePolicyDeltaHealthPolicy',
     'ClusterUpgradePolicyHealthPolicy',
+    'ManagedClusterAuthentication',
+    'ManagedClusterAuthenticationActiveDirectory',
+    'ManagedClusterAuthenticationCertificate',
+    'ManagedClusterCustomFabricSetting',
+    'ManagedClusterLbRule',
+    'ManagedClusterNodeType',
+    'ManagedClusterNodeTypeVmSecret',
+    'ManagedClusterNodeTypeVmSecretCertificate',
     'MeshApplicationService',
     'MeshApplicationServiceCodePackage',
     'MeshApplicationServiceCodePackageResources',
@@ -1153,6 +1161,628 @@ class ClusterUpgradePolicyHealthPolicy(dict):
     @pulumi.getter(name="maxUnhealthyNodesPercent")
     def max_unhealthy_nodes_percent(self) -> Optional[int]:
         return pulumi.get(self, "max_unhealthy_nodes_percent")
+
+
+@pulumi.output_type
+class ManagedClusterAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectory":
+            suggest = "active_directory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active_directory: Optional['outputs.ManagedClusterAuthenticationActiveDirectory'] = None,
+                 certificates: Optional[Sequence['outputs.ManagedClusterAuthenticationCertificate']] = None):
+        """
+        :param 'ManagedClusterAuthenticationActiveDirectoryArgs' active_directory: A `active_directory` block as defined above.
+        :param Sequence['ManagedClusterAuthenticationCertificateArgs'] certificates: One or more `certificate` blocks as defined below.
+        """
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional['outputs.ManagedClusterAuthenticationActiveDirectory']:
+        """
+        A `active_directory` block as defined above.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[Sequence['outputs.ManagedClusterAuthenticationCertificate']]:
+        """
+        One or more `certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "certificates")
+
+
+@pulumi.output_type
+class ManagedClusterAuthenticationActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientApplicationId":
+            suggest = "client_application_id"
+        elif key == "clusterApplicationId":
+            suggest = "cluster_application_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterAuthenticationActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterAuthenticationActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterAuthenticationActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_application_id: str,
+                 cluster_application_id: str,
+                 tenant_id: str):
+        """
+        :param str client_application_id: The ID of the Client Application.
+        :param str cluster_application_id: The ID of the Cluster Application.
+        :param str tenant_id: The ID of the Tenant.
+        """
+        pulumi.set(__self__, "client_application_id", client_application_id)
+        pulumi.set(__self__, "cluster_application_id", cluster_application_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="clientApplicationId")
+    def client_application_id(self) -> str:
+        """
+        The ID of the Client Application.
+        """
+        return pulumi.get(self, "client_application_id")
+
+    @property
+    @pulumi.getter(name="clusterApplicationId")
+    def cluster_application_id(self) -> str:
+        """
+        The ID of the Cluster Application.
+        """
+        return pulumi.get(self, "cluster_application_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The ID of the Tenant.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class ManagedClusterAuthenticationCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonName":
+            suggest = "common_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterAuthenticationCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterAuthenticationCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterAuthenticationCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 thumbprint: str,
+                 type: str,
+                 common_name: Optional[str] = None):
+        """
+        :param str thumbprint: The thumbprint of the certificate.
+        :param str type: The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
+        :param str common_name: The certificate's CN.
+        """
+        pulumi.set(__self__, "thumbprint", thumbprint)
+        pulumi.set(__self__, "type", type)
+        if common_name is not None:
+            pulumi.set(__self__, "common_name", common_name)
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        The thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="commonName")
+    def common_name(self) -> Optional[str]:
+        """
+        The certificate's CN.
+        """
+        return pulumi.get(self, "common_name")
+
+
+@pulumi.output_type
+class ManagedClusterCustomFabricSetting(dict):
+    def __init__(__self__, *,
+                 parameter: str,
+                 section: str,
+                 value: str):
+        """
+        :param str parameter: Parameter name.
+        :param str section: Section name.
+        :param str value: Parameter value.
+        """
+        pulumi.set(__self__, "parameter", parameter)
+        pulumi.set(__self__, "section", section)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def parameter(self) -> str:
+        """
+        Parameter name.
+        """
+        return pulumi.get(self, "parameter")
+
+    @property
+    @pulumi.getter
+    def section(self) -> str:
+        """
+        Section name.
+        """
+        return pulumi.get(self, "section")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Parameter value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ManagedClusterLbRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendPort":
+            suggest = "backend_port"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "probeProtocol":
+            suggest = "probe_protocol"
+        elif key == "probeRequestPath":
+            suggest = "probe_request_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterLbRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterLbRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterLbRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_port: int,
+                 frontend_port: int,
+                 probe_protocol: str,
+                 protocol: str,
+                 probe_request_path: Optional[str] = None):
+        """
+        :param int backend_port: LB Backend port.
+        :param int frontend_port: LB Frontend port.
+        :param str probe_protocol: Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
+        :param str protocol: The transport protocol used in this rule. Can be one of `tcp` or `udp`.
+        :param str probe_request_path: Path for the probe to check, when probe protocol is set to `http`.
+        """
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "frontend_port", frontend_port)
+        pulumi.set(__self__, "probe_protocol", probe_protocol)
+        pulumi.set(__self__, "protocol", protocol)
+        if probe_request_path is not None:
+            pulumi.set(__self__, "probe_request_path", probe_request_path)
+
+    @property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> int:
+        """
+        LB Backend port.
+        """
+        return pulumi.get(self, "backend_port")
+
+    @property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> int:
+        """
+        LB Frontend port.
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @property
+    @pulumi.getter(name="probeProtocol")
+    def probe_protocol(self) -> str:
+        """
+        Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
+        """
+        return pulumi.get(self, "probe_protocol")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The transport protocol used in this rule. Can be one of `tcp` or `udp`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="probeRequestPath")
+    def probe_request_path(self) -> Optional[str]:
+        """
+        Path for the probe to check, when probe protocol is set to `http`.
+        """
+        return pulumi.get(self, "probe_request_path")
+
+
+@pulumi.output_type
+class ManagedClusterNodeType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationPortRange":
+            suggest = "application_port_range"
+        elif key == "dataDiskSizeGb":
+            suggest = "data_disk_size_gb"
+        elif key == "ephemeralPortRange":
+            suggest = "ephemeral_port_range"
+        elif key == "vmImageOffer":
+            suggest = "vm_image_offer"
+        elif key == "vmImagePublisher":
+            suggest = "vm_image_publisher"
+        elif key == "vmImageSku":
+            suggest = "vm_image_sku"
+        elif key == "vmImageVersion":
+            suggest = "vm_image_version"
+        elif key == "vmInstanceCount":
+            suggest = "vm_instance_count"
+        elif key == "vmSize":
+            suggest = "vm_size"
+        elif key == "dataDiskType":
+            suggest = "data_disk_type"
+        elif key == "multiplePlacementGroupsEnabled":
+            suggest = "multiple_placement_groups_enabled"
+        elif key == "placementProperties":
+            suggest = "placement_properties"
+        elif key == "vmSecrets":
+            suggest = "vm_secrets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterNodeType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterNodeType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterNodeType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_port_range: str,
+                 data_disk_size_gb: int,
+                 ephemeral_port_range: str,
+                 name: str,
+                 vm_image_offer: str,
+                 vm_image_publisher: str,
+                 vm_image_sku: str,
+                 vm_image_version: str,
+                 vm_instance_count: int,
+                 vm_size: str,
+                 capacities: Optional[Mapping[str, str]] = None,
+                 data_disk_type: Optional[str] = None,
+                 id: Optional[str] = None,
+                 multiple_placement_groups_enabled: Optional[bool] = None,
+                 placement_properties: Optional[Mapping[str, str]] = None,
+                 primary: Optional[bool] = None,
+                 stateless: Optional[bool] = None,
+                 vm_secrets: Optional[Sequence['outputs.ManagedClusterNodeTypeVmSecret']] = None):
+        """
+        :param str application_port_range: Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
+        :param int data_disk_size_gb: The size of the data disk in gigabytes..
+        :param str ephemeral_port_range: Sets the port range available for the OS. Format is `<from_port>-<to_port>`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+        :param str name: The name which should be used for this node type.
+        :param str vm_image_offer: The offer type of the marketplace image cluster VMs will use.
+        :param str vm_image_publisher: The publisher of the marketplace image cluster VMs will use.
+        :param str vm_image_sku: The SKU of the marketplace image cluster VMs will use.
+        :param str vm_image_version: The version of the marketplace image cluster VMs will use.
+        :param int vm_instance_count: The number of instances this node type will launch.
+        :param str vm_size: The size of the instances in this node type.
+        :param Mapping[str, str] capacities: Specifies a list of key/value pairs used to set capacity tags for this node type.
+        :param str data_disk_type: The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+        :param str id: The ID of the Resource Group.
+        :param bool multiple_placement_groups_enabled: If set the node type can be composed of multiple placement groups.
+        :param Mapping[str, str] placement_properties: Specifies a list of placement tags that can be used to indicate where services should run..
+        :param bool primary: If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
+        :param bool stateless: If set to true, only stateless workloads can run on this node type.
+        :param Sequence['ManagedClusterNodeTypeVmSecretArgs'] vm_secrets: One or more `vm_secrets` blocks as defined below.
+        """
+        pulumi.set(__self__, "application_port_range", application_port_range)
+        pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
+        pulumi.set(__self__, "ephemeral_port_range", ephemeral_port_range)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "vm_image_offer", vm_image_offer)
+        pulumi.set(__self__, "vm_image_publisher", vm_image_publisher)
+        pulumi.set(__self__, "vm_image_sku", vm_image_sku)
+        pulumi.set(__self__, "vm_image_version", vm_image_version)
+        pulumi.set(__self__, "vm_instance_count", vm_instance_count)
+        pulumi.set(__self__, "vm_size", vm_size)
+        if capacities is not None:
+            pulumi.set(__self__, "capacities", capacities)
+        if data_disk_type is not None:
+            pulumi.set(__self__, "data_disk_type", data_disk_type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if multiple_placement_groups_enabled is not None:
+            pulumi.set(__self__, "multiple_placement_groups_enabled", multiple_placement_groups_enabled)
+        if placement_properties is not None:
+            pulumi.set(__self__, "placement_properties", placement_properties)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if stateless is not None:
+            pulumi.set(__self__, "stateless", stateless)
+        if vm_secrets is not None:
+            pulumi.set(__self__, "vm_secrets", vm_secrets)
+
+    @property
+    @pulumi.getter(name="applicationPortRange")
+    def application_port_range(self) -> str:
+        """
+        Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
+        """
+        return pulumi.get(self, "application_port_range")
+
+    @property
+    @pulumi.getter(name="dataDiskSizeGb")
+    def data_disk_size_gb(self) -> int:
+        """
+        The size of the data disk in gigabytes..
+        """
+        return pulumi.get(self, "data_disk_size_gb")
+
+    @property
+    @pulumi.getter(name="ephemeralPortRange")
+    def ephemeral_port_range(self) -> str:
+        """
+        Sets the port range available for the OS. Format is `<from_port>-<to_port>`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+        """
+        return pulumi.get(self, "ephemeral_port_range")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this node type.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="vmImageOffer")
+    def vm_image_offer(self) -> str:
+        """
+        The offer type of the marketplace image cluster VMs will use.
+        """
+        return pulumi.get(self, "vm_image_offer")
+
+    @property
+    @pulumi.getter(name="vmImagePublisher")
+    def vm_image_publisher(self) -> str:
+        """
+        The publisher of the marketplace image cluster VMs will use.
+        """
+        return pulumi.get(self, "vm_image_publisher")
+
+    @property
+    @pulumi.getter(name="vmImageSku")
+    def vm_image_sku(self) -> str:
+        """
+        The SKU of the marketplace image cluster VMs will use.
+        """
+        return pulumi.get(self, "vm_image_sku")
+
+    @property
+    @pulumi.getter(name="vmImageVersion")
+    def vm_image_version(self) -> str:
+        """
+        The version of the marketplace image cluster VMs will use.
+        """
+        return pulumi.get(self, "vm_image_version")
+
+    @property
+    @pulumi.getter(name="vmInstanceCount")
+    def vm_instance_count(self) -> int:
+        """
+        The number of instances this node type will launch.
+        """
+        return pulumi.get(self, "vm_instance_count")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> str:
+        """
+        The size of the instances in this node type.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @property
+    @pulumi.getter
+    def capacities(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a list of key/value pairs used to set capacity tags for this node type.
+        """
+        return pulumi.get(self, "capacities")
+
+    @property
+    @pulumi.getter(name="dataDiskType")
+    def data_disk_type(self) -> Optional[str]:
+        """
+        The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+        """
+        return pulumi.get(self, "data_disk_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the Resource Group.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="multiplePlacementGroupsEnabled")
+    def multiple_placement_groups_enabled(self) -> Optional[bool]:
+        """
+        If set the node type can be composed of multiple placement groups.
+        """
+        return pulumi.get(self, "multiple_placement_groups_enabled")
+
+    @property
+    @pulumi.getter(name="placementProperties")
+    def placement_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a list of placement tags that can be used to indicate where services should run..
+        """
+        return pulumi.get(self, "placement_properties")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        """
+        If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter
+    def stateless(self) -> Optional[bool]:
+        """
+        If set to true, only stateless workloads can run on this node type.
+        """
+        return pulumi.get(self, "stateless")
+
+    @property
+    @pulumi.getter(name="vmSecrets")
+    def vm_secrets(self) -> Optional[Sequence['outputs.ManagedClusterNodeTypeVmSecret']]:
+        """
+        One or more `vm_secrets` blocks as defined below.
+        """
+        return pulumi.get(self, "vm_secrets")
+
+
+@pulumi.output_type
+class ManagedClusterNodeTypeVmSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vaultId":
+            suggest = "vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterNodeTypeVmSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterNodeTypeVmSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterNodeTypeVmSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificates: Sequence['outputs.ManagedClusterNodeTypeVmSecretCertificate'],
+                 vault_id: str):
+        """
+        :param Sequence['ManagedClusterNodeTypeVmSecretCertificateArgs'] certificates: One or more `certificates` blocks as defined above.
+        :param str vault_id: The ID of the Vault that contain the certificates.
+        """
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "vault_id", vault_id)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Sequence['outputs.ManagedClusterNodeTypeVmSecretCertificate']:
+        """
+        One or more `certificates` blocks as defined above.
+        """
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        The ID of the Vault that contain the certificates.
+        """
+        return pulumi.get(self, "vault_id")
+
+
+@pulumi.output_type
+class ManagedClusterNodeTypeVmSecretCertificate(dict):
+    def __init__(__self__, *,
+                 store: str,
+                 url: str):
+        """
+        :param str store: The certificate store on the Virtual Machine to which the certificate should be added.
+        :param str url: The URL of a certificate that has been uploaded to Key Vault as a secret
+        """
+        pulumi.set(__self__, "store", store)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def store(self) -> str:
+        """
+        The certificate store on the Virtual Machine to which the certificate should be added.
+        """
+        return pulumi.get(self, "store")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The URL of a certificate that has been uploaded to Key Vault as a secret
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

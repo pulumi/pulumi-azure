@@ -101,6 +101,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<bool?> AccessKeyMetadataWritesEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// An `analytical_storage` block as defined below.
+        /// </summary>
+        [Output("analyticalStorage")]
+        public Output<Outputs.AccountAnalyticalStorage> AnalyticalStorage { get; private set; } = null!;
+
+        /// <summary>
         /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("analyticalStorageEnabled")]
@@ -119,6 +125,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<ImmutableArray<Outputs.AccountCapability>> Capabilities { get; private set; } = null!;
 
         /// <summary>
+        /// A `capacity` block as defined below.
+        /// </summary>
+        [Output("capacity")]
+        public Output<Outputs.AccountCapacity?> Capacity { get; private set; } = null!;
+
+        /// <summary>
         /// A list of connection strings available for this CosmosDB account.
         /// </summary>
         [Output("connectionStrings")]
@@ -135,6 +147,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("corsRule")]
         public Output<Outputs.AccountCorsRule?> CorsRule { get; private set; } = null!;
+
+        /// <summary>
+        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+        /// </summary>
+        [Output("defaultIdentityType")]
+        public Output<string?> DefaultIdentityType { get; private set; } = null!;
 
         /// <summary>
         /// Enable automatic fail over for this Cosmos DB account.
@@ -363,6 +381,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? AccessKeyMetadataWritesEnabled { get; set; }
 
         /// <summary>
+        /// An `analytical_storage` block as defined below.
+        /// </summary>
+        [Input("analyticalStorage")]
+        public Input<Inputs.AccountAnalyticalStorageArgs>? AnalyticalStorage { get; set; }
+
+        /// <summary>
         /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("analyticalStorageEnabled")]
@@ -387,6 +411,12 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
+        /// A `capacity` block as defined below.
+        /// </summary>
+        [Input("capacity")]
+        public Input<Inputs.AccountCapacityArgs>? Capacity { get; set; }
+
+        /// <summary>
         /// Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         /// </summary>
         [Input("consistencyPolicy", required: true)]
@@ -397,6 +427,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("corsRule")]
         public Input<Inputs.AccountCorsRuleArgs>? CorsRule { get; set; }
+
+        /// <summary>
+        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+        /// </summary>
+        [Input("defaultIdentityType")]
+        public Input<string>? DefaultIdentityType { get; set; }
 
         /// <summary>
         /// Enable automatic fail over for this Cosmos DB account.
@@ -556,6 +592,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? AccessKeyMetadataWritesEnabled { get; set; }
 
         /// <summary>
+        /// An `analytical_storage` block as defined below.
+        /// </summary>
+        [Input("analyticalStorage")]
+        public Input<Inputs.AccountAnalyticalStorageGetArgs>? AnalyticalStorage { get; set; }
+
+        /// <summary>
         /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("analyticalStorageEnabled")]
@@ -578,6 +620,12 @@ namespace Pulumi.Azure.CosmosDB
             get => _capabilities ?? (_capabilities = new InputList<Inputs.AccountCapabilityGetArgs>());
             set => _capabilities = value;
         }
+
+        /// <summary>
+        /// A `capacity` block as defined below.
+        /// </summary>
+        [Input("capacity")]
+        public Input<Inputs.AccountCapacityGetArgs>? Capacity { get; set; }
 
         [Input("connectionStrings")]
         private InputList<string>? _connectionStrings;
@@ -602,6 +650,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("corsRule")]
         public Input<Inputs.AccountCorsRuleGetArgs>? CorsRule { get; set; }
+
+        /// <summary>
+        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+        /// </summary>
+        [Input("defaultIdentityType")]
+        public Input<string>? DefaultIdentityType { get; set; }
 
         /// <summary>
         /// Enable automatic fail over for this Cosmos DB account.

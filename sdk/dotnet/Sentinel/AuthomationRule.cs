@@ -45,14 +45,14 @@ namespace Pulumi.Azure.Sentinel
     ///                 Product = "OMSGallery/SecurityInsights",
     ///             },
     ///         });
-    ///         var exampleAuthomationRule = new Azure.Sentinel.AuthomationRule("exampleAuthomationRule", new Azure.Sentinel.AuthomationRuleArgs
+    ///         var exampleAutomationRule = new Azure.Sentinel.AutomationRule("exampleAutomationRule", new Azure.Sentinel.AutomationRuleArgs
     ///         {
     ///             LogAnalyticsWorkspaceId = sentinel.WorkspaceResourceId,
     ///             DisplayName = "automation_rule1",
     ///             Order = 1,
     ///             ActionIncidents = 
     ///             {
-    ///                 new Azure.Sentinel.Inputs.AuthomationRuleActionIncidentArgs
+    ///                 new Azure.Sentinel.Inputs.AutomationRuleActionIncidentArgs
     ///                 {
     ///                     Order = 1,
     ///                     Status = "Active",
@@ -72,6 +72,7 @@ namespace Pulumi.Azure.Sentinel
     ///  $ pulumi import azure:sentinel/authomationRule:AuthomationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/AutomationRules/rule1
     /// ```
     /// </summary>
+    [Obsolete(@"azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule")]
     [AzureResourceType("azure:sentinel/authomationRule:AuthomationRule")]
     public partial class AuthomationRule : Pulumi.CustomResource
     {
@@ -104,6 +105,12 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
+        /// </summary>
+        [Output("expiration")]
+        public Output<string?> Expiration { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
@@ -218,6 +225,12 @@ namespace Pulumi.Azure.Sentinel
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
+        /// </summary>
+        [Input("expiration")]
+        public Input<string>? Expiration { get; set; }
+
+        /// <summary>
         /// The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
         /// </summary>
         [Input("logAnalyticsWorkspaceId", required: true)]
@@ -289,6 +302,12 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
+        /// </summary>
+        [Input("expiration")]
+        public Input<string>? Expiration { get; set; }
 
         /// <summary>
         /// The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.

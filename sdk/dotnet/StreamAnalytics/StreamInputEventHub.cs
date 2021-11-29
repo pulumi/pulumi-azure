@@ -83,10 +83,10 @@ namespace Pulumi.Azure.StreamAnalytics
     public partial class StreamInputEventHub : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
+        /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         /// </summary>
         [Output("eventhubConsumerGroupName")]
-        public Output<string> EventhubConsumerGroupName { get; private set; } = null!;
+        public Output<string?> EventhubConsumerGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Event Hub.
@@ -183,10 +183,10 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class StreamInputEventHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
+        /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         /// </summary>
-        [Input("eventhubConsumerGroupName", required: true)]
-        public Input<string> EventhubConsumerGroupName { get; set; } = null!;
+        [Input("eventhubConsumerGroupName")]
+        public Input<string>? EventhubConsumerGroupName { get; set; }
 
         /// <summary>
         /// The name of the Event Hub.
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class StreamInputEventHubState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
+        /// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         /// </summary>
         [Input("eventhubConsumerGroupName")]
         public Input<string>? EventhubConsumerGroupName { get; set; }

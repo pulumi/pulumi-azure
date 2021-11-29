@@ -26,6 +26,9 @@ import * as utilities from "../utilities";
  *     location: rg.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  * });
  * const example1 = new azure.authorization.Assignment("example1", {
  *     scope: rg.id,
@@ -38,8 +41,7 @@ import * as utilities from "../utilities";
  *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
  * });
  * const exampleBackupPolicyDisk = new azure.dataprotection.BackupPolicyDisk("exampleBackupPolicyDisk", {
- *     resourceGroupName: rg.name,
- *     vaultName: exampleBackupVault.name,
+ *     vaultId: exampleBackupVault.id,
  *     backupRepeatingTimeIntervals: ["R/2021-05-19T06:33:16+00:00/PT4H"],
  *     defaultRetentionDuration: "P7D",
  * });

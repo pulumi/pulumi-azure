@@ -14,14 +14,19 @@ namespace Pulumi.Azure.EventGrid.Outputs
     public sealed class SystemTopicEventSubscriptionDeliveryIdentity
     {
         /// <summary>
-        /// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
         /// </summary>
         public readonly string Type;
+        public readonly string? UserAssignedIdentity;
 
         [OutputConstructor]
-        private SystemTopicEventSubscriptionDeliveryIdentity(string type)
+        private SystemTopicEventSubscriptionDeliveryIdentity(
+            string type,
+
+            string? userAssignedIdentity)
         {
             Type = type;
+            UserAssignedIdentity = userAssignedIdentity;
         }
     }
 }

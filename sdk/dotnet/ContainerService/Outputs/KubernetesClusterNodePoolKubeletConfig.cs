@@ -45,6 +45,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int? ImageGcLowThreshold;
+        /// <summary>
+        /// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? PodMaxPid;
         /// <summary>
         /// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.

@@ -27,10 +27,12 @@ export * from "./hybridConnection";
 export * from "./kind";
 export * from "./managedCertificate";
 export * from "./plan";
+export * from "./publicCertificate";
 export * from "./slot";
 export * from "./slotVirtualNetworkSwiftConnection";
 export * from "./sourceCodeToken";
 export * from "./staticSite";
+export * from "./staticSiteCustomDomain";
 export * from "./virtualNetworkSwiftConnection";
 export * from "./zMixins";
 export * from "./zMixins_durable";
@@ -51,10 +53,12 @@ import { FunctionAppSlot } from "./functionAppSlot";
 import { HybridConnection } from "./hybridConnection";
 import { ManagedCertificate } from "./managedCertificate";
 import { Plan } from "./plan";
+import { PublicCertificate } from "./publicCertificate";
 import { Slot } from "./slot";
 import { SlotVirtualNetworkSwiftConnection } from "./slotVirtualNetworkSwiftConnection";
 import { SourceCodeToken } from "./sourceCodeToken";
 import { StaticSite } from "./staticSite";
+import { StaticSiteCustomDomain } from "./staticSiteCustomDomain";
 import { VirtualNetworkSwiftConnection } from "./virtualNetworkSwiftConnection";
 
 const _module = {
@@ -87,6 +91,8 @@ const _module = {
                 return new ManagedCertificate(name, <any>undefined, { urn })
             case "azure:appservice/plan:Plan":
                 return new Plan(name, <any>undefined, { urn })
+            case "azure:appservice/publicCertificate:PublicCertificate":
+                return new PublicCertificate(name, <any>undefined, { urn })
             case "azure:appservice/slot:Slot":
                 return new Slot(name, <any>undefined, { urn })
             case "azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection":
@@ -95,6 +101,8 @@ const _module = {
                 return new SourceCodeToken(name, <any>undefined, { urn })
             case "azure:appservice/staticSite:StaticSite":
                 return new StaticSite(name, <any>undefined, { urn })
+            case "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain":
+                return new StaticSiteCustomDomain(name, <any>undefined, { urn })
             case "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection":
                 return new VirtualNetworkSwiftConnection(name, <any>undefined, { urn })
             default:
@@ -115,8 +123,10 @@ pulumi.runtime.registerResourceModule("azure", "appservice/functionAppSlot", _mo
 pulumi.runtime.registerResourceModule("azure", "appservice/hybridConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/managedCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/plan", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/publicCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/slot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/slotVirtualNetworkSwiftConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/sourceCodeToken", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/staticSite", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/staticSiteCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/virtualNetworkSwiftConnection", _module)

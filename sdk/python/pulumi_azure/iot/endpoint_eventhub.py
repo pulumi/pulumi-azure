@@ -178,7 +178,6 @@ class EndpointEventhub(pulumi.CustomResource):
             location=example_resource_group.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="B1",
-                tier="Basic",
                 capacity=1,
             ),
             tags={
@@ -242,7 +241,6 @@ class EndpointEventhub(pulumi.CustomResource):
             location=example_resource_group.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="B1",
-                tier="Basic",
                 capacity=1,
             ),
             tags={

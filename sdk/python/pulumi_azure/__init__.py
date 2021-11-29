@@ -552,6 +552,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/notificationRecipientUser",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/notificationRecipientUser:NotificationRecipientUser": "NotificationRecipientUser"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/openIdConnectProvider",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
@@ -888,6 +896,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appservice/publicCertificate",
+  "fqn": "pulumi_azure.appservice",
+  "classes": {
+   "azure:appservice/publicCertificate:PublicCertificate": "PublicCertificate"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appservice/slot",
   "fqn": "pulumi_azure.appservice",
   "classes": {
@@ -916,6 +932,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appservice",
   "classes": {
    "azure:appservice/staticSite:StaticSite": "StaticSite"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appservice/staticSiteCustomDomain",
+  "fqn": "pulumi_azure.appservice",
+  "classes": {
+   "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain": "StaticSiteCustomDomain"
   }
  },
  {
@@ -5400,6 +5424,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "sentinel/automationRule",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/automationRule:AutomationRule": "AutomationRule"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "sentinel/dataConnectorAwsCloudTrail",
   "fqn": "pulumi_azure.sentinel",
   "classes": {
@@ -5460,6 +5492,14 @@ _utilities.register(
   "fqn": "pulumi_azure.sentinel",
   "classes": {
    "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence": "DataConnectorThreatIntelligence"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sentinel/watchlist",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/watchlist:Watchlist": "Watchlist"
   }
  },
  {
@@ -5548,6 +5588,14 @@ _utilities.register(
   "fqn": "pulumi_azure.servicefabric",
   "classes": {
    "azure:servicefabric/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "servicefabric/managedCluster",
+  "fqn": "pulumi_azure.servicefabric",
+  "classes": {
+   "azure:servicefabric/managedCluster:ManagedCluster": "ManagedCluster"
   }
  },
  {
@@ -5904,6 +5952,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "streamanalytics/cluster",
+  "fqn": "pulumi_azure.streamanalytics",
+  "classes": {
+   "azure:streamanalytics/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "streamanalytics/functionJavaScriptUDF",
   "fqn": "pulumi_azure.streamanalytics",
   "classes": {
@@ -5916,6 +5972,14 @@ _utilities.register(
   "fqn": "pulumi_azure.streamanalytics",
   "classes": {
    "azure:streamanalytics/job:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "streamanalytics/managedPrivateEndpoint",
+  "fqn": "pulumi_azure.streamanalytics",
+  "classes": {
+   "azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint": "ManagedPrivateEndpoint"
   }
  },
  {

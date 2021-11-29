@@ -8553,7 +8553,8 @@ type KubernetesClusterNodePoolKubeletConfig struct {
 	ImageGcHighThreshold *int `pulumi:"imageGcHighThreshold"`
 	// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
 	ImageGcLowThreshold *int `pulumi:"imageGcLowThreshold"`
-	PodMaxPid           *int `pulumi:"podMaxPid"`
+	// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+	PodMaxPid *int `pulumi:"podMaxPid"`
 	// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
 	TopologyManagerPolicy *string `pulumi:"topologyManagerPolicy"`
 }
@@ -8586,7 +8587,8 @@ type KubernetesClusterNodePoolKubeletConfigArgs struct {
 	ImageGcHighThreshold pulumi.IntPtrInput `pulumi:"imageGcHighThreshold"`
 	// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
 	ImageGcLowThreshold pulumi.IntPtrInput `pulumi:"imageGcLowThreshold"`
-	PodMaxPid           pulumi.IntPtrInput `pulumi:"podMaxPid"`
+	// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+	PodMaxPid pulumi.IntPtrInput `pulumi:"podMaxPid"`
 	// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
 	TopologyManagerPolicy pulumi.StringPtrInput `pulumi:"topologyManagerPolicy"`
 }
@@ -8708,6 +8710,7 @@ func (o KubernetesClusterNodePoolKubeletConfigOutput) ImageGcLowThreshold() pulu
 	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *int { return v.ImageGcLowThreshold }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolKubeletConfigOutput) PodMaxPid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *int { return v.PodMaxPid }).(pulumi.IntPtrOutput)
 }
@@ -8821,6 +8824,7 @@ func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ImageGcLowThreshold() p
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) PodMaxPid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *int {
 		if v == nil {

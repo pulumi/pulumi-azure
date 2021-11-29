@@ -61,7 +61,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
     /**
      * The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
-    public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    public readonly evictionPolicy!: pulumi.Output<string>;
     /**
      * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
      */
@@ -117,7 +117,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
     /**
      * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
      */
-    public readonly nodeTaints!: pulumi.Output<string[] | undefined>;
+    public readonly nodeTaints!: pulumi.Output<string[]>;
     /**
      * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
      */

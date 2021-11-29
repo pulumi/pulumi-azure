@@ -5,9 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./cluster";
 export * from "./functionJavaScriptUDF";
 export * from "./getJob";
 export * from "./job";
+export * from "./managedPrivateEndpoint";
 export * from "./outputBlob";
 export * from "./outputEventHub";
 export * from "./outputMssql";
@@ -22,8 +24,10 @@ export * from "./streamInputEventHub";
 export * from "./streamInputIotHub";
 
 // Import resources to register:
+import { Cluster } from "./cluster";
 import { FunctionJavaScriptUDF } from "./functionJavaScriptUDF";
 import { Job } from "./job";
+import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
 import { OutputBlob } from "./outputBlob";
 import { OutputEventHub } from "./outputEventHub";
 import { OutputMssql } from "./outputMssql";
@@ -41,10 +45,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:streamanalytics/cluster:Cluster":
+                return new Cluster(name, <any>undefined, { urn })
             case "azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF":
                 return new FunctionJavaScriptUDF(name, <any>undefined, { urn })
             case "azure:streamanalytics/job:Job":
                 return new Job(name, <any>undefined, { urn })
+            case "azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint":
+                return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputBlob:OutputBlob":
                 return new OutputBlob(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputEventHub:OutputEventHub":
@@ -74,8 +82,10 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "streamanalytics/cluster", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/functionJavaScriptUDF", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/job", _module)
+pulumi.runtime.registerResourceModule("azure", "streamanalytics/managedPrivateEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputBlob", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputEventHub", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputMssql", _module)

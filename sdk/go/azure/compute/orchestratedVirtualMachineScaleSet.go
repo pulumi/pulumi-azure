@@ -19,8 +19,6 @@ import (
 //
 // > **NOTE:** Orchestrated Virtual Machine Scale Sets are in Public Preview and it may receive breaking changes - [more details can be found in the Azure Documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/orchestration-modes).
 //
-// > **NOTE:** Due to a bug in the service code `extensions` are not currently supported in the `compute.OrchestratedVirtualMachineScaleSet` resource. The ETA for `extensions` support is tentatively set for January 15, 2022.
-//
 // ## Example Usage
 //
 // ```go
@@ -71,7 +69,10 @@ type OrchestratedVirtualMachineScaleSet struct {
 	DataDisks               OrchestratedVirtualMachineScaleSetDataDiskArrayOutput           `pulumi:"dataDisks"`
 	EncryptionAtHostEnabled pulumi.BoolPtrOutput                                            `pulumi:"encryptionAtHostEnabled"`
 	EvictionPolicy          pulumi.StringPtrOutput                                          `pulumi:"evictionPolicy"`
-	Identity                OrchestratedVirtualMachineScaleSetIdentityPtrOutput             `pulumi:"identity"`
+	Extensions              OrchestratedVirtualMachineScaleSetExtensionArrayOutput          `pulumi:"extensions"`
+	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+	ExtensionsTimeBudget pulumi.StringPtrOutput                              `pulumi:"extensionsTimeBudget"`
+	Identity             OrchestratedVirtualMachineScaleSetIdentityPtrOutput `pulumi:"identity"`
 	// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
 	Instances   pulumi.IntOutput       `pulumi:"instances"`
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
@@ -145,7 +146,10 @@ type orchestratedVirtualMachineScaleSetState struct {
 	DataDisks               []OrchestratedVirtualMachineScaleSetDataDisk               `pulumi:"dataDisks"`
 	EncryptionAtHostEnabled *bool                                                      `pulumi:"encryptionAtHostEnabled"`
 	EvictionPolicy          *string                                                    `pulumi:"evictionPolicy"`
-	Identity                *OrchestratedVirtualMachineScaleSetIdentity                `pulumi:"identity"`
+	Extensions              []OrchestratedVirtualMachineScaleSetExtension              `pulumi:"extensions"`
+	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+	ExtensionsTimeBudget *string                                     `pulumi:"extensionsTimeBudget"`
+	Identity             *OrchestratedVirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
 	Instances   *int    `pulumi:"instances"`
 	LicenseType *string `pulumi:"licenseType"`
@@ -185,7 +189,10 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	DataDisks               OrchestratedVirtualMachineScaleSetDataDiskArrayInput
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	EvictionPolicy          pulumi.StringPtrInput
-	Identity                OrchestratedVirtualMachineScaleSetIdentityPtrInput
+	Extensions              OrchestratedVirtualMachineScaleSetExtensionArrayInput
+	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+	ExtensionsTimeBudget pulumi.StringPtrInput
+	Identity             OrchestratedVirtualMachineScaleSetIdentityPtrInput
 	// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
 	Instances   pulumi.IntPtrInput
 	LicenseType pulumi.StringPtrInput
@@ -229,7 +236,10 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	DataDisks               []OrchestratedVirtualMachineScaleSetDataDisk               `pulumi:"dataDisks"`
 	EncryptionAtHostEnabled *bool                                                      `pulumi:"encryptionAtHostEnabled"`
 	EvictionPolicy          *string                                                    `pulumi:"evictionPolicy"`
-	Identity                *OrchestratedVirtualMachineScaleSetIdentity                `pulumi:"identity"`
+	Extensions              []OrchestratedVirtualMachineScaleSetExtension              `pulumi:"extensions"`
+	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+	ExtensionsTimeBudget *string                                     `pulumi:"extensionsTimeBudget"`
+	Identity             *OrchestratedVirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
 	Instances   *int    `pulumi:"instances"`
 	LicenseType *string `pulumi:"licenseType"`
@@ -268,7 +278,10 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	DataDisks               OrchestratedVirtualMachineScaleSetDataDiskArrayInput
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	EvictionPolicy          pulumi.StringPtrInput
-	Identity                OrchestratedVirtualMachineScaleSetIdentityPtrInput
+	Extensions              OrchestratedVirtualMachineScaleSetExtensionArrayInput
+	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+	ExtensionsTimeBudget pulumi.StringPtrInput
+	Identity             OrchestratedVirtualMachineScaleSetIdentityPtrInput
 	// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
 	Instances   pulumi.IntPtrInput
 	LicenseType pulumi.StringPtrInput

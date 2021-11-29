@@ -97,8 +97,8 @@ import (
 type StreamInputEventHub struct {
 	pulumi.CustomResourceState
 
-	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
-	EventhubConsumerGroupName pulumi.StringOutput `pulumi:"eventhubConsumerGroupName"`
+	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
+	EventhubConsumerGroupName pulumi.StringPtrOutput `pulumi:"eventhubConsumerGroupName"`
 	// The name of the Event Hub.
 	EventhubName pulumi.StringOutput `pulumi:"eventhubName"`
 	// The name of the Stream Input EventHub. Changing this forces a new resource to be created.
@@ -124,9 +124,6 @@ func NewStreamInputEventHub(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EventhubConsumerGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'EventhubConsumerGroupName'")
-	}
 	if args.EventhubName == nil {
 		return nil, errors.New("invalid value for required argument 'EventhubName'")
 	}
@@ -170,7 +167,7 @@ func GetStreamInputEventHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamInputEventHub resources.
 type streamInputEventHubState struct {
-	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
+	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
 	EventhubConsumerGroupName *string `pulumi:"eventhubConsumerGroupName"`
 	// The name of the Event Hub.
 	EventhubName *string `pulumi:"eventhubName"`
@@ -191,7 +188,7 @@ type streamInputEventHubState struct {
 }
 
 type StreamInputEventHubState struct {
-	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
+	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
 	EventhubConsumerGroupName pulumi.StringPtrInput
 	// The name of the Event Hub.
 	EventhubName pulumi.StringPtrInput
@@ -216,8 +213,8 @@ func (StreamInputEventHubState) ElementType() reflect.Type {
 }
 
 type streamInputEventHubArgs struct {
-	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
-	EventhubConsumerGroupName string `pulumi:"eventhubConsumerGroupName"`
+	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
+	EventhubConsumerGroupName *string `pulumi:"eventhubConsumerGroupName"`
 	// The name of the Event Hub.
 	EventhubName string `pulumi:"eventhubName"`
 	// The name of the Stream Input EventHub. Changing this forces a new resource to be created.
@@ -238,8 +235,8 @@ type streamInputEventHubArgs struct {
 
 // The set of arguments for constructing a StreamInputEventHub resource.
 type StreamInputEventHubArgs struct {
-	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
-	EventhubConsumerGroupName pulumi.StringInput
+	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
+	EventhubConsumerGroupName pulumi.StringPtrInput
 	// The name of the Event Hub.
 	EventhubName pulumi.StringInput
 	// The name of the Stream Input EventHub. Changing this forces a new resource to be created.

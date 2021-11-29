@@ -5710,6 +5710,24 @@ export namespace compute {
         writeAcceleratorEnabled?: pulumi.Input<boolean>;
     }
 
+    export interface OrchestratedVirtualMachineScaleSetExtension {
+        autoUpgradeMinorVersionEnabled?: pulumi.Input<boolean>;
+        /**
+         * An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+         */
+        extensionsToProvisionAfterVmCreations?: pulumi.Input<pulumi.Input<string>[]>;
+        forceExtensionExecutionOnChange?: pulumi.Input<string>;
+        /**
+         * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        protectedSettings?: pulumi.Input<string>;
+        publisher: pulumi.Input<string>;
+        settings?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+        typeHandlerVersion: pulumi.Input<string>;
+    }
+
     export interface OrchestratedVirtualMachineScaleSetIdentity {
         identityIds: pulumi.Input<pulumi.Input<string>[]>;
         principalId?: pulumi.Input<string>;
@@ -8439,6 +8457,9 @@ export namespace containerservice {
          * Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
          */
         imageGcLowThreshold?: pulumi.Input<number>;
+        /**
+         * Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+         */
         podMaxPid?: pulumi.Input<number>;
         /**
          * Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
@@ -8905,6 +8926,13 @@ export namespace core {
 }
 
 export namespace cosmosdb {
+    export interface AccountAnalyticalStorage {
+        /**
+         * The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
+         */
+        schemaType: pulumi.Input<string>;
+    }
+
     export interface AccountBackup {
         /**
          * The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
@@ -8914,6 +8942,10 @@ export namespace cosmosdb {
          * The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
          */
         retentionInHours?: pulumi.Input<number>;
+        /**
+         * The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+         */
+        storageRedundancy?: pulumi.Input<string>;
         /**
          * The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
          */
@@ -8925,6 +8957,13 @@ export namespace cosmosdb {
          * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
+    }
+
+    export interface AccountCapacity {
+        /**
+         * The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
+         */
+        totalThroughputLimit: pulumi.Input<number>;
     }
 
     export interface AccountConsistencyPolicy {
@@ -11520,16 +11559,18 @@ export namespace eventgrid {
 
     export interface EventSubscriptionDeadLetterIdentity {
         /**
-         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
+        userAssignedIdentity?: pulumi.Input<string>;
     }
 
     export interface EventSubscriptionDeliveryIdentity {
         /**
-         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
+        userAssignedIdentity?: pulumi.Input<string>;
     }
 
     export interface EventSubscriptionDeliveryProperty {
@@ -11592,6 +11633,10 @@ export namespace eventgrid {
     }
 
     export interface EventSubscriptionStorageQueueEndpoint {
+        /**
+         * Storage queue message time to live in seconds.
+         */
+        queueMessageTimeToLiveInSeconds?: pulumi.Input<number>;
         /**
          * Specifies the name of the storage queue where the Event Subscription will receive events.
          */
@@ -12001,16 +12046,18 @@ export namespace eventgrid {
 
     export interface SystemTopicEventSubscriptionDeadLetterIdentity {
         /**
-         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
+        userAssignedIdentity?: pulumi.Input<string>;
     }
 
     export interface SystemTopicEventSubscriptionDeliveryIdentity {
         /**
-         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
+        userAssignedIdentity?: pulumi.Input<string>;
     }
 
     export interface SystemTopicEventSubscriptionRetryPolicy {
@@ -12036,6 +12083,10 @@ export namespace eventgrid {
     }
 
     export interface SystemTopicEventSubscriptionStorageQueueEndpoint {
+        /**
+         * Storage queue message time to live in seconds.
+         */
+        queueMessageTimeToLiveInSeconds?: pulumi.Input<number>;
         /**
          * Specifies the name of the storage queue where the Event Subscription will receive events.
          */
@@ -12724,16 +12775,18 @@ export namespace eventhub {
 
     export interface EventSubscriptionDeadLetterIdentity {
         /**
-         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
+        userAssignedIdentity?: pulumi.Input<string>;
     }
 
     export interface EventSubscriptionDeliveryIdentity {
         /**
-         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: pulumi.Input<string>;
+        userAssignedIdentity?: pulumi.Input<string>;
     }
 
     export interface EventSubscriptionDeliveryProperty {
@@ -12796,6 +12849,10 @@ export namespace eventhub {
     }
 
     export interface EventSubscriptionStorageQueueEndpoint {
+        /**
+         * Storage queue message time to live in seconds.
+         */
+        queueMessageTimeToLiveInSeconds?: pulumi.Input<number>;
         /**
          * Specifies the name of the storage queue where the Event Subscription will receive events.
          */
@@ -19550,7 +19607,7 @@ export namespace mssql {
          */
         capacity: pulumi.Input<number>;
         /**
-         * The `family` of hardware `Gen4`, `Gen5` or `Fsv2`.
+         * The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
          */
         family?: pulumi.Input<string>;
         /**
@@ -21502,7 +21559,7 @@ export namespace network {
          */
         fqdns?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of IP addresses or IP address ranges that will be skipped for threat detection.
+         * A list of IP addresses or CIDR ranges that will be skipped for threat detection.
          */
         ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -23675,6 +23732,67 @@ export namespace sentinel {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface AutomationRuleActionIncident {
+        /**
+         * The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+         */
+        classification?: pulumi.Input<string>;
+        /**
+         * The comment why the incident is to be closed.
+         */
+        classificationComment?: pulumi.Input<string>;
+        /**
+         * Specifies a list of labels to add to the incident.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The execution order of this action.
+         */
+        order: pulumi.Input<number>;
+        /**
+         * The object ID of the entity this incident is assigned to.
+         */
+        ownerId?: pulumi.Input<string>;
+        /**
+         * The severity to add to the incident.
+         */
+        severity?: pulumi.Input<string>;
+        /**
+         * The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleActionPlaybook {
+        /**
+         * The ID of the Logic App that defines the playbook's logic.
+         */
+        logicAppId: pulumi.Input<string>;
+        /**
+         * The execution order of this action.
+         */
+        order: pulumi.Input<number>;
+        /**
+         * The ID of the Tenant that owns the playbook.
+         */
+        tenantId?: pulumi.Input<string>;
+    }
+
+    export interface AutomationRuleCondition {
+        /**
+         * The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+         */
+        property: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to use for evaluate the condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
 }
 
 export namespace servicebus {
@@ -23998,6 +24116,182 @@ export namespace servicefabric {
     export interface ClusterUpgradePolicyHealthPolicy {
         maxUnhealthyApplicationsPercent?: pulumi.Input<number>;
         maxUnhealthyNodesPercent?: pulumi.Input<number>;
+    }
+
+    export interface ManagedClusterAuthentication {
+        /**
+         * A `activeDirectory` block as defined above.
+         */
+        activeDirectory?: pulumi.Input<inputs.servicefabric.ManagedClusterAuthenticationActiveDirectory>;
+        /**
+         * One or more `certificate` blocks as defined below.
+         */
+        certificates?: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterAuthenticationCertificate>[]>;
+    }
+
+    export interface ManagedClusterAuthenticationActiveDirectory {
+        /**
+         * The ID of the Client Application.
+         */
+        clientApplicationId: pulumi.Input<string>;
+        /**
+         * The ID of the Cluster Application.
+         */
+        clusterApplicationId: pulumi.Input<string>;
+        /**
+         * The ID of the Tenant.
+         */
+        tenantId: pulumi.Input<string>;
+    }
+
+    export interface ManagedClusterAuthenticationCertificate {
+        /**
+         * The certificate's CN.
+         */
+        commonName?: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate.
+         */
+        thumbprint: pulumi.Input<string>;
+        /**
+         * The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ManagedClusterCustomFabricSetting {
+        /**
+         * Parameter name.
+         */
+        parameter: pulumi.Input<string>;
+        /**
+         * Section name.
+         */
+        section: pulumi.Input<string>;
+        /**
+         * Parameter value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ManagedClusterLbRule {
+        /**
+         * LB Backend port.
+         */
+        backendPort: pulumi.Input<number>;
+        /**
+         * LB Frontend port.
+         */
+        frontendPort: pulumi.Input<number>;
+        /**
+         * Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
+         */
+        probeProtocol: pulumi.Input<string>;
+        /**
+         * Path for the probe to check, when probe protocol is set to `http`.
+         */
+        probeRequestPath?: pulumi.Input<string>;
+        /**
+         * The transport protocol used in this rule. Can be one of `tcp` or `udp`.
+         */
+        protocol: pulumi.Input<string>;
+    }
+
+    export interface ManagedClusterNodeType {
+        /**
+         * Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
+         */
+        applicationPortRange: pulumi.Input<string>;
+        /**
+         * Specifies a list of key/value pairs used to set capacity tags for this node type.
+         */
+        capacities?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The size of the data disk in gigabytes..
+         */
+        dataDiskSizeGb: pulumi.Input<number>;
+        /**
+         * The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+         */
+        dataDiskType?: pulumi.Input<string>;
+        /**
+         * Sets the port range available for the OS. Format is `<from_port>-<to_port>`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
+         */
+        ephemeralPortRange: pulumi.Input<string>;
+        /**
+         * The ID of the Resource Group.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * If set the node type can be composed of multiple placement groups.
+         */
+        multiplePlacementGroupsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The name which should be used for this node type.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies a list of placement tags that can be used to indicate where services should run..
+         */
+        placementProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
+         */
+        primary?: pulumi.Input<boolean>;
+        /**
+         * If set to true, only stateless workloads can run on this node type.
+         */
+        stateless?: pulumi.Input<boolean>;
+        /**
+         * The offer type of the marketplace image cluster VMs will use.
+         */
+        vmImageOffer: pulumi.Input<string>;
+        /**
+         * The publisher of the marketplace image cluster VMs will use.
+         */
+        vmImagePublisher: pulumi.Input<string>;
+        /**
+         * The SKU of the marketplace image cluster VMs will use.
+         */
+        vmImageSku: pulumi.Input<string>;
+        /**
+         * The version of the marketplace image cluster VMs will use.
+         */
+        vmImageVersion: pulumi.Input<string>;
+        /**
+         * The number of instances this node type will launch.
+         */
+        vmInstanceCount: pulumi.Input<number>;
+        /**
+         * One or more `vmSecrets` blocks as defined below.
+         */
+        vmSecrets?: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterNodeTypeVmSecret>[]>;
+        /**
+         * The size of the instances in this node type.
+         */
+        vmSize: pulumi.Input<string>;
+    }
+
+    export interface ManagedClusterNodeTypeVmSecret {
+        /**
+         * One or more `certificates` blocks as defined above.
+         */
+        certificates: pulumi.Input<pulumi.Input<inputs.servicefabric.ManagedClusterNodeTypeVmSecretCertificate>[]>;
+        /**
+         * The ID of the Vault that contain the certificates.
+         */
+        vaultId: pulumi.Input<string>;
+    }
+
+    export interface ManagedClusterNodeTypeVmSecretCertificate {
+        /**
+         * The certificate store on the Virtual Machine to which the certificate should be added.
+         */
+        store: pulumi.Input<string>;
+        /**
+         * The URL of a certificate that has been uploaded to Key Vault as a secret
+         */
+        url: pulumi.Input<string>;
     }
 
     export interface MeshApplicationService {

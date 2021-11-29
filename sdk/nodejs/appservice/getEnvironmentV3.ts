@@ -70,7 +70,7 @@ export interface GetEnvironmentV3Result {
      */
     readonly dnsSuffix: string;
     /**
-     * The external outbound IP addresses of the App Service Environment V3.
+     * The external inbound IP addresses of the App Service Environment V3.
      */
     readonly externalInboundIpAddresses: string[];
     /**
@@ -82,7 +82,7 @@ export interface GetEnvironmentV3Result {
      */
     readonly inboundNetworkDependencies: outputs.appservice.GetEnvironmentV3InboundNetworkDependency[];
     /**
-     * The internal outbound IP addresses of the App Service Environment V3.
+     * The internal inbound IP addresses of the App Service Environment V3.
      */
     readonly internalInboundIpAddresses: string[];
     /**

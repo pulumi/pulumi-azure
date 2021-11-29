@@ -40,6 +40,7 @@ from .identity_provider_twitter import *
 from .logger import *
 from .named_value import *
 from .notification_recipient_email import *
+from .notification_recipient_user import *
 from .open_id_connect_provider import *
 from .policy import *
 from .product import *

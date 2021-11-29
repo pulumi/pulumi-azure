@@ -10,6 +10,7 @@ export * from "./alertRuleMachineLearningBehaviorAnalytics";
 export * from "./alertRuleMsSecurityIncident";
 export * from "./alertRuleScheduled";
 export * from "./authomationRule";
+export * from "./automationRule";
 export * from "./dataConnectorAwsCloudTrail";
 export * from "./dataConnectorAzureActiveDirectory";
 export * from "./dataConnectorAzureAdvancedThreadProtection";
@@ -20,6 +21,7 @@ export * from "./dataConnectorOffice365";
 export * from "./dataConnectorThreatIntelligence";
 export * from "./getAlertRule";
 export * from "./getAlertRuleTemplate";
+export * from "./watchlist";
 
 // Import resources to register:
 import { AlertRuleFusion } from "./alertRuleFusion";
@@ -27,6 +29,7 @@ import { AlertRuleMachineLearningBehaviorAnalytics } from "./alertRuleMachineLea
 import { AlertRuleMsSecurityIncident } from "./alertRuleMsSecurityIncident";
 import { AlertRuleScheduled } from "./alertRuleScheduled";
 import { AuthomationRule } from "./authomationRule";
+import { AutomationRule } from "./automationRule";
 import { DataConnectorAwsCloudTrail } from "./dataConnectorAwsCloudTrail";
 import { DataConnectorAzureActiveDirectory } from "./dataConnectorAzureActiveDirectory";
 import { DataConnectorAzureAdvancedThreadProtection } from "./dataConnectorAzureAdvancedThreadProtection";
@@ -35,6 +38,7 @@ import { DataConnectorMicrosoftCloudAppSecurity } from "./dataConnectorMicrosoft
 import { DataConnectorMicrosoftDefenderAdvancedThreatProtection } from "./dataConnectorMicrosoftDefenderAdvancedThreatProtection";
 import { DataConnectorOffice365 } from "./dataConnectorOffice365";
 import { DataConnectorThreatIntelligence } from "./dataConnectorThreatIntelligence";
+import { Watchlist } from "./watchlist";
 
 const _module = {
     version: utilities.getVersion(),
@@ -50,6 +54,8 @@ const _module = {
                 return new AlertRuleScheduled(name, <any>undefined, { urn })
             case "azure:sentinel/authomationRule:AuthomationRule":
                 return new AuthomationRule(name, <any>undefined, { urn })
+            case "azure:sentinel/automationRule:AutomationRule":
+                return new AutomationRule(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail":
                 return new DataConnectorAwsCloudTrail(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory":
@@ -66,6 +72,8 @@ const _module = {
                 return new DataConnectorOffice365(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
                 return new DataConnectorThreatIntelligence(name, <any>undefined, { urn })
+            case "azure:sentinel/watchlist:Watchlist":
+                return new Watchlist(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -76,6 +84,7 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMachineLearnin
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMsSecurityIncident", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleScheduled", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/authomationRule", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/automationRule", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAwsCloudTrail", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAzureActiveDirectory", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAzureAdvancedThreadProtection", _module)
@@ -84,3 +93,4 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftC
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOffice365", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligence", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/watchlist", _module)

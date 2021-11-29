@@ -130,7 +130,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> DnsSuffix { get; private set; } = null!;
 
         /// <summary>
-        /// The external outbound IP addresses of the App Service Environment V3.
+        /// The external inbound IP addresses of the App Service Environment V3.
         /// </summary>
         [Output("externalInboundIpAddresses")]
         public Output<ImmutableArray<string>> ExternalInboundIpAddresses { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.EnvironmentV3InboundNetworkDependency>> InboundNetworkDependencies { get; private set; } = null!;
 
         /// <summary>
-        /// The internal outbound IP addresses of the App Service Environment V3.
+        /// The internal inbound IP addresses of the App Service Environment V3.
         /// </summary>
         [Output("internalInboundIpAddresses")]
         public Output<ImmutableArray<string>> InternalInboundIpAddresses { get; private set; } = null!;
@@ -360,7 +360,7 @@ namespace Pulumi.Azure.AppService
         private InputList<string>? _externalInboundIpAddresses;
 
         /// <summary>
-        /// The external outbound IP addresses of the App Service Environment V3.
+        /// The external inbound IP addresses of the App Service Environment V3.
         /// </summary>
         public InputList<string> ExternalInboundIpAddresses
         {
@@ -384,7 +384,7 @@ namespace Pulumi.Azure.AppService
         private InputList<string>? _internalInboundIpAddresses;
 
         /// <summary>
-        /// The internal outbound IP addresses of the App Service Environment V3.
+        /// The internal inbound IP addresses of the App Service Environment V3.
         /// </summary>
         public InputList<string> InternalInboundIpAddresses
         {

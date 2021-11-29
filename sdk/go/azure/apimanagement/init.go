@@ -77,6 +77,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NamedValue{}
 	case "azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail":
 		r = &NotificationRecipientEmail{}
+	case "azure:apimanagement/notificationRecipientUser:NotificationRecipientUser":
+		r = &NotificationRecipientUser{}
 	case "azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider":
 		r = &OpenIdConnectProvider{}
 	case "azure:apimanagement/policy:Policy":
@@ -252,6 +254,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/notificationRecipientEmail",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/notificationRecipientUser",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

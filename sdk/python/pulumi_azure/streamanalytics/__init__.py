@@ -5,9 +5,11 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .cluster import *
 from .function_java_script_udf import *
 from .get_job import *
 from .job import *
+from .managed_private_endpoint import *
 from .output_blob import *
 from .output_event_hub import *
 from .output_mssql import *

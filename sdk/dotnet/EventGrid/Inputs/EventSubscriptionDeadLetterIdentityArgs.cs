@@ -13,10 +13,13 @@ namespace Pulumi.Azure.EventGrid.Inputs
     public sealed class EventSubscriptionDeadLetterIdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        [Input("userAssignedIdentity")]
+        public Input<string>? UserAssignedIdentity { get; set; }
 
         public EventSubscriptionDeadLetterIdentityArgs()
         {

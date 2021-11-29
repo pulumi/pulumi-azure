@@ -13,6 +13,12 @@ namespace Pulumi.Azure.EventHub.Inputs
     public sealed class EventSubscriptionStorageQueueEndpointGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Storage queue message time to live in seconds.
+        /// </summary>
+        [Input("queueMessageTimeToLiveInSeconds")]
+        public Input<int>? QueueMessageTimeToLiveInSeconds { get; set; }
+
+        /// <summary>
         /// Specifies the name of the storage queue where the Event Subscription will receive events.
         /// </summary>
         [Input("queueName", required: true)]

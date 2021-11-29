@@ -20,10 +20,13 @@ class AccountArgs:
                  offer_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
+                 analytical_storage: Optional[pulumi.Input['AccountAnalyticalStorageArgs']] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
                  backup: Optional[pulumi.Input['AccountBackupArgs']] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
+                 capacity: Optional[pulumi.Input['AccountCapacityArgs']] = None,
                  cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
+                 default_identity_type: Optional[pulumi.Input[str]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
@@ -48,10 +51,13 @@ class AccountArgs:
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+        :param pulumi.Input['AccountAnalyticalStorageArgs'] analytical_storage: An `analytical_storage` block as defined below.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['AccountCapacityArgs'] capacity: A `capacity` block as defined below.
         :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
+        :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
@@ -76,14 +82,20 @@ class AccountArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if access_key_metadata_writes_enabled is not None:
             pulumi.set(__self__, "access_key_metadata_writes_enabled", access_key_metadata_writes_enabled)
+        if analytical_storage is not None:
+            pulumi.set(__self__, "analytical_storage", analytical_storage)
         if analytical_storage_enabled is not None:
             pulumi.set(__self__, "analytical_storage_enabled", analytical_storage_enabled)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
         if cors_rule is not None:
             pulumi.set(__self__, "cors_rule", cors_rule)
+        if default_identity_type is not None:
+            pulumi.set(__self__, "default_identity_type", default_identity_type)
         if enable_automatic_failover is not None:
             pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
         if enable_free_tier is not None:
@@ -180,6 +192,18 @@ class AccountArgs:
         pulumi.set(self, "access_key_metadata_writes_enabled", value)
 
     @property
+    @pulumi.getter(name="analyticalStorage")
+    def analytical_storage(self) -> Optional[pulumi.Input['AccountAnalyticalStorageArgs']]:
+        """
+        An `analytical_storage` block as defined below.
+        """
+        return pulumi.get(self, "analytical_storage")
+
+    @analytical_storage.setter
+    def analytical_storage(self, value: Optional[pulumi.Input['AccountAnalyticalStorageArgs']]):
+        pulumi.set(self, "analytical_storage", value)
+
+    @property
     @pulumi.getter(name="analyticalStorageEnabled")
     def analytical_storage_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -216,6 +240,18 @@ class AccountArgs:
         pulumi.set(self, "capabilities", value)
 
     @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input['AccountCapacityArgs']]:
+        """
+        A `capacity` block as defined below.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input['AccountCapacityArgs']]):
+        pulumi.set(self, "capacity", value)
+
+    @property
     @pulumi.getter(name="corsRule")
     def cors_rule(self) -> Optional[pulumi.Input['AccountCorsRuleArgs']]:
         """
@@ -226,6 +262,18 @@ class AccountArgs:
     @cors_rule.setter
     def cors_rule(self, value: Optional[pulumi.Input['AccountCorsRuleArgs']]):
         pulumi.set(self, "cors_rule", value)
+
+    @property
+    @pulumi.getter(name="defaultIdentityType")
+    def default_identity_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+        """
+        return pulumi.get(self, "default_identity_type")
+
+    @default_identity_type.setter
+    def default_identity_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_identity_type", value)
 
     @property
     @pulumi.getter(name="enableAutomaticFailover")
@@ -436,12 +484,15 @@ class AccountArgs:
 class _AccountState:
     def __init__(__self__, *,
                  access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
+                 analytical_storage: Optional[pulumi.Input['AccountAnalyticalStorageArgs']] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
                  backup: Optional[pulumi.Input['AccountBackupArgs']] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
+                 capacity: Optional[pulumi.Input['AccountCapacityArgs']] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  consistency_policy: Optional[pulumi.Input['AccountConsistencyPolicyArgs']] = None,
                  cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
+                 default_identity_type: Optional[pulumi.Input[str]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
@@ -476,12 +527,15 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+        :param pulumi.Input['AccountAnalyticalStorageArgs'] analytical_storage: An `analytical_storage` block as defined below.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['AccountCapacityArgs'] capacity: A `capacity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
+        :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
@@ -512,18 +566,24 @@ class _AccountState:
         """
         if access_key_metadata_writes_enabled is not None:
             pulumi.set(__self__, "access_key_metadata_writes_enabled", access_key_metadata_writes_enabled)
+        if analytical_storage is not None:
+            pulumi.set(__self__, "analytical_storage", analytical_storage)
         if analytical_storage_enabled is not None:
             pulumi.set(__self__, "analytical_storage_enabled", analytical_storage_enabled)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
         if connection_strings is not None:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if consistency_policy is not None:
             pulumi.set(__self__, "consistency_policy", consistency_policy)
         if cors_rule is not None:
             pulumi.set(__self__, "cors_rule", cors_rule)
+        if default_identity_type is not None:
+            pulumi.set(__self__, "default_identity_type", default_identity_type)
         if enable_automatic_failover is not None:
             pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
         if enable_free_tier is not None:
@@ -612,6 +672,18 @@ class _AccountState:
         pulumi.set(self, "access_key_metadata_writes_enabled", value)
 
     @property
+    @pulumi.getter(name="analyticalStorage")
+    def analytical_storage(self) -> Optional[pulumi.Input['AccountAnalyticalStorageArgs']]:
+        """
+        An `analytical_storage` block as defined below.
+        """
+        return pulumi.get(self, "analytical_storage")
+
+    @analytical_storage.setter
+    def analytical_storage(self, value: Optional[pulumi.Input['AccountAnalyticalStorageArgs']]):
+        pulumi.set(self, "analytical_storage", value)
+
+    @property
     @pulumi.getter(name="analyticalStorageEnabled")
     def analytical_storage_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -648,6 +720,18 @@ class _AccountState:
         pulumi.set(self, "capabilities", value)
 
     @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input['AccountCapacityArgs']]:
+        """
+        A `capacity` block as defined below.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input['AccountCapacityArgs']]):
+        pulumi.set(self, "capacity", value)
+
+    @property
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -682,6 +766,18 @@ class _AccountState:
     @cors_rule.setter
     def cors_rule(self, value: Optional[pulumi.Input['AccountCorsRuleArgs']]):
         pulumi.set(self, "cors_rule", value)
+
+    @property
+    @pulumi.getter(name="defaultIdentityType")
+    def default_identity_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+        """
+        return pulumi.get(self, "default_identity_type")
+
+    @default_identity_type.setter
+    def default_identity_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_identity_type", value)
 
     @property
     @pulumi.getter(name="enableAutomaticFailover")
@@ -1050,11 +1146,14 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
+                 analytical_storage: Optional[pulumi.Input[pulumi.InputType['AccountAnalyticalStorageArgs']]] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['AccountBackupArgs']]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
+                 capacity: Optional[pulumi.Input[pulumi.InputType['AccountCapacityArgs']]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
                  cors_rule: Optional[pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']]] = None,
+                 default_identity_type: Optional[pulumi.Input[str]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
@@ -1138,11 +1237,14 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+        :param pulumi.Input[pulumi.InputType['AccountAnalyticalStorageArgs']] analytical_storage: An `analytical_storage` block as defined below.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['AccountCapacityArgs']] capacity: A `capacity` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
+        :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
@@ -1245,11 +1347,14 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
+                 analytical_storage: Optional[pulumi.Input[pulumi.InputType['AccountAnalyticalStorageArgs']]] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['AccountBackupArgs']]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
+                 capacity: Optional[pulumi.Input[pulumi.InputType['AccountCapacityArgs']]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
                  cors_rule: Optional[pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']]] = None,
+                 default_identity_type: Optional[pulumi.Input[str]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
@@ -1283,13 +1388,16 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["access_key_metadata_writes_enabled"] = access_key_metadata_writes_enabled
+            __props__.__dict__["analytical_storage"] = analytical_storage
             __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
             __props__.__dict__["backup"] = backup
             __props__.__dict__["capabilities"] = capabilities
+            __props__.__dict__["capacity"] = capacity
             if consistency_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'consistency_policy'")
             __props__.__dict__["consistency_policy"] = consistency_policy
             __props__.__dict__["cors_rule"] = cors_rule
+            __props__.__dict__["default_identity_type"] = default_identity_type
             __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
             __props__.__dict__["enable_free_tier"] = enable_free_tier
             __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
@@ -1339,12 +1447,15 @@ class Account(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
+            analytical_storage: Optional[pulumi.Input[pulumi.InputType['AccountAnalyticalStorageArgs']]] = None,
             analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
             backup: Optional[pulumi.Input[pulumi.InputType['AccountBackupArgs']]] = None,
             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
+            capacity: Optional[pulumi.Input[pulumi.InputType['AccountCapacityArgs']]] = None,
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
             cors_rule: Optional[pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']]] = None,
+            default_identity_type: Optional[pulumi.Input[str]] = None,
             enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
             enable_free_tier: Optional[pulumi.Input[bool]] = None,
             enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
@@ -1384,12 +1495,15 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+        :param pulumi.Input[pulumi.InputType['AccountAnalyticalStorageArgs']] analytical_storage: An `analytical_storage` block as defined below.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['AccountCapacityArgs']] capacity: A `capacity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
+        :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
@@ -1423,12 +1537,15 @@ class Account(pulumi.CustomResource):
         __props__ = _AccountState.__new__(_AccountState)
 
         __props__.__dict__["access_key_metadata_writes_enabled"] = access_key_metadata_writes_enabled
+        __props__.__dict__["analytical_storage"] = analytical_storage
         __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
         __props__.__dict__["backup"] = backup
         __props__.__dict__["capabilities"] = capabilities
+        __props__.__dict__["capacity"] = capacity
         __props__.__dict__["connection_strings"] = connection_strings
         __props__.__dict__["consistency_policy"] = consistency_policy
         __props__.__dict__["cors_rule"] = cors_rule
+        __props__.__dict__["default_identity_type"] = default_identity_type
         __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
         __props__.__dict__["enable_free_tier"] = enable_free_tier
         __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
@@ -1471,6 +1588,14 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "access_key_metadata_writes_enabled")
 
     @property
+    @pulumi.getter(name="analyticalStorage")
+    def analytical_storage(self) -> pulumi.Output['outputs.AccountAnalyticalStorage']:
+        """
+        An `analytical_storage` block as defined below.
+        """
+        return pulumi.get(self, "analytical_storage")
+
+    @property
     @pulumi.getter(name="analyticalStorageEnabled")
     def analytical_storage_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1495,6 +1620,14 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "capabilities")
 
     @property
+    @pulumi.getter
+    def capacity(self) -> pulumi.Output[Optional['outputs.AccountCapacity']]:
+        """
+        A `capacity` block as defined below.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> pulumi.Output[Sequence[str]]:
         """
@@ -1517,6 +1650,14 @@ class Account(pulumi.CustomResource):
         A `cors_rule` block as defined below.
         """
         return pulumi.get(self, "cors_rule")
+
+    @property
+    @pulumi.getter(name="defaultIdentityType")
+    def default_identity_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+        """
+        return pulumi.get(self, "default_identity_type")
 
     @property
     @pulumi.getter(name="enableAutomaticFailover")

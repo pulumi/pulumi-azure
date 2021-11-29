@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:servicefabric/cluster:Cluster":
 		r = &Cluster{}
+	case "azure:servicefabric/managedCluster:ManagedCluster":
+		r = &ManagedCluster{}
 	case "azure:servicefabric/meshApplication:MeshApplication":
 		r = &MeshApplication{}
 	case "azure:servicefabric/meshLocalNetwork:MeshLocalNetwork":
@@ -47,6 +49,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"servicefabric/cluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"servicefabric/managedCluster",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

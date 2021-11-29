@@ -63,13 +63,13 @@ type LookupEnvironmentV3Result struct {
 	DedicatedHostCount int `pulumi:"dedicatedHostCount"`
 	// the DNS suffix for this App Service Environment V3.
 	DnsSuffix string `pulumi:"dnsSuffix"`
-	// The external outbound IP addresses of the App Service Environment V3.
+	// The external inbound IP addresses of the App Service Environment V3.
 	ExternalInboundIpAddresses []string `pulumi:"externalInboundIpAddresses"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An Inbound Network Dependencies block as defined below.
 	InboundNetworkDependencies []GetEnvironmentV3InboundNetworkDependency `pulumi:"inboundNetworkDependencies"`
-	// The internal outbound IP addresses of the App Service Environment V3.
+	// The internal inbound IP addresses of the App Service Environment V3.
 	InternalInboundIpAddresses []string `pulumi:"internalInboundIpAddresses"`
 	// The Internal Load Balancing Mode of this ASEv3.
 	InternalLoadBalancingMode string `pulumi:"internalLoadBalancingMode"`
@@ -149,7 +149,7 @@ func (o LookupEnvironmentV3ResultOutput) DnsSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentV3Result) string { return v.DnsSuffix }).(pulumi.StringOutput)
 }
 
-// The external outbound IP addresses of the App Service Environment V3.
+// The external inbound IP addresses of the App Service Environment V3.
 func (o LookupEnvironmentV3ResultOutput) ExternalInboundIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupEnvironmentV3Result) []string { return v.ExternalInboundIpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -166,7 +166,7 @@ func (o LookupEnvironmentV3ResultOutput) InboundNetworkDependencies() GetEnviron
 	}).(GetEnvironmentV3InboundNetworkDependencyArrayOutput)
 }
 
-// The internal outbound IP addresses of the App Service Environment V3.
+// The internal inbound IP addresses of the App Service Environment V3.
 func (o LookupEnvironmentV3ResultOutput) InternalInboundIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupEnvironmentV3Result) []string { return v.InternalInboundIpAddresses }).(pulumi.StringArrayOutput)
 }

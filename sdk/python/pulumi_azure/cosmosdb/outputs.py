@@ -10,8 +10,10 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AccountAnalyticalStorage',
     'AccountBackup',
     'AccountCapability',
+    'AccountCapacity',
     'AccountConsistencyPolicy',
     'AccountCorsRule',
     'AccountGeoLocation',
@@ -53,6 +55,41 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class AccountAnalyticalStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "schemaType":
+            suggest = "schema_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountAnalyticalStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountAnalyticalStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountAnalyticalStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schema_type: str):
+        """
+        :param str schema_type: The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
+        """
+        pulumi.set(__self__, "schema_type", schema_type)
+
+    @property
+    @pulumi.getter(name="schemaType")
+    def schema_type(self) -> str:
+        """
+        The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
+        """
+        return pulumi.get(self, "schema_type")
+
+
+@pulumi.output_type
 class AccountBackup(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -61,6 +98,8 @@ class AccountBackup(dict):
             suggest = "interval_in_minutes"
         elif key == "retentionInHours":
             suggest = "retention_in_hours"
+        elif key == "storageRedundancy":
+            suggest = "storage_redundancy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AccountBackup. Access the value via the '{suggest}' property getter instead.")
@@ -76,17 +115,21 @@ class AccountBackup(dict):
     def __init__(__self__, *,
                  type: str,
                  interval_in_minutes: Optional[int] = None,
-                 retention_in_hours: Optional[int] = None):
+                 retention_in_hours: Optional[int] = None,
+                 storage_redundancy: Optional[str] = None):
         """
         :param str type: The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
         :param int interval_in_minutes: The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
         :param int retention_in_hours: The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+        :param str storage_redundancy: The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
         """
         pulumi.set(__self__, "type", type)
         if interval_in_minutes is not None:
             pulumi.set(__self__, "interval_in_minutes", interval_in_minutes)
         if retention_in_hours is not None:
             pulumi.set(__self__, "retention_in_hours", retention_in_hours)
+        if storage_redundancy is not None:
+            pulumi.set(__self__, "storage_redundancy", storage_redundancy)
 
     @property
     @pulumi.getter
@@ -112,6 +155,14 @@ class AccountBackup(dict):
         """
         return pulumi.get(self, "retention_in_hours")
 
+    @property
+    @pulumi.getter(name="storageRedundancy")
+    def storage_redundancy(self) -> Optional[str]:
+        """
+        The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+        """
+        return pulumi.get(self, "storage_redundancy")
+
 
 @pulumi.output_type
 class AccountCapability(dict):
@@ -129,6 +180,41 @@ class AccountCapability(dict):
         Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AccountCapacity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "totalThroughputLimit":
+            suggest = "total_throughput_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountCapacity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountCapacity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountCapacity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 total_throughput_limit: int):
+        """
+        :param int total_throughput_limit: The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
+        """
+        pulumi.set(__self__, "total_throughput_limit", total_throughput_limit)
+
+    @property
+    @pulumi.getter(name="totalThroughputLimit")
+    def total_throughput_limit(self) -> int:
+        """
+        The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
+        """
+        return pulumi.get(self, "total_throughput_limit")
 
 
 @pulumi.output_type

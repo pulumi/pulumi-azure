@@ -66,6 +66,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("imageGcLowThreshold")]
         public Input<int>? ImageGcLowThreshold { get; set; }
 
+        /// <summary>
+        /// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("podMaxPid")]
         public Input<int>? PodMaxPid { get; set; }
 

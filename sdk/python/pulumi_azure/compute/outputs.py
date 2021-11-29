@@ -52,6 +52,7 @@ __all__ = [
     'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair',
     'OrchestratedVirtualMachineScaleSetBootDiagnostics',
     'OrchestratedVirtualMachineScaleSetDataDisk',
+    'OrchestratedVirtualMachineScaleSetExtension',
     'OrchestratedVirtualMachineScaleSetIdentity',
     'OrchestratedVirtualMachineScaleSetNetworkInterface',
     'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration',
@@ -2662,6 +2663,114 @@ class OrchestratedVirtualMachineScaleSetDataDisk(dict):
     @pulumi.getter(name="writeAcceleratorEnabled")
     def write_accelerator_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "write_accelerator_enabled")
+
+
+@pulumi.output_type
+class OrchestratedVirtualMachineScaleSetExtension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeHandlerVersion":
+            suggest = "type_handler_version"
+        elif key == "autoUpgradeMinorVersionEnabled":
+            suggest = "auto_upgrade_minor_version_enabled"
+        elif key == "extensionsToProvisionAfterVmCreations":
+            suggest = "extensions_to_provision_after_vm_creations"
+        elif key == "forceExtensionExecutionOnChange":
+            suggest = "force_extension_execution_on_change"
+        elif key == "protectedSettings":
+            suggest = "protected_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrchestratedVirtualMachineScaleSetExtension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrchestratedVirtualMachineScaleSetExtension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrchestratedVirtualMachineScaleSetExtension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 publisher: str,
+                 type: str,
+                 type_handler_version: str,
+                 auto_upgrade_minor_version_enabled: Optional[bool] = None,
+                 extensions_to_provision_after_vm_creations: Optional[Sequence[str]] = None,
+                 force_extension_execution_on_change: Optional[str] = None,
+                 protected_settings: Optional[str] = None,
+                 settings: Optional[str] = None):
+        """
+        :param str name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param Sequence[str] extensions_to_provision_after_vm_creations: An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type_handler_version", type_handler_version)
+        if auto_upgrade_minor_version_enabled is not None:
+            pulumi.set(__self__, "auto_upgrade_minor_version_enabled", auto_upgrade_minor_version_enabled)
+        if extensions_to_provision_after_vm_creations is not None:
+            pulumi.set(__self__, "extensions_to_provision_after_vm_creations", extensions_to_provision_after_vm_creations)
+        if force_extension_execution_on_change is not None:
+            pulumi.set(__self__, "force_extension_execution_on_change", force_extension_execution_on_change)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> str:
+        return pulumi.get(self, "type_handler_version")
+
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersionEnabled")
+    def auto_upgrade_minor_version_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "auto_upgrade_minor_version_enabled")
+
+    @property
+    @pulumi.getter(name="extensionsToProvisionAfterVmCreations")
+    def extensions_to_provision_after_vm_creations(self) -> Optional[Sequence[str]]:
+        """
+        An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+        """
+        return pulumi.get(self, "extensions_to_provision_after_vm_creations")
+
+    @property
+    @pulumi.getter(name="forceExtensionExecutionOnChange")
+    def force_extension_execution_on_change(self) -> Optional[str]:
+        return pulumi.get(self, "force_extension_execution_on_change")
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[str]:
+        return pulumi.get(self, "protected_settings")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[str]:
+        return pulumi.get(self, "settings")
 
 
 @pulumi.output_type

@@ -4003,6 +4003,7 @@ class KubernetesClusterNodePoolKubeletConfig(dict):
         :param str cpu_manager_policy: Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
         :param int image_gc_high_threshold: Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
         :param int image_gc_low_threshold: Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        :param int pod_max_pid: Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
         :param str topology_manager_policy: Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
         """
         if allowed_unsafe_sysctls is not None:
@@ -4093,6 +4094,9 @@ class KubernetesClusterNodePoolKubeletConfig(dict):
     @property
     @pulumi.getter(name="podMaxPid")
     def pod_max_pid(self) -> Optional[int]:
+        """
+        Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "pod_max_pid")
 
     @property

@@ -5658,7 +5658,7 @@ class FirewallPolicyThreatIntelligenceAllowlist(dict):
                  ip_addresses: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] fqdns: A list of FQDNs that will be skipped for threat detection.
-        :param Sequence[str] ip_addresses: A list of IP addresses or IP address ranges that will be skipped for threat detection.
+        :param Sequence[str] ip_addresses: A list of IP addresses or CIDR ranges that will be skipped for threat detection.
         """
         if fqdns is not None:
             pulumi.set(__self__, "fqdns", fqdns)
@@ -5677,7 +5677,7 @@ class FirewallPolicyThreatIntelligenceAllowlist(dict):
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[Sequence[str]]:
         """
-        A list of IP addresses or IP address ranges that will be skipped for threat detection.
+        A list of IP addresses or CIDR ranges that will be skipped for threat detection.
         """
         return pulumi.get(self, "ip_addresses")
 

@@ -9,8 +9,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccountAnalyticalStorageArgs',
     'AccountBackupArgs',
     'AccountCapabilityArgs',
+    'AccountCapacityArgs',
     'AccountConsistencyPolicyArgs',
     'AccountCorsRuleArgs',
     'AccountGeoLocationArgs',
@@ -48,21 +50,47 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class AccountAnalyticalStorageArgs:
+    def __init__(__self__, *,
+                 schema_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] schema_type: The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
+        """
+        pulumi.set(__self__, "schema_type", schema_type)
+
+    @property
+    @pulumi.getter(name="schemaType")
+    def schema_type(self) -> pulumi.Input[str]:
+        """
+        The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
+        """
+        return pulumi.get(self, "schema_type")
+
+    @schema_type.setter
+    def schema_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schema_type", value)
+
+
+@pulumi.input_type
 class AccountBackupArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  interval_in_minutes: Optional[pulumi.Input[int]] = None,
-                 retention_in_hours: Optional[pulumi.Input[int]] = None):
+                 retention_in_hours: Optional[pulumi.Input[int]] = None,
+                 storage_redundancy: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
         :param pulumi.Input[int] interval_in_minutes: The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
         :param pulumi.Input[int] retention_in_hours: The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+        :param pulumi.Input[str] storage_redundancy: The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
         """
         pulumi.set(__self__, "type", type)
         if interval_in_minutes is not None:
             pulumi.set(__self__, "interval_in_minutes", interval_in_minutes)
         if retention_in_hours is not None:
             pulumi.set(__self__, "retention_in_hours", retention_in_hours)
+        if storage_redundancy is not None:
+            pulumi.set(__self__, "storage_redundancy", storage_redundancy)
 
     @property
     @pulumi.getter
@@ -100,6 +128,18 @@ class AccountBackupArgs:
     def retention_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_in_hours", value)
 
+    @property
+    @pulumi.getter(name="storageRedundancy")
+    def storage_redundancy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+        """
+        return pulumi.get(self, "storage_redundancy")
+
+    @storage_redundancy.setter
+    def storage_redundancy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_redundancy", value)
+
 
 @pulumi.input_type
 class AccountCapabilityArgs:
@@ -121,6 +161,28 @@ class AccountCapabilityArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class AccountCapacityArgs:
+    def __init__(__self__, *,
+                 total_throughput_limit: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] total_throughput_limit: The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
+        """
+        pulumi.set(__self__, "total_throughput_limit", total_throughput_limit)
+
+    @property
+    @pulumi.getter(name="totalThroughputLimit")
+    def total_throughput_limit(self) -> pulumi.Input[int]:
+        """
+        The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
+        """
+        return pulumi.get(self, "total_throughput_limit")
+
+    @total_throughput_limit.setter
+    def total_throughput_limit(self, value: pulumi.Input[int]):
+        pulumi.set(self, "total_throughput_limit", value)
 
 
 @pulumi.input_type
