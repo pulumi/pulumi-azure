@@ -17,6 +17,7 @@ class SubscriptionArgs:
                  alias: Optional[pulumi.Input[str]] = None,
                  billing_scope_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workload: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Subscription resource.
@@ -24,6 +25,7 @@ class SubscriptionArgs:
         :param pulumi.Input[str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] billing_scope_id: The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Subscription.
         :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
         pulumi.set(__self__, "subscription_name", subscription_name)
@@ -33,6 +35,8 @@ class SubscriptionArgs:
             pulumi.set(__self__, "billing_scope_id", billing_scope_id)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if workload is not None:
             pulumi.set(__self__, "workload", workload)
 
@@ -86,6 +90,18 @@ class SubscriptionArgs:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the Subscription.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def workload(self) -> Optional[pulumi.Input[str]]:
         """
         The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
@@ -113,6 +129,7 @@ class _SubscriptionState:
         :param pulumi.Input[str] billing_scope_id: The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Subscription.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant to which the subscription belongs.
         :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
@@ -182,6 +199,9 @@ class _SubscriptionState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the Subscription.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -222,6 +242,7 @@ class Subscription(pulumi.CustomResource):
                  billing_scope_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workload: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -299,6 +320,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] billing_scope_id: The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Subscription.
         :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
         ...
@@ -395,6 +417,7 @@ class Subscription(pulumi.CustomResource):
                  billing_scope_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workload: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -414,8 +437,8 @@ class Subscription(pulumi.CustomResource):
             if subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subscription_name'")
             __props__.__dict__["subscription_name"] = subscription_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["workload"] = workload
-            __props__.__dict__["tags"] = None
             __props__.__dict__["tenant_id"] = None
         super(Subscription, __self__).__init__(
             'azure:core/subscription:Subscription',
@@ -445,6 +468,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] billing_scope_id: The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Subscription.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant to which the subscription belongs.
         :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
@@ -495,7 +519,10 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags to assign to the Subscription.
+        """
         return pulumi.get(self, "tags")
 
     @property

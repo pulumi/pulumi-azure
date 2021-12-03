@@ -989,16 +989,18 @@ class GroupDiagnosticsLogAnalyticsArgs:
 class GroupDnsConfigArgs:
     def __init__(__self__, *,
                  nameservers: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 options: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 search_domains: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 search_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] nameservers: A list of nameservers the containers will search out to resolve requests.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] options: A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] search_domains: A list of search domains that DNS requests will search along.
         """
         pulumi.set(__self__, "nameservers", nameservers)
-        pulumi.set(__self__, "options", options)
-        pulumi.set(__self__, "search_domains", search_domains)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if search_domains is not None:
+            pulumi.set(__self__, "search_domains", search_domains)
 
     @property
     @pulumi.getter
@@ -1014,26 +1016,26 @@ class GroupDnsConfigArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "options", value)
 
     @property
     @pulumi.getter(name="searchDomains")
-    def search_domains(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def search_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of search domains that DNS requests will search along.
         """
         return pulumi.get(self, "search_domains")
 
     @search_domains.setter
-    def search_domains(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def search_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "search_domains", value)
 
 

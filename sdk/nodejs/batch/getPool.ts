@@ -31,10 +31,8 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
     }
     return pulumi.runtime.invoke("azure:batch/getPool:getPool", {
         "accountName": args.accountName,
-        "certificates": args.certificates,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "startTask": args.startTask,
     }, opts);
 }
 
@@ -47,18 +45,10 @@ export interface GetPoolArgs {
      */
     accountName: string;
     /**
-     * One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
-     */
-    certificates?: inputs.batch.GetPoolCertificate[];
-    /**
      * The name of the endpoint.
      */
     name: string;
     resourceGroupName: string;
-    /**
-     * A `startTask` block that describes the start task settings for the Batch pool.
-     */
-    startTask?: inputs.batch.GetPoolStartTask;
 }
 
 /**
@@ -76,7 +66,7 @@ export interface GetPoolResult {
     /**
      * One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
      */
-    readonly certificates?: outputs.batch.GetPoolCertificate[];
+    readonly certificates: outputs.batch.GetPoolCertificate[];
     /**
      * The container configuration used in the pool's VMs.
      */
@@ -108,7 +98,7 @@ export interface GetPoolResult {
     /**
      * A `startTask` block that describes the start task settings for the Batch pool.
      */
-    readonly startTask?: outputs.batch.GetPoolStartTask;
+    readonly startTasks: outputs.batch.GetPoolStartTask[];
     /**
      * The reference of the storage image used by the nodes in the Batch pool.
      */
@@ -132,16 +122,8 @@ export interface GetPoolOutputArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
-     */
-    certificates?: pulumi.Input<pulumi.Input<inputs.batch.GetPoolCertificateArgs>[]>;
-    /**
      * The name of the endpoint.
      */
     name: pulumi.Input<string>;
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * A `startTask` block that describes the start task settings for the Batch pool.
-     */
-    startTask?: pulumi.Input<inputs.batch.GetPoolStartTaskArgs>;
 }

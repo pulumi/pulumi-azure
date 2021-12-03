@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleSqlPoolExtendedAuditingPolicy = new azure.synapse.SqlPoolExtendedAuditingPolicy("exampleSqlPoolExtendedAuditingPolicy", {
- *     serverId: exampleSqlPool.id,
+ *     sqlPoolId: exampleSqlPool.id,
  *     storageEndpoint: auditLogs.primaryBlobEndpoint,
  *     storageAccountAccessKey: auditLogs.primaryAccessKey,
  *     storageAccountAccessKeyIsSecondary: false,

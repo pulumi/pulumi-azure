@@ -111,6 +111,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// </summary>
+        [Output("sku")]
+        public Output<string?> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -186,6 +192,12 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -234,6 +246,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

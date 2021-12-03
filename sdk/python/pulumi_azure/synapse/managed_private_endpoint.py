@@ -162,7 +162,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Allows you to Manages a Synapse Managed Private Endpoint.
+        Manages a Synapse Managed Private Endpoint.
 
         ## Example Usage
 
@@ -225,7 +225,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                  args: ManagedPrivateEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Allows you to Manages a Synapse Managed Private Endpoint.
+        Manages a Synapse Managed Private Endpoint.
 
         ## Example Usage
 

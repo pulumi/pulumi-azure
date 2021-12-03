@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MachineLearning
 {
     /// <summary>
-    /// Manages a Machine Learning Synapse Spark.
+    /// Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
     /// 
     /// ## Example Usage
     /// 

@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
             set => _nameservers = value;
         }
 
-        [Input("options", required: true)]
+        [Input("options")]
         private InputList<string>? _options;
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
             set => _options = value;
         }
 
-        [Input("searchDomains", required: true)]
+        [Input("searchDomains")]
         private InputList<string>? _searchDomains;
 
         /// <summary>

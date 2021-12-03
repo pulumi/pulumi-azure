@@ -20,6 +20,10 @@ namespace Pulumi.Azure.Batch.Outputs
         /// <summary>
         /// A map of strings (key,value) that represents the environment variables to set in the start task.
         /// </summary>
+        public readonly ImmutableDictionary<string, string>? CommonEnvironmentProperties;
+        /// <summary>
+        /// A map of strings (key,value) that represents the environment variables to set in the start task.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Environment;
         /// <summary>
         /// The number of retry count. Defaults to `1`.
@@ -29,6 +33,10 @@ namespace Pulumi.Azure.Batch.Outputs
         /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolStartTaskResourceFile> ResourceFiles;
+        /// <summary>
+        /// The number of retry count. Defaults to `1`.
+        /// </summary>
+        public readonly int? TaskRetryMaximum;
         /// <summary>
         /// A `user_identity` block that describes the user identity under which the start task runs.
         /// </summary>
@@ -42,20 +50,26 @@ namespace Pulumi.Azure.Batch.Outputs
         private PoolStartTask(
             string commandLine,
 
+            ImmutableDictionary<string, string>? commonEnvironmentProperties,
+
             ImmutableDictionary<string, string>? environment,
 
             int? maxTaskRetryCount,
 
             ImmutableArray<Outputs.PoolStartTaskResourceFile> resourceFiles,
 
+            int? taskRetryMaximum,
+
             Outputs.PoolStartTaskUserIdentity userIdentity,
 
             bool? waitForSuccess)
         {
             CommandLine = commandLine;
+            CommonEnvironmentProperties = commonEnvironmentProperties;
             Environment = environment;
             MaxTaskRetryCount = maxTaskRetryCount;
             ResourceFiles = resourceFiles;
+            TaskRetryMaximum = taskRetryMaximum;
             UserIdentity = userIdentity;
             WaitForSuccess = waitForSuccess;
         }

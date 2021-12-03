@@ -7453,6 +7453,8 @@ class PointToPointVpnGatewayConnectionConfiguration(dict):
         suggest = None
         if key == "vpnClientAddressPool":
             suggest = "vpn_client_address_pool"
+        elif key == "internetSecurityEnabled":
+            suggest = "internet_security_enabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PointToPointVpnGatewayConnectionConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -7468,14 +7470,18 @@ class PointToPointVpnGatewayConnectionConfiguration(dict):
     def __init__(__self__, *,
                  name: str,
                  vpn_client_address_pool: 'outputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool',
+                 internet_security_enabled: Optional[bool] = None,
                  route: Optional['outputs.PointToPointVpnGatewayConnectionConfigurationRoute'] = None):
         """
         :param str name: The Name which should be used for this Connection Configuration.
         :param 'PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs' vpn_client_address_pool: A `vpn_client_address_pool` block as defined below.
+        :param bool internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
         :param 'PointToPointVpnGatewayConnectionConfigurationRouteArgs' route: A `route` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vpn_client_address_pool", vpn_client_address_pool)
+        if internet_security_enabled is not None:
+            pulumi.set(__self__, "internet_security_enabled", internet_security_enabled)
         if route is not None:
             pulumi.set(__self__, "route", route)
 
@@ -7494,6 +7500,14 @@ class PointToPointVpnGatewayConnectionConfiguration(dict):
         A `vpn_client_address_pool` block as defined below.
         """
         return pulumi.get(self, "vpn_client_address_pool")
+
+    @property
+    @pulumi.getter(name="internetSecurityEnabled")
+    def internet_security_enabled(self) -> Optional[bool]:
+        """
+        Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+        """
+        return pulumi.get(self, "internet_security_enabled")
 
     @property
     @pulumi.getter

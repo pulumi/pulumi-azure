@@ -12,9 +12,15 @@ namespace Pulumi.Azure.AppService.Inputs
 
     public sealed class FunctionAppSlotAuthSettingsTwitterGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        /// </summary>
         [Input("consumerKey", required: true)]
         public Input<string> ConsumerKey { get; set; } = null!;
 
+        /// <summary>
+        /// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        /// </summary>
         [Input("consumerSecret", required: true)]
         public Input<string> ConsumerSecret { get; set; } = null!;
 

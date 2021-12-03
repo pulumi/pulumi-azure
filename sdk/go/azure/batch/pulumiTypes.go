@@ -1715,11 +1715,19 @@ type PoolStartTask struct {
 	// The command line executed by the start task.
 	CommandLine string `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
+	CommonEnvironmentProperties map[string]string `pulumi:"commonEnvironmentProperties"`
+	// A map of strings (key,value) that represents the environment variables to set in the start task.
+	//
+	// Deprecated: Deprecated in favour of `common_environment_properties`
 	Environment map[string]string `pulumi:"environment"`
 	// The number of retry count. Defaults to `1`.
+	//
+	// Deprecated: Deprecated in favour of `task_retry_maximum`
 	MaxTaskRetryCount *int `pulumi:"maxTaskRetryCount"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles []PoolStartTaskResourceFile `pulumi:"resourceFiles"`
+	// The number of retry count. Defaults to `1`.
+	TaskRetryMaximum *int `pulumi:"taskRetryMaximum"`
 	// A `userIdentity` block that describes the user identity under which the start task runs.
 	UserIdentity PoolStartTaskUserIdentity `pulumi:"userIdentity"`
 	// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
@@ -1741,11 +1749,19 @@ type PoolStartTaskArgs struct {
 	// The command line executed by the start task.
 	CommandLine pulumi.StringInput `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
+	CommonEnvironmentProperties pulumi.StringMapInput `pulumi:"commonEnvironmentProperties"`
+	// A map of strings (key,value) that represents the environment variables to set in the start task.
+	//
+	// Deprecated: Deprecated in favour of `common_environment_properties`
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The number of retry count. Defaults to `1`.
+	//
+	// Deprecated: Deprecated in favour of `task_retry_maximum`
 	MaxTaskRetryCount pulumi.IntPtrInput `pulumi:"maxTaskRetryCount"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles PoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
+	// The number of retry count. Defaults to `1`.
+	TaskRetryMaximum pulumi.IntPtrInput `pulumi:"taskRetryMaximum"`
 	// A `userIdentity` block that describes the user identity under which the start task runs.
 	UserIdentity PoolStartTaskUserIdentityInput `pulumi:"userIdentity"`
 	// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
@@ -1835,11 +1851,20 @@ func (o PoolStartTaskOutput) CommandLine() pulumi.StringOutput {
 }
 
 // A map of strings (key,value) that represents the environment variables to set in the start task.
+func (o PoolStartTaskOutput) CommonEnvironmentProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PoolStartTask) map[string]string { return v.CommonEnvironmentProperties }).(pulumi.StringMapOutput)
+}
+
+// A map of strings (key,value) that represents the environment variables to set in the start task.
+//
+// Deprecated: Deprecated in favour of `common_environment_properties`
 func (o PoolStartTaskOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PoolStartTask) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
 // The number of retry count. Defaults to `1`.
+//
+// Deprecated: Deprecated in favour of `task_retry_maximum`
 func (o PoolStartTaskOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
 }
@@ -1847,6 +1872,11 @@ func (o PoolStartTaskOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
 // One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 func (o PoolStartTaskOutput) ResourceFiles() PoolStartTaskResourceFileArrayOutput {
 	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskResourceFile { return v.ResourceFiles }).(PoolStartTaskResourceFileArrayOutput)
+}
+
+// The number of retry count. Defaults to `1`.
+func (o PoolStartTaskOutput) TaskRetryMaximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PoolStartTask) *int { return v.TaskRetryMaximum }).(pulumi.IntPtrOutput)
 }
 
 // A `userIdentity` block that describes the user identity under which the start task runs.
@@ -1894,6 +1924,18 @@ func (o PoolStartTaskPtrOutput) CommandLine() pulumi.StringPtrOutput {
 }
 
 // A map of strings (key,value) that represents the environment variables to set in the start task.
+func (o PoolStartTaskPtrOutput) CommonEnvironmentProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PoolStartTask) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CommonEnvironmentProperties
+	}).(pulumi.StringMapOutput)
+}
+
+// A map of strings (key,value) that represents the environment variables to set in the start task.
+//
+// Deprecated: Deprecated in favour of `common_environment_properties`
 func (o PoolStartTaskPtrOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PoolStartTask) map[string]string {
 		if v == nil {
@@ -1904,6 +1946,8 @@ func (o PoolStartTaskPtrOutput) Environment() pulumi.StringMapOutput {
 }
 
 // The number of retry count. Defaults to `1`.
+//
+// Deprecated: Deprecated in favour of `task_retry_maximum`
 func (o PoolStartTaskPtrOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PoolStartTask) *int {
 		if v == nil {
@@ -1921,6 +1965,16 @@ func (o PoolStartTaskPtrOutput) ResourceFiles() PoolStartTaskResourceFileArrayOu
 		}
 		return v.ResourceFiles
 	}).(PoolStartTaskResourceFileArrayOutput)
+}
+
+// The number of retry count. Defaults to `1`.
+func (o PoolStartTaskPtrOutput) TaskRetryMaximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PoolStartTask) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TaskRetryMaximum
+	}).(pulumi.IntPtrOutput)
 }
 
 // A `userIdentity` block that describes the user identity under which the start task runs.
@@ -2832,7 +2886,7 @@ type GetPoolCertificate struct {
 	// The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
 	StoreLocation string `pulumi:"storeLocation"`
 	// The name of the certificate store on the compute node into which the certificate is installed.
-	StoreName *string `pulumi:"storeName"`
+	StoreName string `pulumi:"storeName"`
 	// Which user accounts on the compute node have access to the private data of the certificate.
 	Visibilities []string `pulumi:"visibilities"`
 }
@@ -2854,7 +2908,7 @@ type GetPoolCertificateArgs struct {
 	// The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
 	StoreLocation pulumi.StringInput `pulumi:"storeLocation"`
 	// The name of the certificate store on the compute node into which the certificate is installed.
-	StoreName pulumi.StringPtrInput `pulumi:"storeName"`
+	StoreName pulumi.StringInput `pulumi:"storeName"`
 	// Which user accounts on the compute node have access to the private data of the certificate.
 	Visibilities pulumi.StringArrayInput `pulumi:"visibilities"`
 }
@@ -2921,8 +2975,8 @@ func (o GetPoolCertificateOutput) StoreLocation() pulumi.StringOutput {
 }
 
 // The name of the certificate store on the compute node into which the certificate is installed.
-func (o GetPoolCertificateOutput) StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetPoolCertificate) *string { return v.StoreName }).(pulumi.StringPtrOutput)
+func (o GetPoolCertificateOutput) StoreName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolCertificate) string { return v.StoreName }).(pulumi.StringOutput)
 }
 
 // Which user accounts on the compute node have access to the private data of the certificate.
@@ -3575,15 +3629,19 @@ type GetPoolStartTask struct {
 	// The command line executed by the start task.
 	CommandLine string `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
+	CommonEnvironmentProperties map[string]string `pulumi:"commonEnvironmentProperties"`
+	// A map of strings (key,value) that represents the environment variables to set in the start task.
 	Environment map[string]string `pulumi:"environment"`
 	// The number of retry count.
-	MaxTaskRetryCount *int `pulumi:"maxTaskRetryCount"`
+	MaxTaskRetryCount int `pulumi:"maxTaskRetryCount"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles []GetPoolStartTaskResourceFile `pulumi:"resourceFiles"`
+	// The number of retry count
+	TaskRetryMaximum int `pulumi:"taskRetryMaximum"`
 	// A `userIdentity` block that describes the user identity under which the start task runs.
 	UserIdentities []GetPoolStartTaskUserIdentity `pulumi:"userIdentities"`
 	// A flag that indicates if the Batch pool should wait for the start task to be completed.
-	WaitForSuccess *bool `pulumi:"waitForSuccess"`
+	WaitForSuccess bool `pulumi:"waitForSuccess"`
 }
 
 // GetPoolStartTaskInput is an input type that accepts GetPoolStartTaskArgs and GetPoolStartTaskOutput values.
@@ -3601,15 +3659,19 @@ type GetPoolStartTaskArgs struct {
 	// The command line executed by the start task.
 	CommandLine pulumi.StringInput `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
+	CommonEnvironmentProperties pulumi.StringMapInput `pulumi:"commonEnvironmentProperties"`
+	// A map of strings (key,value) that represents the environment variables to set in the start task.
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The number of retry count.
-	MaxTaskRetryCount pulumi.IntPtrInput `pulumi:"maxTaskRetryCount"`
+	MaxTaskRetryCount pulumi.IntInput `pulumi:"maxTaskRetryCount"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles GetPoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
+	// The number of retry count
+	TaskRetryMaximum pulumi.IntInput `pulumi:"taskRetryMaximum"`
 	// A `userIdentity` block that describes the user identity under which the start task runs.
 	UserIdentities GetPoolStartTaskUserIdentityArrayInput `pulumi:"userIdentities"`
 	// A flag that indicates if the Batch pool should wait for the start task to be completed.
-	WaitForSuccess pulumi.BoolPtrInput `pulumi:"waitForSuccess"`
+	WaitForSuccess pulumi.BoolInput `pulumi:"waitForSuccess"`
 }
 
 func (GetPoolStartTaskArgs) ElementType() reflect.Type {
@@ -3624,45 +3686,29 @@ func (i GetPoolStartTaskArgs) ToGetPoolStartTaskOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskOutput)
 }
 
-func (i GetPoolStartTaskArgs) ToGetPoolStartTaskPtrOutput() GetPoolStartTaskPtrOutput {
-	return i.ToGetPoolStartTaskPtrOutputWithContext(context.Background())
-}
-
-func (i GetPoolStartTaskArgs) ToGetPoolStartTaskPtrOutputWithContext(ctx context.Context) GetPoolStartTaskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskOutput).ToGetPoolStartTaskPtrOutputWithContext(ctx)
-}
-
-// GetPoolStartTaskPtrInput is an input type that accepts GetPoolStartTaskArgs, GetPoolStartTaskPtr and GetPoolStartTaskPtrOutput values.
-// You can construct a concrete instance of `GetPoolStartTaskPtrInput` via:
+// GetPoolStartTaskArrayInput is an input type that accepts GetPoolStartTaskArray and GetPoolStartTaskArrayOutput values.
+// You can construct a concrete instance of `GetPoolStartTaskArrayInput` via:
 //
-//          GetPoolStartTaskArgs{...}
-//
-//  or:
-//
-//          nil
-type GetPoolStartTaskPtrInput interface {
+//          GetPoolStartTaskArray{ GetPoolStartTaskArgs{...} }
+type GetPoolStartTaskArrayInput interface {
 	pulumi.Input
 
-	ToGetPoolStartTaskPtrOutput() GetPoolStartTaskPtrOutput
-	ToGetPoolStartTaskPtrOutputWithContext(context.Context) GetPoolStartTaskPtrOutput
+	ToGetPoolStartTaskArrayOutput() GetPoolStartTaskArrayOutput
+	ToGetPoolStartTaskArrayOutputWithContext(context.Context) GetPoolStartTaskArrayOutput
 }
 
-type getPoolStartTaskPtrType GetPoolStartTaskArgs
+type GetPoolStartTaskArray []GetPoolStartTaskInput
 
-func GetPoolStartTaskPtr(v *GetPoolStartTaskArgs) GetPoolStartTaskPtrInput {
-	return (*getPoolStartTaskPtrType)(v)
+func (GetPoolStartTaskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolStartTask)(nil)).Elem()
 }
 
-func (*getPoolStartTaskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetPoolStartTask)(nil)).Elem()
+func (i GetPoolStartTaskArray) ToGetPoolStartTaskArrayOutput() GetPoolStartTaskArrayOutput {
+	return i.ToGetPoolStartTaskArrayOutputWithContext(context.Background())
 }
 
-func (i *getPoolStartTaskPtrType) ToGetPoolStartTaskPtrOutput() GetPoolStartTaskPtrOutput {
-	return i.ToGetPoolStartTaskPtrOutputWithContext(context.Background())
-}
-
-func (i *getPoolStartTaskPtrType) ToGetPoolStartTaskPtrOutputWithContext(ctx context.Context) GetPoolStartTaskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskPtrOutput)
+func (i GetPoolStartTaskArray) ToGetPoolStartTaskArrayOutputWithContext(ctx context.Context) GetPoolStartTaskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskArrayOutput)
 }
 
 type GetPoolStartTaskOutput struct{ *pulumi.OutputState }
@@ -3679,19 +3725,14 @@ func (o GetPoolStartTaskOutput) ToGetPoolStartTaskOutputWithContext(ctx context.
 	return o
 }
 
-func (o GetPoolStartTaskOutput) ToGetPoolStartTaskPtrOutput() GetPoolStartTaskPtrOutput {
-	return o.ToGetPoolStartTaskPtrOutputWithContext(context.Background())
-}
-
-func (o GetPoolStartTaskOutput) ToGetPoolStartTaskPtrOutputWithContext(ctx context.Context) GetPoolStartTaskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPoolStartTask) *GetPoolStartTask {
-		return &v
-	}).(GetPoolStartTaskPtrOutput)
-}
-
 // The command line executed by the start task.
 func (o GetPoolStartTaskOutput) CommandLine() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolStartTask) string { return v.CommandLine }).(pulumi.StringOutput)
+}
+
+// A map of strings (key,value) that represents the environment variables to set in the start task.
+func (o GetPoolStartTaskOutput) CommonEnvironmentProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetPoolStartTask) map[string]string { return v.CommonEnvironmentProperties }).(pulumi.StringMapOutput)
 }
 
 // A map of strings (key,value) that represents the environment variables to set in the start task.
@@ -3700,13 +3741,18 @@ func (o GetPoolStartTaskOutput) Environment() pulumi.StringMapOutput {
 }
 
 // The number of retry count.
-func (o GetPoolStartTaskOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GetPoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
+func (o GetPoolStartTaskOutput) MaxTaskRetryCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPoolStartTask) int { return v.MaxTaskRetryCount }).(pulumi.IntOutput)
 }
 
 // One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 func (o GetPoolStartTaskOutput) ResourceFiles() GetPoolStartTaskResourceFileArrayOutput {
 	return o.ApplyT(func(v GetPoolStartTask) []GetPoolStartTaskResourceFile { return v.ResourceFiles }).(GetPoolStartTaskResourceFileArrayOutput)
+}
+
+// The number of retry count
+func (o GetPoolStartTaskOutput) TaskRetryMaximum() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPoolStartTask) int { return v.TaskRetryMaximum }).(pulumi.IntOutput)
 }
 
 // A `userIdentity` block that describes the user identity under which the start task runs.
@@ -3715,92 +3761,28 @@ func (o GetPoolStartTaskOutput) UserIdentities() GetPoolStartTaskUserIdentityArr
 }
 
 // A flag that indicates if the Batch pool should wait for the start task to be completed.
-func (o GetPoolStartTaskOutput) WaitForSuccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetPoolStartTask) *bool { return v.WaitForSuccess }).(pulumi.BoolPtrOutput)
+func (o GetPoolStartTaskOutput) WaitForSuccess() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPoolStartTask) bool { return v.WaitForSuccess }).(pulumi.BoolOutput)
 }
 
-type GetPoolStartTaskPtrOutput struct{ *pulumi.OutputState }
+type GetPoolStartTaskArrayOutput struct{ *pulumi.OutputState }
 
-func (GetPoolStartTaskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetPoolStartTask)(nil)).Elem()
+func (GetPoolStartTaskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolStartTask)(nil)).Elem()
 }
 
-func (o GetPoolStartTaskPtrOutput) ToGetPoolStartTaskPtrOutput() GetPoolStartTaskPtrOutput {
+func (o GetPoolStartTaskArrayOutput) ToGetPoolStartTaskArrayOutput() GetPoolStartTaskArrayOutput {
 	return o
 }
 
-func (o GetPoolStartTaskPtrOutput) ToGetPoolStartTaskPtrOutputWithContext(ctx context.Context) GetPoolStartTaskPtrOutput {
+func (o GetPoolStartTaskArrayOutput) ToGetPoolStartTaskArrayOutputWithContext(ctx context.Context) GetPoolStartTaskArrayOutput {
 	return o
 }
 
-func (o GetPoolStartTaskPtrOutput) Elem() GetPoolStartTaskOutput {
-	return o.ApplyT(func(v *GetPoolStartTask) GetPoolStartTask {
-		if v != nil {
-			return *v
-		}
-		var ret GetPoolStartTask
-		return ret
+func (o GetPoolStartTaskArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolStartTask {
+		return vs[0].([]GetPoolStartTask)[vs[1].(int)]
 	}).(GetPoolStartTaskOutput)
-}
-
-// The command line executed by the start task.
-func (o GetPoolStartTaskPtrOutput) CommandLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetPoolStartTask) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CommandLine
-	}).(pulumi.StringPtrOutput)
-}
-
-// A map of strings (key,value) that represents the environment variables to set in the start task.
-func (o GetPoolStartTaskPtrOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *GetPoolStartTask) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Environment
-	}).(pulumi.StringMapOutput)
-}
-
-// The number of retry count.
-func (o GetPoolStartTaskPtrOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetPoolStartTask) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxTaskRetryCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
-func (o GetPoolStartTaskPtrOutput) ResourceFiles() GetPoolStartTaskResourceFileArrayOutput {
-	return o.ApplyT(func(v *GetPoolStartTask) []GetPoolStartTaskResourceFile {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceFiles
-	}).(GetPoolStartTaskResourceFileArrayOutput)
-}
-
-// A `userIdentity` block that describes the user identity under which the start task runs.
-func (o GetPoolStartTaskPtrOutput) UserIdentities() GetPoolStartTaskUserIdentityArrayOutput {
-	return o.ApplyT(func(v *GetPoolStartTask) []GetPoolStartTaskUserIdentity {
-		if v == nil {
-			return nil
-		}
-		return v.UserIdentities
-	}).(GetPoolStartTaskUserIdentityArrayOutput)
-}
-
-// A flag that indicates if the Batch pool should wait for the start task to be completed.
-func (o GetPoolStartTaskPtrOutput) WaitForSuccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetPoolStartTask) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.WaitForSuccess
-	}).(pulumi.BoolPtrOutput)
 }
 
 type GetPoolStartTaskResourceFile struct {
@@ -4328,7 +4310,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput)(nil)).Elem(), GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput)(nil)).Elem(), GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskInput)(nil)).Elem(), GetPoolStartTaskArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskPtrInput)(nil)).Elem(), GetPoolStartTaskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskArrayInput)(nil)).Elem(), GetPoolStartTaskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskResourceFileInput)(nil)).Elem(), GetPoolStartTaskResourceFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskResourceFileArrayInput)(nil)).Elem(), GetPoolStartTaskResourceFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskUserIdentityInput)(nil)).Elem(), GetPoolStartTaskUserIdentityArgs{})
@@ -4386,7 +4368,7 @@ func init() {
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput{})
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskOutput{})
-	pulumi.RegisterOutputType(GetPoolStartTaskPtrOutput{})
+	pulumi.RegisterOutputType(GetPoolStartTaskArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskResourceFileOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskResourceFileArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskUserIdentityOutput{})

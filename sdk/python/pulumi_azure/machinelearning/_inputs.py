@@ -632,7 +632,7 @@ class WorkspaceIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
         :param pulumi.Input[str] principal_id: The (Client) ID of the Service Principal.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant the Service Principal is assigned in.
         """
@@ -646,7 +646,7 @@ class WorkspaceIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+        The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 

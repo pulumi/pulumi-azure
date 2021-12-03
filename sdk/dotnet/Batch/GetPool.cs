@@ -84,18 +84,6 @@ namespace Pulumi.Azure.Batch
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
 
-        [Input("certificates")]
-        private List<Inputs.GetPoolCertificateArgs>? _certificates;
-
-        /// <summary>
-        /// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
-        /// </summary>
-        public List<Inputs.GetPoolCertificateArgs> Certificates
-        {
-            get => _certificates ?? (_certificates = new List<Inputs.GetPoolCertificateArgs>());
-            set => _certificates = value;
-        }
-
         /// <summary>
         /// The name of the endpoint.
         /// </summary>
@@ -104,12 +92,6 @@ namespace Pulumi.Azure.Batch
 
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// A `start_task` block that describes the start task settings for the Batch pool.
-        /// </summary>
-        [Input("startTask")]
-        public Inputs.GetPoolStartTaskArgs? StartTask { get; set; }
 
         public GetPoolArgs()
         {
@@ -124,18 +106,6 @@ namespace Pulumi.Azure.Batch
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
-        [Input("certificates")]
-        private InputList<Inputs.GetPoolCertificateInputArgs>? _certificates;
-
-        /// <summary>
-        /// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
-        /// </summary>
-        public InputList<Inputs.GetPoolCertificateInputArgs> Certificates
-        {
-            get => _certificates ?? (_certificates = new InputList<Inputs.GetPoolCertificateInputArgs>());
-            set => _certificates = value;
-        }
-
         /// <summary>
         /// The name of the endpoint.
         /// </summary>
@@ -144,12 +114,6 @@ namespace Pulumi.Azure.Batch
 
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// A `start_task` block that describes the start task settings for the Batch pool.
-        /// </summary>
-        [Input("startTask")]
-        public Input<Inputs.GetPoolStartTaskInputArgs>? StartTask { get; set; }
 
         public GetPoolInvokeArgs()
         {
@@ -203,7 +167,7 @@ namespace Pulumi.Azure.Batch
         /// <summary>
         /// A `start_task` block that describes the start task settings for the Batch pool.
         /// </summary>
-        public readonly Outputs.GetPoolStartTaskResult? StartTask;
+        public readonly ImmutableArray<Outputs.GetPoolStartTaskResult> StartTasks;
         /// <summary>
         /// The reference of the storage image used by the nodes in the Batch pool.
         /// </summary>
@@ -241,7 +205,7 @@ namespace Pulumi.Azure.Batch
 
             string resourceGroupName,
 
-            Outputs.GetPoolStartTaskResult? startTask,
+            ImmutableArray<Outputs.GetPoolStartTaskResult> startTasks,
 
             ImmutableArray<Outputs.GetPoolStorageImageReferenceResult> storageImageReferences,
 
@@ -260,7 +224,7 @@ namespace Pulumi.Azure.Batch
             NetworkConfiguration = networkConfiguration;
             NodeAgentSkuId = nodeAgentSkuId;
             ResourceGroupName = resourceGroupName;
-            StartTask = startTask;
+            StartTasks = startTasks;
             StorageImageReferences = storageImageReferences;
             VmSize = vmSize;
         }

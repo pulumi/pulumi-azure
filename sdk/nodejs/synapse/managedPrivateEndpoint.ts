@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Allows you to Manages a Synapse Managed Private Endpoint.
+ * Manages a Synapse Managed Private Endpoint.
  *
  * ## Example Usage
  *

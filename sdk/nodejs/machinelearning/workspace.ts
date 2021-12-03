@@ -6,117 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Azure Machine Learning Workspace
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationType: "web",
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
- * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- * });
- * const exampleWorkspace = new azure.machinelearning.Workspace("exampleWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationInsightsId: exampleInsights.id,
- *     keyVaultId: exampleKeyVault.id,
- *     storageAccountId: exampleAccount.id,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * ```
- * ### With Data Encryption
- *
- * > **NOTE:** The Key Vault must enable purge protection.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationType: "web",
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
- *     purgeProtectionEnabled: true,
- * });
- * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: current.then(current => current.tenantId),
- *     objectId: current.then(current => current.objectId),
- *     keyPermissions: [
- *         "Create",
- *         "Get",
- *         "Delete",
- *         "Purge",
- *     ],
- * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountTier: "Standard",
- *     accountReplicationType: "GRS",
- * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
- *     keyVaultId: exampleKeyVault.id,
- *     keyType: "RSA",
- *     keySize: 2048,
- *     keyOpts: [
- *         "decrypt",
- *         "encrypt",
- *         "sign",
- *         "unwrapKey",
- *         "verify",
- *         "wrapKey",
- *     ],
- * }, {
- *     dependsOn: [
- *         exampleKeyVault,
- *         exampleAccessPolicy,
- *     ],
- * });
- * const exampleWorkspace = new azure.machinelearning.Workspace("exampleWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationInsightsId: exampleInsights.id,
- *     keyVaultId: exampleKeyVault.id,
- *     storageAccountId: exampleAccount.id,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     encryption: {
- *         keyVaultId: exampleKeyVault.id,
- *         keyId: exampleKey.id,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Machine Learning Workspace can be imported using the `resource id`, e.g.
@@ -166,12 +55,12 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+     * The url for the discovery service to identify regional endpoints for machine learning experimentation services.
      */
     public /*out*/ readonly discoveryUrl!: pulumi.Output<string>;
     public readonly encryption!: pulumi.Output<outputs.machinelearning.WorkspaceEncryption | undefined>;
     /**
-     * Friendly name for this Machine Learning Workspace.
+     * Display name for this Machine Learning Workspace.
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
     /**
@@ -215,7 +104,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly storageAccountId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -308,12 +197,12 @@ export interface WorkspaceState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+     * The url for the discovery service to identify regional endpoints for machine learning experimentation services.
      */
     discoveryUrl?: pulumi.Input<string>;
     encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption>;
     /**
-     * Friendly name for this Machine Learning Workspace.
+     * Display name for this Machine Learning Workspace.
      */
     friendlyName?: pulumi.Input<string>;
     /**
@@ -357,7 +246,7 @@ export interface WorkspaceState {
      */
     storageAccountId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -380,7 +269,7 @@ export interface WorkspaceArgs {
     description?: pulumi.Input<string>;
     encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption>;
     /**
-     * Friendly name for this Machine Learning Workspace.
+     * Display name for this Machine Learning Workspace.
      */
     friendlyName?: pulumi.Input<string>;
     /**
@@ -424,7 +313,7 @@ export interface WorkspaceArgs {
      */
     storageAccountId: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

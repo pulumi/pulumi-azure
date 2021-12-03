@@ -319,6 +319,12 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<Outputs.LinuxVirtualMachineScaleSetSecret>> Secrets { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("secureBootEnabled")]
+        public Output<bool?> SecureBootEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         /// </summary>
         [Output("singlePlacementGroup")]
@@ -365,6 +371,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("upgradeMode")]
         public Output<string?> UpgradeMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("vtpmEnabled")]
+        public Output<bool?> VtpmEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -659,6 +671,12 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
+        /// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("secureBootEnabled")]
+        public Input<bool>? SecureBootEnabled { get; set; }
+
+        /// <summary>
         /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         /// </summary>
         [Input("singlePlacementGroup")]
@@ -705,6 +723,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("upgradeMode")]
         public Input<string>? UpgradeMode { get; set; }
+
+        /// <summary>
+        /// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("vtpmEnabled")]
+        public Input<bool>? VtpmEnabled { get; set; }
 
         /// <summary>
         /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -966,6 +990,12 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
+        /// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("secureBootEnabled")]
+        public Input<bool>? SecureBootEnabled { get; set; }
+
+        /// <summary>
         /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         /// </summary>
         [Input("singlePlacementGroup")]
@@ -1018,6 +1048,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("upgradeMode")]
         public Input<string>? UpgradeMode { get; set; }
+
+        /// <summary>
+        /// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("vtpmEnabled")]
+        public Input<bool>? VtpmEnabled { get; set; }
 
         /// <summary>
         /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.

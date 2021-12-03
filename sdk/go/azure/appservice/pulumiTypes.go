@@ -6501,7 +6501,9 @@ func (o FunctionAppAuthSettingsMicrosoftPtrOutput) OauthScopes() pulumi.StringAr
 }
 
 type FunctionAppAuthSettingsTwitter struct {
-	ConsumerKey    string `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey string `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 	ConsumerSecret string `pulumi:"consumerSecret"`
 }
 
@@ -6517,7 +6519,9 @@ type FunctionAppAuthSettingsTwitterInput interface {
 }
 
 type FunctionAppAuthSettingsTwitterArgs struct {
-	ConsumerKey    pulumi.StringInput `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey pulumi.StringInput `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 	ConsumerSecret pulumi.StringInput `pulumi:"consumerSecret"`
 }
 
@@ -6598,10 +6602,12 @@ func (o FunctionAppAuthSettingsTwitterOutput) ToFunctionAppAuthSettingsTwitterPt
 	}).(FunctionAppAuthSettingsTwitterPtrOutput)
 }
 
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
 func (o FunctionAppAuthSettingsTwitterOutput) ConsumerKey() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsTwitter) string { return v.ConsumerKey }).(pulumi.StringOutput)
 }
 
+// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 func (o FunctionAppAuthSettingsTwitterOutput) ConsumerSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsTwitter) string { return v.ConsumerSecret }).(pulumi.StringOutput)
 }
@@ -6630,6 +6636,7 @@ func (o FunctionAppAuthSettingsTwitterPtrOutput) Elem() FunctionAppAuthSettingsT
 	}).(FunctionAppAuthSettingsTwitterOutput)
 }
 
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
 func (o FunctionAppAuthSettingsTwitterPtrOutput) ConsumerKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionAppAuthSettingsTwitter) *string {
 		if v == nil {
@@ -6639,6 +6646,7 @@ func (o FunctionAppAuthSettingsTwitterPtrOutput) ConsumerKey() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 func (o FunctionAppAuthSettingsTwitterPtrOutput) ConsumerSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionAppAuthSettingsTwitter) *string {
 		if v == nil {
@@ -9513,7 +9521,9 @@ func (o FunctionAppSlotAuthSettingsMicrosoftPtrOutput) OauthScopes() pulumi.Stri
 }
 
 type FunctionAppSlotAuthSettingsTwitter struct {
-	ConsumerKey    string `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey string `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 	ConsumerSecret string `pulumi:"consumerSecret"`
 }
 
@@ -9529,7 +9539,9 @@ type FunctionAppSlotAuthSettingsTwitterInput interface {
 }
 
 type FunctionAppSlotAuthSettingsTwitterArgs struct {
-	ConsumerKey    pulumi.StringInput `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey pulumi.StringInput `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 	ConsumerSecret pulumi.StringInput `pulumi:"consumerSecret"`
 }
 
@@ -9610,10 +9622,12 @@ func (o FunctionAppSlotAuthSettingsTwitterOutput) ToFunctionAppSlotAuthSettingsT
 	}).(FunctionAppSlotAuthSettingsTwitterPtrOutput)
 }
 
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
 func (o FunctionAppSlotAuthSettingsTwitterOutput) ConsumerKey() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppSlotAuthSettingsTwitter) string { return v.ConsumerKey }).(pulumi.StringOutput)
 }
 
+// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 func (o FunctionAppSlotAuthSettingsTwitterOutput) ConsumerSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppSlotAuthSettingsTwitter) string { return v.ConsumerSecret }).(pulumi.StringOutput)
 }
@@ -9642,6 +9656,7 @@ func (o FunctionAppSlotAuthSettingsTwitterPtrOutput) Elem() FunctionAppSlotAuthS
 	}).(FunctionAppSlotAuthSettingsTwitterOutput)
 }
 
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
 func (o FunctionAppSlotAuthSettingsTwitterPtrOutput) ConsumerKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsTwitter) *string {
 		if v == nil {
@@ -9651,6 +9666,7 @@ func (o FunctionAppSlotAuthSettingsTwitterPtrOutput) ConsumerKey() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 func (o FunctionAppSlotAuthSettingsTwitterPtrOutput) ConsumerSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsTwitter) *string {
 		if v == nil {

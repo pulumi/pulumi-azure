@@ -4312,6 +4312,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mysql/flexibleDatabase",
+  "fqn": "pulumi_azure.mysql",
+  "classes": {
+   "azure:mysql/flexibleDatabase:FlexibleDatabase": "FlexibleDatabase"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mysql/flexibleServer",
   "fqn": "pulumi_azure.mysql",
   "classes": {
@@ -6180,6 +6188,14 @@ _utilities.register(
   "fqn": "pulumi_azure.synapse",
   "classes": {
    "azure:synapse/sqlPoolVulnerabilityAssessmentBaseline:SqlPoolVulnerabilityAssessmentBaseline": "SqlPoolVulnerabilityAssessmentBaseline"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "synapse/sqlPoolWorkloadGroup",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup": "SqlPoolWorkloadGroup"
   }
  },
  {

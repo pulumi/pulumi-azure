@@ -2882,7 +2882,13 @@ export namespace appservice {
     }
 
     export interface FunctionAppAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
         consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
         consumerSecret: string;
     }
 
@@ -3246,7 +3252,13 @@ export namespace appservice {
     }
 
     export interface FunctionAppSlotAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
         consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
         consumerSecret: string;
     }
 
@@ -4886,11 +4898,11 @@ export namespace batch {
         /**
          * The name of the certificate store on the compute node into which the certificate is installed.
          */
-        storeName?: string;
+        storeName: string;
         /**
          * Which user accounts on the compute node have access to the private data of the certificate.
          */
-        visibilities?: string[];
+        visibilities: string[];
     }
 
     export interface GetPoolContainerConfiguration {
@@ -4995,15 +5007,23 @@ export namespace batch {
         /**
          * A map of strings (key,value) that represents the environment variables to set in the start task.
          */
+        commonEnvironmentProperties?: {[key: string]: string};
+        /**
+         * A map of strings (key,value) that represents the environment variables to set in the start task.
+         */
         environment?: {[key: string]: string};
         /**
          * The number of retry count.
          */
-        maxTaskRetryCount?: number;
+        maxTaskRetryCount: number;
         /**
          * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
          */
         resourceFiles: outputs.batch.GetPoolStartTaskResourceFile[];
+        /**
+         * The number of retry count
+         */
+        taskRetryMaximum: number;
         /**
          * A `userIdentity` block that describes the user identity under which the start task runs.
          */
@@ -5011,7 +5031,7 @@ export namespace batch {
         /**
          * A flag that indicates if the Batch pool should wait for the start task to be completed.
          */
-        waitForSuccess?: boolean;
+        waitForSuccess: boolean;
     }
 
     export interface GetPoolStartTaskResourceFile {
@@ -5225,15 +5245,27 @@ export namespace batch {
         /**
          * A map of strings (key,value) that represents the environment variables to set in the start task.
          */
-        environment?: {[key: string]: string};
+        commonEnvironmentProperties: {[key: string]: string};
+        /**
+         * A map of strings (key,value) that represents the environment variables to set in the start task.
+         *
+         * @deprecated Deprecated in favour of `common_environment_properties`
+         */
+        environment: {[key: string]: string};
         /**
          * The number of retry count. Defaults to `1`.
+         *
+         * @deprecated Deprecated in favour of `task_retry_maximum`
          */
-        maxTaskRetryCount?: number;
+        maxTaskRetryCount: number;
         /**
          * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
          */
         resourceFiles?: outputs.batch.PoolStartTaskResourceFile[];
+        /**
+         * The number of retry count. Defaults to `1`.
+         */
+        taskRetryMaximum: number;
         /**
          * A `userIdentity` block that describes the user identity under which the start task runs.
          */
@@ -9664,11 +9696,11 @@ export namespace containerservice {
         /**
          * A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
          */
-        options: string[];
+        options?: string[];
         /**
          * A list of search domains that DNS requests will search along.
          */
-        searchDomains: string[];
+        searchDomains?: string[];
     }
 
     export interface GroupExposedPort {
@@ -20246,7 +20278,7 @@ export namespace machinelearning {
          */
         tenantId: string;
         /**
-         * The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+         * The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -25812,6 +25844,10 @@ export namespace network {
     }
 
     export interface PointToPointVpnGatewayConnectionConfiguration {
+        /**
+         * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+         */
+        internetSecurityEnabled?: boolean;
         /**
          * The Name which should be used for this Connection Configuration.
          */

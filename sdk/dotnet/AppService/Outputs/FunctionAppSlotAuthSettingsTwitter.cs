@@ -13,7 +13,13 @@ namespace Pulumi.Azure.AppService.Outputs
     [OutputType]
     public sealed class FunctionAppSlotAuthSettingsTwitter
     {
+        /// <summary>
+        /// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        /// </summary>
         public readonly string ConsumerKey;
+        /// <summary>
+        /// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        /// </summary>
         public readonly string ConsumerSecret;
 
         [OutputConstructor]

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows you to Manages a Synapse Managed Private Endpoint.
+// Manages a Synapse Managed Private Endpoint.
 //
 // ## Example Usage
 //

@@ -74,13 +74,17 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
     /**
+     * Fully qualified domain names. Changing this forces a new resource to be created.
+     */
+    public readonly fqdns!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      */
-    public readonly subresourceName!: pulumi.Output<string>;
+    public readonly subresourceName!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
      */
@@ -100,6 +104,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ManagedPrivateEndpointState | undefined;
             inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            inputs["fqdns"] = state ? state.fqdns : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["subresourceName"] = state ? state.subresourceName : undefined;
             inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
@@ -108,13 +113,11 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.subresourceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subresourceName'");
-            }
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
             inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            inputs["fqdns"] = args ? args.fqdns : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["subresourceName"] = args ? args.subresourceName : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
@@ -134,6 +137,10 @@ export interface ManagedPrivateEndpointState {
      * The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
      */
     dataFactoryId?: pulumi.Input<string>;
+    /**
+     * Fully qualified domain names. Changing this forces a new resource to be created.
+     */
+    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      */
@@ -157,13 +164,17 @@ export interface ManagedPrivateEndpointArgs {
      */
     dataFactoryId: pulumi.Input<string>;
     /**
+     * Fully qualified domain names. Changing this forces a new resource to be created.
+     */
+    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
      * Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      */
-    subresourceName: pulumi.Input<string>;
+    subresourceName?: pulumi.Input<string>;
     /**
      * The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
      */

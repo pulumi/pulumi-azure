@@ -12,6 +12,66 @@ namespace Pulumi.Azure.Synapse
     /// <summary>
     /// Manages a Synapse SQL Pool Extended Auditing Policy.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///             AccountKind = "BlobStorage",
+    ///         });
+    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
+    ///         {
+    ///             StorageAccountId = exampleAccount.Id,
+    ///         });
+    ///         var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new Azure.Synapse.WorkspaceArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///             SqlAdministratorLogin = "sqladminuser",
+    ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         });
+    ///         var exampleSqlPool = new Azure.Synapse.SqlPool("exampleSqlPool", new Azure.Synapse.SqlPoolArgs
+    ///         {
+    ///             SynapseWorkspaceId = exampleWorkspace.Id,
+    ///             SkuName = "DW100c",
+    ///             CreateMode = "Default",
+    ///         });
+    ///         var auditLogs = new Azure.Storage.Account("auditLogs", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleSqlPoolExtendedAuditingPolicy = new Azure.Synapse.SqlPoolExtendedAuditingPolicy("exampleSqlPoolExtendedAuditingPolicy", new Azure.Synapse.SqlPoolExtendedAuditingPolicyArgs
+    ///         {
+    ///             SqlPoolId = exampleSqlPool.Id,
+    ///             StorageEndpoint = auditLogs.PrimaryBlobEndpoint,
+    ///             StorageAccountAccessKey = auditLogs.PrimaryAccessKey,
+    ///             StorageAccountAccessKeyIsSecondary = false,
+    ///             RetentionInDays = 6,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Synapse SQL Pool Extended Auditing Policys can be imported using the `resource id`, e.g.

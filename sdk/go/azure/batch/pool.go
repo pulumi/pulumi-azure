@@ -82,7 +82,7 @@ import (
 // 			AccountName:       exampleBatch / accountAccount.Name,
 // 			DisplayName:       pulumi.String("Test Acc Pool Auto"),
 // 			VmSize:            pulumi.String("Standard_A1"),
-// 			NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 16.04"),
+// 			NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 20.04"),
 // 			AutoScale: &batch.PoolAutoScaleArgs{
 // 				EvaluationInterval: pulumi.String("PT15M"),
 // 				Formula:            pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "      startingNumberOfVMs = 1;\n", "      maxNumberofVMs = 25;\n", "      pendingTaskSamplePercent = ", "$", "PendingTasks.GetSamplePercent(180 * TimeInterval_Second);\n", "      pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg(", "$", "PendingTasks.GetSample(180 *   TimeInterval_Second));\n", "      ", "$", "TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);\n")),
@@ -90,7 +90,7 @@ import (
 // 			StorageImageReference: &batch.PoolStorageImageReferenceArgs{
 // 				Publisher: pulumi.String("microsoft-azure-batch"),
 // 				Offer:     pulumi.String("ubuntu-server-container"),
-// 				Sku:       pulumi.String("16-04-lts"),
+// 				Sku:       pulumi.String("20-04-lts"),
 // 				Version:   pulumi.String("latest"),
 // 			},
 // 			ContainerConfiguration: &batch.PoolContainerConfigurationArgs{
@@ -104,10 +104,10 @@ import (
 // 				},
 // 			},
 // 			StartTask: &batch.PoolStartTaskArgs{
-// 				CommandLine:       pulumi.String(fmt.Sprintf("%v%v%v", "echo 'Hello World from ", "$", "env'")),
-// 				MaxTaskRetryCount: pulumi.Int(1),
-// 				WaitForSuccess:    pulumi.Bool(true),
-// 				Environment: pulumi.StringMap{
+// 				CommandLine:      pulumi.String(fmt.Sprintf("%v%v%v", "echo 'Hello World from ", "$", "env'")),
+// 				TaskRetryMaximum: pulumi.Int(1),
+// 				WaitForSuccess:   pulumi.Bool(true),
+// 				CommonEnvironmentProperties: pulumi.StringMap{
 // 					"env": pulumi.String("TEST"),
 // 				},
 // 				UserIdentity: &batch.PoolStartTaskUserIdentityArgs{

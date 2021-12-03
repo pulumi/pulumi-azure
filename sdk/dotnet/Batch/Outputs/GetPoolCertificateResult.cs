@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// <summary>
         /// The name of the certificate store on the compute node into which the certificate is installed.
         /// </summary>
-        public readonly string? StoreName;
+        public readonly string StoreName;
         /// <summary>
         /// Which user accounts on the compute node have access to the private data of the certificate.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Batch.Outputs
 
             string storeLocation,
 
-            string? storeName,
+            string storeName,
 
             ImmutableArray<string> visibilities)
         {

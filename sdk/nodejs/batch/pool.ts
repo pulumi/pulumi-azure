@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     accountName: exampleBatch / accountAccount.name,
  *     displayName: "Test Acc Pool Auto",
  *     vmSize: "Standard_A1",
- *     nodeAgentSkuId: "batch.node.ubuntu 16.04",
+ *     nodeAgentSkuId: "batch.node.ubuntu 20.04",
  *     autoScale: {
  *         evaluationInterval: "PT15M",
  *         formula: `      startingNumberOfVMs = 1;
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *     storageImageReference: {
  *         publisher: "microsoft-azure-batch",
  *         offer: "ubuntu-server-container",
- *         sku: "16-04-lts",
+ *         sku: "20-04-lts",
  *         version: "latest",
  *     },
  *     containerConfiguration: {
@@ -70,9 +70,9 @@ import * as utilities from "../utilities";
  *     },
  *     startTask: {
  *         commandLine: `echo 'Hello World from $env'`,
- *         maxTaskRetryCount: 1,
+ *         taskRetryMaximum: 1,
  *         waitForSuccess: true,
- *         environment: {
+ *         commonEnvironmentProperties: {
  *             env: "TEST",
  *         },
  *         userIdentity: {

@@ -127,7 +127,10 @@ export class Subscription extends pulumi.CustomResource {
      * The Name of the Subscription. This is the Display Name in the portal.
      */
     public readonly subscriptionName!: pulumi.Output<string>;
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A mapping of tags to assign to the Subscription.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Tenant to which the subscription belongs.
      */
@@ -166,8 +169,8 @@ export class Subscription extends pulumi.CustomResource {
             inputs["billingScopeId"] = args ? args.billingScopeId : undefined;
             inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["workload"] = args ? args.workload : undefined;
-            inputs["tags"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -197,6 +200,9 @@ export interface SubscriptionState {
      * The Name of the Subscription. This is the Display Name in the portal.
      */
     subscriptionName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the Subscription.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Tenant to which the subscription belongs.
@@ -228,6 +234,10 @@ export interface SubscriptionArgs {
      * The Name of the Subscription. This is the Display Name in the portal.
      */
     subscriptionName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the Subscription.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      */

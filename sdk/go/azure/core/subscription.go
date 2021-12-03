@@ -158,8 +158,9 @@ type Subscription struct {
 	// The ID of the Subscription. Changing this forces a new Subscription to be created.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 	// The Name of the Subscription. This is the Display Name in the portal.
-	SubscriptionName pulumi.StringOutput    `pulumi:"subscriptionName"`
-	Tags             pulumi.StringMapOutput `pulumi:"tags"`
+	SubscriptionName pulumi.StringOutput `pulumi:"subscriptionName"`
+	// A mapping of tags to assign to the Subscription.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the Tenant to which the subscription belongs.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
@@ -205,8 +206,9 @@ type subscriptionState struct {
 	// The ID of the Subscription. Changing this forces a new Subscription to be created.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Name of the Subscription. This is the Display Name in the portal.
-	SubscriptionName *string           `pulumi:"subscriptionName"`
-	Tags             map[string]string `pulumi:"tags"`
+	SubscriptionName *string `pulumi:"subscriptionName"`
+	// A mapping of tags to assign to the Subscription.
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Tenant to which the subscription belongs.
 	TenantId *string `pulumi:"tenantId"`
 	// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
@@ -222,7 +224,8 @@ type SubscriptionState struct {
 	SubscriptionId pulumi.StringPtrInput
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName pulumi.StringPtrInput
-	Tags             pulumi.StringMapInput
+	// A mapping of tags to assign to the Subscription.
+	Tags pulumi.StringMapInput
 	// The ID of the Tenant to which the subscription belongs.
 	TenantId pulumi.StringPtrInput
 	// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
@@ -242,6 +245,8 @@ type subscriptionArgs struct {
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName string `pulumi:"subscriptionName"`
+	// A mapping of tags to assign to the Subscription.
+	Tags map[string]string `pulumi:"tags"`
 	// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
 	Workload *string `pulumi:"workload"`
 }
@@ -256,6 +261,8 @@ type SubscriptionArgs struct {
 	SubscriptionId pulumi.StringPtrInput
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName pulumi.StringInput
+	// A mapping of tags to assign to the Subscription.
+	Tags pulumi.StringMapInput
 	// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
 	Workload pulumi.StringPtrInput
 }

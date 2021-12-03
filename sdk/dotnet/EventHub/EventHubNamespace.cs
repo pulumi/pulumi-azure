@@ -60,7 +60,7 @@ namespace Pulumi.Azure.EventHub
         public Output<bool?> AutoInflateEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
+        /// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
         /// </summary>
         [Output("capacity")]
         public Output<int?> Capacity { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.EventHub
         public Input<bool>? AutoInflateEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
+        /// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.EventHub
         public Input<bool>? AutoInflateEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
+        /// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }

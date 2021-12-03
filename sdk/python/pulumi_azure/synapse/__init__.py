@@ -19,6 +19,7 @@ from .sql_pool_extended_auditing_policy import *
 from .sql_pool_security_alert_policy import *
 from .sql_pool_vulnerability_assessment import *
 from .sql_pool_vulnerability_assessment_baseline import *
+from .sql_pool_workload_group import *
 from .workspace import *
 from .workspace_aad_admin import *
 from .workspace_extended_auditing_policy import *

@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetPoolResult',
@@ -22,7 +21,7 @@ class GetPoolResult:
     """
     A collection of values returned by getPool.
     """
-    def __init__(__self__, account_name=None, auto_scales=None, certificates=None, container_configurations=None, display_name=None, fixed_scales=None, id=None, max_tasks_per_node=None, metadata=None, name=None, network_configuration=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, storage_image_references=None, vm_size=None):
+    def __init__(__self__, account_name=None, auto_scales=None, certificates=None, container_configurations=None, display_name=None, fixed_scales=None, id=None, max_tasks_per_node=None, metadata=None, name=None, network_configuration=None, node_agent_sku_id=None, resource_group_name=None, start_tasks=None, storage_image_references=None, vm_size=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
@@ -62,9 +61,9 @@ class GetPoolResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if start_task and not isinstance(start_task, dict):
-            raise TypeError("Expected argument 'start_task' to be a dict")
-        pulumi.set(__self__, "start_task", start_task)
+        if start_tasks and not isinstance(start_tasks, list):
+            raise TypeError("Expected argument 'start_tasks' to be a list")
+        pulumi.set(__self__, "start_tasks", start_tasks)
         if storage_image_references and not isinstance(storage_image_references, list):
             raise TypeError("Expected argument 'storage_image_references' to be a list")
         pulumi.set(__self__, "storage_image_references", storage_image_references)
@@ -90,7 +89,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[Sequence['outputs.GetPoolCertificateResult']]:
+    def certificates(self) -> Sequence['outputs.GetPoolCertificateResult']:
         """
         One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
         """
@@ -165,12 +164,12 @@ class GetPoolResult:
         return pulumi.get(self, "resource_group_name")
 
     @property
-    @pulumi.getter(name="startTask")
-    def start_task(self) -> Optional['outputs.GetPoolStartTaskResult']:
+    @pulumi.getter(name="startTasks")
+    def start_tasks(self) -> Sequence['outputs.GetPoolStartTaskResult']:
         """
         A `start_task` block that describes the start task settings for the Batch pool.
         """
-        return pulumi.get(self, "start_task")
+        return pulumi.get(self, "start_tasks")
 
     @property
     @pulumi.getter(name="storageImageReferences")
@@ -208,16 +207,14 @@ class AwaitableGetPoolResult(GetPoolResult):
             network_configuration=self.network_configuration,
             node_agent_sku_id=self.node_agent_sku_id,
             resource_group_name=self.resource_group_name,
-            start_task=self.start_task,
+            start_tasks=self.start_tasks,
             storage_image_references=self.storage_image_references,
             vm_size=self.vm_size)
 
 
 def get_pool(account_name: Optional[str] = None,
-             certificates: Optional[Sequence[pulumi.InputType['GetPoolCertificateArgs']]] = None,
              name: Optional[str] = None,
              resource_group_name: Optional[str] = None,
-             start_task: Optional[pulumi.InputType['GetPoolStartTaskArgs']] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Use this data source to access information about an existing Batch pool
@@ -235,16 +232,12 @@ def get_pool(account_name: Optional[str] = None,
 
 
     :param str account_name: The name of the Batch account.
-    :param Sequence[pulumi.InputType['GetPoolCertificateArgs']] certificates: One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
     :param str name: The name of the endpoint.
-    :param pulumi.InputType['GetPoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
-    __args__['certificates'] = certificates
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['startTask'] = start_task
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -265,17 +258,15 @@ def get_pool(account_name: Optional[str] = None,
         network_configuration=__ret__.network_configuration,
         node_agent_sku_id=__ret__.node_agent_sku_id,
         resource_group_name=__ret__.resource_group_name,
-        start_task=__ret__.start_task,
+        start_tasks=__ret__.start_tasks,
         storage_image_references=__ret__.storage_image_references,
         vm_size=__ret__.vm_size)
 
 
 @_utilities.lift_output_func(get_pool)
 def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
-                    certificates: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPoolCertificateArgs']]]]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                    start_task: Optional[pulumi.Input[Optional[pulumi.InputType['GetPoolStartTaskArgs']]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
     Use this data source to access information about an existing Batch pool
@@ -293,8 +284,6 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str account_name: The name of the Batch account.
-    :param Sequence[pulumi.InputType['GetPoolCertificateArgs']] certificates: One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
     :param str name: The name of the endpoint.
-    :param pulumi.InputType['GetPoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool.
     """
     ...

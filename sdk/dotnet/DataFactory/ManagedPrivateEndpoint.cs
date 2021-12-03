@@ -69,6 +69,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
+        /// Fully qualified domain names. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("fqdns")]
+        public Output<ImmutableArray<string>> Fqdns { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -78,7 +84,7 @@ namespace Pulumi.Azure.DataFactory
         /// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subresourceName")]
-        public Output<string> SubresourceName { get; private set; } = null!;
+        public Output<string?> SubresourceName { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -138,6 +144,18 @@ namespace Pulumi.Azure.DataFactory
         [Input("dataFactoryId", required: true)]
         public Input<string> DataFactoryId { get; set; } = null!;
 
+        [Input("fqdns")]
+        private InputList<string>? _fqdns;
+
+        /// <summary>
+        /// Fully qualified domain names. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> Fqdns
+        {
+            get => _fqdns ?? (_fqdns = new InputList<string>());
+            set => _fqdns = value;
+        }
+
         /// <summary>
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         /// </summary>
@@ -147,8 +165,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("subresourceName", required: true)]
-        public Input<string> SubresourceName { get; set; } = null!;
+        [Input("subresourceName")]
+        public Input<string>? SubresourceName { get; set; }
 
         /// <summary>
         /// The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
@@ -168,6 +186,18 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("dataFactoryId")]
         public Input<string>? DataFactoryId { get; set; }
+
+        [Input("fqdns")]
+        private InputList<string>? _fqdns;
+
+        /// <summary>
+        /// Fully qualified domain names. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> Fqdns
+        {
+            get => _fqdns ?? (_fqdns = new InputList<string>());
+            set => _fqdns = value;
+        }
 
         /// <summary>
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.

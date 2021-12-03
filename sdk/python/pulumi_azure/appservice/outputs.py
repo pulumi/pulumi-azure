@@ -2988,17 +2988,27 @@ class FunctionAppAuthSettingsTwitter(dict):
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret: str):
+        """
+        :param str consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param str consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
         pulumi.set(__self__, "consumer_key", consumer_key)
         pulumi.set(__self__, "consumer_secret", consumer_secret)
 
     @property
     @pulumi.getter(name="consumerKey")
     def consumer_key(self) -> str:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
         return pulumi.get(self, "consumer_key")
 
     @property
     @pulumi.getter(name="consumerSecret")
     def consumer_secret(self) -> str:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
         return pulumi.get(self, "consumer_secret")
 
 
@@ -4365,17 +4375,27 @@ class FunctionAppSlotAuthSettingsTwitter(dict):
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret: str):
+        """
+        :param str consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param str consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
         pulumi.set(__self__, "consumer_key", consumer_key)
         pulumi.set(__self__, "consumer_secret", consumer_secret)
 
     @property
     @pulumi.getter(name="consumerKey")
     def consumer_key(self) -> str:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
         return pulumi.get(self, "consumer_key")
 
     @property
     @pulumi.getter(name="consumerSecret")
     def consumer_secret(self) -> str:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
         return pulumi.get(self, "consumer_secret")
 
 

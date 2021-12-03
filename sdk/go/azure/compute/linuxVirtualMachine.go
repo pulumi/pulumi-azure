@@ -200,6 +200,8 @@ type LinuxVirtualMachine struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineSecretArrayOutput `pulumi:"secrets"`
+	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrOutput `pulumi:"secureBootEnabled"`
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringOutput `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -212,6 +214,8 @@ type LinuxVirtualMachine struct {
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"virtualMachineScaleSetId"`
+	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 	Zone pulumi.StringOutput `pulumi:"zone"`
 }
@@ -326,6 +330,8 @@ type linuxVirtualMachineState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `secret` blocks as defined below.
 	Secrets []LinuxVirtualMachineSecret `pulumi:"secrets"`
+	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size *string `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -338,6 +344,8 @@ type linuxVirtualMachineState struct {
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
+	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 	Zone *string `pulumi:"zone"`
 }
@@ -409,6 +417,8 @@ type LinuxVirtualMachineState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineSecretArrayInput
+	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrInput
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringPtrInput
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -421,6 +431,8 @@ type LinuxVirtualMachineState struct {
 	VirtualMachineId pulumi.StringPtrInput
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId pulumi.StringPtrInput
+	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	VtpmEnabled pulumi.BoolPtrInput
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 	Zone pulumi.StringPtrInput
 }
@@ -488,6 +500,8 @@ type linuxVirtualMachineArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `secret` blocks as defined below.
 	Secrets []LinuxVirtualMachineSecret `pulumi:"secrets"`
+	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size string `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -498,6 +512,8 @@ type linuxVirtualMachineArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
+	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 	Zone *string `pulumi:"zone"`
 }
@@ -562,6 +578,8 @@ type LinuxVirtualMachineArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineSecretArrayInput
+	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrInput
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringInput
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -572,6 +590,8 @@ type LinuxVirtualMachineArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId pulumi.StringPtrInput
+	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	VtpmEnabled pulumi.BoolPtrInput
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 	Zone pulumi.StringPtrInput
 }

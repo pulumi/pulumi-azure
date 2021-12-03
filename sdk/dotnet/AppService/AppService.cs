@@ -117,6 +117,12 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> ClientCertEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+        /// </summary>
+        [Output("clientCertMode")]
+        public Output<string> ClientCertMode { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `connection_string` blocks as defined below.
         /// </summary>
         [Output("connectionStrings")]
@@ -324,6 +330,12 @@ namespace Pulumi.Azure.AppService
         [Input("clientCertEnabled")]
         public Input<bool>? ClientCertEnabled { get; set; }
 
+        /// <summary>
+        /// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+        /// </summary>
+        [Input("clientCertMode")]
+        public Input<string>? ClientCertMode { get; set; }
+
         [Input("connectionStrings")]
         private InputList<Inputs.AppServiceConnectionStringArgs>? _connectionStrings;
 
@@ -468,6 +480,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("clientCertEnabled")]
         public Input<bool>? ClientCertEnabled { get; set; }
+
+        /// <summary>
+        /// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+        /// </summary>
+        [Input("clientCertMode")]
+        public Input<string>? ClientCertMode { get; set; }
 
         [Input("connectionStrings")]
         private InputList<Inputs.AppServiceConnectionStringGetArgs>? _connectionStrings;

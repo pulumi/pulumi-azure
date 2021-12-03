@@ -76,10 +76,12 @@ type ManagedPrivateEndpoint struct {
 
 	// The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
+	// Fully qualified domain names. Changing this forces a new resource to be created.
+	Fqdns pulumi.StringArrayOutput `pulumi:"fqdns"`
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
-	SubresourceName pulumi.StringOutput `pulumi:"subresourceName"`
+	SubresourceName pulumi.StringPtrOutput `pulumi:"subresourceName"`
 	// The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 }
@@ -93,9 +95,6 @@ func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 
 	if args.DataFactoryId == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
-	}
-	if args.SubresourceName == nil {
-		return nil, errors.New("invalid value for required argument 'SubresourceName'")
 	}
 	if args.TargetResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetResourceId'")
@@ -124,6 +123,8 @@ func GetManagedPrivateEndpoint(ctx *pulumi.Context,
 type managedPrivateEndpointState struct {
 	// The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// Fully qualified domain names. Changing this forces a new resource to be created.
+	Fqdns []string `pulumi:"fqdns"`
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
@@ -135,6 +136,8 @@ type managedPrivateEndpointState struct {
 type ManagedPrivateEndpointState struct {
 	// The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
 	DataFactoryId pulumi.StringPtrInput
+	// Fully qualified domain names. Changing this forces a new resource to be created.
+	Fqdns pulumi.StringArrayInput
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
@@ -150,10 +153,12 @@ func (ManagedPrivateEndpointState) ElementType() reflect.Type {
 type managedPrivateEndpointArgs struct {
 	// The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
 	DataFactoryId string `pulumi:"dataFactoryId"`
+	// Fully qualified domain names. Changing this forces a new resource to be created.
+	Fqdns []string `pulumi:"fqdns"`
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
-	SubresourceName string `pulumi:"subresourceName"`
+	SubresourceName *string `pulumi:"subresourceName"`
 	// The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId string `pulumi:"targetResourceId"`
 }
@@ -162,10 +167,12 @@ type managedPrivateEndpointArgs struct {
 type ManagedPrivateEndpointArgs struct {
 	// The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
 	DataFactoryId pulumi.StringInput
+	// Fully qualified domain names. Changing this forces a new resource to be created.
+	Fqdns pulumi.StringArrayInput
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
-	SubresourceName pulumi.StringInput
+	SubresourceName pulumi.StringPtrInput
 	// The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringInput
 }

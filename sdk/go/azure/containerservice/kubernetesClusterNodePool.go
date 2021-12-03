@@ -30,7 +30,7 @@ type KubernetesClusterNodePool struct {
 	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrOutput `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
-	EvictionPolicy pulumi.StringOutput `pulumi:"evictionPolicy"`
+	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
 	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
 	// A `kubeletConfig` block as defined below.

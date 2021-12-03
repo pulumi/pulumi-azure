@@ -40,14 +40,14 @@ class WorkspaceArgs:
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
-        :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
+        :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "application_insights_id", application_insights_id)
         pulumi.set(__self__, "identity", identity)
@@ -174,7 +174,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Friendly name for this Machine Learning Workspace.
+        Display name for this Machine Learning Workspace.
         """
         return pulumi.get(self, "friendly_name")
 
@@ -258,7 +258,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -292,8 +292,8 @@ class _WorkspaceState:
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
-        :param pulumi.Input[str] discovery_url: The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
-        :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
+        :param pulumi.Input[str] discovery_url: The url for the discovery service to identify regional endpoints for machine learning experimentation services.
+        :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
@@ -304,7 +304,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if application_insights_id is not None:
             pulumi.set(__self__, "application_insights_id", application_insights_id)
@@ -381,7 +381,7 @@ class _WorkspaceState:
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+        The url for the discovery service to identify regional endpoints for machine learning experimentation services.
         """
         return pulumi.get(self, "discovery_url")
 
@@ -402,7 +402,7 @@ class _WorkspaceState:
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Friendly name for this Machine Learning Workspace.
+        Display name for this Machine Learning Workspace.
         """
         return pulumi.get(self, "friendly_name")
 
@@ -534,7 +534,7 @@ class _WorkspaceState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -566,106 +566,6 @@ class Workspace(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a Azure Machine Learning Workspace
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        ```
-        ### With Data Encryption
-
-        > **NOTE:** The Key Vault must enable purge protection.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            purge_protection_enabled=True)
-        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Get",
-                "Delete",
-                "Purge",
-            ])
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_key_vault,
-                    example_access_policy,
-                ]))
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            encryption=azure.machinelearning.WorkspaceEncryptionArgs(
-                key_vault_id=example_key_vault.id,
-                key_id=example_key.id,
-            ))
-        ```
-
         ## Import
 
         Machine Learning Workspace can be imported using the `resource id`, e.g.
@@ -679,7 +579,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
-        :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
+        :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
@@ -690,7 +590,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
@@ -699,106 +599,6 @@ class Workspace(pulumi.CustomResource):
                  args: WorkspaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Azure Machine Learning Workspace
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
-        ```
-        ### With Data Encryption
-
-        > **NOTE:** The Key Vault must enable purge protection.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_type="web")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            purge_protection_enabled=True)
-        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
-            key_vault_id=example_key_vault.id,
-            tenant_id=current.tenant_id,
-            object_id=current.object_id,
-            key_permissions=[
-                "Create",
-                "Get",
-                "Delete",
-                "Purge",
-            ])
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_tier="Standard",
-            account_replication_type="GRS")
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_key_vault,
-                    example_access_policy,
-                ]))
-        example_workspace = azure.machinelearning.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
-            encryption=azure.machinelearning.WorkspaceEncryptionArgs(
-                key_vault_id=example_key_vault.id,
-                key_id=example_key.id,
-            ))
-        ```
-
         ## Import
 
         Machine Learning Workspace can be imported using the `resource id`, e.g.
@@ -914,8 +714,8 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
-        :param pulumi.Input[str] discovery_url: The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
-        :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
+        :param pulumi.Input[str] discovery_url: The url for the discovery service to identify regional endpoints for machine learning experimentation services.
+        :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
@@ -926,7 +726,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -979,7 +779,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> pulumi.Output[str]:
         """
-        The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+        The url for the discovery service to identify regional endpoints for machine learning experimentation services.
         """
         return pulumi.get(self, "discovery_url")
 
@@ -992,7 +792,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Friendly name for this Machine Learning Workspace.
+        Display name for this Machine Learning Workspace.
         """
         return pulumi.get(self, "friendly_name")
 
@@ -1080,7 +880,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 

@@ -101,6 +101,8 @@ type BastionHost struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the Bastion Host.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -147,6 +149,8 @@ type bastionHostState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Bastion Host.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -162,6 +166,8 @@ type BastionHostState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Bastion Host.
 	ResourceGroupName pulumi.StringPtrInput
+	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -179,6 +185,8 @@ type bastionHostArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Bastion Host.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -193,6 +201,8 @@ type BastionHostArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Bastion Host.
 	ResourceGroupName pulumi.StringInput
+	// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

@@ -2502,7 +2502,13 @@ export namespace appservice {
     }
 
     export interface FunctionAppAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
         consumerKey: pulumi.Input<string>;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
         consumerSecret: pulumi.Input<string>;
     }
 
@@ -2866,7 +2872,13 @@ export namespace appservice {
     }
 
     export interface FunctionAppSlotAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
         consumerKey: pulumi.Input<string>;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         */
         consumerSecret: pulumi.Input<string>;
     }
 
@@ -3884,196 +3896,6 @@ export namespace batch {
         url: pulumi.Input<string>;
     }
 
-    export interface GetPoolCertificateArgs {
-        /**
-         * The fully qualified ID of the certificate installed on the pool.
-         */
-        id: pulumi.Input<string>;
-        /**
-         * The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
-         */
-        storeLocation: pulumi.Input<string>;
-        /**
-         * The name of the certificate store on the compute node into which the certificate is installed.
-         */
-        storeName?: pulumi.Input<string>;
-        /**
-         * Which user accounts on the compute node have access to the private data of the certificate.
-         */
-        visibilities?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    export interface GetPoolCertificate {
-        /**
-         * The fully qualified ID of the certificate installed on the pool.
-         */
-        id: string;
-        /**
-         * The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
-         */
-        storeLocation: string;
-        /**
-         * The name of the certificate store on the compute node into which the certificate is installed.
-         */
-        storeName?: string;
-        /**
-         * Which user accounts on the compute node have access to the private data of the certificate.
-         */
-        visibilities?: string[];
-    }
-
-    export interface GetPoolStartTask {
-        /**
-         * The command line executed by the start task.
-         */
-        commandLine: string;
-        /**
-         * A map of strings (key,value) that represents the environment variables to set in the start task.
-         */
-        environment?: {[key: string]: string};
-        /**
-         * The number of retry count.
-         */
-        maxTaskRetryCount?: number;
-        /**
-         * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
-         */
-        resourceFiles?: inputs.batch.GetPoolStartTaskResourceFile[];
-        /**
-         * A `userIdentity` block that describes the user identity under which the start task runs.
-         */
-        userIdentities?: inputs.batch.GetPoolStartTaskUserIdentity[];
-        /**
-         * A flag that indicates if the Batch pool should wait for the start task to be completed.
-         */
-        waitForSuccess?: boolean;
-    }
-
-    export interface GetPoolStartTaskArgs {
-        /**
-         * The command line executed by the start task.
-         */
-        commandLine: pulumi.Input<string>;
-        /**
-         * A map of strings (key,value) that represents the environment variables to set in the start task.
-         */
-        environment?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * The number of retry count.
-         */
-        maxTaskRetryCount?: pulumi.Input<number>;
-        /**
-         * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
-         */
-        resourceFiles?: pulumi.Input<pulumi.Input<inputs.batch.GetPoolStartTaskResourceFileArgs>[]>;
-        /**
-         * A `userIdentity` block that describes the user identity under which the start task runs.
-         */
-        userIdentities?: pulumi.Input<pulumi.Input<inputs.batch.GetPoolStartTaskUserIdentityArgs>[]>;
-        /**
-         * A flag that indicates if the Batch pool should wait for the start task to be completed.
-         */
-        waitForSuccess?: pulumi.Input<boolean>;
-    }
-
-    export interface GetPoolStartTaskResourceFileArgs {
-        /**
-         * The storage container name in the auto storage account.
-         */
-        autoStorageContainerName?: pulumi.Input<string>;
-        /**
-         * The blob prefix used when downloading blobs from an Azure Storage container.
-         */
-        blobPrefix?: pulumi.Input<string>;
-        /**
-         * The file permission mode attribute represented as a string in octal format (e.g. `"0644"`).
-         */
-        fileMode?: pulumi.Input<string>;
-        /**
-         * The location on the compute node to which to download the file, relative to the task's working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified.
-         */
-        filePath?: pulumi.Input<string>;
-        /**
-         * The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access.
-         */
-        httpUrl?: pulumi.Input<string>;
-        /**
-         * The URL of the blob container within Azure Blob Storage.
-         */
-        storageContainerUrl?: pulumi.Input<string>;
-    }
-
-    export interface GetPoolStartTaskResourceFile {
-        /**
-         * The storage container name in the auto storage account.
-         */
-        autoStorageContainerName?: string;
-        /**
-         * The blob prefix used when downloading blobs from an Azure Storage container.
-         */
-        blobPrefix?: string;
-        /**
-         * The file permission mode attribute represented as a string in octal format (e.g. `"0644"`).
-         */
-        fileMode?: string;
-        /**
-         * The location on the compute node to which to download the file, relative to the task's working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified.
-         */
-        filePath?: string;
-        /**
-         * The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access.
-         */
-        httpUrl?: string;
-        /**
-         * The URL of the blob container within Azure Blob Storage.
-         */
-        storageContainerUrl?: string;
-    }
-
-    export interface GetPoolStartTaskUserIdentity {
-        /**
-         * A `autoUser` block that describes the user identity under which the start task runs.
-         */
-        autoUsers?: inputs.batch.GetPoolStartTaskUserIdentityAutoUser[];
-        /**
-         * The user name to log into the registry server.
-         */
-        userName?: string;
-    }
-
-    export interface GetPoolStartTaskUserIdentityArgs {
-        /**
-         * A `autoUser` block that describes the user identity under which the start task runs.
-         */
-        autoUsers?: pulumi.Input<pulumi.Input<inputs.batch.GetPoolStartTaskUserIdentityAutoUserArgs>[]>;
-        /**
-         * The user name to log into the registry server.
-         */
-        userName?: pulumi.Input<string>;
-    }
-
-    export interface GetPoolStartTaskUserIdentityAutoUser {
-        /**
-         * The elevation level of the user identity under which the start task runs.
-         */
-        elevationLevel?: string;
-        /**
-         * The scope of the user identity under which the start task runs.
-         */
-        scope?: string;
-    }
-
-    export interface GetPoolStartTaskUserIdentityAutoUserArgs {
-        /**
-         * The elevation level of the user identity under which the start task runs.
-         */
-        elevationLevel?: pulumi.Input<string>;
-        /**
-         * The scope of the user identity under which the start task runs.
-         */
-        scope?: pulumi.Input<string>;
-    }
-
     export interface PoolAutoScale {
         /**
          * The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
@@ -4225,15 +4047,27 @@ export namespace batch {
         /**
          * A map of strings (key,value) that represents the environment variables to set in the start task.
          */
+        commonEnvironmentProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * A map of strings (key,value) that represents the environment variables to set in the start task.
+         *
+         * @deprecated Deprecated in favour of `common_environment_properties`
+         */
         environment?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The number of retry count. Defaults to `1`.
+         *
+         * @deprecated Deprecated in favour of `task_retry_maximum`
          */
         maxTaskRetryCount?: pulumi.Input<number>;
         /**
          * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
          */
         resourceFiles?: pulumi.Input<pulumi.Input<inputs.batch.PoolStartTaskResourceFile>[]>;
+        /**
+         * The number of retry count. Defaults to `1`.
+         */
+        taskRetryMaximum?: pulumi.Input<number>;
         /**
          * A `userIdentity` block that describes the user identity under which the start task runs.
          */
@@ -7629,11 +7463,11 @@ export namespace containerservice {
         /**
          * A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
          */
-        options: pulumi.Input<pulumi.Input<string>[]>;
+        options?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of search domains that DNS requests will search along.
          */
-        searchDomains: pulumi.Input<pulumi.Input<string>[]>;
+        searchDomains?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GroupExposedPort {
@@ -17519,7 +17353,7 @@ export namespace machinelearning {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+         * The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -22052,6 +21886,10 @@ export namespace network {
     }
 
     export interface PointToPointVpnGatewayConnectionConfiguration {
+        /**
+         * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+         */
+        internetSecurityEnabled?: pulumi.Input<boolean>;
         /**
          * The Name which should be used for this Connection Configuration.
          */

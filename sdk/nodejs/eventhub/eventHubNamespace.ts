@@ -67,7 +67,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public readonly autoInflateEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     /**
@@ -213,7 +213,7 @@ export interface EventHubNamespaceState {
      */
     autoInflateEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
      */
     capacity?: pulumi.Input<number>;
     /**
@@ -295,7 +295,7 @@ export interface EventHubNamespaceArgs {
      */
     autoInflateEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
      */
     capacity?: pulumi.Input<number>;
     /**
