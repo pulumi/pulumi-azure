@@ -743,8 +743,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20211019194827-62530c6537a4 h1:7EyuNFV2RFLBgGUnYjjcTzZL8BOFM4QBy/FJP1jTQxg=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20211019194827-62530c6537a4/go.mod h1:6KbP09YzlB++S6XSUKYl83WyoHVN4MgeoCbPRsdfCtA=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20211203113525-4fa825434ba2 h1:UZOxIXjCpNWTBg7Zv2CVto1smAQdax4NRdKYjdCxfhU=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20211203113525-4fa825434ba2/go.mod h1:CSKCfuRKFKW4epfgQzPZTFWpchktjxp4YiqYY2Yojjc=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20211203161943-ce238ee6fb79 h1:24fTZMeCnbA//+piZ0iHQ7shc0FuzpK0/uahEWwEco0=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20211203161943-ce238ee6fb79/go.mod h1:CSKCfuRKFKW4epfgQzPZTFWpchktjxp4YiqYY2Yojjc=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=

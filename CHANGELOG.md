@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.88.0 of the AzureRM Terraform Provider
+* Upgrade to v2.88.1 of the AzureRM Terraform Provider
   * Please note the following breaking changes to some inputs:
   * `azure.batch.getPool` no longer has the `certificates` input.  This input was not used in calculating results.
   * `azure.batch.getPool` no longer supports the `startTask` parameter
