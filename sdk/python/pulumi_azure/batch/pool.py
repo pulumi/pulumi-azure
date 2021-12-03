@@ -618,7 +618,7 @@ class Pool(pulumi.CustomResource):
             account_name=example_batch / account_account["name"],
             display_name="Test Acc Pool Auto",
             vm_size="Standard_A1",
-            node_agent_sku_id="batch.node.ubuntu 16.04",
+            node_agent_sku_id="batch.node.ubuntu 20.04",
             auto_scale=azure.batch.PoolAutoScaleArgs(
                 evaluation_interval="PT15M",
                 formula=\"\"\"      startingNumberOfVMs = 1;
@@ -631,7 +631,7 @@ class Pool(pulumi.CustomResource):
             storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
                 publisher="microsoft-azure-batch",
                 offer="ubuntu-server-container",
-                sku="16-04-lts",
+                sku="20-04-lts",
                 version="latest",
             ),
             container_configuration=azure.batch.PoolContainerConfigurationArgs(
@@ -644,9 +644,9 @@ class Pool(pulumi.CustomResource):
             ),
             start_task=azure.batch.PoolStartTaskArgs(
                 command_line="echo 'Hello World from $env'",
-                max_task_retry_count=1,
+                task_retry_maximum=1,
                 wait_for_success=True,
-                environment={
+                common_environment_properties={
                     "env": "TEST",
                 },
                 user_identity=azure.batch.PoolStartTaskUserIdentityArgs(
@@ -731,7 +731,7 @@ class Pool(pulumi.CustomResource):
             account_name=example_batch / account_account["name"],
             display_name="Test Acc Pool Auto",
             vm_size="Standard_A1",
-            node_agent_sku_id="batch.node.ubuntu 16.04",
+            node_agent_sku_id="batch.node.ubuntu 20.04",
             auto_scale=azure.batch.PoolAutoScaleArgs(
                 evaluation_interval="PT15M",
                 formula=\"\"\"      startingNumberOfVMs = 1;
@@ -744,7 +744,7 @@ class Pool(pulumi.CustomResource):
             storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
                 publisher="microsoft-azure-batch",
                 offer="ubuntu-server-container",
-                sku="16-04-lts",
+                sku="20-04-lts",
                 version="latest",
             ),
             container_configuration=azure.batch.PoolContainerConfigurationArgs(
@@ -757,9 +757,9 @@ class Pool(pulumi.CustomResource):
             ),
             start_task=azure.batch.PoolStartTaskArgs(
                 command_line="echo 'Hello World from $env'",
-                max_task_retry_count=1,
+                task_retry_maximum=1,
                 wait_for_success=True,
-                environment={
+                common_environment_properties={
                     "env": "TEST",
                 },
                 user_identity=azure.batch.PoolStartTaskUserIdentityArgs(

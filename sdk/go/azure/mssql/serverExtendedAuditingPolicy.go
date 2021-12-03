@@ -13,8 +13,6 @@ import (
 
 // Manages a Ms Sql Server Extended Auditing Policy.
 //
-// > **NOTE:** The Server Extended Auditing Policy Can be set inline here as well as with the mssqlServerExtendedAuditingPolicy resource resource. You can only use one or the other and using both will cause a conflict.
-//
 // ## Example Usage
 //
 // ```go

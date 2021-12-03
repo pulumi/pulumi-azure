@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Batch
     ///             AccountName = exampleBatch / accountAccount.Name,
     ///             DisplayName = "Test Acc Pool Auto",
     ///             VmSize = "Standard_A1",
-    ///             NodeAgentSkuId = "batch.node.ubuntu 16.04",
+    ///             NodeAgentSkuId = "batch.node.ubuntu 20.04",
     ///             AutoScale = new Azure.Batch.Inputs.PoolAutoScaleArgs
     ///             {
     ///                 EvaluationInterval = "PT15M",
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Batch
     ///             {
     ///                 Publisher = "microsoft-azure-batch",
     ///                 Offer = "ubuntu-server-container",
-    ///                 Sku = "16-04-lts",
+    ///                 Sku = "20-04-lts",
     ///                 Version = "latest",
     ///             },
     ///             ContainerConfiguration = new Azure.Batch.Inputs.PoolContainerConfigurationArgs
@@ -99,9 +99,9 @@ namespace Pulumi.Azure.Batch
     ///             StartTask = new Azure.Batch.Inputs.PoolStartTaskArgs
     ///             {
     ///                 CommandLine = "echo 'Hello World from $env'",
-    ///                 MaxTaskRetryCount = 1,
+    ///                 TaskRetryMaximum = 1,
     ///                 WaitForSuccess = true,
-    ///                 Environment = 
+    ///                 CommonEnvironmentProperties = 
     ///                 {
     ///                     { "env", "TEST" },
     ///                 },

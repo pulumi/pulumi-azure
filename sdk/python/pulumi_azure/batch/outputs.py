@@ -723,10 +723,14 @@ class PoolStartTask(dict):
             suggest = "command_line"
         elif key == "userIdentity":
             suggest = "user_identity"
+        elif key == "commonEnvironmentProperties":
+            suggest = "common_environment_properties"
         elif key == "maxTaskRetryCount":
             suggest = "max_task_retry_count"
         elif key == "resourceFiles":
             suggest = "resource_files"
+        elif key == "taskRetryMaximum":
+            suggest = "task_retry_maximum"
         elif key == "waitForSuccess":
             suggest = "wait_for_success"
 
@@ -744,26 +748,34 @@ class PoolStartTask(dict):
     def __init__(__self__, *,
                  command_line: str,
                  user_identity: 'outputs.PoolStartTaskUserIdentity',
+                 common_environment_properties: Optional[Mapping[str, str]] = None,
                  environment: Optional[Mapping[str, str]] = None,
                  max_task_retry_count: Optional[int] = None,
                  resource_files: Optional[Sequence['outputs.PoolStartTaskResourceFile']] = None,
+                 task_retry_maximum: Optional[int] = None,
                  wait_for_success: Optional[bool] = None):
         """
         :param str command_line: The command line executed by the start task.
         :param 'PoolStartTaskUserIdentityArgs' user_identity: A `user_identity` block that describes the user identity under which the start task runs.
+        :param Mapping[str, str] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
         :param Mapping[str, str] environment: A map of strings (key,value) that represents the environment variables to set in the start task.
         :param int max_task_retry_count: The number of retry count. Defaults to `1`.
         :param Sequence['PoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        :param int task_retry_maximum: The number of retry count. Defaults to `1`.
         :param bool wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
         """
         pulumi.set(__self__, "command_line", command_line)
         pulumi.set(__self__, "user_identity", user_identity)
+        if common_environment_properties is not None:
+            pulumi.set(__self__, "common_environment_properties", common_environment_properties)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
         if max_task_retry_count is not None:
             pulumi.set(__self__, "max_task_retry_count", max_task_retry_count)
         if resource_files is not None:
             pulumi.set(__self__, "resource_files", resource_files)
+        if task_retry_maximum is not None:
+            pulumi.set(__self__, "task_retry_maximum", task_retry_maximum)
         if wait_for_success is not None:
             pulumi.set(__self__, "wait_for_success", wait_for_success)
 
@@ -782,6 +794,14 @@ class PoolStartTask(dict):
         A `user_identity` block that describes the user identity under which the start task runs.
         """
         return pulumi.get(self, "user_identity")
+
+    @property
+    @pulumi.getter(name="commonEnvironmentProperties")
+    def common_environment_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of strings (key,value) that represents the environment variables to set in the start task.
+        """
+        return pulumi.get(self, "common_environment_properties")
 
     @property
     @pulumi.getter
@@ -806,6 +826,14 @@ class PoolStartTask(dict):
         One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         """
         return pulumi.get(self, "resource_files")
+
+    @property
+    @pulumi.getter(name="taskRetryMaximum")
+    def task_retry_maximum(self) -> Optional[int]:
+        """
+        The number of retry count. Defaults to `1`.
+        """
+        return pulumi.get(self, "task_retry_maximum")
 
     @property
     @pulumi.getter(name="waitForSuccess")
@@ -1152,8 +1180,8 @@ class GetPoolCertificateResult(dict):
     def __init__(__self__, *,
                  id: str,
                  store_location: str,
-                 store_name: Optional[str] = None,
-                 visibilities: Optional[Sequence[str]] = None):
+                 store_name: str,
+                 visibilities: Sequence[str]):
         """
         :param str id: The fully qualified ID of the certificate installed on the pool.
         :param str store_location: The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
@@ -1162,10 +1190,8 @@ class GetPoolCertificateResult(dict):
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "store_location", store_location)
-        if store_name is not None:
-            pulumi.set(__self__, "store_name", store_name)
-        if visibilities is not None:
-            pulumi.set(__self__, "visibilities", visibilities)
+        pulumi.set(__self__, "store_name", store_name)
+        pulumi.set(__self__, "visibilities", visibilities)
 
     @property
     @pulumi.getter
@@ -1185,7 +1211,7 @@ class GetPoolCertificateResult(dict):
 
     @property
     @pulumi.getter(name="storeName")
-    def store_name(self) -> Optional[str]:
+    def store_name(self) -> str:
         """
         The name of the certificate store on the compute node into which the certificate is installed.
         """
@@ -1193,7 +1219,7 @@ class GetPoolCertificateResult(dict):
 
     @property
     @pulumi.getter
-    def visibilities(self) -> Optional[Sequence[str]]:
+    def visibilities(self) -> Sequence[str]:
         """
         Which user accounts on the compute node have access to the private data of the certificate.
         """
@@ -1455,28 +1481,33 @@ class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleRe
 class GetPoolStartTaskResult(dict):
     def __init__(__self__, *,
                  command_line: str,
+                 max_task_retry_count: int,
                  resource_files: Sequence['outputs.GetPoolStartTaskResourceFileResult'],
+                 task_retry_maximum: int,
                  user_identities: Sequence['outputs.GetPoolStartTaskUserIdentityResult'],
-                 environment: Optional[Mapping[str, str]] = None,
-                 max_task_retry_count: Optional[int] = None,
-                 wait_for_success: Optional[bool] = None):
+                 wait_for_success: bool,
+                 common_environment_properties: Optional[Mapping[str, str]] = None,
+                 environment: Optional[Mapping[str, str]] = None):
         """
         :param str command_line: The command line executed by the start task.
-        :param Sequence['GetPoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
-        :param Sequence['GetPoolStartTaskUserIdentityArgs'] user_identities: A `user_identity` block that describes the user identity under which the start task runs.
-        :param Mapping[str, str] environment: A map of strings (key,value) that represents the environment variables to set in the start task.
         :param int max_task_retry_count: The number of retry count.
+        :param Sequence['GetPoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        :param int task_retry_maximum: The number of retry count
+        :param Sequence['GetPoolStartTaskUserIdentityArgs'] user_identities: A `user_identity` block that describes the user identity under which the start task runs.
         :param bool wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed.
+        :param Mapping[str, str] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
+        :param Mapping[str, str] environment: A map of strings (key,value) that represents the environment variables to set in the start task.
         """
         pulumi.set(__self__, "command_line", command_line)
+        pulumi.set(__self__, "max_task_retry_count", max_task_retry_count)
         pulumi.set(__self__, "resource_files", resource_files)
+        pulumi.set(__self__, "task_retry_maximum", task_retry_maximum)
         pulumi.set(__self__, "user_identities", user_identities)
+        pulumi.set(__self__, "wait_for_success", wait_for_success)
+        if common_environment_properties is not None:
+            pulumi.set(__self__, "common_environment_properties", common_environment_properties)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
-        if max_task_retry_count is not None:
-            pulumi.set(__self__, "max_task_retry_count", max_task_retry_count)
-        if wait_for_success is not None:
-            pulumi.set(__self__, "wait_for_success", wait_for_success)
 
     @property
     @pulumi.getter(name="commandLine")
@@ -1487,12 +1518,28 @@ class GetPoolStartTaskResult(dict):
         return pulumi.get(self, "command_line")
 
     @property
+    @pulumi.getter(name="maxTaskRetryCount")
+    def max_task_retry_count(self) -> int:
+        """
+        The number of retry count.
+        """
+        return pulumi.get(self, "max_task_retry_count")
+
+    @property
     @pulumi.getter(name="resourceFiles")
     def resource_files(self) -> Sequence['outputs.GetPoolStartTaskResourceFileResult']:
         """
         One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         """
         return pulumi.get(self, "resource_files")
+
+    @property
+    @pulumi.getter(name="taskRetryMaximum")
+    def task_retry_maximum(self) -> int:
+        """
+        The number of retry count
+        """
+        return pulumi.get(self, "task_retry_maximum")
 
     @property
     @pulumi.getter(name="userIdentities")
@@ -1503,28 +1550,28 @@ class GetPoolStartTaskResult(dict):
         return pulumi.get(self, "user_identities")
 
     @property
+    @pulumi.getter(name="waitForSuccess")
+    def wait_for_success(self) -> bool:
+        """
+        A flag that indicates if the Batch pool should wait for the start task to be completed.
+        """
+        return pulumi.get(self, "wait_for_success")
+
+    @property
+    @pulumi.getter(name="commonEnvironmentProperties")
+    def common_environment_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of strings (key,value) that represents the environment variables to set in the start task.
+        """
+        return pulumi.get(self, "common_environment_properties")
+
+    @property
     @pulumi.getter
     def environment(self) -> Optional[Mapping[str, str]]:
         """
         A map of strings (key,value) that represents the environment variables to set in the start task.
         """
         return pulumi.get(self, "environment")
-
-    @property
-    @pulumi.getter(name="maxTaskRetryCount")
-    def max_task_retry_count(self) -> Optional[int]:
-        """
-        The number of retry count.
-        """
-        return pulumi.get(self, "max_task_retry_count")
-
-    @property
-    @pulumi.getter(name="waitForSuccess")
-    def wait_for_success(self) -> Optional[bool]:
-        """
-        A flag that indicates if the Batch pool should wait for the start task to be completed.
-        """
-        return pulumi.get(self, "wait_for_success")
 
 
 @pulumi.output_type

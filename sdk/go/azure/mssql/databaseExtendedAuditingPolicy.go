@@ -13,7 +13,7 @@ import (
 
 // Manages a Ms Sql Database Extended Auditing Policy.
 //
-// > **NOTE:** The Database Extended Auditing Policy Can be set inline here as well as with the mssqlDatabaseExtendedAuditingPolicy resource resource. You can only use one or the other and using both will cause a conflict.
+// > **NOTE:** The Database Extended Auditing Policy can also be set in the `extendedAuditingPolicy` block in the mssql.Database resource. You can only use one or the other and using both will cause a conflict.
 //
 // ## Example Usage
 //

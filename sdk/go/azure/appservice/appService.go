@@ -96,6 +96,8 @@ type AppService struct {
 	ClientAffinityEnabled pulumi.BoolPtrOutput `pulumi:"clientAffinityEnabled"`
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
 	ClientCertEnabled pulumi.BoolPtrOutput `pulumi:"clientCertEnabled"`
+	// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
+	ClientCertMode pulumi.StringOutput `pulumi:"clientCertMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings AppServiceConnectionStringArrayOutput `pulumi:"connectionStrings"`
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
@@ -185,6 +187,8 @@ type appServiceState struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
 	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
+	// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
+	ClientCertMode *string `pulumi:"clientCertMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []AppServiceConnectionString `pulumi:"connectionStrings"`
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
@@ -240,6 +244,8 @@ type AppServiceState struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
 	ClientCertEnabled pulumi.BoolPtrInput
+	// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
+	ClientCertMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings AppServiceConnectionStringArrayInput
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
@@ -299,6 +305,8 @@ type appServiceArgs struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
 	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
+	// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
+	ClientCertMode *string `pulumi:"clientCertMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []AppServiceConnectionString `pulumi:"connectionStrings"`
 	// Is the App Service Enabled?
@@ -341,6 +349,8 @@ type AppServiceArgs struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
 	ClientCertEnabled pulumi.BoolPtrInput
+	// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
+	ClientCertMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings AppServiceConnectionStringArrayInput
 	// Is the App Service Enabled?

@@ -107,6 +107,10 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly clientCertEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
+     */
+    public readonly clientCertMode!: pulumi.Output<string>;
+    /**
      * One or more `connectionString` blocks as defined below.
      */
     public readonly connectionStrings!: pulumi.Output<outputs.appservice.AppServiceConnectionString[]>;
@@ -206,6 +210,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["backup"] = state ? state.backup : undefined;
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             inputs["clientCertEnabled"] = state ? state.clientCertEnabled : undefined;
+            inputs["clientCertMode"] = state ? state.clientCertMode : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
             inputs["defaultSiteHostname"] = state ? state.defaultSiteHostname : undefined;
@@ -240,6 +245,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["backup"] = args ? args.backup : undefined;
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             inputs["clientCertEnabled"] = args ? args.clientCertEnabled : undefined;
+            inputs["clientCertMode"] = args ? args.clientCertMode : undefined;
             inputs["connectionStrings"] = args ? args.connectionStrings : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
@@ -296,6 +302,10 @@ export interface AppServiceState {
      * Does the App Service require client certificates for incoming requests? Defaults to `false`.
      */
     clientCertEnabled?: pulumi.Input<boolean>;
+    /**
+     * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
+     */
+    clientCertMode?: pulumi.Input<string>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
@@ -406,6 +416,10 @@ export interface AppServiceArgs {
      * Does the App Service require client certificates for incoming requests? Defaults to `false`.
      */
     clientCertEnabled?: pulumi.Input<boolean>;
+    /**
+     * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
+     */
+    clientCertMode?: pulumi.Input<string>;
     /**
      * One or more `connectionString` blocks as defined below.
      */

@@ -193,6 +193,8 @@ type LinuxVirtualMachineScaleSet struct {
 	ScaleInPolicy pulumi.StringPtrOutput `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineScaleSetSecretArrayOutput `pulumi:"secrets"`
+	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrOutput `pulumi:"secureBootEnabled"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
@@ -209,6 +211,8 @@ type LinuxVirtualMachineScaleSet struct {
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrOutput `pulumi:"upgradeMode"`
+	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
 	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
@@ -330,6 +334,8 @@ type linuxVirtualMachineScaleSetState struct {
 	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []LinuxVirtualMachineScaleSetSecret `pulumi:"secrets"`
+	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
@@ -346,6 +352,8 @@ type linuxVirtualMachineScaleSetState struct {
 	UniqueId *string `pulumi:"uniqueId"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode *string `pulumi:"upgradeMode"`
+	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
@@ -421,6 +429,8 @@ type LinuxVirtualMachineScaleSetState struct {
 	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineScaleSetSecretArrayInput
+	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
@@ -437,6 +447,8 @@ type LinuxVirtualMachineScaleSetState struct {
 	UniqueId pulumi.StringPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrInput
+	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	VtpmEnabled pulumi.BoolPtrInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance pulumi.BoolPtrInput
 	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
@@ -516,6 +528,8 @@ type linuxVirtualMachineScaleSetArgs struct {
 	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []LinuxVirtualMachineScaleSetSecret `pulumi:"secrets"`
+	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
@@ -530,6 +544,8 @@ type linuxVirtualMachineScaleSetArgs struct {
 	TerminateNotification *LinuxVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode *string `pulumi:"upgradeMode"`
+	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
@@ -606,6 +622,8 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets LinuxVirtualMachineScaleSetSecretArrayInput
+	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
@@ -620,6 +638,8 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrInput
+	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+	VtpmEnabled pulumi.BoolPtrInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 	ZoneBalance pulumi.BoolPtrInput
 	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.

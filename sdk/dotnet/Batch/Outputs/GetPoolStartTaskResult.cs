@@ -20,15 +20,23 @@ namespace Pulumi.Azure.Batch.Outputs
         /// <summary>
         /// A map of strings (key,value) that represents the environment variables to set in the start task.
         /// </summary>
+        public readonly ImmutableDictionary<string, string>? CommonEnvironmentProperties;
+        /// <summary>
+        /// A map of strings (key,value) that represents the environment variables to set in the start task.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Environment;
         /// <summary>
         /// The number of retry count.
         /// </summary>
-        public readonly int? MaxTaskRetryCount;
+        public readonly int MaxTaskRetryCount;
         /// <summary>
         /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolStartTaskResourceFileResult> ResourceFiles;
+        /// <summary>
+        /// The number of retry count
+        /// </summary>
+        public readonly int TaskRetryMaximum;
         /// <summary>
         /// A `user_identity` block that describes the user identity under which the start task runs.
         /// </summary>
@@ -36,26 +44,32 @@ namespace Pulumi.Azure.Batch.Outputs
         /// <summary>
         /// A flag that indicates if the Batch pool should wait for the start task to be completed.
         /// </summary>
-        public readonly bool? WaitForSuccess;
+        public readonly bool WaitForSuccess;
 
         [OutputConstructor]
         private GetPoolStartTaskResult(
             string commandLine,
 
+            ImmutableDictionary<string, string>? commonEnvironmentProperties,
+
             ImmutableDictionary<string, string>? environment,
 
-            int? maxTaskRetryCount,
+            int maxTaskRetryCount,
 
             ImmutableArray<Outputs.GetPoolStartTaskResourceFileResult> resourceFiles,
 
+            int taskRetryMaximum,
+
             ImmutableArray<Outputs.GetPoolStartTaskUserIdentityResult> userIdentities,
 
-            bool? waitForSuccess)
+            bool waitForSuccess)
         {
             CommandLine = commandLine;
+            CommonEnvironmentProperties = commonEnvironmentProperties;
             Environment = environment;
             MaxTaskRetryCount = maxTaskRetryCount;
             ResourceFiles = resourceFiles;
+            TaskRetryMaximum = taskRetryMaximum;
             UserIdentities = userIdentities;
             WaitForSuccess = waitForSuccess;
         }

@@ -10,154 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MachineLearning
 {
     /// <summary>
-    /// Manages a Azure Machine Learning Workspace
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "premium",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new Azure.MachineLearning.WorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### With Data Encryption
-    /// 
-    /// &gt; **NOTE:** The Key Vault must enable purge protection.
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "premium",
-    ///             PurgeProtectionEnabled = true,
-    ///         });
-    ///         var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new Azure.KeyVault.AccessPolicyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///             KeyPermissions = 
-    ///             {
-    ///                 "Create",
-    ///                 "Get",
-    ///                 "Delete",
-    ///                 "Purge",
-    ///             },
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             KeyType = "RSA",
-    ///             KeySize = 2048,
-    ///             KeyOpts = 
-    ///             {
-    ///                 "decrypt",
-    ///                 "encrypt",
-    ///                 "sign",
-    ///                 "unwrapKey",
-    ///                 "verify",
-    ///                 "wrapKey",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleKeyVault,
-    ///                 exampleAccessPolicy,
-    ///             },
-    ///         });
-    ///         var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new Azure.MachineLearning.WorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             Encryption = new Azure.MachineLearning.Inputs.WorkspaceEncryptionArgs
-    ///             {
-    ///                 KeyVaultId = exampleKeyVault.Id,
-    ///                 KeyId = exampleKey.Id,
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Machine Learning Workspace can be imported using the `resource id`, e.g.
@@ -188,7 +40,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+        /// The url for the discovery service to identify regional endpoints for machine learning experimentation services.
         /// </summary>
         [Output("discoveryUrl")]
         public Output<string> DiscoveryUrl { get; private set; } = null!;
@@ -197,7 +49,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<Outputs.WorkspaceEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// Friendly name for this Machine Learning Workspace.
+        /// Display name for this Machine Learning Workspace.
         /// </summary>
         [Output("friendlyName")]
         public Output<string?> FriendlyName { get; private set; } = null!;
@@ -263,7 +115,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -336,7 +188,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.WorkspaceEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// Friendly name for this Machine Learning Workspace.
+        /// Display name for this Machine Learning Workspace.
         /// </summary>
         [Input("friendlyName")]
         public Input<string>? FriendlyName { get; set; }
@@ -405,7 +257,7 @@ namespace Pulumi.Azure.MachineLearning
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -439,7 +291,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+        /// The url for the discovery service to identify regional endpoints for machine learning experimentation services.
         /// </summary>
         [Input("discoveryUrl")]
         public Input<string>? DiscoveryUrl { get; set; }
@@ -448,7 +300,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.WorkspaceEncryptionGetArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// Friendly name for this Machine Learning Workspace.
+        /// Display name for this Machine Learning Workspace.
         /// </summary>
         [Input("friendlyName")]
         public Input<string>? FriendlyName { get; set; }
@@ -517,7 +369,7 @@ namespace Pulumi.Azure.MachineLearning
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {

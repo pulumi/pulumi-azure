@@ -239,6 +239,10 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly secrets!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetSecret[] | undefined>;
     /**
+     * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+     */
+    public readonly secureBootEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      */
     public readonly singlePlacementGroup!: pulumi.Output<boolean | undefined>;
@@ -270,6 +274,10 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
      */
     public readonly upgradeMode!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+     */
+    public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      */
@@ -326,6 +334,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["rollingUpgradePolicy"] = state ? state.rollingUpgradePolicy : undefined;
             inputs["scaleInPolicy"] = state ? state.scaleInPolicy : undefined;
             inputs["secrets"] = state ? state.secrets : undefined;
+            inputs["secureBootEnabled"] = state ? state.secureBootEnabled : undefined;
             inputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["sourceImageId"] = state ? state.sourceImageId : undefined;
@@ -334,6 +343,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["terminateNotification"] = state ? state.terminateNotification : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
             inputs["upgradeMode"] = state ? state.upgradeMode : undefined;
+            inputs["vtpmEnabled"] = state ? state.vtpmEnabled : undefined;
             inputs["zoneBalance"] = state ? state.zoneBalance : undefined;
             inputs["zones"] = state ? state.zones : undefined;
         } else {
@@ -390,6 +400,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["rollingUpgradePolicy"] = args ? args.rollingUpgradePolicy : undefined;
             inputs["scaleInPolicy"] = args ? args.scaleInPolicy : undefined;
             inputs["secrets"] = args ? args.secrets : undefined;
+            inputs["secureBootEnabled"] = args ? args.secureBootEnabled : undefined;
             inputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["sourceImageId"] = args ? args.sourceImageId : undefined;
@@ -397,6 +408,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["terminateNotification"] = args ? args.terminateNotification : undefined;
             inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
+            inputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
             inputs["zoneBalance"] = args ? args.zoneBalance : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["uniqueId"] = undefined /*out*/;
@@ -549,6 +561,10 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSecret>[]>;
     /**
+     * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+     */
+    secureBootEnabled?: pulumi.Input<boolean>;
+    /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
@@ -580,6 +596,10 @@ export interface LinuxVirtualMachineScaleSetState {
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
      */
     upgradeMode?: pulumi.Input<string>;
+    /**
+     * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+     */
+    vtpmEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      */
@@ -731,6 +751,10 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSecret>[]>;
     /**
+     * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+     */
+    secureBootEnabled?: pulumi.Input<boolean>;
+    /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
@@ -758,6 +782,10 @@ export interface LinuxVirtualMachineScaleSetArgs {
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
      */
     upgradeMode?: pulumi.Input<string>;
+    /**
+     * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+     */
+    vtpmEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      */

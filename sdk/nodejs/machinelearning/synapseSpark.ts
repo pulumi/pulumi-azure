@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Machine Learning Synapse Spark.
+ * Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
  *
  * ## Example Usage
  *

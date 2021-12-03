@@ -297,7 +297,7 @@ class SynapseSpark(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a Machine Learning Synapse Spark.
+        Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
 
         ## Example Usage
 
@@ -382,7 +382,7 @@ class SynapseSpark(pulumi.CustomResource):
                  args: SynapseSparkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Machine Learning Synapse Spark.
+        Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
 
         ## Example Usage
 

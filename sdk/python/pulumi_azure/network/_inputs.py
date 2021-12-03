@@ -7567,14 +7567,18 @@ class PointToPointVpnGatewayConnectionConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  vpn_client_address_pool: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs'],
+                 internet_security_enabled: Optional[pulumi.Input[bool]] = None,
                  route: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgs']] = None):
         """
         :param pulumi.Input[str] name: The Name which should be used for this Connection Configuration.
         :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs'] vpn_client_address_pool: A `vpn_client_address_pool` block as defined below.
+        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
         :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgs'] route: A `route` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vpn_client_address_pool", vpn_client_address_pool)
+        if internet_security_enabled is not None:
+            pulumi.set(__self__, "internet_security_enabled", internet_security_enabled)
         if route is not None:
             pulumi.set(__self__, "route", route)
 
@@ -7601,6 +7605,18 @@ class PointToPointVpnGatewayConnectionConfigurationArgs:
     @vpn_client_address_pool.setter
     def vpn_client_address_pool(self, value: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs']):
         pulumi.set(self, "vpn_client_address_pool", value)
+
+    @property
+    @pulumi.getter(name="internetSecurityEnabled")
+    def internet_security_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+        """
+        return pulumi.get(self, "internet_security_enabled")
+
+    @internet_security_enabled.setter
+    def internet_security_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "internet_security_enabled", value)
 
     @property
     @pulumi.getter

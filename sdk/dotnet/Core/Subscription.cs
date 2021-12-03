@@ -150,8 +150,11 @@ namespace Pulumi.Azure.Core
         [Output("subscriptionName")]
         public Output<string> SubscriptionName { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the Subscription.
+        /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Tenant to which the subscription belongs.
@@ -235,6 +238,18 @@ namespace Pulumi.Azure.Core
         [Input("subscriptionName", required: true)]
         public Input<string> SubscriptionName { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the Subscription.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         /// </summary>
@@ -274,6 +289,10 @@ namespace Pulumi.Azure.Core
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the Subscription.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

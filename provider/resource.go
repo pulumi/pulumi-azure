@@ -1246,6 +1246,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mysql_flexible_server":               {Tok: azureResource(azureMySQL, "FlexibleServer")},
 			"azurerm_mysql_flexible_server_configuration": {Tok: azureResource(azureMySQL, "FlexibleServerConfiguration")},
 			"azurerm_mysql_flexible_server_firewall_rule": {Tok: azureResource(azureMySQL, "FlexibleServerFirewallRule")},
+			"azurerm_mysql_flexible_database":             {Tok: azureResource(azureMySQL, "FlexibleDatabase")},
 
 			// Postgress SQL
 			"azurerm_postgresql_configuration": {
@@ -1965,6 +1966,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_synapse_workspace_extended_auditing_policy":         {Tok: azureResource(azureSynapse, "WorkspaceExtendedAuditingPolicy")},
 			"azurerm_synapse_sql_pool_vulnerability_assessment_baseline": {Tok: azureResource(azureSynapse, "SqlPoolVulnerabilityAssessmentBaseline")},
 			"azurerm_synapse_workspace_aad_admin":                        {Tok: azureResource(azureSynapse, "WorkspaceAadAdmin")},
+			"azurerm_synapse_sql_pool_workload_group":                    {Tok: azureResource(azureSynapse, "SqlPoolWorkloadGroup")},
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},

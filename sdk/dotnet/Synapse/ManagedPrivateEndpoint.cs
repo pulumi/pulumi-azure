@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse
 {
     /// <summary>
-    /// Allows you to Manages a Synapse Managed Private Endpoint.
+    /// Manages a Synapse Managed Private Endpoint.
     /// 
     /// ## Example Usage
     /// 

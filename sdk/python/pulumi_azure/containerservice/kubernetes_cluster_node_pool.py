@@ -1435,7 +1435,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> pulumi.Output[str]:
+    def eviction_policy(self) -> pulumi.Output[Optional[str]]:
         """
         The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         """
@@ -1547,7 +1547,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> pulumi.Output[Sequence[str]]:
+    def node_taints(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         """

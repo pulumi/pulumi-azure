@@ -49,13 +49,9 @@ func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.Invoke
 type LookupPoolArgs struct {
 	// The name of the Batch account.
 	AccountName string `pulumi:"accountName"`
-	// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
-	Certificates []GetPoolCertificate `pulumi:"certificates"`
 	// The name of the endpoint.
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `startTask` block that describes the start task settings for the Batch pool.
-	StartTask *GetPoolStartTask `pulumi:"startTask"`
 }
 
 // A collection of values returned by getPool.
@@ -83,7 +79,7 @@ type LookupPoolResult struct {
 	NodeAgentSkuId    string `pulumi:"nodeAgentSkuId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
-	StartTask *GetPoolStartTask `pulumi:"startTask"`
+	StartTasks []GetPoolStartTask `pulumi:"startTasks"`
 	// The reference of the storage image used by the nodes in the Batch pool.
 	StorageImageReferences []GetPoolStorageImageReference `pulumi:"storageImageReferences"`
 	// The size of the VM created in the Batch pool.
@@ -103,13 +99,9 @@ func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pu
 type LookupPoolOutputArgs struct {
 	// The name of the Batch account.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
-	Certificates GetPoolCertificateArrayInput `pulumi:"certificates"`
 	// The name of the endpoint.
 	Name              pulumi.StringInput `pulumi:"name"`
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// A `startTask` block that describes the start task settings for the Batch pool.
-	StartTask GetPoolStartTaskPtrInput `pulumi:"startTask"`
 }
 
 func (LookupPoolOutputArgs) ElementType() reflect.Type {
@@ -193,8 +185,8 @@ func (o LookupPoolResultOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // A `startTask` block that describes the start task settings for the Batch pool.
-func (o LookupPoolResultOutput) StartTask() GetPoolStartTaskPtrOutput {
-	return o.ApplyT(func(v LookupPoolResult) *GetPoolStartTask { return v.StartTask }).(GetPoolStartTaskPtrOutput)
+func (o LookupPoolResultOutput) StartTasks() GetPoolStartTaskArrayOutput {
+	return o.ApplyT(func(v LookupPoolResult) []GetPoolStartTask { return v.StartTasks }).(GetPoolStartTaskArrayOutput)
 }
 
 // The reference of the storage image used by the nodes in the Batch pool.

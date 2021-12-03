@@ -962,16 +962,18 @@ class GroupDnsConfig(dict):
 
     def __init__(__self__, *,
                  nameservers: Sequence[str],
-                 options: Sequence[str],
-                 search_domains: Sequence[str]):
+                 options: Optional[Sequence[str]] = None,
+                 search_domains: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] nameservers: A list of nameservers the containers will search out to resolve requests.
         :param Sequence[str] options: A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
         :param Sequence[str] search_domains: A list of search domains that DNS requests will search along.
         """
         pulumi.set(__self__, "nameservers", nameservers)
-        pulumi.set(__self__, "options", options)
-        pulumi.set(__self__, "search_domains", search_domains)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if search_domains is not None:
+            pulumi.set(__self__, "search_domains", search_domains)
 
     @property
     @pulumi.getter
@@ -983,7 +985,7 @@ class GroupDnsConfig(dict):
 
     @property
     @pulumi.getter
-    def options(self) -> Sequence[str]:
+    def options(self) -> Optional[Sequence[str]]:
         """
         A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
         """
@@ -991,7 +993,7 @@ class GroupDnsConfig(dict):
 
     @property
     @pulumi.getter(name="searchDomains")
-    def search_domains(self) -> Sequence[str]:
+    def search_domains(self) -> Optional[Sequence[str]]:
         """
         A list of search domains that DNS requests will search along.
         """

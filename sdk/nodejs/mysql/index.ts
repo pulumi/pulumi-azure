@@ -9,6 +9,7 @@ export * from "./activeDirectoryAdministrator";
 export * from "./configuration";
 export * from "./database";
 export * from "./firewallRule";
+export * from "./flexibleDatabase";
 export * from "./flexibleServer";
 export * from "./flexibleServerConfiguration";
 export * from "./flexibleServerFirewallRule";
@@ -22,6 +23,7 @@ import { ActiveDirectoryAdministrator } from "./activeDirectoryAdministrator";
 import { Configuration } from "./configuration";
 import { Database } from "./database";
 import { FirewallRule } from "./firewallRule";
+import { FlexibleDatabase } from "./flexibleDatabase";
 import { FlexibleServer } from "./flexibleServer";
 import { FlexibleServerConfiguration } from "./flexibleServerConfiguration";
 import { FlexibleServerFirewallRule } from "./flexibleServerFirewallRule";
@@ -41,6 +43,8 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "azure:mysql/firewallRule:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
+            case "azure:mysql/flexibleDatabase:FlexibleDatabase":
+                return new FlexibleDatabase(name, <any>undefined, { urn })
             case "azure:mysql/flexibleServer:FlexibleServer":
                 return new FlexibleServer(name, <any>undefined, { urn })
             case "azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration":
@@ -62,6 +66,7 @@ pulumi.runtime.registerResourceModule("azure", "mysql/activeDirectoryAdministrat
 pulumi.runtime.registerResourceModule("azure", "mysql/configuration", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/database", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/firewallRule", _module)
+pulumi.runtime.registerResourceModule("azure", "mysql/flexibleDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServerConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "mysql/flexibleServerFirewallRule", _module)

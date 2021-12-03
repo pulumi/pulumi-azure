@@ -2902,12 +2902,19 @@ class FunctionAppAuthSettingsTwitterArgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
         pulumi.set(__self__, "consumer_key", consumer_key)
         pulumi.set(__self__, "consumer_secret", consumer_secret)
 
     @property
     @pulumi.getter(name="consumerKey")
     def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
         return pulumi.get(self, "consumer_key")
 
     @consumer_key.setter
@@ -2917,6 +2924,9 @@ class FunctionAppAuthSettingsTwitterArgs:
     @property
     @pulumi.getter(name="consumerSecret")
     def consumer_secret(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
         return pulumi.get(self, "consumer_secret")
 
     @consumer_secret.setter
@@ -4290,12 +4300,19 @@ class FunctionAppSlotAuthSettingsTwitterArgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
         pulumi.set(__self__, "consumer_key", consumer_key)
         pulumi.set(__self__, "consumer_secret", consumer_secret)
 
     @property
     @pulumi.getter(name="consumerKey")
     def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
         return pulumi.get(self, "consumer_key")
 
     @consumer_key.setter
@@ -4305,6 +4322,9 @@ class FunctionAppSlotAuthSettingsTwitterArgs:
     @property
     @pulumi.getter(name="consumerSecret")
     def consumer_secret(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
         return pulumi.get(self, "consumer_secret")
 
     @consumer_secret.setter

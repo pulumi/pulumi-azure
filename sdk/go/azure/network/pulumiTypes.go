@@ -14088,6 +14088,8 @@ func (o PacketCaptureStorageLocationPtrOutput) StoragePath() pulumi.StringPtrOut
 }
 
 type PointToPointVpnGatewayConnectionConfiguration struct {
+	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+	InternetSecurityEnabled *bool `pulumi:"internetSecurityEnabled"`
 	// The Name which should be used for this Connection Configuration.
 	Name string `pulumi:"name"`
 	// A `route` block as defined below.
@@ -14108,6 +14110,8 @@ type PointToPointVpnGatewayConnectionConfigurationInput interface {
 }
 
 type PointToPointVpnGatewayConnectionConfigurationArgs struct {
+	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+	InternetSecurityEnabled pulumi.BoolPtrInput `pulumi:"internetSecurityEnabled"`
 	// The Name which should be used for this Connection Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// A `route` block as defined below.
@@ -14193,6 +14197,11 @@ func (o PointToPointVpnGatewayConnectionConfigurationOutput) ToPointToPointVpnGa
 	}).(PointToPointVpnGatewayConnectionConfigurationPtrOutput)
 }
 
+// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+func (o PointToPointVpnGatewayConnectionConfigurationOutput) InternetSecurityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfiguration) *bool { return v.InternetSecurityEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The Name which should be used for this Connection Configuration.
 func (o PointToPointVpnGatewayConnectionConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfiguration) string { return v.Name }).(pulumi.StringOutput)
@@ -14234,6 +14243,16 @@ func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) Elem() PointToPo
 		var ret PointToPointVpnGatewayConnectionConfiguration
 		return ret
 	}).(PointToPointVpnGatewayConnectionConfigurationOutput)
+}
+
+// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) InternetSecurityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InternetSecurityEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The Name which should be used for this Connection Configuration.

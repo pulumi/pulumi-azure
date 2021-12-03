@@ -241,6 +241,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly secrets!: pulumi.Output<outputs.compute.LinuxVirtualMachineSecret[] | undefined>;
     /**
+     * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+     */
+    public readonly secureBootEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
      */
     public readonly size!: pulumi.Output<string>;
@@ -264,6 +268,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
      */
     public readonly virtualMachineScaleSetId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+     */
+    public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
      */
@@ -315,12 +323,14 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secrets"] = state ? state.secrets : undefined;
+            inputs["secureBootEnabled"] = state ? state.secureBootEnabled : undefined;
             inputs["size"] = state ? state.size : undefined;
             inputs["sourceImageId"] = state ? state.sourceImageId : undefined;
             inputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
             inputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
+            inputs["vtpmEnabled"] = state ? state.vtpmEnabled : undefined;
             inputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as LinuxVirtualMachineArgs | undefined;
@@ -368,11 +378,13 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["secrets"] = args ? args.secrets : undefined;
+            inputs["secureBootEnabled"] = args ? args.secureBootEnabled : undefined;
             inputs["size"] = args ? args.size : undefined;
             inputs["sourceImageId"] = args ? args.sourceImageId : undefined;
             inputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
+            inputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
             inputs["zone"] = args ? args.zone : undefined;
             inputs["privateIpAddress"] = undefined /*out*/;
             inputs["privateIpAddresses"] = undefined /*out*/;
@@ -524,6 +536,10 @@ export interface LinuxVirtualMachineState {
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineSecret>[]>;
     /**
+     * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+     */
+    secureBootEnabled?: pulumi.Input<boolean>;
+    /**
      * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
      */
     size?: pulumi.Input<string>;
@@ -547,6 +563,10 @@ export interface LinuxVirtualMachineState {
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
+    /**
+     * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+     */
+    vtpmEnabled?: pulumi.Input<boolean>;
     /**
      * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
      */
@@ -674,6 +694,10 @@ export interface LinuxVirtualMachineArgs {
      */
     secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineSecret>[]>;
     /**
+     * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+     */
+    secureBootEnabled?: pulumi.Input<boolean>;
+    /**
      * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
      */
     size: pulumi.Input<string>;
@@ -693,6 +717,10 @@ export interface LinuxVirtualMachineArgs {
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
+    /**
+     * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+     */
+    vtpmEnabled?: pulumi.Input<boolean>;
     /**
      * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
      */

@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class PointToPointVpnGatewayConnectionConfiguration
     {
         /// <summary>
+        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+        /// </summary>
+        public readonly bool? InternetSecurityEnabled;
+        /// <summary>
         /// The Name which should be used for this Connection Configuration.
         /// </summary>
         public readonly string Name;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private PointToPointVpnGatewayConnectionConfiguration(
+            bool? internetSecurityEnabled,
+
             string name,
 
             Outputs.PointToPointVpnGatewayConnectionConfigurationRoute? route,
 
             Outputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool vpnClientAddressPool)
         {
+            InternetSecurityEnabled = internetSecurityEnabled;
             Name = name;
             Route = route;
             VpnClientAddressPool = vpnClientAddressPool;

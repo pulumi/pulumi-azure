@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SqlPoolVulnerabilityAssessment{}
 	case "azure:synapse/sqlPoolVulnerabilityAssessmentBaseline:SqlPoolVulnerabilityAssessmentBaseline":
 		r = &SqlPoolVulnerabilityAssessmentBaseline{}
+	case "azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup":
+		r = &SqlPoolWorkloadGroup{}
 	case "azure:synapse/workspace:Workspace":
 		r = &Workspace{}
 	case "azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin":
@@ -135,6 +137,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"synapse/sqlPoolVulnerabilityAssessmentBaseline",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"synapse/sqlPoolWorkloadGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

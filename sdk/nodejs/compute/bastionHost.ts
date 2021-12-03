@@ -101,6 +101,10 @@ export class BastionHost extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     */
+    public readonly sku!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -123,6 +127,7 @@ export class BastionHost extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as BastionHostArgs | undefined;
@@ -133,6 +138,7 @@ export class BastionHost extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["dnsName"] = undefined /*out*/;
         }
@@ -168,6 +174,10 @@ export interface BastionHostState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     */
+    sku?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -193,6 +203,10 @@ export interface BastionHostArgs {
      * The name of the resource group in which to create the Bastion Host.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     */
+    sku?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

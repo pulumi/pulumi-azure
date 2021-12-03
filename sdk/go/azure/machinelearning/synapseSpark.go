@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Machine Learning Synapse Spark.
+// Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
 //
 // ## Example Usage
 //

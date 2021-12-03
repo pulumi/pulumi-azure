@@ -22,6 +22,7 @@ class AppServiceArgs:
                  backup: Optional[pulumi.Input['AppServiceBackupArgs']] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_cert_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceConnectionStringArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
@@ -43,6 +44,7 @@ class AppServiceArgs:
         :param pulumi.Input['AppServiceBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
+        :param pulumi.Input[str] client_cert_mode: Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the App Service Enabled?
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
@@ -68,6 +70,8 @@ class AppServiceArgs:
             pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if client_cert_enabled is not None:
             pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
+        if client_cert_mode is not None:
+            pulumi.set(__self__, "client_cert_mode", client_cert_mode)
         if connection_strings is not None:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if enabled is not None:
@@ -176,6 +180,18 @@ class AppServiceArgs:
     @client_cert_enabled.setter
     def client_cert_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "client_cert_enabled", value)
+
+    @property
+    @pulumi.getter(name="clientCertMode")
+    def client_cert_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+        """
+        return pulumi.get(self, "client_cert_mode")
+
+    @client_cert_mode.setter
+    def client_cert_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_cert_mode", value)
 
     @property
     @pulumi.getter(name="connectionStrings")
@@ -331,6 +347,7 @@ class _AppServiceState:
                  backup: Optional[pulumi.Input['AppServiceBackupArgs']] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_cert_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceConnectionStringArgs']]]] = None,
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  default_site_hostname: Optional[pulumi.Input[str]] = None,
@@ -359,6 +376,7 @@ class _AppServiceState:
         :param pulumi.Input['AppServiceBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
+        :param pulumi.Input[str] client_cert_mode: Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_site_hostname: The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
@@ -392,6 +410,8 @@ class _AppServiceState:
             pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
         if client_cert_enabled is not None:
             pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
+        if client_cert_mode is not None:
+            pulumi.set(__self__, "client_cert_mode", client_cert_mode)
         if connection_strings is not None:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if custom_domain_verification_id is not None:
@@ -504,6 +524,18 @@ class _AppServiceState:
     @client_cert_enabled.setter
     def client_cert_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "client_cert_enabled", value)
+
+    @property
+    @pulumi.getter(name="clientCertMode")
+    def client_cert_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+        """
+        return pulumi.get(self, "client_cert_mode")
+
+    @client_cert_mode.setter
+    def client_cert_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_cert_mode", value)
 
     @property
     @pulumi.getter(name="connectionStrings")
@@ -757,6 +789,7 @@ class AppService(pulumi.CustomResource):
                  backup: Optional[pulumi.Input[pulumi.InputType['AppServiceBackupArgs']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_cert_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceConnectionStringArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
@@ -826,6 +859,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AppServiceBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
+        :param pulumi.Input[str] client_cert_mode: Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the App Service Enabled?
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
@@ -914,6 +948,7 @@ class AppService(pulumi.CustomResource):
                  backup: Optional[pulumi.Input[pulumi.InputType['AppServiceBackupArgs']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_cert_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceConnectionStringArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
@@ -947,6 +982,7 @@ class AppService(pulumi.CustomResource):
             __props__.__dict__["backup"] = backup
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["client_cert_enabled"] = client_cert_enabled
+            __props__.__dict__["client_cert_mode"] = client_cert_mode
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["https_only"] = https_only
@@ -985,6 +1021,7 @@ class AppService(pulumi.CustomResource):
             backup: Optional[pulumi.Input[pulumi.InputType['AppServiceBackupArgs']]] = None,
             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
             client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+            client_cert_mode: Optional[pulumi.Input[str]] = None,
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceConnectionStringArgs']]]]] = None,
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             default_site_hostname: Optional[pulumi.Input[str]] = None,
@@ -1018,6 +1055,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AppServiceBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
+        :param pulumi.Input[str] client_cert_mode: Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_site_hostname: The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
@@ -1049,6 +1087,7 @@ class AppService(pulumi.CustomResource):
         __props__.__dict__["backup"] = backup
         __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
         __props__.__dict__["client_cert_enabled"] = client_cert_enabled
+        __props__.__dict__["client_cert_mode"] = client_cert_mode
         __props__.__dict__["connection_strings"] = connection_strings
         __props__.__dict__["custom_domain_verification_id"] = custom_domain_verification_id
         __props__.__dict__["default_site_hostname"] = default_site_hostname
@@ -1118,6 +1157,14 @@ class AppService(pulumi.CustomResource):
         Does the App Service require client certificates for incoming requests? Defaults to `false`.
         """
         return pulumi.get(self, "client_cert_enabled")
+
+    @property
+    @pulumi.getter(name="clientCertMode")
+    def client_cert_mode(self) -> pulumi.Output[str]:
+        """
+        Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+        """
+        return pulumi.get(self, "client_cert_mode")
 
     @property
     @pulumi.getter(name="connectionStrings")

@@ -11,187 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Azure Machine Learning Workspace
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/machinelearning"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.String(current.TenantId),
-// 			SkuName:           pulumi.String("premium"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
-// 			Location:              exampleResourceGroup.Location,
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			ApplicationInsightsId: exampleInsights.ID(),
-// 			KeyVaultId:            exampleKeyVault.ID(),
-// 			StorageAccountId:      exampleAccount.ID(),
-// 			Identity: &machinelearning.WorkspaceIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ### With Data Encryption
-//
-// > **NOTE:** The Key Vault must enable purge protection.
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/machinelearning"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			TenantId:               pulumi.String(current.TenantId),
-// 			SkuName:                pulumi.String("premium"),
-// 			PurgeProtectionEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "exampleAccessPolicy", &keyvault.AccessPolicyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			TenantId:   pulumi.String(current.TenantId),
-// 			ObjectId:   pulumi.String(current.ObjectId),
-// 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("Create"),
-// 				pulumi.String("Get"),
-// 				pulumi.String("Delete"),
-// 				pulumi.String("Purge"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			KeyType:    pulumi.String("RSA"),
-// 			KeySize:    pulumi.Int(2048),
-// 			KeyOpts: pulumi.StringArray{
-// 				pulumi.String("decrypt"),
-// 				pulumi.String("encrypt"),
-// 				pulumi.String("sign"),
-// 				pulumi.String("unwrapKey"),
-// 				pulumi.String("verify"),
-// 				pulumi.String("wrapKey"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleKeyVault,
-// 			exampleAccessPolicy,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
-// 			Location:              exampleResourceGroup.Location,
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			ApplicationInsightsId: exampleInsights.ID(),
-// 			KeyVaultId:            exampleKeyVault.ID(),
-// 			StorageAccountId:      exampleAccount.ID(),
-// 			Identity: &machinelearning.WorkspaceIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			Encryption: &machinelearning.WorkspaceEncryptionArgs{
-// 				KeyVaultId: exampleKeyVault.ID(),
-// 				KeyId:      exampleKey.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // Machine Learning Workspace can be imported using the `resource id`, e.g.
@@ -208,10 +27,10 @@ type Workspace struct {
 	ContainerRegistryId pulumi.StringPtrOutput `pulumi:"containerRegistryId"`
 	// The description of this Machine Learning Workspace.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+	// The url for the discovery service to identify regional endpoints for machine learning experimentation services.
 	DiscoveryUrl pulumi.StringOutput          `pulumi:"discoveryUrl"`
 	Encryption   WorkspaceEncryptionPtrOutput `pulumi:"encryption"`
-	// Friendly name for this Machine Learning Workspace.
+	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact pulumi.BoolPtrOutput `pulumi:"highBusinessImpact"`
@@ -233,7 +52,7 @@ type Workspace struct {
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -287,10 +106,10 @@ type workspaceState struct {
 	ContainerRegistryId *string `pulumi:"containerRegistryId"`
 	// The description of this Machine Learning Workspace.
 	Description *string `pulumi:"description"`
-	// The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+	// The url for the discovery service to identify regional endpoints for machine learning experimentation services.
 	DiscoveryUrl *string              `pulumi:"discoveryUrl"`
 	Encryption   *WorkspaceEncryption `pulumi:"encryption"`
-	// Friendly name for this Machine Learning Workspace.
+	// Display name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
@@ -312,7 +131,7 @@ type workspaceState struct {
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -323,10 +142,10 @@ type WorkspaceState struct {
 	ContainerRegistryId pulumi.StringPtrInput
 	// The description of this Machine Learning Workspace.
 	Description pulumi.StringPtrInput
-	// The URL for the discovery service to identify regional endpoints for machine learning experimentation services.
+	// The url for the discovery service to identify regional endpoints for machine learning experimentation services.
 	DiscoveryUrl pulumi.StringPtrInput
 	Encryption   WorkspaceEncryptionPtrInput
-	// Friendly name for this Machine Learning Workspace.
+	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact pulumi.BoolPtrInput
@@ -348,7 +167,7 @@ type WorkspaceState struct {
 	SkuName pulumi.StringPtrInput
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
 
@@ -364,7 +183,7 @@ type workspaceArgs struct {
 	// The description of this Machine Learning Workspace.
 	Description *string              `pulumi:"description"`
 	Encryption  *WorkspaceEncryption `pulumi:"encryption"`
-	// Friendly name for this Machine Learning Workspace.
+	// Display name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
@@ -386,7 +205,7 @@ type workspaceArgs struct {
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -399,7 +218,7 @@ type WorkspaceArgs struct {
 	// The description of this Machine Learning Workspace.
 	Description pulumi.StringPtrInput
 	Encryption  WorkspaceEncryptionPtrInput
-	// Friendly name for this Machine Learning Workspace.
+	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
 	HighBusinessImpact pulumi.BoolPtrInput
@@ -421,7 +240,7 @@ type WorkspaceArgs struct {
 	SkuName pulumi.StringPtrInput
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
 

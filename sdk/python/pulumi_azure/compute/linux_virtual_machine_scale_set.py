@@ -50,12 +50,14 @@ class LinuxVirtualMachineScaleSetArgs:
                  rolling_upgrade_policy: Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
                  scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]] = None,
+                 secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_notification: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs']] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
+                 vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -95,12 +97,14 @@ class LinuxVirtualMachineScaleSetArgs:
         :param pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] scale_in_policy: The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on.
         :param pulumi.Input['LinuxVirtualMachineScaleSetSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs'] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         """
@@ -168,6 +172,8 @@ class LinuxVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "scale_in_policy", scale_in_policy)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
+        if secure_boot_enabled is not None:
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
         if single_placement_group is not None:
             pulumi.set(__self__, "single_placement_group", single_placement_group)
         if source_image_id is not None:
@@ -180,6 +186,8 @@ class LinuxVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "terminate_notification", terminate_notification)
         if upgrade_mode is not None:
             pulumi.set(__self__, "upgrade_mode", upgrade_mode)
+        if vtpm_enabled is not None:
+            pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if zone_balance is not None:
             pulumi.set(__self__, "zone_balance", zone_balance)
         if zones is not None:
@@ -606,6 +614,18 @@ class LinuxVirtualMachineScaleSetArgs:
         pulumi.set(self, "secrets", value)
 
     @property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @secure_boot_enabled.setter
+    def secure_boot_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure_boot_enabled", value)
+
+    @property
     @pulumi.getter(name="singlePlacementGroup")
     def single_placement_group(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -678,6 +698,18 @@ class LinuxVirtualMachineScaleSetArgs:
         pulumi.set(self, "upgrade_mode", value)
 
     @property
+    @pulumi.getter(name="vtpmEnabled")
+    def vtpm_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vtpm_enabled")
+
+    @vtpm_enabled.setter
+    def vtpm_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vtpm_enabled", value)
+
+    @property
     @pulumi.getter(name="zoneBalance")
     def zone_balance(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -739,6 +771,7 @@ class _LinuxVirtualMachineScaleSetState:
                  rolling_upgrade_policy: Optional[pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
                  scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]]] = None,
+                 secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
@@ -747,6 +780,7 @@ class _LinuxVirtualMachineScaleSetState:
                  terminate_notification: Optional[pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs']] = None,
                  unique_id: Optional[pulumi.Input[str]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
+                 vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -785,6 +819,7 @@ class _LinuxVirtualMachineScaleSetState:
         :param pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] scale_in_policy: The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         :param pulumi.Input[str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on.
@@ -793,6 +828,7 @@ class _LinuxVirtualMachineScaleSetState:
         :param pulumi.Input['LinuxVirtualMachineScaleSetTerminateNotificationArgs'] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input[str] unique_id: The Unique ID for this Linux Virtual Machine Scale Set.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         """
@@ -864,6 +900,8 @@ class _LinuxVirtualMachineScaleSetState:
             pulumi.set(__self__, "scale_in_policy", scale_in_policy)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
+        if secure_boot_enabled is not None:
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
         if single_placement_group is not None:
             pulumi.set(__self__, "single_placement_group", single_placement_group)
         if sku is not None:
@@ -880,6 +918,8 @@ class _LinuxVirtualMachineScaleSetState:
             pulumi.set(__self__, "unique_id", unique_id)
         if upgrade_mode is not None:
             pulumi.set(__self__, "upgrade_mode", upgrade_mode)
+        if vtpm_enabled is not None:
+            pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if zone_balance is not None:
             pulumi.set(__self__, "zone_balance", zone_balance)
         if zones is not None:
@@ -1294,6 +1334,18 @@ class _LinuxVirtualMachineScaleSetState:
         pulumi.set(self, "secrets", value)
 
     @property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @secure_boot_enabled.setter
+    def secure_boot_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure_boot_enabled", value)
+
+    @property
     @pulumi.getter(name="singlePlacementGroup")
     def single_placement_group(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1390,6 +1442,18 @@ class _LinuxVirtualMachineScaleSetState:
         pulumi.set(self, "upgrade_mode", value)
 
     @property
+    @pulumi.getter(name="vtpmEnabled")
+    def vtpm_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vtpm_enabled")
+
+    @vtpm_enabled.setter
+    def vtpm_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vtpm_enabled", value)
+
+    @property
     @pulumi.getter(name="zoneBalance")
     def zone_balance(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1453,6 +1517,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]] = None,
                  scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]]] = None,
+                 secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
@@ -1460,6 +1525,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
+                 vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1564,6 +1630,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] scale_in_policy: The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         :param pulumi.Input[str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on.
@@ -1571,6 +1638,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminateNotificationArgs']] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         """
@@ -1694,6 +1762,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]] = None,
                  scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]]] = None,
+                 secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
@@ -1701,6 +1770,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
+                 vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1759,6 +1829,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
             __props__.__dict__["scale_in_policy"] = scale_in_policy
             __props__.__dict__["secrets"] = secrets
+            __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
             __props__.__dict__["single_placement_group"] = single_placement_group
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
@@ -1768,6 +1839,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["terminate_notification"] = terminate_notification
             __props__.__dict__["upgrade_mode"] = upgrade_mode
+            __props__.__dict__["vtpm_enabled"] = vtpm_enabled
             __props__.__dict__["zone_balance"] = zone_balance
             __props__.__dict__["zones"] = zones
             __props__.__dict__["unique_id"] = None
@@ -1815,6 +1887,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]] = None,
             scale_in_policy: Optional[pulumi.Input[str]] = None,
             secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]]] = None,
+            secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
             single_placement_group: Optional[pulumi.Input[bool]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             source_image_id: Optional[pulumi.Input[str]] = None,
@@ -1823,6 +1896,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             terminate_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]] = None,
             unique_id: Optional[pulumi.Input[str]] = None,
             upgrade_mode: Optional[pulumi.Input[str]] = None,
+            vtpm_enabled: Optional[pulumi.Input[bool]] = None,
             zone_balance: Optional[pulumi.Input[bool]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'LinuxVirtualMachineScaleSet':
         """
@@ -1866,6 +1940,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] scale_in_policy: The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         :param pulumi.Input[str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on.
@@ -1874,6 +1949,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminateNotificationArgs']] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input[str] unique_id: The Unique ID for this Linux Virtual Machine Scale Set.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         """
@@ -1915,6 +1991,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
         __props__.__dict__["scale_in_policy"] = scale_in_policy
         __props__.__dict__["secrets"] = secrets
+        __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
         __props__.__dict__["single_placement_group"] = single_placement_group
         __props__.__dict__["sku"] = sku
         __props__.__dict__["source_image_id"] = source_image_id
@@ -1923,6 +2000,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["terminate_notification"] = terminate_notification
         __props__.__dict__["unique_id"] = unique_id
         __props__.__dict__["upgrade_mode"] = upgrade_mode
+        __props__.__dict__["vtpm_enabled"] = vtpm_enabled
         __props__.__dict__["zone_balance"] = zone_balance
         __props__.__dict__["zones"] = zones
         return LinuxVirtualMachineScaleSet(resource_name, opts=opts, __props__=__props__)
@@ -2200,6 +2278,14 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "secrets")
 
     @property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @property
     @pulumi.getter(name="singlePlacementGroup")
     def single_placement_group(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -2262,6 +2348,14 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
         """
         return pulumi.get(self, "upgrade_mode")
+
+    @property
+    @pulumi.getter(name="vtpmEnabled")
+    def vtpm_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vtpm_enabled")
 
     @property
     @pulumi.getter(name="zoneBalance")

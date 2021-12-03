@@ -25,11 +25,6 @@ __all__ = [
     'PoolStartTaskUserIdentityArgs',
     'PoolStartTaskUserIdentityAutoUserArgs',
     'PoolStorageImageReferenceArgs',
-    'GetPoolCertificateArgs',
-    'GetPoolStartTaskArgs',
-    'GetPoolStartTaskResourceFileArgs',
-    'GetPoolStartTaskUserIdentityArgs',
-    'GetPoolStartTaskUserIdentityAutoUserArgs',
 ]
 
 @pulumi.input_type
@@ -655,26 +650,40 @@ class PoolStartTaskArgs:
     def __init__(__self__, *,
                  command_line: pulumi.Input[str],
                  user_identity: pulumi.Input['PoolStartTaskUserIdentityArgs'],
+                 common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  max_task_retry_count: Optional[pulumi.Input[int]] = None,
                  resource_files: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]]] = None,
+                 task_retry_maximum: Optional[pulumi.Input[int]] = None,
                  wait_for_success: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] command_line: The command line executed by the start task.
         :param pulumi.Input['PoolStartTaskUserIdentityArgs'] user_identity: A `user_identity` block that describes the user identity under which the start task runs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: A map of strings (key,value) that represents the environment variables to set in the start task.
         :param pulumi.Input[int] max_task_retry_count: The number of retry count. Defaults to `1`.
         :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        :param pulumi.Input[int] task_retry_maximum: The number of retry count. Defaults to `1`.
         :param pulumi.Input[bool] wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
         """
         pulumi.set(__self__, "command_line", command_line)
         pulumi.set(__self__, "user_identity", user_identity)
+        if common_environment_properties is not None:
+            pulumi.set(__self__, "common_environment_properties", common_environment_properties)
+        if environment is not None:
+            warnings.warn("""Deprecated in favour of `common_environment_properties`""", DeprecationWarning)
+            pulumi.log.warn("""environment is deprecated: Deprecated in favour of `common_environment_properties`""")
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if max_task_retry_count is not None:
+            warnings.warn("""Deprecated in favour of `task_retry_maximum`""", DeprecationWarning)
+            pulumi.log.warn("""max_task_retry_count is deprecated: Deprecated in favour of `task_retry_maximum`""")
         if max_task_retry_count is not None:
             pulumi.set(__self__, "max_task_retry_count", max_task_retry_count)
         if resource_files is not None:
             pulumi.set(__self__, "resource_files", resource_files)
+        if task_retry_maximum is not None:
+            pulumi.set(__self__, "task_retry_maximum", task_retry_maximum)
         if wait_for_success is not None:
             pulumi.set(__self__, "wait_for_success", wait_for_success)
 
@@ -701,6 +710,18 @@ class PoolStartTaskArgs:
     @user_identity.setter
     def user_identity(self, value: pulumi.Input['PoolStartTaskUserIdentityArgs']):
         pulumi.set(self, "user_identity", value)
+
+    @property
+    @pulumi.getter(name="commonEnvironmentProperties")
+    def common_environment_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of strings (key,value) that represents the environment variables to set in the start task.
+        """
+        return pulumi.get(self, "common_environment_properties")
+
+    @common_environment_properties.setter
+    def common_environment_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "common_environment_properties", value)
 
     @property
     @pulumi.getter
@@ -737,6 +758,18 @@ class PoolStartTaskArgs:
     @resource_files.setter
     def resource_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]]]):
         pulumi.set(self, "resource_files", value)
+
+    @property
+    @pulumi.getter(name="taskRetryMaximum")
+    def task_retry_maximum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of retry count. Defaults to `1`.
+        """
+        return pulumi.get(self, "task_retry_maximum")
+
+    @task_retry_maximum.setter
+    def task_retry_maximum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "task_retry_maximum", value)
 
     @property
     @pulumi.getter(name="waitForSuccess")
@@ -1019,345 +1052,5 @@ class PoolStorageImageReferenceArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class GetPoolCertificateArgs:
-    def __init__(__self__, *,
-                 id: str,
-                 store_location: str,
-                 store_name: Optional[str] = None,
-                 visibilities: Optional[Sequence[str]] = None):
-        """
-        :param str id: The fully qualified ID of the certificate installed on the pool.
-        :param str store_location: The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
-        :param str store_name: The name of the certificate store on the compute node into which the certificate is installed.
-        :param Sequence[str] visibilities: Which user accounts on the compute node have access to the private data of the certificate.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "store_location", store_location)
-        if store_name is not None:
-            pulumi.set(__self__, "store_name", store_name)
-        if visibilities is not None:
-            pulumi.set(__self__, "visibilities", visibilities)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The fully qualified ID of the certificate installed on the pool.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: str):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter(name="storeLocation")
-    def store_location(self) -> str:
-        """
-        The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
-        """
-        return pulumi.get(self, "store_location")
-
-    @store_location.setter
-    def store_location(self, value: str):
-        pulumi.set(self, "store_location", value)
-
-    @property
-    @pulumi.getter(name="storeName")
-    def store_name(self) -> Optional[str]:
-        """
-        The name of the certificate store on the compute node into which the certificate is installed.
-        """
-        return pulumi.get(self, "store_name")
-
-    @store_name.setter
-    def store_name(self, value: Optional[str]):
-        pulumi.set(self, "store_name", value)
-
-    @property
-    @pulumi.getter
-    def visibilities(self) -> Optional[Sequence[str]]:
-        """
-        Which user accounts on the compute node have access to the private data of the certificate.
-        """
-        return pulumi.get(self, "visibilities")
-
-    @visibilities.setter
-    def visibilities(self, value: Optional[Sequence[str]]):
-        pulumi.set(self, "visibilities", value)
-
-
-@pulumi.input_type
-class GetPoolStartTaskArgs:
-    def __init__(__self__, *,
-                 command_line: str,
-                 resource_files: Sequence['GetPoolStartTaskResourceFileArgs'],
-                 user_identities: Sequence['GetPoolStartTaskUserIdentityArgs'],
-                 environment: Optional[Mapping[str, str]] = None,
-                 max_task_retry_count: Optional[int] = None,
-                 wait_for_success: Optional[bool] = None):
-        """
-        :param str command_line: The command line executed by the start task.
-        :param Sequence['GetPoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
-        :param Sequence['GetPoolStartTaskUserIdentityArgs'] user_identities: A `user_identity` block that describes the user identity under which the start task runs.
-        :param Mapping[str, str] environment: A map of strings (key,value) that represents the environment variables to set in the start task.
-        :param int max_task_retry_count: The number of retry count.
-        :param bool wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed.
-        """
-        pulumi.set(__self__, "command_line", command_line)
-        pulumi.set(__self__, "resource_files", resource_files)
-        pulumi.set(__self__, "user_identities", user_identities)
-        if environment is not None:
-            pulumi.set(__self__, "environment", environment)
-        if max_task_retry_count is not None:
-            pulumi.set(__self__, "max_task_retry_count", max_task_retry_count)
-        if wait_for_success is not None:
-            pulumi.set(__self__, "wait_for_success", wait_for_success)
-
-    @property
-    @pulumi.getter(name="commandLine")
-    def command_line(self) -> str:
-        """
-        The command line executed by the start task.
-        """
-        return pulumi.get(self, "command_line")
-
-    @command_line.setter
-    def command_line(self, value: str):
-        pulumi.set(self, "command_line", value)
-
-    @property
-    @pulumi.getter(name="resourceFiles")
-    def resource_files(self) -> Sequence['GetPoolStartTaskResourceFileArgs']:
-        """
-        One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
-        """
-        return pulumi.get(self, "resource_files")
-
-    @resource_files.setter
-    def resource_files(self, value: Sequence['GetPoolStartTaskResourceFileArgs']):
-        pulumi.set(self, "resource_files", value)
-
-    @property
-    @pulumi.getter(name="userIdentities")
-    def user_identities(self) -> Sequence['GetPoolStartTaskUserIdentityArgs']:
-        """
-        A `user_identity` block that describes the user identity under which the start task runs.
-        """
-        return pulumi.get(self, "user_identities")
-
-    @user_identities.setter
-    def user_identities(self, value: Sequence['GetPoolStartTaskUserIdentityArgs']):
-        pulumi.set(self, "user_identities", value)
-
-    @property
-    @pulumi.getter
-    def environment(self) -> Optional[Mapping[str, str]]:
-        """
-        A map of strings (key,value) that represents the environment variables to set in the start task.
-        """
-        return pulumi.get(self, "environment")
-
-    @environment.setter
-    def environment(self, value: Optional[Mapping[str, str]]):
-        pulumi.set(self, "environment", value)
-
-    @property
-    @pulumi.getter(name="maxTaskRetryCount")
-    def max_task_retry_count(self) -> Optional[int]:
-        """
-        The number of retry count.
-        """
-        return pulumi.get(self, "max_task_retry_count")
-
-    @max_task_retry_count.setter
-    def max_task_retry_count(self, value: Optional[int]):
-        pulumi.set(self, "max_task_retry_count", value)
-
-    @property
-    @pulumi.getter(name="waitForSuccess")
-    def wait_for_success(self) -> Optional[bool]:
-        """
-        A flag that indicates if the Batch pool should wait for the start task to be completed.
-        """
-        return pulumi.get(self, "wait_for_success")
-
-    @wait_for_success.setter
-    def wait_for_success(self, value: Optional[bool]):
-        pulumi.set(self, "wait_for_success", value)
-
-
-@pulumi.input_type
-class GetPoolStartTaskResourceFileArgs:
-    def __init__(__self__, *,
-                 auto_storage_container_name: str,
-                 blob_prefix: str,
-                 file_mode: str,
-                 file_path: str,
-                 http_url: str,
-                 storage_container_url: str):
-        """
-        :param str auto_storage_container_name: The storage container name in the auto storage account.
-        :param str blob_prefix: The blob prefix used when downloading blobs from an Azure Storage container.
-        :param str file_mode: The file permission mode attribute represented as a string in octal format (e.g. `"0644"`).
-        :param str file_path: The location on the compute node to which to download the file, relative to the task's working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified.
-        :param str http_url: The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access.
-        :param str storage_container_url: The URL of the blob container within Azure Blob Storage.
-        """
-        pulumi.set(__self__, "auto_storage_container_name", auto_storage_container_name)
-        pulumi.set(__self__, "blob_prefix", blob_prefix)
-        pulumi.set(__self__, "file_mode", file_mode)
-        pulumi.set(__self__, "file_path", file_path)
-        pulumi.set(__self__, "http_url", http_url)
-        pulumi.set(__self__, "storage_container_url", storage_container_url)
-
-    @property
-    @pulumi.getter(name="autoStorageContainerName")
-    def auto_storage_container_name(self) -> str:
-        """
-        The storage container name in the auto storage account.
-        """
-        return pulumi.get(self, "auto_storage_container_name")
-
-    @auto_storage_container_name.setter
-    def auto_storage_container_name(self, value: str):
-        pulumi.set(self, "auto_storage_container_name", value)
-
-    @property
-    @pulumi.getter(name="blobPrefix")
-    def blob_prefix(self) -> str:
-        """
-        The blob prefix used when downloading blobs from an Azure Storage container.
-        """
-        return pulumi.get(self, "blob_prefix")
-
-    @blob_prefix.setter
-    def blob_prefix(self, value: str):
-        pulumi.set(self, "blob_prefix", value)
-
-    @property
-    @pulumi.getter(name="fileMode")
-    def file_mode(self) -> str:
-        """
-        The file permission mode attribute represented as a string in octal format (e.g. `"0644"`).
-        """
-        return pulumi.get(self, "file_mode")
-
-    @file_mode.setter
-    def file_mode(self, value: str):
-        pulumi.set(self, "file_mode", value)
-
-    @property
-    @pulumi.getter(name="filePath")
-    def file_path(self) -> str:
-        """
-        The location on the compute node to which to download the file, relative to the task's working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified.
-        """
-        return pulumi.get(self, "file_path")
-
-    @file_path.setter
-    def file_path(self, value: str):
-        pulumi.set(self, "file_path", value)
-
-    @property
-    @pulumi.getter(name="httpUrl")
-    def http_url(self) -> str:
-        """
-        The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access.
-        """
-        return pulumi.get(self, "http_url")
-
-    @http_url.setter
-    def http_url(self, value: str):
-        pulumi.set(self, "http_url", value)
-
-    @property
-    @pulumi.getter(name="storageContainerUrl")
-    def storage_container_url(self) -> str:
-        """
-        The URL of the blob container within Azure Blob Storage.
-        """
-        return pulumi.get(self, "storage_container_url")
-
-    @storage_container_url.setter
-    def storage_container_url(self, value: str):
-        pulumi.set(self, "storage_container_url", value)
-
-
-@pulumi.input_type
-class GetPoolStartTaskUserIdentityArgs:
-    def __init__(__self__, *,
-                 auto_users: Sequence['GetPoolStartTaskUserIdentityAutoUserArgs'],
-                 user_name: str):
-        """
-        :param Sequence['GetPoolStartTaskUserIdentityAutoUserArgs'] auto_users: A `auto_user` block that describes the user identity under which the start task runs.
-        :param str user_name: The user name to log into the registry server.
-        """
-        pulumi.set(__self__, "auto_users", auto_users)
-        pulumi.set(__self__, "user_name", user_name)
-
-    @property
-    @pulumi.getter(name="autoUsers")
-    def auto_users(self) -> Sequence['GetPoolStartTaskUserIdentityAutoUserArgs']:
-        """
-        A `auto_user` block that describes the user identity under which the start task runs.
-        """
-        return pulumi.get(self, "auto_users")
-
-    @auto_users.setter
-    def auto_users(self, value: Sequence['GetPoolStartTaskUserIdentityAutoUserArgs']):
-        pulumi.set(self, "auto_users", value)
-
-    @property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> str:
-        """
-        The user name to log into the registry server.
-        """
-        return pulumi.get(self, "user_name")
-
-    @user_name.setter
-    def user_name(self, value: str):
-        pulumi.set(self, "user_name", value)
-
-
-@pulumi.input_type
-class GetPoolStartTaskUserIdentityAutoUserArgs:
-    def __init__(__self__, *,
-                 elevation_level: str,
-                 scope: str):
-        """
-        :param str elevation_level: The elevation level of the user identity under which the start task runs.
-        :param str scope: The scope of the user identity under which the start task runs.
-        """
-        pulumi.set(__self__, "elevation_level", elevation_level)
-        pulumi.set(__self__, "scope", scope)
-
-    @property
-    @pulumi.getter(name="elevationLevel")
-    def elevation_level(self) -> str:
-        """
-        The elevation level of the user identity under which the start task runs.
-        """
-        return pulumi.get(self, "elevation_level")
-
-    @elevation_level.setter
-    def elevation_level(self, value: str):
-        pulumi.set(self, "elevation_level", value)
-
-    @property
-    @pulumi.getter
-    def scope(self) -> str:
-        """
-        The scope of the user identity under which the start task runs.
-        """
-        return pulumi.get(self, "scope")
-
-    @scope.setter
-    def scope(self, value: str):
-        pulumi.set(self, "scope", value)
 
 
