@@ -41,7 +41,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServiceSnowflake(ctx, "exampleLinkedServiceSnowflake", &datafactory.LinkedServiceSnowflakeArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			ConnectionString:  pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 // 		})
 // 		if err != nil {
@@ -93,7 +93,7 @@ import (
 // 		}
 // 		exampleLinkedServiceKeyVault, err := datafactory.NewLinkedServiceKeyVault(ctx, "exampleLinkedServiceKeyVault", &datafactory.LinkedServiceKeyVaultArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			KeyVaultId:        exampleKeyVault.ID(),
 // 		})
 // 		if err != nil {
@@ -101,7 +101,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServiceSnowflake(ctx, "exampleLinkedServiceSnowflake", &datafactory.LinkedServiceSnowflakeArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			ConnectionString:  pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 // 			KeyVaultPassword: &datafactory.LinkedServiceSnowflakeKeyVaultPasswordArgs{
 // 				LinkedServiceName: exampleLinkedServiceKeyVault.Name,
@@ -132,7 +132,11 @@ type LinkedServiceSnowflake struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The connection string in which to authenticate with Snowflake.
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -158,9 +162,6 @@ func NewLinkedServiceSnowflake(ctx *pulumi.Context,
 
 	if args.ConnectionString == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionString'")
-	}
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -193,7 +194,11 @@ type linkedServiceSnowflakeState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The connection string in which to authenticate with Snowflake.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
@@ -217,7 +222,11 @@ type LinkedServiceSnowflakeState struct {
 	Annotations pulumi.StringArrayInput
 	// The connection string in which to authenticate with Snowflake.
 	ConnectionString pulumi.StringPtrInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
@@ -245,8 +254,12 @@ type linkedServiceSnowflakeArgs struct {
 	Annotations []string `pulumi:"annotations"`
 	// The connection string in which to authenticate with Snowflake.
 	ConnectionString string `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -270,8 +283,12 @@ type LinkedServiceSnowflakeArgs struct {
 	Annotations pulumi.StringArrayInput
 	// The connection string in which to authenticate with Snowflake.
 	ConnectionString pulumi.StringInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.

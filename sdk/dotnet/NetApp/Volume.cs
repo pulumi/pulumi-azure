@@ -211,6 +211,12 @@ namespace Pulumi.Azure.NetApp
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Throughput of this volume in Mibps.
+        /// </summary>
+        [Output("throughputInMibps")]
+        public Output<double> ThroughputInMibps { get; private set; } = null!;
+
+        /// <summary>
         /// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         /// </summary>
         [Output("volumePath")]
@@ -371,6 +377,12 @@ namespace Pulumi.Azure.NetApp
         }
 
         /// <summary>
+        /// Throughput of this volume in Mibps.
+        /// </summary>
+        [Input("throughputInMibps")]
+        public Input<double>? ThroughputInMibps { get; set; }
+
+        /// <summary>
         /// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         /// </summary>
         [Input("volumePath", required: true)]
@@ -502,6 +514,12 @@ namespace Pulumi.Azure.NetApp
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Throughput of this volume in Mibps.
+        /// </summary>
+        [Input("throughputInMibps")]
+        public Input<double>? ThroughputInMibps { get; set; }
 
         /// <summary>
         /// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.

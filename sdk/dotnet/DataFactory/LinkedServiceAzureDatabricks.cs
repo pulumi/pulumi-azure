@@ -46,7 +46,7 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var msiLinked = new Azure.DataFactory.LinkedServiceAzureDatabricks("msiLinked", new Azure.DataFactory.LinkedServiceAzureDatabricksArgs
     ///         {
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Description = "ADB Linked Service via MSI",
     ///             AdbDomain = exampleWorkspace.WorkspaceUrl.Apply(workspaceUrl =&gt; $"https://{workspaceUrl}"),
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var atLinked = new Azure.DataFactory.LinkedServiceAzureDatabricks("atLinked", new Azure.DataFactory.LinkedServiceAzureDatabricksArgs
     ///         {
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Description = "ADB Linked Service via Access Token",
     ///             ExistingClusterId = "0308-201146-sly615",
@@ -160,6 +160,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("annotations")]
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
@@ -310,10 +316,16 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// The description for the Data Factory Linked Service.
@@ -423,6 +435,12 @@ namespace Pulumi.Azure.DataFactory
             get => _annotations ?? (_annotations = new InputList<string>());
             set => _annotations = value;
         }
+
+        /// <summary>
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.

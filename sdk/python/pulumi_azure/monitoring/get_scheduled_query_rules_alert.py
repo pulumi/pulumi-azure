@@ -233,8 +233,8 @@ def get_scheduled_query_rules_alert(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.monitoring.get_scheduled_query_rules_alert(name="tfex-queryrule",
-        resource_group_name="example-rg")
+    example = azure.monitoring.get_scheduled_query_rules_alert(resource_group_name="example-rg",
+        name="tfex-queryrule")
     pulumi.export("queryRuleId", example.id)
     ```
 
@@ -284,8 +284,8 @@ def get_scheduled_query_rules_alert_output(name: Optional[pulumi.Input[str]] = N
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.monitoring.get_scheduled_query_rules_alert(name="tfex-queryrule",
-        resource_group_name="example-rg")
+    example = azure.monitoring.get_scheduled_query_rules_alert(resource_group_name="example-rg",
+        name="tfex-queryrule")
     pulumi.export("queryRuleId", example.id)
     ```
 

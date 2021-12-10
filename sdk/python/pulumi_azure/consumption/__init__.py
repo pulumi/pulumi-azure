@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .budget_management_group import *
 from .budget_resource_group import *
 from .budget_subscription import *
 from .get_budget_resource_group import *

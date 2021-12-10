@@ -91,6 +91,8 @@ type KubernetesCluster struct {
 	EnablePodSecurityPolicy pulumi.BoolPtrOutput   `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+	// A `httpProxyConfig` block as defined below.
+	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrOutput `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -142,6 +144,7 @@ type KubernetesCluster struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
+	// ---
 	WindowsProfile KubernetesClusterWindowsProfileOutput `pulumi:"windowsProfile"`
 }
 
@@ -199,6 +202,8 @@ type kubernetesClusterState struct {
 	EnablePodSecurityPolicy *bool   `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn *string `pulumi:"fqdn"`
+	// A `httpProxyConfig` block as defined below.
+	HttpProxyConfig *KubernetesClusterHttpProxyConfig `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -250,6 +255,7 @@ type kubernetesClusterState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
+	// ---
 	WindowsProfile *KubernetesClusterWindowsProfile `pulumi:"windowsProfile"`
 }
 
@@ -273,6 +279,8 @@ type KubernetesClusterState struct {
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringPtrInput
+	// A `httpProxyConfig` block as defined below.
+	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrInput
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrInput
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -324,6 +332,7 @@ type KubernetesClusterState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `windowsProfile` block as defined below.
+	// ---
 	WindowsProfile KubernetesClusterWindowsProfilePtrInput
 }
 
@@ -349,6 +358,8 @@ type kubernetesClusterArgs struct {
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
 	EnablePodSecurityPolicy *bool   `pulumi:"enablePodSecurityPolicy"`
+	// A `httpProxyConfig` block as defined below.
+	HttpProxyConfig *KubernetesClusterHttpProxyConfig `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
@@ -388,6 +399,7 @@ type kubernetesClusterArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
+	// ---
 	WindowsProfile *KubernetesClusterWindowsProfile `pulumi:"windowsProfile"`
 }
 
@@ -410,6 +422,8 @@ type KubernetesClusterArgs struct {
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
+	// A `httpProxyConfig` block as defined below.
+	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrInput
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrInput
 	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
@@ -449,6 +463,7 @@ type KubernetesClusterArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `windowsProfile` block as defined below.
+	// ---
 	WindowsProfile KubernetesClusterWindowsProfilePtrInput
 }
 

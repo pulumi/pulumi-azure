@@ -25,9 +25,9 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := eventhub.LookupAuthorizationRule(ctx, &eventhub.LookupAuthorizationRuleArgs{
-// 			EventhubName:      azurerm_eventhub.Test.Name,
 // 			Name:              "test",
 // 			NamespaceName:     azurerm_eventhub_namespace.Test.Name,
+// 			EventhubName:      azurerm_eventhub.Test.Name,
 // 			ResourceGroupName: azurerm_resource_group.Test.Name,
 // 		}, nil)
 // 		if err != nil {

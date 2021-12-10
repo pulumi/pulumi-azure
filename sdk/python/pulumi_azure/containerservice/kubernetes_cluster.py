@@ -25,6 +25,7 @@ class KubernetesClusterArgs:
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
+                 http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']] = None,
                  identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
                  kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -55,6 +56,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterHttpProxyConfigArgs'] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
@@ -73,6 +75,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
+               ---
         """
         pulumi.set(__self__, "default_node_pool", default_node_pool)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -92,6 +95,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "dns_prefix_private_cluster", dns_prefix_private_cluster)
         if enable_pod_security_policy is not None:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
+        if http_proxy_config is not None:
+            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kubelet_identities is not None:
@@ -250,6 +255,18 @@ class KubernetesClusterArgs:
     @enable_pod_security_policy.setter
     def enable_pod_security_policy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_pod_security_policy", value)
+
+    @property
+    @pulumi.getter(name="httpProxyConfig")
+    def http_proxy_config(self) -> Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']]:
+        """
+        A `http_proxy_config` block as defined below.
+        """
+        return pulumi.get(self, "http_proxy_config")
+
+    @http_proxy_config.setter
+    def http_proxy_config(self, value: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']]):
+        pulumi.set(self, "http_proxy_config", value)
 
     @property
     @pulumi.getter
@@ -469,6 +486,7 @@ class KubernetesClusterArgs:
     def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']]:
         """
         A `windows_profile` block as defined below.
+        ---
         """
         return pulumi.get(self, "windows_profile")
 
@@ -490,6 +508,7 @@ class _KubernetesClusterState:
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
+                 http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']] = None,
                  identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
                  kube_admin_config_raw: Optional[pulumi.Input[str]] = None,
                  kube_admin_configs: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]]] = None,
@@ -527,6 +546,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
+        :param pulumi.Input['KubernetesClusterHttpProxyConfigArgs'] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -552,6 +572,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
+               ---
         """
         if addon_profile is not None:
             pulumi.set(__self__, "addon_profile", addon_profile)
@@ -573,6 +594,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
+        if http_proxy_config is not None:
+            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kube_admin_config_raw is not None:
@@ -745,6 +768,18 @@ class _KubernetesClusterState:
     @fqdn.setter
     def fqdn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter(name="httpProxyConfig")
+    def http_proxy_config(self) -> Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']]:
+        """
+        A `http_proxy_config` block as defined below.
+        """
+        return pulumi.get(self, "http_proxy_config")
+
+    @http_proxy_config.setter
+    def http_proxy_config(self, value: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']]):
+        pulumi.set(self, "http_proxy_config", value)
 
     @property
     @pulumi.getter
@@ -1048,6 +1083,7 @@ class _KubernetesClusterState:
     def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']]:
         """
         A `windows_profile` block as defined below.
+        ---
         """
         return pulumi.get(self, "windows_profile")
 
@@ -1070,6 +1106,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
+                 http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
                  kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -1140,6 +1177,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
@@ -1159,6 +1197,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
+               ---
         """
         ...
     @overload
@@ -1229,6 +1268,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
+                 http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
                  kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -1272,6 +1312,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["dns_prefix"] = dns_prefix
             __props__.__dict__["dns_prefix_private_cluster"] = dns_prefix_private_cluster
             __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
+            __props__.__dict__["http_proxy_config"] = http_proxy_config
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kubelet_identities"] = kubelet_identities
             __props__.__dict__["kubernetes_version"] = kubernetes_version
@@ -1324,6 +1365,7 @@ class KubernetesCluster(pulumi.CustomResource):
             dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
             enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
+            http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
             kube_admin_config_raw: Optional[pulumi.Input[str]] = None,
             kube_admin_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]]] = None,
@@ -1366,6 +1408,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -1391,6 +1434,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
+               ---
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1406,6 +1450,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["dns_prefix_private_cluster"] = dns_prefix_private_cluster
         __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
         __props__.__dict__["fqdn"] = fqdn
+        __props__.__dict__["http_proxy_config"] = http_proxy_config
         __props__.__dict__["identity"] = identity
         __props__.__dict__["kube_admin_config_raw"] = kube_admin_config_raw
         __props__.__dict__["kube_admin_configs"] = kube_admin_configs
@@ -1510,6 +1555,14 @@ class KubernetesCluster(pulumi.CustomResource):
         The FQDN of the Azure Kubernetes Managed Cluster.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="httpProxyConfig")
+    def http_proxy_config(self) -> pulumi.Output[Optional['outputs.KubernetesClusterHttpProxyConfig']]:
+        """
+        A `http_proxy_config` block as defined below.
+        """
+        return pulumi.get(self, "http_proxy_config")
 
     @property
     @pulumi.getter
@@ -1713,6 +1766,7 @@ class KubernetesCluster(pulumi.CustomResource):
     def windows_profile(self) -> pulumi.Output['outputs.KubernetesClusterWindowsProfile']:
         """
         A `windows_profile` block as defined below.
+        ---
         """
         return pulumi.get(self, "windows_profile")
 

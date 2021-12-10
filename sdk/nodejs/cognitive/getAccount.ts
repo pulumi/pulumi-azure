@@ -13,12 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const test = pulumi.output(azure.cognitive.getAccount({
+ * const test = azure.cognitive.getAccount({
  *     name: "example-account",
  *     resourceGroupName: "cognitive_account_rg",
- * }));
- *
- * export const primaryAccessKey = test.primaryAccessKey;
+ * });
+ * export const primaryAccessKey = test.then(test => test.primaryAccessKey);
  * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {

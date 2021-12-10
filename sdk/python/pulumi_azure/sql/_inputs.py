@@ -15,6 +15,8 @@ __all__ = [
     'FailoverGroupPartnerServerArgs',
     'FailoverGroupReadWriteEndpointFailoverPolicyArgs',
     'FailoverGroupReadonlyEndpointFailoverPolicyArgs',
+    'ManagedInstanceFailoverGroupPartnerRegionArgs',
+    'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs',
     'ManagedInstanceIdentityArgs',
     'SqlServerExtendedAuditingPolicyArgs',
     'SqlServerIdentityArgs',
@@ -463,6 +465,83 @@ class FailoverGroupReadonlyEndpointFailoverPolicyArgs:
     @mode.setter
     def mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "mode", value)
+
+
+@pulumi.input_type
+class ManagedInstanceFailoverGroupPartnerRegionArgs:
+    def __init__(__self__, *,
+                 location: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] location: The Azure Region where the SQL Instance Failover Group exists.
+        :param pulumi.Input[str] role: The partner replication role of the SQL Instance Failover Group.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the SQL Instance Failover Group exists.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The partner replication role of the SQL Instance Failover Group.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
+
+
+@pulumi.input_type
+class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 grace_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] mode: The failover mode. Possible values are `Manual`, `Automatic`
+        :param pulumi.Input[int] grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if grace_minutes is not None:
+            pulumi.set(__self__, "grace_minutes", grace_minutes)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The failover mode. Possible values are `Manual`, `Automatic`
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="graceMinutes")
+    def grace_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+        """
+        return pulumi.get(self, "grace_minutes")
+
+    @grace_minutes.setter
+    def grace_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "grace_minutes", value)
 
 
 @pulumi.input_type

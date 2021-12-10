@@ -17,33 +17,48 @@ class ServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['ServiceSkuArgs'],
+                 connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 messaging_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 service_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]]] = None):
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input['ServiceSkuArgs'] sku: A `sku` block as documented below.
+        :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]] cors: A `cors` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]] features: A `features` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if connectivity_logs_enabled is not None:
+            pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
+        if features is not None:
+            warnings.warn("""Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`""", DeprecationWarning)
+            pulumi.log.warn("""features is deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`""")
         if features is not None:
             pulumi.set(__self__, "features", features)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if messaging_logs_enabled is not None:
+            pulumi.set(__self__, "messaging_logs_enabled", messaging_logs_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if service_mode is not None:
+            pulumi.set(__self__, "service_mode", service_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if upstream_endpoints is not None:
@@ -72,6 +87,18 @@ class ServiceArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['ServiceSkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="connectivityLogsEnabled")
+    def connectivity_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Connectivity Logs are enabled or not.
+        """
+        return pulumi.get(self, "connectivity_logs_enabled")
+
+    @connectivity_logs_enabled.setter
+    def connectivity_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "connectivity_logs_enabled", value)
 
     @property
     @pulumi.getter
@@ -110,6 +137,18 @@ class ServiceArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="messagingLogsEnabled")
+    def messaging_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Messaging Logs are enabled or not.
+        """
+        return pulumi.get(self, "messaging_logs_enabled")
+
+    @messaging_logs_enabled.setter
+    def messaging_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "messaging_logs_enabled", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -120,6 +159,18 @@ class ServiceArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serviceMode")
+    def service_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        """
+        return pulumi.get(self, "service_mode")
+
+    @service_mode.setter
+    def service_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_mode", value)
 
     @property
     @pulumi.getter
@@ -149,11 +200,13 @@ class ServiceArgs:
 @pulumi.input_type
 class _ServiceState:
     def __init__(__self__, *,
+                 connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 messaging_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_access_key: Optional[pulumi.Input[str]] = None,
                  primary_connection_string: Optional[pulumi.Input[str]] = None,
@@ -162,16 +215,19 @@ class _ServiceState:
                  secondary_access_key: Optional[pulumi.Input[str]] = None,
                  secondary_connection_string: Optional[pulumi.Input[str]] = None,
                  server_port: Optional[pulumi.Input[int]] = None,
+                 service_mode: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['ServiceSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
+        :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]] cors: A `cors` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceFeatureArgs']]] features: A `features` block as documented below.
         :param pulumi.Input[str] hostname: The FQDN of the SignalR service.
         :param pulumi.Input[str] ip_address: The publicly accessible IP of the SignalR service.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The primary access key for the SignalR service.
         :param pulumi.Input[str] primary_connection_string: The primary connection string for the SignalR service.
@@ -180,12 +236,18 @@ class _ServiceState:
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the SignalR service.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the SignalR service.
         :param pulumi.Input[int] server_port: The publicly accessible port of the SignalR service which is designed for customer server side use.
+        :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
         :param pulumi.Input['ServiceSkuArgs'] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
+        if connectivity_logs_enabled is not None:
+            pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
+        if features is not None:
+            warnings.warn("""Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`""", DeprecationWarning)
+            pulumi.log.warn("""features is deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`""")
         if features is not None:
             pulumi.set(__self__, "features", features)
         if hostname is not None:
@@ -194,6 +256,8 @@ class _ServiceState:
             pulumi.set(__self__, "ip_address", ip_address)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if messaging_logs_enabled is not None:
+            pulumi.set(__self__, "messaging_logs_enabled", messaging_logs_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if primary_access_key is not None:
@@ -210,12 +274,26 @@ class _ServiceState:
             pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
         if server_port is not None:
             pulumi.set(__self__, "server_port", server_port)
+        if service_mode is not None:
+            pulumi.set(__self__, "service_mode", service_mode)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if upstream_endpoints is not None:
             pulumi.set(__self__, "upstream_endpoints", upstream_endpoints)
+
+    @property
+    @pulumi.getter(name="connectivityLogsEnabled")
+    def connectivity_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Connectivity Logs are enabled or not.
+        """
+        return pulumi.get(self, "connectivity_logs_enabled")
+
+    @connectivity_logs_enabled.setter
+    def connectivity_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "connectivity_logs_enabled", value)
 
     @property
     @pulumi.getter
@@ -276,6 +354,18 @@ class _ServiceState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="messagingLogsEnabled")
+    def messaging_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Messaging Logs are enabled or not.
+        """
+        return pulumi.get(self, "messaging_logs_enabled")
+
+    @messaging_logs_enabled.setter
+    def messaging_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "messaging_logs_enabled", value)
 
     @property
     @pulumi.getter
@@ -374,6 +464,18 @@ class _ServiceState:
         pulumi.set(self, "server_port", value)
 
     @property
+    @pulumi.getter(name="serviceMode")
+    def service_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        """
+        return pulumi.get(self, "service_mode")
+
+    @service_mode.setter
+    def service_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_mode", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['ServiceSkuArgs']]:
         """
@@ -415,11 +517,14 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 messaging_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_mode: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]]] = None,
@@ -444,10 +549,9 @@ class Service(pulumi.CustomResource):
             cors=[azure.signalr.ServiceCorArgs(
                 allowed_origins=["http://www.example.com"],
             )],
-            features=[azure.signalr.ServiceFeatureArgs(
-                flag="ServiceMode",
-                value="Default",
-            )],
+            connectivity_logs_enabled="True",
+            messaging_logs_enabled="True",
+            service_mode="Default",
             upstream_endpoints=[azure.signalr.ServiceUpstreamEndpointArgs(
                 category_patterns=[
                     "connections",
@@ -469,11 +573,14 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]] cors: A `cors` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]] features: A `features` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
         :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
@@ -504,10 +611,9 @@ class Service(pulumi.CustomResource):
             cors=[azure.signalr.ServiceCorArgs(
                 allowed_origins=["http://www.example.com"],
             )],
-            features=[azure.signalr.ServiceFeatureArgs(
-                flag="ServiceMode",
-                value="Default",
-            )],
+            connectivity_logs_enabled="True",
+            messaging_logs_enabled="True",
+            service_mode="Default",
             upstream_endpoints=[azure.signalr.ServiceUpstreamEndpointArgs(
                 category_patterns=[
                     "connections",
@@ -542,11 +648,14 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 messaging_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_mode: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]]] = None,
@@ -562,13 +671,19 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
+            __props__.__dict__["connectivity_logs_enabled"] = connectivity_logs_enabled
             __props__.__dict__["cors"] = cors
+            if features is not None and not opts.urn:
+                warnings.warn("""Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`""", DeprecationWarning)
+                pulumi.log.warn("""features is deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`""")
             __props__.__dict__["features"] = features
             __props__.__dict__["location"] = location
+            __props__.__dict__["messaging_logs_enabled"] = messaging_logs_enabled
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["service_mode"] = service_mode
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
@@ -592,11 +707,13 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
             cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
             features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            messaging_logs_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
             primary_connection_string: Optional[pulumi.Input[str]] = None,
@@ -605,6 +722,7 @@ class Service(pulumi.CustomResource):
             secondary_access_key: Optional[pulumi.Input[str]] = None,
             secondary_connection_string: Optional[pulumi.Input[str]] = None,
             server_port: Optional[pulumi.Input[int]] = None,
+            service_mode: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]]] = None) -> 'Service':
@@ -615,11 +733,13 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]] cors: A `cors` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]] features: A `features` block as documented below.
         :param pulumi.Input[str] hostname: The FQDN of the SignalR service.
         :param pulumi.Input[str] ip_address: The publicly accessible IP of the SignalR service.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The primary access key for the SignalR service.
         :param pulumi.Input[str] primary_connection_string: The primary connection string for the SignalR service.
@@ -628,6 +748,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the SignalR service.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the SignalR service.
         :param pulumi.Input[int] server_port: The publicly accessible port of the SignalR service which is designed for customer server side use.
+        :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
         :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
@@ -636,11 +757,13 @@ class Service(pulumi.CustomResource):
 
         __props__ = _ServiceState.__new__(_ServiceState)
 
+        __props__.__dict__["connectivity_logs_enabled"] = connectivity_logs_enabled
         __props__.__dict__["cors"] = cors
         __props__.__dict__["features"] = features
         __props__.__dict__["hostname"] = hostname
         __props__.__dict__["ip_address"] = ip_address
         __props__.__dict__["location"] = location
+        __props__.__dict__["messaging_logs_enabled"] = messaging_logs_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["primary_access_key"] = primary_access_key
         __props__.__dict__["primary_connection_string"] = primary_connection_string
@@ -649,10 +772,19 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["secondary_access_key"] = secondary_access_key
         __props__.__dict__["secondary_connection_string"] = secondary_connection_string
         __props__.__dict__["server_port"] = server_port
+        __props__.__dict__["service_mode"] = service_mode
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
         __props__.__dict__["upstream_endpoints"] = upstream_endpoints
         return Service(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="connectivityLogsEnabled")
+    def connectivity_logs_enabled(self) -> pulumi.Output[bool]:
+        """
+        Specifies if Connectivity Logs are enabled or not.
+        """
+        return pulumi.get(self, "connectivity_logs_enabled")
 
     @property
     @pulumi.getter
@@ -693,6 +825,14 @@ class Service(pulumi.CustomResource):
         Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="messagingLogsEnabled")
+    def messaging_logs_enabled(self) -> pulumi.Output[bool]:
+        """
+        Specifies if Messaging Logs are enabled or not.
+        """
+        return pulumi.get(self, "messaging_logs_enabled")
 
     @property
     @pulumi.getter
@@ -757,6 +897,14 @@ class Service(pulumi.CustomResource):
         The publicly accessible port of the SignalR service which is designed for customer server side use.
         """
         return pulumi.get(self, "server_port")
+
+    @property
+    @pulumi.getter(name="serviceMode")
+    def service_mode(self) -> pulumi.Output[str]:
+        """
+        Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        """
+        return pulumi.get(self, "service_mode")
 
     @property
     @pulumi.getter

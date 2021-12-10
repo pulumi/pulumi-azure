@@ -5,12 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./budgetManagementGroup";
 export * from "./budgetResourceGroup";
 export * from "./budgetSubscription";
 export * from "./getBudgetResourceGroup";
 export * from "./getBudgetSubscription";
 
 // Import resources to register:
+import { BudgetManagementGroup } from "./budgetManagementGroup";
 import { BudgetResourceGroup } from "./budgetResourceGroup";
 import { BudgetSubscription } from "./budgetSubscription";
 
@@ -18,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:consumption/budgetManagementGroup:BudgetManagementGroup":
+                return new BudgetManagementGroup(name, <any>undefined, { urn })
             case "azure:consumption/budgetResourceGroup:BudgetResourceGroup":
                 return new BudgetResourceGroup(name, <any>undefined, { urn })
             case "azure:consumption/budgetSubscription:BudgetSubscription":
@@ -27,5 +31,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "consumption/budgetManagementGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "consumption/budgetResourceGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "consumption/budgetSubscription", _module)

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const current = azure.core.getClientConfig({});
  * const exampleLinkedServiceDataLakeStorageGen2 = new azure.datafactory.LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     servicePrincipalId: current.then(current => current.clientId),
  *     servicePrincipalKey: "exampleKey",
  *     tenant: "11111111-1111-1111-1111-111111111111",
@@ -74,7 +74,13 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    public readonly dataFactoryId!: pulumi.Output<string>;
+    /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
@@ -138,6 +144,7 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             const state = argsOrState as LinkedServiceDataLakeStorageGen2State | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
+            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
@@ -152,9 +159,6 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             inputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
         } else {
             const args = argsOrState as LinkedServiceDataLakeStorageGen2Args | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFactoryName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -163,6 +167,7 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             }
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             inputs["annotations"] = args ? args.annotations : undefined;
+            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
@@ -196,7 +201,13 @@ export interface LinkedServiceDataLakeStorageGen2State {
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    dataFactoryId?: pulumi.Input<string>;
+    /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     dataFactoryName?: pulumi.Input<string>;
     /**
@@ -259,9 +270,15 @@ export interface LinkedServiceDataLakeStorageGen2Args {
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryName: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+     */
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */

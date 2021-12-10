@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * });
  * const basicAuth = new azure.datafactory.LinkedServiceOdata("basicAuth", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     url: "https://services.odata.org/v4/TripPinServiceRW/People",
  *     basicAuthentication: {
  *         username: "emma",
@@ -86,7 +86,13 @@ export class LinkedServiceOdata extends pulumi.CustomResource {
      */
     public readonly basicAuthentication!: pulumi.Output<outputs.datafactory.LinkedServiceOdataBasicAuthentication | undefined>;
     /**
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    public readonly dataFactoryId!: pulumi.Output<string>;
+    /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
@@ -130,6 +136,7 @@ export class LinkedServiceOdata extends pulumi.CustomResource {
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["basicAuthentication"] = state ? state.basicAuthentication : undefined;
+            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
@@ -139,9 +146,6 @@ export class LinkedServiceOdata extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as LinkedServiceOdataArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFactoryName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -151,6 +155,7 @@ export class LinkedServiceOdata extends pulumi.CustomResource {
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["basicAuthentication"] = args ? args.basicAuthentication : undefined;
+            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
@@ -183,7 +188,13 @@ export interface LinkedServiceOdataState {
      */
     basicAuthentication?: pulumi.Input<inputs.datafactory.LinkedServiceOdataBasicAuthentication>;
     /**
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    dataFactoryId?: pulumi.Input<string>;
+    /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     dataFactoryName?: pulumi.Input<string>;
     /**
@@ -229,9 +240,15 @@ export interface LinkedServiceOdataArgs {
      */
     basicAuthentication?: pulumi.Input<inputs.datafactory.LinkedServiceOdataBasicAuthentication>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryName: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+     */
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service OData.
      */

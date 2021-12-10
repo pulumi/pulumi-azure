@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
  * });
  * ```
@@ -45,12 +45,12 @@ import * as utilities from "../utilities";
  * });
  * const exampleLinkedServiceKeyVault = new azure.datafactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     keyVaultId: exampleKeyVault.id,
  * });
  * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
  *     keyVaultPassword: {
  *         linkedServiceName: exampleLinkedServiceKeyVault.name,
@@ -108,7 +108,13 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
      */
     public readonly connectionString!: pulumi.Output<string | undefined>;
     /**
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    public readonly dataFactoryId!: pulumi.Output<string>;
+    /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
@@ -157,6 +163,7 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["connectionString"] = state ? state.connectionString : undefined;
+            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
@@ -167,15 +174,13 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as LinkedServiceSqlServerArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFactoryName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["connectionString"] = args ? args.connectionString : undefined;
+            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
@@ -209,7 +214,13 @@ export interface LinkedServiceSqlServerState {
      */
     connectionString?: pulumi.Input<string>;
     /**
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    dataFactoryId?: pulumi.Input<string>;
+    /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     dataFactoryName?: pulumi.Input<string>;
     /**
@@ -260,9 +271,15 @@ export interface LinkedServiceSqlServerArgs {
      */
     connectionString?: pulumi.Input<string>;
     /**
-     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryName: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+     */
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service SQL Server.
      */

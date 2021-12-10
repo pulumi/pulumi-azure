@@ -18,6 +18,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileAciConnectorLinux? AciConnectorLinux;
         /// <summary>
+        /// An `azure_keyvault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+        /// </summary>
+        public readonly Outputs.KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider? AzureKeyvaultSecretsProvider;
+        /// <summary>
         /// A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileAzurePolicy? AzurePolicy;
@@ -46,6 +50,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
         private KubernetesClusterAddonProfile(
             Outputs.KubernetesClusterAddonProfileAciConnectorLinux? aciConnectorLinux,
 
+            Outputs.KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider? azureKeyvaultSecretsProvider,
+
             Outputs.KubernetesClusterAddonProfileAzurePolicy? azurePolicy,
 
             Outputs.KubernetesClusterAddonProfileHttpApplicationRouting? httpApplicationRouting,
@@ -59,6 +65,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             Outputs.KubernetesClusterAddonProfileOpenServiceMesh? openServiceMesh)
         {
             AciConnectorLinux = aciConnectorLinux;
+            AzureKeyvaultSecretsProvider = azureKeyvaultSecretsProvider;
             AzurePolicy = azurePolicy;
             HttpApplicationRouting = httpApplicationRouting;
             IngressApplicationGateway = ingressApplicationGateway;

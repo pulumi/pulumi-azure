@@ -49,7 +49,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServiceCosmosDb(ctx, "exampleLinkedServiceCosmosDb", &datafactory.LinkedServiceCosmosDbArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			AccountEndpoint:   pulumi.Any(azurerm_cosmosdb_account.Example.Endpoint),
 // 			AccountKey:        pulumi.String(exampleAccount.PrimaryKey),
 // 			Database:          pulumi.String("foo"),
@@ -82,7 +82,11 @@ type LinkedServiceCosmosDb struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
 	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The name of the database. Required if `connectionString` is unspecified.
 	Database pulumi.StringPtrOutput `pulumi:"database"`
@@ -106,9 +110,6 @@ func NewLinkedServiceCosmosDb(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -144,7 +145,11 @@ type linkedServiceCosmosDbState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The name of the database. Required if `connectionString` is unspecified.
 	Database *string `pulumi:"database"`
@@ -172,7 +177,11 @@ type LinkedServiceCosmosDbState struct {
 	Annotations pulumi.StringArrayInput
 	// The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
 	ConnectionString pulumi.StringPtrInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The name of the database. Required if `connectionString` is unspecified.
 	Database pulumi.StringPtrInput
@@ -204,8 +213,12 @@ type linkedServiceCosmosDbArgs struct {
 	Annotations []string `pulumi:"annotations"`
 	// The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The name of the database. Required if `connectionString` is unspecified.
 	Database *string `pulumi:"database"`
 	// The description for the Data Factory Linked Service.
@@ -233,8 +246,12 @@ type LinkedServiceCosmosDbArgs struct {
 	Annotations pulumi.StringArrayInput
 	// The connection string. Required if `accountEndpoint`, `accountKey`, and `database` are unspecified.
 	ConnectionString pulumi.StringPtrInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The name of the database. Required if `connectionString` is unspecified.
 	Database pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.

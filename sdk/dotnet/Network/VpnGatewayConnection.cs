@@ -122,6 +122,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.VpnGatewayConnectionRouting>> Routings { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `traffic_selector_policy` blocks as defined below.
+        /// </summary>
+        [Output("trafficSelectorPolicies")]
+        public Output<ImmutableArray<Outputs.VpnGatewayConnectionTrafficSelectorPolicy>> TrafficSelectorPolicies { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
         /// </summary>
         [Output("vpnGatewayId")]
@@ -209,6 +215,18 @@ namespace Pulumi.Azure.Network
             set => _routings = value;
         }
 
+        [Input("trafficSelectorPolicies")]
+        private InputList<Inputs.VpnGatewayConnectionTrafficSelectorPolicyArgs>? _trafficSelectorPolicies;
+
+        /// <summary>
+        /// One or more `traffic_selector_policy` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.VpnGatewayConnectionTrafficSelectorPolicyArgs> TrafficSelectorPolicies
+        {
+            get => _trafficSelectorPolicies ?? (_trafficSelectorPolicies = new InputList<Inputs.VpnGatewayConnectionTrafficSelectorPolicyArgs>());
+            set => _trafficSelectorPolicies = value;
+        }
+
         /// <summary>
         /// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
         /// </summary>
@@ -262,6 +280,18 @@ namespace Pulumi.Azure.Network
         {
             get => _routings ?? (_routings = new InputList<Inputs.VpnGatewayConnectionRoutingGetArgs>());
             set => _routings = value;
+        }
+
+        [Input("trafficSelectorPolicies")]
+        private InputList<Inputs.VpnGatewayConnectionTrafficSelectorPolicyGetArgs>? _trafficSelectorPolicies;
+
+        /// <summary>
+        /// One or more `traffic_selector_policy` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.VpnGatewayConnectionTrafficSelectorPolicyGetArgs> TrafficSelectorPolicies
+        {
+            get => _trafficSelectorPolicies ?? (_trafficSelectorPolicies = new InputList<Inputs.VpnGatewayConnectionTrafficSelectorPolicyGetArgs>());
+            set => _trafficSelectorPolicies = value;
         }
 
         /// <summary>

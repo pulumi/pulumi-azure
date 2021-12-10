@@ -129,6 +129,10 @@ export class SharedImage extends pulumi.CustomResource {
      * A mapping of tags to assign to the Shared Image.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly trustedLaunchEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SharedImage resource with the given unique name, arguments, and options.
@@ -157,6 +161,7 @@ export class SharedImage extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["specialized"] = state ? state.specialized : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["trustedLaunchEnabled"] = state ? state.trustedLaunchEnabled : undefined;
         } else {
             const args = argsOrState as SharedImageArgs | undefined;
             if ((!args || args.galleryName === undefined) && !opts.urn) {
@@ -185,6 +190,7 @@ export class SharedImage extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["specialized"] = args ? args.specialized : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["trustedLaunchEnabled"] = args ? args.trustedLaunchEnabled : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -253,6 +259,10 @@ export interface SharedImageState {
      * A mapping of tags to assign to the Shared Image.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    trustedLaunchEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -315,4 +325,8 @@ export interface SharedImageArgs {
      * A mapping of tags to assign to the Shared Image.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    trustedLaunchEnabled?: pulumi.Input<boolean>;
 }

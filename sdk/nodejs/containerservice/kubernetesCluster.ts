@@ -111,6 +111,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
+     * A `httpProxyConfig` block as defined below.
+     */
+    public readonly httpProxyConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterHttpProxyConfig | undefined>;
+    /**
      * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      */
     public readonly identity!: pulumi.Output<outputs.containerservice.KubernetesClusterIdentity | undefined>;
@@ -212,6 +216,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `windowsProfile` block as defined below.
+     * ---
      */
     public readonly windowsProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterWindowsProfile>;
 
@@ -238,6 +243,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["dnsPrefixPrivateCluster"] = state ? state.dnsPrefixPrivateCluster : undefined;
             inputs["enablePodSecurityPolicy"] = state ? state.enablePodSecurityPolicy : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
+            inputs["httpProxyConfig"] = state ? state.httpProxyConfig : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["kubeAdminConfigRaw"] = state ? state.kubeAdminConfigRaw : undefined;
             inputs["kubeAdminConfigs"] = state ? state.kubeAdminConfigs : undefined;
@@ -281,6 +287,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             inputs["dnsPrefixPrivateCluster"] = args ? args.dnsPrefixPrivateCluster : undefined;
             inputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
+            inputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["kubeletIdentities"] = args ? args.kubeletIdentities : undefined;
             inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
@@ -357,6 +364,10 @@ export interface KubernetesClusterState {
      * The FQDN of the Azure Kubernetes Managed Cluster.
      */
     fqdn?: pulumi.Input<string>;
+    /**
+     * A `httpProxyConfig` block as defined below.
+     */
+    httpProxyConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterHttpProxyConfig>;
     /**
      * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      */
@@ -459,6 +470,7 @@ export interface KubernetesClusterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `windowsProfile` block as defined below.
+     * ---
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterWindowsProfile>;
 }
@@ -500,6 +512,10 @@ export interface KubernetesClusterArgs {
      */
     dnsPrefixPrivateCluster?: pulumi.Input<string>;
     enablePodSecurityPolicy?: pulumi.Input<boolean>;
+    /**
+     * A `httpProxyConfig` block as defined below.
+     */
+    httpProxyConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterHttpProxyConfig>;
     /**
      * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      */
@@ -578,6 +594,7 @@ export interface KubernetesClusterArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `windowsProfile` block as defined below.
+     * ---
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterWindowsProfile>;
 }

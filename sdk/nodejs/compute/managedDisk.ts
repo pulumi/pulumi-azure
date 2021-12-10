@@ -130,6 +130,10 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly encryptionSettings!: pulumi.Output<outputs.compute.ManagedDiskEncryptionSettings | undefined>;
     /**
+     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+     */
+    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    /**
      * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
      */
     public readonly imageReferenceId!: pulumi.Output<string | undefined>;
@@ -224,6 +228,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["diskMbpsReadWrite"] = state ? state.diskMbpsReadWrite : undefined;
             inputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
             inputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
+            inputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
             inputs["imageReferenceId"] = state ? state.imageReferenceId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["logicalSectorSize"] = state ? state.logicalSectorSize : undefined;
@@ -262,6 +267,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["diskMbpsReadWrite"] = args ? args.diskMbpsReadWrite : undefined;
             inputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
             inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
+            inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
             inputs["imageReferenceId"] = args ? args.imageReferenceId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["logicalSectorSize"] = args ? args.logicalSectorSize : undefined;
@@ -328,6 +334,10 @@ export interface ManagedDiskState {
      * A `encryptionSettings` block as defined below.
      */
     encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
+    /**
+     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+     */
+    hyperVGeneration?: pulumi.Input<string>;
     /**
      * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
      */
@@ -442,6 +452,10 @@ export interface ManagedDiskArgs {
      * A `encryptionSettings` block as defined below.
      */
     encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
+    /**
+     * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+     */
+    hyperVGeneration?: pulumi.Input<string>;
     /**
      * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
      */

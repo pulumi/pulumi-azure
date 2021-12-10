@@ -118,6 +118,8 @@ type VpnGatewayConnection struct {
 	RemoteVpnSiteId pulumi.StringOutput `pulumi:"remoteVpnSiteId"`
 	// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
 	Routings VpnGatewayConnectionRoutingArrayOutput `pulumi:"routings"`
+	// One or more `trafficSelectorPolicy` blocks as defined below.
+	TrafficSelectorPolicies VpnGatewayConnectionTrafficSelectorPolicyArrayOutput `pulumi:"trafficSelectorPolicies"`
 	// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
 	VpnGatewayId pulumi.StringOutput `pulumi:"vpnGatewayId"`
 	// One or more `vpnLink` blocks as defined below.
@@ -170,6 +172,8 @@ type vpnGatewayConnectionState struct {
 	RemoteVpnSiteId *string `pulumi:"remoteVpnSiteId"`
 	// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
 	Routings []VpnGatewayConnectionRouting `pulumi:"routings"`
+	// One or more `trafficSelectorPolicy` blocks as defined below.
+	TrafficSelectorPolicies []VpnGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicies"`
 	// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 	// One or more `vpnLink` blocks as defined below.
@@ -185,6 +189,8 @@ type VpnGatewayConnectionState struct {
 	RemoteVpnSiteId pulumi.StringPtrInput
 	// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
 	Routings VpnGatewayConnectionRoutingArrayInput
+	// One or more `trafficSelectorPolicy` blocks as defined below.
+	TrafficSelectorPolicies VpnGatewayConnectionTrafficSelectorPolicyArrayInput
 	// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
 	VpnGatewayId pulumi.StringPtrInput
 	// One or more `vpnLink` blocks as defined below.
@@ -204,6 +210,8 @@ type vpnGatewayConnectionArgs struct {
 	RemoteVpnSiteId string `pulumi:"remoteVpnSiteId"`
 	// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
 	Routings []VpnGatewayConnectionRouting `pulumi:"routings"`
+	// One or more `trafficSelectorPolicy` blocks as defined below.
+	TrafficSelectorPolicies []VpnGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicies"`
 	// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
 	VpnGatewayId string `pulumi:"vpnGatewayId"`
 	// One or more `vpnLink` blocks as defined below.
@@ -220,6 +228,8 @@ type VpnGatewayConnectionArgs struct {
 	RemoteVpnSiteId pulumi.StringInput
 	// A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
 	Routings VpnGatewayConnectionRoutingArrayInput
+	// One or more `trafficSelectorPolicy` blocks as defined below.
+	TrafficSelectorPolicies VpnGatewayConnectionTrafficSelectorPolicyArrayInput
 	// The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
 	VpnGatewayId pulumi.StringInput
 	// One or more `vpnLink` blocks as defined below.

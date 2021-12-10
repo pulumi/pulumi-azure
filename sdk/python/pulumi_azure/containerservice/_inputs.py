@@ -26,6 +26,8 @@ __all__ = [
     'GroupImageRegistryCredentialArgs',
     'KubernetesClusterAddonProfileArgs',
     'KubernetesClusterAddonProfileAciConnectorLinuxArgs',
+    'KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs',
+    'KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs',
     'KubernetesClusterAddonProfileAzurePolicyArgs',
     'KubernetesClusterAddonProfileHttpApplicationRoutingArgs',
     'KubernetesClusterAddonProfileIngressApplicationGatewayArgs',
@@ -40,6 +42,7 @@ __all__ = [
     'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs',
     'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs',
     'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs',
+    'KubernetesClusterHttpProxyConfigArgs',
     'KubernetesClusterIdentityArgs',
     'KubernetesClusterKubeAdminConfigArgs',
     'KubernetesClusterKubeConfigArgs',
@@ -1184,6 +1187,7 @@ class GroupImageRegistryCredentialArgs:
 class KubernetesClusterAddonProfileArgs:
     def __init__(__self__, *,
                  aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAddonProfileAciConnectorLinuxArgs']] = None,
+                 azure_keyvault_secrets_provider: Optional[pulumi.Input['KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs']] = None,
                  azure_policy: Optional[pulumi.Input['KubernetesClusterAddonProfileAzurePolicyArgs']] = None,
                  http_application_routing: Optional[pulumi.Input['KubernetesClusterAddonProfileHttpApplicationRoutingArgs']] = None,
                  ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterAddonProfileIngressApplicationGatewayArgs']] = None,
@@ -1192,6 +1196,7 @@ class KubernetesClusterAddonProfileArgs:
                  open_service_mesh: Optional[pulumi.Input['KubernetesClusterAddonProfileOpenServiceMeshArgs']] = None):
         """
         :param pulumi.Input['KubernetesClusterAddonProfileAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        :param pulumi.Input['KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs'] azure_keyvault_secrets_provider: An `azure_keyvault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input['KubernetesClusterAddonProfileAzurePolicyArgs'] azure_policy: A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterAddonProfileHttpApplicationRoutingArgs'] http_application_routing: A `http_application_routing` block as defined below.
         :param pulumi.Input['KubernetesClusterAddonProfileIngressApplicationGatewayArgs'] ingress_application_gateway: An `ingress_application_gateway` block as defined below.
@@ -1201,6 +1206,8 @@ class KubernetesClusterAddonProfileArgs:
         """
         if aci_connector_linux is not None:
             pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
+        if azure_keyvault_secrets_provider is not None:
+            pulumi.set(__self__, "azure_keyvault_secrets_provider", azure_keyvault_secrets_provider)
         if azure_policy is not None:
             pulumi.set(__self__, "azure_policy", azure_policy)
         if http_application_routing is not None:
@@ -1225,6 +1232,18 @@ class KubernetesClusterAddonProfileArgs:
     @aci_connector_linux.setter
     def aci_connector_linux(self, value: Optional[pulumi.Input['KubernetesClusterAddonProfileAciConnectorLinuxArgs']]):
         pulumi.set(self, "aci_connector_linux", value)
+
+    @property
+    @pulumi.getter(name="azureKeyvaultSecretsProvider")
+    def azure_keyvault_secrets_provider(self) -> Optional[pulumi.Input['KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs']]:
+        """
+        An `azure_keyvault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+        """
+        return pulumi.get(self, "azure_keyvault_secrets_provider")
+
+    @azure_keyvault_secrets_provider.setter
+    def azure_keyvault_secrets_provider(self, value: Optional[pulumi.Input['KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs']]):
+        pulumi.set(self, "azure_keyvault_secrets_provider", value)
 
     @property
     @pulumi.getter(name="azurePolicy")
@@ -1335,6 +1354,131 @@ class KubernetesClusterAddonProfileAciConnectorLinuxArgs:
     @subnet_name.setter
     def subnet_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_name", value)
+
+
+@pulumi.input_type
+class KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 secret_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs']]]] = None,
+                 secret_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+                 secret_rotation_interval: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Is the Azure Keyvault Secrets Providerenabled?
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs']]] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
+        :param pulumi.Input[bool] secret_rotation_enabled: Is secret rotation enabled?
+        :param pulumi.Input[str] secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if secret_identities is not None:
+            pulumi.set(__self__, "secret_identities", secret_identities)
+        if secret_rotation_enabled is not None:
+            pulumi.set(__self__, "secret_rotation_enabled", secret_rotation_enabled)
+        if secret_rotation_interval is not None:
+            pulumi.set(__self__, "secret_rotation_interval", secret_rotation_interval)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Is the Azure Keyvault Secrets Providerenabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="secretIdentities")
+    def secret_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs']]]]:
+        """
+        An `secret_identity` block is exported. The exported attributes are defined below.
+        """
+        return pulumi.get(self, "secret_identities")
+
+    @secret_identities.setter
+    def secret_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs']]]]):
+        pulumi.set(self, "secret_identities", value)
+
+    @property
+    @pulumi.getter(name="secretRotationEnabled")
+    def secret_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is secret rotation enabled?
+        """
+        return pulumi.get(self, "secret_rotation_enabled")
+
+    @secret_rotation_enabled.setter
+    def secret_rotation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secret_rotation_enabled", value)
+
+    @property
+    @pulumi.getter(name="secretRotationInterval")
+    def secret_rotation_interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
+        """
+        return pulumi.get(self, "secret_rotation_interval")
+
+    @secret_rotation_interval.setter
+    def secret_rotation_interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_rotation_interval", value)
+
+
+@pulumi.input_type
+class KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
 
 
 @pulumi.input_type
@@ -3192,6 +3336,77 @@ class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
     @max_surge.setter
     def max_surge(self, value: pulumi.Input[str]):
         pulumi.set(self, "max_surge", value)
+
+
+@pulumi.input_type
+class KubernetesClusterHttpProxyConfigArgs:
+    def __init__(__self__, *,
+                 http_proxy: Optional[pulumi.Input[str]] = None,
+                 https_proxy: Optional[pulumi.Input[str]] = None,
+                 no_proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 trusted_ca: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] http_proxy: The proxy address to be used when communicating over HTTP.
+        :param pulumi.Input[str] https_proxy: The proxy address to be used when communicating over HTTPS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] no_proxies: The list of domains that will not use the proxy for communication.
+        :param pulumi.Input[str] trusted_ca: The base64 encoded alternative CA certificate content in PEM format.
+        """
+        if http_proxy is not None:
+            pulumi.set(__self__, "http_proxy", http_proxy)
+        if https_proxy is not None:
+            pulumi.set(__self__, "https_proxy", https_proxy)
+        if no_proxies is not None:
+            pulumi.set(__self__, "no_proxies", no_proxies)
+        if trusted_ca is not None:
+            pulumi.set(__self__, "trusted_ca", trusted_ca)
+
+    @property
+    @pulumi.getter(name="httpProxy")
+    def http_proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The proxy address to be used when communicating over HTTP.
+        """
+        return pulumi.get(self, "http_proxy")
+
+    @http_proxy.setter
+    def http_proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_proxy", value)
+
+    @property
+    @pulumi.getter(name="httpsProxy")
+    def https_proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The proxy address to be used when communicating over HTTPS.
+        """
+        return pulumi.get(self, "https_proxy")
+
+    @https_proxy.setter
+    def https_proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_proxy", value)
+
+    @property
+    @pulumi.getter(name="noProxies")
+    def no_proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of domains that will not use the proxy for communication.
+        """
+        return pulumi.get(self, "no_proxies")
+
+    @no_proxies.setter
+    def no_proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "no_proxies", value)
+
+    @property
+    @pulumi.getter(name="trustedCa")
+    def trusted_ca(self) -> Optional[pulumi.Input[str]]:
+        """
+        The base64 encoded alternative CA certificate content in PEM format.
+        """
+        return pulumi.get(self, "trusted_ca")
+
+    @trusted_ca.setter
+    def trusted_ca(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trusted_ca", value)
 
 
 @pulumi.input_type

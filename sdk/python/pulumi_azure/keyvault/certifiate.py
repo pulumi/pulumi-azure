@@ -112,7 +112,9 @@ class _CertifiateState:
                  secret_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
+                 version: Optional[pulumi.Input[str]] = None,
+                 versionless_id: Optional[pulumi.Input[str]] = None,
+                 versionless_secret_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Certifiate resources.
         :param pulumi.Input['CertifiateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate.
@@ -126,6 +128,8 @@ class _CertifiateState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
         :param pulumi.Input[str] version: The current version of the Key Vault Certificate.
+        :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Certificate.
+        :param pulumi.Input[str] versionless_secret_id: The Base ID of the Key Vault Secret.
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
@@ -149,6 +153,10 @@ class _CertifiateState:
             pulumi.set(__self__, "thumbprint", thumbprint)
         if version is not None:
             pulumi.set(__self__, "version", version)
+        if versionless_id is not None:
+            pulumi.set(__self__, "versionless_id", versionless_id)
+        if versionless_secret_id is not None:
+            pulumi.set(__self__, "versionless_secret_id", versionless_secret_id)
 
     @property
     @pulumi.getter
@@ -281,6 +289,30 @@ class _CertifiateState:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="versionlessId")
+    def versionless_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base ID of the Key Vault Certificate.
+        """
+        return pulumi.get(self, "versionless_id")
+
+    @versionless_id.setter
+    def versionless_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "versionless_id", value)
+
+    @property
+    @pulumi.getter(name="versionlessSecretId")
+    def versionless_secret_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base ID of the Key Vault Secret.
+        """
+        return pulumi.get(self, "versionless_secret_id")
+
+    @versionless_secret_id.setter
+    def versionless_secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "versionless_secret_id", value)
 
 
 warnings.warn("""azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate""", DeprecationWarning)
@@ -733,6 +765,8 @@ class Certifiate(pulumi.CustomResource):
             __props__.__dict__["secret_id"] = None
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["version"] = None
+            __props__.__dict__["versionless_id"] = None
+            __props__.__dict__["versionless_secret_id"] = None
         super(Certifiate, __self__).__init__(
             'azure:keyvault/certifiate:Certifiate',
             resource_name,
@@ -753,7 +787,9 @@ class Certifiate(pulumi.CustomResource):
             secret_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             thumbprint: Optional[pulumi.Input[str]] = None,
-            version: Optional[pulumi.Input[str]] = None) -> 'Certifiate':
+            version: Optional[pulumi.Input[str]] = None,
+            versionless_id: Optional[pulumi.Input[str]] = None,
+            versionless_secret_id: Optional[pulumi.Input[str]] = None) -> 'Certifiate':
         """
         Get an existing Certifiate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -772,6 +808,8 @@ class Certifiate(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
         :param pulumi.Input[str] version: The current version of the Key Vault Certificate.
+        :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Certificate.
+        :param pulumi.Input[str] versionless_secret_id: The Base ID of the Key Vault Secret.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -788,6 +826,8 @@ class Certifiate(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["thumbprint"] = thumbprint
         __props__.__dict__["version"] = version
+        __props__.__dict__["versionless_id"] = versionless_id
+        __props__.__dict__["versionless_secret_id"] = versionless_secret_id
         return Certifiate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -877,4 +917,20 @@ class Certifiate(pulumi.CustomResource):
         The current version of the Key Vault Certificate.
         """
         return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="versionlessId")
+    def versionless_id(self) -> pulumi.Output[str]:
+        """
+        The Base ID of the Key Vault Certificate.
+        """
+        return pulumi.get(self, "versionless_id")
+
+    @property
+    @pulumi.getter(name="versionlessSecretId")
+    def versionless_secret_id(self) -> pulumi.Output[str]:
+        """
+        The Base ID of the Key Vault Secret.
+        """
+        return pulumi.get(self, "versionless_secret_id")
 

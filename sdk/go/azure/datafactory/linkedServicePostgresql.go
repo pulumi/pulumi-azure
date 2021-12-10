@@ -41,7 +41,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServicePostgresql(ctx, "exampleLinkedServicePostgresql", &datafactory.LinkedServicePostgresqlArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			ConnectionString:  pulumi.String("Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example"),
 // 		})
 // 		if err != nil {
@@ -68,7 +68,11 @@ type LinkedServicePostgresql struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The connection string in which to authenticate with PostgreSQL.
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service PostgreSQL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -92,9 +96,6 @@ func NewLinkedServicePostgresql(ctx *pulumi.Context,
 
 	if args.ConnectionString == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionString'")
-	}
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -127,7 +128,11 @@ type linkedServicePostgresqlState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The connection string in which to authenticate with PostgreSQL.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service PostgreSQL.
 	Description *string `pulumi:"description"`
@@ -149,7 +154,11 @@ type LinkedServicePostgresqlState struct {
 	Annotations pulumi.StringArrayInput
 	// The connection string in which to authenticate with PostgreSQL.
 	ConnectionString pulumi.StringPtrInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service PostgreSQL.
 	Description pulumi.StringPtrInput
@@ -175,8 +184,12 @@ type linkedServicePostgresqlArgs struct {
 	Annotations []string `pulumi:"annotations"`
 	// The connection string in which to authenticate with PostgreSQL.
 	ConnectionString string `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service PostgreSQL.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.
@@ -198,8 +211,12 @@ type LinkedServicePostgresqlArgs struct {
 	Annotations pulumi.StringArrayInput
 	// The connection string in which to authenticate with PostgreSQL.
 	ConnectionString pulumi.StringInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service PostgreSQL.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.

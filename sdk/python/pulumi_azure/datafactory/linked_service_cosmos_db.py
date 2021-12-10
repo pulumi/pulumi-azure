@@ -13,13 +13,14 @@ __all__ = ['LinkedServiceCosmosDbArgs', 'LinkedServiceCosmosDb']
 @pulumi.input_type
 class LinkedServiceCosmosDbArgs:
     def __init__(__self__, *,
-                 data_factory_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  account_endpoint: Optional[pulumi.Input[str]] = None,
                  account_key: Optional[pulumi.Input[str]] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
+                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
@@ -27,13 +28,14 @@ class LinkedServiceCosmosDbArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LinkedServiceCosmosDb resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
         :param pulumi.Input[str] account_endpoint: The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[str] account_key: The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] connection_string: The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] database: The name of the database. Required if `connection_string` is unspecified.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
@@ -41,7 +43,6 @@ class LinkedServiceCosmosDbArgs:
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "data_factory_name", data_factory_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_endpoint is not None:
             pulumi.set(__self__, "account_endpoint", account_endpoint)
@@ -53,6 +54,13 @@ class LinkedServiceCosmosDbArgs:
             pulumi.set(__self__, "annotations", annotations)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if data_factory_id is not None:
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
+        if data_factory_name is not None:
+            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
+        if data_factory_name is not None:
+            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if database is not None:
             pulumi.set(__self__, "database", database)
         if description is not None:
@@ -63,18 +71,6 @@ class LinkedServiceCosmosDbArgs:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Input[str]:
-        """
-        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -149,6 +145,30 @@ class LinkedServiceCosmosDbArgs:
         pulumi.set(self, "connection_string", value)
 
     @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_id", value)
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @data_factory_name.setter
+    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_name", value)
+
+    @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
@@ -218,6 +238,7 @@ class _LinkedServiceCosmosDbState:
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -232,6 +253,7 @@ class _LinkedServiceCosmosDbState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] connection_string: The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] database: The name of the database. Required if `connection_string` is unspecified.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
@@ -251,6 +273,11 @@ class _LinkedServiceCosmosDbState:
             pulumi.set(__self__, "annotations", annotations)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if data_factory_id is not None:
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
+        if data_factory_name is not None:
+            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
         if data_factory_name is not None:
             pulumi.set(__self__, "data_factory_name", data_factory_name)
         if database is not None:
@@ -325,6 +352,18 @@ class _LinkedServiceCosmosDbState:
     @connection_string.setter
     def connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_id", value)
 
     @property
     @pulumi.getter(name="dataFactoryName")
@@ -422,6 +461,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -447,7 +487,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_linked_service_cosmos_db = azure.datafactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             account_endpoint=azurerm_cosmosdb_account["example"]["endpoint"],
             account_key=example_account.primary_key,
             database="foo")
@@ -468,6 +508,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] connection_string: The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] database: The name of the database. Required if `connection_string` is unspecified.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
@@ -500,7 +541,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_linked_service_cosmos_db = azure.datafactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             account_endpoint=azurerm_cosmosdb_account["example"]["endpoint"],
             account_key=example_account.primary_key,
             database="foo")
@@ -534,6 +575,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -558,8 +600,10 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
             __props__.__dict__["connection_string"] = connection_string
-            if data_factory_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_factory_name'")
+            __props__.__dict__["data_factory_id"] = data_factory_id
+            if data_factory_name is not None and not opts.urn:
+                warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+                pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
             __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["database"] = database
             __props__.__dict__["description"] = description
@@ -584,6 +628,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             connection_string: Optional[pulumi.Input[str]] = None,
+            data_factory_id: Optional[pulumi.Input[str]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -603,6 +648,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] connection_string: The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] database: The name of the database. Required if `connection_string` is unspecified.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
@@ -621,6 +667,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
         __props__.__dict__["additional_properties"] = additional_properties
         __props__.__dict__["annotations"] = annotations
         __props__.__dict__["connection_string"] = connection_string
+        __props__.__dict__["data_factory_id"] = data_factory_id
         __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["database"] = database
         __props__.__dict__["description"] = description
@@ -669,6 +716,14 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
         The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
         """
         return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> pulumi.Output[str]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
 
     @property
     @pulumi.getter(name="dataFactoryName")

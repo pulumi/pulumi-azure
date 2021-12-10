@@ -30,8 +30,8 @@ namespace Pulumi.Azure.ServiceBus
         ///         var example = Output.Create(Azure.ServiceBus.GetTopicAuthorizationRule.InvokeAsync(new Azure.ServiceBus.GetTopicAuthorizationRuleArgs
         ///         {
         ///             Name = "example-tfex_name",
-        ///             NamespaceName = "example-namespace",
         ///             ResourceGroupName = "example-resources",
+        ///             NamespaceName = "example-namespace",
         ///             TopicName = "example-servicebus_topic",
         ///         }));
         ///         this.ServicebusAuthorizationRuleId = data.Azurem_servicebus_topic_authorization_rule.Example.Id;
@@ -65,8 +65,8 @@ namespace Pulumi.Azure.ServiceBus
         ///         var example = Output.Create(Azure.ServiceBus.GetTopicAuthorizationRule.InvokeAsync(new Azure.ServiceBus.GetTopicAuthorizationRuleArgs
         ///         {
         ///             Name = "example-tfex_name",
-        ///             NamespaceName = "example-namespace",
         ///             ResourceGroupName = "example-resources",
+        ///             NamespaceName = "example-namespace",
         ///             TopicName = "example-servicebus_topic",
         ///         }));
         ///         this.ServicebusAuthorizationRuleId = data.Azurem_servicebus_topic_authorization_rule.Example.Id;

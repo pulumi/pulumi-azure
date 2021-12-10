@@ -107,6 +107,14 @@ export interface GetCertificateResult {
      * The current version of the Key Vault Certificate.
      */
     readonly version: string;
+    /**
+     * The Base ID of the Key Vault Certificate.
+     */
+    readonly versionlessId: string;
+    /**
+     * The Base ID of the Key Vault Secret.
+     */
+    readonly versionlessSecretId: string;
 }
 
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {

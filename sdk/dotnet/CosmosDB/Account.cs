@@ -37,7 +37,7 @@ namespace Pulumi.Azure.CosmosDB
     ///             Location = rg.Location,
     ///             ResourceGroupName = rg.Name,
     ///             OfferType = "Standard",
-    ///             Kind = "GlobalDocumentDB",
+    ///             Kind = "MongoDB",
     ///             EnableAutomaticFailover = true,
     ///             Capabilities = 
     ///             {
@@ -61,8 +61,8 @@ namespace Pulumi.Azure.CosmosDB
     ///             ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
     ///             {
     ///                 ConsistencyLevel = "BoundedStaleness",
-    ///                 MaxIntervalInSeconds = 10,
-    ///                 MaxStalenessPrefix = 200,
+    ///                 MaxIntervalInSeconds = 300,
+    ///                 MaxStalenessPrefix = 100000,
     ///             },
     ///             GeoLocations = 
     ///             {

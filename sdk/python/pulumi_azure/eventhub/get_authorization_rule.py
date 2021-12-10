@@ -204,9 +204,9 @@ def get_authorization_rule(eventhub_name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    test = azure.eventhub.get_authorization_rule(eventhub_name=azurerm_eventhub["test"]["name"],
-        name="test",
+    test = azure.eventhub.get_authorization_rule(name="test",
         namespace_name=azurerm_eventhub_namespace["test"]["name"],
+        eventhub_name=azurerm_eventhub["test"]["name"],
         resource_group_name=azurerm_resource_group["test"]["name"])
     ```
 
@@ -266,9 +266,9 @@ def get_authorization_rule_output(eventhub_name: Optional[pulumi.Input[str]] = N
     import pulumi
     import pulumi_azure as azure
 
-    test = azure.eventhub.get_authorization_rule(eventhub_name=azurerm_eventhub["test"]["name"],
-        name="test",
+    test = azure.eventhub.get_authorization_rule(name="test",
         namespace_name=azurerm_eventhub_namespace["test"]["name"],
+        eventhub_name=azurerm_eventhub["test"]["name"],
         resource_group_name=azurerm_resource_group["test"]["name"])
     ```
 

@@ -422,7 +422,14 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         \"\"\")
         example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
             resource_group_id=example_resource_group.id,
-            policy_definition_id=example_definition.id)
+            policy_definition_id=example_definition.id,
+            parameters=\"\"\"      "tagName": {
+                "value": "Business Unit"
+              },
+              "tagValue": {
+                "value": "BU"
+              }
+        \"\"\")
         ```
 
         ## Import
@@ -480,7 +487,14 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         \"\"\")
         example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
             resource_group_id=example_resource_group.id,
-            policy_definition_id=example_definition.id)
+            policy_definition_id=example_definition.id,
+            parameters=\"\"\"      "tagName": {
+                "value": "Business Unit"
+              },
+              "tagValue": {
+                "value": "BU"
+              }
+        \"\"\")
         ```
 
         ## Import

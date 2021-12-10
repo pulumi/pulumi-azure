@@ -70,6 +70,8 @@ type Pool struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// QoS Type of the pool. Valid values include `Auto` or `Manual`.
+	QosType pulumi.StringOutput `pulumi:"qosType"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
@@ -127,6 +129,8 @@ type poolState struct {
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// QoS Type of the pool. Valid values include `Auto` or `Manual`.
+	QosType *string `pulumi:"qosType"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
@@ -144,6 +148,8 @@ type PoolState struct {
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// QoS Type of the pool. Valid values include `Auto` or `Manual`.
+	QosType pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
@@ -165,6 +171,8 @@ type poolArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// QoS Type of the pool. Valid values include `Auto` or `Manual`.
+	QosType *string `pulumi:"qosType"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
@@ -183,6 +191,8 @@ type PoolArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// QoS Type of the pool. Valid values include `Auto` or `Manual`.
+	QosType pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.

@@ -139,7 +139,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
      */
     public readonly podSubnetId!: pulumi.Output<string | undefined>;
     /**
@@ -371,7 +371,7 @@ export interface KubernetesClusterNodePoolState {
      */
     osType?: pulumi.Input<string>;
     /**
-     * The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
      */
     podSubnetId?: pulumi.Input<string>;
     /**
@@ -509,7 +509,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     osType?: pulumi.Input<string>;
     /**
-     * The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
      */
     podSubnetId?: pulumi.Input<string>;
     /**

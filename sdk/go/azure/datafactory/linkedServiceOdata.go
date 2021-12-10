@@ -51,7 +51,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServiceOdata(ctx, "basicAuth", &datafactory.LinkedServiceOdataArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			Url:               pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
 // 			BasicAuthentication: &datafactory.LinkedServiceOdataBasicAuthenticationArgs{
 // 				Username: pulumi.String("emma"),
@@ -82,7 +82,11 @@ type LinkedServiceOdata struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// A `basicAuthentication` block as defined below.
 	BasicAuthentication LinkedServiceOdataBasicAuthenticationPtrOutput `pulumi:"basicAuthentication"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service OData.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -105,9 +109,6 @@ func NewLinkedServiceOdata(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -142,7 +143,11 @@ type linkedServiceOdataState struct {
 	Annotations []string `pulumi:"annotations"`
 	// A `basicAuthentication` block as defined below.
 	BasicAuthentication *LinkedServiceOdataBasicAuthentication `pulumi:"basicAuthentication"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service OData.
 	Description *string `pulumi:"description"`
@@ -165,7 +170,11 @@ type LinkedServiceOdataState struct {
 	Annotations pulumi.StringArrayInput
 	// A `basicAuthentication` block as defined below.
 	BasicAuthentication LinkedServiceOdataBasicAuthenticationPtrInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service OData.
 	Description pulumi.StringPtrInput
@@ -192,8 +201,12 @@ type linkedServiceOdataArgs struct {
 	Annotations []string `pulumi:"annotations"`
 	// A `basicAuthentication` block as defined below.
 	BasicAuthentication *LinkedServiceOdataBasicAuthentication `pulumi:"basicAuthentication"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service OData.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service OData.
@@ -216,8 +229,12 @@ type LinkedServiceOdataArgs struct {
 	Annotations pulumi.StringArrayInput
 	// A `basicAuthentication` block as defined below.
 	BasicAuthentication LinkedServiceOdataBasicAuthenticationPtrInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service OData.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service OData.

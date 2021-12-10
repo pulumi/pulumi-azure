@@ -25,10 +25,9 @@ import * as utilities from "../utilities";
  *     cors: [{
  *         allowedOrigins: ["http://www.example.com"],
  *     }],
- *     features: [{
- *         flag: "ServiceMode",
- *         value: "Default",
- *     }],
+ *     connectivityLogsEnabled: "True",
+ *     messagingLogsEnabled: "True",
+ *     serviceMode: "Default",
  *     upstreamEndpoints: [{
  *         categoryPatterns: [
  *             "connections",
@@ -78,11 +77,17 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies if Connectivity Logs are enabled or not.
+     */
+    public readonly connectivityLogsEnabled!: pulumi.Output<boolean>;
+    /**
      * A `cors` block as documented below.
      */
     public readonly cors!: pulumi.Output<outputs.signalr.ServiceCor[]>;
     /**
      * A `features` block as documented below.
+     *
+     * @deprecated Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
      */
     public readonly features!: pulumi.Output<outputs.signalr.ServiceFeature[]>;
     /**
@@ -97,6 +102,10 @@ export class Service extends pulumi.CustomResource {
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Specifies if Messaging Logs are enabled or not.
+     */
+    public readonly messagingLogsEnabled!: pulumi.Output<boolean>;
     /**
      * The name of the SignalR service. Changing this forces a new resource to be created.
      */
@@ -130,6 +139,10 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly serverPort!: pulumi.Output<number>;
     /**
+     * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+     */
+    public readonly serviceMode!: pulumi.Output<string>;
+    /**
      * A `sku` block as documented below.
      */
     public readonly sku!: pulumi.Output<outputs.signalr.ServiceSku>;
@@ -155,11 +168,13 @@ export class Service extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
+            inputs["connectivityLogsEnabled"] = state ? state.connectivityLogsEnabled : undefined;
             inputs["cors"] = state ? state.cors : undefined;
             inputs["features"] = state ? state.features : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["messagingLogsEnabled"] = state ? state.messagingLogsEnabled : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
@@ -168,6 +183,7 @@ export class Service extends pulumi.CustomResource {
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
             inputs["serverPort"] = state ? state.serverPort : undefined;
+            inputs["serviceMode"] = state ? state.serviceMode : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["upstreamEndpoints"] = state ? state.upstreamEndpoints : undefined;
@@ -179,11 +195,14 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["connectivityLogsEnabled"] = args ? args.connectivityLogsEnabled : undefined;
             inputs["cors"] = args ? args.cors : undefined;
             inputs["features"] = args ? args.features : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["messagingLogsEnabled"] = args ? args.messagingLogsEnabled : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceMode"] = args ? args.serviceMode : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["upstreamEndpoints"] = args ? args.upstreamEndpoints : undefined;
@@ -208,11 +227,17 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceState {
     /**
+     * Specifies if Connectivity Logs are enabled or not.
+     */
+    connectivityLogsEnabled?: pulumi.Input<boolean>;
+    /**
      * A `cors` block as documented below.
      */
     cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
     /**
      * A `features` block as documented below.
+     *
+     * @deprecated Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
      */
     features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
     /**
@@ -227,6 +252,10 @@ export interface ServiceState {
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Specifies if Messaging Logs are enabled or not.
+     */
+    messagingLogsEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the SignalR service. Changing this forces a new resource to be created.
      */
@@ -260,6 +289,10 @@ export interface ServiceState {
      */
     serverPort?: pulumi.Input<number>;
     /**
+     * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+     */
+    serviceMode?: pulumi.Input<string>;
+    /**
      * A `sku` block as documented below.
      */
     sku?: pulumi.Input<inputs.signalr.ServiceSku>;
@@ -278,17 +311,27 @@ export interface ServiceState {
  */
 export interface ServiceArgs {
     /**
+     * Specifies if Connectivity Logs are enabled or not.
+     */
+    connectivityLogsEnabled?: pulumi.Input<boolean>;
+    /**
      * A `cors` block as documented below.
      */
     cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
     /**
      * A `features` block as documented below.
+     *
+     * @deprecated Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
      */
     features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Specifies if Messaging Logs are enabled or not.
+     */
+    messagingLogsEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the SignalR service. Changing this forces a new resource to be created.
      */
@@ -297,6 +340,10 @@ export interface ServiceArgs {
      * The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+     */
+    serviceMode?: pulumi.Input<string>;
     /**
      * A `sku` block as documented below.
      */

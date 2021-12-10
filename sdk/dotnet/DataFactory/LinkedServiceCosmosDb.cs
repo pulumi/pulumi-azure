@@ -39,7 +39,7 @@ namespace Pulumi.Azure.DataFactory
     ///         var exampleLinkedServiceCosmosDb = new Azure.DataFactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", new Azure.DataFactory.LinkedServiceCosmosDbArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             AccountEndpoint = azurerm_cosmosdb_account.Example.Endpoint,
     ///             AccountKey = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.PrimaryKey),
     ///             Database = "foo",
@@ -89,6 +89,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("connectionString")]
         public Output<string?> ConnectionString { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
@@ -222,10 +228,16 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// The name of the database. Required if `connection_string` is unspecified.
@@ -318,6 +330,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
+
+        /// <summary>
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.

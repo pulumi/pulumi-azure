@@ -268,6 +268,14 @@ export class Certificate extends pulumi.CustomResource {
      * The current version of the Key Vault Certificate.
      */
     public /*out*/ readonly version!: pulumi.Output<string>;
+    /**
+     * The Base ID of the Key Vault Certificate.
+     */
+    public /*out*/ readonly versionlessId!: pulumi.Output<string>;
+    /**
+     * The Base ID of the Key Vault Secret.
+     */
+    public /*out*/ readonly versionlessSecretId!: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -293,6 +301,8 @@ export class Certificate extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["thumbprint"] = state ? state.thumbprint : undefined;
             inputs["version"] = state ? state.version : undefined;
+            inputs["versionlessId"] = state ? state.versionlessId : undefined;
+            inputs["versionlessSecretId"] = state ? state.versionlessSecretId : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if ((!args || args.keyVaultId === undefined) && !opts.urn) {
@@ -309,6 +319,8 @@ export class Certificate extends pulumi.CustomResource {
             inputs["secretId"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
+            inputs["versionlessId"] = undefined /*out*/;
+            inputs["versionlessSecretId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -367,6 +379,14 @@ export interface CertificateState {
      * The current version of the Key Vault Certificate.
      */
     version?: pulumi.Input<string>;
+    /**
+     * The Base ID of the Key Vault Certificate.
+     */
+    versionlessId?: pulumi.Input<string>;
+    /**
+     * The Base ID of the Key Vault Secret.
+     */
+    versionlessSecretId?: pulumi.Input<string>;
 }
 
 /**

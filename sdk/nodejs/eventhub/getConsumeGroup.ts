@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const test = pulumi.all([azurerm_eventhub_test.name, azurerm_eventhub_consumer_group_test.name, azurerm_eventhub_namespace_test.name, azurerm_resource_group_test.name]).apply(([azurerm_eventhub_testName, azurerm_eventhub_consumer_group_testName, azurerm_eventhub_namespace_testName, azurerm_resource_group_testName]) => azure.eventhub.getConsumeGroup({
- *     eventhubName: azurerm_eventhub_testName,
- *     name: azurerm_eventhub_consumer_group_testName,
- *     namespaceName: azurerm_eventhub_namespace_testName,
- *     resourceGroupName: azurerm_resource_group_testName,
- * }));
+ * const test = azure.eventhub.getConsumeGroup({
+ *     name: azurerm_eventhub_consumer_group.test.name,
+ *     namespaceName: azurerm_eventhub_namespace.test.name,
+ *     eventhubName: azurerm_eventhub.test.name,
+ *     resourceGroupName: azurerm_resource_group.test.name,
+ * });
  * ```
  */
 export function getConsumeGroup(args: GetConsumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumeGroupResult> {

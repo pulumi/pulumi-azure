@@ -45,14 +45,9 @@ namespace Pulumi.Azure.SignalR
     ///                     },
     ///                 },
     ///             },
-    ///             Features = 
-    ///             {
-    ///                 new Azure.SignalR.Inputs.ServiceFeatureArgs
-    ///                 {
-    ///                     Flag = "ServiceMode",
-    ///                     Value = "Default",
-    ///                 },
-    ///             },
+    ///             ConnectivityLogsEnabled = "True",
+    ///             MessagingLogsEnabled = "True",
+    ///             ServiceMode = "Default",
     ///             UpstreamEndpoints = 
     ///             {
     ///                 new Azure.SignalR.Inputs.ServiceUpstreamEndpointArgs
@@ -91,6 +86,12 @@ namespace Pulumi.Azure.SignalR
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies if Connectivity Logs are enabled or not.
+        /// </summary>
+        [Output("connectivityLogsEnabled")]
+        public Output<bool> ConnectivityLogsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `cors` block as documented below.
         /// </summary>
         [Output("cors")]
@@ -119,6 +120,12 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if Messaging Logs are enabled or not.
+        /// </summary>
+        [Output("messagingLogsEnabled")]
+        public Output<bool> MessagingLogsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the SignalR service. Changing this forces a new resource to be created.
@@ -167,6 +174,12 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         [Output("serverPort")]
         public Output<int> ServerPort { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        /// </summary>
+        [Output("serviceMode")]
+        public Output<string> ServiceMode { get; private set; } = null!;
 
         /// <summary>
         /// A `sku` block as documented below.
@@ -232,6 +245,12 @@ namespace Pulumi.Azure.SignalR
 
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies if Connectivity Logs are enabled or not.
+        /// </summary>
+        [Input("connectivityLogsEnabled")]
+        public Input<bool>? ConnectivityLogsEnabled { get; set; }
+
         [Input("cors")]
         private InputList<Inputs.ServiceCorArgs>? _cors;
 
@@ -250,6 +269,7 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// A `features` block as documented below.
         /// </summary>
+        [Obsolete(@"Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`")]
         public InputList<Inputs.ServiceFeatureArgs> Features
         {
             get => _features ?? (_features = new InputList<Inputs.ServiceFeatureArgs>());
@@ -263,6 +283,12 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Specifies if Messaging Logs are enabled or not.
+        /// </summary>
+        [Input("messagingLogsEnabled")]
+        public Input<bool>? MessagingLogsEnabled { get; set; }
+
+        /// <summary>
         /// The name of the SignalR service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -273,6 +299,12 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        /// </summary>
+        [Input("serviceMode")]
+        public Input<string>? ServiceMode { get; set; }
 
         /// <summary>
         /// A `sku` block as documented below.
@@ -311,6 +343,12 @@ namespace Pulumi.Azure.SignalR
 
     public sealed class ServiceState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies if Connectivity Logs are enabled or not.
+        /// </summary>
+        [Input("connectivityLogsEnabled")]
+        public Input<bool>? ConnectivityLogsEnabled { get; set; }
+
         [Input("cors")]
         private InputList<Inputs.ServiceCorGetArgs>? _cors;
 
@@ -329,6 +367,7 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// A `features` block as documented below.
         /// </summary>
+        [Obsolete(@"Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`")]
         public InputList<Inputs.ServiceFeatureGetArgs> Features
         {
             get => _features ?? (_features = new InputList<Inputs.ServiceFeatureGetArgs>());
@@ -352,6 +391,12 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Specifies if Messaging Logs are enabled or not.
+        /// </summary>
+        [Input("messagingLogsEnabled")]
+        public Input<bool>? MessagingLogsEnabled { get; set; }
 
         /// <summary>
         /// The name of the SignalR service. Changing this forces a new resource to be created.
@@ -400,6 +445,12 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         [Input("serverPort")]
         public Input<int>? ServerPort { get; set; }
+
+        /// <summary>
+        /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+        /// </summary>
+        [Input("serviceMode")]
+        public Input<string>? ServiceMode { get; set; }
 
         /// <summary>
         /// A `sku` block as documented below.

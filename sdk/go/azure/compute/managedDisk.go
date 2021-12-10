@@ -129,6 +129,8 @@ type ManagedDisk struct {
 	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrOutput `pulumi:"encryptionSettings"`
+	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
 	ImageReferenceId pulumi.StringPtrOutput `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -223,6 +225,8 @@ type managedDiskState struct {
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings *ManagedDiskEncryptionSettings `pulumi:"encryptionSettings"`
+	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
 	ImageReferenceId *string `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -280,6 +284,8 @@ type ManagedDiskState struct {
 	DiskSizeGb pulumi.IntPtrInput
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrInput
+	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+	HyperVGeneration pulumi.StringPtrInput
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
 	ImageReferenceId pulumi.StringPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -341,6 +347,8 @@ type managedDiskArgs struct {
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings *ManagedDiskEncryptionSettings `pulumi:"encryptionSettings"`
+	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
 	ImageReferenceId *string `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -399,6 +407,8 @@ type ManagedDiskArgs struct {
 	DiskSizeGb pulumi.IntPtrInput
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrInput
+	// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+	HyperVGeneration pulumi.StringPtrInput
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
 	ImageReferenceId pulumi.StringPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.

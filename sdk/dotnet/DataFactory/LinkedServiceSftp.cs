@@ -34,7 +34,7 @@ namespace Pulumi.Azure.DataFactory
     ///         var exampleLinkedServiceSftp = new Azure.DataFactory.LinkedServiceSftp("exampleLinkedServiceSftp", new Azure.DataFactory.LinkedServiceSftpArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             AuthenticationType = "Basic",
     ///             Host = "http://www.bing.com",
     ///             Port = 22,
@@ -74,6 +74,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
@@ -225,10 +231,16 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// The description for the Data Factory Linked Service.
@@ -339,6 +351,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
+
+        /// <summary>
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.

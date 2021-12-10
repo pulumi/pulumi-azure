@@ -330,6 +330,18 @@ namespace Pulumi.Azure.KeyVault
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// The Base ID of the Key Vault Certificate.
+        /// </summary>
+        [Output("versionlessId")]
+        public Output<string> VersionlessId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Base ID of the Key Vault Secret.
+        /// </summary>
+        [Output("versionlessSecretId")]
+        public Output<string> VersionlessSecretId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Certificate resource with the given unique name, arguments, and options.
@@ -500,6 +512,18 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
+
+        /// <summary>
+        /// The Base ID of the Key Vault Certificate.
+        /// </summary>
+        [Input("versionlessId")]
+        public Input<string>? VersionlessId { get; set; }
+
+        /// <summary>
+        /// The Base ID of the Key Vault Secret.
+        /// </summary>
+        [Input("versionlessSecretId")]
+        public Input<string>? VersionlessSecretId { get; set; }
 
         public CertificateState()
         {

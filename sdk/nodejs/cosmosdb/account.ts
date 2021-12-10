@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     location: rg.location,
  *     resourceGroupName: rg.name,
  *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
+ *     kind: "MongoDB",
  *     enableAutomaticFailover: true,
  *     capabilities: [
  *         {
@@ -42,8 +42,8 @@ import * as utilities from "../utilities";
  *     ],
  *     consistencyPolicy: {
  *         consistencyLevel: "BoundedStaleness",
- *         maxIntervalInSeconds: 10,
- *         maxStalenessPrefix: 200,
+ *         maxIntervalInSeconds: 300,
+ *         maxStalenessPrefix: 100000,
  *     },
  *     geoLocations: [
  *         {

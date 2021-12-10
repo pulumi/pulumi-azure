@@ -13,13 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.databasemigration.getProject({
+ * const example = azure.databasemigration.getProject({
  *     name: "example-dbms-project",
  *     resourceGroupName: "example-rg",
  *     serviceName: "example-dbms",
- * }));
- *
- * export const name = example.name;
+ * });
+ * export const name = example.then(example => example.name);
  * ```
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {

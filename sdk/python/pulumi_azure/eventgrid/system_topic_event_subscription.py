@@ -750,7 +750,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             source_arm_resource_id=example_resource_group.id,
             topic_type="Microsoft.Resources.ResourceGroups")
         example_system_topic_event_subscription = azure.eventgrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription",
-            system_topic=azurerm_system_topic["example"]["name"],
+            system_topic=example_system_topic.name,
             resource_group_name=example_resource_group.name,
             storage_queue_endpoint=azure.eventgrid.SystemTopicEventSubscriptionStorageQueueEndpointArgs(
                 storage_account_id=example_account.id,
@@ -821,7 +821,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             source_arm_resource_id=example_resource_group.id,
             topic_type="Microsoft.Resources.ResourceGroups")
         example_system_topic_event_subscription = azure.eventgrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription",
-            system_topic=azurerm_system_topic["example"]["name"],
+            system_topic=example_system_topic.name,
             resource_group_name=example_resource_group.name,
             storage_queue_endpoint=azure.eventgrid.SystemTopicEventSubscriptionStorageQueueEndpointArgs(
                 storage_account_id=example_account.id,

@@ -19,6 +19,7 @@ class PoolArgs:
                  size_in_tb: pulumi.Input[int],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 qos_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Pool resource.
@@ -28,6 +29,7 @@ class PoolArgs:
         :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `4` and `500`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -38,6 +40,8 @@ class PoolArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if qos_type is not None:
+            pulumi.set(__self__, "qos_type", qos_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -114,6 +118,18 @@ class PoolArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="qosType")
+    def qos_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        """
+        return pulumi.get(self, "qos_type")
+
+    @qos_type.setter
+    def qos_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "qos_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -132,6 +148,7 @@ class _PoolState:
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 qos_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
                  size_in_tb: Optional[pulumi.Input[int]] = None,
@@ -141,6 +158,7 @@ class _PoolState:
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `4` and `500`.
@@ -152,6 +170,8 @@ class _PoolState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if qos_type is not None:
+            pulumi.set(__self__, "qos_type", qos_type)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if service_level is not None:
@@ -196,6 +216,18 @@ class _PoolState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="qosType")
+    def qos_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        """
+        return pulumi.get(self, "qos_type")
+
+    @qos_type.setter
+    def qos_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "qos_type", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -254,6 +286,7 @@ class Pool(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 qos_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
                  size_in_tb: Optional[pulumi.Input[int]] = None,
@@ -293,6 +326,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `4` and `500`.
@@ -351,6 +385,7 @@ class Pool(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 qos_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
                  size_in_tb: Optional[pulumi.Input[int]] = None,
@@ -372,6 +407,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["qos_type"] = qos_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -395,6 +431,7 @@ class Pool(pulumi.CustomResource):
             account_name: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            qos_type: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_level: Optional[pulumi.Input[str]] = None,
             size_in_tb: Optional[pulumi.Input[int]] = None,
@@ -409,6 +446,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `4` and `500`.
@@ -421,6 +459,7 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["account_name"] = account_name
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["qos_type"] = qos_type
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["service_level"] = service_level
         __props__.__dict__["size_in_tb"] = size_in_tb
@@ -450,6 +489,14 @@ class Pool(pulumi.CustomResource):
         The name of the NetApp Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="qosType")
+    def qos_type(self) -> pulumi.Output[str]:
+        """
+        QoS Type of the pool. Valid values include `Auto` or `Manual`.
+        """
+        return pulumi.get(self, "qos_type")
 
     @property
     @pulumi.getter(name="resourceGroupName")

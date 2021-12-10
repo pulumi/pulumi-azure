@@ -30,7 +30,8 @@ class VolumeArgs:
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
                  snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 throughput_in_mibps: Optional[pulumi.Input[float]] = None):
         """
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -49,6 +50,7 @@ class VolumeArgs:
         :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
         :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[float] throughput_in_mibps: Throughput of this volume in Mibps.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "pool_name", pool_name)
@@ -75,6 +77,8 @@ class VolumeArgs:
             pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if throughput_in_mibps is not None:
+            pulumi.set(__self__, "throughput_in_mibps", throughput_in_mibps)
 
     @property
     @pulumi.getter(name="accountName")
@@ -268,6 +272,18 @@ class VolumeArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="throughputInMibps")
+    def throughput_in_mibps(self) -> Optional[pulumi.Input[float]]:
+        """
+        Throughput of this volume in Mibps.
+        """
+        return pulumi.get(self, "throughput_in_mibps")
+
+    @throughput_in_mibps.setter
+    def throughput_in_mibps(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "throughput_in_mibps", value)
+
 
 @pulumi.input_type
 class _VolumeState:
@@ -288,6 +304,7 @@ class _VolumeState:
                  storage_quota_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  volume_path: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Volume resources.
@@ -307,6 +324,7 @@ class _VolumeState:
         :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[float] throughput_in_mibps: Throughput of this volume in Mibps.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         """
         if account_name is not None:
@@ -341,6 +359,8 @@ class _VolumeState:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if throughput_in_mibps is not None:
+            pulumi.set(__self__, "throughput_in_mibps", throughput_in_mibps)
         if volume_path is not None:
             pulumi.set(__self__, "volume_path", volume_path)
 
@@ -537,6 +557,18 @@ class _VolumeState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="throughputInMibps")
+    def throughput_in_mibps(self) -> Optional[pulumi.Input[float]]:
+        """
+        Throughput of this volume in Mibps.
+        """
+        return pulumi.get(self, "throughput_in_mibps")
+
+    @throughput_in_mibps.setter
+    def throughput_in_mibps(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "throughput_in_mibps", value)
+
+    @property
     @pulumi.getter(name="volumePath")
     def volume_path(self) -> Optional[pulumi.Input[str]]:
         """
@@ -569,6 +601,7 @@ class Volume(pulumi.CustomResource):
                  storage_quota_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  volume_path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -654,6 +687,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[float] throughput_in_mibps: Throughput of this volume in Mibps.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         """
         ...
@@ -758,6 +792,7 @@ class Volume(pulumi.CustomResource):
                  storage_quota_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  volume_path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -798,6 +833,7 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["throughput_in_mibps"] = throughput_in_mibps
             if volume_path is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_path'")
             __props__.__dict__["volume_path"] = volume_path
@@ -828,6 +864,7 @@ class Volume(pulumi.CustomResource):
             storage_quota_in_gb: Optional[pulumi.Input[int]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            throughput_in_mibps: Optional[pulumi.Input[float]] = None,
             volume_path: Optional[pulumi.Input[str]] = None) -> 'Volume':
         """
         Get an existing Volume resource's state with the given name, id, and optional extra
@@ -852,6 +889,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[float] throughput_in_mibps: Throughput of this volume in Mibps.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -874,6 +912,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["storage_quota_in_gb"] = storage_quota_in_gb
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["throughput_in_mibps"] = throughput_in_mibps
         __props__.__dict__["volume_path"] = volume_path
         return Volume(resource_name, opts=opts, __props__=__props__)
 
@@ -1004,6 +1043,14 @@ class Volume(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="throughputInMibps")
+    def throughput_in_mibps(self) -> pulumi.Output[float]:
+        """
+        Throughput of this volume in Mibps.
+        """
+        return pulumi.get(self, "throughput_in_mibps")
 
     @property
     @pulumi.getter(name="volumePath")

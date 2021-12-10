@@ -24,6 +24,12 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("bgpEnabled")]
         public Input<bool>? BgpEnabled { get; set; }
 
+        /// <summary>
+        /// The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+        /// </summary>
+        [Input("connectionMode")]
+        public Input<string>? ConnectionMode { get; set; }
+
         [Input("ipsecPolicies")]
         private InputList<Inputs.VpnGatewayConnectionVpnLinkIpsecPolicyArgs>? _ipsecPolicies;
 

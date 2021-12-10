@@ -266,7 +266,7 @@ type ManagedInstance struct {
 	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
-	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId pulumi.StringPtrOutput `pulumi:"dnsZonePartnerId"`
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
@@ -288,6 +288,8 @@ type ManagedInstance struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
+	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// Maximum storage space for your instance. It should be a multiple of 32GB.
 	StorageSizeInGb pulumi.IntOutput `pulumi:"storageSizeInGb"`
 	// The subnet resource id that the SQL Managed Instance will be associated with.
@@ -359,7 +361,7 @@ type managedInstanceState struct {
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId *string `pulumi:"dnsZonePartnerId"`
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn *string `pulumi:"fqdn"`
@@ -381,6 +383,8 @@ type managedInstanceState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
+	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Maximum storage space for your instance. It should be a multiple of 32GB.
 	StorageSizeInGb *int `pulumi:"storageSizeInGb"`
 	// The subnet resource id that the SQL Managed Instance will be associated with.
@@ -400,7 +404,7 @@ type ManagedInstanceState struct {
 	AdministratorLoginPassword pulumi.StringPtrInput
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId pulumi.StringPtrInput
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn pulumi.StringPtrInput
@@ -422,6 +426,8 @@ type ManagedInstanceState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
+	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+	StorageAccountType pulumi.StringPtrInput
 	// Maximum storage space for your instance. It should be a multiple of 32GB.
 	StorageSizeInGb pulumi.IntPtrInput
 	// The subnet resource id that the SQL Managed Instance will be associated with.
@@ -445,7 +451,7 @@ type managedInstanceArgs struct {
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId *string `pulumi:"dnsZonePartnerId"`
 	// An `identity` block as defined below.
 	Identity *ManagedInstanceIdentity `pulumi:"identity"`
@@ -465,6 +471,8 @@ type managedInstanceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
+	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Maximum storage space for your instance. It should be a multiple of 32GB.
 	StorageSizeInGb int `pulumi:"storageSizeInGb"`
 	// The subnet resource id that the SQL Managed Instance will be associated with.
@@ -485,7 +493,7 @@ type ManagedInstanceArgs struct {
 	AdministratorLoginPassword pulumi.StringInput
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+	// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ManagedInstanceIdentityPtrInput
@@ -505,6 +513,8 @@ type ManagedInstanceArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
+	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+	StorageAccountType pulumi.StringPtrInput
 	// Maximum storage space for your instance. It should be a multiple of 32GB.
 	StorageSizeInGb pulumi.IntInput
 	// The subnet resource id that the SQL Managed Instance will be associated with.

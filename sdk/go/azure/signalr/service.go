@@ -46,12 +46,9 @@ import (
 // 					},
 // 				},
 // 			},
-// 			Features: signalr.ServiceFeatureArray{
-// 				&signalr.ServiceFeatureArgs{
-// 					Flag:  pulumi.String("ServiceMode"),
-// 					Value: pulumi.String("Default"),
-// 				},
-// 			},
+// 			ConnectivityLogsEnabled: pulumi.Bool("True"),
+// 			MessagingLogsEnabled:    pulumi.Bool("True"),
+// 			ServiceMode:             pulumi.String("Default"),
 // 			UpstreamEndpoints: signalr.ServiceUpstreamEndpointArray{
 // 				&signalr.ServiceUpstreamEndpointArgs{
 // 					CategoryPatterns: pulumi.StringArray{
@@ -86,9 +83,13 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
+	// Specifies if Connectivity Logs are enabled or not.
+	ConnectivityLogsEnabled pulumi.BoolOutput `pulumi:"connectivityLogsEnabled"`
 	// A `cors` block as documented below.
 	Cors ServiceCorArrayOutput `pulumi:"cors"`
 	// A `features` block as documented below.
+	//
+	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
 	Features ServiceFeatureArrayOutput `pulumi:"features"`
 	// The FQDN of the SignalR service.
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
@@ -96,6 +97,8 @@ type Service struct {
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Specifies if Messaging Logs are enabled or not.
+	MessagingLogsEnabled pulumi.BoolOutput `pulumi:"messagingLogsEnabled"`
 	// The name of the SignalR service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The primary access key for the SignalR service.
@@ -112,6 +115,8 @@ type Service struct {
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
 	// The publicly accessible port of the SignalR service which is designed for customer server side use.
 	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
+	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+	ServiceMode pulumi.StringOutput `pulumi:"serviceMode"`
 	// A `sku` block as documented below.
 	Sku ServiceSkuOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
@@ -155,9 +160,13 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
+	// Specifies if Connectivity Logs are enabled or not.
+	ConnectivityLogsEnabled *bool `pulumi:"connectivityLogsEnabled"`
 	// A `cors` block as documented below.
 	Cors []ServiceCor `pulumi:"cors"`
 	// A `features` block as documented below.
+	//
+	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
 	Features []ServiceFeature `pulumi:"features"`
 	// The FQDN of the SignalR service.
 	Hostname *string `pulumi:"hostname"`
@@ -165,6 +174,8 @@ type serviceState struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Specifies if Messaging Logs are enabled or not.
+	MessagingLogsEnabled *bool `pulumi:"messagingLogsEnabled"`
 	// The name of the SignalR service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The primary access key for the SignalR service.
@@ -181,6 +192,8 @@ type serviceState struct {
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// The publicly accessible port of the SignalR service which is designed for customer server side use.
 	ServerPort *int `pulumi:"serverPort"`
+	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+	ServiceMode *string `pulumi:"serviceMode"`
 	// A `sku` block as documented below.
 	Sku *ServiceSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
@@ -190,9 +203,13 @@ type serviceState struct {
 }
 
 type ServiceState struct {
+	// Specifies if Connectivity Logs are enabled or not.
+	ConnectivityLogsEnabled pulumi.BoolPtrInput
 	// A `cors` block as documented below.
 	Cors ServiceCorArrayInput
 	// A `features` block as documented below.
+	//
+	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
 	Features ServiceFeatureArrayInput
 	// The FQDN of the SignalR service.
 	Hostname pulumi.StringPtrInput
@@ -200,6 +217,8 @@ type ServiceState struct {
 	IpAddress pulumi.StringPtrInput
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Specifies if Messaging Logs are enabled or not.
+	MessagingLogsEnabled pulumi.BoolPtrInput
 	// The name of the SignalR service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The primary access key for the SignalR service.
@@ -216,6 +235,8 @@ type ServiceState struct {
 	SecondaryConnectionString pulumi.StringPtrInput
 	// The publicly accessible port of the SignalR service which is designed for customer server side use.
 	ServerPort pulumi.IntPtrInput
+	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+	ServiceMode pulumi.StringPtrInput
 	// A `sku` block as documented below.
 	Sku ServiceSkuPtrInput
 	// A mapping of tags to assign to the resource.
@@ -229,16 +250,24 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
+	// Specifies if Connectivity Logs are enabled or not.
+	ConnectivityLogsEnabled *bool `pulumi:"connectivityLogsEnabled"`
 	// A `cors` block as documented below.
 	Cors []ServiceCor `pulumi:"cors"`
 	// A `features` block as documented below.
+	//
+	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
 	Features []ServiceFeature `pulumi:"features"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Specifies if Messaging Logs are enabled or not.
+	MessagingLogsEnabled *bool `pulumi:"messagingLogsEnabled"`
 	// The name of the SignalR service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+	ServiceMode *string `pulumi:"serviceMode"`
 	// A `sku` block as documented below.
 	Sku ServiceSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
@@ -249,16 +278,24 @@ type serviceArgs struct {
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	// Specifies if Connectivity Logs are enabled or not.
+	ConnectivityLogsEnabled pulumi.BoolPtrInput
 	// A `cors` block as documented below.
 	Cors ServiceCorArrayInput
 	// A `features` block as documented below.
+	//
+	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
 	Features ServiceFeatureArrayInput
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Specifies if Messaging Logs are enabled or not.
+	MessagingLogsEnabled pulumi.BoolPtrInput
 	// The name of the SignalR service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`.
+	ServiceMode pulumi.StringPtrInput
 	// A `sku` block as documented below.
 	Sku ServiceSkuInput
 	// A mapping of tags to assign to the resource.
