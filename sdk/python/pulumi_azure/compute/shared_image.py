@@ -28,7 +28,8 @@ class SharedImageArgs:
                  purchase_plan: Optional[pulumi.Input['SharedImagePurchasePlanArgs']] = None,
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  specialized: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_launch_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SharedImage resource.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
@@ -45,6 +46,7 @@ class SharedImageArgs:
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
+        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "identifier", identifier)
@@ -70,6 +72,8 @@ class SharedImageArgs:
             pulumi.set(__self__, "specialized", specialized)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if trusted_launch_enabled is not None:
+            pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
 
     @property
     @pulumi.getter(name="galleryName")
@@ -239,6 +243,18 @@ class SharedImageArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="trustedLaunchEnabled")
+    def trusted_launch_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "trusted_launch_enabled")
+
+    @trusted_launch_enabled.setter
+    def trusted_launch_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "trusted_launch_enabled", value)
+
 
 @pulumi.input_type
 class _SharedImageState:
@@ -256,7 +272,8 @@ class _SharedImageState:
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  specialized: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_launch_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering SharedImage resources.
         :param pulumi.Input[str] description: A description of this Shared Image.
@@ -273,6 +290,7 @@ class _SharedImageState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
+        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -302,6 +320,8 @@ class _SharedImageState:
             pulumi.set(__self__, "specialized", specialized)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if trusted_launch_enabled is not None:
+            pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
 
     @property
     @pulumi.getter
@@ -471,6 +491,18 @@ class _SharedImageState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="trustedLaunchEnabled")
+    def trusted_launch_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "trusted_launch_enabled")
+
+    @trusted_launch_enabled.setter
+    def trusted_launch_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "trusted_launch_enabled", value)
+
 
 class SharedImage(pulumi.CustomResource):
     @overload
@@ -491,6 +523,7 @@ class SharedImage(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  specialized: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a Shared Image within a Shared Image Gallery.
@@ -546,6 +579,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
+        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -620,6 +654,7 @@ class SharedImage(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  specialized: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -654,6 +689,7 @@ class SharedImage(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["specialized"] = specialized
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["trusted_launch_enabled"] = trusted_launch_enabled
         super(SharedImage, __self__).__init__(
             'azure:compute/sharedImage:SharedImage',
             resource_name,
@@ -677,7 +713,8 @@ class SharedImage(pulumi.CustomResource):
             release_note_uri: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             specialized: Optional[pulumi.Input[bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'SharedImage':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            trusted_launch_enabled: Optional[pulumi.Input[bool]] = None) -> 'SharedImage':
         """
         Get an existing SharedImage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -699,6 +736,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
+        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -718,6 +756,7 @@ class SharedImage(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["specialized"] = specialized
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["trusted_launch_enabled"] = trusted_launch_enabled
         return SharedImage(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -831,4 +870,12 @@ class SharedImage(pulumi.CustomResource):
         A mapping of tags to assign to the Shared Image.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trustedLaunchEnabled")
+    def trusted_launch_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "trusted_launch_enabled")
 

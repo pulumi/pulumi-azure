@@ -87,6 +87,10 @@ type LookupCertificateResult struct {
 	Thumbprint string `pulumi:"thumbprint"`
 	// The current version of the Key Vault Certificate.
 	Version string `pulumi:"version"`
+	// The Base ID of the Key Vault Certificate.
+	VersionlessId string `pulumi:"versionlessId"`
+	// The Base ID of the Key Vault Secret.
+	VersionlessSecretId string `pulumi:"versionlessSecretId"`
 }
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
@@ -184,6 +188,16 @@ func (o LookupCertificateResultOutput) Thumbprint() pulumi.StringOutput {
 // The current version of the Key Vault Certificate.
 func (o LookupCertificateResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// The Base ID of the Key Vault Certificate.
+func (o LookupCertificateResultOutput) VersionlessId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.VersionlessId }).(pulumi.StringOutput)
+}
+
+// The Base ID of the Key Vault Secret.
+func (o LookupCertificateResultOutput) VersionlessSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.VersionlessSecretId }).(pulumi.StringOutput)
 }
 
 func init() {

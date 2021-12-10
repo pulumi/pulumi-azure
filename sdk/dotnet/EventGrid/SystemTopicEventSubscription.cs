@@ -50,7 +50,7 @@ namespace Pulumi.Azure.EventGrid
     ///         });
     ///         var exampleSystemTopicEventSubscription = new Azure.EventGrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription", new Azure.EventGrid.SystemTopicEventSubscriptionArgs
     ///         {
-    ///             SystemTopic = azurerm_system_topic.Example.Name,
+    ///             SystemTopic = exampleSystemTopic.Name,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             StorageQueueEndpoint = new Azure.EventGrid.Inputs.SystemTopicEventSubscriptionStorageQueueEndpointArgs
     ///             {

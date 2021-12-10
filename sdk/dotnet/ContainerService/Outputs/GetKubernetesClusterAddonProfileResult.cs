@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GetKubernetesClusterAddonProfileResult
     {
         /// <summary>
+        /// An `azure_keyvault_secrets_provider` block.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderResult> AzureKeyvaultSecretsProviders;
+        /// <summary>
         /// A `azure_policy` block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileAzurePolicyResult> AzurePolicies;
@@ -40,6 +44,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private GetKubernetesClusterAddonProfileResult(
+            ImmutableArray<Outputs.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderResult> azureKeyvaultSecretsProviders,
+
             ImmutableArray<Outputs.GetKubernetesClusterAddonProfileAzurePolicyResult> azurePolicies,
 
             ImmutableArray<Outputs.GetKubernetesClusterAddonProfileHttpApplicationRoutingResult> httpApplicationRoutings,
@@ -52,6 +58,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableArray<Outputs.GetKubernetesClusterAddonProfileOpenServiceMeshResult> openServiceMeshes)
         {
+            AzureKeyvaultSecretsProviders = azureKeyvaultSecretsProviders;
             AzurePolicies = azurePolicies;
             HttpApplicationRoutings = httpApplicationRoutings;
             IngressApplicationGateways = ingressApplicationGateways;

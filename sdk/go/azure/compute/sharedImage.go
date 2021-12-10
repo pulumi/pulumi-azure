@@ -101,6 +101,8 @@ type SharedImage struct {
 	Specialized pulumi.BoolPtrOutput `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+	TrustedLaunchEnabled pulumi.BoolPtrOutput `pulumi:"trustedLaunchEnabled"`
 }
 
 // NewSharedImage registers a new resource with the given unique name, arguments, and options.
@@ -172,6 +174,8 @@ type sharedImageState struct {
 	Specialized *bool `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 }
 
 type SharedImageState struct {
@@ -203,6 +207,8 @@ type SharedImageState struct {
 	Specialized pulumi.BoolPtrInput
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapInput
+	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+	TrustedLaunchEnabled pulumi.BoolPtrInput
 }
 
 func (SharedImageState) ElementType() reflect.Type {
@@ -238,6 +244,8 @@ type sharedImageArgs struct {
 	Specialized *bool `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 }
 
 // The set of arguments for constructing a SharedImage resource.
@@ -270,6 +278,8 @@ type SharedImageArgs struct {
 	Specialized pulumi.BoolPtrInput
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapInput
+	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+	TrustedLaunchEnabled pulumi.BoolPtrInput
 }
 
 func (SharedImageArgs) ElementType() reflect.Type {

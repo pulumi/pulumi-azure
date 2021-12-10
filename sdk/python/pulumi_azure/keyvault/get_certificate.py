@@ -21,7 +21,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, certificate_data=None, certificate_data_base64=None, certificate_policies=None, expires=None, id=None, key_vault_id=None, name=None, not_before=None, secret_id=None, tags=None, thumbprint=None, version=None):
+    def __init__(__self__, certificate_data=None, certificate_data_base64=None, certificate_policies=None, expires=None, id=None, key_vault_id=None, name=None, not_before=None, secret_id=None, tags=None, thumbprint=None, version=None, versionless_id=None, versionless_secret_id=None):
         if certificate_data and not isinstance(certificate_data, str):
             raise TypeError("Expected argument 'certificate_data' to be a str")
         pulumi.set(__self__, "certificate_data", certificate_data)
@@ -58,6 +58,12 @@ class GetCertificateResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+        if versionless_id and not isinstance(versionless_id, str):
+            raise TypeError("Expected argument 'versionless_id' to be a str")
+        pulumi.set(__self__, "versionless_id", versionless_id)
+        if versionless_secret_id and not isinstance(versionless_secret_id, str):
+            raise TypeError("Expected argument 'versionless_secret_id' to be a str")
+        pulumi.set(__self__, "versionless_secret_id", versionless_secret_id)
 
     @property
     @pulumi.getter(name="certificateData")
@@ -152,6 +158,22 @@ class GetCertificateResult:
         """
         return pulumi.get(self, "version")
 
+    @property
+    @pulumi.getter(name="versionlessId")
+    def versionless_id(self) -> str:
+        """
+        The Base ID of the Key Vault Certificate.
+        """
+        return pulumi.get(self, "versionless_id")
+
+    @property
+    @pulumi.getter(name="versionlessSecretId")
+    def versionless_secret_id(self) -> str:
+        """
+        The Base ID of the Key Vault Secret.
+        """
+        return pulumi.get(self, "versionless_secret_id")
+
 
 class AwaitableGetCertificateResult(GetCertificateResult):
     # pylint: disable=using-constant-test
@@ -170,7 +192,9 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             secret_id=self.secret_id,
             tags=self.tags,
             thumbprint=self.thumbprint,
-            version=self.version)
+            version=self.version,
+            versionless_id=self.versionless_id,
+            versionless_secret_id=self.versionless_secret_id)
 
 
 def get_certificate(key_vault_id: Optional[str] = None,
@@ -220,7 +244,9 @@ def get_certificate(key_vault_id: Optional[str] = None,
         secret_id=__ret__.secret_id,
         tags=__ret__.tags,
         thumbprint=__ret__.thumbprint,
-        version=__ret__.version)
+        version=__ret__.version,
+        versionless_id=__ret__.versionless_id,
+        versionless_secret_id=__ret__.versionless_secret_id)
 
 
 @_utilities.lift_output_func(get_certificate)

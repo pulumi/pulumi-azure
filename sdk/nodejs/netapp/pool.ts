@@ -76,6 +76,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * QoS Type of the pool. Valid values include `Auto` or `Manual`.
+     */
+    public readonly qosType!: pulumi.Output<string>;
+    /**
      * The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -108,6 +112,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["qosType"] = state ? state.qosType : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serviceLevel"] = state ? state.serviceLevel : undefined;
             inputs["sizeInTb"] = state ? state.sizeInTb : undefined;
@@ -129,6 +134,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["qosType"] = args ? args.qosType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceLevel"] = args ? args.serviceLevel : undefined;
             inputs["sizeInTb"] = args ? args.sizeInTb : undefined;
@@ -157,6 +163,10 @@ export interface PoolState {
      * The name of the NetApp Pool. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * QoS Type of the pool. Valid values include `Auto` or `Manual`.
+     */
+    qosType?: pulumi.Input<string>;
     /**
      * The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
@@ -191,6 +201,10 @@ export interface PoolArgs {
      * The name of the NetApp Pool. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * QoS Type of the pool. Valid values include `Auto` or `Manual`.
+     */
+    qosType?: pulumi.Input<string>;
     /**
      * The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
      */

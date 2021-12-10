@@ -42,7 +42,7 @@ namespace Pulumi.Azure.DataFactory
     ///         var basicAuth = new Azure.DataFactory.LinkedServiceOdata("basicAuth", new Azure.DataFactory.LinkedServiceOdataArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             Url = "https://services.odata.org/v4/TripPinServiceRW/People",
     ///             BasicAuthentication = new Azure.DataFactory.Inputs.LinkedServiceOdataBasicAuthenticationArgs
     ///             {
@@ -83,6 +83,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("basicAuthentication")]
         public Output<Outputs.LinkedServiceOdataBasicAuthentication?> BasicAuthentication { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
@@ -203,10 +209,16 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.LinkedServiceOdataBasicAuthenticationArgs>? BasicAuthentication { get; set; }
 
         /// <summary>
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// The description for the Data Factory Linked Service OData.
@@ -286,6 +298,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("basicAuthentication")]
         public Input<Inputs.LinkedServiceOdataBasicAuthenticationGetArgs>? BasicAuthentication { get; set; }
+
+        /// <summary>
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.

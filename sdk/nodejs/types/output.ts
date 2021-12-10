@@ -8534,6 +8534,126 @@ export namespace config {
 }
 
 export namespace consumption {
+    export interface BudgetManagementGroupFilter {
+        /**
+         * One or more `dimension` blocks as defined below to filter the budget on.
+         */
+        dimensions?: outputs.consumption.BudgetManagementGroupFilterDimension[];
+        /**
+         * A `not` block as defined below to filter the budget on.
+         */
+        not?: outputs.consumption.BudgetManagementGroupFilterNot;
+        /**
+         * One or more `tag` blocks as defined below to filter the budget on.
+         */
+        tags?: outputs.consumption.BudgetManagementGroupFilterTag[];
+    }
+
+    export interface BudgetManagementGroupFilterDimension {
+        /**
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         */
+        name: string;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: string;
+        /**
+         * Specifies a list of values for the column.
+         */
+        values: string[];
+    }
+
+    export interface BudgetManagementGroupFilterNot {
+        /**
+         * One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+         */
+        dimension?: outputs.consumption.BudgetManagementGroupFilterNotDimension;
+        /**
+         * One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+         */
+        tag?: outputs.consumption.BudgetManagementGroupFilterNotTag;
+    }
+
+    export interface BudgetManagementGroupFilterNotDimension {
+        /**
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         */
+        name: string;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: string;
+        /**
+         * Specifies a list of values for the column.
+         */
+        values: string[];
+    }
+
+    export interface BudgetManagementGroupFilterNotTag {
+        /**
+         * The name of the tag to use for the filter.
+         */
+        name: string;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: string;
+        /**
+         * Specifies a list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface BudgetManagementGroupFilterTag {
+        /**
+         * The name of the tag to use for the filter.
+         */
+        name: string;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: string;
+        /**
+         * Specifies a list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface BudgetManagementGroupNotification {
+        /**
+         * Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
+         */
+        contactEmails: string[];
+        /**
+         * Should the notification be enabled?
+         */
+        enabled?: boolean;
+        /**
+         * The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
+         */
+        operator: string;
+        /**
+         * Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+         */
+        threshold: number;
+        /**
+         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+         */
+        thresholdType?: string;
+    }
+
+    export interface BudgetManagementGroupTimePeriod {
+        /**
+         * The end date for the budget. If not set this will be 10 years after the start date.
+         */
+        endDate: string;
+        /**
+         * The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.
+         */
+        startDate: string;
+    }
+
     export interface BudgetResourceGroupFilter {
         /**
          * One or more `dimension` blocks as defined below to filter the budget on.
@@ -9052,6 +9172,10 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterAddonProfile {
         /**
+         * An `azureKeyvaultSecretsProvider` block.
+         */
+        azureKeyvaultSecretsProviders: outputs.containerservice.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider[];
+        /**
          * A `azurePolicy` block.
          */
         azurePolicies: outputs.containerservice.GetKubernetesClusterAddonProfileAzurePolicy[];
@@ -9075,6 +9199,37 @@ export namespace containerservice {
          * An `openServiceMesh` block.
          */
         openServiceMeshes: outputs.containerservice.GetKubernetesClusterAddonProfileOpenServiceMesh[];
+    }
+
+    export interface GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
+        /**
+         * Is Role Based Access Control enabled?
+         */
+        enabled: boolean;
+        secretIdentities: outputs.containerservice.GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity[];
+        /**
+         * Is secret rotation enabled?
+         */
+        secretRotationEnabled: string;
+        /**
+         * The interval to poll for secret rotation.
+         */
+        secretRotationInterval: string;
+    }
+
+    export interface GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        objectId: string;
+        /**
+         * The ID of the User Assigned Identity assigned to the Kubelets.
+         */
+        userAssignedIdentityId: string;
     }
 
     export interface GetKubernetesClusterAddonProfileAzurePolicy {
@@ -9747,6 +9902,10 @@ export namespace containerservice {
          */
         aciConnectorLinux?: outputs.containerservice.KubernetesClusterAddonProfileAciConnectorLinux;
         /**
+         * An `azureKeyvaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+         */
+        azureKeyvaultSecretsProvider?: outputs.containerservice.KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider;
+        /**
          * A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
          */
         azurePolicy?: outputs.containerservice.KubernetesClusterAddonProfileAzurePolicy;
@@ -9781,6 +9940,40 @@ export namespace containerservice {
          * The subnet name for the virtual nodes to run. This is required when `aciConnectorLinux` `enabled` argument is set to `true`.
          */
         subnetName?: string;
+    }
+
+    export interface KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
+        /**
+         * Is the Azure Keyvault Secrets Providerenabled?
+         */
+        enabled: boolean;
+        /**
+         * An `secretIdentity` block is exported. The exported attributes are defined below.
+         */
+        secretIdentities: outputs.containerservice.KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity[];
+        /**
+         * Is secret rotation enabled?
+         */
+        secretRotationEnabled?: boolean;
+        /**
+         * The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+         */
+        secretRotationInterval?: string;
+    }
+
+    export interface KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+         */
+        objectId: string;
+        /**
+         * The ID of a user assigned identity.
+         */
+        userAssignedIdentityId: string;
     }
 
     export interface KubernetesClusterAddonProfileAzurePolicy {
@@ -10261,6 +10454,25 @@ export namespace containerservice {
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          */
         maxSurge: string;
+    }
+
+    export interface KubernetesClusterHttpProxyConfig {
+        /**
+         * The proxy address to be used when communicating over HTTP.
+         */
+        httpProxy?: string;
+        /**
+         * The proxy address to be used when communicating over HTTPS.
+         */
+        httpsProxy?: string;
+        /**
+         * The list of domains that will not use the proxy for communication.
+         */
+        noProxies?: string[];
+        /**
+         * The base64 encoded alternative CA certificate content in PEM format.
+         */
+        trustedCa?: string;
     }
 
     export interface KubernetesClusterIdentity {
@@ -12976,7 +13188,7 @@ export namespace datalake {
         /**
          * The Type of Identity which should be used for this Data Lake Store Account. At this time the only possible value is `SystemAssigned`.
          */
-        type?: string;
+        type: string;
     }
 
 }
@@ -14003,6 +14215,9 @@ export namespace eventgrid {
          * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: string;
+        /**
+         * The user identity associated with the resource.
+         */
         userAssignedIdentity?: string;
     }
 
@@ -14011,6 +14226,9 @@ export namespace eventgrid {
          * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: string;
+        /**
+         * The user identity associated with the resource.
+         */
         userAssignedIdentity?: string;
     }
 
@@ -15231,6 +15449,9 @@ export namespace eventhub {
          * Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: string;
+        /**
+         * The user identity associated with the resource.
+         */
         userAssignedIdentity?: string;
     }
 
@@ -15239,6 +15460,9 @@ export namespace eventhub {
          * Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
          */
         type: string;
+        /**
+         * The user identity associated with the resource.
+         */
         userAssignedIdentity?: string;
     }
 
@@ -26443,9 +26667,35 @@ export namespace network {
          */
         associatedRouteTable: string;
         /**
-         * The list IDs of Route Tables to advertise the routes of this VPN Connection.
+         * A `propagatedRouteTable` block as defined below.
+         */
+        propagatedRouteTable: outputs.network.VpnGatewayConnectionRoutingPropagatedRouteTable;
+        /**
+         * @deprecated Deprecated in favour of `propagated_route_table`
          */
         propagatedRouteTables: string[];
+    }
+
+    export interface VpnGatewayConnectionRoutingPropagatedRouteTable {
+        /**
+         * A list of labels to assign to this route table.
+         */
+        labels?: string[];
+        /**
+         * A list of Route Table ID's to associated with this VPN Gateway Connection.
+         */
+        routeTableIds: string[];
+    }
+
+    export interface VpnGatewayConnectionTrafficSelectorPolicy {
+        /**
+         * A list of local address spaces in CIDR format for this VPN Gateway Connection.
+         */
+        localAddressRanges: string[];
+        /**
+         * A list of remote address spaces in CIDR format for this VPN Gateway Connection.
+         */
+        remoteAddressRanges: string[];
     }
 
     export interface VpnGatewayConnectionVpnLink {
@@ -26457,6 +26707,10 @@ export namespace network {
          * Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
          */
         bgpEnabled?: boolean;
+        /**
+         * The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+         */
+        connectionMode?: string;
         /**
          * One or more `ipsecPolicy` blocks as defined above.
          */
@@ -26721,6 +26975,7 @@ export namespace network {
          */
         peeringAddress: string;
     }
+
 }
 
 export namespace notificationhub {
@@ -28748,6 +29003,28 @@ export namespace sql {
          * The identity type of the SQL Server.
          */
         type: string;
+    }
+
+    export interface ManagedInstanceFailoverGroupPartnerRegion {
+        /**
+         * The Azure Region where the SQL Instance Failover Group exists.
+         */
+        location: string;
+        /**
+         * The partner replication role of the SQL Instance Failover Group.
+         */
+        role: string;
+    }
+
+    export interface ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy {
+        /**
+         * Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+         */
+        graceMinutes?: number;
+        /**
+         * The failover mode. Possible values are `Manual`, `Automatic`
+         */
+        mode: string;
     }
 
     export interface ManagedInstanceIdentity {

@@ -169,6 +169,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Throughput of this volume in Mibps.
+     */
+    public readonly throughputInMibps!: pulumi.Output<number>;
+    /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */
     public readonly volumePath!: pulumi.Output<string>;
@@ -202,6 +206,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["storageQuotaInGb"] = state ? state.storageQuotaInGb : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["throughputInMibps"] = state ? state.throughputInMibps : undefined;
             inputs["volumePath"] = state ? state.volumePath : undefined;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
@@ -241,6 +246,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["storageQuotaInGb"] = args ? args.storageQuotaInGb : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["throughputInMibps"] = args ? args.throughputInMibps : undefined;
             inputs["volumePath"] = args ? args.volumePath : undefined;
             inputs["mountIpAddresses"] = undefined /*out*/;
         }
@@ -320,6 +326,10 @@ export interface VolumeState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Throughput of this volume in Mibps.
+     */
+    throughputInMibps?: pulumi.Input<number>;
+    /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */
     volumePath?: pulumi.Input<string>;
@@ -389,6 +399,10 @@ export interface VolumeArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Throughput of this volume in Mibps.
+     */
+    throughputInMibps?: pulumi.Input<number>;
     /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */

@@ -114,6 +114,10 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
      */
     public readonly routings!: pulumi.Output<outputs.network.VpnGatewayConnectionRouting[]>;
     /**
+     * One or more `trafficSelectorPolicy` blocks as defined below.
+     */
+    public readonly trafficSelectorPolicies!: pulumi.Output<outputs.network.VpnGatewayConnectionTrafficSelectorPolicy[] | undefined>;
+    /**
      * The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
      */
     public readonly vpnGatewayId!: pulumi.Output<string>;
@@ -139,6 +143,7 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["remoteVpnSiteId"] = state ? state.remoteVpnSiteId : undefined;
             inputs["routings"] = state ? state.routings : undefined;
+            inputs["trafficSelectorPolicies"] = state ? state.trafficSelectorPolicies : undefined;
             inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
             inputs["vpnLinks"] = state ? state.vpnLinks : undefined;
         } else {
@@ -156,6 +161,7 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["remoteVpnSiteId"] = args ? args.remoteVpnSiteId : undefined;
             inputs["routings"] = args ? args.routings : undefined;
+            inputs["trafficSelectorPolicies"] = args ? args.trafficSelectorPolicies : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             inputs["vpnLinks"] = args ? args.vpnLinks : undefined;
         }
@@ -187,6 +193,10 @@ export interface VpnGatewayConnectionState {
      */
     routings?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionRouting>[]>;
     /**
+     * One or more `trafficSelectorPolicy` blocks as defined below.
+     */
+    trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionTrafficSelectorPolicy>[]>;
+    /**
      * The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
      */
     vpnGatewayId?: pulumi.Input<string>;
@@ -216,6 +226,10 @@ export interface VpnGatewayConnectionArgs {
      * A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
      */
     routings?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionRouting>[]>;
+    /**
+     * One or more `trafficSelectorPolicy` blocks as defined below.
+     */
+    trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionTrafficSelectorPolicy>[]>;
     /**
      * The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
      */

@@ -29,8 +29,8 @@ namespace Pulumi.Azure.Monitoring
         ///     {
         ///         var example = Output.Create(Azure.Monitoring.GetScheduledQueryRulesAlert.InvokeAsync(new Azure.Monitoring.GetScheduledQueryRulesAlertArgs
         ///         {
-        ///             Name = "tfex-queryrule",
         ///             ResourceGroupName = "example-rg",
+        ///             Name = "tfex-queryrule",
         ///         }));
         ///         this.QueryRuleId = example.Apply(example =&gt; example.Id);
         ///     }
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.Monitoring
         ///     {
         ///         var example = Output.Create(Azure.Monitoring.GetScheduledQueryRulesAlert.InvokeAsync(new Azure.Monitoring.GetScheduledQueryRulesAlertArgs
         ///         {
-        ///             Name = "tfex-queryrule",
         ///             ResourceGroupName = "example-rg",
+        ///             Name = "tfex-queryrule",
         ///         }));
         ///         this.QueryRuleId = example.Apply(example =&gt; example.Id);
         ///     }

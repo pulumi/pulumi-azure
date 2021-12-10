@@ -18,12 +18,15 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("associatedRouteTable", required: true)]
         public Input<string> AssociatedRouteTable { get; set; } = null!;
 
-        [Input("propagatedRouteTables", required: true)]
-        private InputList<string>? _propagatedRouteTables;
-
         /// <summary>
-        /// The list IDs of Route Tables to advertise the routes of this VPN Connection.
+        /// A `propagated_route_table` block as defined below.
         /// </summary>
+        [Input("propagatedRouteTable")]
+        public Input<Inputs.VpnGatewayConnectionRoutingPropagatedRouteTableArgs>? PropagatedRouteTable { get; set; }
+
+        [Input("propagatedRouteTables")]
+        private InputList<string>? _propagatedRouteTables;
+        [Obsolete(@"Deprecated in favour of `propagated_route_table`")]
         public InputList<string> PropagatedRouteTables
         {
             get => _propagatedRouteTables ?? (_propagatedRouteTables = new InputList<string>());

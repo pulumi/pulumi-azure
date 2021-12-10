@@ -293,6 +293,10 @@ type Certifiate struct {
 	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 	// The current version of the Key Vault Certificate.
 	Version pulumi.StringOutput `pulumi:"version"`
+	// The Base ID of the Key Vault Certificate.
+	VersionlessId pulumi.StringOutput `pulumi:"versionlessId"`
+	// The Base ID of the Key Vault Secret.
+	VersionlessSecretId pulumi.StringOutput `pulumi:"versionlessSecretId"`
 }
 
 // NewCertifiate registers a new resource with the given unique name, arguments, and options.
@@ -349,6 +353,10 @@ type certifiateState struct {
 	Thumbprint *string `pulumi:"thumbprint"`
 	// The current version of the Key Vault Certificate.
 	Version *string `pulumi:"version"`
+	// The Base ID of the Key Vault Certificate.
+	VersionlessId *string `pulumi:"versionlessId"`
+	// The Base ID of the Key Vault Secret.
+	VersionlessSecretId *string `pulumi:"versionlessSecretId"`
 }
 
 type CertifiateState struct {
@@ -374,6 +382,10 @@ type CertifiateState struct {
 	Thumbprint pulumi.StringPtrInput
 	// The current version of the Key Vault Certificate.
 	Version pulumi.StringPtrInput
+	// The Base ID of the Key Vault Certificate.
+	VersionlessId pulumi.StringPtrInput
+	// The Base ID of the Key Vault Secret.
+	VersionlessSecretId pulumi.StringPtrInput
 }
 
 func (CertifiateState) ElementType() reflect.Type {

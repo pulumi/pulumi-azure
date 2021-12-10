@@ -231,7 +231,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+     * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      */
     public readonly dnsZonePartnerId!: pulumi.Output<string | undefined>;
     /**
@@ -274,6 +274,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
+    /**
+     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+     */
+    public readonly storageAccountType!: pulumi.Output<string | undefined>;
     /**
      * Maximum storage space for your instance. It should be a multiple of 32GB.
      */
@@ -322,6 +326,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             inputs["publicDataEndpointEnabled"] = state ? state.publicDataEndpointEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
+            inputs["storageAccountType"] = state ? state.storageAccountType : undefined;
             inputs["storageSizeInGb"] = state ? state.storageSizeInGb : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -366,6 +371,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             inputs["publicDataEndpointEnabled"] = args ? args.publicDataEndpointEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
+            inputs["storageAccountType"] = args ? args.storageAccountType : undefined;
             inputs["storageSizeInGb"] = args ? args.storageSizeInGb : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -397,7 +403,7 @@ export interface ManagedInstanceState {
      */
     collation?: pulumi.Input<string>;
     /**
-     * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+     * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      */
     dnsZonePartnerId?: pulumi.Input<string>;
     /**
@@ -441,6 +447,10 @@ export interface ManagedInstanceState {
      */
     skuName?: pulumi.Input<string>;
     /**
+     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+     */
+    storageAccountType?: pulumi.Input<string>;
+    /**
      * Maximum storage space for your instance. It should be a multiple of 32GB.
      */
     storageSizeInGb?: pulumi.Input<number>;
@@ -479,7 +489,7 @@ export interface ManagedInstanceArgs {
      */
     collation?: pulumi.Input<string>;
     /**
-     * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+     * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      */
     dnsZonePartnerId?: pulumi.Input<string>;
     /**
@@ -518,6 +528,10 @@ export interface ManagedInstanceArgs {
      * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
      */
     skuName: pulumi.Input<string>;
+    /**
+     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+     */
+    storageAccountType?: pulumi.Input<string>;
     /**
      * Maximum storage space for your instance. It should be a multiple of 32GB.
      */

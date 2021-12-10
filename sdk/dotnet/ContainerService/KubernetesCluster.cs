@@ -128,6 +128,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
+        /// A `http_proxy_config` block as defined below.
+        /// </summary>
+        [Output("httpProxyConfig")]
+        public Output<Outputs.KubernetesClusterHttpProxyConfig?> HttpProxyConfig { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         /// </summary>
         [Output("identity")]
@@ -276,6 +282,7 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `windows_profile` block as defined below.
+        /// ---
         /// </summary>
         [Output("windowsProfile")]
         public Output<Outputs.KubernetesClusterWindowsProfile> WindowsProfile { get; private set; } = null!;
@@ -382,6 +389,12 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("enablePodSecurityPolicy")]
         public Input<bool>? EnablePodSecurityPolicy { get; set; }
+
+        /// <summary>
+        /// A `http_proxy_config` block as defined below.
+        /// </summary>
+        [Input("httpProxyConfig")]
+        public Input<Inputs.KubernetesClusterHttpProxyConfigArgs>? HttpProxyConfig { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
@@ -508,6 +521,7 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `windows_profile` block as defined below.
+        /// ---
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterWindowsProfileArgs>? WindowsProfile { get; set; }
@@ -581,6 +595,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
+
+        /// <summary>
+        /// A `http_proxy_config` block as defined below.
+        /// </summary>
+        [Input("httpProxyConfig")]
+        public Input<Inputs.KubernetesClusterHttpProxyConfigGetArgs>? HttpProxyConfig { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
@@ -755,6 +775,7 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `windows_profile` block as defined below.
+        /// ---
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterWindowsProfileGetArgs>? WindowsProfile { get; set; }

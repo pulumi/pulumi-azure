@@ -150,6 +150,12 @@ namespace Pulumi.Azure.Compute
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("trustedLaunchEnabled")]
+        public Output<bool?> TrustedLaunchEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SharedImage resource with the given unique name, arguments, and options.
@@ -286,6 +292,12 @@ namespace Pulumi.Azure.Compute
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("trustedLaunchEnabled")]
+        public Input<bool>? TrustedLaunchEnabled { get; set; }
+
         public SharedImageArgs()
         {
         }
@@ -382,6 +394,12 @@ namespace Pulumi.Azure.Compute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("trustedLaunchEnabled")]
+        public Input<bool>? TrustedLaunchEnabled { get; set; }
 
         public SharedImageState()
         {

@@ -31,6 +31,7 @@ class ManagedInstanceArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  proxy_override: Optional[pulumi.Input[str]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone_id: Optional[pulumi.Input[str]] = None):
         """
@@ -44,13 +45,14 @@ class ManagedInstanceArgs:
         :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with.
         :param pulumi.Input[int] vcores: Number of cores that should be assigned to your instance. Values can be `8`, `16`, or `24` if `sku_name` is `GP_Gen4`, or `8`, `16`, `24`, `32`, or `40` if `sku_name` is `GP_Gen5`.
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input['ManagedInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure.
         :param pulumi.Input[str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
         """
@@ -78,6 +80,8 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "proxy_override", proxy_override)
         if public_data_endpoint_enabled is not None:
             pulumi.set(__self__, "public_data_endpoint_enabled", public_data_endpoint_enabled)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timezone_id is not None:
@@ -195,7 +199,7 @@ class ManagedInstanceArgs:
     @pulumi.getter(name="dnsZonePartnerId")
     def dns_zone_partner_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         """
         return pulumi.get(self, "dns_zone_partner_id")
 
@@ -276,6 +280,18 @@ class ManagedInstanceArgs:
         pulumi.set(self, "public_data_endpoint_enabled", value)
 
     @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -317,6 +333,7 @@ class _ManagedInstanceState:
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[str]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -327,7 +344,7 @@ class _ManagedInstanceState:
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
         :param pulumi.Input['ManagedInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
@@ -338,6 +355,7 @@ class _ManagedInstanceState:
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Server.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for your instance. It should be a multiple of 32GB.
         :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -372,6 +390,8 @@ class _ManagedInstanceState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
         if storage_size_in_gb is not None:
             pulumi.set(__self__, "storage_size_in_gb", storage_size_in_gb)
         if subnet_id is not None:
@@ -423,7 +443,7 @@ class _ManagedInstanceState:
     @pulumi.getter(name="dnsZonePartnerId")
     def dns_zone_partner_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         """
         return pulumi.get(self, "dns_zone_partner_id")
 
@@ -552,6 +572,18 @@ class _ManagedInstanceState:
         pulumi.set(self, "sku_name", value)
 
     @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_type", value)
+
+    @property
     @pulumi.getter(name="storageSizeInGb")
     def storage_size_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
@@ -630,6 +662,7 @@ class ManagedInstance(pulumi.CustomResource):
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[str]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -809,7 +842,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -819,6 +852,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Server.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for your instance. It should be a multiple of 32GB.
         :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -1027,6 +1061,7 @@ class ManagedInstance(pulumi.CustomResource):
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[str]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1067,6 +1102,7 @@ class ManagedInstance(pulumi.CustomResource):
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["storage_account_type"] = storage_account_type
             if storage_size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_size_in_gb'")
             __props__.__dict__["storage_size_in_gb"] = storage_size_in_gb
@@ -1103,6 +1139,7 @@ class ManagedInstance(pulumi.CustomResource):
             public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
+            storage_account_type: Optional[pulumi.Input[str]] = None,
             storage_size_in_gb: Optional[pulumi.Input[int]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1118,7 +1155,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
         :param pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `PriceIncluded` or `BasePrice`.
@@ -1129,6 +1166,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Server.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for your instance. It should be a multiple of 32GB.
         :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -1153,6 +1191,7 @@ class ManagedInstance(pulumi.CustomResource):
         __props__.__dict__["public_data_endpoint_enabled"] = public_data_endpoint_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["storage_account_type"] = storage_account_type
         __props__.__dict__["storage_size_in_gb"] = storage_size_in_gb
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
@@ -1188,7 +1227,7 @@ class ManagedInstance(pulumi.CustomResource):
     @pulumi.getter(name="dnsZonePartnerId")
     def dns_zone_partner_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         """
         return pulumi.get(self, "dns_zone_partner_id")
 
@@ -1271,6 +1310,14 @@ class ManagedInstance(pulumi.CustomResource):
         Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+        """
+        return pulumi.get(self, "storage_account_type")
 
     @property
     @pulumi.getter(name="storageSizeInGb")

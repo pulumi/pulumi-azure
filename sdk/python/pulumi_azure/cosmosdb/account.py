@@ -1193,7 +1193,7 @@ class Account(pulumi.CustomResource):
             location=rg.location,
             resource_group_name=rg.name,
             offer_type="Standard",
-            kind="GlobalDocumentDB",
+            kind="MongoDB",
             enable_automatic_failover=True,
             capabilities=[
                 azure.cosmosdb.AccountCapabilityArgs(
@@ -1211,8 +1211,8 @@ class Account(pulumi.CustomResource):
             ],
             consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
                 consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
+                max_interval_in_seconds=300,
+                max_staleness_prefix=100000,
             ),
             geo_locations=[
                 azure.cosmosdb.AccountGeoLocationArgs(
@@ -1290,7 +1290,7 @@ class Account(pulumi.CustomResource):
             location=rg.location,
             resource_group_name=rg.name,
             offer_type="Standard",
-            kind="GlobalDocumentDB",
+            kind="MongoDB",
             enable_automatic_failover=True,
             capabilities=[
                 azure.cosmosdb.AccountCapabilityArgs(
@@ -1308,8 +1308,8 @@ class Account(pulumi.CustomResource):
             ],
             consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
                 consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
+                max_interval_in_seconds=300,
+                max_staleness_prefix=100000,
             ),
             geo_locations=[
                 azure.cosmosdb.AccountGeoLocationArgs(

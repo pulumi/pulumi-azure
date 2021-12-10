@@ -2445,6 +2445,8 @@ func (o GroupImageRegistryCredentialArrayOutput) Index(i pulumi.IntInput) GroupI
 type KubernetesClusterAddonProfile struct {
 	// A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux *KubernetesClusterAddonProfileAciConnectorLinux `pulumi:"aciConnectorLinux"`
+	// An `azureKeyvaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+	AzureKeyvaultSecretsProvider *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider `pulumi:"azureKeyvaultSecretsProvider"`
 	// A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicy *KubernetesClusterAddonProfileAzurePolicy `pulumi:"azurePolicy"`
 	// A `httpApplicationRouting` block as defined below.
@@ -2473,6 +2475,8 @@ type KubernetesClusterAddonProfileInput interface {
 type KubernetesClusterAddonProfileArgs struct {
 	// A `aciConnectorLinux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
 	AciConnectorLinux KubernetesClusterAddonProfileAciConnectorLinuxPtrInput `pulumi:"aciConnectorLinux"`
+	// An `azureKeyvaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+	AzureKeyvaultSecretsProvider KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput `pulumi:"azureKeyvaultSecretsProvider"`
 	// A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicy KubernetesClusterAddonProfileAzurePolicyPtrInput `pulumi:"azurePolicy"`
 	// A `httpApplicationRouting` block as defined below.
@@ -2571,6 +2575,13 @@ func (o KubernetesClusterAddonProfileOutput) AciConnectorLinux() KubernetesClust
 	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
 }
 
+// An `azureKeyvaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+func (o KubernetesClusterAddonProfileOutput) AzureKeyvaultSecretsProvider() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
+		return v.AzureKeyvaultSecretsProvider
+	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput)
+}
+
 // A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 func (o KubernetesClusterAddonProfileOutput) AzurePolicy() KubernetesClusterAddonProfileAzurePolicyPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzurePolicy { return v.AzurePolicy }).(KubernetesClusterAddonProfileAzurePolicyPtrOutput)
@@ -2641,6 +2652,16 @@ func (o KubernetesClusterAddonProfilePtrOutput) AciConnectorLinux() KubernetesCl
 		}
 		return v.AciConnectorLinux
 	}).(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput)
+}
+
+// An `azureKeyvaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+func (o KubernetesClusterAddonProfilePtrOutput) AzureKeyvaultSecretsProvider() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
+		if v == nil {
+			return nil
+		}
+		return v.AzureKeyvaultSecretsProvider
+	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput)
 }
 
 // A `azurePolicy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
@@ -2857,6 +2878,327 @@ func (o KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput) SubnetName() pu
 		}
 		return v.SubnetName
 	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider struct {
+	// Is the Azure Keyvault Secrets Providerenabled?
+	Enabled bool `pulumi:"enabled"`
+	// An `secretIdentity` block is exported. The exported attributes are defined below.
+	SecretIdentities []KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity `pulumi:"secretIdentities"`
+	// Is secret rotation enabled?
+	SecretRotationEnabled *bool `pulumi:"secretRotationEnabled"`
+	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+	SecretRotationInterval *string `pulumi:"secretRotationInterval"`
+}
+
+// KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput is an input type that accepts KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs and KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput values.
+// You can construct a concrete instance of `KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput` via:
+//
+//          KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{...}
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput
+	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput
+}
+
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs struct {
+	// Is the Azure Keyvault Secrets Providerenabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// An `secretIdentity` block is exported. The exported attributes are defined below.
+	SecretIdentities KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput `pulumi:"secretIdentities"`
+	// Is secret rotation enabled?
+	SecretRotationEnabled pulumi.BoolPtrInput `pulumi:"secretRotationEnabled"`
+	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+	SecretRotationInterval pulumi.StringPtrInput `pulumi:"secretRotationInterval"`
+}
+
+func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
+}
+
+func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
+	return i.ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput)
+}
+
+func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
+	return i.ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput).ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput is an input type that accepts KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs, KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtr and KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput` via:
+//
+//          KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput
+	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput
+}
+
+type kubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrType KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs
+
+func KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtr(v *KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput {
+	return (*kubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrType)(v)
+}
+
+func (*kubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
+}
+
+func (i *kubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrType) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
+	return i.ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrType) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput)
+}
+
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
+}
+
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
+	return o.ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
+		return &v
+	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput)
+}
+
+// Is the Azure Keyvault Secrets Providerenabled?
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// An `secretIdentity` block is exported. The exported attributes are defined below.
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) SecretIdentities() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) []KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
+		return v.SecretIdentities
+	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput)
+}
+
+// Is secret rotation enabled?
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) SecretRotationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) *bool {
+		return v.SecretRotationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) SecretRotationInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) *string {
+		return v.SecretRotationInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
+}
+
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) Elem() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider
+		return ret
+	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput)
+}
+
+// Is the Azure Keyvault Secrets Providerenabled?
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An `secretIdentity` block is exported. The exported attributes are defined below.
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) SecretIdentities() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) []KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.SecretIdentities
+	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput)
+}
+
+// Is secret rotation enabled?
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) SecretRotationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SecretRotationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput) SecretRotationInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretRotationInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity struct {
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	ClientId *string `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+	ObjectId *string `pulumi:"objectId"`
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+}
+
+// KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput is an input type that accepts KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs and KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput values.
+// You can construct a concrete instance of `KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput` via:
+//
+//          KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs{...}
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput
+	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput
+}
+
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs struct {
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
+	return i.ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput)
+}
+
+// KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput is an input type that accepts KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray and KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput` via:
+//
+//          KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray{ KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs{...} }
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput
+	ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput
+}
+
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray []KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput
+
+func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
+	return i.ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput)
+}
+
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
+	return o
+}
+
+// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity) *string {
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity) *string {
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of a user assigned identity.
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity) *string {
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput() KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) ToKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
+		return vs[0].([]KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)[vs[1].(int)]
+	}).(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput)
 }
 
 type KubernetesClusterAddonProfileAzurePolicy struct {
@@ -6537,6 +6879,200 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) MaxSurge() pul
 			return nil
 		}
 		return &v.MaxSurge
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterHttpProxyConfig struct {
+	// The proxy address to be used when communicating over HTTP.
+	HttpProxy *string `pulumi:"httpProxy"`
+	// The proxy address to be used when communicating over HTTPS.
+	HttpsProxy *string `pulumi:"httpsProxy"`
+	// The list of domains that will not use the proxy for communication.
+	NoProxies []string `pulumi:"noProxies"`
+	// The base64 encoded alternative CA certificate content in PEM format.
+	TrustedCa *string `pulumi:"trustedCa"`
+}
+
+// KubernetesClusterHttpProxyConfigInput is an input type that accepts KubernetesClusterHttpProxyConfigArgs and KubernetesClusterHttpProxyConfigOutput values.
+// You can construct a concrete instance of `KubernetesClusterHttpProxyConfigInput` via:
+//
+//          KubernetesClusterHttpProxyConfigArgs{...}
+type KubernetesClusterHttpProxyConfigInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterHttpProxyConfigOutput() KubernetesClusterHttpProxyConfigOutput
+	ToKubernetesClusterHttpProxyConfigOutputWithContext(context.Context) KubernetesClusterHttpProxyConfigOutput
+}
+
+type KubernetesClusterHttpProxyConfigArgs struct {
+	// The proxy address to be used when communicating over HTTP.
+	HttpProxy pulumi.StringPtrInput `pulumi:"httpProxy"`
+	// The proxy address to be used when communicating over HTTPS.
+	HttpsProxy pulumi.StringPtrInput `pulumi:"httpsProxy"`
+	// The list of domains that will not use the proxy for communication.
+	NoProxies pulumi.StringArrayInput `pulumi:"noProxies"`
+	// The base64 encoded alternative CA certificate content in PEM format.
+	TrustedCa pulumi.StringPtrInput `pulumi:"trustedCa"`
+}
+
+func (KubernetesClusterHttpProxyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterHttpProxyConfig)(nil)).Elem()
+}
+
+func (i KubernetesClusterHttpProxyConfigArgs) ToKubernetesClusterHttpProxyConfigOutput() KubernetesClusterHttpProxyConfigOutput {
+	return i.ToKubernetesClusterHttpProxyConfigOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterHttpProxyConfigArgs) ToKubernetesClusterHttpProxyConfigOutputWithContext(ctx context.Context) KubernetesClusterHttpProxyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterHttpProxyConfigOutput)
+}
+
+func (i KubernetesClusterHttpProxyConfigArgs) ToKubernetesClusterHttpProxyConfigPtrOutput() KubernetesClusterHttpProxyConfigPtrOutput {
+	return i.ToKubernetesClusterHttpProxyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterHttpProxyConfigArgs) ToKubernetesClusterHttpProxyConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterHttpProxyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterHttpProxyConfigOutput).ToKubernetesClusterHttpProxyConfigPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterHttpProxyConfigPtrInput is an input type that accepts KubernetesClusterHttpProxyConfigArgs, KubernetesClusterHttpProxyConfigPtr and KubernetesClusterHttpProxyConfigPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterHttpProxyConfigPtrInput` via:
+//
+//          KubernetesClusterHttpProxyConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterHttpProxyConfigPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterHttpProxyConfigPtrOutput() KubernetesClusterHttpProxyConfigPtrOutput
+	ToKubernetesClusterHttpProxyConfigPtrOutputWithContext(context.Context) KubernetesClusterHttpProxyConfigPtrOutput
+}
+
+type kubernetesClusterHttpProxyConfigPtrType KubernetesClusterHttpProxyConfigArgs
+
+func KubernetesClusterHttpProxyConfigPtr(v *KubernetesClusterHttpProxyConfigArgs) KubernetesClusterHttpProxyConfigPtrInput {
+	return (*kubernetesClusterHttpProxyConfigPtrType)(v)
+}
+
+func (*kubernetesClusterHttpProxyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterHttpProxyConfig)(nil)).Elem()
+}
+
+func (i *kubernetesClusterHttpProxyConfigPtrType) ToKubernetesClusterHttpProxyConfigPtrOutput() KubernetesClusterHttpProxyConfigPtrOutput {
+	return i.ToKubernetesClusterHttpProxyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterHttpProxyConfigPtrType) ToKubernetesClusterHttpProxyConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterHttpProxyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterHttpProxyConfigPtrOutput)
+}
+
+type KubernetesClusterHttpProxyConfigOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterHttpProxyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterHttpProxyConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterHttpProxyConfigOutput) ToKubernetesClusterHttpProxyConfigOutput() KubernetesClusterHttpProxyConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterHttpProxyConfigOutput) ToKubernetesClusterHttpProxyConfigOutputWithContext(ctx context.Context) KubernetesClusterHttpProxyConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterHttpProxyConfigOutput) ToKubernetesClusterHttpProxyConfigPtrOutput() KubernetesClusterHttpProxyConfigPtrOutput {
+	return o.ToKubernetesClusterHttpProxyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterHttpProxyConfigOutput) ToKubernetesClusterHttpProxyConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterHttpProxyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterHttpProxyConfig) *KubernetesClusterHttpProxyConfig {
+		return &v
+	}).(KubernetesClusterHttpProxyConfigPtrOutput)
+}
+
+// The proxy address to be used when communicating over HTTP.
+func (o KubernetesClusterHttpProxyConfigOutput) HttpProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) *string { return v.HttpProxy }).(pulumi.StringPtrOutput)
+}
+
+// The proxy address to be used when communicating over HTTPS.
+func (o KubernetesClusterHttpProxyConfigOutput) HttpsProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) *string { return v.HttpsProxy }).(pulumi.StringPtrOutput)
+}
+
+// The list of domains that will not use the proxy for communication.
+func (o KubernetesClusterHttpProxyConfigOutput) NoProxies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) []string { return v.NoProxies }).(pulumi.StringArrayOutput)
+}
+
+// The base64 encoded alternative CA certificate content in PEM format.
+func (o KubernetesClusterHttpProxyConfigOutput) TrustedCa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) *string { return v.TrustedCa }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterHttpProxyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterHttpProxyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterHttpProxyConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterHttpProxyConfigPtrOutput) ToKubernetesClusterHttpProxyConfigPtrOutput() KubernetesClusterHttpProxyConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterHttpProxyConfigPtrOutput) ToKubernetesClusterHttpProxyConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterHttpProxyConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterHttpProxyConfigPtrOutput) Elem() KubernetesClusterHttpProxyConfigOutput {
+	return o.ApplyT(func(v *KubernetesClusterHttpProxyConfig) KubernetesClusterHttpProxyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterHttpProxyConfig
+		return ret
+	}).(KubernetesClusterHttpProxyConfigOutput)
+}
+
+// The proxy address to be used when communicating over HTTP.
+func (o KubernetesClusterHttpProxyConfigPtrOutput) HttpProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterHttpProxyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpProxy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The proxy address to be used when communicating over HTTPS.
+func (o KubernetesClusterHttpProxyConfigPtrOutput) HttpsProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterHttpProxyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsProxy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of domains that will not use the proxy for communication.
+func (o KubernetesClusterHttpProxyConfigPtrOutput) NoProxies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterHttpProxyConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NoProxies
+	}).(pulumi.StringArrayOutput)
+}
+
+// The base64 encoded alternative CA certificate content in PEM format.
+func (o KubernetesClusterHttpProxyConfigPtrOutput) TrustedCa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterHttpProxyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedCa
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11861,6 +12397,8 @@ func (o GetClusterNodePoolUpgradeSettingArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetKubernetesClusterAddonProfile struct {
+	// An `azureKeyvaultSecretsProvider` block.
+	AzureKeyvaultSecretsProviders []GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider `pulumi:"azureKeyvaultSecretsProviders"`
 	// A `azurePolicy` block.
 	AzurePolicies []GetKubernetesClusterAddonProfileAzurePolicy `pulumi:"azurePolicies"`
 	// A `httpApplicationRouting` block.
@@ -11887,6 +12425,8 @@ type GetKubernetesClusterAddonProfileInput interface {
 }
 
 type GetKubernetesClusterAddonProfileArgs struct {
+	// An `azureKeyvaultSecretsProvider` block.
+	AzureKeyvaultSecretsProviders GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayInput `pulumi:"azureKeyvaultSecretsProviders"`
 	// A `azurePolicy` block.
 	AzurePolicies GetKubernetesClusterAddonProfileAzurePolicyArrayInput `pulumi:"azurePolicies"`
 	// A `httpApplicationRouting` block.
@@ -11952,6 +12492,13 @@ func (o GetKubernetesClusterAddonProfileOutput) ToGetKubernetesClusterAddonProfi
 	return o
 }
 
+// An `azureKeyvaultSecretsProvider` block.
+func (o GetKubernetesClusterAddonProfileOutput) AzureKeyvaultSecretsProviders() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
+		return v.AzureKeyvaultSecretsProviders
+	}).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput)
+}
+
 // A `azurePolicy` block.
 func (o GetKubernetesClusterAddonProfileOutput) AzurePolicies() GetKubernetesClusterAddonProfileAzurePolicyArrayOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileAzurePolicy {
@@ -12012,6 +12559,254 @@ func (o GetKubernetesClusterAddonProfileArrayOutput) Index(i pulumi.IntInput) Ge
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfile {
 		return vs[0].([]GetKubernetesClusterAddonProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileOutput)
+}
+
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider struct {
+	// Is Role Based Access Control enabled?
+	Enabled          bool                                                                         `pulumi:"enabled"`
+	SecretIdentities []GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity `pulumi:"secretIdentities"`
+	// Is secret rotation enabled?
+	SecretRotationEnabled string `pulumi:"secretRotationEnabled"`
+	// The interval to poll for secret rotation.
+	SecretRotationInterval string `pulumi:"secretRotationInterval"`
+}
+
+// GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput is an input type that accepts GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs and GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput` via:
+//
+//          GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{...}
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput
+	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput
+}
+
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs struct {
+	// Is Role Based Access Control enabled?
+	Enabled          pulumi.BoolInput                                                                     `pulumi:"enabled"`
+	SecretIdentities GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput `pulumi:"secretIdentities"`
+	// Is secret rotation enabled?
+	SecretRotationEnabled pulumi.StringInput `pulumi:"secretRotationEnabled"`
+	// The interval to poll for secret rotation.
+	SecretRotationInterval pulumi.StringInput `pulumi:"secretRotationInterval"`
+}
+
+func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
+	return i.ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput)
+}
+
+// GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayInput is an input type that accepts GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray and GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayInput` via:
+//
+//          GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray{ GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{...} }
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput
+	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput
+}
+
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray []GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput
+
+func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput {
+	return i.ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput)
+}
+
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
+	return o
+}
+
+// Is Role Based Access Control enabled?
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) SecretIdentities() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) []GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
+		return v.SecretIdentities
+	}).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput)
+}
+
+// Is secret rotation enabled?
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) SecretRotationEnabled() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) string {
+		return v.SecretRotationEnabled
+	}).(pulumi.StringOutput)
+}
+
+// The interval to poll for secret rotation.
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput) SecretRotationInterval() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider) string {
+		return v.SecretRotationInterval
+	}).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider {
+		return vs[0].([]GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProvider)[vs[1].(int)]
+	}).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput)
+}
+
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity struct {
+	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+	ClientId string `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+	ObjectId string `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+}
+
+// GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput is an input type that accepts GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs and GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput` via:
+//
+//          GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs{...}
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput
+	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput
+}
+
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs struct {
+	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
+	return i.ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput)
+}
+
+// GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput is an input type that accepts GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray and GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput` via:
+//
+//          GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray{ GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs{...} }
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput
+	ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput
+}
+
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray []GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput
+
+func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
+	return i.ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput)
+}
+
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
+	return o
+}
+
+// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity) string {
+		return v.ObjectId
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the User Assigned Identity assigned to the Kubelets.
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity) string {
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput() GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) ToGetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity {
+		return vs[0].([]GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentity)[vs[1].(int)]
+	}).(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput)
 }
 
 type GetKubernetesClusterAddonProfileAzurePolicy struct {
@@ -14610,6 +15405,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfilePtrInput)(nil)).Elem(), KubernetesClusterAddonProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAciConnectorLinuxInput)(nil)).Elem(), KubernetesClusterAddonProfileAciConnectorLinuxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAciConnectorLinuxPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileAciConnectorLinuxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput)(nil)).Elem(), KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput)(nil)).Elem(), KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput)(nil)).Elem(), KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAzurePolicyInput)(nil)).Elem(), KubernetesClusterAddonProfileAzurePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileAzurePolicyPtrInput)(nil)).Elem(), KubernetesClusterAddonProfileAzurePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAddonProfileHttpApplicationRoutingInput)(nil)).Elem(), KubernetesClusterAddonProfileHttpApplicationRoutingArgs{})
@@ -14638,6 +15437,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolUpgradeSettingsInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterHttpProxyConfigInput)(nil)).Elem(), KubernetesClusterHttpProxyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterHttpProxyConfigPtrInput)(nil)).Elem(), KubernetesClusterHttpProxyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterIdentityInput)(nil)).Elem(), KubernetesClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterIdentityPtrInput)(nil)).Elem(), KubernetesClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterKubeAdminConfigInput)(nil)).Elem(), KubernetesClusterKubeAdminConfigArgs{})
@@ -14698,6 +15499,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterNodePoolUpgradeSettingArrayInput)(nil)).Elem(), GetClusterNodePoolUpgradeSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileInput)(nil)).Elem(), GetKubernetesClusterAddonProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderInput)(nil)).Elem(), GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityInput)(nil)).Elem(), GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileAzurePolicyInput)(nil)).Elem(), GetKubernetesClusterAddonProfileAzurePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileAzurePolicyArrayInput)(nil)).Elem(), GetKubernetesClusterAddonProfileAzurePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAddonProfileHttpApplicationRoutingInput)(nil)).Elem(), GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs{})
@@ -14774,6 +15579,10 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAciConnectorLinuxOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzurePolicyOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzurePolicyPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileHttpApplicationRoutingOutput{})
@@ -14802,6 +15611,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterHttpProxyConfigOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterHttpProxyConfigPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIdentityOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKubeAdminConfigOutput{})
@@ -14862,6 +15673,10 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterNodePoolUpgradeSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzureKeyvaultSecretsProviderSecretIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzurePolicyOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzurePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput{})

@@ -51,7 +51,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = eventgrid.NewSystemTopic(ctx, "exampleSystemTopic", &eventgrid.SystemTopicArgs{
+// 		exampleSystemTopic, err := eventgrid.NewSystemTopic(ctx, "exampleSystemTopic", &eventgrid.SystemTopicArgs{
 // 			Location:            pulumi.String("Global"),
 // 			ResourceGroupName:   exampleResourceGroup.Name,
 // 			SourceArmResourceId: exampleResourceGroup.ID(),
@@ -61,7 +61,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = eventgrid.NewSystemTopicEventSubscription(ctx, "exampleSystemTopicEventSubscription", &eventgrid.SystemTopicEventSubscriptionArgs{
-// 			SystemTopic:       pulumi.Any(azurerm_system_topic.Example.Name),
+// 			SystemTopic:       exampleSystemTopic.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			StorageQueueEndpoint: &eventgrid.SystemTopicEventSubscriptionStorageQueueEndpointArgs{
 // 				StorageAccountId: exampleAccount.ID(),

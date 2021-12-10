@@ -10,6 +10,1206 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type BudgetManagementGroupFilter struct {
+	// One or more `dimension` blocks as defined below to filter the budget on.
+	Dimensions []BudgetManagementGroupFilterDimension `pulumi:"dimensions"`
+	// A `not` block as defined below to filter the budget on.
+	Not *BudgetManagementGroupFilterNot `pulumi:"not"`
+	// One or more `tag` blocks as defined below to filter the budget on.
+	Tags []BudgetManagementGroupFilterTag `pulumi:"tags"`
+}
+
+// BudgetManagementGroupFilterInput is an input type that accepts BudgetManagementGroupFilterArgs and BudgetManagementGroupFilterOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupFilterInput` via:
+//
+//          BudgetManagementGroupFilterArgs{...}
+type BudgetManagementGroupFilterInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupFilterOutput() BudgetManagementGroupFilterOutput
+	ToBudgetManagementGroupFilterOutputWithContext(context.Context) BudgetManagementGroupFilterOutput
+}
+
+type BudgetManagementGroupFilterArgs struct {
+	// One or more `dimension` blocks as defined below to filter the budget on.
+	Dimensions BudgetManagementGroupFilterDimensionArrayInput `pulumi:"dimensions"`
+	// A `not` block as defined below to filter the budget on.
+	Not BudgetManagementGroupFilterNotPtrInput `pulumi:"not"`
+	// One or more `tag` blocks as defined below to filter the budget on.
+	Tags BudgetManagementGroupFilterTagArrayInput `pulumi:"tags"`
+}
+
+func (BudgetManagementGroupFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupFilter)(nil)).Elem()
+}
+
+func (i BudgetManagementGroupFilterArgs) ToBudgetManagementGroupFilterOutput() BudgetManagementGroupFilterOutput {
+	return i.ToBudgetManagementGroupFilterOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupFilterArgs) ToBudgetManagementGroupFilterOutputWithContext(ctx context.Context) BudgetManagementGroupFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterOutput)
+}
+
+func (i BudgetManagementGroupFilterArgs) ToBudgetManagementGroupFilterPtrOutput() BudgetManagementGroupFilterPtrOutput {
+	return i.ToBudgetManagementGroupFilterPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupFilterArgs) ToBudgetManagementGroupFilterPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterOutput).ToBudgetManagementGroupFilterPtrOutputWithContext(ctx)
+}
+
+// BudgetManagementGroupFilterPtrInput is an input type that accepts BudgetManagementGroupFilterArgs, BudgetManagementGroupFilterPtr and BudgetManagementGroupFilterPtrOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupFilterPtrInput` via:
+//
+//          BudgetManagementGroupFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetManagementGroupFilterPtrInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupFilterPtrOutput() BudgetManagementGroupFilterPtrOutput
+	ToBudgetManagementGroupFilterPtrOutputWithContext(context.Context) BudgetManagementGroupFilterPtrOutput
+}
+
+type budgetManagementGroupFilterPtrType BudgetManagementGroupFilterArgs
+
+func BudgetManagementGroupFilterPtr(v *BudgetManagementGroupFilterArgs) BudgetManagementGroupFilterPtrInput {
+	return (*budgetManagementGroupFilterPtrType)(v)
+}
+
+func (*budgetManagementGroupFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetManagementGroupFilter)(nil)).Elem()
+}
+
+func (i *budgetManagementGroupFilterPtrType) ToBudgetManagementGroupFilterPtrOutput() BudgetManagementGroupFilterPtrOutput {
+	return i.ToBudgetManagementGroupFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetManagementGroupFilterPtrType) ToBudgetManagementGroupFilterPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterPtrOutput)
+}
+
+type BudgetManagementGroupFilterOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupFilter)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupFilterOutput) ToBudgetManagementGroupFilterOutput() BudgetManagementGroupFilterOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterOutput) ToBudgetManagementGroupFilterOutputWithContext(ctx context.Context) BudgetManagementGroupFilterOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterOutput) ToBudgetManagementGroupFilterPtrOutput() BudgetManagementGroupFilterPtrOutput {
+	return o.ToBudgetManagementGroupFilterPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetManagementGroupFilterOutput) ToBudgetManagementGroupFilterPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetManagementGroupFilter) *BudgetManagementGroupFilter {
+		return &v
+	}).(BudgetManagementGroupFilterPtrOutput)
+}
+
+// One or more `dimension` blocks as defined below to filter the budget on.
+func (o BudgetManagementGroupFilterOutput) Dimensions() BudgetManagementGroupFilterDimensionArrayOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilter) []BudgetManagementGroupFilterDimension { return v.Dimensions }).(BudgetManagementGroupFilterDimensionArrayOutput)
+}
+
+// A `not` block as defined below to filter the budget on.
+func (o BudgetManagementGroupFilterOutput) Not() BudgetManagementGroupFilterNotPtrOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilter) *BudgetManagementGroupFilterNot { return v.Not }).(BudgetManagementGroupFilterNotPtrOutput)
+}
+
+// One or more `tag` blocks as defined below to filter the budget on.
+func (o BudgetManagementGroupFilterOutput) Tags() BudgetManagementGroupFilterTagArrayOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilter) []BudgetManagementGroupFilterTag { return v.Tags }).(BudgetManagementGroupFilterTagArrayOutput)
+}
+
+type BudgetManagementGroupFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetManagementGroupFilter)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupFilterPtrOutput) ToBudgetManagementGroupFilterPtrOutput() BudgetManagementGroupFilterPtrOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterPtrOutput) ToBudgetManagementGroupFilterPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterPtrOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterPtrOutput) Elem() BudgetManagementGroupFilterOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilter) BudgetManagementGroupFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetManagementGroupFilter
+		return ret
+	}).(BudgetManagementGroupFilterOutput)
+}
+
+// One or more `dimension` blocks as defined below to filter the budget on.
+func (o BudgetManagementGroupFilterPtrOutput) Dimensions() BudgetManagementGroupFilterDimensionArrayOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilter) []BudgetManagementGroupFilterDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(BudgetManagementGroupFilterDimensionArrayOutput)
+}
+
+// A `not` block as defined below to filter the budget on.
+func (o BudgetManagementGroupFilterPtrOutput) Not() BudgetManagementGroupFilterNotPtrOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilter) *BudgetManagementGroupFilterNot {
+		if v == nil {
+			return nil
+		}
+		return v.Not
+	}).(BudgetManagementGroupFilterNotPtrOutput)
+}
+
+// One or more `tag` blocks as defined below to filter the budget on.
+func (o BudgetManagementGroupFilterPtrOutput) Tags() BudgetManagementGroupFilterTagArrayOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilter) []BudgetManagementGroupFilterTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(BudgetManagementGroupFilterTagArrayOutput)
+}
+
+type BudgetManagementGroupFilterDimension struct {
+	// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+	Name string `pulumi:"name"`
+	// The operator to use for comparison. The allowed values are `In`.
+	Operator *string `pulumi:"operator"`
+	// Specifies a list of values for the column.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetManagementGroupFilterDimensionInput is an input type that accepts BudgetManagementGroupFilterDimensionArgs and BudgetManagementGroupFilterDimensionOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupFilterDimensionInput` via:
+//
+//          BudgetManagementGroupFilterDimensionArgs{...}
+type BudgetManagementGroupFilterDimensionInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupFilterDimensionOutput() BudgetManagementGroupFilterDimensionOutput
+	ToBudgetManagementGroupFilterDimensionOutputWithContext(context.Context) BudgetManagementGroupFilterDimensionOutput
+}
+
+type BudgetManagementGroupFilterDimensionArgs struct {
+	// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator to use for comparison. The allowed values are `In`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// Specifies a list of values for the column.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetManagementGroupFilterDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupFilterDimension)(nil)).Elem()
+}
+
+func (i BudgetManagementGroupFilterDimensionArgs) ToBudgetManagementGroupFilterDimensionOutput() BudgetManagementGroupFilterDimensionOutput {
+	return i.ToBudgetManagementGroupFilterDimensionOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupFilterDimensionArgs) ToBudgetManagementGroupFilterDimensionOutputWithContext(ctx context.Context) BudgetManagementGroupFilterDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterDimensionOutput)
+}
+
+// BudgetManagementGroupFilterDimensionArrayInput is an input type that accepts BudgetManagementGroupFilterDimensionArray and BudgetManagementGroupFilterDimensionArrayOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupFilterDimensionArrayInput` via:
+//
+//          BudgetManagementGroupFilterDimensionArray{ BudgetManagementGroupFilterDimensionArgs{...} }
+type BudgetManagementGroupFilterDimensionArrayInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupFilterDimensionArrayOutput() BudgetManagementGroupFilterDimensionArrayOutput
+	ToBudgetManagementGroupFilterDimensionArrayOutputWithContext(context.Context) BudgetManagementGroupFilterDimensionArrayOutput
+}
+
+type BudgetManagementGroupFilterDimensionArray []BudgetManagementGroupFilterDimensionInput
+
+func (BudgetManagementGroupFilterDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetManagementGroupFilterDimension)(nil)).Elem()
+}
+
+func (i BudgetManagementGroupFilterDimensionArray) ToBudgetManagementGroupFilterDimensionArrayOutput() BudgetManagementGroupFilterDimensionArrayOutput {
+	return i.ToBudgetManagementGroupFilterDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupFilterDimensionArray) ToBudgetManagementGroupFilterDimensionArrayOutputWithContext(ctx context.Context) BudgetManagementGroupFilterDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterDimensionArrayOutput)
+}
+
+type BudgetManagementGroupFilterDimensionOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupFilterDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupFilterDimension)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupFilterDimensionOutput) ToBudgetManagementGroupFilterDimensionOutput() BudgetManagementGroupFilterDimensionOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterDimensionOutput) ToBudgetManagementGroupFilterDimensionOutputWithContext(ctx context.Context) BudgetManagementGroupFilterDimensionOutput {
+	return o
+}
+
+// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+func (o BudgetManagementGroupFilterDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator to use for comparison. The allowed values are `In`.
+func (o BudgetManagementGroupFilterDimensionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterDimension) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values for the column.
+func (o BudgetManagementGroupFilterDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetManagementGroupFilterDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupFilterDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetManagementGroupFilterDimension)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupFilterDimensionArrayOutput) ToBudgetManagementGroupFilterDimensionArrayOutput() BudgetManagementGroupFilterDimensionArrayOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterDimensionArrayOutput) ToBudgetManagementGroupFilterDimensionArrayOutputWithContext(ctx context.Context) BudgetManagementGroupFilterDimensionArrayOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterDimensionArrayOutput) Index(i pulumi.IntInput) BudgetManagementGroupFilterDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetManagementGroupFilterDimension {
+		return vs[0].([]BudgetManagementGroupFilterDimension)[vs[1].(int)]
+	}).(BudgetManagementGroupFilterDimensionOutput)
+}
+
+type BudgetManagementGroupFilterNot struct {
+	// One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+	Dimension *BudgetManagementGroupFilterNotDimension `pulumi:"dimension"`
+	// One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+	Tag *BudgetManagementGroupFilterNotTag `pulumi:"tag"`
+}
+
+// BudgetManagementGroupFilterNotInput is an input type that accepts BudgetManagementGroupFilterNotArgs and BudgetManagementGroupFilterNotOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupFilterNotInput` via:
+//
+//          BudgetManagementGroupFilterNotArgs{...}
+type BudgetManagementGroupFilterNotInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupFilterNotOutput() BudgetManagementGroupFilterNotOutput
+	ToBudgetManagementGroupFilterNotOutputWithContext(context.Context) BudgetManagementGroupFilterNotOutput
+}
+
+type BudgetManagementGroupFilterNotArgs struct {
+	// One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+	Dimension BudgetManagementGroupFilterNotDimensionPtrInput `pulumi:"dimension"`
+	// One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+	Tag BudgetManagementGroupFilterNotTagPtrInput `pulumi:"tag"`
+}
+
+func (BudgetManagementGroupFilterNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupFilterNot)(nil)).Elem()
+}
+
+func (i BudgetManagementGroupFilterNotArgs) ToBudgetManagementGroupFilterNotOutput() BudgetManagementGroupFilterNotOutput {
+	return i.ToBudgetManagementGroupFilterNotOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupFilterNotArgs) ToBudgetManagementGroupFilterNotOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotOutput)
+}
+
+func (i BudgetManagementGroupFilterNotArgs) ToBudgetManagementGroupFilterNotPtrOutput() BudgetManagementGroupFilterNotPtrOutput {
+	return i.ToBudgetManagementGroupFilterNotPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupFilterNotArgs) ToBudgetManagementGroupFilterNotPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotOutput).ToBudgetManagementGroupFilterNotPtrOutputWithContext(ctx)
+}
+
+// BudgetManagementGroupFilterNotPtrInput is an input type that accepts BudgetManagementGroupFilterNotArgs, BudgetManagementGroupFilterNotPtr and BudgetManagementGroupFilterNotPtrOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupFilterNotPtrInput` via:
+//
+//          BudgetManagementGroupFilterNotArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetManagementGroupFilterNotPtrInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupFilterNotPtrOutput() BudgetManagementGroupFilterNotPtrOutput
+	ToBudgetManagementGroupFilterNotPtrOutputWithContext(context.Context) BudgetManagementGroupFilterNotPtrOutput
+}
+
+type budgetManagementGroupFilterNotPtrType BudgetManagementGroupFilterNotArgs
+
+func BudgetManagementGroupFilterNotPtr(v *BudgetManagementGroupFilterNotArgs) BudgetManagementGroupFilterNotPtrInput {
+	return (*budgetManagementGroupFilterNotPtrType)(v)
+}
+
+func (*budgetManagementGroupFilterNotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetManagementGroupFilterNot)(nil)).Elem()
+}
+
+func (i *budgetManagementGroupFilterNotPtrType) ToBudgetManagementGroupFilterNotPtrOutput() BudgetManagementGroupFilterNotPtrOutput {
+	return i.ToBudgetManagementGroupFilterNotPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetManagementGroupFilterNotPtrType) ToBudgetManagementGroupFilterNotPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotPtrOutput)
+}
+
+type BudgetManagementGroupFilterNotOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupFilterNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupFilterNot)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupFilterNotOutput) ToBudgetManagementGroupFilterNotOutput() BudgetManagementGroupFilterNotOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterNotOutput) ToBudgetManagementGroupFilterNotOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterNotOutput) ToBudgetManagementGroupFilterNotPtrOutput() BudgetManagementGroupFilterNotPtrOutput {
+	return o.ToBudgetManagementGroupFilterNotPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetManagementGroupFilterNotOutput) ToBudgetManagementGroupFilterNotPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetManagementGroupFilterNot) *BudgetManagementGroupFilterNot {
+		return &v
+	}).(BudgetManagementGroupFilterNotPtrOutput)
+}
+
+// One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+func (o BudgetManagementGroupFilterNotOutput) Dimension() BudgetManagementGroupFilterNotDimensionPtrOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterNot) *BudgetManagementGroupFilterNotDimension { return v.Dimension }).(BudgetManagementGroupFilterNotDimensionPtrOutput)
+}
+
+// One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+func (o BudgetManagementGroupFilterNotOutput) Tag() BudgetManagementGroupFilterNotTagPtrOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterNot) *BudgetManagementGroupFilterNotTag { return v.Tag }).(BudgetManagementGroupFilterNotTagPtrOutput)
+}
+
+type BudgetManagementGroupFilterNotPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupFilterNotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetManagementGroupFilterNot)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupFilterNotPtrOutput) ToBudgetManagementGroupFilterNotPtrOutput() BudgetManagementGroupFilterNotPtrOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterNotPtrOutput) ToBudgetManagementGroupFilterNotPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotPtrOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterNotPtrOutput) Elem() BudgetManagementGroupFilterNotOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilterNot) BudgetManagementGroupFilterNot {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetManagementGroupFilterNot
+		return ret
+	}).(BudgetManagementGroupFilterNotOutput)
+}
+
+// One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+func (o BudgetManagementGroupFilterNotPtrOutput) Dimension() BudgetManagementGroupFilterNotDimensionPtrOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilterNot) *BudgetManagementGroupFilterNotDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimension
+	}).(BudgetManagementGroupFilterNotDimensionPtrOutput)
+}
+
+// One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+func (o BudgetManagementGroupFilterNotPtrOutput) Tag() BudgetManagementGroupFilterNotTagPtrOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilterNot) *BudgetManagementGroupFilterNotTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tag
+	}).(BudgetManagementGroupFilterNotTagPtrOutput)
+}
+
+type BudgetManagementGroupFilterNotDimension struct {
+	// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+	Name string `pulumi:"name"`
+	// The operator to use for comparison. The allowed values are `In`.
+	Operator *string `pulumi:"operator"`
+	// Specifies a list of values for the column.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetManagementGroupFilterNotDimensionInput is an input type that accepts BudgetManagementGroupFilterNotDimensionArgs and BudgetManagementGroupFilterNotDimensionOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupFilterNotDimensionInput` via:
+//
+//          BudgetManagementGroupFilterNotDimensionArgs{...}
+type BudgetManagementGroupFilterNotDimensionInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupFilterNotDimensionOutput() BudgetManagementGroupFilterNotDimensionOutput
+	ToBudgetManagementGroupFilterNotDimensionOutputWithContext(context.Context) BudgetManagementGroupFilterNotDimensionOutput
+}
+
+type BudgetManagementGroupFilterNotDimensionArgs struct {
+	// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator to use for comparison. The allowed values are `In`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// Specifies a list of values for the column.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetManagementGroupFilterNotDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupFilterNotDimension)(nil)).Elem()
+}
+
+func (i BudgetManagementGroupFilterNotDimensionArgs) ToBudgetManagementGroupFilterNotDimensionOutput() BudgetManagementGroupFilterNotDimensionOutput {
+	return i.ToBudgetManagementGroupFilterNotDimensionOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupFilterNotDimensionArgs) ToBudgetManagementGroupFilterNotDimensionOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotDimensionOutput)
+}
+
+func (i BudgetManagementGroupFilterNotDimensionArgs) ToBudgetManagementGroupFilterNotDimensionPtrOutput() BudgetManagementGroupFilterNotDimensionPtrOutput {
+	return i.ToBudgetManagementGroupFilterNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupFilterNotDimensionArgs) ToBudgetManagementGroupFilterNotDimensionPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotDimensionOutput).ToBudgetManagementGroupFilterNotDimensionPtrOutputWithContext(ctx)
+}
+
+// BudgetManagementGroupFilterNotDimensionPtrInput is an input type that accepts BudgetManagementGroupFilterNotDimensionArgs, BudgetManagementGroupFilterNotDimensionPtr and BudgetManagementGroupFilterNotDimensionPtrOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupFilterNotDimensionPtrInput` via:
+//
+//          BudgetManagementGroupFilterNotDimensionArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetManagementGroupFilterNotDimensionPtrInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupFilterNotDimensionPtrOutput() BudgetManagementGroupFilterNotDimensionPtrOutput
+	ToBudgetManagementGroupFilterNotDimensionPtrOutputWithContext(context.Context) BudgetManagementGroupFilterNotDimensionPtrOutput
+}
+
+type budgetManagementGroupFilterNotDimensionPtrType BudgetManagementGroupFilterNotDimensionArgs
+
+func BudgetManagementGroupFilterNotDimensionPtr(v *BudgetManagementGroupFilterNotDimensionArgs) BudgetManagementGroupFilterNotDimensionPtrInput {
+	return (*budgetManagementGroupFilterNotDimensionPtrType)(v)
+}
+
+func (*budgetManagementGroupFilterNotDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetManagementGroupFilterNotDimension)(nil)).Elem()
+}
+
+func (i *budgetManagementGroupFilterNotDimensionPtrType) ToBudgetManagementGroupFilterNotDimensionPtrOutput() BudgetManagementGroupFilterNotDimensionPtrOutput {
+	return i.ToBudgetManagementGroupFilterNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetManagementGroupFilterNotDimensionPtrType) ToBudgetManagementGroupFilterNotDimensionPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotDimensionPtrOutput)
+}
+
+type BudgetManagementGroupFilterNotDimensionOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupFilterNotDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupFilterNotDimension)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupFilterNotDimensionOutput) ToBudgetManagementGroupFilterNotDimensionOutput() BudgetManagementGroupFilterNotDimensionOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterNotDimensionOutput) ToBudgetManagementGroupFilterNotDimensionOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotDimensionOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterNotDimensionOutput) ToBudgetManagementGroupFilterNotDimensionPtrOutput() BudgetManagementGroupFilterNotDimensionPtrOutput {
+	return o.ToBudgetManagementGroupFilterNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetManagementGroupFilterNotDimensionOutput) ToBudgetManagementGroupFilterNotDimensionPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetManagementGroupFilterNotDimension) *BudgetManagementGroupFilterNotDimension {
+		return &v
+	}).(BudgetManagementGroupFilterNotDimensionPtrOutput)
+}
+
+// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+func (o BudgetManagementGroupFilterNotDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterNotDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator to use for comparison. The allowed values are `In`.
+func (o BudgetManagementGroupFilterNotDimensionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterNotDimension) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values for the column.
+func (o BudgetManagementGroupFilterNotDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterNotDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetManagementGroupFilterNotDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupFilterNotDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetManagementGroupFilterNotDimension)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupFilterNotDimensionPtrOutput) ToBudgetManagementGroupFilterNotDimensionPtrOutput() BudgetManagementGroupFilterNotDimensionPtrOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterNotDimensionPtrOutput) ToBudgetManagementGroupFilterNotDimensionPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotDimensionPtrOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterNotDimensionPtrOutput) Elem() BudgetManagementGroupFilterNotDimensionOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilterNotDimension) BudgetManagementGroupFilterNotDimension {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetManagementGroupFilterNotDimension
+		return ret
+	}).(BudgetManagementGroupFilterNotDimensionOutput)
+}
+
+// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+func (o BudgetManagementGroupFilterNotDimensionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilterNotDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The operator to use for comparison. The allowed values are `In`.
+func (o BudgetManagementGroupFilterNotDimensionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilterNotDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values for the column.
+func (o BudgetManagementGroupFilterNotDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilterNotDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetManagementGroupFilterNotTag struct {
+	// The name of the tag to use for the filter.
+	Name string `pulumi:"name"`
+	// The operator to use for comparison. The allowed values are `In`.
+	Operator *string `pulumi:"operator"`
+	// Specifies a list of values for the tag.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetManagementGroupFilterNotTagInput is an input type that accepts BudgetManagementGroupFilterNotTagArgs and BudgetManagementGroupFilterNotTagOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupFilterNotTagInput` via:
+//
+//          BudgetManagementGroupFilterNotTagArgs{...}
+type BudgetManagementGroupFilterNotTagInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupFilterNotTagOutput() BudgetManagementGroupFilterNotTagOutput
+	ToBudgetManagementGroupFilterNotTagOutputWithContext(context.Context) BudgetManagementGroupFilterNotTagOutput
+}
+
+type BudgetManagementGroupFilterNotTagArgs struct {
+	// The name of the tag to use for the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator to use for comparison. The allowed values are `In`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// Specifies a list of values for the tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetManagementGroupFilterNotTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupFilterNotTag)(nil)).Elem()
+}
+
+func (i BudgetManagementGroupFilterNotTagArgs) ToBudgetManagementGroupFilterNotTagOutput() BudgetManagementGroupFilterNotTagOutput {
+	return i.ToBudgetManagementGroupFilterNotTagOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupFilterNotTagArgs) ToBudgetManagementGroupFilterNotTagOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotTagOutput)
+}
+
+func (i BudgetManagementGroupFilterNotTagArgs) ToBudgetManagementGroupFilterNotTagPtrOutput() BudgetManagementGroupFilterNotTagPtrOutput {
+	return i.ToBudgetManagementGroupFilterNotTagPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupFilterNotTagArgs) ToBudgetManagementGroupFilterNotTagPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotTagOutput).ToBudgetManagementGroupFilterNotTagPtrOutputWithContext(ctx)
+}
+
+// BudgetManagementGroupFilterNotTagPtrInput is an input type that accepts BudgetManagementGroupFilterNotTagArgs, BudgetManagementGroupFilterNotTagPtr and BudgetManagementGroupFilterNotTagPtrOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupFilterNotTagPtrInput` via:
+//
+//          BudgetManagementGroupFilterNotTagArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetManagementGroupFilterNotTagPtrInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupFilterNotTagPtrOutput() BudgetManagementGroupFilterNotTagPtrOutput
+	ToBudgetManagementGroupFilterNotTagPtrOutputWithContext(context.Context) BudgetManagementGroupFilterNotTagPtrOutput
+}
+
+type budgetManagementGroupFilterNotTagPtrType BudgetManagementGroupFilterNotTagArgs
+
+func BudgetManagementGroupFilterNotTagPtr(v *BudgetManagementGroupFilterNotTagArgs) BudgetManagementGroupFilterNotTagPtrInput {
+	return (*budgetManagementGroupFilterNotTagPtrType)(v)
+}
+
+func (*budgetManagementGroupFilterNotTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetManagementGroupFilterNotTag)(nil)).Elem()
+}
+
+func (i *budgetManagementGroupFilterNotTagPtrType) ToBudgetManagementGroupFilterNotTagPtrOutput() BudgetManagementGroupFilterNotTagPtrOutput {
+	return i.ToBudgetManagementGroupFilterNotTagPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetManagementGroupFilterNotTagPtrType) ToBudgetManagementGroupFilterNotTagPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterNotTagPtrOutput)
+}
+
+type BudgetManagementGroupFilterNotTagOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupFilterNotTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupFilterNotTag)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupFilterNotTagOutput) ToBudgetManagementGroupFilterNotTagOutput() BudgetManagementGroupFilterNotTagOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterNotTagOutput) ToBudgetManagementGroupFilterNotTagOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotTagOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterNotTagOutput) ToBudgetManagementGroupFilterNotTagPtrOutput() BudgetManagementGroupFilterNotTagPtrOutput {
+	return o.ToBudgetManagementGroupFilterNotTagPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetManagementGroupFilterNotTagOutput) ToBudgetManagementGroupFilterNotTagPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetManagementGroupFilterNotTag) *BudgetManagementGroupFilterNotTag {
+		return &v
+	}).(BudgetManagementGroupFilterNotTagPtrOutput)
+}
+
+// The name of the tag to use for the filter.
+func (o BudgetManagementGroupFilterNotTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterNotTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator to use for comparison. The allowed values are `In`.
+func (o BudgetManagementGroupFilterNotTagOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterNotTag) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values for the tag.
+func (o BudgetManagementGroupFilterNotTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterNotTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetManagementGroupFilterNotTagPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupFilterNotTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetManagementGroupFilterNotTag)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupFilterNotTagPtrOutput) ToBudgetManagementGroupFilterNotTagPtrOutput() BudgetManagementGroupFilterNotTagPtrOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterNotTagPtrOutput) ToBudgetManagementGroupFilterNotTagPtrOutputWithContext(ctx context.Context) BudgetManagementGroupFilterNotTagPtrOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterNotTagPtrOutput) Elem() BudgetManagementGroupFilterNotTagOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilterNotTag) BudgetManagementGroupFilterNotTag {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetManagementGroupFilterNotTag
+		return ret
+	}).(BudgetManagementGroupFilterNotTagOutput)
+}
+
+// The name of the tag to use for the filter.
+func (o BudgetManagementGroupFilterNotTagPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilterNotTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The operator to use for comparison. The allowed values are `In`.
+func (o BudgetManagementGroupFilterNotTagPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilterNotTag) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values for the tag.
+func (o BudgetManagementGroupFilterNotTagPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupFilterNotTag) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetManagementGroupFilterTag struct {
+	// The name of the tag to use for the filter.
+	Name string `pulumi:"name"`
+	// The operator to use for comparison. The allowed values are `In`.
+	Operator *string `pulumi:"operator"`
+	// Specifies a list of values for the tag.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetManagementGroupFilterTagInput is an input type that accepts BudgetManagementGroupFilterTagArgs and BudgetManagementGroupFilterTagOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupFilterTagInput` via:
+//
+//          BudgetManagementGroupFilterTagArgs{...}
+type BudgetManagementGroupFilterTagInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupFilterTagOutput() BudgetManagementGroupFilterTagOutput
+	ToBudgetManagementGroupFilterTagOutputWithContext(context.Context) BudgetManagementGroupFilterTagOutput
+}
+
+type BudgetManagementGroupFilterTagArgs struct {
+	// The name of the tag to use for the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator to use for comparison. The allowed values are `In`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// Specifies a list of values for the tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetManagementGroupFilterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupFilterTag)(nil)).Elem()
+}
+
+func (i BudgetManagementGroupFilterTagArgs) ToBudgetManagementGroupFilterTagOutput() BudgetManagementGroupFilterTagOutput {
+	return i.ToBudgetManagementGroupFilterTagOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupFilterTagArgs) ToBudgetManagementGroupFilterTagOutputWithContext(ctx context.Context) BudgetManagementGroupFilterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterTagOutput)
+}
+
+// BudgetManagementGroupFilterTagArrayInput is an input type that accepts BudgetManagementGroupFilterTagArray and BudgetManagementGroupFilterTagArrayOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupFilterTagArrayInput` via:
+//
+//          BudgetManagementGroupFilterTagArray{ BudgetManagementGroupFilterTagArgs{...} }
+type BudgetManagementGroupFilterTagArrayInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupFilterTagArrayOutput() BudgetManagementGroupFilterTagArrayOutput
+	ToBudgetManagementGroupFilterTagArrayOutputWithContext(context.Context) BudgetManagementGroupFilterTagArrayOutput
+}
+
+type BudgetManagementGroupFilterTagArray []BudgetManagementGroupFilterTagInput
+
+func (BudgetManagementGroupFilterTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetManagementGroupFilterTag)(nil)).Elem()
+}
+
+func (i BudgetManagementGroupFilterTagArray) ToBudgetManagementGroupFilterTagArrayOutput() BudgetManagementGroupFilterTagArrayOutput {
+	return i.ToBudgetManagementGroupFilterTagArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupFilterTagArray) ToBudgetManagementGroupFilterTagArrayOutputWithContext(ctx context.Context) BudgetManagementGroupFilterTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupFilterTagArrayOutput)
+}
+
+type BudgetManagementGroupFilterTagOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupFilterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupFilterTag)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupFilterTagOutput) ToBudgetManagementGroupFilterTagOutput() BudgetManagementGroupFilterTagOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterTagOutput) ToBudgetManagementGroupFilterTagOutputWithContext(ctx context.Context) BudgetManagementGroupFilterTagOutput {
+	return o
+}
+
+// The name of the tag to use for the filter.
+func (o BudgetManagementGroupFilterTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator to use for comparison. The allowed values are `In`.
+func (o BudgetManagementGroupFilterTagOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterTag) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values for the tag.
+func (o BudgetManagementGroupFilterTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetManagementGroupFilterTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetManagementGroupFilterTagArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupFilterTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetManagementGroupFilterTag)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupFilterTagArrayOutput) ToBudgetManagementGroupFilterTagArrayOutput() BudgetManagementGroupFilterTagArrayOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterTagArrayOutput) ToBudgetManagementGroupFilterTagArrayOutputWithContext(ctx context.Context) BudgetManagementGroupFilterTagArrayOutput {
+	return o
+}
+
+func (o BudgetManagementGroupFilterTagArrayOutput) Index(i pulumi.IntInput) BudgetManagementGroupFilterTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetManagementGroupFilterTag {
+		return vs[0].([]BudgetManagementGroupFilterTag)[vs[1].(int)]
+	}).(BudgetManagementGroupFilterTagOutput)
+}
+
+type BudgetManagementGroupNotification struct {
+	// Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails []string `pulumi:"contactEmails"`
+	// Should the notification be enabled?
+	Enabled *bool `pulumi:"enabled"`
+	// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
+	Operator string `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold int `pulumi:"threshold"`
+	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+	ThresholdType *string `pulumi:"thresholdType"`
+}
+
+// BudgetManagementGroupNotificationInput is an input type that accepts BudgetManagementGroupNotificationArgs and BudgetManagementGroupNotificationOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupNotificationInput` via:
+//
+//          BudgetManagementGroupNotificationArgs{...}
+type BudgetManagementGroupNotificationInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupNotificationOutput() BudgetManagementGroupNotificationOutput
+	ToBudgetManagementGroupNotificationOutputWithContext(context.Context) BudgetManagementGroupNotificationOutput
+}
+
+type BudgetManagementGroupNotificationArgs struct {
+	// Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
+	// Should the notification be enabled?
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold pulumi.IntInput `pulumi:"threshold"`
+	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
+}
+
+func (BudgetManagementGroupNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupNotification)(nil)).Elem()
+}
+
+func (i BudgetManagementGroupNotificationArgs) ToBudgetManagementGroupNotificationOutput() BudgetManagementGroupNotificationOutput {
+	return i.ToBudgetManagementGroupNotificationOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupNotificationArgs) ToBudgetManagementGroupNotificationOutputWithContext(ctx context.Context) BudgetManagementGroupNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupNotificationOutput)
+}
+
+// BudgetManagementGroupNotificationArrayInput is an input type that accepts BudgetManagementGroupNotificationArray and BudgetManagementGroupNotificationArrayOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupNotificationArrayInput` via:
+//
+//          BudgetManagementGroupNotificationArray{ BudgetManagementGroupNotificationArgs{...} }
+type BudgetManagementGroupNotificationArrayInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupNotificationArrayOutput() BudgetManagementGroupNotificationArrayOutput
+	ToBudgetManagementGroupNotificationArrayOutputWithContext(context.Context) BudgetManagementGroupNotificationArrayOutput
+}
+
+type BudgetManagementGroupNotificationArray []BudgetManagementGroupNotificationInput
+
+func (BudgetManagementGroupNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetManagementGroupNotification)(nil)).Elem()
+}
+
+func (i BudgetManagementGroupNotificationArray) ToBudgetManagementGroupNotificationArrayOutput() BudgetManagementGroupNotificationArrayOutput {
+	return i.ToBudgetManagementGroupNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupNotificationArray) ToBudgetManagementGroupNotificationArrayOutputWithContext(ctx context.Context) BudgetManagementGroupNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupNotificationArrayOutput)
+}
+
+type BudgetManagementGroupNotificationOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupNotification)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupNotificationOutput) ToBudgetManagementGroupNotificationOutput() BudgetManagementGroupNotificationOutput {
+	return o
+}
+
+func (o BudgetManagementGroupNotificationOutput) ToBudgetManagementGroupNotificationOutputWithContext(ctx context.Context) BudgetManagementGroupNotificationOutput {
+	return o
+}
+
+// Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
+func (o BudgetManagementGroupNotificationOutput) ContactEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetManagementGroupNotification) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
+}
+
+// Should the notification be enabled?
+func (o BudgetManagementGroupNotificationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetManagementGroupNotification) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
+func (o BudgetManagementGroupNotificationOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetManagementGroupNotification) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+func (o BudgetManagementGroupNotificationOutput) Threshold() pulumi.IntOutput {
+	return o.ApplyT(func(v BudgetManagementGroupNotification) int { return v.Threshold }).(pulumi.IntOutput)
+}
+
+// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+func (o BudgetManagementGroupNotificationOutput) ThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetManagementGroupNotification) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
+}
+
+type BudgetManagementGroupNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetManagementGroupNotification)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupNotificationArrayOutput) ToBudgetManagementGroupNotificationArrayOutput() BudgetManagementGroupNotificationArrayOutput {
+	return o
+}
+
+func (o BudgetManagementGroupNotificationArrayOutput) ToBudgetManagementGroupNotificationArrayOutputWithContext(ctx context.Context) BudgetManagementGroupNotificationArrayOutput {
+	return o
+}
+
+func (o BudgetManagementGroupNotificationArrayOutput) Index(i pulumi.IntInput) BudgetManagementGroupNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetManagementGroupNotification {
+		return vs[0].([]BudgetManagementGroupNotification)[vs[1].(int)]
+	}).(BudgetManagementGroupNotificationOutput)
+}
+
+type BudgetManagementGroupTimePeriod struct {
+	// The end date for the budget. If not set this will be 10 years after the start date.
+	EndDate *string `pulumi:"endDate"`
+	// The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.
+	StartDate string `pulumi:"startDate"`
+}
+
+// BudgetManagementGroupTimePeriodInput is an input type that accepts BudgetManagementGroupTimePeriodArgs and BudgetManagementGroupTimePeriodOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupTimePeriodInput` via:
+//
+//          BudgetManagementGroupTimePeriodArgs{...}
+type BudgetManagementGroupTimePeriodInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupTimePeriodOutput() BudgetManagementGroupTimePeriodOutput
+	ToBudgetManagementGroupTimePeriodOutputWithContext(context.Context) BudgetManagementGroupTimePeriodOutput
+}
+
+type BudgetManagementGroupTimePeriodArgs struct {
+	// The end date for the budget. If not set this will be 10 years after the start date.
+	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
+	// The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.
+	StartDate pulumi.StringInput `pulumi:"startDate"`
+}
+
+func (BudgetManagementGroupTimePeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupTimePeriod)(nil)).Elem()
+}
+
+func (i BudgetManagementGroupTimePeriodArgs) ToBudgetManagementGroupTimePeriodOutput() BudgetManagementGroupTimePeriodOutput {
+	return i.ToBudgetManagementGroupTimePeriodOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupTimePeriodArgs) ToBudgetManagementGroupTimePeriodOutputWithContext(ctx context.Context) BudgetManagementGroupTimePeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupTimePeriodOutput)
+}
+
+func (i BudgetManagementGroupTimePeriodArgs) ToBudgetManagementGroupTimePeriodPtrOutput() BudgetManagementGroupTimePeriodPtrOutput {
+	return i.ToBudgetManagementGroupTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetManagementGroupTimePeriodArgs) ToBudgetManagementGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetManagementGroupTimePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupTimePeriodOutput).ToBudgetManagementGroupTimePeriodPtrOutputWithContext(ctx)
+}
+
+// BudgetManagementGroupTimePeriodPtrInput is an input type that accepts BudgetManagementGroupTimePeriodArgs, BudgetManagementGroupTimePeriodPtr and BudgetManagementGroupTimePeriodPtrOutput values.
+// You can construct a concrete instance of `BudgetManagementGroupTimePeriodPtrInput` via:
+//
+//          BudgetManagementGroupTimePeriodArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetManagementGroupTimePeriodPtrInput interface {
+	pulumi.Input
+
+	ToBudgetManagementGroupTimePeriodPtrOutput() BudgetManagementGroupTimePeriodPtrOutput
+	ToBudgetManagementGroupTimePeriodPtrOutputWithContext(context.Context) BudgetManagementGroupTimePeriodPtrOutput
+}
+
+type budgetManagementGroupTimePeriodPtrType BudgetManagementGroupTimePeriodArgs
+
+func BudgetManagementGroupTimePeriodPtr(v *BudgetManagementGroupTimePeriodArgs) BudgetManagementGroupTimePeriodPtrInput {
+	return (*budgetManagementGroupTimePeriodPtrType)(v)
+}
+
+func (*budgetManagementGroupTimePeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetManagementGroupTimePeriod)(nil)).Elem()
+}
+
+func (i *budgetManagementGroupTimePeriodPtrType) ToBudgetManagementGroupTimePeriodPtrOutput() BudgetManagementGroupTimePeriodPtrOutput {
+	return i.ToBudgetManagementGroupTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetManagementGroupTimePeriodPtrType) ToBudgetManagementGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetManagementGroupTimePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupTimePeriodPtrOutput)
+}
+
+type BudgetManagementGroupTimePeriodOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupTimePeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetManagementGroupTimePeriod)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupTimePeriodOutput) ToBudgetManagementGroupTimePeriodOutput() BudgetManagementGroupTimePeriodOutput {
+	return o
+}
+
+func (o BudgetManagementGroupTimePeriodOutput) ToBudgetManagementGroupTimePeriodOutputWithContext(ctx context.Context) BudgetManagementGroupTimePeriodOutput {
+	return o
+}
+
+func (o BudgetManagementGroupTimePeriodOutput) ToBudgetManagementGroupTimePeriodPtrOutput() BudgetManagementGroupTimePeriodPtrOutput {
+	return o.ToBudgetManagementGroupTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetManagementGroupTimePeriodOutput) ToBudgetManagementGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetManagementGroupTimePeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetManagementGroupTimePeriod) *BudgetManagementGroupTimePeriod {
+		return &v
+	}).(BudgetManagementGroupTimePeriodPtrOutput)
+}
+
+// The end date for the budget. If not set this will be 10 years after the start date.
+func (o BudgetManagementGroupTimePeriodOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetManagementGroupTimePeriod) *string { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+// The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.
+func (o BudgetManagementGroupTimePeriodOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetManagementGroupTimePeriod) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+type BudgetManagementGroupTimePeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetManagementGroupTimePeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetManagementGroupTimePeriod)(nil)).Elem()
+}
+
+func (o BudgetManagementGroupTimePeriodPtrOutput) ToBudgetManagementGroupTimePeriodPtrOutput() BudgetManagementGroupTimePeriodPtrOutput {
+	return o
+}
+
+func (o BudgetManagementGroupTimePeriodPtrOutput) ToBudgetManagementGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetManagementGroupTimePeriodPtrOutput {
+	return o
+}
+
+func (o BudgetManagementGroupTimePeriodPtrOutput) Elem() BudgetManagementGroupTimePeriodOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupTimePeriod) BudgetManagementGroupTimePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetManagementGroupTimePeriod
+		return ret
+	}).(BudgetManagementGroupTimePeriodOutput)
+}
+
+// The end date for the budget. If not set this will be 10 years after the start date.
+func (o BudgetManagementGroupTimePeriodPtrOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupTimePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.
+func (o BudgetManagementGroupTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetManagementGroupTimePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartDate
+	}).(pulumi.StringPtrOutput)
+}
+
 type BudgetResourceGroupFilter struct {
 	// One or more `dimension` blocks as defined below to filter the budget on.
 	Dimensions []BudgetResourceGroupFilterDimension `pulumi:"dimensions"`
@@ -4319,6 +5519,22 @@ func (o GetBudgetSubscriptionTimePeriodArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupFilterInput)(nil)).Elem(), BudgetManagementGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupFilterPtrInput)(nil)).Elem(), BudgetManagementGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupFilterDimensionInput)(nil)).Elem(), BudgetManagementGroupFilterDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupFilterDimensionArrayInput)(nil)).Elem(), BudgetManagementGroupFilterDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupFilterNotInput)(nil)).Elem(), BudgetManagementGroupFilterNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupFilterNotPtrInput)(nil)).Elem(), BudgetManagementGroupFilterNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupFilterNotDimensionInput)(nil)).Elem(), BudgetManagementGroupFilterNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupFilterNotDimensionPtrInput)(nil)).Elem(), BudgetManagementGroupFilterNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupFilterNotTagInput)(nil)).Elem(), BudgetManagementGroupFilterNotTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupFilterNotTagPtrInput)(nil)).Elem(), BudgetManagementGroupFilterNotTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupFilterTagInput)(nil)).Elem(), BudgetManagementGroupFilterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupFilterTagArrayInput)(nil)).Elem(), BudgetManagementGroupFilterTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupNotificationInput)(nil)).Elem(), BudgetManagementGroupNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupNotificationArrayInput)(nil)).Elem(), BudgetManagementGroupNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupTimePeriodInput)(nil)).Elem(), BudgetManagementGroupTimePeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupTimePeriodPtrInput)(nil)).Elem(), BudgetManagementGroupTimePeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupFilterInput)(nil)).Elem(), BudgetResourceGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupFilterPtrInput)(nil)).Elem(), BudgetResourceGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupFilterDimensionInput)(nil)).Elem(), BudgetResourceGroupFilterDimensionArgs{})
@@ -4383,6 +5599,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionNotificationArrayInput)(nil)).Elem(), GetBudgetSubscriptionNotificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionTimePeriodInput)(nil)).Elem(), GetBudgetSubscriptionTimePeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetSubscriptionTimePeriodArrayInput)(nil)).Elem(), GetBudgetSubscriptionTimePeriodArray{})
+	pulumi.RegisterOutputType(BudgetManagementGroupFilterOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupFilterPtrOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupFilterDimensionOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupFilterDimensionArrayOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupFilterNotOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupFilterNotPtrOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupFilterNotDimensionOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupFilterNotDimensionPtrOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupFilterNotTagOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupFilterNotTagPtrOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupFilterTagOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupFilterTagArrayOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupNotificationOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupNotificationArrayOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupTimePeriodOutput{})
+	pulumi.RegisterOutputType(BudgetManagementGroupTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupFilterOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupFilterPtrOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupFilterDimensionOutput{})

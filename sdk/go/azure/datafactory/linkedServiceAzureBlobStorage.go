@@ -42,7 +42,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "exampleLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
 // 				return exampleAccount.PrimaryConnectionString, nil
 // 			}).(pulumi.StringOutput),
@@ -96,7 +96,7 @@ import (
 // 		}
 // 		testLinkedServiceKeyVault, err := datafactory.NewLinkedServiceKeyVault(ctx, "testLinkedServiceKeyVault", &datafactory.LinkedServiceKeyVaultArgs{
 // 			ResourceGroupName: testResourceGroup.Name,
-// 			DataFactoryName:   testFactory.Name,
+// 			DataFactoryId:     testFactory.ID(),
 // 			KeyVaultId:        testKeyVault.ID(),
 // 		})
 // 		if err != nil {
@@ -104,7 +104,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "testLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
 // 			ResourceGroupName: testResourceGroup.Name,
-// 			DataFactoryName:   testFactory.Name,
+// 			DataFactoryId:     testFactory.ID(),
 // 			SasUri:            pulumi.String("https://storageaccountname.blob.core.windows.net"),
 // 			KeyVaultSasToken: &datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{
 // 				LinkedServiceName: testLinkedServiceKeyVault.Name,
@@ -135,7 +135,11 @@ type LinkedServiceAzureBlobStorage struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
 	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -170,9 +174,6 @@ func NewLinkedServiceAzureBlobStorage(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -204,7 +205,11 @@ type linkedServiceAzureBlobStorageState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
@@ -239,7 +244,11 @@ type LinkedServiceAzureBlobStorageState struct {
 	Annotations pulumi.StringArrayInput
 	// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
 	ConnectionString pulumi.StringPtrInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
@@ -278,8 +287,12 @@ type linkedServiceAzureBlobStorageArgs struct {
 	Annotations []string `pulumi:"annotations"`
 	// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
@@ -314,8 +327,12 @@ type LinkedServiceAzureBlobStorageArgs struct {
 	Annotations pulumi.StringArrayInput
 	// The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
 	ConnectionString pulumi.StringPtrInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.

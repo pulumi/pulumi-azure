@@ -154,6 +154,8 @@ type Volume struct {
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps pulumi.Float64Output `pulumi:"throughputInMibps"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringOutput `pulumi:"volumePath"`
 }
@@ -240,6 +242,8 @@ type volumeState struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps *float64 `pulumi:"throughputInMibps"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath *string `pulumi:"volumePath"`
 }
@@ -277,6 +281,8 @@ type VolumeState struct {
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps pulumi.Float64PtrInput
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringPtrInput
 }
@@ -316,6 +322,8 @@ type volumeArgs struct {
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps *float64 `pulumi:"throughputInMibps"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath string `pulumi:"volumePath"`
 }
@@ -352,6 +360,8 @@ type VolumeArgs struct {
 	SubnetId pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps pulumi.Float64PtrInput
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringInput
 }

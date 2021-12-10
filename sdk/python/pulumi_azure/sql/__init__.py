@@ -14,6 +14,8 @@ from .get_database import *
 from .get_server import *
 from .managed_database import *
 from .managed_instance import *
+from .managed_instance_active_directory_administrator import *
+from .managed_instance_failover_group import *
 from .sql_server import *
 from .virtual_network_rule import *
 from ._inputs import *

@@ -19,6 +19,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<Inputs.KubernetesClusterAddonProfileAciConnectorLinuxArgs>? AciConnectorLinux { get; set; }
 
         /// <summary>
+        /// An `azure_keyvault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/en-us/azure/aks/csi-secrets-store-driver).
+        /// </summary>
+        [Input("azureKeyvaultSecretsProvider")]
+        public Input<Inputs.KubernetesClusterAddonProfileAzureKeyvaultSecretsProviderArgs>? AzureKeyvaultSecretsProvider { get; set; }
+
+        /// <summary>
         /// A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         /// </summary>
         [Input("azurePolicy")]

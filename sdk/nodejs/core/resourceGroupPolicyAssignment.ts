@@ -34,6 +34,13 @@ import * as utilities from "../utilities";
  * const exampleResourceGroupPolicyAssignment = new azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", {
  *     resourceGroupId: exampleResourceGroup.id,
  *     policyDefinitionId: exampleDefinition.id,
+ *     parameters: `      "tagName": {
+ *         "value": "Business Unit"
+ *       },
+ *       "tagValue": {
+ *         "value": "BU"
+ *       }
+ * `,
  * });
  * ```
  *

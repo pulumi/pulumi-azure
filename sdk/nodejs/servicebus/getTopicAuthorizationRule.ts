@@ -13,14 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.servicebus.getTopicAuthorizationRule({
+ * const example = azure.servicebus.getTopicAuthorizationRule({
  *     name: "example-tfex_name",
- *     namespaceName: "example-namespace",
  *     resourceGroupName: "example-resources",
+ *     namespaceName: "example-namespace",
  *     topicName: "example-servicebus_topic",
- * }));
- *
- * export const servicebusAuthorizationRuleId = azurem_servicebus_topic_authorization_rule_example.id;
+ * });
+ * export const servicebusAuthorizationRuleId = data.azurem_servicebus_topic_authorization_rule.example.id;
  * ```
  */
 export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicAuthorizationRuleResult> {

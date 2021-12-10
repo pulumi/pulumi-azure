@@ -19639,7 +19639,9 @@ func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) TunnelIps() pu
 type VpnGatewayConnectionRouting struct {
 	// The ID of the Route Table associated with this VPN Connection.
 	AssociatedRouteTable string `pulumi:"associatedRouteTable"`
-	// The list IDs of Route Tables to advertise the routes of this VPN Connection.
+	// A `propagatedRouteTable` block as defined below.
+	PropagatedRouteTable *VpnGatewayConnectionRoutingPropagatedRouteTable `pulumi:"propagatedRouteTable"`
+	// Deprecated: Deprecated in favour of `propagated_route_table`
 	PropagatedRouteTables []string `pulumi:"propagatedRouteTables"`
 }
 
@@ -19657,7 +19659,9 @@ type VpnGatewayConnectionRoutingInput interface {
 type VpnGatewayConnectionRoutingArgs struct {
 	// The ID of the Route Table associated with this VPN Connection.
 	AssociatedRouteTable pulumi.StringInput `pulumi:"associatedRouteTable"`
-	// The list IDs of Route Tables to advertise the routes of this VPN Connection.
+	// A `propagatedRouteTable` block as defined below.
+	PropagatedRouteTable VpnGatewayConnectionRoutingPropagatedRouteTablePtrInput `pulumi:"propagatedRouteTable"`
+	// Deprecated: Deprecated in favour of `propagated_route_table`
 	PropagatedRouteTables pulumi.StringArrayInput `pulumi:"propagatedRouteTables"`
 }
 
@@ -19717,7 +19721,14 @@ func (o VpnGatewayConnectionRoutingOutput) AssociatedRouteTable() pulumi.StringO
 	return o.ApplyT(func(v VpnGatewayConnectionRouting) string { return v.AssociatedRouteTable }).(pulumi.StringOutput)
 }
 
-// The list IDs of Route Tables to advertise the routes of this VPN Connection.
+// A `propagatedRouteTable` block as defined below.
+func (o VpnGatewayConnectionRoutingOutput) PropagatedRouteTable() VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionRouting) *VpnGatewayConnectionRoutingPropagatedRouteTable {
+		return v.PropagatedRouteTable
+	}).(VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput)
+}
+
+// Deprecated: Deprecated in favour of `propagated_route_table`
 func (o VpnGatewayConnectionRoutingOutput) PropagatedRouteTables() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VpnGatewayConnectionRouting) []string { return v.PropagatedRouteTables }).(pulumi.StringArrayOutput)
 }
@@ -19742,11 +19753,275 @@ func (o VpnGatewayConnectionRoutingArrayOutput) Index(i pulumi.IntInput) VpnGate
 	}).(VpnGatewayConnectionRoutingOutput)
 }
 
+type VpnGatewayConnectionRoutingPropagatedRouteTable struct {
+	// A list of labels to assign to this route table.
+	Labels []string `pulumi:"labels"`
+	// A list of Route Table ID's to associated with this VPN Gateway Connection.
+	RouteTableIds []string `pulumi:"routeTableIds"`
+}
+
+// VpnGatewayConnectionRoutingPropagatedRouteTableInput is an input type that accepts VpnGatewayConnectionRoutingPropagatedRouteTableArgs and VpnGatewayConnectionRoutingPropagatedRouteTableOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionRoutingPropagatedRouteTableInput` via:
+//
+//          VpnGatewayConnectionRoutingPropagatedRouteTableArgs{...}
+type VpnGatewayConnectionRoutingPropagatedRouteTableInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionRoutingPropagatedRouteTableOutput() VpnGatewayConnectionRoutingPropagatedRouteTableOutput
+	ToVpnGatewayConnectionRoutingPropagatedRouteTableOutputWithContext(context.Context) VpnGatewayConnectionRoutingPropagatedRouteTableOutput
+}
+
+type VpnGatewayConnectionRoutingPropagatedRouteTableArgs struct {
+	// A list of labels to assign to this route table.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+	// A list of Route Table ID's to associated with this VPN Gateway Connection.
+	RouteTableIds pulumi.StringArrayInput `pulumi:"routeTableIds"`
+}
+
+func (VpnGatewayConnectionRoutingPropagatedRouteTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (i VpnGatewayConnectionRoutingPropagatedRouteTableArgs) ToVpnGatewayConnectionRoutingPropagatedRouteTableOutput() VpnGatewayConnectionRoutingPropagatedRouteTableOutput {
+	return i.ToVpnGatewayConnectionRoutingPropagatedRouteTableOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionRoutingPropagatedRouteTableArgs) ToVpnGatewayConnectionRoutingPropagatedRouteTableOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingPropagatedRouteTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionRoutingPropagatedRouteTableOutput)
+}
+
+func (i VpnGatewayConnectionRoutingPropagatedRouteTableArgs) ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput() VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput {
+	return i.ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionRoutingPropagatedRouteTableArgs) ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionRoutingPropagatedRouteTableOutput).ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx)
+}
+
+// VpnGatewayConnectionRoutingPropagatedRouteTablePtrInput is an input type that accepts VpnGatewayConnectionRoutingPropagatedRouteTableArgs, VpnGatewayConnectionRoutingPropagatedRouteTablePtr and VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionRoutingPropagatedRouteTablePtrInput` via:
+//
+//          VpnGatewayConnectionRoutingPropagatedRouteTableArgs{...}
+//
+//  or:
+//
+//          nil
+type VpnGatewayConnectionRoutingPropagatedRouteTablePtrInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput() VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput
+	ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutputWithContext(context.Context) VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput
+}
+
+type vpnGatewayConnectionRoutingPropagatedRouteTablePtrType VpnGatewayConnectionRoutingPropagatedRouteTableArgs
+
+func VpnGatewayConnectionRoutingPropagatedRouteTablePtr(v *VpnGatewayConnectionRoutingPropagatedRouteTableArgs) VpnGatewayConnectionRoutingPropagatedRouteTablePtrInput {
+	return (*vpnGatewayConnectionRoutingPropagatedRouteTablePtrType)(v)
+}
+
+func (*vpnGatewayConnectionRoutingPropagatedRouteTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (i *vpnGatewayConnectionRoutingPropagatedRouteTablePtrType) ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput() VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput {
+	return i.ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (i *vpnGatewayConnectionRoutingPropagatedRouteTablePtrType) ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput)
+}
+
+type VpnGatewayConnectionRoutingPropagatedRouteTableOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionRoutingPropagatedRouteTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (o VpnGatewayConnectionRoutingPropagatedRouteTableOutput) ToVpnGatewayConnectionRoutingPropagatedRouteTableOutput() VpnGatewayConnectionRoutingPropagatedRouteTableOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionRoutingPropagatedRouteTableOutput) ToVpnGatewayConnectionRoutingPropagatedRouteTableOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingPropagatedRouteTableOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionRoutingPropagatedRouteTableOutput) ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput() VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o.ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (o VpnGatewayConnectionRoutingPropagatedRouteTableOutput) ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnGatewayConnectionRoutingPropagatedRouteTable) *VpnGatewayConnectionRoutingPropagatedRouteTable {
+		return &v
+	}).(VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput)
+}
+
+// A list of labels to assign to this route table.
+func (o VpnGatewayConnectionRoutingPropagatedRouteTableOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionRoutingPropagatedRouteTable) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// A list of Route Table ID's to associated with this VPN Gateway Connection.
+func (o VpnGatewayConnectionRoutingPropagatedRouteTableOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionRoutingPropagatedRouteTable) []string { return v.RouteTableIds }).(pulumi.StringArrayOutput)
+}
+
+type VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (o VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput) ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput() VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput) ToVpnGatewayConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput) Elem() VpnGatewayConnectionRoutingPropagatedRouteTableOutput {
+	return o.ApplyT(func(v *VpnGatewayConnectionRoutingPropagatedRouteTable) VpnGatewayConnectionRoutingPropagatedRouteTable {
+		if v != nil {
+			return *v
+		}
+		var ret VpnGatewayConnectionRoutingPropagatedRouteTable
+		return ret
+	}).(VpnGatewayConnectionRoutingPropagatedRouteTableOutput)
+}
+
+// A list of labels to assign to this route table.
+func (o VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpnGatewayConnectionRoutingPropagatedRouteTable) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of Route Table ID's to associated with this VPN Gateway Connection.
+func (o VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpnGatewayConnectionRoutingPropagatedRouteTable) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RouteTableIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type VpnGatewayConnectionTrafficSelectorPolicy struct {
+	// A list of local address spaces in CIDR format for this VPN Gateway Connection.
+	LocalAddressRanges []string `pulumi:"localAddressRanges"`
+	// A list of remote address spaces in CIDR format for this VPN Gateway Connection.
+	RemoteAddressRanges []string `pulumi:"remoteAddressRanges"`
+}
+
+// VpnGatewayConnectionTrafficSelectorPolicyInput is an input type that accepts VpnGatewayConnectionTrafficSelectorPolicyArgs and VpnGatewayConnectionTrafficSelectorPolicyOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionTrafficSelectorPolicyInput` via:
+//
+//          VpnGatewayConnectionTrafficSelectorPolicyArgs{...}
+type VpnGatewayConnectionTrafficSelectorPolicyInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionTrafficSelectorPolicyOutput() VpnGatewayConnectionTrafficSelectorPolicyOutput
+	ToVpnGatewayConnectionTrafficSelectorPolicyOutputWithContext(context.Context) VpnGatewayConnectionTrafficSelectorPolicyOutput
+}
+
+type VpnGatewayConnectionTrafficSelectorPolicyArgs struct {
+	// A list of local address spaces in CIDR format for this VPN Gateway Connection.
+	LocalAddressRanges pulumi.StringArrayInput `pulumi:"localAddressRanges"`
+	// A list of remote address spaces in CIDR format for this VPN Gateway Connection.
+	RemoteAddressRanges pulumi.StringArrayInput `pulumi:"remoteAddressRanges"`
+}
+
+func (VpnGatewayConnectionTrafficSelectorPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnectionTrafficSelectorPolicy)(nil)).Elem()
+}
+
+func (i VpnGatewayConnectionTrafficSelectorPolicyArgs) ToVpnGatewayConnectionTrafficSelectorPolicyOutput() VpnGatewayConnectionTrafficSelectorPolicyOutput {
+	return i.ToVpnGatewayConnectionTrafficSelectorPolicyOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionTrafficSelectorPolicyArgs) ToVpnGatewayConnectionTrafficSelectorPolicyOutputWithContext(ctx context.Context) VpnGatewayConnectionTrafficSelectorPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionTrafficSelectorPolicyOutput)
+}
+
+// VpnGatewayConnectionTrafficSelectorPolicyArrayInput is an input type that accepts VpnGatewayConnectionTrafficSelectorPolicyArray and VpnGatewayConnectionTrafficSelectorPolicyArrayOutput values.
+// You can construct a concrete instance of `VpnGatewayConnectionTrafficSelectorPolicyArrayInput` via:
+//
+//          VpnGatewayConnectionTrafficSelectorPolicyArray{ VpnGatewayConnectionTrafficSelectorPolicyArgs{...} }
+type VpnGatewayConnectionTrafficSelectorPolicyArrayInput interface {
+	pulumi.Input
+
+	ToVpnGatewayConnectionTrafficSelectorPolicyArrayOutput() VpnGatewayConnectionTrafficSelectorPolicyArrayOutput
+	ToVpnGatewayConnectionTrafficSelectorPolicyArrayOutputWithContext(context.Context) VpnGatewayConnectionTrafficSelectorPolicyArrayOutput
+}
+
+type VpnGatewayConnectionTrafficSelectorPolicyArray []VpnGatewayConnectionTrafficSelectorPolicyInput
+
+func (VpnGatewayConnectionTrafficSelectorPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayConnectionTrafficSelectorPolicy)(nil)).Elem()
+}
+
+func (i VpnGatewayConnectionTrafficSelectorPolicyArray) ToVpnGatewayConnectionTrafficSelectorPolicyArrayOutput() VpnGatewayConnectionTrafficSelectorPolicyArrayOutput {
+	return i.ToVpnGatewayConnectionTrafficSelectorPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayConnectionTrafficSelectorPolicyArray) ToVpnGatewayConnectionTrafficSelectorPolicyArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionTrafficSelectorPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayConnectionTrafficSelectorPolicyArrayOutput)
+}
+
+type VpnGatewayConnectionTrafficSelectorPolicyOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionTrafficSelectorPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayConnectionTrafficSelectorPolicy)(nil)).Elem()
+}
+
+func (o VpnGatewayConnectionTrafficSelectorPolicyOutput) ToVpnGatewayConnectionTrafficSelectorPolicyOutput() VpnGatewayConnectionTrafficSelectorPolicyOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionTrafficSelectorPolicyOutput) ToVpnGatewayConnectionTrafficSelectorPolicyOutputWithContext(ctx context.Context) VpnGatewayConnectionTrafficSelectorPolicyOutput {
+	return o
+}
+
+// A list of local address spaces in CIDR format for this VPN Gateway Connection.
+func (o VpnGatewayConnectionTrafficSelectorPolicyOutput) LocalAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionTrafficSelectorPolicy) []string { return v.LocalAddressRanges }).(pulumi.StringArrayOutput)
+}
+
+// A list of remote address spaces in CIDR format for this VPN Gateway Connection.
+func (o VpnGatewayConnectionTrafficSelectorPolicyOutput) RemoteAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionTrafficSelectorPolicy) []string { return v.RemoteAddressRanges }).(pulumi.StringArrayOutput)
+}
+
+type VpnGatewayConnectionTrafficSelectorPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayConnectionTrafficSelectorPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnGatewayConnectionTrafficSelectorPolicy)(nil)).Elem()
+}
+
+func (o VpnGatewayConnectionTrafficSelectorPolicyArrayOutput) ToVpnGatewayConnectionTrafficSelectorPolicyArrayOutput() VpnGatewayConnectionTrafficSelectorPolicyArrayOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionTrafficSelectorPolicyArrayOutput) ToVpnGatewayConnectionTrafficSelectorPolicyArrayOutputWithContext(ctx context.Context) VpnGatewayConnectionTrafficSelectorPolicyArrayOutput {
+	return o
+}
+
+func (o VpnGatewayConnectionTrafficSelectorPolicyArrayOutput) Index(i pulumi.IntInput) VpnGatewayConnectionTrafficSelectorPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayConnectionTrafficSelectorPolicy {
+		return vs[0].([]VpnGatewayConnectionTrafficSelectorPolicy)[vs[1].(int)]
+	}).(VpnGatewayConnectionTrafficSelectorPolicyOutput)
+}
+
 type VpnGatewayConnectionVpnLink struct {
 	// The expected connection bandwidth in MBPS. Defaults to `10`.
 	BandwidthMbps *int `pulumi:"bandwidthMbps"`
 	// Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
 	BgpEnabled *bool `pulumi:"bgpEnabled"`
+	// The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+	ConnectionMode *string `pulumi:"connectionMode"`
 	// One or more `ipsecPolicy` blocks as defined above.
 	IpsecPolicies []VpnGatewayConnectionVpnLinkIpsecPolicy `pulumi:"ipsecPolicies"`
 	// Whether to use local azure ip to initiate connection? Defaults to `false`.
@@ -19783,6 +20058,8 @@ type VpnGatewayConnectionVpnLinkArgs struct {
 	BandwidthMbps pulumi.IntPtrInput `pulumi:"bandwidthMbps"`
 	// Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
 	BgpEnabled pulumi.BoolPtrInput `pulumi:"bgpEnabled"`
+	// The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+	ConnectionMode pulumi.StringPtrInput `pulumi:"connectionMode"`
 	// One or more `ipsecPolicy` blocks as defined above.
 	IpsecPolicies VpnGatewayConnectionVpnLinkIpsecPolicyArrayInput `pulumi:"ipsecPolicies"`
 	// Whether to use local azure ip to initiate connection? Defaults to `false`.
@@ -19862,6 +20139,11 @@ func (o VpnGatewayConnectionVpnLinkOutput) BandwidthMbps() pulumi.IntPtrOutput {
 // Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
 func (o VpnGatewayConnectionVpnLinkOutput) BgpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *bool { return v.BgpEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+func (o VpnGatewayConnectionVpnLinkOutput) ConnectionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *string { return v.ConnectionMode }).(pulumi.StringPtrOutput)
 }
 
 // One or more `ipsecPolicy` blocks as defined above.
@@ -25866,6 +26148,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrInput)(nil)).Elem(), VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionRoutingInput)(nil)).Elem(), VpnGatewayConnectionRoutingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionRoutingArrayInput)(nil)).Elem(), VpnGatewayConnectionRoutingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionRoutingPropagatedRouteTableInput)(nil)).Elem(), VpnGatewayConnectionRoutingPropagatedRouteTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionRoutingPropagatedRouteTablePtrInput)(nil)).Elem(), VpnGatewayConnectionRoutingPropagatedRouteTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionTrafficSelectorPolicyInput)(nil)).Elem(), VpnGatewayConnectionTrafficSelectorPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionTrafficSelectorPolicyArrayInput)(nil)).Elem(), VpnGatewayConnectionTrafficSelectorPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionVpnLinkInput)(nil)).Elem(), VpnGatewayConnectionVpnLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionVpnLinkArrayInput)(nil)).Elem(), VpnGatewayConnectionVpnLinkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayConnectionVpnLinkIpsecPolicyInput)(nil)).Elem(), VpnGatewayConnectionVpnLinkIpsecPolicyArgs{})
@@ -26199,6 +26485,10 @@ func init() {
 	pulumi.RegisterOutputType(VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionRoutingOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionRoutingArrayOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionRoutingPropagatedRouteTableOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionTrafficSelectorPolicyOutput{})
+	pulumi.RegisterOutputType(VpnGatewayConnectionTrafficSelectorPolicyArrayOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkArrayOutput{})
 	pulumi.RegisterOutputType(VpnGatewayConnectionVpnLinkIpsecPolicyOutput{})

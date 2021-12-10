@@ -133,6 +133,8 @@ __all__ = [
     'VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs',
     'VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs',
     'VpnGatewayConnectionRoutingArgs',
+    'VpnGatewayConnectionRoutingPropagatedRouteTableArgs',
+    'VpnGatewayConnectionTrafficSelectorPolicyArgs',
     'VpnGatewayConnectionVpnLinkArgs',
     'VpnGatewayConnectionVpnLinkIpsecPolicyArgs',
     'VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs',
@@ -9661,13 +9663,20 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
 class VpnGatewayConnectionRoutingArgs:
     def __init__(__self__, *,
                  associated_route_table: pulumi.Input[str],
-                 propagated_route_tables: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 propagated_route_table: Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']] = None,
+                 propagated_route_tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] associated_route_table: The ID of the Route Table associated with this VPN Connection.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] propagated_route_tables: The list IDs of Route Tables to advertise the routes of this VPN Connection.
+        :param pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs'] propagated_route_table: A `propagated_route_table` block as defined below.
         """
         pulumi.set(__self__, "associated_route_table", associated_route_table)
-        pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
+        if propagated_route_table is not None:
+            pulumi.set(__self__, "propagated_route_table", propagated_route_table)
+        if propagated_route_tables is not None:
+            warnings.warn("""Deprecated in favour of `propagated_route_table`""", DeprecationWarning)
+            pulumi.log.warn("""propagated_route_tables is deprecated: Deprecated in favour of `propagated_route_table`""")
+        if propagated_route_tables is not None:
+            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
 
     @property
     @pulumi.getter(name="associatedRouteTable")
@@ -9682,16 +9691,100 @@ class VpnGatewayConnectionRoutingArgs:
         pulumi.set(self, "associated_route_table", value)
 
     @property
+    @pulumi.getter(name="propagatedRouteTable")
+    def propagated_route_table(self) -> Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']]:
+        """
+        A `propagated_route_table` block as defined below.
+        """
+        return pulumi.get(self, "propagated_route_table")
+
+    @propagated_route_table.setter
+    def propagated_route_table(self, value: Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']]):
+        pulumi.set(self, "propagated_route_table", value)
+
+    @property
     @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The list IDs of Route Tables to advertise the routes of this VPN Connection.
-        """
+    def propagated_route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "propagated_route_tables")
 
     @propagated_route_tables.setter
-    def propagated_route_tables(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def propagated_route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "propagated_route_tables", value)
+
+
+@pulumi.input_type
+class VpnGatewayConnectionRoutingPropagatedRouteTableArgs:
+    def __init__(__self__, *,
+                 route_table_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: A list of Route Table ID's to associated with this VPN Gateway Connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: A list of labels to assign to this route table.
+        """
+        pulumi.set(__self__, "route_table_ids", route_table_ids)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter(name="routeTableIds")
+    def route_table_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of Route Table ID's to associated with this VPN Gateway Connection.
+        """
+        return pulumi.get(self, "route_table_ids")
+
+    @route_table_ids.setter
+    def route_table_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "route_table_ids", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of labels to assign to this route table.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "labels", value)
+
+
+@pulumi.input_type
+class VpnGatewayConnectionTrafficSelectorPolicyArgs:
+    def __init__(__self__, *,
+                 local_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 remote_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_address_ranges: A list of local address spaces in CIDR format for this VPN Gateway Connection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_address_ranges: A list of remote address spaces in CIDR format for this VPN Gateway Connection.
+        """
+        pulumi.set(__self__, "local_address_ranges", local_address_ranges)
+        pulumi.set(__self__, "remote_address_ranges", remote_address_ranges)
+
+    @property
+    @pulumi.getter(name="localAddressRanges")
+    def local_address_ranges(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of local address spaces in CIDR format for this VPN Gateway Connection.
+        """
+        return pulumi.get(self, "local_address_ranges")
+
+    @local_address_ranges.setter
+    def local_address_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "local_address_ranges", value)
+
+    @property
+    @pulumi.getter(name="remoteAddressRanges")
+    def remote_address_ranges(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of remote address spaces in CIDR format for this VPN Gateway Connection.
+        """
+        return pulumi.get(self, "remote_address_ranges")
+
+    @remote_address_ranges.setter
+    def remote_address_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "remote_address_ranges", value)
 
 
 @pulumi.input_type
@@ -9701,6 +9794,7 @@ class VpnGatewayConnectionVpnLinkArgs:
                  vpn_site_link_id: pulumi.Input[str],
                  bandwidth_mbps: Optional[pulumi.Input[int]] = None,
                  bgp_enabled: Optional[pulumi.Input[bool]] = None,
+                 connection_mode: Optional[pulumi.Input[str]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]] = None,
                  local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  policy_based_traffic_selector_enabled: Optional[pulumi.Input[bool]] = None,
@@ -9713,6 +9807,7 @@ class VpnGatewayConnectionVpnLinkArgs:
         :param pulumi.Input[str] vpn_site_link_id: The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[int] bandwidth_mbps: The expected connection bandwidth in MBPS. Defaults to `10`.
         :param pulumi.Input[bool] bgp_enabled: Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
+        :param pulumi.Input[str] connection_mode: The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]] ipsec_policies: One or more `ipsec_policy` blocks as defined above.
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Whether to use local azure ip to initiate connection? Defaults to `false`.
         :param pulumi.Input[bool] policy_based_traffic_selector_enabled: Whether to enable policy-based traffic selectors? Defaults to `false`.
@@ -9727,6 +9822,8 @@ class VpnGatewayConnectionVpnLinkArgs:
             pulumi.set(__self__, "bandwidth_mbps", bandwidth_mbps)
         if bgp_enabled is not None:
             pulumi.set(__self__, "bgp_enabled", bgp_enabled)
+        if connection_mode is not None:
+            pulumi.set(__self__, "connection_mode", connection_mode)
         if ipsec_policies is not None:
             pulumi.set(__self__, "ipsec_policies", ipsec_policies)
         if local_azure_ip_address_enabled is not None:
@@ -9789,6 +9886,18 @@ class VpnGatewayConnectionVpnLinkArgs:
     @bgp_enabled.setter
     def bgp_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "bgp_enabled", value)
+
+    @property
+    @pulumi.getter(name="connectionMode")
+    def connection_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+        """
+        return pulumi.get(self, "connection_mode")
+
+    @connection_mode.setter
+    def connection_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_mode", value)
 
     @property
     @pulumi.getter(name="ipsecPolicies")

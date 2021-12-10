@@ -17,6 +17,9 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The user identity associated with the resource.
+        /// </summary>
         public readonly string? UserAssignedIdentity;
 
         [OutputConstructor]

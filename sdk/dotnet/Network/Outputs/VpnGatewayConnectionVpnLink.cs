@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly bool? BgpEnabled;
         /// <summary>
+        /// The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+        /// </summary>
+        public readonly string? ConnectionMode;
+        /// <summary>
         /// One or more `ipsec_policy` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.VpnGatewayConnectionVpnLinkIpsecPolicy> IpsecPolicies;
@@ -64,6 +68,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             bool? bgpEnabled,
 
+            string? connectionMode,
+
             ImmutableArray<Outputs.VpnGatewayConnectionVpnLinkIpsecPolicy> ipsecPolicies,
 
             bool? localAzureIpAddressEnabled,
@@ -84,6 +90,7 @@ namespace Pulumi.Azure.Network.Outputs
         {
             BandwidthMbps = bandwidthMbps;
             BgpEnabled = bgpEnabled;
+            ConnectionMode = connectionMode;
             IpsecPolicies = ipsecPolicies;
             LocalAzureIpAddressEnabled = localAzureIpAddressEnabled;
             Name = name;

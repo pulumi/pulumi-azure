@@ -189,6 +189,14 @@ namespace Pulumi.Azure.KeyVault
         /// The current version of the Key Vault Certificate.
         /// </summary>
         public readonly string Version;
+        /// <summary>
+        /// The Base ID of the Key Vault Certificate.
+        /// </summary>
+        public readonly string VersionlessId;
+        /// <summary>
+        /// The Base ID of the Key Vault Secret.
+        /// </summary>
+        public readonly string VersionlessSecretId;
 
         [OutputConstructor]
         private GetCertificateResult(
@@ -214,7 +222,11 @@ namespace Pulumi.Azure.KeyVault
 
             string thumbprint,
 
-            string version)
+            string version,
+
+            string versionlessId,
+
+            string versionlessSecretId)
         {
             CertificateData = certificateData;
             CertificateDataBase64 = certificateDataBase64;
@@ -228,6 +240,8 @@ namespace Pulumi.Azure.KeyVault
             Tags = tags;
             Thumbprint = thumbprint;
             Version = version;
+            VersionlessId = versionlessId;
+            VersionlessSecretId = versionlessSecretId;
         }
     }
 }

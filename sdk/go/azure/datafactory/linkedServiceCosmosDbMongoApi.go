@@ -43,7 +43,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServiceCosmosDbMongoApi(ctx, "exampleLinkedServiceCosmosDbMongoApi", &datafactory.LinkedServiceCosmosDbMongoApiArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			ConnectionString:  pulumi.String("mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true"),
 // 			Database:          pulumi.String("foo"),
 // 		})
@@ -71,7 +71,11 @@ type LinkedServiceCosmosDbMongoApi struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The connection string.
 	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The name of the database.
 	Database pulumi.StringPtrOutput `pulumi:"database"`
@@ -97,9 +101,6 @@ func NewLinkedServiceCosmosDbMongoApi(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -131,7 +132,11 @@ type linkedServiceCosmosDbMongoApiState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The connection string.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The name of the database.
 	Database *string `pulumi:"database"`
@@ -157,7 +162,11 @@ type LinkedServiceCosmosDbMongoApiState struct {
 	Annotations pulumi.StringArrayInput
 	// The connection string.
 	ConnectionString pulumi.StringPtrInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The name of the database.
 	Database pulumi.StringPtrInput
@@ -187,8 +196,12 @@ type linkedServiceCosmosDbMongoApiArgs struct {
 	Annotations []string `pulumi:"annotations"`
 	// The connection string.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The name of the database.
 	Database *string `pulumi:"database"`
 	// The description for the Data Factory Linked Service.
@@ -214,8 +227,12 @@ type LinkedServiceCosmosDbMongoApiArgs struct {
 	Annotations pulumi.StringArrayInput
 	// The connection string.
 	ConnectionString pulumi.StringPtrInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The name of the database.
 	Database pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service.

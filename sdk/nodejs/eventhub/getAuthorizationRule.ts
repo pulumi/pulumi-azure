@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const test = pulumi.all([azurerm_eventhub_test.name, azurerm_eventhub_namespace_test.name, azurerm_resource_group_test.name]).apply(([azurerm_eventhub_testName, azurerm_eventhub_namespace_testName, azurerm_resource_group_testName]) => azure.eventhub.getAuthorizationRule({
- *     eventhubName: azurerm_eventhub_testName,
+ * const test = azure.eventhub.getAuthorizationRule({
  *     name: "test",
- *     namespaceName: azurerm_eventhub_namespace_testName,
- *     resourceGroupName: azurerm_resource_group_testName,
- * }));
+ *     namespaceName: azurerm_eventhub_namespace.test.name,
+ *     eventhubName: azurerm_eventhub.test.name,
+ *     resourceGroupName: azurerm_resource_group.test.name,
+ * });
  * ```
  */
 export function getAuthorizationRule(args: GetAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationRuleResult> {

@@ -193,8 +193,8 @@ def get_topic_authorization_rule(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.servicebus.get_topic_authorization_rule(name="example-tfex_name",
-        namespace_name="example-namespace",
         resource_group_name="example-resources",
+        namespace_name="example-namespace",
         topic_name="example-servicebus_topic")
     pulumi.export("servicebusAuthorizationRuleId", data["azurem_servicebus_topic_authorization_rule"]["example"]["id"])
     ```
@@ -249,8 +249,8 @@ def get_topic_authorization_rule_output(name: Optional[pulumi.Input[str]] = None
     import pulumi_azure as azure
 
     example = azure.servicebus.get_topic_authorization_rule(name="example-tfex_name",
-        namespace_name="example-namespace",
         resource_group_name="example-resources",
+        namespace_name="example-namespace",
         topic_name="example-servicebus_topic")
     pulumi.export("servicebusAuthorizationRuleId", data["azurem_servicebus_topic_authorization_rule"]["example"]["id"])
     ```

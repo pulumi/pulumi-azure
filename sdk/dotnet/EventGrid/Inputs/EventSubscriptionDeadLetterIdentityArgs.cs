@@ -18,6 +18,9 @@ namespace Pulumi.Azure.EventGrid.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The user identity associated with the resource.
+        /// </summary>
         [Input("userAssignedIdentity")]
         public Input<string>? UserAssignedIdentity { get; set; }
 

@@ -166,7 +166,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> OsType { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        /// The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("podSubnetId")]
         public Output<string?> PodSubnetId { get; private set; } = null!;
@@ -428,7 +428,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        /// The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("podSubnetId")]
         public Input<string>? PodSubnetId { get; set; }
@@ -657,7 +657,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        /// The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("podSubnetId")]
         public Input<string>? PodSubnetId { get; set; }

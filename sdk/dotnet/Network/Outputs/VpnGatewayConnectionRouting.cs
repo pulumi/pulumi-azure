@@ -18,17 +18,21 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string AssociatedRouteTable;
         /// <summary>
-        /// The list IDs of Route Tables to advertise the routes of this VPN Connection.
+        /// A `propagated_route_table` block as defined below.
         /// </summary>
+        public readonly Outputs.VpnGatewayConnectionRoutingPropagatedRouteTable? PropagatedRouteTable;
         public readonly ImmutableArray<string> PropagatedRouteTables;
 
         [OutputConstructor]
         private VpnGatewayConnectionRouting(
             string associatedRouteTable,
 
+            Outputs.VpnGatewayConnectionRoutingPropagatedRouteTable? propagatedRouteTable,
+
             ImmutableArray<string> propagatedRouteTables)
         {
             AssociatedRouteTable = associatedRouteTable;
+            PropagatedRouteTable = propagatedRouteTable;
             PropagatedRouteTables = propagatedRouteTables;
         }
     }

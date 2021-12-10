@@ -44,7 +44,7 @@ import (
 // 			Location:                rg.Location,
 // 			ResourceGroupName:       rg.Name,
 // 			OfferType:               pulumi.String("Standard"),
-// 			Kind:                    pulumi.String("GlobalDocumentDB"),
+// 			Kind:                    pulumi.String("MongoDB"),
 // 			EnableAutomaticFailover: pulumi.Bool(true),
 // 			Capabilities: cosmosdb.AccountCapabilityArray{
 // 				&cosmosdb.AccountCapabilityArgs{
@@ -62,8 +62,8 @@ import (
 // 			},
 // 			ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
 // 				ConsistencyLevel:     pulumi.String("BoundedStaleness"),
-// 				MaxIntervalInSeconds: pulumi.Int(10),
-// 				MaxStalenessPrefix:   pulumi.Int(200),
+// 				MaxIntervalInSeconds: pulumi.Int(300),
+// 				MaxStalenessPrefix:   pulumi.Int(100000),
 // 			},
 // 			GeoLocations: cosmosdb.AccountGeoLocationArray{
 // 				&cosmosdb.AccountGeoLocationArgs{

@@ -153,6 +153,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.ManagedDiskEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
 
         /// <summary>
+        /// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("hyperVGeneration")]
+        public Output<string?> HyperVGeneration { get; private set; } = null!;
+
+        /// <summary>
         /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
         /// </summary>
         [Output("imageReferenceId")]
@@ -361,6 +367,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ManagedDiskEncryptionSettingsArgs>? EncryptionSettings { get; set; }
 
         /// <summary>
+        /// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("hyperVGeneration")]
+        public Input<string>? HyperVGeneration { get; set; }
+
+        /// <summary>
         /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
         /// </summary>
         [Input("imageReferenceId")]
@@ -534,6 +546,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.ManagedDiskEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }
+
+        /// <summary>
+        /// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("hyperVGeneration")]
+        public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
         /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.

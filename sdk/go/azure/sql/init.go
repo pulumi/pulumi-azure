@@ -35,6 +35,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagedDatabase{}
 	case "azure:sql/managedInstance:ManagedInstance":
 		r = &ManagedInstance{}
+	case "azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator":
+		r = &ManagedInstanceActiveDirectoryAdministrator{}
+	case "azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup":
+		r = &ManagedInstanceFailoverGroup{}
 	case "azure:sql/sqlServer:SqlServer":
 		r = &SqlServer{}
 	case "azure:sql/virtualNetworkRule:VirtualNetworkRule":
@@ -85,6 +89,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sql/managedInstance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sql/managedInstanceActiveDirectoryAdministrator",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sql/managedInstanceFailoverGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

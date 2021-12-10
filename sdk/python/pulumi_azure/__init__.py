@@ -1336,6 +1336,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "bot/serviceAzureBot",
+  "fqn": "pulumi_azure.bot",
+  "classes": {
+   "azure:bot/serviceAzureBot:ServiceAzureBot": "ServiceAzureBot"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "bot/webApp",
   "fqn": "pulumi_azure.bot",
   "classes": {
@@ -1580,6 +1588,14 @@ _utilities.register(
   "fqn": "pulumi_azure.compute",
   "classes": {
    "azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet": "WindowsVirtualMachineScaleSet"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "consumption/budgetManagementGroup",
+  "fqn": "pulumi_azure.consumption",
+  "classes": {
+   "azure:consumption/budgetManagementGroup:BudgetManagementGroup": "BudgetManagementGroup"
   }
  },
  {
@@ -5756,6 +5772,22 @@ _utilities.register(
   "fqn": "pulumi_azure.sql",
   "classes": {
    "azure:sql/managedInstance:ManagedInstance": "ManagedInstance"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sql/managedInstanceActiveDirectoryAdministrator",
+  "fqn": "pulumi_azure.sql",
+  "classes": {
+   "azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator": "ManagedInstanceActiveDirectoryAdministrator"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sql/managedInstanceFailoverGroup",
+  "fqn": "pulumi_azure.sql",
+  "classes": {
+   "azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup": "ManagedInstanceFailoverGroup"
   }
  },
  {

@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     topicType: "Microsoft.Resources.ResourceGroups",
  * });
  * const exampleSystemTopicEventSubscription = new azure.eventgrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription", {
- *     systemTopic: azurerm_system_topic.example.name,
+ *     systemTopic: exampleSystemTopic.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     storageQueueEndpoint: {
  *         storageAccountId: exampleAccount.id,

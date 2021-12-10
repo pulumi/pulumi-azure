@@ -14,12 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.monitoring.getScheduledQueryRulesLog({
- *     name: "tfex-queryrule",
+ * const example = azure.monitoring.getScheduledQueryRulesLog({
  *     resourceGroupName: "example-rg",
- * }));
- *
- * export const queryRuleId = example.id;
+ *     name: "tfex-queryrule",
+ * });
+ * export const queryRuleId = example.then(example => example.id);
  * ```
  */
 export function getScheduledQueryRulesLog(args: GetScheduledQueryRulesLogArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRulesLogResult> {

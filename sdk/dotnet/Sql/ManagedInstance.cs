@@ -258,7 +258,7 @@ namespace Pulumi.Azure.Sql
         public Output<string?> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         /// </summary>
         [Output("dnsZonePartnerId")]
         public Output<string?> DnsZonePartnerId { get; private set; } = null!;
@@ -322,6 +322,12 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+        /// </summary>
+        [Output("storageAccountType")]
+        public Output<string?> StorageAccountType { get; private set; } = null!;
 
         /// <summary>
         /// Maximum storage space for your instance. It should be a multiple of 32GB.
@@ -418,7 +424,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         /// </summary>
         [Input("dnsZonePartnerId")]
         public Input<string>? DnsZonePartnerId { get; set; }
@@ -476,6 +482,12 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+        /// </summary>
+        [Input("storageAccountType")]
+        public Input<string>? StorageAccountType { get; set; }
 
         /// <summary>
         /// Maximum storage space for your instance. It should be a multiple of 32GB.
@@ -539,7 +551,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a failover group, although creation of a failover group is not yet possible in `azurerm`. Setting this after creation forces a new resource to be created.
+        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         /// </summary>
         [Input("dnsZonePartnerId")]
         public Input<string>? DnsZonePartnerId { get; set; }
@@ -603,6 +615,12 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
+
+        /// <summary>
+        /// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+        /// </summary>
+        [Input("storageAccountType")]
+        public Input<string>? StorageAccountType { get; set; }
 
         /// <summary>
         /// Maximum storage space for your instance. It should be a multiple of 32GB.

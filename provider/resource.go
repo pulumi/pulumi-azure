@@ -1320,9 +1320,13 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "sql_virtual_network_rule.html.markdown",
 				},
 			},
-			"azurerm_sql_active_directory_administrator": {Tok: azureResource(azureSQL, "ActiveDirectoryAdministrator")},
-			"azurerm_sql_managed_database":               {Tok: azureResource(azureSQL, "ManagedDatabase")},
-			"azurerm_sql_managed_instance":               {Tok: azureResource(azureSQL, "ManagedInstance")},
+			"azurerm_sql_active_directory_administrator":  {Tok: azureResource(azureSQL, "ActiveDirectoryAdministrator")},
+			"azurerm_sql_managed_database":                {Tok: azureResource(azureSQL, "ManagedDatabase")},
+			"azurerm_sql_managed_instance":                {Tok: azureResource(azureSQL, "ManagedInstance")},
+			"azurerm_sql_managed_instance_failover_group": {Tok: azureResource(azureSQL, "ManagedInstanceFailoverGroup")},
+			"azurerm_sql_managed_instance_active_directory_administrator": {
+				Tok: azureResource(azureSQL, "ManagedInstanceActiveDirectoryAdministrator"),
+			},
 
 			// Network
 			"azurerm_virtual_network": {
@@ -1529,8 +1533,16 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_hub_bgp_connection":            {Tok: azureResource(azureNetwork, "BgpConnection")},
 			"azurerm_virtual_hub_route_table_route":         {Tok: azureResource(azureNetwork, "VirtualHubRouteTableRoute")},
 
-			"azurerm_vpn_gateway":            {Tok: azureResource(azureNetwork, "VpnGateway")},
-			"azurerm_vpn_gateway_connection": {Tok: azureResource(azureNetwork, "VpnGatewayConnection")},
+			"azurerm_vpn_gateway": {Tok: azureResource(azureNetwork, "VpnGateway")},
+			"azurerm_vpn_gateway_connection": {
+				Tok: azureResource(azureNetwork, "VpnGatewayConnection"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"routing": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "routings",
+					},
+				},
+			},
 			"azurerm_vpn_server_configuration": {
 				Tok: azureResource(azureNetwork, "VpnServerConfiguration"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1802,6 +1814,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_bot_channel_facebook":           {Tok: azureResource(azureBot, "ChannelFacebook")},
 			"azurerm_bot_channel_sms":                {Tok: azureResource(azureBot, "ChannelSms")},
 			"azurerm_bot_channel_line":               {Tok: azureResource(azureBot, "ChannelLine")},
+			"azurerm_bot_service_azure_bot":          {Tok: azureResource(azureBot, "ServiceAzureBot")},
 
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
@@ -2015,8 +2028,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_communication_service": {Tok: azureResource(azureCommunication, "Service")},
 
 			// consumption
-			"azurerm_consumption_budget_resource_group": {Tok: azureResource(azureConsumption, "BudgetResourceGroup")},
-			"azurerm_consumption_budget_subscription":   {Tok: azureResource(azureConsumption, "BudgetSubscription")},
+			"azurerm_consumption_budget_resource_group":   {Tok: azureResource(azureConsumption, "BudgetResourceGroup")},
+			"azurerm_consumption_budget_subscription":     {Tok: azureResource(azureConsumption, "BudgetSubscription")},
+			"azurerm_consumption_budget_management_group": {Tok: azureResource(azureConsumption, "BudgetManagementGroup")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},

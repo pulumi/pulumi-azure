@@ -69,7 +69,7 @@ type KubernetesClusterNodePool struct {
 	OsSku pulumi.StringOutput `pulumi:"osSku"`
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
-	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+	// The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
 	PodSubnetId pulumi.StringPtrOutput `pulumi:"podSubnetId"`
 	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
@@ -172,7 +172,7 @@ type kubernetesClusterNodePoolState struct {
 	OsSku *string `pulumi:"osSku"`
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType *string `pulumi:"osType"`
-	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+	// The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
 	PodSubnetId *string `pulumi:"podSubnetId"`
 	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
@@ -241,7 +241,7 @@ type KubernetesClusterNodePoolState struct {
 	OsSku pulumi.StringPtrInput
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType pulumi.StringPtrInput
-	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+	// The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
 	PodSubnetId pulumi.StringPtrInput
 	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
@@ -314,7 +314,7 @@ type kubernetesClusterNodePoolArgs struct {
 	OsSku *string `pulumi:"osSku"`
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType *string `pulumi:"osType"`
-	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+	// The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
 	PodSubnetId *string `pulumi:"podSubnetId"`
 	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
@@ -384,7 +384,7 @@ type KubernetesClusterNodePoolArgs struct {
 	OsSku pulumi.StringPtrInput
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType pulumi.StringPtrInput
-	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+	// The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
 	PodSubnetId pulumi.StringPtrInput
 	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput

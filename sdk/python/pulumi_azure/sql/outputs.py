@@ -15,6 +15,8 @@ __all__ = [
     'FailoverGroupPartnerServer',
     'FailoverGroupReadWriteEndpointFailoverPolicy',
     'FailoverGroupReadonlyEndpointFailoverPolicy',
+    'ManagedInstanceFailoverGroupPartnerRegion',
+    'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy',
     'ManagedInstanceIdentity',
     'SqlServerExtendedAuditingPolicy',
     'SqlServerIdentity',
@@ -457,6 +459,84 @@ class FailoverGroupReadonlyEndpointFailoverPolicy(dict):
         Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
         """
         return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class ManagedInstanceFailoverGroupPartnerRegion(dict):
+    def __init__(__self__, *,
+                 location: Optional[str] = None,
+                 role: Optional[str] = None):
+        """
+        :param str location: The Azure Region where the SQL Instance Failover Group exists.
+        :param str role: The partner replication role of the SQL Instance Failover Group.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The Azure Region where the SQL Instance Failover Group exists.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        The partner replication role of the SQL Instance Failover Group.
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "graceMinutes":
+            suggest = "grace_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: str,
+                 grace_minutes: Optional[int] = None):
+        """
+        :param str mode: The failover mode. Possible values are `Manual`, `Automatic`
+        :param int grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if grace_minutes is not None:
+            pulumi.set(__self__, "grace_minutes", grace_minutes)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The failover mode. Possible values are `Manual`, `Automatic`
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="graceMinutes")
+    def grace_minutes(self) -> Optional[int]:
+        """
+        Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+        """
+        return pulumi.get(self, "grace_minutes")
 
 
 @pulumi.output_type
