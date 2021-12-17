@@ -121,6 +121,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string DefaultFunctionKey;
         /// <summary>
+        /// Function App resource's Durable Task Extension system key.
+        /// </summary>
+        public readonly string DurabletaskExtensionKey;
+        /// <summary>
         /// Function App resource's Event Grid Extension Config system key.
         /// </summary>
         public readonly string EventGridExtensionConfigKey;
@@ -135,10 +139,16 @@ namespace Pulumi.Azure.AppService
         public readonly string Name;
         public readonly string PrimaryKey;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// Function App resource's SignalR Extension system key.
+        /// </summary>
+        public readonly string SignalrExtensionKey;
 
         [OutputConstructor]
         private GetFunctionAppHostKeysResult(
             string defaultFunctionKey,
+
+            string durabletaskExtensionKey,
 
             string eventGridExtensionConfigKey,
 
@@ -150,15 +160,19 @@ namespace Pulumi.Azure.AppService
 
             string primaryKey,
 
-            string resourceGroupName)
+            string resourceGroupName,
+
+            string signalrExtensionKey)
         {
             DefaultFunctionKey = defaultFunctionKey;
+            DurabletaskExtensionKey = durabletaskExtensionKey;
             EventGridExtensionConfigKey = eventGridExtensionConfigKey;
             Id = id;
             MasterKey = masterKey;
             Name = name;
             PrimaryKey = primaryKey;
             ResourceGroupName = resourceGroupName;
+            SignalrExtensionKey = signalrExtensionKey;
         }
     }
 }

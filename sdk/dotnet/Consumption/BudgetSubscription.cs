@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Consumption
     ///         });
     ///         var exampleBudgetSubscription = new Azure.Consumption.BudgetSubscription("exampleBudgetSubscription", new Azure.Consumption.BudgetSubscriptionArgs
     ///         {
-    ///             SubscriptionId = current.Apply(current =&gt; current.SubscriptionId),
+    ///             SubscriptionId = current.Apply(current =&gt; current.Id),
     ///             Amount = 1000,
     ///             TimeGrain = "Monthly",
     ///             TimePeriod = new Azure.Consumption.Inputs.BudgetSubscriptionTimePeriodArgs
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Consumption
         public Output<Outputs.BudgetSubscriptionFilter?> Filter { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        /// The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Consumption
         public Output<ImmutableArray<Outputs.BudgetSubscriptionNotification>> Notifications { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        /// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subscriptionId")]
         public Output<string> SubscriptionId { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.Consumption
         public Input<Inputs.BudgetSubscriptionFilterArgs>? Filter { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        /// The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Consumption
         }
 
         /// <summary>
-        /// The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        /// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subscriptionId", required: true)]
         public Input<string> SubscriptionId { get; set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Azure.Consumption
         public Input<Inputs.BudgetSubscriptionFilterGetArgs>? Filter { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        /// The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.Consumption
         }
 
         /// <summary>
-        /// The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        /// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }

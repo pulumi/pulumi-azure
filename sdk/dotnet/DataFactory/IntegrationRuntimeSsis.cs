@@ -33,7 +33,7 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var exampleIntegrationRuntimeSsis = new Azure.DataFactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis", new Azure.DataFactory.IntegrationRuntimeSsisArgs
     ///         {
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
     ///             NodeSize = "Standard_D8_v3",
@@ -67,7 +67,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.IntegrationRuntimeSsisCustomSetupScript?> CustomSetupScript { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Output("dataFactoryName")]
         public Output<string> DataFactoryName { get; private set; } = null!;
@@ -209,10 +215,16 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.IntegrationRuntimeSsisCustomSetupScriptArgs>? CustomSetupScript { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// Integration runtime description.
@@ -318,7 +330,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.IntegrationRuntimeSsisCustomSetupScriptGetArgs>? CustomSetupScript { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryName")]
         public Input<string>? DataFactoryName { get; set; }

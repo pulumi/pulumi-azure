@@ -9,9 +9,11 @@ from .account import *
 from .get_account import *
 from .get_pool import *
 from .get_snapshot import *
+from .get_snapshot_policy import *
 from .get_volume import *
 from .pool import *
 from .snapshot import *
+from .snapshot_policy import *
 from .volume import *
 from ._inputs import *
 from . import outputs

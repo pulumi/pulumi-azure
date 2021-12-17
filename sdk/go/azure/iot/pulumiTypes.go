@@ -10,18 +10,308 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type IoTHubCloudToDevice struct {
+	// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+	DefaultTtl *string `pulumi:"defaultTtl"`
+	// A `feedback` block as defined below.
+	Feedbacks []IoTHubCloudToDeviceFeedback `pulumi:"feedbacks"`
+	// The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+}
+
+// IoTHubCloudToDeviceInput is an input type that accepts IoTHubCloudToDeviceArgs and IoTHubCloudToDeviceOutput values.
+// You can construct a concrete instance of `IoTHubCloudToDeviceInput` via:
+//
+//          IoTHubCloudToDeviceArgs{...}
+type IoTHubCloudToDeviceInput interface {
+	pulumi.Input
+
+	ToIoTHubCloudToDeviceOutput() IoTHubCloudToDeviceOutput
+	ToIoTHubCloudToDeviceOutputWithContext(context.Context) IoTHubCloudToDeviceOutput
+}
+
+type IoTHubCloudToDeviceArgs struct {
+	// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+	DefaultTtl pulumi.StringPtrInput `pulumi:"defaultTtl"`
+	// A `feedback` block as defined below.
+	Feedbacks IoTHubCloudToDeviceFeedbackArrayInput `pulumi:"feedbacks"`
+	// The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
+}
+
+func (IoTHubCloudToDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubCloudToDevice)(nil)).Elem()
+}
+
+func (i IoTHubCloudToDeviceArgs) ToIoTHubCloudToDeviceOutput() IoTHubCloudToDeviceOutput {
+	return i.ToIoTHubCloudToDeviceOutputWithContext(context.Background())
+}
+
+func (i IoTHubCloudToDeviceArgs) ToIoTHubCloudToDeviceOutputWithContext(ctx context.Context) IoTHubCloudToDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubCloudToDeviceOutput)
+}
+
+func (i IoTHubCloudToDeviceArgs) ToIoTHubCloudToDevicePtrOutput() IoTHubCloudToDevicePtrOutput {
+	return i.ToIoTHubCloudToDevicePtrOutputWithContext(context.Background())
+}
+
+func (i IoTHubCloudToDeviceArgs) ToIoTHubCloudToDevicePtrOutputWithContext(ctx context.Context) IoTHubCloudToDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubCloudToDeviceOutput).ToIoTHubCloudToDevicePtrOutputWithContext(ctx)
+}
+
+// IoTHubCloudToDevicePtrInput is an input type that accepts IoTHubCloudToDeviceArgs, IoTHubCloudToDevicePtr and IoTHubCloudToDevicePtrOutput values.
+// You can construct a concrete instance of `IoTHubCloudToDevicePtrInput` via:
+//
+//          IoTHubCloudToDeviceArgs{...}
+//
+//  or:
+//
+//          nil
+type IoTHubCloudToDevicePtrInput interface {
+	pulumi.Input
+
+	ToIoTHubCloudToDevicePtrOutput() IoTHubCloudToDevicePtrOutput
+	ToIoTHubCloudToDevicePtrOutputWithContext(context.Context) IoTHubCloudToDevicePtrOutput
+}
+
+type ioTHubCloudToDevicePtrType IoTHubCloudToDeviceArgs
+
+func IoTHubCloudToDevicePtr(v *IoTHubCloudToDeviceArgs) IoTHubCloudToDevicePtrInput {
+	return (*ioTHubCloudToDevicePtrType)(v)
+}
+
+func (*ioTHubCloudToDevicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IoTHubCloudToDevice)(nil)).Elem()
+}
+
+func (i *ioTHubCloudToDevicePtrType) ToIoTHubCloudToDevicePtrOutput() IoTHubCloudToDevicePtrOutput {
+	return i.ToIoTHubCloudToDevicePtrOutputWithContext(context.Background())
+}
+
+func (i *ioTHubCloudToDevicePtrType) ToIoTHubCloudToDevicePtrOutputWithContext(ctx context.Context) IoTHubCloudToDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubCloudToDevicePtrOutput)
+}
+
+type IoTHubCloudToDeviceOutput struct{ *pulumi.OutputState }
+
+func (IoTHubCloudToDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubCloudToDevice)(nil)).Elem()
+}
+
+func (o IoTHubCloudToDeviceOutput) ToIoTHubCloudToDeviceOutput() IoTHubCloudToDeviceOutput {
+	return o
+}
+
+func (o IoTHubCloudToDeviceOutput) ToIoTHubCloudToDeviceOutputWithContext(ctx context.Context) IoTHubCloudToDeviceOutput {
+	return o
+}
+
+func (o IoTHubCloudToDeviceOutput) ToIoTHubCloudToDevicePtrOutput() IoTHubCloudToDevicePtrOutput {
+	return o.ToIoTHubCloudToDevicePtrOutputWithContext(context.Background())
+}
+
+func (o IoTHubCloudToDeviceOutput) ToIoTHubCloudToDevicePtrOutputWithContext(ctx context.Context) IoTHubCloudToDevicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTHubCloudToDevice) *IoTHubCloudToDevice {
+		return &v
+	}).(IoTHubCloudToDevicePtrOutput)
+}
+
+// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+func (o IoTHubCloudToDeviceOutput) DefaultTtl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubCloudToDevice) *string { return v.DefaultTtl }).(pulumi.StringPtrOutput)
+}
+
+// A `feedback` block as defined below.
+func (o IoTHubCloudToDeviceOutput) Feedbacks() IoTHubCloudToDeviceFeedbackArrayOutput {
+	return o.ApplyT(func(v IoTHubCloudToDevice) []IoTHubCloudToDeviceFeedback { return v.Feedbacks }).(IoTHubCloudToDeviceFeedbackArrayOutput)
+}
+
+// The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+func (o IoTHubCloudToDeviceOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IoTHubCloudToDevice) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
+}
+
+type IoTHubCloudToDevicePtrOutput struct{ *pulumi.OutputState }
+
+func (IoTHubCloudToDevicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IoTHubCloudToDevice)(nil)).Elem()
+}
+
+func (o IoTHubCloudToDevicePtrOutput) ToIoTHubCloudToDevicePtrOutput() IoTHubCloudToDevicePtrOutput {
+	return o
+}
+
+func (o IoTHubCloudToDevicePtrOutput) ToIoTHubCloudToDevicePtrOutputWithContext(ctx context.Context) IoTHubCloudToDevicePtrOutput {
+	return o
+}
+
+func (o IoTHubCloudToDevicePtrOutput) Elem() IoTHubCloudToDeviceOutput {
+	return o.ApplyT(func(v *IoTHubCloudToDevice) IoTHubCloudToDevice {
+		if v != nil {
+			return *v
+		}
+		var ret IoTHubCloudToDevice
+		return ret
+	}).(IoTHubCloudToDeviceOutput)
+}
+
+// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+func (o IoTHubCloudToDevicePtrOutput) DefaultTtl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTHubCloudToDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultTtl
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `feedback` block as defined below.
+func (o IoTHubCloudToDevicePtrOutput) Feedbacks() IoTHubCloudToDeviceFeedbackArrayOutput {
+	return o.ApplyT(func(v *IoTHubCloudToDevice) []IoTHubCloudToDeviceFeedback {
+		if v == nil {
+			return nil
+		}
+		return v.Feedbacks
+	}).(IoTHubCloudToDeviceFeedbackArrayOutput)
+}
+
+// The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+func (o IoTHubCloudToDevicePtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IoTHubCloudToDevice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDeliveryCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type IoTHubCloudToDeviceFeedback struct {
+	// The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+	LockDuration *string `pulumi:"lockDuration"`
+	// The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+	TimeToLive *string `pulumi:"timeToLive"`
+}
+
+// IoTHubCloudToDeviceFeedbackInput is an input type that accepts IoTHubCloudToDeviceFeedbackArgs and IoTHubCloudToDeviceFeedbackOutput values.
+// You can construct a concrete instance of `IoTHubCloudToDeviceFeedbackInput` via:
+//
+//          IoTHubCloudToDeviceFeedbackArgs{...}
+type IoTHubCloudToDeviceFeedbackInput interface {
+	pulumi.Input
+
+	ToIoTHubCloudToDeviceFeedbackOutput() IoTHubCloudToDeviceFeedbackOutput
+	ToIoTHubCloudToDeviceFeedbackOutputWithContext(context.Context) IoTHubCloudToDeviceFeedbackOutput
+}
+
+type IoTHubCloudToDeviceFeedbackArgs struct {
+	// The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+	LockDuration pulumi.StringPtrInput `pulumi:"lockDuration"`
+	// The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
+	// The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+	TimeToLive pulumi.StringPtrInput `pulumi:"timeToLive"`
+}
+
+func (IoTHubCloudToDeviceFeedbackArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubCloudToDeviceFeedback)(nil)).Elem()
+}
+
+func (i IoTHubCloudToDeviceFeedbackArgs) ToIoTHubCloudToDeviceFeedbackOutput() IoTHubCloudToDeviceFeedbackOutput {
+	return i.ToIoTHubCloudToDeviceFeedbackOutputWithContext(context.Background())
+}
+
+func (i IoTHubCloudToDeviceFeedbackArgs) ToIoTHubCloudToDeviceFeedbackOutputWithContext(ctx context.Context) IoTHubCloudToDeviceFeedbackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubCloudToDeviceFeedbackOutput)
+}
+
+// IoTHubCloudToDeviceFeedbackArrayInput is an input type that accepts IoTHubCloudToDeviceFeedbackArray and IoTHubCloudToDeviceFeedbackArrayOutput values.
+// You can construct a concrete instance of `IoTHubCloudToDeviceFeedbackArrayInput` via:
+//
+//          IoTHubCloudToDeviceFeedbackArray{ IoTHubCloudToDeviceFeedbackArgs{...} }
+type IoTHubCloudToDeviceFeedbackArrayInput interface {
+	pulumi.Input
+
+	ToIoTHubCloudToDeviceFeedbackArrayOutput() IoTHubCloudToDeviceFeedbackArrayOutput
+	ToIoTHubCloudToDeviceFeedbackArrayOutputWithContext(context.Context) IoTHubCloudToDeviceFeedbackArrayOutput
+}
+
+type IoTHubCloudToDeviceFeedbackArray []IoTHubCloudToDeviceFeedbackInput
+
+func (IoTHubCloudToDeviceFeedbackArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IoTHubCloudToDeviceFeedback)(nil)).Elem()
+}
+
+func (i IoTHubCloudToDeviceFeedbackArray) ToIoTHubCloudToDeviceFeedbackArrayOutput() IoTHubCloudToDeviceFeedbackArrayOutput {
+	return i.ToIoTHubCloudToDeviceFeedbackArrayOutputWithContext(context.Background())
+}
+
+func (i IoTHubCloudToDeviceFeedbackArray) ToIoTHubCloudToDeviceFeedbackArrayOutputWithContext(ctx context.Context) IoTHubCloudToDeviceFeedbackArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubCloudToDeviceFeedbackArrayOutput)
+}
+
+type IoTHubCloudToDeviceFeedbackOutput struct{ *pulumi.OutputState }
+
+func (IoTHubCloudToDeviceFeedbackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubCloudToDeviceFeedback)(nil)).Elem()
+}
+
+func (o IoTHubCloudToDeviceFeedbackOutput) ToIoTHubCloudToDeviceFeedbackOutput() IoTHubCloudToDeviceFeedbackOutput {
+	return o
+}
+
+func (o IoTHubCloudToDeviceFeedbackOutput) ToIoTHubCloudToDeviceFeedbackOutputWithContext(ctx context.Context) IoTHubCloudToDeviceFeedbackOutput {
+	return o
+}
+
+// The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+func (o IoTHubCloudToDeviceFeedbackOutput) LockDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubCloudToDeviceFeedback) *string { return v.LockDuration }).(pulumi.StringPtrOutput)
+}
+
+// The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+func (o IoTHubCloudToDeviceFeedbackOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IoTHubCloudToDeviceFeedback) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
+}
+
+// The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+func (o IoTHubCloudToDeviceFeedbackOutput) TimeToLive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubCloudToDeviceFeedback) *string { return v.TimeToLive }).(pulumi.StringPtrOutput)
+}
+
+type IoTHubCloudToDeviceFeedbackArrayOutput struct{ *pulumi.OutputState }
+
+func (IoTHubCloudToDeviceFeedbackArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IoTHubCloudToDeviceFeedback)(nil)).Elem()
+}
+
+func (o IoTHubCloudToDeviceFeedbackArrayOutput) ToIoTHubCloudToDeviceFeedbackArrayOutput() IoTHubCloudToDeviceFeedbackArrayOutput {
+	return o
+}
+
+func (o IoTHubCloudToDeviceFeedbackArrayOutput) ToIoTHubCloudToDeviceFeedbackArrayOutputWithContext(ctx context.Context) IoTHubCloudToDeviceFeedbackArrayOutput {
+	return o
+}
+
+func (o IoTHubCloudToDeviceFeedbackArrayOutput) Index(i pulumi.IntInput) IoTHubCloudToDeviceFeedbackOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IoTHubCloudToDeviceFeedback {
+		return vs[0].([]IoTHubCloudToDeviceFeedback)[vs[1].(int)]
+	}).(IoTHubCloudToDeviceFeedbackOutput)
+}
+
 type IoTHubEndpoint struct {
-	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	BatchFrequencyInSeconds *int `pulumi:"batchFrequencyInSeconds"`
 	// The connection string for the endpoint.
 	ConnectionString string `pulumi:"connectionString"`
 	// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
 	ContainerName *string `pulumi:"containerName"`
-	// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
 	Encoding *string `pulumi:"encoding"`
-	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
-	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name string `pulumi:"name"`
@@ -43,17 +333,17 @@ type IoTHubEndpointInput interface {
 }
 
 type IoTHubEndpointArgs struct {
-	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	BatchFrequencyInSeconds pulumi.IntPtrInput `pulumi:"batchFrequencyInSeconds"`
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
 	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
-	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	FileNameFormat pulumi.StringPtrInput `pulumi:"fileNameFormat"`
-	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -114,7 +404,7 @@ func (o IoTHubEndpointOutput) ToIoTHubEndpointOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 func (o IoTHubEndpointOutput) BatchFrequencyInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *int { return v.BatchFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -129,17 +419,17 @@ func (o IoTHubEndpointOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
 func (o IoTHubEndpointOutput) Encoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
-// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 func (o IoTHubEndpointOutput) FileNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.FileNameFormat }).(pulumi.StringPtrOutput)
 }
 
-// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 func (o IoTHubEndpointOutput) MaxChunkSizeInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *int { return v.MaxChunkSizeInBytes }).(pulumi.IntPtrOutput)
 }
@@ -493,15 +783,15 @@ type IoTHubFileUpload struct {
 	ConnectionString string `pulumi:"connectionString"`
 	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName string `pulumi:"containerName"`
-	// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+	// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
 	DefaultTtl *string `pulumi:"defaultTtl"`
-	// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+	// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
 	LockDuration *string `pulumi:"lockDuration"`
-	// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+	// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 	// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
 	Notifications *bool `pulumi:"notifications"`
-	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
 	SasTtl *string `pulumi:"sasTtl"`
 }
 
@@ -521,15 +811,15 @@ type IoTHubFileUploadArgs struct {
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+	// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
 	DefaultTtl pulumi.StringPtrInput `pulumi:"defaultTtl"`
-	// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+	// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
 	LockDuration pulumi.StringPtrInput `pulumi:"lockDuration"`
-	// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+	// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
 	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
 	// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
 	Notifications pulumi.BoolPtrInput `pulumi:"notifications"`
-	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
 	SasTtl pulumi.StringPtrInput `pulumi:"sasTtl"`
 }
 
@@ -620,17 +910,17 @@ func (o IoTHubFileUploadOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
 func (o IoTHubFileUploadOutput) DefaultTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.DefaultTtl }).(pulumi.StringPtrOutput)
 }
 
-// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
 func (o IoTHubFileUploadOutput) LockDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.LockDuration }).(pulumi.StringPtrOutput)
 }
 
-// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
 func (o IoTHubFileUploadOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
@@ -640,7 +930,7 @@ func (o IoTHubFileUploadOutput) Notifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *bool { return v.Notifications }).(pulumi.BoolPtrOutput)
 }
 
-// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
 func (o IoTHubFileUploadOutput) SasTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.SasTtl }).(pulumi.StringPtrOutput)
 }
@@ -689,7 +979,7 @@ func (o IoTHubFileUploadPtrOutput) ContainerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
 func (o IoTHubFileUploadPtrOutput) DefaultTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *string {
 		if v == nil {
@@ -699,7 +989,7 @@ func (o IoTHubFileUploadPtrOutput) DefaultTtl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
 func (o IoTHubFileUploadPtrOutput) LockDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *string {
 		if v == nil {
@@ -709,7 +999,7 @@ func (o IoTHubFileUploadPtrOutput) LockDuration() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
 func (o IoTHubFileUploadPtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *int {
 		if v == nil {
@@ -729,7 +1019,7 @@ func (o IoTHubFileUploadPtrOutput) Notifications() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
 func (o IoTHubFileUploadPtrOutput) SasTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *string {
 		if v == nil {
@@ -2722,6 +3012,10 @@ func (o TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) Index(i pulumi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubCloudToDeviceInput)(nil)).Elem(), IoTHubCloudToDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubCloudToDevicePtrInput)(nil)).Elem(), IoTHubCloudToDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubCloudToDeviceFeedbackInput)(nil)).Elem(), IoTHubCloudToDeviceFeedbackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubCloudToDeviceFeedbackArrayInput)(nil)).Elem(), IoTHubCloudToDeviceFeedbackArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubEndpointInput)(nil)).Elem(), IoTHubEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubEndpointArrayInput)(nil)).Elem(), IoTHubEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubEnrichmentInput)(nil)).Elem(), IoTHubEnrichmentArgs{})
@@ -2754,6 +3048,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentStoragePtrInput)(nil)).Elem(), TimeSeriesInsightsGen2EnvironmentStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetKeyPropertyInput)(nil)).Elem(), TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput)(nil)).Elem(), TimeSeriesInsightsReferenceDataSetKeyPropertyArray{})
+	pulumi.RegisterOutputType(IoTHubCloudToDeviceOutput{})
+	pulumi.RegisterOutputType(IoTHubCloudToDevicePtrOutput{})
+	pulumi.RegisterOutputType(IoTHubCloudToDeviceFeedbackOutput{})
+	pulumi.RegisterOutputType(IoTHubCloudToDeviceFeedbackArrayOutput{})
 	pulumi.RegisterOutputType(IoTHubEndpointOutput{})
 	pulumi.RegisterOutputType(IoTHubEndpointArrayOutput{})
 	pulumi.RegisterOutputType(IoTHubEnrichmentOutput{})

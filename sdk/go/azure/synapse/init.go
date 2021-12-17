@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SqlPoolVulnerabilityAssessment{}
 	case "azure:synapse/sqlPoolVulnerabilityAssessmentBaseline:SqlPoolVulnerabilityAssessmentBaseline":
 		r = &SqlPoolVulnerabilityAssessmentBaseline{}
+	case "azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier":
+		r = &SqlPoolWorkloadClassifier{}
 	case "azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup":
 		r = &SqlPoolWorkloadGroup{}
 	case "azure:synapse/workspace:Workspace":
@@ -59,6 +61,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &WorkspaceKey{}
 	case "azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy":
 		r = &WorkspaceSecurityAlertPolicy{}
+	case "azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin":
+		r = &WorkspaceSqlAadAdmin{}
 	case "azure:synapse/workspaceVulnerabilityAssessment:WorkspaceVulnerabilityAssessment":
 		r = &WorkspaceVulnerabilityAssessment{}
 	default:
@@ -141,6 +145,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"synapse/sqlPoolWorkloadClassifier",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"synapse/sqlPoolWorkloadGroup",
 		&module{version},
 	)
@@ -167,6 +176,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"synapse/workspaceSecurityAlertPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"synapse/workspaceSqlAadAdmin",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

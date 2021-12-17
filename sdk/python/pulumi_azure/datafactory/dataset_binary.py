@@ -15,13 +15,14 @@ __all__ = ['DatasetBinaryArgs', 'DatasetBinary']
 @pulumi.input_type
 class DatasetBinaryArgs:
     def __init__(__self__, *,
-                 data_factory_name: pulumi.Input[str],
                  linked_service_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  azure_blob_storage_location: Optional[pulumi.Input['DatasetBinaryAzureBlobStorageLocationArgs']] = None,
                  compression: Optional[pulumi.Input['DatasetBinaryCompressionArgs']] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
+                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  http_server_location: Optional[pulumi.Input['DatasetBinaryHttpServerLocationArgs']] = None,
@@ -30,13 +31,14 @@ class DatasetBinaryArgs:
                  sftp_server_location: Optional[pulumi.Input['DatasetBinarySftpServerLocationArgs']] = None):
         """
         The set of arguments for constructing a DatasetBinary resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Binary Dataset with.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Binary Dataset to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Binary Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Binary Dataset.
         :param pulumi.Input['DatasetBinaryAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
         :param pulumi.Input['DatasetBinaryCompressionArgs'] compression: A `compression` block as defined below.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input['DatasetBinaryHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
@@ -45,7 +47,6 @@ class DatasetBinaryArgs:
         :param pulumi.Input['DatasetBinarySftpServerLocationArgs'] sftp_server_location: A `sftp_server_location` block as defined below.
                ---
         """
-        pulumi.set(__self__, "data_factory_name", data_factory_name)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_properties is not None:
@@ -56,6 +57,13 @@ class DatasetBinaryArgs:
             pulumi.set(__self__, "azure_blob_storage_location", azure_blob_storage_location)
         if compression is not None:
             pulumi.set(__self__, "compression", compression)
+        if data_factory_id is not None:
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
+        if data_factory_name is not None:
+            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
+        if data_factory_name is not None:
+            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if folder is not None:
@@ -68,18 +76,6 @@ class DatasetBinaryArgs:
             pulumi.set(__self__, "parameters", parameters)
         if sftp_server_location is not None:
             pulumi.set(__self__, "sftp_server_location", sftp_server_location)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Input[str]:
-        """
-        The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -152,6 +148,30 @@ class DatasetBinaryArgs:
     @compression.setter
     def compression(self, value: Optional[pulumi.Input['DatasetBinaryCompressionArgs']]):
         pulumi.set(self, "compression", value)
+
+    @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_id", value)
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @data_factory_name.setter
+    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -234,6 +254,7 @@ class _DatasetBinaryState:
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  azure_blob_storage_location: Optional[pulumi.Input['DatasetBinaryAzureBlobStorageLocationArgs']] = None,
                  compression: Optional[pulumi.Input['DatasetBinaryCompressionArgs']] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
@@ -249,7 +270,8 @@ class _DatasetBinaryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Binary Dataset.
         :param pulumi.Input['DatasetBinaryAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
         :param pulumi.Input['DatasetBinaryCompressionArgs'] compression: A `compression` block as defined below.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input['DatasetBinaryHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
@@ -268,6 +290,11 @@ class _DatasetBinaryState:
             pulumi.set(__self__, "azure_blob_storage_location", azure_blob_storage_location)
         if compression is not None:
             pulumi.set(__self__, "compression", compression)
+        if data_factory_id is not None:
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
+        if data_factory_name is not None:
+            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
         if data_factory_name is not None:
             pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
@@ -336,10 +363,22 @@ class _DatasetBinaryState:
         pulumi.set(self, "compression", value)
 
     @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_id", value)
+
+    @property
     @pulumi.getter(name="dataFactoryName")
     def data_factory_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
+        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_name")
 
@@ -454,6 +493,7 @@ class DatasetBinary(pulumi.CustomResource):
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryAzureBlobStorageLocationArgs']]] = None,
                  compression: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryCompressionArgs']]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
@@ -479,7 +519,7 @@ class DatasetBinary(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_linked_service_sftp = azure.datafactory.LinkedServiceSftp("exampleLinkedServiceSftp",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             authentication_type="Basic",
             host="http://www.bing.com",
             port=22,
@@ -487,7 +527,7 @@ class DatasetBinary(pulumi.CustomResource):
             password="bar")
         example_dataset_binary = azure.datafactory.DatasetBinary("exampleDatasetBinary",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_sftp.name,
             sftp_server_location=azure.datafactory.DatasetBinarySftpServerLocationArgs(
                 path="/test/",
@@ -509,7 +549,8 @@ class DatasetBinary(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Binary Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetBinaryAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatasetBinaryCompressionArgs']] compression: A `compression` block as defined below.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[pulumi.InputType['DatasetBinaryHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
@@ -541,7 +582,7 @@ class DatasetBinary(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_linked_service_sftp = azure.datafactory.LinkedServiceSftp("exampleLinkedServiceSftp",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             authentication_type="Basic",
             host="http://www.bing.com",
             port=22,
@@ -549,7 +590,7 @@ class DatasetBinary(pulumi.CustomResource):
             password="bar")
         example_dataset_binary = azure.datafactory.DatasetBinary("exampleDatasetBinary",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_sftp.name,
             sftp_server_location=azure.datafactory.DatasetBinarySftpServerLocationArgs(
                 path="/test/",
@@ -584,6 +625,7 @@ class DatasetBinary(pulumi.CustomResource):
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryAzureBlobStorageLocationArgs']]] = None,
                  compression: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryCompressionArgs']]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
@@ -609,8 +651,10 @@ class DatasetBinary(pulumi.CustomResource):
             __props__.__dict__["annotations"] = annotations
             __props__.__dict__["azure_blob_storage_location"] = azure_blob_storage_location
             __props__.__dict__["compression"] = compression
-            if data_factory_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_factory_name'")
+            __props__.__dict__["data_factory_id"] = data_factory_id
+            if data_factory_name is not None and not opts.urn:
+                warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+                pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
             __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["folder"] = folder
@@ -638,6 +682,7 @@ class DatasetBinary(pulumi.CustomResource):
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryAzureBlobStorageLocationArgs']]] = None,
             compression: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryCompressionArgs']]] = None,
+            data_factory_id: Optional[pulumi.Input[str]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             folder: Optional[pulumi.Input[str]] = None,
@@ -658,7 +703,8 @@ class DatasetBinary(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Binary Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetBinaryAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatasetBinaryCompressionArgs']] compression: A `compression` block as defined below.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[pulumi.InputType['DatasetBinaryHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
@@ -677,6 +723,7 @@ class DatasetBinary(pulumi.CustomResource):
         __props__.__dict__["annotations"] = annotations
         __props__.__dict__["azure_blob_storage_location"] = azure_blob_storage_location
         __props__.__dict__["compression"] = compression
+        __props__.__dict__["data_factory_id"] = data_factory_id
         __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["folder"] = folder
@@ -721,10 +768,18 @@ class DatasetBinary(pulumi.CustomResource):
         return pulumi.get(self, "compression")
 
     @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> pulumi.Output[str]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @property
     @pulumi.getter(name="dataFactoryName")
     def data_factory_name(self) -> pulumi.Output[str]:
         """
-        The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
+        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_name")
 

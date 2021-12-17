@@ -154,13 +154,19 @@ namespace Pulumi.Azure.Blueprint
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
+        /// </summary>
+        [Output("lockExcludeActions")]
+        public Output<ImmutableArray<string>> LockExcludeActions { get; private set; } = null!;
+
+        /// <summary>
         /// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         /// </summary>
         [Output("lockExcludePrincipals")]
         public Output<ImmutableArray<string>> LockExcludePrincipals { get; private set; } = null!;
 
         /// <summary>
-        /// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
+        /// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
         /// </summary>
         [Output("lockMode")]
         public Output<string?> LockMode { get; private set; } = null!;
@@ -259,6 +265,18 @@ namespace Pulumi.Azure.Blueprint
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("lockExcludeActions")]
+        private InputList<string>? _lockExcludeActions;
+
+        /// <summary>
+        /// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
+        /// </summary>
+        public InputList<string> LockExcludeActions
+        {
+            get => _lockExcludeActions ?? (_lockExcludeActions = new InputList<string>());
+            set => _lockExcludeActions = value;
+        }
+
         [Input("lockExcludePrincipals")]
         private InputList<string>? _lockExcludePrincipals;
 
@@ -272,7 +290,7 @@ namespace Pulumi.Azure.Blueprint
         }
 
         /// <summary>
-        /// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
+        /// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
         /// </summary>
         [Input("lockMode")]
         public Input<string>? LockMode { get; set; }
@@ -344,6 +362,18 @@ namespace Pulumi.Azure.Blueprint
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("lockExcludeActions")]
+        private InputList<string>? _lockExcludeActions;
+
+        /// <summary>
+        /// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
+        /// </summary>
+        public InputList<string> LockExcludeActions
+        {
+            get => _lockExcludeActions ?? (_lockExcludeActions = new InputList<string>());
+            set => _lockExcludeActions = value;
+        }
+
         [Input("lockExcludePrincipals")]
         private InputList<string>? _lockExcludePrincipals;
 
@@ -357,7 +387,7 @@ namespace Pulumi.Azure.Blueprint
         }
 
         /// <summary>
-        /// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
+        /// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
         /// </summary>
         [Input("lockMode")]
         public Input<string>? LockMode { get; set; }

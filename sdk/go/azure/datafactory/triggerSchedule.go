@@ -41,13 +41,13 @@ import (
 // 		}
 // 		testPipeline, err := datafactory.NewPipeline(ctx, "testPipeline", &datafactory.PipelineArgs{
 // 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
-// 			DataFactoryName:   pulumi.Any(azurerm_data_factory.Test.Name),
+// 			DataFactoryId:     pulumi.Any(azurerm_data_factory.Test.Id),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = datafactory.NewTriggerSchedule(ctx, "testTriggerSchedule", &datafactory.TriggerScheduleArgs{
-// 			DataFactoryName:   pulumi.Any(azurerm_data_factory.Test.Name),
+// 			DataFactoryId:     pulumi.Any(azurerm_data_factory.Test.Id),
 // 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
 // 			PipelineName:      testPipeline.Name,
 // 			Interval:          pulumi.Int(5),
@@ -75,7 +75,11 @@ type TriggerSchedule struct {
 	Activated pulumi.BoolOutput `pulumi:"activated"`
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
-	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The Schedule Trigger's description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -106,9 +110,6 @@ func NewTriggerSchedule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.PipelineName == nil {
 		return nil, errors.New("invalid value for required argument 'PipelineName'")
 	}
@@ -141,7 +142,11 @@ type triggerScheduleState struct {
 	Activated *bool `pulumi:"activated"`
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations []string `pulumi:"annotations"`
-	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The Schedule Trigger's description.
 	Description *string `pulumi:"description"`
@@ -170,7 +175,11 @@ type TriggerScheduleState struct {
 	Activated pulumi.BoolPtrInput
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations pulumi.StringArrayInput
-	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The Schedule Trigger's description.
 	Description pulumi.StringPtrInput
@@ -203,8 +212,12 @@ type triggerScheduleArgs struct {
 	Activated *bool `pulumi:"activated"`
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations []string `pulumi:"annotations"`
-	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The Schedule Trigger's description.
 	Description *string `pulumi:"description"`
 	// The time the Schedule Trigger should end. The time will be represented in UTC.
@@ -233,8 +246,12 @@ type TriggerScheduleArgs struct {
 	Activated pulumi.BoolPtrInput
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
 	Annotations pulumi.StringArrayInput
-	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The Schedule Trigger's description.
 	Description pulumi.StringPtrInput
 	// The time the Schedule Trigger should end. The time will be represented in UTC.

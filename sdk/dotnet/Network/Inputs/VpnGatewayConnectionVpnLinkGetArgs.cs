@@ -30,6 +30,30 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("connectionMode")]
         public Input<string>? ConnectionMode { get; set; }
 
+        [Input("egressNatRuleIds")]
+        private InputList<string>? _egressNatRuleIds;
+
+        /// <summary>
+        /// A list of the egress Nat Rule Ids.
+        /// </summary>
+        public InputList<string> EgressNatRuleIds
+        {
+            get => _egressNatRuleIds ?? (_egressNatRuleIds = new InputList<string>());
+            set => _egressNatRuleIds = value;
+        }
+
+        [Input("ingressNatRuleIds")]
+        private InputList<string>? _ingressNatRuleIds;
+
+        /// <summary>
+        /// A list of the ingress Nat Rule Ids.
+        /// </summary>
+        public InputList<string> IngressNatRuleIds
+        {
+            get => _ingressNatRuleIds ?? (_ingressNatRuleIds = new InputList<string>());
+            set => _ingressNatRuleIds = value;
+        }
+
         [Input("ipsecPolicies")]
         private InputList<Inputs.VpnGatewayConnectionVpnLinkIpsecPolicyGetArgs>? _ipsecPolicies;
 

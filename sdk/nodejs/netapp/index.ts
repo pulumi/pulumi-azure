@@ -9,15 +9,18 @@ export * from "./account";
 export * from "./getAccount";
 export * from "./getPool";
 export * from "./getSnapshot";
+export * from "./getSnapshotPolicy";
 export * from "./getVolume";
 export * from "./pool";
 export * from "./snapshot";
+export * from "./snapshotPolicy";
 export * from "./volume";
 
 // Import resources to register:
 import { Account } from "./account";
 import { Pool } from "./pool";
 import { Snapshot } from "./snapshot";
+import { SnapshotPolicy } from "./snapshotPolicy";
 import { Volume } from "./volume";
 
 const _module = {
@@ -30,6 +33,8 @@ const _module = {
                 return new Pool(name, <any>undefined, { urn })
             case "azure:netapp/snapshot:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
+            case "azure:netapp/snapshotPolicy:SnapshotPolicy":
+                return new SnapshotPolicy(name, <any>undefined, { urn })
             case "azure:netapp/volume:Volume":
                 return new Volume(name, <any>undefined, { urn })
             default:
@@ -40,4 +45,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "netapp/account", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/pool", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/snapshot", _module)
+pulumi.runtime.registerResourceModule("azure", "netapp/snapshotPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/volume", _module)

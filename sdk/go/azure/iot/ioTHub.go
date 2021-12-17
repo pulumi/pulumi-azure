@@ -140,6 +140,17 @@ import (
 // 					},
 // 				},
 // 			},
+// 			CloudToDevice: &iot.IoTHubCloudToDeviceArgs{
+// 				MaxDeliveryCount: pulumi.Int(30),
+// 				DefaultTtl:       pulumi.String("PT1H"),
+// 				Feedbacks: iot.IoTHubCloudToDeviceFeedbackArray{
+// 					&iot.IoTHubCloudToDeviceFeedbackArgs{
+// 						TimeToLive:       pulumi.String("PT1H10M"),
+// 						MaxDeliveryCount: pulumi.Int(15),
+// 						LockDuration:     pulumi.String("PT30S"),
+// 					},
+// 				},
+// 			},
 // 			Tags: pulumi.StringMap{
 // 				"purpose": pulumi.String("testing"),
 // 			},
@@ -162,6 +173,8 @@ import (
 type IoTHub struct {
 	pulumi.CustomResourceState
 
+	// A `cloudToDevice` block as defined below.
+	CloudToDevice IoTHubCloudToDeviceOutput `pulumi:"cloudToDevice"`
 	// An `endpoint` block as defined below.
 	Endpoints IoTHubEndpointArrayOutput `pulumi:"endpoints"`
 	// A `enrichment` block as defined below.
@@ -243,6 +256,8 @@ func GetIoTHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IoTHub resources.
 type ioTHubState struct {
+	// A `cloudToDevice` block as defined below.
+	CloudToDevice *IoTHubCloudToDevice `pulumi:"cloudToDevice"`
 	// An `endpoint` block as defined below.
 	Endpoints []IoTHubEndpoint `pulumi:"endpoints"`
 	// A `enrichment` block as defined below.
@@ -290,6 +305,8 @@ type ioTHubState struct {
 }
 
 type IoTHubState struct {
+	// A `cloudToDevice` block as defined below.
+	CloudToDevice IoTHubCloudToDevicePtrInput
 	// An `endpoint` block as defined below.
 	Endpoints IoTHubEndpointArrayInput
 	// A `enrichment` block as defined below.
@@ -341,6 +358,8 @@ func (IoTHubState) ElementType() reflect.Type {
 }
 
 type ioTHubArgs struct {
+	// A `cloudToDevice` block as defined below.
+	CloudToDevice *IoTHubCloudToDevice `pulumi:"cloudToDevice"`
 	// An `endpoint` block as defined below.
 	Endpoints []IoTHubEndpoint `pulumi:"endpoints"`
 	// A `enrichment` block as defined below.
@@ -375,6 +394,8 @@ type ioTHubArgs struct {
 
 // The set of arguments for constructing a IoTHub resource.
 type IoTHubArgs struct {
+	// A `cloudToDevice` block as defined below.
+	CloudToDevice IoTHubCloudToDevicePtrInput
 	// An `endpoint` block as defined below.
 	Endpoints IoTHubEndpointArrayInput
 	// A `enrichment` block as defined below.

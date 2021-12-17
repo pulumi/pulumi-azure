@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * });
  * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  * });
  * ```
  * ### With Activities
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * const test = new azure.datafactory.Pipeline("test", {
  *     resourceGroupName: azurerm_resource_group.test.name,
- *     dataFactoryName: azurerm_data_factory.test.name,
+ *     dataFactoryId: azurerm_data_factory.test.id,
  *     variables: {
  *         bob: "item1",
  *     },
@@ -100,7 +100,13 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly concurrency!: pulumi.Output<number | undefined>;
     /**
-     * The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    public readonly dataFactoryId!: pulumi.Output<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
@@ -148,6 +154,7 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["activitiesJson"] = state ? state.activitiesJson : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["concurrency"] = state ? state.concurrency : undefined;
+            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["folder"] = state ? state.folder : undefined;
@@ -158,15 +165,13 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFactoryName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["activitiesJson"] = args ? args.activitiesJson : undefined;
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["concurrency"] = args ? args.concurrency : undefined;
+            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["folder"] = args ? args.folder : undefined;
@@ -200,7 +205,13 @@ export interface PipelineState {
      */
     concurrency?: pulumi.Input<number>;
     /**
-     * The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     dataFactoryName?: pulumi.Input<string>;
     /**
@@ -250,9 +261,15 @@ export interface PipelineArgs {
      */
     concurrency?: pulumi.Input<number>;
     /**
-     * The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryName: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+     */
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Pipeline.
      */

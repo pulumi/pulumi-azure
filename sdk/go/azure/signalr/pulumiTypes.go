@@ -108,7 +108,7 @@ func (o ServiceCorArrayOutput) Index(i pulumi.IntInput) ServiceCorOutput {
 }
 
 type ServiceFeature struct {
-	// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
+	// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
 	Flag string `pulumi:"flag"`
 	// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
 	Value string `pulumi:"value"`
@@ -126,7 +126,7 @@ type ServiceFeatureInput interface {
 }
 
 type ServiceFeatureArgs struct {
-	// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
+	// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
 	Flag pulumi.StringInput `pulumi:"flag"`
 	// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -183,7 +183,7 @@ func (o ServiceFeatureOutput) ToServiceFeatureOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
+// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
 func (o ServiceFeatureOutput) Flag() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceFeature) string { return v.Flag }).(pulumi.StringOutput)
 }

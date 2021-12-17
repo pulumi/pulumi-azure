@@ -42,7 +42,7 @@ import (
 // 		}
 // 		exampleLinkedServiceAzureBlobStorage, err := datafactory.NewLinkedServiceAzureBlobStorage(ctx, "exampleLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
 // 				return exampleAccount.PrimaryConnectionString, nil
 // 			}).(pulumi.StringOutput),
@@ -52,7 +52,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewDatasetAzureBlob(ctx, "exampleDatasetAzureBlob", &datafactory.DatasetAzureBlobArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			LinkedServiceName: exampleLinkedServiceAzureBlobStorage.Name,
 // 			Path:              pulumi.String("foo"),
 // 			Filename:          pulumi.String("bar.png"),
@@ -79,7 +79,11 @@ type DatasetAzureBlob struct {
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -112,9 +116,6 @@ func NewDatasetAzureBlob(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
 	}
@@ -147,7 +148,11 @@ type datasetAzureBlobState struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
@@ -178,7 +183,11 @@ type DatasetAzureBlobState struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
@@ -213,8 +222,12 @@ type datasetAzureBlobArgs struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
 	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -245,8 +258,12 @@ type DatasetAzureBlobArgs struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
 	// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.

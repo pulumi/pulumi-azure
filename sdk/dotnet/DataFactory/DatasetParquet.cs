@@ -34,14 +34,14 @@ namespace Pulumi.Azure.DataFactory
     ///         var exampleLinkedServiceWeb = new Azure.DataFactory.LinkedServiceWeb("exampleLinkedServiceWeb", new Azure.DataFactory.LinkedServiceWebArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             AuthenticationType = "Anonymous",
     ///             Url = "https://www.bing.com",
     ///         });
     ///         var exampleDatasetParquet = new Azure.DataFactory.DatasetParquet("exampleDatasetParquet", new Azure.DataFactory.DatasetParquetArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             LinkedServiceName = exampleLinkedServiceWeb.Name,
     ///             HttpServerLocation = new Azure.DataFactory.Inputs.DatasetParquetHttpServerLocationArgs
     ///             {
@@ -92,6 +92,9 @@ namespace Pulumi.Azure.DataFactory
 
         [Output("compressionLevel")]
         public Output<string?> CompressionLevel { get; private set; } = null!;
+
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
         /// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
@@ -232,11 +235,14 @@ namespace Pulumi.Azure.DataFactory
         [Input("compressionLevel")]
         public Input<string>? CompressionLevel { get; set; }
 
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
         /// <summary>
         /// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// The description for the Data Factory Dataset.
@@ -343,6 +349,9 @@ namespace Pulumi.Azure.DataFactory
 
         [Input("compressionLevel")]
         public Input<string>? CompressionLevel { get; set; }
+
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
         /// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.

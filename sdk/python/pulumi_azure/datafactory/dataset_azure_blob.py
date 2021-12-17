@@ -15,11 +15,12 @@ __all__ = ['DatasetAzureBlobArgs', 'DatasetAzureBlob']
 @pulumi.input_type
 class DatasetAzureBlobArgs:
     def __init__(__self__, *,
-                 data_factory_name: pulumi.Input[str],
                  linked_service_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
+                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
                  dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
@@ -31,11 +32,12 @@ class DatasetAzureBlobArgs:
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAzureBlobSchemaColumnArgs']]]] = None):
         """
         The set of arguments for constructing a DatasetAzureBlob resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
@@ -46,13 +48,19 @@ class DatasetAzureBlobArgs:
         :param pulumi.Input[str] path: The path of the Azure Blob.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetAzureBlobSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
-        pulumi.set(__self__, "data_factory_name", data_factory_name)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if data_factory_id is not None:
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
+        if data_factory_name is not None:
+            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
+        if data_factory_name is not None:
+            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if dynamic_filename_enabled is not None:
@@ -71,18 +79,6 @@ class DatasetAzureBlobArgs:
             pulumi.set(__self__, "path", path)
         if schema_columns is not None:
             pulumi.set(__self__, "schema_columns", schema_columns)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Input[str]:
-        """
-        The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -131,6 +127,30 @@ class DatasetAzureBlobArgs:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_id", value)
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @data_factory_name.setter
+    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -246,6 +266,7 @@ class _DatasetAzureBlobState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
@@ -262,7 +283,8 @@ class _DatasetAzureBlobState:
         Input properties used for looking up and filtering DatasetAzureBlob resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
@@ -279,6 +301,11 @@ class _DatasetAzureBlobState:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if data_factory_id is not None:
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
+        if data_factory_name is not None:
+            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
         if data_factory_name is not None:
             pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
@@ -329,10 +356,22 @@ class _DatasetAzureBlobState:
         pulumi.set(self, "annotations", value)
 
     @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_id", value)
+
+    @property
     @pulumi.getter(name="dataFactoryName")
     def data_factory_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_name")
 
@@ -480,6 +519,7 @@ class DatasetAzureBlob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
@@ -510,11 +550,11 @@ class DatasetAzureBlob(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             connection_string=example_account.primary_connection_string)
         example_dataset_azure_blob = azure.datafactory.DatasetAzureBlob("exampleDatasetAzureBlob",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_azure_blob_storage.name,
             path="foo",
             filename="bar.png")
@@ -532,7 +572,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
@@ -568,11 +609,11 @@ class DatasetAzureBlob(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             connection_string=example_account.primary_connection_string)
         example_dataset_azure_blob = azure.datafactory.DatasetAzureBlob("exampleDatasetAzureBlob",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_azure_blob_storage.name,
             path="foo",
             filename="bar.png")
@@ -603,6 +644,7 @@ class DatasetAzureBlob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
@@ -629,8 +671,10 @@ class DatasetAzureBlob(pulumi.CustomResource):
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
-            if data_factory_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_factory_name'")
+            __props__.__dict__["data_factory_id"] = data_factory_id
+            if data_factory_name is not None and not opts.urn:
+                warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+                pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
             __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["dynamic_filename_enabled"] = dynamic_filename_enabled
@@ -659,6 +703,7 @@ class DatasetAzureBlob(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            data_factory_id: Optional[pulumi.Input[str]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
@@ -680,7 +725,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
@@ -699,6 +745,7 @@ class DatasetAzureBlob(pulumi.CustomResource):
 
         __props__.__dict__["additional_properties"] = additional_properties
         __props__.__dict__["annotations"] = annotations
+        __props__.__dict__["data_factory_id"] = data_factory_id
         __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["dynamic_filename_enabled"] = dynamic_filename_enabled
@@ -730,10 +777,18 @@ class DatasetAzureBlob(pulumi.CustomResource):
         return pulumi.get(self, "annotations")
 
     @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> pulumi.Output[str]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @property
     @pulumi.getter(name="dataFactoryName")
     def data_factory_name(self) -> pulumi.Output[str]:
         """
-        The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_name")
 

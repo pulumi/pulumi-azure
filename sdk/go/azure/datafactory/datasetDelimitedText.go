@@ -41,7 +41,7 @@ import (
 // 		}
 // 		exampleLinkedServiceWeb, err := datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			DataFactoryName:    exampleFactory.Name,
+// 			DataFactoryId:      exampleFactory.ID(),
 // 			AuthenticationType: pulumi.String("Anonymous"),
 // 			Url:                pulumi.String("https://www.bing.com"),
 // 		})
@@ -50,7 +50,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewDatasetDelimitedText(ctx, "exampleDatasetDelimitedText", &datafactory.DatasetDelimitedTextArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			LinkedServiceName: exampleLinkedServiceWeb.Name,
 // 			HttpServerLocation: &datafactory.DatasetDelimitedTextHttpServerLocationArgs{
 // 				RelativeUrl: pulumi.String("http://www.bing.com"),
@@ -97,7 +97,11 @@ type DatasetDelimitedText struct {
 	CompressionCodec pulumi.StringPtrOutput `pulumi:"compressionCodec"`
 	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
 	CompressionLevel pulumi.StringPtrOutput `pulumi:"compressionLevel"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -136,9 +140,6 @@ func NewDatasetDelimitedText(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
 	}
@@ -181,7 +182,11 @@ type datasetDelimitedTextState struct {
 	CompressionCodec *string `pulumi:"compressionCodec"`
 	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
 	CompressionLevel *string `pulumi:"compressionLevel"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
@@ -228,7 +233,11 @@ type DatasetDelimitedTextState struct {
 	CompressionCodec pulumi.StringPtrInput
 	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
 	CompressionLevel pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
@@ -279,8 +288,12 @@ type datasetDelimitedTextArgs struct {
 	CompressionCodec *string `pulumi:"compressionCodec"`
 	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
 	CompressionLevel *string `pulumi:"compressionLevel"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
 	// The encoding format for the file.
@@ -327,8 +340,12 @@ type DatasetDelimitedTextArgs struct {
 	CompressionCodec pulumi.StringPtrInput
 	// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
 	CompressionLevel pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
 	// The encoding format for the file.

@@ -177,6 +177,10 @@ type ApplicationGateway struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of `privateEndpointConnection` blocks as defined below.
+	PrivateEndpointConnections ApplicationGatewayPrivateEndpointConnectionArrayOutput `pulumi:"privateEndpointConnections"`
+	// One or more `privateLinkConfiguration` blocks as defined below.
+	PrivateLinkConfigurations ApplicationGatewayPrivateLinkConfigurationArrayOutput `pulumi:"privateLinkConfigurations"`
 	// One or more `probe` blocks as defined below.
 	Probes ApplicationGatewayProbeArrayOutput `pulumi:"probes"`
 	// One or more `redirectConfiguration` blocks as defined below.
@@ -293,6 +297,10 @@ type applicationGatewayState struct {
 	Location *string `pulumi:"location"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A list of `privateEndpointConnection` blocks as defined below.
+	PrivateEndpointConnections []ApplicationGatewayPrivateEndpointConnection `pulumi:"privateEndpointConnections"`
+	// One or more `privateLinkConfiguration` blocks as defined below.
+	PrivateLinkConfigurations []ApplicationGatewayPrivateLinkConfiguration `pulumi:"privateLinkConfigurations"`
 	// One or more `probe` blocks as defined below.
 	Probes []ApplicationGatewayProbe `pulumi:"probes"`
 	// One or more `redirectConfiguration` blocks as defined below.
@@ -354,6 +362,10 @@ type ApplicationGatewayState struct {
 	Location pulumi.StringPtrInput
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A list of `privateEndpointConnection` blocks as defined below.
+	PrivateEndpointConnections ApplicationGatewayPrivateEndpointConnectionArrayInput
+	// One or more `privateLinkConfiguration` blocks as defined below.
+	PrivateLinkConfigurations ApplicationGatewayPrivateLinkConfigurationArrayInput
 	// One or more `probe` blocks as defined below.
 	Probes ApplicationGatewayProbeArrayInput
 	// One or more `redirectConfiguration` blocks as defined below.
@@ -419,6 +431,8 @@ type applicationGatewayArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// One or more `privateLinkConfiguration` blocks as defined below.
+	PrivateLinkConfigurations []ApplicationGatewayPrivateLinkConfiguration `pulumi:"privateLinkConfigurations"`
 	// One or more `probe` blocks as defined below.
 	Probes []ApplicationGatewayProbe `pulumi:"probes"`
 	// One or more `redirectConfiguration` blocks as defined below.
@@ -481,6 +495,8 @@ type ApplicationGatewayArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// One or more `privateLinkConfiguration` blocks as defined below.
+	PrivateLinkConfigurations ApplicationGatewayPrivateLinkConfigurationArrayInput
 	// One or more `probe` blocks as defined below.
 	Probes ApplicationGatewayProbeArrayInput
 	// One or more `redirectConfiguration` blocks as defined below.

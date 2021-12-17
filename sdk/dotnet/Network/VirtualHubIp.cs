@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
-    /// Manages a Virtual Hub IP.
+    /// Manages a Virtual Hub IP. This resource is also known as a Route Server.
     /// 
     /// &gt; **NOTE** Virtual Hub IP only supports Standard Virtual Hub without Virtual Wan.
     /// 
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> PrivateIpAllocationMethod { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Public IP Address.
+        /// The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         /// </summary>
         [Output("publicIpAddressId")]
         public Output<string?> PublicIpAddressId { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? PrivateIpAllocationMethod { get; set; }
 
         /// <summary>
-        /// The ID of the Public IP Address.
+        /// The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicIpAddressId")]
         public Input<string>? PublicIpAddressId { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? PrivateIpAllocationMethod { get; set; }
 
         /// <summary>
-        /// The ID of the Public IP Address.
+        /// The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicIpAddressId")]
         public Input<string>? PublicIpAddressId { get; set; }

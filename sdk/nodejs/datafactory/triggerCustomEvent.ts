@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * });
  * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  * });
  * const exampleTopic = new azure.eventgrid.Topic("exampleTopic", {
  *     location: exampleResourceGroup.location,

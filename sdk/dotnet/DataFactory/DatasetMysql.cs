@@ -34,13 +34,13 @@ namespace Pulumi.Azure.DataFactory
     ///         var exampleLinkedServiceMysql = new Azure.DataFactory.LinkedServiceMysql("exampleLinkedServiceMysql", new Azure.DataFactory.LinkedServiceMysqlArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             ConnectionString = "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
     ///         });
     ///         var exampleDatasetMysql = new Azure.DataFactory.DatasetMysql("exampleDatasetMysql", new Azure.DataFactory.DatasetMysqlArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             LinkedServiceName = exampleLinkedServiceMysql.Name,
     ///         });
     ///     }
@@ -72,7 +72,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Output("dataFactoryName")]
         public Output<string> DataFactoryName { get; private set; } = null!;
@@ -196,10 +202,16 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// The description for the Data Factory Dataset MySQL.
@@ -293,7 +305,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryName")]
         public Input<string>? DataFactoryName { get; set; }

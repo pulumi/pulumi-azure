@@ -33,7 +33,7 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var exampleIntegrationRuntimeRule = new Azure.DataFactory.IntegrationRuntimeRule("exampleIntegrationRuntimeRule", new Azure.DataFactory.IntegrationRuntimeRuleArgs
     ///         {
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
     ///         });
@@ -72,7 +72,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<int?> CoreCount { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Output("dataFactoryName")]
         public Output<string> DataFactoryName { get; private set; } = null!;
@@ -178,10 +184,16 @@ namespace Pulumi.Azure.DataFactory
         public Input<int>? CoreCount { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// Integration runtime description.
@@ -245,7 +257,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<int>? CoreCount { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryName")]
         public Input<string>? DataFactoryName { get; set; }

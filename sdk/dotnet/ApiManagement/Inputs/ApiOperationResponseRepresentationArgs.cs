@@ -18,6 +18,18 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
+        [Input("examples")]
+        private InputList<Inputs.ApiOperationResponseRepresentationExampleArgs>? _examples;
+
+        /// <summary>
+        /// One or more `example` blocks as defined above.
+        /// </summary>
+        public InputList<Inputs.ApiOperationResponseRepresentationExampleArgs> Examples
+        {
+            get => _examples ?? (_examples = new InputList<Inputs.ApiOperationResponseRepresentationExampleArgs>());
+            set => _examples = value;
+        }
+
         [Input("formParameters")]
         private InputList<Inputs.ApiOperationResponseRepresentationFormParameterArgs>? _formParameters;
 

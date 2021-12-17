@@ -104,6 +104,12 @@ namespace Pulumi.Azure.Core
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `non_compliance_message` blocks as defined below.
+        /// </summary>
+        [Output("nonComplianceMessages")]
+        public Output<ImmutableArray<Outputs.SubscriptionPolicyAssignmentNonComplianceMessage>> NonComplianceMessages { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         /// </summary>
         [Output("notScopes")]
@@ -215,6 +221,18 @@ namespace Pulumi.Azure.Core
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("nonComplianceMessages")]
+        private InputList<Inputs.SubscriptionPolicyAssignmentNonComplianceMessageArgs>? _nonComplianceMessages;
+
+        /// <summary>
+        /// One or more `non_compliance_message` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.SubscriptionPolicyAssignmentNonComplianceMessageArgs> NonComplianceMessages
+        {
+            get => _nonComplianceMessages ?? (_nonComplianceMessages = new InputList<Inputs.SubscriptionPolicyAssignmentNonComplianceMessageArgs>());
+            set => _nonComplianceMessages = value;
+        }
+
         [Input("notScopes")]
         private InputList<string>? _notScopes;
 
@@ -293,6 +311,18 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("nonComplianceMessages")]
+        private InputList<Inputs.SubscriptionPolicyAssignmentNonComplianceMessageGetArgs>? _nonComplianceMessages;
+
+        /// <summary>
+        /// One or more `non_compliance_message` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.SubscriptionPolicyAssignmentNonComplianceMessageGetArgs> NonComplianceMessages
+        {
+            get => _nonComplianceMessages ?? (_nonComplianceMessages = new InputList<Inputs.SubscriptionPolicyAssignmentNonComplianceMessageGetArgs>());
+            set => _nonComplianceMessages = value;
+        }
 
         [Input("notScopes")]
         private InputList<string>? _notScopes;

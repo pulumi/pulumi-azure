@@ -34,10 +34,12 @@ __all__ = [
     'ApiOperationRequestHeader',
     'ApiOperationRequestQueryParameter',
     'ApiOperationRequestRepresentation',
+    'ApiOperationRequestRepresentationExample',
     'ApiOperationRequestRepresentationFormParameter',
     'ApiOperationResponse',
     'ApiOperationResponseHeader',
     'ApiOperationResponseRepresentation',
+    'ApiOperationResponseRepresentationExample',
     'ApiOperationResponseRepresentationFormParameter',
     'ApiOperationTemplateParameter',
     'ApiSubscriptionKeyParameterNames',
@@ -1274,18 +1276,22 @@ class ApiOperationRequestRepresentation(dict):
 
     def __init__(__self__, *,
                  content_type: str,
+                 examples: Optional[Sequence['outputs.ApiOperationRequestRepresentationExample']] = None,
                  form_parameters: Optional[Sequence['outputs.ApiOperationRequestRepresentationFormParameter']] = None,
                  sample: Optional[str] = None,
                  schema_id: Optional[str] = None,
                  type_name: Optional[str] = None):
         """
         :param str content_type: The Content Type of this representation, such as `application/json`.
+        :param Sequence['ApiOperationRequestRepresentationExampleArgs'] examples: One or more `example` blocks as defined above.
         :param Sequence['ApiOperationRequestRepresentationFormParameterArgs'] form_parameters: One or more `form_parameter` block as defined above.
         :param str sample: An example of this representation.
         :param str schema_id: The ID of an API Management Schema which represents this Response.
         :param str type_name: The Type Name defined by the Schema.
         """
         pulumi.set(__self__, "content_type", content_type)
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
         if form_parameters is not None:
             pulumi.set(__self__, "form_parameters", form_parameters)
         if sample is not None:
@@ -1302,6 +1308,14 @@ class ApiOperationRequestRepresentation(dict):
         The Content Type of this representation, such as `application/json`.
         """
         return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def examples(self) -> Optional[Sequence['outputs.ApiOperationRequestRepresentationExample']]:
+        """
+        One or more `example` blocks as defined above.
+        """
+        return pulumi.get(self, "examples")
 
     @property
     @pulumi.getter(name="formParameters")
@@ -1334,6 +1348,89 @@ class ApiOperationRequestRepresentation(dict):
         The Type Name defined by the Schema.
         """
         return pulumi.get(self, "type_name")
+
+
+@pulumi.output_type
+class ApiOperationRequestRepresentationExample(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalValue":
+            suggest = "external_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiOperationRequestRepresentationExample. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiOperationRequestRepresentationExample.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiOperationRequestRepresentationExample.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 description: Optional[str] = None,
+                 external_value: Optional[str] = None,
+                 summary: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: The name of this example.
+        :param str description: A long description for this example.
+        :param str external_value: A URL that points to the literal example.
+        :param str summary: A short description for this example.
+        :param str value: The example of the representation.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_value is not None:
+            pulumi.set(__self__, "external_value", external_value)
+        if summary is not None:
+            pulumi.set(__self__, "summary", summary)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this example.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A long description for this example.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalValue")
+    def external_value(self) -> Optional[str]:
+        """
+        A URL that points to the literal example.
+        """
+        return pulumi.get(self, "external_value")
+
+    @property
+    @pulumi.getter
+    def summary(self) -> Optional[str]:
+        """
+        A short description for this example.
+        """
+        return pulumi.get(self, "summary")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The example of the representation.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1620,18 +1717,22 @@ class ApiOperationResponseRepresentation(dict):
 
     def __init__(__self__, *,
                  content_type: str,
+                 examples: Optional[Sequence['outputs.ApiOperationResponseRepresentationExample']] = None,
                  form_parameters: Optional[Sequence['outputs.ApiOperationResponseRepresentationFormParameter']] = None,
                  sample: Optional[str] = None,
                  schema_id: Optional[str] = None,
                  type_name: Optional[str] = None):
         """
         :param str content_type: The Content Type of this representation, such as `application/json`.
+        :param Sequence['ApiOperationResponseRepresentationExampleArgs'] examples: One or more `example` blocks as defined above.
         :param Sequence['ApiOperationResponseRepresentationFormParameterArgs'] form_parameters: One or more `form_parameter` block as defined above.
         :param str sample: An example of this representation.
         :param str schema_id: The ID of an API Management Schema which represents this Response.
         :param str type_name: The Type Name defined by the Schema.
         """
         pulumi.set(__self__, "content_type", content_type)
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
         if form_parameters is not None:
             pulumi.set(__self__, "form_parameters", form_parameters)
         if sample is not None:
@@ -1648,6 +1749,14 @@ class ApiOperationResponseRepresentation(dict):
         The Content Type of this representation, such as `application/json`.
         """
         return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def examples(self) -> Optional[Sequence['outputs.ApiOperationResponseRepresentationExample']]:
+        """
+        One or more `example` blocks as defined above.
+        """
+        return pulumi.get(self, "examples")
 
     @property
     @pulumi.getter(name="formParameters")
@@ -1680,6 +1789,89 @@ class ApiOperationResponseRepresentation(dict):
         The Type Name defined by the Schema.
         """
         return pulumi.get(self, "type_name")
+
+
+@pulumi.output_type
+class ApiOperationResponseRepresentationExample(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalValue":
+            suggest = "external_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiOperationResponseRepresentationExample. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiOperationResponseRepresentationExample.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiOperationResponseRepresentationExample.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 description: Optional[str] = None,
+                 external_value: Optional[str] = None,
+                 summary: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: The name of this example.
+        :param str description: A long description for this example.
+        :param str external_value: A URL that points to the literal example.
+        :param str summary: A short description for this example.
+        :param str value: The example of the representation.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_value is not None:
+            pulumi.set(__self__, "external_value", external_value)
+        if summary is not None:
+            pulumi.set(__self__, "summary", summary)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this example.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A long description for this example.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalValue")
+    def external_value(self) -> Optional[str]:
+        """
+        A URL that points to the literal example.
+        """
+        return pulumi.get(self, "external_value")
+
+    @property
+    @pulumi.getter
+    def summary(self) -> Optional[str]:
+        """
+        A short description for this example.
+        """
+        return pulumi.get(self, "summary")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The example of the representation.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

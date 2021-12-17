@@ -93,6 +93,7 @@ export * from "./virtualNetworkGateway";
 export * from "./virtualNetworkGatewayConnection";
 export * from "./virtualNetworkPeering";
 export * from "./virtualWan";
+export * from "./vnpGatewayNatRule";
 export * from "./vpnGateway";
 export * from "./vpnGatewayConnection";
 export * from "./vpnServerConfiguration";
@@ -160,6 +161,7 @@ import { VirtualNetworkGateway } from "./virtualNetworkGateway";
 import { VirtualNetworkGatewayConnection } from "./virtualNetworkGatewayConnection";
 import { VirtualNetworkPeering } from "./virtualNetworkPeering";
 import { VirtualWan } from "./virtualWan";
+import { VnpGatewayNatRule } from "./vnpGatewayNatRule";
 import { VpnGateway } from "./vpnGateway";
 import { VpnGatewayConnection } from "./vpnGatewayConnection";
 import { VpnServerConfiguration } from "./vpnServerConfiguration";
@@ -291,6 +293,8 @@ const _module = {
                 return new VirtualNetworkPeering(name, <any>undefined, { urn })
             case "azure:network/virtualWan:VirtualWan":
                 return new VirtualWan(name, <any>undefined, { urn })
+            case "azure:network/vnpGatewayNatRule:VnpGatewayNatRule":
+                return new VnpGatewayNatRule(name, <any>undefined, { urn })
             case "azure:network/vpnGateway:VpnGateway":
                 return new VpnGateway(name, <any>undefined, { urn })
             case "azure:network/vpnGatewayConnection:VpnGatewayConnection":
@@ -365,6 +369,7 @@ pulumi.runtime.registerResourceModule("azure", "network/virtualNetworkGateway", 
 pulumi.runtime.registerResourceModule("azure", "network/virtualNetworkGatewayConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualNetworkPeering", _module)
 pulumi.runtime.registerResourceModule("azure", "network/virtualWan", _module)
+pulumi.runtime.registerResourceModule("azure", "network/vnpGatewayNatRule", _module)
 pulumi.runtime.registerResourceModule("azure", "network/vpnGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "network/vpnGatewayConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/vpnServerConfiguration", _module)

@@ -1018,6 +1018,10 @@ type ApplicationGatewayFrontendIpConfiguration struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
 	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
+	// The ID of the associated private link configuration.
+	PrivateLinkConfigurationId *string `pulumi:"privateLinkConfigurationId"`
+	// The name of the private link configuration to use for this frontend IP configuration.
+	PrivateLinkConfigurationName *string `pulumi:"privateLinkConfigurationName"`
 	// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet.
@@ -1044,6 +1048,10 @@ type ApplicationGatewayFrontendIpConfigurationArgs struct {
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
 	PrivateIpAddressAllocation pulumi.StringPtrInput `pulumi:"privateIpAddressAllocation"`
+	// The ID of the associated private link configuration.
+	PrivateLinkConfigurationId pulumi.StringPtrInput `pulumi:"privateLinkConfigurationId"`
+	// The name of the private link configuration to use for this frontend IP configuration.
+	PrivateLinkConfigurationName pulumi.StringPtrInput `pulumi:"privateLinkConfigurationName"`
 	// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
 	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet.
@@ -1119,6 +1127,16 @@ func (o ApplicationGatewayFrontendIpConfigurationOutput) PrivateIpAddress() pulu
 // The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
 func (o ApplicationGatewayFrontendIpConfigurationOutput) PrivateIpAddressAllocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIpConfiguration) *string { return v.PrivateIpAddressAllocation }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the associated private link configuration.
+func (o ApplicationGatewayFrontendIpConfigurationOutput) PrivateLinkConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayFrontendIpConfiguration) *string { return v.PrivateLinkConfigurationId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the private link configuration to use for this frontend IP configuration.
+func (o ApplicationGatewayFrontendIpConfigurationOutput) PrivateLinkConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayFrontendIpConfiguration) *string { return v.PrivateLinkConfigurationName }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
@@ -1884,6 +1902,364 @@ func (o ApplicationGatewayIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationGatewayPrivateEndpointConnection struct {
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+}
+
+// ApplicationGatewayPrivateEndpointConnectionInput is an input type that accepts ApplicationGatewayPrivateEndpointConnectionArgs and ApplicationGatewayPrivateEndpointConnectionOutput values.
+// You can construct a concrete instance of `ApplicationGatewayPrivateEndpointConnectionInput` via:
+//
+//          ApplicationGatewayPrivateEndpointConnectionArgs{...}
+type ApplicationGatewayPrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayPrivateEndpointConnectionOutput() ApplicationGatewayPrivateEndpointConnectionOutput
+	ToApplicationGatewayPrivateEndpointConnectionOutputWithContext(context.Context) ApplicationGatewayPrivateEndpointConnectionOutput
+}
+
+type ApplicationGatewayPrivateEndpointConnectionArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ApplicationGatewayPrivateEndpointConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i ApplicationGatewayPrivateEndpointConnectionArgs) ToApplicationGatewayPrivateEndpointConnectionOutput() ApplicationGatewayPrivateEndpointConnectionOutput {
+	return i.ToApplicationGatewayPrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayPrivateEndpointConnectionArgs) ToApplicationGatewayPrivateEndpointConnectionOutputWithContext(ctx context.Context) ApplicationGatewayPrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayPrivateEndpointConnectionOutput)
+}
+
+// ApplicationGatewayPrivateEndpointConnectionArrayInput is an input type that accepts ApplicationGatewayPrivateEndpointConnectionArray and ApplicationGatewayPrivateEndpointConnectionArrayOutput values.
+// You can construct a concrete instance of `ApplicationGatewayPrivateEndpointConnectionArrayInput` via:
+//
+//          ApplicationGatewayPrivateEndpointConnectionArray{ ApplicationGatewayPrivateEndpointConnectionArgs{...} }
+type ApplicationGatewayPrivateEndpointConnectionArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayPrivateEndpointConnectionArrayOutput() ApplicationGatewayPrivateEndpointConnectionArrayOutput
+	ToApplicationGatewayPrivateEndpointConnectionArrayOutputWithContext(context.Context) ApplicationGatewayPrivateEndpointConnectionArrayOutput
+}
+
+type ApplicationGatewayPrivateEndpointConnectionArray []ApplicationGatewayPrivateEndpointConnectionInput
+
+func (ApplicationGatewayPrivateEndpointConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i ApplicationGatewayPrivateEndpointConnectionArray) ToApplicationGatewayPrivateEndpointConnectionArrayOutput() ApplicationGatewayPrivateEndpointConnectionArrayOutput {
+	return i.ToApplicationGatewayPrivateEndpointConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayPrivateEndpointConnectionArray) ToApplicationGatewayPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) ApplicationGatewayPrivateEndpointConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayPrivateEndpointConnectionArrayOutput)
+}
+
+type ApplicationGatewayPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayPrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) ToApplicationGatewayPrivateEndpointConnectionOutput() ApplicationGatewayPrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) ToApplicationGatewayPrivateEndpointConnectionOutputWithContext(ctx context.Context) ApplicationGatewayPrivateEndpointConnectionOutput {
+	return o
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayPrivateEndpointConnection) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayPrivateEndpointConnection) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationGatewayPrivateEndpointConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayPrivateEndpointConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (o ApplicationGatewayPrivateEndpointConnectionArrayOutput) ToApplicationGatewayPrivateEndpointConnectionArrayOutput() ApplicationGatewayPrivateEndpointConnectionArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayPrivateEndpointConnectionArrayOutput) ToApplicationGatewayPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) ApplicationGatewayPrivateEndpointConnectionArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayPrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayPrivateEndpointConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayPrivateEndpointConnection {
+		return vs[0].([]ApplicationGatewayPrivateEndpointConnection)[vs[1].(int)]
+	}).(ApplicationGatewayPrivateEndpointConnectionOutput)
+}
+
+type ApplicationGatewayPrivateLinkConfiguration struct {
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// One or more `ipConfiguration` blocks as defined below.
+	IpConfigurations []ApplicationGatewayPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfigurations"`
+	// The name of the private link configuration.
+	Name string `pulumi:"name"`
+}
+
+// ApplicationGatewayPrivateLinkConfigurationInput is an input type that accepts ApplicationGatewayPrivateLinkConfigurationArgs and ApplicationGatewayPrivateLinkConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationGatewayPrivateLinkConfigurationInput` via:
+//
+//          ApplicationGatewayPrivateLinkConfigurationArgs{...}
+type ApplicationGatewayPrivateLinkConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayPrivateLinkConfigurationOutput() ApplicationGatewayPrivateLinkConfigurationOutput
+	ToApplicationGatewayPrivateLinkConfigurationOutputWithContext(context.Context) ApplicationGatewayPrivateLinkConfigurationOutput
+}
+
+type ApplicationGatewayPrivateLinkConfigurationArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// One or more `ipConfiguration` blocks as defined below.
+	IpConfigurations ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	// The name of the private link configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ApplicationGatewayPrivateLinkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationGatewayPrivateLinkConfigurationArgs) ToApplicationGatewayPrivateLinkConfigurationOutput() ApplicationGatewayPrivateLinkConfigurationOutput {
+	return i.ToApplicationGatewayPrivateLinkConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayPrivateLinkConfigurationArgs) ToApplicationGatewayPrivateLinkConfigurationOutputWithContext(ctx context.Context) ApplicationGatewayPrivateLinkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayPrivateLinkConfigurationOutput)
+}
+
+// ApplicationGatewayPrivateLinkConfigurationArrayInput is an input type that accepts ApplicationGatewayPrivateLinkConfigurationArray and ApplicationGatewayPrivateLinkConfigurationArrayOutput values.
+// You can construct a concrete instance of `ApplicationGatewayPrivateLinkConfigurationArrayInput` via:
+//
+//          ApplicationGatewayPrivateLinkConfigurationArray{ ApplicationGatewayPrivateLinkConfigurationArgs{...} }
+type ApplicationGatewayPrivateLinkConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayPrivateLinkConfigurationArrayOutput() ApplicationGatewayPrivateLinkConfigurationArrayOutput
+	ToApplicationGatewayPrivateLinkConfigurationArrayOutputWithContext(context.Context) ApplicationGatewayPrivateLinkConfigurationArrayOutput
+}
+
+type ApplicationGatewayPrivateLinkConfigurationArray []ApplicationGatewayPrivateLinkConfigurationInput
+
+func (ApplicationGatewayPrivateLinkConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationGatewayPrivateLinkConfigurationArray) ToApplicationGatewayPrivateLinkConfigurationArrayOutput() ApplicationGatewayPrivateLinkConfigurationArrayOutput {
+	return i.ToApplicationGatewayPrivateLinkConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayPrivateLinkConfigurationArray) ToApplicationGatewayPrivateLinkConfigurationArrayOutputWithContext(ctx context.Context) ApplicationGatewayPrivateLinkConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayPrivateLinkConfigurationArrayOutput)
+}
+
+type ApplicationGatewayPrivateLinkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayPrivateLinkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationGatewayPrivateLinkConfigurationOutput) ToApplicationGatewayPrivateLinkConfigurationOutput() ApplicationGatewayPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o ApplicationGatewayPrivateLinkConfigurationOutput) ToApplicationGatewayPrivateLinkConfigurationOutputWithContext(ctx context.Context) ApplicationGatewayPrivateLinkConfigurationOutput {
+	return o
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayPrivateLinkConfigurationOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayPrivateLinkConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// One or more `ipConfiguration` blocks as defined below.
+func (o ApplicationGatewayPrivateLinkConfigurationOutput) IpConfigurations() ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayPrivateLinkConfiguration) []ApplicationGatewayPrivateLinkConfigurationIpConfiguration {
+		return v.IpConfigurations
+	}).(ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput)
+}
+
+// The name of the private link configuration.
+func (o ApplicationGatewayPrivateLinkConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayPrivateLinkConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ApplicationGatewayPrivateLinkConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayPrivateLinkConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationGatewayPrivateLinkConfigurationArrayOutput) ToApplicationGatewayPrivateLinkConfigurationArrayOutput() ApplicationGatewayPrivateLinkConfigurationArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayPrivateLinkConfigurationArrayOutput) ToApplicationGatewayPrivateLinkConfigurationArrayOutputWithContext(ctx context.Context) ApplicationGatewayPrivateLinkConfigurationArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayPrivateLinkConfigurationArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayPrivateLinkConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayPrivateLinkConfiguration {
+		return vs[0].([]ApplicationGatewayPrivateLinkConfiguration)[vs[1].(int)]
+	}).(ApplicationGatewayPrivateLinkConfigurationOutput)
+}
+
+type ApplicationGatewayPrivateLinkConfigurationIpConfiguration struct {
+	// The name of the IP configuration.
+	Name string `pulumi:"name"`
+	// Is this the Primary IP Configuration?
+	Primary bool `pulumi:"primary"`
+	// The Static IP Address which should be used.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+	PrivateIpAddressAllocation string `pulumi:"privateIpAddressAllocation"`
+	// The ID of the subnet the private link configuration should connect to.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// ApplicationGatewayPrivateLinkConfigurationIpConfigurationInput is an input type that accepts ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs and ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationGatewayPrivateLinkConfigurationIpConfigurationInput` via:
+//
+//          ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs{...}
+type ApplicationGatewayPrivateLinkConfigurationIpConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput() ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput
+	ToApplicationGatewayPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Context) ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput
+}
+
+type ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs struct {
+	// The name of the IP configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Is this the Primary IP Configuration?
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// The Static IP Address which should be used.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+	PrivateIpAddressAllocation pulumi.StringInput `pulumi:"privateIpAddressAllocation"`
+	// The ID of the subnet the private link configuration should connect to.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs) ToApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput() ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput {
+	return i.ToApplicationGatewayPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs) ToApplicationGatewayPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+// ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput is an input type that accepts ApplicationGatewayPrivateLinkConfigurationIpConfigurationArray and ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput` via:
+//
+//          ApplicationGatewayPrivateLinkConfigurationIpConfigurationArray{ ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs{...} }
+type ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput() ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput
+	ToApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutputWithContext(context.Context) ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput
+}
+
+type ApplicationGatewayPrivateLinkConfigurationIpConfigurationArray []ApplicationGatewayPrivateLinkConfigurationIpConfigurationInput
+
+func (ApplicationGatewayPrivateLinkConfigurationIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationGatewayPrivateLinkConfigurationIpConfigurationArray) ToApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput() ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
+	return i.ToApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayPrivateLinkConfigurationIpConfigurationArray) ToApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutputWithContext(ctx context.Context) ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput)
+}
+
+type ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) ToApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput() ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) ToApplicationGatewayPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+// The name of the IP configuration.
+func (o ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Is this the Primary IP Configuration?
+func (o ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationGatewayPrivateLinkConfigurationIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+// The Static IP Address which should be used.
+func (o ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+func (o ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddressAllocation() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayPrivateLinkConfigurationIpConfiguration) string {
+		return v.PrivateIpAddressAllocation
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the subnet the private link configuration should connect to.
+func (o ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationGatewayPrivateLinkConfigurationIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationGatewayPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput) ToApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput() ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput) ToApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutputWithContext(ctx context.Context) ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayPrivateLinkConfigurationIpConfiguration {
+		return vs[0].([]ApplicationGatewayPrivateLinkConfigurationIpConfiguration)[vs[1].(int)]
+	}).(ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput)
 }
 
 type ApplicationGatewayProbe struct {
@@ -20022,6 +20398,10 @@ type VpnGatewayConnectionVpnLink struct {
 	BgpEnabled *bool `pulumi:"bgpEnabled"`
 	// The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
 	ConnectionMode *string `pulumi:"connectionMode"`
+	// A list of the egress Nat Rule Ids.
+	EgressNatRuleIds []string `pulumi:"egressNatRuleIds"`
+	// A list of the ingress Nat Rule Ids.
+	IngressNatRuleIds []string `pulumi:"ingressNatRuleIds"`
 	// One or more `ipsecPolicy` blocks as defined above.
 	IpsecPolicies []VpnGatewayConnectionVpnLinkIpsecPolicy `pulumi:"ipsecPolicies"`
 	// Whether to use local azure ip to initiate connection? Defaults to `false`.
@@ -20060,6 +20440,10 @@ type VpnGatewayConnectionVpnLinkArgs struct {
 	BgpEnabled pulumi.BoolPtrInput `pulumi:"bgpEnabled"`
 	// The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
 	ConnectionMode pulumi.StringPtrInput `pulumi:"connectionMode"`
+	// A list of the egress Nat Rule Ids.
+	EgressNatRuleIds pulumi.StringArrayInput `pulumi:"egressNatRuleIds"`
+	// A list of the ingress Nat Rule Ids.
+	IngressNatRuleIds pulumi.StringArrayInput `pulumi:"ingressNatRuleIds"`
 	// One or more `ipsecPolicy` blocks as defined above.
 	IpsecPolicies VpnGatewayConnectionVpnLinkIpsecPolicyArrayInput `pulumi:"ipsecPolicies"`
 	// Whether to use local azure ip to initiate connection? Defaults to `false`.
@@ -20144,6 +20528,16 @@ func (o VpnGatewayConnectionVpnLinkOutput) BgpEnabled() pulumi.BoolPtrOutput {
 // The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
 func (o VpnGatewayConnectionVpnLinkOutput) ConnectionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) *string { return v.ConnectionMode }).(pulumi.StringPtrOutput)
+}
+
+// A list of the egress Nat Rule Ids.
+func (o VpnGatewayConnectionVpnLinkOutput) EgressNatRuleIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) []string { return v.EgressNatRuleIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of the ingress Nat Rule Ids.
+func (o VpnGatewayConnectionVpnLinkOutput) IngressNatRuleIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionVpnLink) []string { return v.IngressNatRuleIds }).(pulumi.StringArrayOutput)
 }
 
 // One or more `ipsecPolicy` blocks as defined above.
@@ -25927,6 +26321,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput)(nil)).Elem(), ApplicationGatewayHttpListenerCustomErrorConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayIdentityInput)(nil)).Elem(), ApplicationGatewayIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayIdentityPtrInput)(nil)).Elem(), ApplicationGatewayIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnectionInput)(nil)).Elem(), ApplicationGatewayPrivateEndpointConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnectionArrayInput)(nil)).Elem(), ApplicationGatewayPrivateEndpointConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayPrivateLinkConfigurationInput)(nil)).Elem(), ApplicationGatewayPrivateLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayPrivateLinkConfigurationArrayInput)(nil)).Elem(), ApplicationGatewayPrivateLinkConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayPrivateLinkConfigurationIpConfigurationInput)(nil)).Elem(), ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput)(nil)).Elem(), ApplicationGatewayPrivateLinkConfigurationIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayProbeInput)(nil)).Elem(), ApplicationGatewayProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayProbeArrayInput)(nil)).Elem(), ApplicationGatewayProbeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayProbeMatchInput)(nil)).Elem(), ApplicationGatewayProbeMatchArgs{})
@@ -26264,6 +26664,12 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayIdentityOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayPrivateEndpointConnectionOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayPrivateEndpointConnectionArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayPrivateLinkConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayPrivateLinkConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayProbeOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayProbeArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayProbeMatchOutput{})

@@ -23,12 +23,12 @@ class ApiVersionSetArgs:
                  version_query_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiVersionSet resource.
-        :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this API Version Set.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] versioning_scheme: Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
         :param pulumi.Input[str] description: The description of API Version Set.
-        :param pulumi.Input[str] name: The name of the API Version Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version_header_name: The name of the Header which should be read from Inbound Requests which defines the API Version.
         :param pulumi.Input[str] version_query_name: The name of the Query String which should be read from Inbound Requests which defines the API Version.
         """
@@ -49,7 +49,7 @@ class ApiVersionSetArgs:
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Input[str]:
         """
-        The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+        The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
@@ -109,7 +109,7 @@ class ApiVersionSetArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the API Version Set. Changing this forces a new resource to be created.
+        The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -155,10 +155,10 @@ class _ApiVersionSetState:
                  versioning_scheme: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApiVersionSet resources.
-        :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of API Version Set.
         :param pulumi.Input[str] display_name: The display name of this API Version Set.
-        :param pulumi.Input[str] name: The name of the API Version Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version_header_name: The name of the Header which should be read from Inbound Requests which defines the API Version.
         :param pulumi.Input[str] version_query_name: The name of the Query String which should be read from Inbound Requests which defines the API Version.
@@ -185,7 +185,7 @@ class _ApiVersionSetState:
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+        The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
@@ -221,7 +221,7 @@ class _ApiVersionSetState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the API Version Set. Changing this forces a new resource to be created.
+        The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -325,10 +325,10 @@ class ApiVersionSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of API Version Set.
         :param pulumi.Input[str] display_name: The display name of this API Version Set.
-        :param pulumi.Input[str] name: The name of the API Version Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version_header_name: The name of the Header which should be read from Inbound Requests which defines the API Version.
         :param pulumi.Input[str] version_query_name: The name of the Query String which should be read from Inbound Requests which defines the API Version.
@@ -447,10 +447,10 @@ class ApiVersionSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of API Version Set.
         :param pulumi.Input[str] display_name: The display name of this API Version Set.
-        :param pulumi.Input[str] name: The name of the API Version Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version_header_name: The name of the Header which should be read from Inbound Requests which defines the API Version.
         :param pulumi.Input[str] version_query_name: The name of the Query String which should be read from Inbound Requests which defines the API Version.
@@ -474,7 +474,7 @@ class ApiVersionSet(pulumi.CustomResource):
     @pulumi.getter(name="apiManagementName")
     def api_management_name(self) -> pulumi.Output[str]:
         """
-        The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+        The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
 
@@ -498,7 +498,7 @@ class ApiVersionSet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the API Version Set. Changing this forces a new resource to be created.
+        The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

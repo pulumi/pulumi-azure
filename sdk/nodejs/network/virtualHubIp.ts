@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Virtual Hub IP.
+ * Manages a Virtual Hub IP. This resource is also known as a Route Server.
  *
  * > **NOTE** Virtual Hub IP only supports Standard Virtual Hub without Virtual Wan.
  *
@@ -94,7 +94,7 @@ export class VirtualHubIp extends pulumi.CustomResource {
      */
     public readonly privateIpAllocationMethod!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Public IP Address.
+     * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      */
     public readonly publicIpAddressId!: pulumi.Output<string | undefined>;
     /**
@@ -164,7 +164,7 @@ export interface VirtualHubIpState {
      */
     privateIpAllocationMethod?: pulumi.Input<string>;
     /**
-     * The ID of the Public IP Address.
+     * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      */
     publicIpAddressId?: pulumi.Input<string>;
     /**
@@ -194,7 +194,7 @@ export interface VirtualHubIpArgs {
      */
     privateIpAllocationMethod?: pulumi.Input<string>;
     /**
-     * The ID of the Public IP Address.
+     * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      */
     publicIpAddressId?: pulumi.Input<string>;
     /**

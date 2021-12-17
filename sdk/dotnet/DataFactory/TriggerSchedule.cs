@@ -34,11 +34,11 @@ namespace Pulumi.Azure.DataFactory
     ///         var testPipeline = new Azure.DataFactory.Pipeline("testPipeline", new Azure.DataFactory.PipelineArgs
     ///         {
     ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             DataFactoryName = azurerm_data_factory.Test.Name,
+    ///             DataFactoryId = azurerm_data_factory.Test.Id,
     ///         });
     ///         var testTriggerSchedule = new Azure.DataFactory.TriggerSchedule("testTriggerSchedule", new Azure.DataFactory.TriggerScheduleArgs
     ///         {
-    ///             DataFactoryName = azurerm_data_factory.Test.Name,
+    ///             DataFactoryId = azurerm_data_factory.Test.Id,
     ///             ResourceGroupName = azurerm_resource_group.Test.Name,
     ///             PipelineName = testPipeline.Name,
     ///             Interval = 5,
@@ -73,7 +73,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Output("dataFactoryName")]
         public Output<string> DataFactoryName { get; private set; } = null!;
@@ -203,10 +209,16 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// The Schedule Trigger's description.
@@ -300,7 +312,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryName")]
         public Input<string>? DataFactoryName { get; set; }

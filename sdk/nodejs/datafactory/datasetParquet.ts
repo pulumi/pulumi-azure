@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  * });
  * const exampleLinkedServiceWeb = new azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     authenticationType: "Anonymous",
  *     url: "https://www.bing.com",
  * });
  * const exampleDatasetParquet = new azure.datafactory.DatasetParquet("exampleDatasetParquet", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceWeb.name,
  *     httpServerLocation: {
  *         relativeUrl: "http://www.bing.com",
@@ -90,8 +90,11 @@ export class DatasetParquet extends pulumi.CustomResource {
      */
     public readonly compressionCodec!: pulumi.Output<string | undefined>;
     public readonly compressionLevel!: pulumi.Output<string | undefined>;
+    public readonly dataFactoryId!: pulumi.Output<string>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
@@ -145,6 +148,7 @@ export class DatasetParquet extends pulumi.CustomResource {
             inputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
             inputs["compressionCodec"] = state ? state.compressionCodec : undefined;
             inputs["compressionLevel"] = state ? state.compressionLevel : undefined;
+            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["folder"] = state ? state.folder : undefined;
@@ -156,9 +160,6 @@ export class DatasetParquet extends pulumi.CustomResource {
             inputs["schemaColumns"] = state ? state.schemaColumns : undefined;
         } else {
             const args = argsOrState as DatasetParquetArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFactoryName'");
-            }
             if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
             }
@@ -170,6 +171,7 @@ export class DatasetParquet extends pulumi.CustomResource {
             inputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
             inputs["compressionCodec"] = args ? args.compressionCodec : undefined;
             inputs["compressionLevel"] = args ? args.compressionLevel : undefined;
+            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["folder"] = args ? args.folder : undefined;
@@ -208,8 +210,11 @@ export interface DatasetParquetState {
      */
     compressionCodec?: pulumi.Input<string>;
     compressionLevel?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     dataFactoryName?: pulumi.Input<string>;
     /**
@@ -267,10 +272,13 @@ export interface DatasetParquetArgs {
      */
     compressionCodec?: pulumi.Input<string>;
     compressionLevel?: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
-    dataFactoryName: pulumi.Input<string>;
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */

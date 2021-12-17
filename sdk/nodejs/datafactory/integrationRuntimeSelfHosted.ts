@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleIntegrationRuntimeSelfHosted = new azure.datafactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", {
- *     resourceGroupName: "example",
- *     dataFactoryName: "example",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dataFactoryId: exampleFactory.id,
  * });
  * ```
  *
@@ -70,7 +70,13 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
      */
     public /*out*/ readonly authKey2!: pulumi.Output<string>;
     /**
-     * Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    public readonly dataFactoryId!: pulumi.Output<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
@@ -105,6 +111,7 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
             const state = argsOrState as IntegrationRuntimeSelfHostedState | undefined;
             inputs["authKey1"] = state ? state.authKey1 : undefined;
             inputs["authKey2"] = state ? state.authKey2 : undefined;
+            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -112,12 +119,10 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeSelfHostedArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFactoryName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -146,7 +151,13 @@ export interface IntegrationRuntimeSelfHostedState {
      */
     authKey2?: pulumi.Input<string>;
     /**
-     * Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     dataFactoryName?: pulumi.Input<string>;
     /**
@@ -172,9 +183,15 @@ export interface IntegrationRuntimeSelfHostedState {
  */
 export interface IntegrationRuntimeSelfHostedArgs {
     /**
-     * Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryName: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+     */
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */

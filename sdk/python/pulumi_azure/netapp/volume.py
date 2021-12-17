@@ -24,6 +24,7 @@ class VolumeArgs:
                  volume_path: pulumi.Input[str],
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
+                 data_protection_snapshot_policy: Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']] = None,
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -43,6 +44,7 @@ class VolumeArgs:
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below.
+        :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -63,6 +65,8 @@ class VolumeArgs:
             pulumi.set(__self__, "create_from_snapshot_resource_id", create_from_snapshot_resource_id)
         if data_protection_replication is not None:
             pulumi.set(__self__, "data_protection_replication", data_protection_replication)
+        if data_protection_snapshot_policy is not None:
+            pulumi.set(__self__, "data_protection_snapshot_policy", data_protection_snapshot_policy)
         if export_policy_rules is not None:
             pulumi.set(__self__, "export_policy_rules", export_policy_rules)
         if location is not None:
@@ -189,6 +193,18 @@ class VolumeArgs:
         pulumi.set(self, "data_protection_replication", value)
 
     @property
+    @pulumi.getter(name="dataProtectionSnapshotPolicy")
+    def data_protection_snapshot_policy(self) -> Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']]:
+        """
+        A `data_protection_snapshot_policy` block as defined below.
+        """
+        return pulumi.get(self, "data_protection_snapshot_policy")
+
+    @data_protection_snapshot_policy.setter
+    def data_protection_snapshot_policy(self, value: Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']]):
+        pulumi.set(self, "data_protection_snapshot_policy", value)
+
+    @property
     @pulumi.getter(name="exportPolicyRules")
     def export_policy_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]]:
         """
@@ -291,6 +307,7 @@ class _VolumeState:
                  account_name: Optional[pulumi.Input[str]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
+                 data_protection_snapshot_policy: Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']] = None,
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -311,6 +328,7 @@ class _VolumeState:
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below.
+        :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
@@ -333,6 +351,8 @@ class _VolumeState:
             pulumi.set(__self__, "create_from_snapshot_resource_id", create_from_snapshot_resource_id)
         if data_protection_replication is not None:
             pulumi.set(__self__, "data_protection_replication", data_protection_replication)
+        if data_protection_snapshot_policy is not None:
+            pulumi.set(__self__, "data_protection_snapshot_policy", data_protection_snapshot_policy)
         if export_policy_rules is not None:
             pulumi.set(__self__, "export_policy_rules", export_policy_rules)
         if location is not None:
@@ -399,6 +419,18 @@ class _VolumeState:
     @data_protection_replication.setter
     def data_protection_replication(self, value: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']]):
         pulumi.set(self, "data_protection_replication", value)
+
+    @property
+    @pulumi.getter(name="dataProtectionSnapshotPolicy")
+    def data_protection_snapshot_policy(self) -> Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']]:
+        """
+        A `data_protection_snapshot_policy` block as defined below.
+        """
+        return pulumi.get(self, "data_protection_snapshot_policy")
+
+    @data_protection_snapshot_policy.setter
+    def data_protection_snapshot_policy(self, value: Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']]):
+        pulumi.set(self, "data_protection_snapshot_policy", value)
 
     @property
     @pulumi.getter(name="exportPolicyRules")
@@ -589,6 +621,7 @@ class Volume(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
+                 data_protection_snapshot_policy: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']]] = None,
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -659,6 +692,9 @@ class Volume(pulumi.CustomResource):
                 remote_volume_location=azurerm_resource_group["example_primary"]["location"],
                 remote_volume_resource_id=azurerm_netapp_volume["example_primary"]["id"],
                 replication_frequency="10minutes",
+            ),
+            data_protection_snapshot_policy=azure.netapp.VolumeDataProtectionSnapshotPolicyArgs(
+                snapshot_policy_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotpolicy1",
             ))
         ```
 
@@ -675,6 +711,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']] data_protection_replication: A `data_protection_replication` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -751,6 +788,9 @@ class Volume(pulumi.CustomResource):
                 remote_volume_location=azurerm_resource_group["example_primary"]["location"],
                 remote_volume_resource_id=azurerm_netapp_volume["example_primary"]["id"],
                 replication_frequency="10minutes",
+            ),
+            data_protection_snapshot_policy=azure.netapp.VolumeDataProtectionSnapshotPolicyArgs(
+                snapshot_policy_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotpolicy1",
             ))
         ```
 
@@ -780,6 +820,7 @@ class Volume(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
+                 data_protection_snapshot_policy: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']]] = None,
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -811,6 +852,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
             __props__.__dict__["data_protection_replication"] = data_protection_replication
+            __props__.__dict__["data_protection_snapshot_policy"] = data_protection_snapshot_policy
             __props__.__dict__["export_policy_rules"] = export_policy_rules
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -851,6 +893,7 @@ class Volume(pulumi.CustomResource):
             account_name: Optional[pulumi.Input[str]] = None,
             create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
             data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
+            data_protection_snapshot_policy: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']]] = None,
             export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -876,6 +919,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']] data_protection_replication: A `data_protection_replication` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
@@ -899,6 +943,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["account_name"] = account_name
         __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
         __props__.__dict__["data_protection_replication"] = data_protection_replication
+        __props__.__dict__["data_protection_snapshot_policy"] = data_protection_snapshot_policy
         __props__.__dict__["export_policy_rules"] = export_policy_rules
         __props__.__dict__["location"] = location
         __props__.__dict__["mount_ip_addresses"] = mount_ip_addresses
@@ -939,6 +984,14 @@ class Volume(pulumi.CustomResource):
         A `data_protection_replication` block as defined below.
         """
         return pulumi.get(self, "data_protection_replication")
+
+    @property
+    @pulumi.getter(name="dataProtectionSnapshotPolicy")
+    def data_protection_snapshot_policy(self) -> pulumi.Output[Optional['outputs.VolumeDataProtectionSnapshotPolicy']]:
+        """
+        A `data_protection_snapshot_policy` block as defined below.
+        """
+        return pulumi.get(self, "data_protection_snapshot_policy")
 
     @property
     @pulumi.getter(name="exportPolicyRules")
@@ -1014,7 +1067,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotDirectoryVisible")
-    def snapshot_directory_visible(self) -> pulumi.Output[Optional[bool]]:
+    def snapshot_directory_visible(self) -> pulumi.Output[bool]:
         """
         Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         """

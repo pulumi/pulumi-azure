@@ -63,6 +63,8 @@ type Workflow struct {
 	// The list of outgoing ip addresses of connector.
 	ConnectorOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"connectorOutboundIpAddresses"`
 	Enabled                      pulumi.BoolPtrOutput     `pulumi:"enabled"`
+	// An `identity` block as defined below.
+	Identity WorkflowIdentityPtrOutput `pulumi:"identity"`
 	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
 	IntegrationServiceEnvironmentId pulumi.StringPtrOutput `pulumi:"integrationServiceEnvironmentId"`
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
@@ -130,6 +132,8 @@ type workflowState struct {
 	// The list of outgoing ip addresses of connector.
 	ConnectorOutboundIpAddresses []string `pulumi:"connectorOutboundIpAddresses"`
 	Enabled                      *bool    `pulumi:"enabled"`
+	// An `identity` block as defined below.
+	Identity *WorkflowIdentity `pulumi:"identity"`
 	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
 	IntegrationServiceEnvironmentId *string `pulumi:"integrationServiceEnvironmentId"`
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
@@ -166,6 +170,8 @@ type WorkflowState struct {
 	// The list of outgoing ip addresses of connector.
 	ConnectorOutboundIpAddresses pulumi.StringArrayInput
 	Enabled                      pulumi.BoolPtrInput
+	// An `identity` block as defined below.
+	Identity WorkflowIdentityPtrInput
 	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
 	IntegrationServiceEnvironmentId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
@@ -200,6 +206,8 @@ type workflowArgs struct {
 	// A `accessControl` block as defined below.
 	AccessControl *WorkflowAccessControl `pulumi:"accessControl"`
 	Enabled       *bool                  `pulumi:"enabled"`
+	// An `identity` block as defined below.
+	Identity *WorkflowIdentity `pulumi:"identity"`
 	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
 	IntegrationServiceEnvironmentId *string `pulumi:"integrationServiceEnvironmentId"`
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
@@ -227,6 +235,8 @@ type WorkflowArgs struct {
 	// A `accessControl` block as defined below.
 	AccessControl WorkflowAccessControlPtrInput
 	Enabled       pulumi.BoolPtrInput
+	// An `identity` block as defined below.
+	Identity WorkflowIdentityPtrInput
 	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
 	IntegrationServiceEnvironmentId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.

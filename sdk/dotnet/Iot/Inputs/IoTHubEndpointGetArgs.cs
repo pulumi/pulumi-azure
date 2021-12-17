@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Iot.Inputs
     public sealed class IoTHubEndpointGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         /// </summary>
         [Input("batchFrequencyInSeconds")]
         public Input<int>? BatchFrequencyInSeconds { get; set; }
@@ -31,19 +31,19 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<string>? ContainerName { get; set; }
 
         /// <summary>
-        /// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }
 
         /// <summary>
-        /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         /// </summary>
         [Input("fileNameFormat")]
         public Input<string>? FileNameFormat { get; set; }
 
         /// <summary>
-        /// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         /// </summary>
         [Input("maxChunkSizeInBytes")]
         public Input<int>? MaxChunkSizeInBytes { get; set; }

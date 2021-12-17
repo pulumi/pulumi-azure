@@ -17,6 +17,7 @@ class IoTHubArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['IoTHubSkuArgs'],
+                 cloud_to_device: Optional[pulumi.Input['IoTHubCloudToDeviceArgs']] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]]] = None,
                  enrichments: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]] = None,
                  event_hub_partition_count: Optional[pulumi.Input[int]] = None,
@@ -34,6 +35,7 @@ class IoTHubArgs:
         The set of arguments for constructing a IoTHub resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input['IoTHubSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input['IoTHubCloudToDeviceArgs'] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]] endpoints: An `endpoint` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
@@ -50,6 +52,8 @@ class IoTHubArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if cloud_to_device is not None:
+            pulumi.set(__self__, "cloud_to_device", cloud_to_device)
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)
         if enrichments is not None:
@@ -100,6 +104,18 @@ class IoTHubArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['IoTHubSkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="cloudToDevice")
+    def cloud_to_device(self) -> Optional[pulumi.Input['IoTHubCloudToDeviceArgs']]:
+        """
+        A `cloud_to_device` block as defined below.
+        """
+        return pulumi.get(self, "cloud_to_device")
+
+    @cloud_to_device.setter
+    def cloud_to_device(self, value: Optional[pulumi.Input['IoTHubCloudToDeviceArgs']]):
+        pulumi.set(self, "cloud_to_device", value)
 
     @property
     @pulumi.getter
@@ -261,6 +277,7 @@ class IoTHubArgs:
 @pulumi.input_type
 class _IoTHubState:
     def __init__(__self__, *,
+                 cloud_to_device: Optional[pulumi.Input['IoTHubCloudToDeviceArgs']] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]]] = None,
                  enrichments: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]] = None,
                  event_hub_events_endpoint: Optional[pulumi.Input[str]] = None,
@@ -285,6 +302,7 @@ class _IoTHubState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IoTHub resources.
+        :param pulumi.Input['IoTHubCloudToDeviceArgs'] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]] endpoints: An `endpoint` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
@@ -308,6 +326,8 @@ class _IoTHubState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         """
+        if cloud_to_device is not None:
+            pulumi.set(__self__, "cloud_to_device", cloud_to_device)
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)
         if enrichments is not None:
@@ -352,6 +372,18 @@ class _IoTHubState:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="cloudToDevice")
+    def cloud_to_device(self) -> Optional[pulumi.Input['IoTHubCloudToDeviceArgs']]:
+        """
+        A `cloud_to_device` block as defined below.
+        """
+        return pulumi.get(self, "cloud_to_device")
+
+    @cloud_to_device.setter
+    def cloud_to_device(self, value: Optional[pulumi.Input['IoTHubCloudToDeviceArgs']]):
+        pulumi.set(self, "cloud_to_device", value)
 
     @property
     @pulumi.getter
@@ -623,6 +655,7 @@ class IoTHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cloud_to_device: Optional[pulumi.Input[pulumi.InputType['IoTHubCloudToDeviceArgs']]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
                  enrichments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]]] = None,
                  event_hub_partition_count: Optional[pulumi.Input[int]] = None,
@@ -727,6 +760,15 @@ class IoTHub(pulumi.CustomResource):
                     "export2",
                 ],
             )],
+            cloud_to_device=azure.iot.IoTHubCloudToDeviceArgs(
+                max_delivery_count=30,
+                default_ttl="PT1H",
+                feedbacks=[azure.iot.IoTHubCloudToDeviceFeedbackArgs(
+                    time_to_live="PT1H10M",
+                    max_delivery_count=15,
+                    lock_duration="PT30S",
+                )],
+            ),
             tags={
                 "purpose": "testing",
             })
@@ -742,6 +784,7 @@ class IoTHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['IoTHubCloudToDeviceArgs']] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
@@ -852,6 +895,15 @@ class IoTHub(pulumi.CustomResource):
                     "export2",
                 ],
             )],
+            cloud_to_device=azure.iot.IoTHubCloudToDeviceArgs(
+                max_delivery_count=30,
+                default_ttl="PT1H",
+                feedbacks=[azure.iot.IoTHubCloudToDeviceFeedbackArgs(
+                    time_to_live="PT1H10M",
+                    max_delivery_count=15,
+                    lock_duration="PT30S",
+                )],
+            ),
             tags={
                 "purpose": "testing",
             })
@@ -880,6 +932,7 @@ class IoTHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cloud_to_device: Optional[pulumi.Input[pulumi.InputType['IoTHubCloudToDeviceArgs']]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
                  enrichments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]]] = None,
                  event_hub_partition_count: Optional[pulumi.Input[int]] = None,
@@ -907,6 +960,7 @@ class IoTHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IoTHubArgs.__new__(IoTHubArgs)
 
+            __props__.__dict__["cloud_to_device"] = cloud_to_device
             __props__.__dict__["endpoints"] = endpoints
             __props__.__dict__["enrichments"] = enrichments
             __props__.__dict__["event_hub_partition_count"] = event_hub_partition_count
@@ -943,6 +997,7 @@ class IoTHub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            cloud_to_device: Optional[pulumi.Input[pulumi.InputType['IoTHubCloudToDeviceArgs']]] = None,
             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
             enrichments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]]] = None,
             event_hub_events_endpoint: Optional[pulumi.Input[str]] = None,
@@ -972,6 +1027,7 @@ class IoTHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['IoTHubCloudToDeviceArgs']] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
@@ -999,6 +1055,7 @@ class IoTHub(pulumi.CustomResource):
 
         __props__ = _IoTHubState.__new__(_IoTHubState)
 
+        __props__.__dict__["cloud_to_device"] = cloud_to_device
         __props__.__dict__["endpoints"] = endpoints
         __props__.__dict__["enrichments"] = enrichments
         __props__.__dict__["event_hub_events_endpoint"] = event_hub_events_endpoint
@@ -1022,6 +1079,14 @@ class IoTHub(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["type"] = type
         return IoTHub(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="cloudToDevice")
+    def cloud_to_device(self) -> pulumi.Output['outputs.IoTHubCloudToDevice']:
+        """
+        A `cloud_to_device` block as defined below.
+        """
+        return pulumi.get(self, "cloud_to_device")
 
     @property
     @pulumi.getter

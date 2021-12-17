@@ -1656,6 +1656,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerservice/registryTask",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/registryTask:RegistryTask": "RegistryTask"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerservice/registryToken",
   "fqn": "pulumi_azure.containerservice",
   "classes": {
@@ -3888,6 +3896,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "maps/creator",
+  "fqn": "pulumi_azure.maps",
+  "classes": {
+   "azure:maps/creator:Creator": "Creator"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mariadb/configuration",
   "fqn": "pulumi_azure.mariadb",
   "classes": {
@@ -4408,6 +4424,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "netapp/snapshotPolicy",
+  "fqn": "pulumi_azure.netapp",
+  "classes": {
+   "azure:netapp/snapshotPolicy:SnapshotPolicy": "SnapshotPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "netapp/volume",
   "fqn": "pulumi_azure.netapp",
   "classes": {
@@ -4900,6 +4924,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/virtualWan:VirtualWan": "VirtualWan"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/vnpGatewayNatRule",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/vnpGatewayNatRule:VnpGatewayNatRule": "VnpGatewayNatRule"
   }
  },
  {
@@ -6224,6 +6256,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "synapse/sqlPoolWorkloadClassifier",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier": "SqlPoolWorkloadClassifier"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "synapse/sqlPoolWorkloadGroup",
   "fqn": "pulumi_azure.synapse",
   "classes": {
@@ -6268,6 +6308,14 @@ _utilities.register(
   "fqn": "pulumi_azure.synapse",
   "classes": {
    "azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy": "WorkspaceSecurityAlertPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "synapse/workspaceSqlAadAdmin",
+  "fqn": "pulumi_azure.synapse",
+  "classes": {
+   "azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin": "WorkspaceSqlAadAdmin"
   }
  },
  {

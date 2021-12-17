@@ -6,10 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./account";
+export * from "./creator";
 export * from "./getAccount";
 
 // Import resources to register:
 import { Account } from "./account";
+import { Creator } from "./creator";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +19,12 @@ const _module = {
         switch (type) {
             case "azure:maps/account:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "azure:maps/creator:Creator":
+                return new Creator(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "maps/account", _module)
+pulumi.runtime.registerResourceModule("azure", "maps/creator", _module)

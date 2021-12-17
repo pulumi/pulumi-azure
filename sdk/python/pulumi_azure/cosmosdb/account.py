@@ -26,6 +26,7 @@ class AccountArgs:
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
                  capacity: Optional[pulumi.Input['AccountCapacityArgs']] = None,
                  cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
                  default_identity_type: Optional[pulumi.Input[str]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
@@ -42,6 +43,7 @@ class AccountArgs:
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
                  network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 restore: Optional[pulumi.Input['AccountRestoreArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None):
         """
@@ -57,6 +59,7 @@ class AccountArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountCapacityArgs'] capacity: A `capacity` block as defined below.
         :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
+        :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -73,6 +76,7 @@ class AccountArgs:
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
+        :param pulumi.Input['AccountRestoreArgs'] restore: A `restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         """
@@ -94,6 +98,8 @@ class AccountArgs:
             pulumi.set(__self__, "capacity", capacity)
         if cors_rule is not None:
             pulumi.set(__self__, "cors_rule", cors_rule)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
         if default_identity_type is not None:
             pulumi.set(__self__, "default_identity_type", default_identity_type)
         if enable_automatic_failover is not None:
@@ -126,6 +132,8 @@ class AccountArgs:
             pulumi.set(__self__, "network_acl_bypass_ids", network_acl_bypass_ids)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if restore is not None:
+            pulumi.set(__self__, "restore", restore)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_rules is not None:
@@ -262,6 +270,18 @@ class AccountArgs:
     @cors_rule.setter
     def cors_rule(self, value: Optional[pulumi.Input['AccountCorsRuleArgs']]):
         pulumi.set(self, "cors_rule", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_mode", value)
 
     @property
     @pulumi.getter(name="defaultIdentityType")
@@ -457,6 +477,18 @@ class AccountArgs:
 
     @property
     @pulumi.getter
+    def restore(self) -> Optional[pulumi.Input['AccountRestoreArgs']]:
+        """
+        A `restore` block as defined below.
+        """
+        return pulumi.get(self, "restore")
+
+    @restore.setter
+    def restore(self, value: Optional[pulumi.Input['AccountRestoreArgs']]):
+        pulumi.set(self, "restore", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
@@ -492,6 +524,7 @@ class _AccountState:
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  consistency_policy: Optional[pulumi.Input['AccountConsistencyPolicyArgs']] = None,
                  cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
                  default_identity_type: Optional[pulumi.Input[str]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
@@ -517,6 +550,7 @@ class _AccountState:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  read_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restore: Optional[pulumi.Input['AccountRestoreArgs']] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None,
                  secondary_master_key: Optional[pulumi.Input[str]] = None,
                  secondary_readonly_key: Optional[pulumi.Input[str]] = None,
@@ -535,6 +569,7 @@ class _AccountState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
+        :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -558,6 +593,7 @@ class _AccountState:
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
+        :param pulumi.Input['AccountRestoreArgs'] restore: A `restore` block as defined below.
         :param pulumi.Input[str] secondary_key: The Secondary key for the CosmosDB Account.
         :param pulumi.Input[str] secondary_readonly_key: The Secondary read-only key for the CosmosDB Account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -582,6 +618,8 @@ class _AccountState:
             pulumi.set(__self__, "consistency_policy", consistency_policy)
         if cors_rule is not None:
             pulumi.set(__self__, "cors_rule", cors_rule)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
         if default_identity_type is not None:
             pulumi.set(__self__, "default_identity_type", default_identity_type)
         if enable_automatic_failover is not None:
@@ -638,6 +676,8 @@ class _AccountState:
             pulumi.set(__self__, "read_endpoints", read_endpoints)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if restore is not None:
+            pulumi.set(__self__, "restore", restore)
         if secondary_key is not None:
             pulumi.set(__self__, "secondary_key", secondary_key)
         if secondary_master_key is not None:
@@ -766,6 +806,18 @@ class _AccountState:
     @cors_rule.setter
     def cors_rule(self, value: Optional[pulumi.Input['AccountCorsRuleArgs']]):
         pulumi.set(self, "cors_rule", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_mode", value)
 
     @property
     @pulumi.getter(name="defaultIdentityType")
@@ -1062,6 +1114,18 @@ class _AccountState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter
+    def restore(self) -> Optional[pulumi.Input['AccountRestoreArgs']]:
+        """
+        A `restore` block as defined below.
+        """
+        return pulumi.get(self, "restore")
+
+    @restore.setter
+    def restore(self, value: Optional[pulumi.Input['AccountRestoreArgs']]):
+        pulumi.set(self, "restore", value)
+
+    @property
     @pulumi.getter(name="secondaryKey")
     def secondary_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1153,6 +1217,7 @@ class Account(pulumi.CustomResource):
                  capacity: Optional[pulumi.Input[pulumi.InputType['AccountCapacityArgs']]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
                  cors_rule: Optional[pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
                  default_identity_type: Optional[pulumi.Input[str]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
@@ -1172,6 +1237,7 @@ class Account(pulumi.CustomResource):
                  offer_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restore: Optional[pulumi.Input[pulumi.InputType['AccountRestoreArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]]] = None,
                  __props__=None):
@@ -1244,6 +1310,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountCapacityArgs']] capacity: A `capacity` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
+        :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -1263,6 +1330,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['AccountRestoreArgs']] restore: A `restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         """
@@ -1354,6 +1422,7 @@ class Account(pulumi.CustomResource):
                  capacity: Optional[pulumi.Input[pulumi.InputType['AccountCapacityArgs']]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
                  cors_rule: Optional[pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
                  default_identity_type: Optional[pulumi.Input[str]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
@@ -1373,6 +1442,7 @@ class Account(pulumi.CustomResource):
                  offer_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restore: Optional[pulumi.Input[pulumi.InputType['AccountRestoreArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]]] = None,
                  __props__=None):
@@ -1397,6 +1467,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'consistency_policy'")
             __props__.__dict__["consistency_policy"] = consistency_policy
             __props__.__dict__["cors_rule"] = cors_rule
+            __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["default_identity_type"] = default_identity_type
             __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
             __props__.__dict__["enable_free_tier"] = enable_free_tier
@@ -1422,6 +1493,7 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["restore"] = restore
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_rules"] = virtual_network_rules
             __props__.__dict__["connection_strings"] = None
@@ -1455,6 +1527,7 @@ class Account(pulumi.CustomResource):
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
             cors_rule: Optional[pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']]] = None,
+            create_mode: Optional[pulumi.Input[str]] = None,
             default_identity_type: Optional[pulumi.Input[str]] = None,
             enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
             enable_free_tier: Optional[pulumi.Input[bool]] = None,
@@ -1480,6 +1553,7 @@ class Account(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             read_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            restore: Optional[pulumi.Input[pulumi.InputType['AccountRestoreArgs']]] = None,
             secondary_key: Optional[pulumi.Input[str]] = None,
             secondary_master_key: Optional[pulumi.Input[str]] = None,
             secondary_readonly_key: Optional[pulumi.Input[str]] = None,
@@ -1503,6 +1577,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
+        :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -1526,6 +1601,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['AccountRestoreArgs']] restore: A `restore` block as defined below.
         :param pulumi.Input[str] secondary_key: The Secondary key for the CosmosDB Account.
         :param pulumi.Input[str] secondary_readonly_key: The Secondary read-only key for the CosmosDB Account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -1545,6 +1621,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["connection_strings"] = connection_strings
         __props__.__dict__["consistency_policy"] = consistency_policy
         __props__.__dict__["cors_rule"] = cors_rule
+        __props__.__dict__["create_mode"] = create_mode
         __props__.__dict__["default_identity_type"] = default_identity_type
         __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
         __props__.__dict__["enable_free_tier"] = enable_free_tier
@@ -1570,6 +1647,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["read_endpoints"] = read_endpoints
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["restore"] = restore
         __props__.__dict__["secondary_key"] = secondary_key
         __props__.__dict__["secondary_master_key"] = secondary_master_key
         __props__.__dict__["secondary_readonly_key"] = secondary_readonly_key
@@ -1621,7 +1699,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capacity(self) -> pulumi.Output[Optional['outputs.AccountCapacity']]:
+    def capacity(self) -> pulumi.Output['outputs.AccountCapacity']:
         """
         A `capacity` block as defined below.
         """
@@ -1650,6 +1728,14 @@ class Account(pulumi.CustomResource):
         A `cors_rule` block as defined below.
         """
         return pulumi.get(self, "cors_rule")
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> pulumi.Output[str]:
+        """
+        The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="defaultIdentityType")
@@ -1844,6 +1930,14 @@ class Account(pulumi.CustomResource):
         The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def restore(self) -> pulumi.Output[Optional['outputs.AccountRestore']]:
+        """
+        A `restore` block as defined below.
+        """
+        return pulumi.get(self, "restore")
 
     @property
     @pulumi.getter(name="secondaryKey")

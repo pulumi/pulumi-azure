@@ -468,8 +468,6 @@ class EnvironmentV3(pulumi.CustomResource):
         """
         Manages a 3rd Generation (v3) App Service Environment.
 
-        > **NOTE:** App Service Environment V3 is currently in Preview.
-
         ## Example Usage
 
         ```python
@@ -542,8 +540,6 @@ class EnvironmentV3(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a 3rd Generation (v3) App Service Environment.
-
-        > **NOTE:** App Service Environment V3 is currently in Preview.
 
         ## Example Usage
 

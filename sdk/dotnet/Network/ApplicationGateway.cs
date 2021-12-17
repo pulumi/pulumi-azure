@@ -242,6 +242,18 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A list of `private_endpoint_connection` blocks as defined below.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayPrivateEndpointConnection>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `private_link_configuration` blocks as defined below.
+        /// </summary>
+        [Output("privateLinkConfigurations")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayPrivateLinkConfiguration>> PrivateLinkConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `probe` blocks as defined below.
         /// </summary>
         [Output("probes")]
@@ -508,6 +520,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("privateLinkConfigurations")]
+        private InputList<Inputs.ApplicationGatewayPrivateLinkConfigurationArgs>? _privateLinkConfigurations;
+
+        /// <summary>
+        /// One or more `private_link_configuration` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayPrivateLinkConfigurationArgs> PrivateLinkConfigurations
+        {
+            get => _privateLinkConfigurations ?? (_privateLinkConfigurations = new InputList<Inputs.ApplicationGatewayPrivateLinkConfigurationArgs>());
+            set => _privateLinkConfigurations = value;
+        }
 
         [Input("probes")]
         private InputList<Inputs.ApplicationGatewayProbeArgs>? _probes;
@@ -809,6 +833,30 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("privateEndpointConnections")]
+        private InputList<Inputs.ApplicationGatewayPrivateEndpointConnectionGetArgs>? _privateEndpointConnections;
+
+        /// <summary>
+        /// A list of `private_endpoint_connection` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayPrivateEndpointConnectionGetArgs> PrivateEndpointConnections
+        {
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.ApplicationGatewayPrivateEndpointConnectionGetArgs>());
+            set => _privateEndpointConnections = value;
+        }
+
+        [Input("privateLinkConfigurations")]
+        private InputList<Inputs.ApplicationGatewayPrivateLinkConfigurationGetArgs>? _privateLinkConfigurations;
+
+        /// <summary>
+        /// One or more `private_link_configuration` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayPrivateLinkConfigurationGetArgs> PrivateLinkConfigurations
+        {
+            get => _privateLinkConfigurations ?? (_privateLinkConfigurations = new InputList<Inputs.ApplicationGatewayPrivateLinkConfigurationGetArgs>());
+            set => _privateLinkConfigurations = value;
+        }
 
         [Input("probes")]
         private InputList<Inputs.ApplicationGatewayProbeGetArgs>? _probes;

@@ -27,11 +27,11 @@ class BudgetSubscriptionArgs:
         The set of arguments for constructing a BudgetSubscription resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
-        :param pulumi.Input[str] subscription_id: The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input['BudgetSubscriptionTimePeriodArgs'] time_period: A `time_period` block as defined below.
         :param pulumi.Input[str] etag: The ETag of the Subscription Consumption Budget.
         :param pulumi.Input['BudgetSubscriptionFilterArgs'] filter: A `filter` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
         """
         pulumi.set(__self__, "amount", amount)
@@ -75,7 +75,7 @@ class BudgetSubscriptionArgs:
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -123,7 +123,7 @@ class BudgetSubscriptionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -160,9 +160,9 @@ class _BudgetSubscriptionState:
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
         :param pulumi.Input[str] etag: The ETag of the Subscription Consumption Budget.
         :param pulumi.Input['BudgetSubscriptionFilterArgs'] filter: A `filter` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
-        :param pulumi.Input[str] subscription_id: The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
         :param pulumi.Input['BudgetSubscriptionTimePeriodArgs'] time_period: A `time_period` block as defined below.
         """
@@ -223,7 +223,7 @@ class _BudgetSubscriptionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -247,7 +247,7 @@ class _BudgetSubscriptionState:
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -309,7 +309,7 @@ class BudgetSubscription(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             short_name="example")
         example_budget_subscription = azure.consumption.BudgetSubscription("exampleBudgetSubscription",
-            subscription_id=current.subscription_id,
+            subscription_id=current.id,
             amount=1000,
             time_grain="Monthly",
             time_period=azure.consumption.BudgetSubscriptionTimePeriodArgs(
@@ -367,9 +367,9 @@ class BudgetSubscription(pulumi.CustomResource):
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
         :param pulumi.Input[str] etag: The ETag of the Subscription Consumption Budget.
         :param pulumi.Input[pulumi.InputType['BudgetSubscriptionFilterArgs']] filter: A `filter` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
-        :param pulumi.Input[str] subscription_id: The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
         :param pulumi.Input[pulumi.InputType['BudgetSubscriptionTimePeriodArgs']] time_period: A `time_period` block as defined below.
         """
@@ -394,7 +394,7 @@ class BudgetSubscription(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             short_name="example")
         example_budget_subscription = azure.consumption.BudgetSubscription("exampleBudgetSubscription",
-            subscription_id=current.subscription_id,
+            subscription_id=current.id,
             amount=1000,
             time_grain="Monthly",
             time_period=azure.consumption.BudgetSubscriptionTimePeriodArgs(
@@ -526,9 +526,9 @@ class BudgetSubscription(pulumi.CustomResource):
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
         :param pulumi.Input[str] etag: The ETag of the Subscription Consumption Budget.
         :param pulumi.Input[pulumi.InputType['BudgetSubscriptionFilterArgs']] filter: A `filter` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
-        :param pulumi.Input[str] subscription_id: The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
         :param pulumi.Input[pulumi.InputType['BudgetSubscriptionTimePeriodArgs']] time_period: A `time_period` block as defined below.
         """
@@ -574,7 +574,7 @@ class BudgetSubscription(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -590,7 +590,7 @@ class BudgetSubscription(pulumi.CustomResource):
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+        The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subscription_id")
 

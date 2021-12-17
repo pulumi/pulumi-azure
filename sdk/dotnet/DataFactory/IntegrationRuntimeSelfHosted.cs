@@ -33,8 +33,8 @@ namespace Pulumi.Azure.DataFactory
     ///         });
     ///         var exampleIntegrationRuntimeSelfHosted = new Azure.DataFactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", new Azure.DataFactory.IntegrationRuntimeSelfHostedArgs
     ///         {
-    ///             ResourceGroupName = "example",
-    ///             DataFactoryName = "example",
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///         });
     ///     }
     /// 
@@ -65,7 +65,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> AuthKey2 { get; private set; } = null!;
 
         /// <summary>
-        /// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Output("dataFactoryName")]
         public Output<string> DataFactoryName { get; private set; } = null!;
@@ -141,10 +147,16 @@ namespace Pulumi.Azure.DataFactory
     public sealed class IntegrationRuntimeSelfHostedArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// Integration runtime description.
@@ -196,7 +208,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? AuthKey2 { get; set; }
 
         /// <summary>
-        /// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryName")]
         public Input<string>? DataFactoryName { get; set; }

@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Pool{}
 	case "azure:netapp/snapshot:Snapshot":
 		r = &Snapshot{}
+	case "azure:netapp/snapshotPolicy:SnapshotPolicy":
+		r = &SnapshotPolicy{}
 	case "azure:netapp/volume:Volume":
 		r = &Volume{}
 	default:
@@ -55,6 +57,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"netapp/snapshot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"netapp/snapshotPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

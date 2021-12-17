@@ -8,8 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a 3rd Generation (v3) App Service Environment.
  *
- * > **NOTE:** App Service Environment V3 is currently in Preview.
- *
  * ## Example Usage
  *
  * ```typescript

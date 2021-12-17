@@ -3414,6 +3414,8 @@ func (o WorkflowAccessControlContentPtrOutput) AllowedCallerIpAddressRanges() pu
 type WorkflowAccessControlTrigger struct {
 	// A list of the allowed caller IP address ranges.
 	AllowedCallerIpAddressRanges []string `pulumi:"allowedCallerIpAddressRanges"`
+	// A `openAuthenticationPolicy` block as defined below.
+	OpenAuthenticationPolicies []WorkflowAccessControlTriggerOpenAuthenticationPolicy `pulumi:"openAuthenticationPolicies"`
 }
 
 // WorkflowAccessControlTriggerInput is an input type that accepts WorkflowAccessControlTriggerArgs and WorkflowAccessControlTriggerOutput values.
@@ -3430,6 +3432,8 @@ type WorkflowAccessControlTriggerInput interface {
 type WorkflowAccessControlTriggerArgs struct {
 	// A list of the allowed caller IP address ranges.
 	AllowedCallerIpAddressRanges pulumi.StringArrayInput `pulumi:"allowedCallerIpAddressRanges"`
+	// A `openAuthenticationPolicy` block as defined below.
+	OpenAuthenticationPolicies WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayInput `pulumi:"openAuthenticationPolicies"`
 }
 
 func (WorkflowAccessControlTriggerArgs) ElementType() reflect.Type {
@@ -3514,6 +3518,13 @@ func (o WorkflowAccessControlTriggerOutput) AllowedCallerIpAddressRanges() pulum
 	return o.ApplyT(func(v WorkflowAccessControlTrigger) []string { return v.AllowedCallerIpAddressRanges }).(pulumi.StringArrayOutput)
 }
 
+// A `openAuthenticationPolicy` block as defined below.
+func (o WorkflowAccessControlTriggerOutput) OpenAuthenticationPolicies() WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput {
+	return o.ApplyT(func(v WorkflowAccessControlTrigger) []WorkflowAccessControlTriggerOpenAuthenticationPolicy {
+		return v.OpenAuthenticationPolicies
+	}).(WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput)
+}
+
 type WorkflowAccessControlTriggerPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkflowAccessControlTriggerPtrOutput) ElementType() reflect.Type {
@@ -3546,6 +3557,230 @@ func (o WorkflowAccessControlTriggerPtrOutput) AllowedCallerIpAddressRanges() pu
 		}
 		return v.AllowedCallerIpAddressRanges
 	}).(pulumi.StringArrayOutput)
+}
+
+// A `openAuthenticationPolicy` block as defined below.
+func (o WorkflowAccessControlTriggerPtrOutput) OpenAuthenticationPolicies() WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput {
+	return o.ApplyT(func(v *WorkflowAccessControlTrigger) []WorkflowAccessControlTriggerOpenAuthenticationPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.OpenAuthenticationPolicies
+	}).(WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput)
+}
+
+type WorkflowAccessControlTriggerOpenAuthenticationPolicy struct {
+	// A `claim` block as defined below.
+	Claims []WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim `pulumi:"claims"`
+	// The OAuth policy name for the Logic App Workflow.
+	Name string `pulumi:"name"`
+}
+
+// WorkflowAccessControlTriggerOpenAuthenticationPolicyInput is an input type that accepts WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs and WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlTriggerOpenAuthenticationPolicyInput` via:
+//
+//          WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs{...}
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlTriggerOpenAuthenticationPolicyOutput() WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput
+	ToWorkflowAccessControlTriggerOpenAuthenticationPolicyOutputWithContext(context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput
+}
+
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs struct {
+	// A `claim` block as defined below.
+	Claims WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayInput `pulumi:"claims"`
+	// The OAuth policy name for the Logic App Workflow.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControlTriggerOpenAuthenticationPolicy)(nil)).Elem()
+}
+
+func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyOutput() WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput {
+	return i.ToWorkflowAccessControlTriggerOpenAuthenticationPolicyOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput)
+}
+
+// WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayInput is an input type that accepts WorkflowAccessControlTriggerOpenAuthenticationPolicyArray and WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayInput` via:
+//
+//          WorkflowAccessControlTriggerOpenAuthenticationPolicyArray{ WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs{...} }
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput() WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput
+	ToWorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutputWithContext(context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput
+}
+
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyArray []WorkflowAccessControlTriggerOpenAuthenticationPolicyInput
+
+func (WorkflowAccessControlTriggerOpenAuthenticationPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowAccessControlTriggerOpenAuthenticationPolicy)(nil)).Elem()
+}
+
+func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyArray) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput() WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput {
+	return i.ToWorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyArray) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput)
+}
+
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControlTriggerOpenAuthenticationPolicy)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyOutput() WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput {
+	return o
+}
+
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput {
+	return o
+}
+
+// A `claim` block as defined below.
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput) Claims() WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput {
+	return o.ApplyT(func(v WorkflowAccessControlTriggerOpenAuthenticationPolicy) []WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim {
+		return v.Claims
+	}).(WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput)
+}
+
+// The OAuth policy name for the Logic App Workflow.
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowAccessControlTriggerOpenAuthenticationPolicy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowAccessControlTriggerOpenAuthenticationPolicy)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput() WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput {
+	return o
+}
+
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput {
+	return o
+}
+
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput) Index(i pulumi.IntInput) WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowAccessControlTriggerOpenAuthenticationPolicy {
+		return vs[0].([]WorkflowAccessControlTriggerOpenAuthenticationPolicy)[vs[1].(int)]
+	}).(WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput)
+}
+
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim struct {
+	// The name of the OAuth policy claim for the Logic App Workflow.
+	Name string `pulumi:"name"`
+	// The value of the OAuth policy claim for the Logic App Workflow.
+	Value string `pulumi:"value"`
+}
+
+// WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimInput is an input type that accepts WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs and WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimInput` via:
+//
+//          WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs{...}
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput() WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput
+	ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutputWithContext(context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput
+}
+
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs struct {
+	// The name of the OAuth policy claim for the Logic App Workflow.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the OAuth policy claim for the Logic App Workflow.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim)(nil)).Elem()
+}
+
+func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput() WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput {
+	return i.ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput)
+}
+
+// WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayInput is an input type that accepts WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray and WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput values.
+// You can construct a concrete instance of `WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayInput` via:
+//
+//          WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray{ WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs{...} }
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput() WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput
+	ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutputWithContext(context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput
+}
+
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray []WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimInput
+
+func (WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim)(nil)).Elem()
+}
+
+func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput() WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput {
+	return i.ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput)
+}
+
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput() WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput {
+	return o
+}
+
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput {
+	return o
+}
+
+// The name of the OAuth policy claim for the Logic App Workflow.
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the OAuth policy claim for the Logic App Workflow.
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim)(nil)).Elem()
+}
+
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput() WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput {
+	return o
+}
+
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput {
+	return o
+}
+
+func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput) Index(i pulumi.IntInput) WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim {
+		return vs[0].([]WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim)[vs[1].(int)]
+	}).(WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput)
 }
 
 type WorkflowAccessControlWorkflowManagement struct {
@@ -3685,6 +3920,200 @@ func (o WorkflowAccessControlWorkflowManagementPtrOutput) AllowedCallerIpAddress
 	}).(pulumi.StringArrayOutput)
 }
 
+type WorkflowIdentity struct {
+	// A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+	TenantId *string `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// WorkflowIdentityInput is an input type that accepts WorkflowIdentityArgs and WorkflowIdentityOutput values.
+// You can construct a concrete instance of `WorkflowIdentityInput` via:
+//
+//          WorkflowIdentityArgs{...}
+type WorkflowIdentityInput interface {
+	pulumi.Input
+
+	ToWorkflowIdentityOutput() WorkflowIdentityOutput
+	ToWorkflowIdentityOutputWithContext(context.Context) WorkflowIdentityOutput
+}
+
+type WorkflowIdentityArgs struct {
+	// A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkflowIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowIdentity)(nil)).Elem()
+}
+
+func (i WorkflowIdentityArgs) ToWorkflowIdentityOutput() WorkflowIdentityOutput {
+	return i.ToWorkflowIdentityOutputWithContext(context.Background())
+}
+
+func (i WorkflowIdentityArgs) ToWorkflowIdentityOutputWithContext(ctx context.Context) WorkflowIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIdentityOutput)
+}
+
+func (i WorkflowIdentityArgs) ToWorkflowIdentityPtrOutput() WorkflowIdentityPtrOutput {
+	return i.ToWorkflowIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowIdentityArgs) ToWorkflowIdentityPtrOutputWithContext(ctx context.Context) WorkflowIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIdentityOutput).ToWorkflowIdentityPtrOutputWithContext(ctx)
+}
+
+// WorkflowIdentityPtrInput is an input type that accepts WorkflowIdentityArgs, WorkflowIdentityPtr and WorkflowIdentityPtrOutput values.
+// You can construct a concrete instance of `WorkflowIdentityPtrInput` via:
+//
+//          WorkflowIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowIdentityPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowIdentityPtrOutput() WorkflowIdentityPtrOutput
+	ToWorkflowIdentityPtrOutputWithContext(context.Context) WorkflowIdentityPtrOutput
+}
+
+type workflowIdentityPtrType WorkflowIdentityArgs
+
+func WorkflowIdentityPtr(v *WorkflowIdentityArgs) WorkflowIdentityPtrInput {
+	return (*workflowIdentityPtrType)(v)
+}
+
+func (*workflowIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowIdentity)(nil)).Elem()
+}
+
+func (i *workflowIdentityPtrType) ToWorkflowIdentityPtrOutput() WorkflowIdentityPtrOutput {
+	return i.ToWorkflowIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowIdentityPtrType) ToWorkflowIdentityPtrOutputWithContext(ctx context.Context) WorkflowIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIdentityPtrOutput)
+}
+
+type WorkflowIdentityOutput struct{ *pulumi.OutputState }
+
+func (WorkflowIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowIdentity)(nil)).Elem()
+}
+
+func (o WorkflowIdentityOutput) ToWorkflowIdentityOutput() WorkflowIdentityOutput {
+	return o
+}
+
+func (o WorkflowIdentityOutput) ToWorkflowIdentityOutputWithContext(ctx context.Context) WorkflowIdentityOutput {
+	return o
+}
+
+func (o WorkflowIdentityOutput) ToWorkflowIdentityPtrOutput() WorkflowIdentityPtrOutput {
+	return o.ToWorkflowIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowIdentityOutput) ToWorkflowIdentityPtrOutputWithContext(ctx context.Context) WorkflowIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowIdentity) *WorkflowIdentity {
+		return &v
+	}).(WorkflowIdentityPtrOutput)
+}
+
+// A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+func (o WorkflowIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkflowIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+func (o WorkflowIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+func (o WorkflowIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
+func (o WorkflowIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WorkflowIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowIdentity)(nil)).Elem()
+}
+
+func (o WorkflowIdentityPtrOutput) ToWorkflowIdentityPtrOutput() WorkflowIdentityPtrOutput {
+	return o
+}
+
+func (o WorkflowIdentityPtrOutput) ToWorkflowIdentityPtrOutputWithContext(ctx context.Context) WorkflowIdentityPtrOutput {
+	return o
+}
+
+func (o WorkflowIdentityPtrOutput) Elem() WorkflowIdentityOutput {
+	return o.ApplyT(func(v *WorkflowIdentity) WorkflowIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowIdentity
+		return ret
+	}).(WorkflowIdentityOutput)
+}
+
+// A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+func (o WorkflowIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkflowIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+func (o WorkflowIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+func (o WorkflowIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
+func (o WorkflowIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpRunAfterInput)(nil)).Elem(), ActionHttpRunAfterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpRunAfterArrayInput)(nil)).Elem(), ActionHttpRunAfterArray{})
@@ -3728,8 +4157,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAccessControlContentPtrInput)(nil)).Elem(), WorkflowAccessControlContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAccessControlTriggerInput)(nil)).Elem(), WorkflowAccessControlTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAccessControlTriggerPtrInput)(nil)).Elem(), WorkflowAccessControlTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAccessControlTriggerOpenAuthenticationPolicyInput)(nil)).Elem(), WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayInput)(nil)).Elem(), WorkflowAccessControlTriggerOpenAuthenticationPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimInput)(nil)).Elem(), WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayInput)(nil)).Elem(), WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAccessControlWorkflowManagementInput)(nil)).Elem(), WorkflowAccessControlWorkflowManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAccessControlWorkflowManagementPtrInput)(nil)).Elem(), WorkflowAccessControlWorkflowManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowIdentityInput)(nil)).Elem(), WorkflowIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowIdentityPtrInput)(nil)).Elem(), WorkflowIdentityArgs{})
 	pulumi.RegisterOutputType(ActionHttpRunAfterOutput{})
 	pulumi.RegisterOutputType(ActionHttpRunAfterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountAgreementGuestIdentityOutput{})
@@ -3772,6 +4207,12 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowAccessControlContentPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowAccessControlTriggerOutput{})
 	pulumi.RegisterOutputType(WorkflowAccessControlTriggerPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput{})
+	pulumi.RegisterOutputType(WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput{})
 	pulumi.RegisterOutputType(WorkflowAccessControlWorkflowManagementOutput{})
 	pulumi.RegisterOutputType(WorkflowAccessControlWorkflowManagementPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowIdentityOutput{})
+	pulumi.RegisterOutputType(WorkflowIdentityPtrOutput{})
 }

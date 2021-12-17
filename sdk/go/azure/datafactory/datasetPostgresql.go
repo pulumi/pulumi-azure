@@ -41,7 +41,7 @@ import (
 // 		}
 // 		exampleLinkedServicePostgresql, err := datafactory.NewLinkedServicePostgresql(ctx, "exampleLinkedServicePostgresql", &datafactory.LinkedServicePostgresqlArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			ConnectionString:  pulumi.String("Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example"),
 // 		})
 // 		if err != nil {
@@ -49,7 +49,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewDatasetPostgresql(ctx, "exampleDatasetPostgresql", &datafactory.DatasetPostgresqlArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			LinkedServiceName: exampleLinkedServicePostgresql.Name,
 // 		})
 // 		if err != nil {
@@ -74,7 +74,11 @@ type DatasetPostgresql struct {
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset PostgreSQL.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset PostgreSQL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -101,9 +105,6 @@ func NewDatasetPostgresql(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
 	}
@@ -136,7 +137,11 @@ type datasetPostgresqlState struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset PostgreSQL.
 	Annotations []string `pulumi:"annotations"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset PostgreSQL.
 	Description *string `pulumi:"description"`
@@ -161,7 +166,11 @@ type DatasetPostgresqlState struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset PostgreSQL.
 	Annotations pulumi.StringArrayInput
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset PostgreSQL.
 	Description pulumi.StringPtrInput
@@ -190,8 +199,12 @@ type datasetPostgresqlArgs struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset PostgreSQL.
 	Annotations []string `pulumi:"annotations"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset PostgreSQL.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -216,8 +229,12 @@ type DatasetPostgresqlArgs struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset PostgreSQL.
 	Annotations pulumi.StringArrayInput
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset PostgreSQL.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.

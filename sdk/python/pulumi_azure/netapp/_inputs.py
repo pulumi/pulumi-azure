@@ -10,7 +10,12 @@ from .. import _utilities
 
 __all__ = [
     'AccountActiveDirectoryArgs',
+    'SnapshotPolicyDailyScheduleArgs',
+    'SnapshotPolicyHourlyScheduleArgs',
+    'SnapshotPolicyMonthlyScheduleArgs',
+    'SnapshotPolicyWeeklyScheduleArgs',
     'VolumeDataProtectionReplicationArgs',
+    'VolumeDataProtectionSnapshotPolicyArgs',
     'VolumeExportPolicyRuleArgs',
 ]
 
@@ -113,6 +118,225 @@ class AccountActiveDirectoryArgs:
 
 
 @pulumi.input_type
+class SnapshotPolicyDailyScheduleArgs:
+    def __init__(__self__, *,
+                 hour: pulumi.Input[int],
+                 minute: pulumi.Input[int],
+                 snapshots_to_keep: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] hour: Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        :param pulumi.Input[int] minute: Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        :param pulumi.Input[int] snapshots_to_keep: How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "minute", minute)
+        pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @property
+    @pulumi.getter
+    def hour(self) -> pulumi.Input[int]:
+        """
+        Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        """
+        return pulumi.get(self, "hour")
+
+    @hour.setter
+    def hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "hour", value)
+
+    @property
+    @pulumi.getter
+    def minute(self) -> pulumi.Input[int]:
+        """
+        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        """
+        return pulumi.get(self, "minute")
+
+    @minute.setter
+    def minute(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minute", value)
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> pulumi.Input[int]:
+        """
+        How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @snapshots_to_keep.setter
+    def snapshots_to_keep(self, value: pulumi.Input[int]):
+        pulumi.set(self, "snapshots_to_keep", value)
+
+
+@pulumi.input_type
+class SnapshotPolicyHourlyScheduleArgs:
+    def __init__(__self__, *,
+                 minute: pulumi.Input[int],
+                 snapshots_to_keep: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] minute: Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        :param pulumi.Input[int] snapshots_to_keep: How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        pulumi.set(__self__, "minute", minute)
+        pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @property
+    @pulumi.getter
+    def minute(self) -> pulumi.Input[int]:
+        """
+        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        """
+        return pulumi.get(self, "minute")
+
+    @minute.setter
+    def minute(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minute", value)
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> pulumi.Input[int]:
+        """
+        How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @snapshots_to_keep.setter
+    def snapshots_to_keep(self, value: pulumi.Input[int]):
+        pulumi.set(self, "snapshots_to_keep", value)
+
+
+@pulumi.input_type
+class SnapshotPolicyMonthlyScheduleArgs:
+    def __init__(__self__, *,
+                 days_of_months: pulumi.Input[Sequence[pulumi.Input[int]]],
+                 hour: pulumi.Input[int],
+                 minute: pulumi.Input[int],
+                 snapshots_to_keep: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] hour: Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        :param pulumi.Input[int] minute: Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        :param pulumi.Input[int] snapshots_to_keep: How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        pulumi.set(__self__, "days_of_months", days_of_months)
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "minute", minute)
+        pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @property
+    @pulumi.getter(name="daysOfMonths")
+    def days_of_months(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        return pulumi.get(self, "days_of_months")
+
+    @days_of_months.setter
+    def days_of_months(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "days_of_months", value)
+
+    @property
+    @pulumi.getter
+    def hour(self) -> pulumi.Input[int]:
+        """
+        Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        """
+        return pulumi.get(self, "hour")
+
+    @hour.setter
+    def hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "hour", value)
+
+    @property
+    @pulumi.getter
+    def minute(self) -> pulumi.Input[int]:
+        """
+        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        """
+        return pulumi.get(self, "minute")
+
+    @minute.setter
+    def minute(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minute", value)
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> pulumi.Input[int]:
+        """
+        How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @snapshots_to_keep.setter
+    def snapshots_to_keep(self, value: pulumi.Input[int]):
+        pulumi.set(self, "snapshots_to_keep", value)
+
+
+@pulumi.input_type
+class SnapshotPolicyWeeklyScheduleArgs:
+    def __init__(__self__, *,
+                 days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 hour: pulumi.Input[int],
+                 minute: pulumi.Input[int],
+                 snapshots_to_keep: pulumi.Input[int]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: List of the week days using English names when the snapshots will be created.
+        :param pulumi.Input[int] hour: Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        :param pulumi.Input[int] minute: Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        :param pulumi.Input[int] snapshots_to_keep: How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "minute", minute)
+        pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of the week days using English names when the snapshots will be created.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @days_of_weeks.setter
+    def days_of_weeks(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "days_of_weeks", value)
+
+    @property
+    @pulumi.getter
+    def hour(self) -> pulumi.Input[int]:
+        """
+        Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        """
+        return pulumi.get(self, "hour")
+
+    @hour.setter
+    def hour(self, value: pulumi.Input[int]):
+        pulumi.set(self, "hour", value)
+
+    @property
+    @pulumi.getter
+    def minute(self) -> pulumi.Input[int]:
+        """
+        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        """
+        return pulumi.get(self, "minute")
+
+    @minute.setter
+    def minute(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minute", value)
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> pulumi.Input[int]:
+        """
+        How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+    @snapshots_to_keep.setter
+    def snapshots_to_keep(self, value: pulumi.Input[int]):
+        pulumi.set(self, "snapshots_to_keep", value)
+
+
+@pulumi.input_type
 class VolumeDataProtectionReplicationArgs:
     def __init__(__self__, *,
                  remote_volume_location: pulumi.Input[str],
@@ -178,6 +402,28 @@ class VolumeDataProtectionReplicationArgs:
     @endpoint_type.setter
     def endpoint_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint_type", value)
+
+
+@pulumi.input_type
+class VolumeDataProtectionSnapshotPolicyArgs:
+    def __init__(__self__, *,
+                 snapshot_policy_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] snapshot_policy_id: Resource ID of the snapshot policy to apply to the volume.
+        """
+        pulumi.set(__self__, "snapshot_policy_id", snapshot_policy_id)
+
+    @property
+    @pulumi.getter(name="snapshotPolicyId")
+    def snapshot_policy_id(self) -> pulumi.Input[str]:
+        """
+        Resource ID of the snapshot policy to apply to the volume.
+        """
+        return pulumi.get(self, "snapshot_policy_id")
+
+    @snapshot_policy_id.setter
+    def snapshot_policy_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "snapshot_policy_id", value)
 
 
 @pulumi.input_type

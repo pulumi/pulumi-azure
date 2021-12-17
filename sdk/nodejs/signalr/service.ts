@@ -87,7 +87,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * A `features` block as documented below.
      *
-     * @deprecated Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
+     * @deprecated Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
      */
     public readonly features!: pulumi.Output<outputs.signalr.ServiceFeature[]>;
     /**
@@ -98,6 +98,10 @@ export class Service extends pulumi.CustomResource {
      * The publicly accessible IP of the SignalR service.
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    /**
+     * Specifies if Live Trace is enabled or not.
+     */
+    public readonly liveTraceEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
@@ -173,6 +177,7 @@ export class Service extends pulumi.CustomResource {
             inputs["features"] = state ? state.features : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
+            inputs["liveTraceEnabled"] = state ? state.liveTraceEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["messagingLogsEnabled"] = state ? state.messagingLogsEnabled : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -198,6 +203,7 @@ export class Service extends pulumi.CustomResource {
             inputs["connectivityLogsEnabled"] = args ? args.connectivityLogsEnabled : undefined;
             inputs["cors"] = args ? args.cors : undefined;
             inputs["features"] = args ? args.features : undefined;
+            inputs["liveTraceEnabled"] = args ? args.liveTraceEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["messagingLogsEnabled"] = args ? args.messagingLogsEnabled : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -237,7 +243,7 @@ export interface ServiceState {
     /**
      * A `features` block as documented below.
      *
-     * @deprecated Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
+     * @deprecated Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
      */
     features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
     /**
@@ -248,6 +254,10 @@ export interface ServiceState {
      * The publicly accessible IP of the SignalR service.
      */
     ipAddress?: pulumi.Input<string>;
+    /**
+     * Specifies if Live Trace is enabled or not.
+     */
+    liveTraceEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
@@ -321,9 +331,13 @@ export interface ServiceArgs {
     /**
      * A `features` block as documented below.
      *
-     * @deprecated Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
+     * @deprecated Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
      */
     features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
+    /**
+     * Specifies if Live Trace is enabled or not.
+     */
+    liveTraceEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */

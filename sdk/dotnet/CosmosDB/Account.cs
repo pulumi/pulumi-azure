@@ -128,7 +128,7 @@ namespace Pulumi.Azure.CosmosDB
         /// A `capacity` block as defined below.
         /// </summary>
         [Output("capacity")]
-        public Output<Outputs.AccountCapacity?> Capacity { get; private set; } = null!;
+        public Output<Outputs.AccountCapacity> Capacity { get; private set; } = null!;
 
         /// <summary>
         /// A list of connection strings available for this CosmosDB account.
@@ -147,6 +147,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("corsRule")]
         public Output<Outputs.AccountCorsRule?> CorsRule { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("createMode")]
+        public Output<string> CreateMode { get; private set; } = null!;
 
         /// <summary>
         /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
@@ -293,6 +299,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// A `restore` block as defined below.
+        /// </summary>
+        [Output("restore")]
+        public Output<Outputs.AccountRestore?> Restore { get; private set; } = null!;
+
+        /// <summary>
         /// The Secondary key for the CosmosDB Account.
         /// </summary>
         [Output("secondaryKey")]
@@ -429,6 +441,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.AccountCorsRuleArgs>? CorsRule { get; set; }
 
         /// <summary>
+        /// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("createMode")]
+        public Input<string>? CreateMode { get; set; }
+
+        /// <summary>
         /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         /// </summary>
         [Input("defaultIdentityType")]
@@ -554,6 +572,12 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// A `restore` block as defined below.
+        /// </summary>
+        [Input("restore")]
+        public Input<Inputs.AccountRestoreArgs>? Restore { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -650,6 +674,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("corsRule")]
         public Input<Inputs.AccountCorsRuleGetArgs>? CorsRule { get; set; }
+
+        /// <summary>
+        /// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("createMode")]
+        public Input<string>? CreateMode { get; set; }
 
         /// <summary>
         /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
@@ -812,6 +842,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// A `restore` block as defined below.
+        /// </summary>
+        [Input("restore")]
+        public Input<Inputs.AccountRestoreGetArgs>? Restore { get; set; }
 
         /// <summary>
         /// The Secondary key for the CosmosDB Account.

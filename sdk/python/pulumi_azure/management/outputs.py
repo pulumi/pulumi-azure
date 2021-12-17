@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'GroupPolicyAssignmentIdentity',
+    'GroupPolicyAssignmentNonComplianceMessage',
 ]
 
 @pulumi.output_type
@@ -72,5 +73,52 @@ class GroupPolicyAssignmentIdentity(dict):
         The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GroupPolicyAssignmentNonComplianceMessage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyDefinitionReferenceId":
+            suggest = "policy_definition_reference_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupPolicyAssignmentNonComplianceMessage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupPolicyAssignmentNonComplianceMessage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupPolicyAssignmentNonComplianceMessage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: str,
+                 policy_definition_reference_id: Optional[str] = None):
+        """
+        :param str content: The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+        :param str policy_definition_reference_id: When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+        """
+        pulumi.set(__self__, "content", content)
+        if policy_definition_reference_id is not None:
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        """
+        The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[str]:
+        """
+        When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+        """
+        return pulumi.get(self, "policy_definition_reference_id")
 
 

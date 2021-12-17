@@ -1277,6 +1277,287 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AccountRestore struct {
+	// A `database` block as defined below. Changing this forces a new resource to be created.
+	Databases []AccountRestoreDatabase `pulumi:"databases"`
+	// The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
+	RestoreTimestampInUtc string `pulumi:"restoreTimestampInUtc"`
+	// The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+	SourceCosmosdbAccountId string `pulumi:"sourceCosmosdbAccountId"`
+}
+
+// AccountRestoreInput is an input type that accepts AccountRestoreArgs and AccountRestoreOutput values.
+// You can construct a concrete instance of `AccountRestoreInput` via:
+//
+//          AccountRestoreArgs{...}
+type AccountRestoreInput interface {
+	pulumi.Input
+
+	ToAccountRestoreOutput() AccountRestoreOutput
+	ToAccountRestoreOutputWithContext(context.Context) AccountRestoreOutput
+}
+
+type AccountRestoreArgs struct {
+	// A `database` block as defined below. Changing this forces a new resource to be created.
+	Databases AccountRestoreDatabaseArrayInput `pulumi:"databases"`
+	// The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
+	RestoreTimestampInUtc pulumi.StringInput `pulumi:"restoreTimestampInUtc"`
+	// The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+	SourceCosmosdbAccountId pulumi.StringInput `pulumi:"sourceCosmosdbAccountId"`
+}
+
+func (AccountRestoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountRestore)(nil)).Elem()
+}
+
+func (i AccountRestoreArgs) ToAccountRestoreOutput() AccountRestoreOutput {
+	return i.ToAccountRestoreOutputWithContext(context.Background())
+}
+
+func (i AccountRestoreArgs) ToAccountRestoreOutputWithContext(ctx context.Context) AccountRestoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountRestoreOutput)
+}
+
+func (i AccountRestoreArgs) ToAccountRestorePtrOutput() AccountRestorePtrOutput {
+	return i.ToAccountRestorePtrOutputWithContext(context.Background())
+}
+
+func (i AccountRestoreArgs) ToAccountRestorePtrOutputWithContext(ctx context.Context) AccountRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountRestoreOutput).ToAccountRestorePtrOutputWithContext(ctx)
+}
+
+// AccountRestorePtrInput is an input type that accepts AccountRestoreArgs, AccountRestorePtr and AccountRestorePtrOutput values.
+// You can construct a concrete instance of `AccountRestorePtrInput` via:
+//
+//          AccountRestoreArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountRestorePtrInput interface {
+	pulumi.Input
+
+	ToAccountRestorePtrOutput() AccountRestorePtrOutput
+	ToAccountRestorePtrOutputWithContext(context.Context) AccountRestorePtrOutput
+}
+
+type accountRestorePtrType AccountRestoreArgs
+
+func AccountRestorePtr(v *AccountRestoreArgs) AccountRestorePtrInput {
+	return (*accountRestorePtrType)(v)
+}
+
+func (*accountRestorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountRestore)(nil)).Elem()
+}
+
+func (i *accountRestorePtrType) ToAccountRestorePtrOutput() AccountRestorePtrOutput {
+	return i.ToAccountRestorePtrOutputWithContext(context.Background())
+}
+
+func (i *accountRestorePtrType) ToAccountRestorePtrOutputWithContext(ctx context.Context) AccountRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountRestorePtrOutput)
+}
+
+type AccountRestoreOutput struct{ *pulumi.OutputState }
+
+func (AccountRestoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountRestore)(nil)).Elem()
+}
+
+func (o AccountRestoreOutput) ToAccountRestoreOutput() AccountRestoreOutput {
+	return o
+}
+
+func (o AccountRestoreOutput) ToAccountRestoreOutputWithContext(ctx context.Context) AccountRestoreOutput {
+	return o
+}
+
+func (o AccountRestoreOutput) ToAccountRestorePtrOutput() AccountRestorePtrOutput {
+	return o.ToAccountRestorePtrOutputWithContext(context.Background())
+}
+
+func (o AccountRestoreOutput) ToAccountRestorePtrOutputWithContext(ctx context.Context) AccountRestorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountRestore) *AccountRestore {
+		return &v
+	}).(AccountRestorePtrOutput)
+}
+
+// A `database` block as defined below. Changing this forces a new resource to be created.
+func (o AccountRestoreOutput) Databases() AccountRestoreDatabaseArrayOutput {
+	return o.ApplyT(func(v AccountRestore) []AccountRestoreDatabase { return v.Databases }).(AccountRestoreDatabaseArrayOutput)
+}
+
+// The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
+func (o AccountRestoreOutput) RestoreTimestampInUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountRestore) string { return v.RestoreTimestampInUtc }).(pulumi.StringOutput)
+}
+
+// The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+func (o AccountRestoreOutput) SourceCosmosdbAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountRestore) string { return v.SourceCosmosdbAccountId }).(pulumi.StringOutput)
+}
+
+type AccountRestorePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountRestorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountRestore)(nil)).Elem()
+}
+
+func (o AccountRestorePtrOutput) ToAccountRestorePtrOutput() AccountRestorePtrOutput {
+	return o
+}
+
+func (o AccountRestorePtrOutput) ToAccountRestorePtrOutputWithContext(ctx context.Context) AccountRestorePtrOutput {
+	return o
+}
+
+func (o AccountRestorePtrOutput) Elem() AccountRestoreOutput {
+	return o.ApplyT(func(v *AccountRestore) AccountRestore {
+		if v != nil {
+			return *v
+		}
+		var ret AccountRestore
+		return ret
+	}).(AccountRestoreOutput)
+}
+
+// A `database` block as defined below. Changing this forces a new resource to be created.
+func (o AccountRestorePtrOutput) Databases() AccountRestoreDatabaseArrayOutput {
+	return o.ApplyT(func(v *AccountRestore) []AccountRestoreDatabase {
+		if v == nil {
+			return nil
+		}
+		return v.Databases
+	}).(AccountRestoreDatabaseArrayOutput)
+}
+
+// The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
+func (o AccountRestorePtrOutput) RestoreTimestampInUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RestoreTimestampInUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+func (o AccountRestorePtrOutput) SourceCosmosdbAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceCosmosdbAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccountRestoreDatabase struct {
+	// A list of the collection names for the restore request. Changing this forces a new resource to be created.
+	CollectionNames []string `pulumi:"collectionNames"`
+	// The database name for the restore request. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+
+// AccountRestoreDatabaseInput is an input type that accepts AccountRestoreDatabaseArgs and AccountRestoreDatabaseOutput values.
+// You can construct a concrete instance of `AccountRestoreDatabaseInput` via:
+//
+//          AccountRestoreDatabaseArgs{...}
+type AccountRestoreDatabaseInput interface {
+	pulumi.Input
+
+	ToAccountRestoreDatabaseOutput() AccountRestoreDatabaseOutput
+	ToAccountRestoreDatabaseOutputWithContext(context.Context) AccountRestoreDatabaseOutput
+}
+
+type AccountRestoreDatabaseArgs struct {
+	// A list of the collection names for the restore request. Changing this forces a new resource to be created.
+	CollectionNames pulumi.StringArrayInput `pulumi:"collectionNames"`
+	// The database name for the restore request. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AccountRestoreDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountRestoreDatabase)(nil)).Elem()
+}
+
+func (i AccountRestoreDatabaseArgs) ToAccountRestoreDatabaseOutput() AccountRestoreDatabaseOutput {
+	return i.ToAccountRestoreDatabaseOutputWithContext(context.Background())
+}
+
+func (i AccountRestoreDatabaseArgs) ToAccountRestoreDatabaseOutputWithContext(ctx context.Context) AccountRestoreDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountRestoreDatabaseOutput)
+}
+
+// AccountRestoreDatabaseArrayInput is an input type that accepts AccountRestoreDatabaseArray and AccountRestoreDatabaseArrayOutput values.
+// You can construct a concrete instance of `AccountRestoreDatabaseArrayInput` via:
+//
+//          AccountRestoreDatabaseArray{ AccountRestoreDatabaseArgs{...} }
+type AccountRestoreDatabaseArrayInput interface {
+	pulumi.Input
+
+	ToAccountRestoreDatabaseArrayOutput() AccountRestoreDatabaseArrayOutput
+	ToAccountRestoreDatabaseArrayOutputWithContext(context.Context) AccountRestoreDatabaseArrayOutput
+}
+
+type AccountRestoreDatabaseArray []AccountRestoreDatabaseInput
+
+func (AccountRestoreDatabaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountRestoreDatabase)(nil)).Elem()
+}
+
+func (i AccountRestoreDatabaseArray) ToAccountRestoreDatabaseArrayOutput() AccountRestoreDatabaseArrayOutput {
+	return i.ToAccountRestoreDatabaseArrayOutputWithContext(context.Background())
+}
+
+func (i AccountRestoreDatabaseArray) ToAccountRestoreDatabaseArrayOutputWithContext(ctx context.Context) AccountRestoreDatabaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountRestoreDatabaseArrayOutput)
+}
+
+type AccountRestoreDatabaseOutput struct{ *pulumi.OutputState }
+
+func (AccountRestoreDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountRestoreDatabase)(nil)).Elem()
+}
+
+func (o AccountRestoreDatabaseOutput) ToAccountRestoreDatabaseOutput() AccountRestoreDatabaseOutput {
+	return o
+}
+
+func (o AccountRestoreDatabaseOutput) ToAccountRestoreDatabaseOutputWithContext(ctx context.Context) AccountRestoreDatabaseOutput {
+	return o
+}
+
+// A list of the collection names for the restore request. Changing this forces a new resource to be created.
+func (o AccountRestoreDatabaseOutput) CollectionNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountRestoreDatabase) []string { return v.CollectionNames }).(pulumi.StringArrayOutput)
+}
+
+// The database name for the restore request. Changing this forces a new resource to be created.
+func (o AccountRestoreDatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountRestoreDatabase) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AccountRestoreDatabaseArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountRestoreDatabaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountRestoreDatabase)(nil)).Elem()
+}
+
+func (o AccountRestoreDatabaseArrayOutput) ToAccountRestoreDatabaseArrayOutput() AccountRestoreDatabaseArrayOutput {
+	return o
+}
+
+func (o AccountRestoreDatabaseArrayOutput) ToAccountRestoreDatabaseArrayOutputWithContext(ctx context.Context) AccountRestoreDatabaseArrayOutput {
+	return o
+}
+
+func (o AccountRestoreDatabaseArrayOutput) Index(i pulumi.IntInput) AccountRestoreDatabaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountRestoreDatabase {
+		return vs[0].([]AccountRestoreDatabase)[vs[1].(int)]
+	}).(AccountRestoreDatabaseOutput)
+}
+
 type AccountVirtualNetworkRule struct {
 	// The ID of the virtual network subnet.
 	Id string `pulumi:"id"`
@@ -5387,6 +5668,267 @@ func (o GetAccountVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) GetAcc
 	}).(GetAccountVirtualNetworkRuleOutput)
 }
 
+type GetRestorableDatabaseAccountsAccount struct {
+	// The API type of the Cosmos DB Restorable Database Account.
+	ApiType string `pulumi:"apiType"`
+	// The creation time of the regional Cosmos DB Restorable Database Account.
+	CreationTime string `pulumi:"creationTime"`
+	// The deletion time of the regional Cosmos DB Restorable Database Account.
+	DeletionTime string `pulumi:"deletionTime"`
+	// The ID of the Cosmos DB Restorable Database Account.
+	Id string `pulumi:"id"`
+	// One or more `restorableLocations` blocks as defined below.
+	RestorableLocations []GetRestorableDatabaseAccountsAccountRestorableLocation `pulumi:"restorableLocations"`
+}
+
+// GetRestorableDatabaseAccountsAccountInput is an input type that accepts GetRestorableDatabaseAccountsAccountArgs and GetRestorableDatabaseAccountsAccountOutput values.
+// You can construct a concrete instance of `GetRestorableDatabaseAccountsAccountInput` via:
+//
+//          GetRestorableDatabaseAccountsAccountArgs{...}
+type GetRestorableDatabaseAccountsAccountInput interface {
+	pulumi.Input
+
+	ToGetRestorableDatabaseAccountsAccountOutput() GetRestorableDatabaseAccountsAccountOutput
+	ToGetRestorableDatabaseAccountsAccountOutputWithContext(context.Context) GetRestorableDatabaseAccountsAccountOutput
+}
+
+type GetRestorableDatabaseAccountsAccountArgs struct {
+	// The API type of the Cosmos DB Restorable Database Account.
+	ApiType pulumi.StringInput `pulumi:"apiType"`
+	// The creation time of the regional Cosmos DB Restorable Database Account.
+	CreationTime pulumi.StringInput `pulumi:"creationTime"`
+	// The deletion time of the regional Cosmos DB Restorable Database Account.
+	DeletionTime pulumi.StringInput `pulumi:"deletionTime"`
+	// The ID of the Cosmos DB Restorable Database Account.
+	Id pulumi.StringInput `pulumi:"id"`
+	// One or more `restorableLocations` blocks as defined below.
+	RestorableLocations GetRestorableDatabaseAccountsAccountRestorableLocationArrayInput `pulumi:"restorableLocations"`
+}
+
+func (GetRestorableDatabaseAccountsAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRestorableDatabaseAccountsAccount)(nil)).Elem()
+}
+
+func (i GetRestorableDatabaseAccountsAccountArgs) ToGetRestorableDatabaseAccountsAccountOutput() GetRestorableDatabaseAccountsAccountOutput {
+	return i.ToGetRestorableDatabaseAccountsAccountOutputWithContext(context.Background())
+}
+
+func (i GetRestorableDatabaseAccountsAccountArgs) ToGetRestorableDatabaseAccountsAccountOutputWithContext(ctx context.Context) GetRestorableDatabaseAccountsAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRestorableDatabaseAccountsAccountOutput)
+}
+
+// GetRestorableDatabaseAccountsAccountArrayInput is an input type that accepts GetRestorableDatabaseAccountsAccountArray and GetRestorableDatabaseAccountsAccountArrayOutput values.
+// You can construct a concrete instance of `GetRestorableDatabaseAccountsAccountArrayInput` via:
+//
+//          GetRestorableDatabaseAccountsAccountArray{ GetRestorableDatabaseAccountsAccountArgs{...} }
+type GetRestorableDatabaseAccountsAccountArrayInput interface {
+	pulumi.Input
+
+	ToGetRestorableDatabaseAccountsAccountArrayOutput() GetRestorableDatabaseAccountsAccountArrayOutput
+	ToGetRestorableDatabaseAccountsAccountArrayOutputWithContext(context.Context) GetRestorableDatabaseAccountsAccountArrayOutput
+}
+
+type GetRestorableDatabaseAccountsAccountArray []GetRestorableDatabaseAccountsAccountInput
+
+func (GetRestorableDatabaseAccountsAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRestorableDatabaseAccountsAccount)(nil)).Elem()
+}
+
+func (i GetRestorableDatabaseAccountsAccountArray) ToGetRestorableDatabaseAccountsAccountArrayOutput() GetRestorableDatabaseAccountsAccountArrayOutput {
+	return i.ToGetRestorableDatabaseAccountsAccountArrayOutputWithContext(context.Background())
+}
+
+func (i GetRestorableDatabaseAccountsAccountArray) ToGetRestorableDatabaseAccountsAccountArrayOutputWithContext(ctx context.Context) GetRestorableDatabaseAccountsAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRestorableDatabaseAccountsAccountArrayOutput)
+}
+
+type GetRestorableDatabaseAccountsAccountOutput struct{ *pulumi.OutputState }
+
+func (GetRestorableDatabaseAccountsAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRestorableDatabaseAccountsAccount)(nil)).Elem()
+}
+
+func (o GetRestorableDatabaseAccountsAccountOutput) ToGetRestorableDatabaseAccountsAccountOutput() GetRestorableDatabaseAccountsAccountOutput {
+	return o
+}
+
+func (o GetRestorableDatabaseAccountsAccountOutput) ToGetRestorableDatabaseAccountsAccountOutputWithContext(ctx context.Context) GetRestorableDatabaseAccountsAccountOutput {
+	return o
+}
+
+// The API type of the Cosmos DB Restorable Database Account.
+func (o GetRestorableDatabaseAccountsAccountOutput) ApiType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRestorableDatabaseAccountsAccount) string { return v.ApiType }).(pulumi.StringOutput)
+}
+
+// The creation time of the regional Cosmos DB Restorable Database Account.
+func (o GetRestorableDatabaseAccountsAccountOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRestorableDatabaseAccountsAccount) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The deletion time of the regional Cosmos DB Restorable Database Account.
+func (o GetRestorableDatabaseAccountsAccountOutput) DeletionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRestorableDatabaseAccountsAccount) string { return v.DeletionTime }).(pulumi.StringOutput)
+}
+
+// The ID of the Cosmos DB Restorable Database Account.
+func (o GetRestorableDatabaseAccountsAccountOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRestorableDatabaseAccountsAccount) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// One or more `restorableLocations` blocks as defined below.
+func (o GetRestorableDatabaseAccountsAccountOutput) RestorableLocations() GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput {
+	return o.ApplyT(func(v GetRestorableDatabaseAccountsAccount) []GetRestorableDatabaseAccountsAccountRestorableLocation {
+		return v.RestorableLocations
+	}).(GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput)
+}
+
+type GetRestorableDatabaseAccountsAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRestorableDatabaseAccountsAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRestorableDatabaseAccountsAccount)(nil)).Elem()
+}
+
+func (o GetRestorableDatabaseAccountsAccountArrayOutput) ToGetRestorableDatabaseAccountsAccountArrayOutput() GetRestorableDatabaseAccountsAccountArrayOutput {
+	return o
+}
+
+func (o GetRestorableDatabaseAccountsAccountArrayOutput) ToGetRestorableDatabaseAccountsAccountArrayOutputWithContext(ctx context.Context) GetRestorableDatabaseAccountsAccountArrayOutput {
+	return o
+}
+
+func (o GetRestorableDatabaseAccountsAccountArrayOutput) Index(i pulumi.IntInput) GetRestorableDatabaseAccountsAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRestorableDatabaseAccountsAccount {
+		return vs[0].([]GetRestorableDatabaseAccountsAccount)[vs[1].(int)]
+	}).(GetRestorableDatabaseAccountsAccountOutput)
+}
+
+type GetRestorableDatabaseAccountsAccountRestorableLocation struct {
+	// The creation time of the regional Cosmos DB Restorable Database Account.
+	CreationTime string `pulumi:"creationTime"`
+	// The deletion time of the regional Cosmos DB Restorable Database Account.
+	DeletionTime string `pulumi:"deletionTime"`
+	// The location where the Cosmos DB Database Account.
+	Location string `pulumi:"location"`
+	// The instance ID of the regional Cosmos DB Restorable Database Account.
+	RegionalDatabaseAccountInstanceId string `pulumi:"regionalDatabaseAccountInstanceId"`
+}
+
+// GetRestorableDatabaseAccountsAccountRestorableLocationInput is an input type that accepts GetRestorableDatabaseAccountsAccountRestorableLocationArgs and GetRestorableDatabaseAccountsAccountRestorableLocationOutput values.
+// You can construct a concrete instance of `GetRestorableDatabaseAccountsAccountRestorableLocationInput` via:
+//
+//          GetRestorableDatabaseAccountsAccountRestorableLocationArgs{...}
+type GetRestorableDatabaseAccountsAccountRestorableLocationInput interface {
+	pulumi.Input
+
+	ToGetRestorableDatabaseAccountsAccountRestorableLocationOutput() GetRestorableDatabaseAccountsAccountRestorableLocationOutput
+	ToGetRestorableDatabaseAccountsAccountRestorableLocationOutputWithContext(context.Context) GetRestorableDatabaseAccountsAccountRestorableLocationOutput
+}
+
+type GetRestorableDatabaseAccountsAccountRestorableLocationArgs struct {
+	// The creation time of the regional Cosmos DB Restorable Database Account.
+	CreationTime pulumi.StringInput `pulumi:"creationTime"`
+	// The deletion time of the regional Cosmos DB Restorable Database Account.
+	DeletionTime pulumi.StringInput `pulumi:"deletionTime"`
+	// The location where the Cosmos DB Database Account.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The instance ID of the regional Cosmos DB Restorable Database Account.
+	RegionalDatabaseAccountInstanceId pulumi.StringInput `pulumi:"regionalDatabaseAccountInstanceId"`
+}
+
+func (GetRestorableDatabaseAccountsAccountRestorableLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRestorableDatabaseAccountsAccountRestorableLocation)(nil)).Elem()
+}
+
+func (i GetRestorableDatabaseAccountsAccountRestorableLocationArgs) ToGetRestorableDatabaseAccountsAccountRestorableLocationOutput() GetRestorableDatabaseAccountsAccountRestorableLocationOutput {
+	return i.ToGetRestorableDatabaseAccountsAccountRestorableLocationOutputWithContext(context.Background())
+}
+
+func (i GetRestorableDatabaseAccountsAccountRestorableLocationArgs) ToGetRestorableDatabaseAccountsAccountRestorableLocationOutputWithContext(ctx context.Context) GetRestorableDatabaseAccountsAccountRestorableLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRestorableDatabaseAccountsAccountRestorableLocationOutput)
+}
+
+// GetRestorableDatabaseAccountsAccountRestorableLocationArrayInput is an input type that accepts GetRestorableDatabaseAccountsAccountRestorableLocationArray and GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput values.
+// You can construct a concrete instance of `GetRestorableDatabaseAccountsAccountRestorableLocationArrayInput` via:
+//
+//          GetRestorableDatabaseAccountsAccountRestorableLocationArray{ GetRestorableDatabaseAccountsAccountRestorableLocationArgs{...} }
+type GetRestorableDatabaseAccountsAccountRestorableLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput() GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput
+	ToGetRestorableDatabaseAccountsAccountRestorableLocationArrayOutputWithContext(context.Context) GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput
+}
+
+type GetRestorableDatabaseAccountsAccountRestorableLocationArray []GetRestorableDatabaseAccountsAccountRestorableLocationInput
+
+func (GetRestorableDatabaseAccountsAccountRestorableLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRestorableDatabaseAccountsAccountRestorableLocation)(nil)).Elem()
+}
+
+func (i GetRestorableDatabaseAccountsAccountRestorableLocationArray) ToGetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput() GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput {
+	return i.ToGetRestorableDatabaseAccountsAccountRestorableLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRestorableDatabaseAccountsAccountRestorableLocationArray) ToGetRestorableDatabaseAccountsAccountRestorableLocationArrayOutputWithContext(ctx context.Context) GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput)
+}
+
+type GetRestorableDatabaseAccountsAccountRestorableLocationOutput struct{ *pulumi.OutputState }
+
+func (GetRestorableDatabaseAccountsAccountRestorableLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRestorableDatabaseAccountsAccountRestorableLocation)(nil)).Elem()
+}
+
+func (o GetRestorableDatabaseAccountsAccountRestorableLocationOutput) ToGetRestorableDatabaseAccountsAccountRestorableLocationOutput() GetRestorableDatabaseAccountsAccountRestorableLocationOutput {
+	return o
+}
+
+func (o GetRestorableDatabaseAccountsAccountRestorableLocationOutput) ToGetRestorableDatabaseAccountsAccountRestorableLocationOutputWithContext(ctx context.Context) GetRestorableDatabaseAccountsAccountRestorableLocationOutput {
+	return o
+}
+
+// The creation time of the regional Cosmos DB Restorable Database Account.
+func (o GetRestorableDatabaseAccountsAccountRestorableLocationOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRestorableDatabaseAccountsAccountRestorableLocation) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The deletion time of the regional Cosmos DB Restorable Database Account.
+func (o GetRestorableDatabaseAccountsAccountRestorableLocationOutput) DeletionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRestorableDatabaseAccountsAccountRestorableLocation) string { return v.DeletionTime }).(pulumi.StringOutput)
+}
+
+// The location where the Cosmos DB Database Account.
+func (o GetRestorableDatabaseAccountsAccountRestorableLocationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRestorableDatabaseAccountsAccountRestorableLocation) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The instance ID of the regional Cosmos DB Restorable Database Account.
+func (o GetRestorableDatabaseAccountsAccountRestorableLocationOutput) RegionalDatabaseAccountInstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRestorableDatabaseAccountsAccountRestorableLocation) string {
+		return v.RegionalDatabaseAccountInstanceId
+	}).(pulumi.StringOutput)
+}
+
+type GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRestorableDatabaseAccountsAccountRestorableLocation)(nil)).Elem()
+}
+
+func (o GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput) ToGetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput() GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput {
+	return o
+}
+
+func (o GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput) ToGetRestorableDatabaseAccountsAccountRestorableLocationArrayOutputWithContext(ctx context.Context) GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput {
+	return o
+}
+
+func (o GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput) Index(i pulumi.IntInput) GetRestorableDatabaseAccountsAccountRestorableLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRestorableDatabaseAccountsAccountRestorableLocation {
+		return vs[0].([]GetRestorableDatabaseAccountsAccountRestorableLocation)[vs[1].(int)]
+	}).(GetRestorableDatabaseAccountsAccountRestorableLocationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAnalyticalStorageInput)(nil)).Elem(), AccountAnalyticalStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAnalyticalStoragePtrInput)(nil)).Elem(), AccountAnalyticalStorageArgs{})
@@ -5404,6 +5946,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountGeoLocationArrayInput)(nil)).Elem(), AccountGeoLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountRestoreInput)(nil)).Elem(), AccountRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountRestorePtrInput)(nil)).Elem(), AccountRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountRestoreDatabaseInput)(nil)).Elem(), AccountRestoreDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountRestoreDatabaseArrayInput)(nil)).Elem(), AccountRestoreDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountVirtualNetworkRuleInput)(nil)).Elem(), AccountVirtualNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountVirtualNetworkRuleArrayInput)(nil)).Elem(), AccountVirtualNetworkRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraKeyspaceAutoscaleSettingsInput)(nil)).Elem(), CassandraKeyspaceAutoscaleSettingsArgs{})
@@ -5472,6 +6018,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountGeoLocationArrayInput)(nil)).Elem(), GetAccountGeoLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountVirtualNetworkRuleInput)(nil)).Elem(), GetAccountVirtualNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountVirtualNetworkRuleArrayInput)(nil)).Elem(), GetAccountVirtualNetworkRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRestorableDatabaseAccountsAccountInput)(nil)).Elem(), GetRestorableDatabaseAccountsAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRestorableDatabaseAccountsAccountArrayInput)(nil)).Elem(), GetRestorableDatabaseAccountsAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRestorableDatabaseAccountsAccountRestorableLocationInput)(nil)).Elem(), GetRestorableDatabaseAccountsAccountRestorableLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRestorableDatabaseAccountsAccountRestorableLocationArrayInput)(nil)).Elem(), GetRestorableDatabaseAccountsAccountRestorableLocationArray{})
 	pulumi.RegisterOutputType(AccountAnalyticalStorageOutput{})
 	pulumi.RegisterOutputType(AccountAnalyticalStoragePtrOutput{})
 	pulumi.RegisterOutputType(AccountBackupOutput{})
@@ -5488,6 +6038,10 @@ func init() {
 	pulumi.RegisterOutputType(AccountGeoLocationArrayOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
+	pulumi.RegisterOutputType(AccountRestoreOutput{})
+	pulumi.RegisterOutputType(AccountRestorePtrOutput{})
+	pulumi.RegisterOutputType(AccountRestoreDatabaseOutput{})
+	pulumi.RegisterOutputType(AccountRestoreDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceAutoscaleSettingsOutput{})
@@ -5556,4 +6110,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAccountGeoLocationArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountVirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(GetAccountVirtualNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetRestorableDatabaseAccountsAccountOutput{})
+	pulumi.RegisterOutputType(GetRestorableDatabaseAccountsAccountArrayOutput{})
+	pulumi.RegisterOutputType(GetRestorableDatabaseAccountsAccountRestorableLocationOutput{})
+	pulumi.RegisterOutputType(GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput{})
 }

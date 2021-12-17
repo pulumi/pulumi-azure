@@ -29,7 +29,11 @@ type DatasetCosmosDBApi struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The collection name of the Data Factory Dataset Azure Cosmos DB SQL API.
 	CollectionName pulumi.StringPtrOutput `pulumi:"collectionName"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -54,9 +58,6 @@ func NewDatasetCosmosDBApi(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
 	}
@@ -91,7 +92,11 @@ type datasetCosmosDBApiState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The collection name of the Data Factory Dataset Azure Cosmos DB SQL API.
 	CollectionName *string `pulumi:"collectionName"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
@@ -116,7 +121,11 @@ type DatasetCosmosDBApiState struct {
 	Annotations pulumi.StringArrayInput
 	// The collection name of the Data Factory Dataset Azure Cosmos DB SQL API.
 	CollectionName pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
@@ -145,8 +154,12 @@ type datasetCosmosDBApiArgs struct {
 	Annotations []string `pulumi:"annotations"`
 	// The collection name of the Data Factory Dataset Azure Cosmos DB SQL API.
 	CollectionName *string `pulumi:"collectionName"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -171,8 +184,12 @@ type DatasetCosmosDBApiArgs struct {
 	Annotations pulumi.StringArrayInput
 	// The collection name of the Data Factory Dataset Azure Cosmos DB SQL API.
 	CollectionName pulumi.StringPtrInput
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.

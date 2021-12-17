@@ -97,7 +97,7 @@ type EndpointStorageContainer struct {
 	// The name of storage container in the storage account.
 	// *
 	ContainerName pulumi.StringOutput `pulumi:"containerName"`
-	// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
+	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding pulumi.StringPtrOutput `pulumi:"encoding"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrOutput `pulumi:"fileNameFormat"`
@@ -159,7 +159,7 @@ type endpointStorageContainerState struct {
 	// The name of storage container in the storage account.
 	// *
 	ContainerName *string `pulumi:"containerName"`
-	// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
+	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding *string `pulumi:"encoding"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
@@ -181,7 +181,7 @@ type EndpointStorageContainerState struct {
 	// The name of storage container in the storage account.
 	// *
 	ContainerName pulumi.StringPtrInput
-	// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
+	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding pulumi.StringPtrInput
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrInput
@@ -207,7 +207,7 @@ type endpointStorageContainerArgs struct {
 	// The name of storage container in the storage account.
 	// *
 	ContainerName string `pulumi:"containerName"`
-	// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
+	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding *string `pulumi:"encoding"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
@@ -230,7 +230,7 @@ type EndpointStorageContainerArgs struct {
 	// The name of storage container in the storage account.
 	// *
 	ContainerName pulumi.StringInput
-	// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
+	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding pulumi.StringPtrInput
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrInput

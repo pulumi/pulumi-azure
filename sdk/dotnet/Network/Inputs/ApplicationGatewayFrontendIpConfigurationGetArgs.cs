@@ -37,6 +37,18 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? PrivateIpAddressAllocation { get; set; }
 
         /// <summary>
+        /// The ID of the associated private link configuration.
+        /// </summary>
+        [Input("privateLinkConfigurationId")]
+        public Input<string>? PrivateLinkConfigurationId { get; set; }
+
+        /// <summary>
+        /// The name of the private link configuration to use for this frontend IP configuration.
+        /// </summary>
+        [Input("privateLinkConfigurationName")]
+        public Input<string>? PrivateLinkConfigurationName { get; set; }
+
+        /// <summary>
         /// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
         /// </summary>
         [Input("publicIpAddressId")]

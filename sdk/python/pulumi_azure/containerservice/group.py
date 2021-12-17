@@ -41,7 +41,7 @@ class GroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_profile_id: Network profile ID for deploying to virtual network.
@@ -188,7 +188,7 @@ class GroupArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -288,7 +288,7 @@ class _GroupState:
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
-        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_profile_id: Network profile ID for deploying to virtual network.
@@ -444,7 +444,7 @@ class _GroupState:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -616,7 +616,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_profile_id: Network profile ID for deploying to virtual network.
@@ -788,7 +788,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
-        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_profile_id: Network profile ID for deploying to virtual network.
@@ -896,7 +896,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         """
         return pulumi.get(self, "ip_address_type")
 

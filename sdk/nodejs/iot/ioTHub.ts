@@ -98,6 +98,15 @@ import * as utilities from "../utilities";
  *             "export2",
  *         ],
  *     }],
+ *     cloudToDevice: {
+ *         maxDeliveryCount: 30,
+ *         defaultTtl: "PT1H",
+ *         feedbacks: [{
+ *             timeToLive: "PT1H10M",
+ *             maxDeliveryCount: 15,
+ *             lockDuration: "PT30S",
+ *         }],
+ *     },
  *     tags: {
  *         purpose: "testing",
  *     },
@@ -140,6 +149,10 @@ export class IoTHub extends pulumi.CustomResource {
         return obj['__pulumiType'] === IoTHub.__pulumiType;
     }
 
+    /**
+     * A `cloudToDevice` block as defined below.
+     */
+    public readonly cloudToDevice!: pulumi.Output<outputs.iot.IoTHubCloudToDevice>;
     /**
      * An `endpoint` block as defined below.
      */
@@ -242,6 +255,7 @@ export class IoTHub extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IoTHubState | undefined;
+            inputs["cloudToDevice"] = state ? state.cloudToDevice : undefined;
             inputs["endpoints"] = state ? state.endpoints : undefined;
             inputs["enrichments"] = state ? state.enrichments : undefined;
             inputs["eventHubEventsEndpoint"] = state ? state.eventHubEventsEndpoint : undefined;
@@ -272,6 +286,7 @@ export class IoTHub extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["cloudToDevice"] = args ? args.cloudToDevice : undefined;
             inputs["endpoints"] = args ? args.endpoints : undefined;
             inputs["enrichments"] = args ? args.enrichments : undefined;
             inputs["eventHubPartitionCount"] = args ? args.eventHubPartitionCount : undefined;
@@ -306,6 +321,10 @@ export class IoTHub extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IoTHub resources.
  */
 export interface IoTHubState {
+    /**
+     * A `cloudToDevice` block as defined below.
+     */
+    cloudToDevice?: pulumi.Input<inputs.iot.IoTHubCloudToDevice>;
     /**
      * An `endpoint` block as defined below.
      */
@@ -400,6 +419,10 @@ export interface IoTHubState {
  * The set of arguments for constructing a IoTHub resource.
  */
 export interface IoTHubArgs {
+    /**
+     * A `cloudToDevice` block as defined below.
+     */
+    cloudToDevice?: pulumi.Input<inputs.iot.IoTHubCloudToDevice>;
     /**
      * An `endpoint` block as defined below.
      */

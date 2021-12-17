@@ -34,7 +34,7 @@ namespace Pulumi.Azure.DataFactory
     ///         var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new Azure.DataFactory.PipelineArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///         });
     ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
     ///         {

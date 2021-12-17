@@ -20,10 +20,13 @@ class GetFunctionAppHostKeysResult:
     """
     A collection of values returned by getFunctionAppHostKeys.
     """
-    def __init__(__self__, default_function_key=None, event_grid_extension_config_key=None, id=None, master_key=None, name=None, primary_key=None, resource_group_name=None):
+    def __init__(__self__, default_function_key=None, durabletask_extension_key=None, event_grid_extension_config_key=None, id=None, master_key=None, name=None, primary_key=None, resource_group_name=None, signalr_extension_key=None):
         if default_function_key and not isinstance(default_function_key, str):
             raise TypeError("Expected argument 'default_function_key' to be a str")
         pulumi.set(__self__, "default_function_key", default_function_key)
+        if durabletask_extension_key and not isinstance(durabletask_extension_key, str):
+            raise TypeError("Expected argument 'durabletask_extension_key' to be a str")
+        pulumi.set(__self__, "durabletask_extension_key", durabletask_extension_key)
         if event_grid_extension_config_key and not isinstance(event_grid_extension_config_key, str):
             raise TypeError("Expected argument 'event_grid_extension_config_key' to be a str")
         pulumi.set(__self__, "event_grid_extension_config_key", event_grid_extension_config_key)
@@ -46,6 +49,9 @@ class GetFunctionAppHostKeysResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if signalr_extension_key and not isinstance(signalr_extension_key, str):
+            raise TypeError("Expected argument 'signalr_extension_key' to be a str")
+        pulumi.set(__self__, "signalr_extension_key", signalr_extension_key)
 
     @property
     @pulumi.getter(name="defaultFunctionKey")
@@ -54,6 +60,14 @@ class GetFunctionAppHostKeysResult:
         Function App resource's default function key.
         """
         return pulumi.get(self, "default_function_key")
+
+    @property
+    @pulumi.getter(name="durabletaskExtensionKey")
+    def durabletask_extension_key(self) -> str:
+        """
+        Function App resource's Durable Task Extension system key.
+        """
+        return pulumi.get(self, "durabletask_extension_key")
 
     @property
     @pulumi.getter(name="eventGridExtensionConfigKey")
@@ -94,6 +108,14 @@ class GetFunctionAppHostKeysResult:
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
 
+    @property
+    @pulumi.getter(name="signalrExtensionKey")
+    def signalr_extension_key(self) -> str:
+        """
+        Function App resource's SignalR Extension system key.
+        """
+        return pulumi.get(self, "signalr_extension_key")
+
 
 class AwaitableGetFunctionAppHostKeysResult(GetFunctionAppHostKeysResult):
     # pylint: disable=using-constant-test
@@ -102,12 +124,14 @@ class AwaitableGetFunctionAppHostKeysResult(GetFunctionAppHostKeysResult):
             yield self
         return GetFunctionAppHostKeysResult(
             default_function_key=self.default_function_key,
+            durabletask_extension_key=self.durabletask_extension_key,
             event_grid_extension_config_key=self.event_grid_extension_config_key,
             id=self.id,
             master_key=self.master_key,
             name=self.name,
             primary_key=self.primary_key,
-            resource_group_name=self.resource_group_name)
+            resource_group_name=self.resource_group_name,
+            signalr_extension_key=self.signalr_extension_key)
 
 
 def get_function_app_host_keys(name: Optional[str] = None,
@@ -141,12 +165,14 @@ def get_function_app_host_keys(name: Optional[str] = None,
 
     return AwaitableGetFunctionAppHostKeysResult(
         default_function_key=__ret__.default_function_key,
+        durabletask_extension_key=__ret__.durabletask_extension_key,
         event_grid_extension_config_key=__ret__.event_grid_extension_config_key,
         id=__ret__.id,
         master_key=__ret__.master_key,
         name=__ret__.name,
         primary_key=__ret__.primary_key,
-        resource_group_name=__ret__.resource_group_name)
+        resource_group_name=__ret__.resource_group_name,
+        signalr_extension_key=__ret__.signalr_extension_key)
 
 
 @_utilities.lift_output_func(get_function_app_host_keys)

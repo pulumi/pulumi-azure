@@ -79,6 +79,8 @@ type ResourceGroupPolicyAssignment struct {
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// One or more `nonComplianceMessage` blocks as defined below.
+	NonComplianceMessages ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput `pulumi:"nonComplianceMessages"`
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes pulumi.StringArrayOutput `pulumi:"notScopes"`
 	// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
@@ -138,6 +140,8 @@ type resourceGroupPolicyAssignmentState struct {
 	Metadata *string `pulumi:"metadata"`
 	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
 	Name *string `pulumi:"name"`
+	// One or more `nonComplianceMessage` blocks as defined below.
+	NonComplianceMessages []ResourceGroupPolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes []string `pulumi:"notScopes"`
 	// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
@@ -163,6 +167,8 @@ type ResourceGroupPolicyAssignmentState struct {
 	Metadata pulumi.StringPtrInput
 	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
 	Name pulumi.StringPtrInput
+	// One or more `nonComplianceMessage` blocks as defined below.
+	NonComplianceMessages ResourceGroupPolicyAssignmentNonComplianceMessageArrayInput
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes pulumi.StringArrayInput
 	// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
@@ -192,6 +198,8 @@ type resourceGroupPolicyAssignmentArgs struct {
 	Metadata *string `pulumi:"metadata"`
 	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
 	Name *string `pulumi:"name"`
+	// One or more `nonComplianceMessage` blocks as defined below.
+	NonComplianceMessages []ResourceGroupPolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes []string `pulumi:"notScopes"`
 	// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
@@ -218,6 +226,8 @@ type ResourceGroupPolicyAssignmentArgs struct {
 	Metadata pulumi.StringPtrInput
 	// The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
 	Name pulumi.StringPtrInput
+	// One or more `nonComplianceMessage` blocks as defined below.
+	NonComplianceMessages ResourceGroupPolicyAssignmentNonComplianceMessageArrayInput
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes pulumi.StringArrayInput
 	// A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.

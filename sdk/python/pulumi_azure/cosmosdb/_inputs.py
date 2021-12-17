@@ -17,6 +17,8 @@ __all__ = [
     'AccountCorsRuleArgs',
     'AccountGeoLocationArgs',
     'AccountIdentityArgs',
+    'AccountRestoreArgs',
+    'AccountRestoreDatabaseArgs',
     'AccountVirtualNetworkRuleArgs',
     'CassandraKeyspaceAutoscaleSettingsArgs',
     'CassandraTableAutoscaleSettingsArgs',
@@ -461,6 +463,97 @@ class AccountIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class AccountRestoreArgs:
+    def __init__(__self__, *,
+                 restore_timestamp_in_utc: pulumi.Input[str],
+                 source_cosmosdb_account_id: pulumi.Input[str],
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]] = None):
+        """
+        :param pulumi.Input[str] restore_timestamp_in_utc: The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_cosmosdb_account_id: The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]] databases: A `database` block as defined below. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+        pulumi.set(__self__, "source_cosmosdb_account_id", source_cosmosdb_account_id)
+        if databases is not None:
+            pulumi.set(__self__, "databases", databases)
+
+    @property
+    @pulumi.getter(name="restoreTimestampInUtc")
+    def restore_timestamp_in_utc(self) -> pulumi.Input[str]:
+        """
+        The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "restore_timestamp_in_utc")
+
+    @restore_timestamp_in_utc.setter
+    def restore_timestamp_in_utc(self, value: pulumi.Input[str]):
+        pulumi.set(self, "restore_timestamp_in_utc", value)
+
+    @property
+    @pulumi.getter(name="sourceCosmosdbAccountId")
+    def source_cosmosdb_account_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_cosmosdb_account_id")
+
+    @source_cosmosdb_account_id.setter
+    def source_cosmosdb_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_cosmosdb_account_id", value)
+
+    @property
+    @pulumi.getter
+    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]]:
+        """
+        A `database` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "databases")
+
+    @databases.setter
+    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]]):
+        pulumi.set(self, "databases", value)
+
+
+@pulumi.input_type
+class AccountRestoreDatabaseArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 collection_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: The database name for the restore request. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] collection_names: A list of the collection names for the restore request. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        if collection_names is not None:
+            pulumi.set(__self__, "collection_names", collection_names)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The database name for the restore request. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="collectionNames")
+    def collection_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the collection names for the restore request. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "collection_names")
+
+    @collection_names.setter
+    def collection_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "collection_names", value)
 
 
 @pulumi.input_type

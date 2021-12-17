@@ -117,7 +117,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * A `capacity` block as defined below.
      */
-    public readonly capacity!: pulumi.Output<outputs.cosmosdb.AccountCapacity | undefined>;
+    public readonly capacity!: pulumi.Output<outputs.cosmosdb.AccountCapacity>;
     /**
      * A list of connection strings available for this CosmosDB account.
      */
@@ -130,6 +130,10 @@ export class Account extends pulumi.CustomResource {
      * A `corsRule` block as defined below.
      */
     public readonly corsRule!: pulumi.Output<outputs.cosmosdb.AccountCorsRule | undefined>;
+    /**
+     * The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+     */
+    public readonly createMode!: pulumi.Output<string>;
     /**
      * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
      */
@@ -231,6 +235,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A `restore` block as defined below.
+     */
+    public readonly restore!: pulumi.Output<outputs.cosmosdb.AccountRestore | undefined>;
+    /**
      * The Secondary key for the CosmosDB Account.
      */
     public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
@@ -281,6 +289,7 @@ export class Account extends pulumi.CustomResource {
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["consistencyPolicy"] = state ? state.consistencyPolicy : undefined;
             inputs["corsRule"] = state ? state.corsRule : undefined;
+            inputs["createMode"] = state ? state.createMode : undefined;
             inputs["defaultIdentityType"] = state ? state.defaultIdentityType : undefined;
             inputs["enableAutomaticFailover"] = state ? state.enableAutomaticFailover : undefined;
             inputs["enableFreeTier"] = state ? state.enableFreeTier : undefined;
@@ -306,6 +315,7 @@ export class Account extends pulumi.CustomResource {
             inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["readEndpoints"] = state ? state.readEndpoints : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["restore"] = state ? state.restore : undefined;
             inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             inputs["secondaryMasterKey"] = state ? state.secondaryMasterKey : undefined;
             inputs["secondaryReadonlyKey"] = state ? state.secondaryReadonlyKey : undefined;
@@ -335,6 +345,7 @@ export class Account extends pulumi.CustomResource {
             inputs["capacity"] = args ? args.capacity : undefined;
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
             inputs["corsRule"] = args ? args.corsRule : undefined;
+            inputs["createMode"] = args ? args.createMode : undefined;
             inputs["defaultIdentityType"] = args ? args.defaultIdentityType : undefined;
             inputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
             inputs["enableFreeTier"] = args ? args.enableFreeTier : undefined;
@@ -354,6 +365,7 @@ export class Account extends pulumi.CustomResource {
             inputs["offerType"] = args ? args.offerType : undefined;
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["restore"] = args ? args.restore : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
             inputs["connectionStrings"] = undefined /*out*/;
@@ -416,6 +428,10 @@ export interface AccountState {
      * A `corsRule` block as defined below.
      */
     corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule>;
+    /**
+     * The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+     */
+    createMode?: pulumi.Input<string>;
     /**
      * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
      */
@@ -517,6 +533,10 @@ export interface AccountState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * A `restore` block as defined below.
+     */
+    restore?: pulumi.Input<inputs.cosmosdb.AccountRestore>;
+    /**
      * The Secondary key for the CosmosDB Account.
      */
     secondaryKey?: pulumi.Input<string>;
@@ -582,6 +602,10 @@ export interface AccountArgs {
      * A `corsRule` block as defined below.
      */
     corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule>;
+    /**
+     * The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+     */
+    createMode?: pulumi.Input<string>;
     /**
      * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
      */
@@ -658,6 +682,10 @@ export interface AccountArgs {
      * The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `restore` block as defined below.
+     */
+    restore?: pulumi.Input<inputs.cosmosdb.AccountRestore>;
     /**
      * A mapping of tags to assign to the resource.
      */

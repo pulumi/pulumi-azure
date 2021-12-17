@@ -105,13 +105,15 @@ type Account struct {
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below. Changing this forces a new resource to be created.
 	Capabilities AccountCapabilityArrayOutput `pulumi:"capabilities"`
 	// A `capacity` block as defined below.
-	Capacity AccountCapacityPtrOutput `pulumi:"capacity"`
+	Capacity AccountCapacityOutput `pulumi:"capacity"`
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings pulumi.StringArrayOutput `pulumi:"connectionStrings"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyOutput `pulumi:"consistencyPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRule AccountCorsRulePtrOutput `pulumi:"corsRule"`
+	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+	CreateMode pulumi.StringOutput `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType pulumi.StringPtrOutput `pulumi:"defaultIdentityType"`
 	// Enable automatic fail over for this Cosmos DB account.
@@ -162,6 +164,8 @@ type Account struct {
 	ReadEndpoints pulumi.StringArrayOutput `pulumi:"readEndpoints"`
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `restore` block as defined below.
+	Restore AccountRestorePtrOutput `pulumi:"restore"`
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
 	// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
@@ -237,6 +241,8 @@ type accountState struct {
 	ConsistencyPolicy *AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRule *AccountCorsRule `pulumi:"corsRule"`
+	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+	CreateMode *string `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
 	// Enable automatic fail over for this Cosmos DB account.
@@ -287,6 +293,8 @@ type accountState struct {
 	ReadEndpoints []string `pulumi:"readEndpoints"`
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `restore` block as defined below.
+	Restore *AccountRestore `pulumi:"restore"`
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 	// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
@@ -322,6 +330,8 @@ type AccountState struct {
 	ConsistencyPolicy AccountConsistencyPolicyPtrInput
 	// A `corsRule` block as defined below.
 	CorsRule AccountCorsRulePtrInput
+	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+	CreateMode pulumi.StringPtrInput
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType pulumi.StringPtrInput
 	// Enable automatic fail over for this Cosmos DB account.
@@ -372,6 +382,8 @@ type AccountState struct {
 	ReadEndpoints pulumi.StringArrayInput
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A `restore` block as defined below.
+	Restore AccountRestorePtrInput
 	// The Secondary key for the CosmosDB Account.
 	SecondaryKey pulumi.StringPtrInput
 	// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
@@ -409,6 +421,8 @@ type accountArgs struct {
 	ConsistencyPolicy AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRule *AccountCorsRule `pulumi:"corsRule"`
+	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+	CreateMode *string `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
 	// Enable automatic fail over for this Cosmos DB account.
@@ -447,6 +461,8 @@ type accountArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `restore` block as defined below.
+	Restore *AccountRestore `pulumi:"restore"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -471,6 +487,8 @@ type AccountArgs struct {
 	ConsistencyPolicy AccountConsistencyPolicyInput
 	// A `corsRule` block as defined below.
 	CorsRule AccountCorsRulePtrInput
+	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+	CreateMode pulumi.StringPtrInput
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
 	DefaultIdentityType pulumi.StringPtrInput
 	// Enable automatic fail over for this Cosmos DB account.
@@ -509,6 +527,8 @@ type AccountArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A `restore` block as defined below.
+	Restore AccountRestorePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.

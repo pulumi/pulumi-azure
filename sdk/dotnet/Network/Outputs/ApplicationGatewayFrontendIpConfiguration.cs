@@ -30,6 +30,14 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? PrivateIpAddressAllocation;
         /// <summary>
+        /// The ID of the associated private link configuration.
+        /// </summary>
+        public readonly string? PrivateLinkConfigurationId;
+        /// <summary>
+        /// The name of the private link configuration to use for this frontend IP configuration.
+        /// </summary>
+        public readonly string? PrivateLinkConfigurationName;
+        /// <summary>
         /// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
         /// </summary>
         public readonly string? PublicIpAddressId;
@@ -48,6 +56,10 @@ namespace Pulumi.Azure.Network.Outputs
 
             string? privateIpAddressAllocation,
 
+            string? privateLinkConfigurationId,
+
+            string? privateLinkConfigurationName,
+
             string? publicIpAddressId,
 
             string? subnetId)
@@ -56,6 +68,8 @@ namespace Pulumi.Azure.Network.Outputs
             Name = name;
             PrivateIpAddress = privateIpAddress;
             PrivateIpAddressAllocation = privateIpAddressAllocation;
+            PrivateLinkConfigurationId = privateLinkConfigurationId;
+            PrivateLinkConfigurationName = privateLinkConfigurationName;
             PublicIpAddressId = publicIpAddressId;
             SubnetId = subnetId;
         }

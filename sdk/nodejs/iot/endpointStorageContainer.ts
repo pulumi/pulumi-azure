@@ -96,7 +96,7 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
      */
     public readonly containerName!: pulumi.Output<string>;
     /**
-     * Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
+     * Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
      */
     public readonly encoding!: pulumi.Output<string | undefined>;
     /**
@@ -191,7 +191,7 @@ export interface EndpointStorageContainerState {
      */
     containerName?: pulumi.Input<string>;
     /**
-     * Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
+     * Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
      */
     encoding?: pulumi.Input<string>;
     /**
@@ -234,7 +234,7 @@ export interface EndpointStorageContainerArgs {
      */
     containerName: pulumi.Input<string>;
     /**
-     * Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
+     * Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
      */
     encoding?: pulumi.Input<string>;
     /**

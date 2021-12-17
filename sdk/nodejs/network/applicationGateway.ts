@@ -182,6 +182,14 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A list of `privateEndpointConnection` blocks as defined below.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.network.ApplicationGatewayPrivateEndpointConnection[]>;
+    /**
+     * One or more `privateLinkConfiguration` blocks as defined below.
+     */
+    public readonly privateLinkConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayPrivateLinkConfiguration[] | undefined>;
+    /**
      * One or more `probe` blocks as defined below.
      */
     public readonly probes!: pulumi.Output<outputs.network.ApplicationGatewayProbe[] | undefined>;
@@ -269,6 +277,8 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["privateEndpointConnections"] = state ? state.privateEndpointConnections : undefined;
+            inputs["privateLinkConfigurations"] = state ? state.privateLinkConfigurations : undefined;
             inputs["probes"] = state ? state.probes : undefined;
             inputs["redirectConfigurations"] = state ? state.redirectConfigurations : undefined;
             inputs["requestRoutingRules"] = state ? state.requestRoutingRules : undefined;
@@ -327,6 +337,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["privateLinkConfigurations"] = args ? args.privateLinkConfigurations : undefined;
             inputs["probes"] = args ? args.probes : undefined;
             inputs["redirectConfigurations"] = args ? args.redirectConfigurations : undefined;
             inputs["requestRoutingRules"] = args ? args.requestRoutingRules : undefined;
@@ -342,6 +353,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
             inputs["wafConfiguration"] = args ? args.wafConfiguration : undefined;
             inputs["zones"] = args ? args.zones : undefined;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -410,6 +422,14 @@ export interface ApplicationGatewayState {
      * The name of the Application Gateway. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A list of `privateEndpointConnection` blocks as defined below.
+     */
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayPrivateEndpointConnection>[]>;
+    /**
+     * One or more `privateLinkConfiguration` blocks as defined below.
+     */
+    privateLinkConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayPrivateLinkConfiguration>[]>;
     /**
      * One or more `probe` blocks as defined below.
      */
@@ -532,6 +552,10 @@ export interface ApplicationGatewayArgs {
      * The name of the Application Gateway. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * One or more `privateLinkConfiguration` blocks as defined below.
+     */
+    privateLinkConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayPrivateLinkConfiguration>[]>;
     /**
      * One or more `probe` blocks as defined below.
      */
