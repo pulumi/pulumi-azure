@@ -9,6 +9,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'IoTHubCloudToDeviceArgs',
+    'IoTHubCloudToDeviceFeedbackArgs',
     'IoTHubEndpointArgs',
     'IoTHubEnrichmentArgs',
     'IoTHubFallbackRouteArgs',
@@ -28,6 +30,116 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class IoTHubCloudToDeviceArgs:
+    def __init__(__self__, *,
+                 default_ttl: Optional[pulumi.Input[str]] = None,
+                 feedbacks: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgs']]]] = None,
+                 max_delivery_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] default_ttl: The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgs']]] feedbacks: A `feedback` block as defined below.
+        :param pulumi.Input[int] max_delivery_count: The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+        """
+        if default_ttl is not None:
+            pulumi.set(__self__, "default_ttl", default_ttl)
+        if feedbacks is not None:
+            pulumi.set(__self__, "feedbacks", feedbacks)
+        if max_delivery_count is not None:
+            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+
+    @property
+    @pulumi.getter(name="defaultTtl")
+    def default_ttl(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+        """
+        return pulumi.get(self, "default_ttl")
+
+    @default_ttl.setter
+    def default_ttl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_ttl", value)
+
+    @property
+    @pulumi.getter
+    def feedbacks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgs']]]]:
+        """
+        A `feedback` block as defined below.
+        """
+        return pulumi.get(self, "feedbacks")
+
+    @feedbacks.setter
+    def feedbacks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgs']]]]):
+        pulumi.set(self, "feedbacks", value)
+
+    @property
+    @pulumi.getter(name="maxDeliveryCount")
+    def max_delivery_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+        """
+        return pulumi.get(self, "max_delivery_count")
+
+    @max_delivery_count.setter
+    def max_delivery_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_delivery_count", value)
+
+
+@pulumi.input_type
+class IoTHubCloudToDeviceFeedbackArgs:
+    def __init__(__self__, *,
+                 lock_duration: Optional[pulumi.Input[str]] = None,
+                 max_delivery_count: Optional[pulumi.Input[int]] = None,
+                 time_to_live: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] lock_duration: The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+        :param pulumi.Input[int] max_delivery_count: The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+        :param pulumi.Input[str] time_to_live: The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+        """
+        if lock_duration is not None:
+            pulumi.set(__self__, "lock_duration", lock_duration)
+        if max_delivery_count is not None:
+            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter(name="lockDuration")
+    def lock_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+        """
+        return pulumi.get(self, "lock_duration")
+
+    @lock_duration.setter
+    def lock_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lock_duration", value)
+
+    @property
+    @pulumi.getter(name="maxDeliveryCount")
+    def max_delivery_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+        """
+        return pulumi.get(self, "max_delivery_count")
+
+    @max_delivery_count.setter
+    def max_delivery_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_delivery_count", value)
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[pulumi.Input[str]]:
+        """
+        The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+        """
+        return pulumi.get(self, "time_to_live")
+
+    @time_to_live.setter
+    def time_to_live(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_to_live", value)
+
+
+@pulumi.input_type
 class IoTHubEndpointArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
@@ -43,11 +155,11 @@ class IoTHubEndpointArgs:
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         :param pulumi.Input[str] type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
-        :param pulumi.Input[int] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        :param pulumi.Input[int] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         :param pulumi.Input[str] container_name: The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
-        :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
-        :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
-        :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+        :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         :param pulumi.Input[str] resource_group_name: The resource group in which the endpoint will be created.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -106,7 +218,7 @@ class IoTHubEndpointArgs:
     @pulumi.getter(name="batchFrequencyInSeconds")
     def batch_frequency_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         """
         return pulumi.get(self, "batch_frequency_in_seconds")
 
@@ -130,7 +242,7 @@ class IoTHubEndpointArgs:
     @pulumi.getter
     def encoding(self) -> Optional[pulumi.Input[str]]:
         """
-        Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "encoding")
 
@@ -142,7 +254,7 @@ class IoTHubEndpointArgs:
     @pulumi.getter(name="fileNameFormat")
     def file_name_format(self) -> Optional[pulumi.Input[str]]:
         """
-        File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         """
         return pulumi.get(self, "file_name_format")
 
@@ -154,7 +266,7 @@ class IoTHubEndpointArgs:
     @pulumi.getter(name="maxChunkSizeInBytes")
     def max_chunk_size_in_bytes(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         """
         return pulumi.get(self, "max_chunk_size_in_bytes")
 
@@ -311,11 +423,11 @@ class IoTHubFileUploadArgs:
         """
         :param pulumi.Input[str] connection_string: The connection string for the Azure Storage account to which files are uploaded.
         :param pulumi.Input[str] container_name: The name of the root container where you upload files. The container need not exist but should be creatable using the connection_string specified.
-        :param pulumi.Input[str] default_ttl: The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
-        :param pulumi.Input[str] lock_duration: The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
-        :param pulumi.Input[int] max_delivery_count: The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+        :param pulumi.Input[str] default_ttl: The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+        :param pulumi.Input[str] lock_duration: The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
+        :param pulumi.Input[int] max_delivery_count: The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
         :param pulumi.Input[bool] notifications: Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
-        :param pulumi.Input[str] sas_ttl: The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+        :param pulumi.Input[str] sas_ttl: The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "container_name", container_name)
@@ -358,7 +470,7 @@ class IoTHubFileUploadArgs:
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[pulumi.Input[str]]:
         """
-        The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+        The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
         """
         return pulumi.get(self, "default_ttl")
 
@@ -370,7 +482,7 @@ class IoTHubFileUploadArgs:
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+        The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
         """
         return pulumi.get(self, "lock_duration")
 
@@ -382,7 +494,7 @@ class IoTHubFileUploadArgs:
     @pulumi.getter(name="maxDeliveryCount")
     def max_delivery_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+        The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
         """
         return pulumi.get(self, "max_delivery_count")
 
@@ -406,7 +518,7 @@ class IoTHubFileUploadArgs:
     @pulumi.getter(name="sasTtl")
     def sas_ttl(self) -> Optional[pulumi.Input[str]]:
         """
-        The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+        The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
         """
         return pulumi.get(self, "sas_ttl")
 

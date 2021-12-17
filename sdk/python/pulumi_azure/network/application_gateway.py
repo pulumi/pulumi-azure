@@ -32,6 +32,7 @@ class ApplicationGatewayArgs:
                  identity: Optional[pulumi.Input['ApplicationGatewayIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]]] = None,
                  probes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]]] = None,
                  redirect_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]]] = None,
                  rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]] = None,
@@ -63,6 +64,7 @@ class ApplicationGatewayArgs:
         :param pulumi.Input['ApplicationGatewayIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]] private_link_configurations: One or more `private_link_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]] probes: One or more `probe` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
@@ -101,6 +103,8 @@ class ApplicationGatewayArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_link_configurations is not None:
+            pulumi.set(__self__, "private_link_configurations", private_link_configurations)
         if probes is not None:
             pulumi.set(__self__, "probes", probes)
         if redirect_configurations is not None:
@@ -331,6 +335,18 @@ class ApplicationGatewayArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="privateLinkConfigurations")
+    def private_link_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]]]:
+        """
+        One or more `private_link_configuration` blocks as defined below.
+        """
+        return pulumi.get(self, "private_link_configurations")
+
+    @private_link_configurations.setter
+    def private_link_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]]]):
+        pulumi.set(self, "private_link_configurations", value)
+
+    @property
     @pulumi.getter
     def probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]]]:
         """
@@ -492,6 +508,8 @@ class _ApplicationGatewayState:
                  identity: Optional[pulumi.Input['ApplicationGatewayIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateEndpointConnectionArgs']]]] = None,
+                 private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]]] = None,
                  probes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]]] = None,
                  redirect_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]]] = None,
                  request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]]] = None,
@@ -523,6 +541,8 @@ class _ApplicationGatewayState:
         :param pulumi.Input['ApplicationGatewayIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateEndpointConnectionArgs']]] private_endpoint_connections: A list of `private_endpoint_connection` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]] private_link_configurations: One or more `private_link_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]] probes: One or more `probe` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
@@ -567,6 +587,10 @@ class _ApplicationGatewayState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_endpoint_connections is not None:
+            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if private_link_configurations is not None:
+            pulumi.set(__self__, "private_link_configurations", private_link_configurations)
         if probes is not None:
             pulumi.set(__self__, "probes", probes)
         if redirect_configurations is not None:
@@ -765,6 +789,30 @@ class _ApplicationGatewayState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateEndpointConnectionArgs']]]]:
+        """
+        A list of `private_endpoint_connection` blocks as defined below.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @private_endpoint_connections.setter
+    def private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateEndpointConnectionArgs']]]]):
+        pulumi.set(self, "private_endpoint_connections", value)
+
+    @property
+    @pulumi.getter(name="privateLinkConfigurations")
+    def private_link_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]]]:
+        """
+        One or more `private_link_configuration` blocks as defined below.
+        """
+        return pulumi.get(self, "private_link_configurations")
+
+    @private_link_configurations.setter
+    def private_link_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]]]):
+        pulumi.set(self, "private_link_configurations", value)
 
     @property
     @pulumi.getter
@@ -966,6 +1014,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayPrivateLinkConfigurationArgs']]]]] = None,
                  probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]]] = None,
                  redirect_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]]] = None,
                  request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]]] = None,
@@ -1085,6 +1134,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayPrivateLinkConfigurationArgs']]]] private_link_configurations: One or more `private_link_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]] probes: One or more `probe` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
@@ -1223,6 +1273,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayPrivateLinkConfigurationArgs']]]]] = None,
                  probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]]] = None,
                  redirect_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]]] = None,
                  request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]]] = None,
@@ -1276,6 +1327,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["private_link_configurations"] = private_link_configurations
             __props__.__dict__["probes"] = probes
             __props__.__dict__["redirect_configurations"] = redirect_configurations
             if request_routing_rules is None and not opts.urn:
@@ -1297,6 +1349,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["url_path_maps"] = url_path_maps
             __props__.__dict__["waf_configuration"] = waf_configuration
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["private_endpoint_connections"] = None
         super(ApplicationGateway, __self__).__init__(
             'azure:network/applicationGateway:ApplicationGateway',
             resource_name,
@@ -1321,6 +1374,8 @@ class ApplicationGateway(pulumi.CustomResource):
             identity: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayPrivateEndpointConnectionArgs']]]]] = None,
+            private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayPrivateLinkConfigurationArgs']]]]] = None,
             probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]]] = None,
             redirect_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]]] = None,
             request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]]] = None,
@@ -1357,6 +1412,8 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayPrivateEndpointConnectionArgs']]]] private_endpoint_connections: A list of `private_endpoint_connection` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayPrivateLinkConfigurationArgs']]]] private_link_configurations: One or more `private_link_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]] probes: One or more `probe` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
@@ -1391,6 +1448,8 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
+        __props__.__dict__["private_link_configurations"] = private_link_configurations
         __props__.__dict__["probes"] = probes
         __props__.__dict__["redirect_configurations"] = redirect_configurations
         __props__.__dict__["request_routing_rules"] = request_routing_rules
@@ -1519,6 +1578,22 @@ class ApplicationGateway(pulumi.CustomResource):
         The name of the Application Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.ApplicationGatewayPrivateEndpointConnection']]:
+        """
+        A list of `private_endpoint_connection` blocks as defined below.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="privateLinkConfigurations")
+    def private_link_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayPrivateLinkConfiguration']]]:
+        """
+        One or more `private_link_configuration` blocks as defined below.
+        """
+        return pulumi.get(self, "private_link_configurations")
 
     @property
     @pulumi.getter

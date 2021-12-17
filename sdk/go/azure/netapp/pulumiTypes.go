@@ -242,6 +242,721 @@ func (o AccountActiveDirectoryPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SnapshotPolicyDailySchedule struct {
+	// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+	Hour int `pulumi:"hour"`
+	// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+	Minute int `pulumi:"minute"`
+	// How many hourly snapshots to keep, valid range is from 0 to 255.
+	SnapshotsToKeep int `pulumi:"snapshotsToKeep"`
+}
+
+// SnapshotPolicyDailyScheduleInput is an input type that accepts SnapshotPolicyDailyScheduleArgs and SnapshotPolicyDailyScheduleOutput values.
+// You can construct a concrete instance of `SnapshotPolicyDailyScheduleInput` via:
+//
+//          SnapshotPolicyDailyScheduleArgs{...}
+type SnapshotPolicyDailyScheduleInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyDailyScheduleOutput() SnapshotPolicyDailyScheduleOutput
+	ToSnapshotPolicyDailyScheduleOutputWithContext(context.Context) SnapshotPolicyDailyScheduleOutput
+}
+
+type SnapshotPolicyDailyScheduleArgs struct {
+	// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+	Hour pulumi.IntInput `pulumi:"hour"`
+	// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+	Minute pulumi.IntInput `pulumi:"minute"`
+	// How many hourly snapshots to keep, valid range is from 0 to 255.
+	SnapshotsToKeep pulumi.IntInput `pulumi:"snapshotsToKeep"`
+}
+
+func (SnapshotPolicyDailyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyDailySchedule)(nil)).Elem()
+}
+
+func (i SnapshotPolicyDailyScheduleArgs) ToSnapshotPolicyDailyScheduleOutput() SnapshotPolicyDailyScheduleOutput {
+	return i.ToSnapshotPolicyDailyScheduleOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicyDailyScheduleArgs) ToSnapshotPolicyDailyScheduleOutputWithContext(ctx context.Context) SnapshotPolicyDailyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyDailyScheduleOutput)
+}
+
+func (i SnapshotPolicyDailyScheduleArgs) ToSnapshotPolicyDailySchedulePtrOutput() SnapshotPolicyDailySchedulePtrOutput {
+	return i.ToSnapshotPolicyDailySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicyDailyScheduleArgs) ToSnapshotPolicyDailySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyDailySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyDailyScheduleOutput).ToSnapshotPolicyDailySchedulePtrOutputWithContext(ctx)
+}
+
+// SnapshotPolicyDailySchedulePtrInput is an input type that accepts SnapshotPolicyDailyScheduleArgs, SnapshotPolicyDailySchedulePtr and SnapshotPolicyDailySchedulePtrOutput values.
+// You can construct a concrete instance of `SnapshotPolicyDailySchedulePtrInput` via:
+//
+//          SnapshotPolicyDailyScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type SnapshotPolicyDailySchedulePtrInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyDailySchedulePtrOutput() SnapshotPolicyDailySchedulePtrOutput
+	ToSnapshotPolicyDailySchedulePtrOutputWithContext(context.Context) SnapshotPolicyDailySchedulePtrOutput
+}
+
+type snapshotPolicyDailySchedulePtrType SnapshotPolicyDailyScheduleArgs
+
+func SnapshotPolicyDailySchedulePtr(v *SnapshotPolicyDailyScheduleArgs) SnapshotPolicyDailySchedulePtrInput {
+	return (*snapshotPolicyDailySchedulePtrType)(v)
+}
+
+func (*snapshotPolicyDailySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyDailySchedule)(nil)).Elem()
+}
+
+func (i *snapshotPolicyDailySchedulePtrType) ToSnapshotPolicyDailySchedulePtrOutput() SnapshotPolicyDailySchedulePtrOutput {
+	return i.ToSnapshotPolicyDailySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *snapshotPolicyDailySchedulePtrType) ToSnapshotPolicyDailySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyDailySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyDailySchedulePtrOutput)
+}
+
+type SnapshotPolicyDailyScheduleOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyDailyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyDailySchedule)(nil)).Elem()
+}
+
+func (o SnapshotPolicyDailyScheduleOutput) ToSnapshotPolicyDailyScheduleOutput() SnapshotPolicyDailyScheduleOutput {
+	return o
+}
+
+func (o SnapshotPolicyDailyScheduleOutput) ToSnapshotPolicyDailyScheduleOutputWithContext(ctx context.Context) SnapshotPolicyDailyScheduleOutput {
+	return o
+}
+
+func (o SnapshotPolicyDailyScheduleOutput) ToSnapshotPolicyDailySchedulePtrOutput() SnapshotPolicyDailySchedulePtrOutput {
+	return o.ToSnapshotPolicyDailySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyDailyScheduleOutput) ToSnapshotPolicyDailySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyDailySchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotPolicyDailySchedule) *SnapshotPolicyDailySchedule {
+		return &v
+	}).(SnapshotPolicyDailySchedulePtrOutput)
+}
+
+// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+func (o SnapshotPolicyDailyScheduleOutput) Hour() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotPolicyDailySchedule) int { return v.Hour }).(pulumi.IntOutput)
+}
+
+// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+func (o SnapshotPolicyDailyScheduleOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotPolicyDailySchedule) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+// How many hourly snapshots to keep, valid range is from 0 to 255.
+func (o SnapshotPolicyDailyScheduleOutput) SnapshotsToKeep() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotPolicyDailySchedule) int { return v.SnapshotsToKeep }).(pulumi.IntOutput)
+}
+
+type SnapshotPolicyDailySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyDailySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyDailySchedule)(nil)).Elem()
+}
+
+func (o SnapshotPolicyDailySchedulePtrOutput) ToSnapshotPolicyDailySchedulePtrOutput() SnapshotPolicyDailySchedulePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyDailySchedulePtrOutput) ToSnapshotPolicyDailySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyDailySchedulePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyDailySchedulePtrOutput) Elem() SnapshotPolicyDailyScheduleOutput {
+	return o.ApplyT(func(v *SnapshotPolicyDailySchedule) SnapshotPolicyDailySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotPolicyDailySchedule
+		return ret
+	}).(SnapshotPolicyDailyScheduleOutput)
+}
+
+// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+func (o SnapshotPolicyDailySchedulePtrOutput) Hour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyDailySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Hour
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+func (o SnapshotPolicyDailySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyDailySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// How many hourly snapshots to keep, valid range is from 0 to 255.
+func (o SnapshotPolicyDailySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyDailySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+type SnapshotPolicyHourlySchedule struct {
+	// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+	Minute int `pulumi:"minute"`
+	// How many hourly snapshots to keep, valid range is from 0 to 255.
+	SnapshotsToKeep int `pulumi:"snapshotsToKeep"`
+}
+
+// SnapshotPolicyHourlyScheduleInput is an input type that accepts SnapshotPolicyHourlyScheduleArgs and SnapshotPolicyHourlyScheduleOutput values.
+// You can construct a concrete instance of `SnapshotPolicyHourlyScheduleInput` via:
+//
+//          SnapshotPolicyHourlyScheduleArgs{...}
+type SnapshotPolicyHourlyScheduleInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyHourlyScheduleOutput() SnapshotPolicyHourlyScheduleOutput
+	ToSnapshotPolicyHourlyScheduleOutputWithContext(context.Context) SnapshotPolicyHourlyScheduleOutput
+}
+
+type SnapshotPolicyHourlyScheduleArgs struct {
+	// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+	Minute pulumi.IntInput `pulumi:"minute"`
+	// How many hourly snapshots to keep, valid range is from 0 to 255.
+	SnapshotsToKeep pulumi.IntInput `pulumi:"snapshotsToKeep"`
+}
+
+func (SnapshotPolicyHourlyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyHourlySchedule)(nil)).Elem()
+}
+
+func (i SnapshotPolicyHourlyScheduleArgs) ToSnapshotPolicyHourlyScheduleOutput() SnapshotPolicyHourlyScheduleOutput {
+	return i.ToSnapshotPolicyHourlyScheduleOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicyHourlyScheduleArgs) ToSnapshotPolicyHourlyScheduleOutputWithContext(ctx context.Context) SnapshotPolicyHourlyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyHourlyScheduleOutput)
+}
+
+func (i SnapshotPolicyHourlyScheduleArgs) ToSnapshotPolicyHourlySchedulePtrOutput() SnapshotPolicyHourlySchedulePtrOutput {
+	return i.ToSnapshotPolicyHourlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicyHourlyScheduleArgs) ToSnapshotPolicyHourlySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyHourlySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyHourlyScheduleOutput).ToSnapshotPolicyHourlySchedulePtrOutputWithContext(ctx)
+}
+
+// SnapshotPolicyHourlySchedulePtrInput is an input type that accepts SnapshotPolicyHourlyScheduleArgs, SnapshotPolicyHourlySchedulePtr and SnapshotPolicyHourlySchedulePtrOutput values.
+// You can construct a concrete instance of `SnapshotPolicyHourlySchedulePtrInput` via:
+//
+//          SnapshotPolicyHourlyScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type SnapshotPolicyHourlySchedulePtrInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyHourlySchedulePtrOutput() SnapshotPolicyHourlySchedulePtrOutput
+	ToSnapshotPolicyHourlySchedulePtrOutputWithContext(context.Context) SnapshotPolicyHourlySchedulePtrOutput
+}
+
+type snapshotPolicyHourlySchedulePtrType SnapshotPolicyHourlyScheduleArgs
+
+func SnapshotPolicyHourlySchedulePtr(v *SnapshotPolicyHourlyScheduleArgs) SnapshotPolicyHourlySchedulePtrInput {
+	return (*snapshotPolicyHourlySchedulePtrType)(v)
+}
+
+func (*snapshotPolicyHourlySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyHourlySchedule)(nil)).Elem()
+}
+
+func (i *snapshotPolicyHourlySchedulePtrType) ToSnapshotPolicyHourlySchedulePtrOutput() SnapshotPolicyHourlySchedulePtrOutput {
+	return i.ToSnapshotPolicyHourlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *snapshotPolicyHourlySchedulePtrType) ToSnapshotPolicyHourlySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyHourlySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyHourlySchedulePtrOutput)
+}
+
+type SnapshotPolicyHourlyScheduleOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyHourlyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyHourlySchedule)(nil)).Elem()
+}
+
+func (o SnapshotPolicyHourlyScheduleOutput) ToSnapshotPolicyHourlyScheduleOutput() SnapshotPolicyHourlyScheduleOutput {
+	return o
+}
+
+func (o SnapshotPolicyHourlyScheduleOutput) ToSnapshotPolicyHourlyScheduleOutputWithContext(ctx context.Context) SnapshotPolicyHourlyScheduleOutput {
+	return o
+}
+
+func (o SnapshotPolicyHourlyScheduleOutput) ToSnapshotPolicyHourlySchedulePtrOutput() SnapshotPolicyHourlySchedulePtrOutput {
+	return o.ToSnapshotPolicyHourlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyHourlyScheduleOutput) ToSnapshotPolicyHourlySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyHourlySchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotPolicyHourlySchedule) *SnapshotPolicyHourlySchedule {
+		return &v
+	}).(SnapshotPolicyHourlySchedulePtrOutput)
+}
+
+// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+func (o SnapshotPolicyHourlyScheduleOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotPolicyHourlySchedule) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+// How many hourly snapshots to keep, valid range is from 0 to 255.
+func (o SnapshotPolicyHourlyScheduleOutput) SnapshotsToKeep() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotPolicyHourlySchedule) int { return v.SnapshotsToKeep }).(pulumi.IntOutput)
+}
+
+type SnapshotPolicyHourlySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyHourlySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyHourlySchedule)(nil)).Elem()
+}
+
+func (o SnapshotPolicyHourlySchedulePtrOutput) ToSnapshotPolicyHourlySchedulePtrOutput() SnapshotPolicyHourlySchedulePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyHourlySchedulePtrOutput) ToSnapshotPolicyHourlySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyHourlySchedulePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyHourlySchedulePtrOutput) Elem() SnapshotPolicyHourlyScheduleOutput {
+	return o.ApplyT(func(v *SnapshotPolicyHourlySchedule) SnapshotPolicyHourlySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotPolicyHourlySchedule
+		return ret
+	}).(SnapshotPolicyHourlyScheduleOutput)
+}
+
+// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+func (o SnapshotPolicyHourlySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyHourlySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// How many hourly snapshots to keep, valid range is from 0 to 255.
+func (o SnapshotPolicyHourlySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyHourlySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+type SnapshotPolicyMonthlySchedule struct {
+	DaysOfMonths []int `pulumi:"daysOfMonths"`
+	// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+	Hour int `pulumi:"hour"`
+	// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+	Minute int `pulumi:"minute"`
+	// How many hourly snapshots to keep, valid range is from 0 to 255.
+	SnapshotsToKeep int `pulumi:"snapshotsToKeep"`
+}
+
+// SnapshotPolicyMonthlyScheduleInput is an input type that accepts SnapshotPolicyMonthlyScheduleArgs and SnapshotPolicyMonthlyScheduleOutput values.
+// You can construct a concrete instance of `SnapshotPolicyMonthlyScheduleInput` via:
+//
+//          SnapshotPolicyMonthlyScheduleArgs{...}
+type SnapshotPolicyMonthlyScheduleInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyMonthlyScheduleOutput() SnapshotPolicyMonthlyScheduleOutput
+	ToSnapshotPolicyMonthlyScheduleOutputWithContext(context.Context) SnapshotPolicyMonthlyScheduleOutput
+}
+
+type SnapshotPolicyMonthlyScheduleArgs struct {
+	DaysOfMonths pulumi.IntArrayInput `pulumi:"daysOfMonths"`
+	// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+	Hour pulumi.IntInput `pulumi:"hour"`
+	// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+	Minute pulumi.IntInput `pulumi:"minute"`
+	// How many hourly snapshots to keep, valid range is from 0 to 255.
+	SnapshotsToKeep pulumi.IntInput `pulumi:"snapshotsToKeep"`
+}
+
+func (SnapshotPolicyMonthlyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyMonthlySchedule)(nil)).Elem()
+}
+
+func (i SnapshotPolicyMonthlyScheduleArgs) ToSnapshotPolicyMonthlyScheduleOutput() SnapshotPolicyMonthlyScheduleOutput {
+	return i.ToSnapshotPolicyMonthlyScheduleOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicyMonthlyScheduleArgs) ToSnapshotPolicyMonthlyScheduleOutputWithContext(ctx context.Context) SnapshotPolicyMonthlyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyMonthlyScheduleOutput)
+}
+
+func (i SnapshotPolicyMonthlyScheduleArgs) ToSnapshotPolicyMonthlySchedulePtrOutput() SnapshotPolicyMonthlySchedulePtrOutput {
+	return i.ToSnapshotPolicyMonthlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicyMonthlyScheduleArgs) ToSnapshotPolicyMonthlySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyMonthlySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyMonthlyScheduleOutput).ToSnapshotPolicyMonthlySchedulePtrOutputWithContext(ctx)
+}
+
+// SnapshotPolicyMonthlySchedulePtrInput is an input type that accepts SnapshotPolicyMonthlyScheduleArgs, SnapshotPolicyMonthlySchedulePtr and SnapshotPolicyMonthlySchedulePtrOutput values.
+// You can construct a concrete instance of `SnapshotPolicyMonthlySchedulePtrInput` via:
+//
+//          SnapshotPolicyMonthlyScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type SnapshotPolicyMonthlySchedulePtrInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyMonthlySchedulePtrOutput() SnapshotPolicyMonthlySchedulePtrOutput
+	ToSnapshotPolicyMonthlySchedulePtrOutputWithContext(context.Context) SnapshotPolicyMonthlySchedulePtrOutput
+}
+
+type snapshotPolicyMonthlySchedulePtrType SnapshotPolicyMonthlyScheduleArgs
+
+func SnapshotPolicyMonthlySchedulePtr(v *SnapshotPolicyMonthlyScheduleArgs) SnapshotPolicyMonthlySchedulePtrInput {
+	return (*snapshotPolicyMonthlySchedulePtrType)(v)
+}
+
+func (*snapshotPolicyMonthlySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyMonthlySchedule)(nil)).Elem()
+}
+
+func (i *snapshotPolicyMonthlySchedulePtrType) ToSnapshotPolicyMonthlySchedulePtrOutput() SnapshotPolicyMonthlySchedulePtrOutput {
+	return i.ToSnapshotPolicyMonthlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *snapshotPolicyMonthlySchedulePtrType) ToSnapshotPolicyMonthlySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyMonthlySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyMonthlySchedulePtrOutput)
+}
+
+type SnapshotPolicyMonthlyScheduleOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyMonthlyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyMonthlySchedule)(nil)).Elem()
+}
+
+func (o SnapshotPolicyMonthlyScheduleOutput) ToSnapshotPolicyMonthlyScheduleOutput() SnapshotPolicyMonthlyScheduleOutput {
+	return o
+}
+
+func (o SnapshotPolicyMonthlyScheduleOutput) ToSnapshotPolicyMonthlyScheduleOutputWithContext(ctx context.Context) SnapshotPolicyMonthlyScheduleOutput {
+	return o
+}
+
+func (o SnapshotPolicyMonthlyScheduleOutput) ToSnapshotPolicyMonthlySchedulePtrOutput() SnapshotPolicyMonthlySchedulePtrOutput {
+	return o.ToSnapshotPolicyMonthlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyMonthlyScheduleOutput) ToSnapshotPolicyMonthlySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyMonthlySchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotPolicyMonthlySchedule) *SnapshotPolicyMonthlySchedule {
+		return &v
+	}).(SnapshotPolicyMonthlySchedulePtrOutput)
+}
+
+func (o SnapshotPolicyMonthlyScheduleOutput) DaysOfMonths() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v SnapshotPolicyMonthlySchedule) []int { return v.DaysOfMonths }).(pulumi.IntArrayOutput)
+}
+
+// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+func (o SnapshotPolicyMonthlyScheduleOutput) Hour() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotPolicyMonthlySchedule) int { return v.Hour }).(pulumi.IntOutput)
+}
+
+// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+func (o SnapshotPolicyMonthlyScheduleOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotPolicyMonthlySchedule) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+// How many hourly snapshots to keep, valid range is from 0 to 255.
+func (o SnapshotPolicyMonthlyScheduleOutput) SnapshotsToKeep() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotPolicyMonthlySchedule) int { return v.SnapshotsToKeep }).(pulumi.IntOutput)
+}
+
+type SnapshotPolicyMonthlySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyMonthlySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyMonthlySchedule)(nil)).Elem()
+}
+
+func (o SnapshotPolicyMonthlySchedulePtrOutput) ToSnapshotPolicyMonthlySchedulePtrOutput() SnapshotPolicyMonthlySchedulePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyMonthlySchedulePtrOutput) ToSnapshotPolicyMonthlySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyMonthlySchedulePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyMonthlySchedulePtrOutput) Elem() SnapshotPolicyMonthlyScheduleOutput {
+	return o.ApplyT(func(v *SnapshotPolicyMonthlySchedule) SnapshotPolicyMonthlySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotPolicyMonthlySchedule
+		return ret
+	}).(SnapshotPolicyMonthlyScheduleOutput)
+}
+
+func (o SnapshotPolicyMonthlySchedulePtrOutput) DaysOfMonths() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *SnapshotPolicyMonthlySchedule) []int {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfMonths
+	}).(pulumi.IntArrayOutput)
+}
+
+// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+func (o SnapshotPolicyMonthlySchedulePtrOutput) Hour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyMonthlySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Hour
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+func (o SnapshotPolicyMonthlySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyMonthlySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// How many hourly snapshots to keep, valid range is from 0 to 255.
+func (o SnapshotPolicyMonthlySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyMonthlySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
+type SnapshotPolicyWeeklySchedule struct {
+	// List of the week days using English names when the snapshots will be created.
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+	Hour int `pulumi:"hour"`
+	// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+	Minute int `pulumi:"minute"`
+	// How many hourly snapshots to keep, valid range is from 0 to 255.
+	SnapshotsToKeep int `pulumi:"snapshotsToKeep"`
+}
+
+// SnapshotPolicyWeeklyScheduleInput is an input type that accepts SnapshotPolicyWeeklyScheduleArgs and SnapshotPolicyWeeklyScheduleOutput values.
+// You can construct a concrete instance of `SnapshotPolicyWeeklyScheduleInput` via:
+//
+//          SnapshotPolicyWeeklyScheduleArgs{...}
+type SnapshotPolicyWeeklyScheduleInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyWeeklyScheduleOutput() SnapshotPolicyWeeklyScheduleOutput
+	ToSnapshotPolicyWeeklyScheduleOutputWithContext(context.Context) SnapshotPolicyWeeklyScheduleOutput
+}
+
+type SnapshotPolicyWeeklyScheduleArgs struct {
+	// List of the week days using English names when the snapshots will be created.
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+	Hour pulumi.IntInput `pulumi:"hour"`
+	// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+	Minute pulumi.IntInput `pulumi:"minute"`
+	// How many hourly snapshots to keep, valid range is from 0 to 255.
+	SnapshotsToKeep pulumi.IntInput `pulumi:"snapshotsToKeep"`
+}
+
+func (SnapshotPolicyWeeklyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyWeeklySchedule)(nil)).Elem()
+}
+
+func (i SnapshotPolicyWeeklyScheduleArgs) ToSnapshotPolicyWeeklyScheduleOutput() SnapshotPolicyWeeklyScheduleOutput {
+	return i.ToSnapshotPolicyWeeklyScheduleOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicyWeeklyScheduleArgs) ToSnapshotPolicyWeeklyScheduleOutputWithContext(ctx context.Context) SnapshotPolicyWeeklyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyWeeklyScheduleOutput)
+}
+
+func (i SnapshotPolicyWeeklyScheduleArgs) ToSnapshotPolicyWeeklySchedulePtrOutput() SnapshotPolicyWeeklySchedulePtrOutput {
+	return i.ToSnapshotPolicyWeeklySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i SnapshotPolicyWeeklyScheduleArgs) ToSnapshotPolicyWeeklySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyWeeklySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyWeeklyScheduleOutput).ToSnapshotPolicyWeeklySchedulePtrOutputWithContext(ctx)
+}
+
+// SnapshotPolicyWeeklySchedulePtrInput is an input type that accepts SnapshotPolicyWeeklyScheduleArgs, SnapshotPolicyWeeklySchedulePtr and SnapshotPolicyWeeklySchedulePtrOutput values.
+// You can construct a concrete instance of `SnapshotPolicyWeeklySchedulePtrInput` via:
+//
+//          SnapshotPolicyWeeklyScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type SnapshotPolicyWeeklySchedulePtrInput interface {
+	pulumi.Input
+
+	ToSnapshotPolicyWeeklySchedulePtrOutput() SnapshotPolicyWeeklySchedulePtrOutput
+	ToSnapshotPolicyWeeklySchedulePtrOutputWithContext(context.Context) SnapshotPolicyWeeklySchedulePtrOutput
+}
+
+type snapshotPolicyWeeklySchedulePtrType SnapshotPolicyWeeklyScheduleArgs
+
+func SnapshotPolicyWeeklySchedulePtr(v *SnapshotPolicyWeeklyScheduleArgs) SnapshotPolicyWeeklySchedulePtrInput {
+	return (*snapshotPolicyWeeklySchedulePtrType)(v)
+}
+
+func (*snapshotPolicyWeeklySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyWeeklySchedule)(nil)).Elem()
+}
+
+func (i *snapshotPolicyWeeklySchedulePtrType) ToSnapshotPolicyWeeklySchedulePtrOutput() SnapshotPolicyWeeklySchedulePtrOutput {
+	return i.ToSnapshotPolicyWeeklySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *snapshotPolicyWeeklySchedulePtrType) ToSnapshotPolicyWeeklySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyWeeklySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyWeeklySchedulePtrOutput)
+}
+
+type SnapshotPolicyWeeklyScheduleOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyWeeklyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotPolicyWeeklySchedule)(nil)).Elem()
+}
+
+func (o SnapshotPolicyWeeklyScheduleOutput) ToSnapshotPolicyWeeklyScheduleOutput() SnapshotPolicyWeeklyScheduleOutput {
+	return o
+}
+
+func (o SnapshotPolicyWeeklyScheduleOutput) ToSnapshotPolicyWeeklyScheduleOutputWithContext(ctx context.Context) SnapshotPolicyWeeklyScheduleOutput {
+	return o
+}
+
+func (o SnapshotPolicyWeeklyScheduleOutput) ToSnapshotPolicyWeeklySchedulePtrOutput() SnapshotPolicyWeeklySchedulePtrOutput {
+	return o.ToSnapshotPolicyWeeklySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotPolicyWeeklyScheduleOutput) ToSnapshotPolicyWeeklySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyWeeklySchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotPolicyWeeklySchedule) *SnapshotPolicyWeeklySchedule {
+		return &v
+	}).(SnapshotPolicyWeeklySchedulePtrOutput)
+}
+
+// List of the week days using English names when the snapshots will be created.
+func (o SnapshotPolicyWeeklyScheduleOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SnapshotPolicyWeeklySchedule) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+func (o SnapshotPolicyWeeklyScheduleOutput) Hour() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotPolicyWeeklySchedule) int { return v.Hour }).(pulumi.IntOutput)
+}
+
+// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+func (o SnapshotPolicyWeeklyScheduleOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotPolicyWeeklySchedule) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+// How many hourly snapshots to keep, valid range is from 0 to 255.
+func (o SnapshotPolicyWeeklyScheduleOutput) SnapshotsToKeep() pulumi.IntOutput {
+	return o.ApplyT(func(v SnapshotPolicyWeeklySchedule) int { return v.SnapshotsToKeep }).(pulumi.IntOutput)
+}
+
+type SnapshotPolicyWeeklySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotPolicyWeeklySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotPolicyWeeklySchedule)(nil)).Elem()
+}
+
+func (o SnapshotPolicyWeeklySchedulePtrOutput) ToSnapshotPolicyWeeklySchedulePtrOutput() SnapshotPolicyWeeklySchedulePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyWeeklySchedulePtrOutput) ToSnapshotPolicyWeeklySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyWeeklySchedulePtrOutput {
+	return o
+}
+
+func (o SnapshotPolicyWeeklySchedulePtrOutput) Elem() SnapshotPolicyWeeklyScheduleOutput {
+	return o.ApplyT(func(v *SnapshotPolicyWeeklySchedule) SnapshotPolicyWeeklySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotPolicyWeeklySchedule
+		return ret
+	}).(SnapshotPolicyWeeklyScheduleOutput)
+}
+
+// List of the week days using English names when the snapshots will be created.
+func (o SnapshotPolicyWeeklySchedulePtrOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SnapshotPolicyWeeklySchedule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfWeeks
+	}).(pulumi.StringArrayOutput)
+}
+
+// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+func (o SnapshotPolicyWeeklySchedulePtrOutput) Hour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyWeeklySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Hour
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+func (o SnapshotPolicyWeeklySchedulePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyWeeklySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// How many hourly snapshots to keep, valid range is from 0 to 255.
+func (o SnapshotPolicyWeeklySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicyWeeklySchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotsToKeep
+	}).(pulumi.IntPtrOutput)
+}
+
 type VolumeDataProtectionReplication struct {
 	// The endpoint type, default value is `dst` for destination.
 	EndpointType *string `pulumi:"endpointType"`
@@ -436,6 +1151,143 @@ func (o VolumeDataProtectionReplicationPtrOutput) ReplicationFrequency() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type VolumeDataProtectionSnapshotPolicy struct {
+	// Resource ID of the snapshot policy to apply to the volume.
+	SnapshotPolicyId string `pulumi:"snapshotPolicyId"`
+}
+
+// VolumeDataProtectionSnapshotPolicyInput is an input type that accepts VolumeDataProtectionSnapshotPolicyArgs and VolumeDataProtectionSnapshotPolicyOutput values.
+// You can construct a concrete instance of `VolumeDataProtectionSnapshotPolicyInput` via:
+//
+//          VolumeDataProtectionSnapshotPolicyArgs{...}
+type VolumeDataProtectionSnapshotPolicyInput interface {
+	pulumi.Input
+
+	ToVolumeDataProtectionSnapshotPolicyOutput() VolumeDataProtectionSnapshotPolicyOutput
+	ToVolumeDataProtectionSnapshotPolicyOutputWithContext(context.Context) VolumeDataProtectionSnapshotPolicyOutput
+}
+
+type VolumeDataProtectionSnapshotPolicyArgs struct {
+	// Resource ID of the snapshot policy to apply to the volume.
+	SnapshotPolicyId pulumi.StringInput `pulumi:"snapshotPolicyId"`
+}
+
+func (VolumeDataProtectionSnapshotPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (i VolumeDataProtectionSnapshotPolicyArgs) ToVolumeDataProtectionSnapshotPolicyOutput() VolumeDataProtectionSnapshotPolicyOutput {
+	return i.ToVolumeDataProtectionSnapshotPolicyOutputWithContext(context.Background())
+}
+
+func (i VolumeDataProtectionSnapshotPolicyArgs) ToVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx context.Context) VolumeDataProtectionSnapshotPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionSnapshotPolicyOutput)
+}
+
+func (i VolumeDataProtectionSnapshotPolicyArgs) ToVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeDataProtectionSnapshotPolicyPtrOutput {
+	return i.ToVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeDataProtectionSnapshotPolicyArgs) ToVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeDataProtectionSnapshotPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionSnapshotPolicyOutput).ToVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx)
+}
+
+// VolumeDataProtectionSnapshotPolicyPtrInput is an input type that accepts VolumeDataProtectionSnapshotPolicyArgs, VolumeDataProtectionSnapshotPolicyPtr and VolumeDataProtectionSnapshotPolicyPtrOutput values.
+// You can construct a concrete instance of `VolumeDataProtectionSnapshotPolicyPtrInput` via:
+//
+//          VolumeDataProtectionSnapshotPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type VolumeDataProtectionSnapshotPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeDataProtectionSnapshotPolicyPtrOutput
+	ToVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Context) VolumeDataProtectionSnapshotPolicyPtrOutput
+}
+
+type volumeDataProtectionSnapshotPolicyPtrType VolumeDataProtectionSnapshotPolicyArgs
+
+func VolumeDataProtectionSnapshotPolicyPtr(v *VolumeDataProtectionSnapshotPolicyArgs) VolumeDataProtectionSnapshotPolicyPtrInput {
+	return (*volumeDataProtectionSnapshotPolicyPtrType)(v)
+}
+
+func (*volumeDataProtectionSnapshotPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (i *volumeDataProtectionSnapshotPolicyPtrType) ToVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeDataProtectionSnapshotPolicyPtrOutput {
+	return i.ToVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeDataProtectionSnapshotPolicyPtrType) ToVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeDataProtectionSnapshotPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionSnapshotPolicyPtrOutput)
+}
+
+type VolumeDataProtectionSnapshotPolicyOutput struct{ *pulumi.OutputState }
+
+func (VolumeDataProtectionSnapshotPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (o VolumeDataProtectionSnapshotPolicyOutput) ToVolumeDataProtectionSnapshotPolicyOutput() VolumeDataProtectionSnapshotPolicyOutput {
+	return o
+}
+
+func (o VolumeDataProtectionSnapshotPolicyOutput) ToVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx context.Context) VolumeDataProtectionSnapshotPolicyOutput {
+	return o
+}
+
+func (o VolumeDataProtectionSnapshotPolicyOutput) ToVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o.ToVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeDataProtectionSnapshotPolicyOutput) ToVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeDataProtectionSnapshotPolicy) *VolumeDataProtectionSnapshotPolicy {
+		return &v
+	}).(VolumeDataProtectionSnapshotPolicyPtrOutput)
+}
+
+// Resource ID of the snapshot policy to apply to the volume.
+func (o VolumeDataProtectionSnapshotPolicyOutput) SnapshotPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeDataProtectionSnapshotPolicy) string { return v.SnapshotPolicyId }).(pulumi.StringOutput)
+}
+
+type VolumeDataProtectionSnapshotPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeDataProtectionSnapshotPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (o VolumeDataProtectionSnapshotPolicyPtrOutput) ToVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o
+}
+
+func (o VolumeDataProtectionSnapshotPolicyPtrOutput) ToVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o
+}
+
+func (o VolumeDataProtectionSnapshotPolicyPtrOutput) Elem() VolumeDataProtectionSnapshotPolicyOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionSnapshotPolicy) VolumeDataProtectionSnapshotPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeDataProtectionSnapshotPolicy
+		return ret
+	}).(VolumeDataProtectionSnapshotPolicyOutput)
+}
+
+// Resource ID of the snapshot policy to apply to the volume.
+func (o VolumeDataProtectionSnapshotPolicyPtrOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionSnapshotPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotPolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type VolumeExportPolicyRule struct {
 	// A list of allowed clients IPv4 addresses.
 	AllowedClients []string `pulumi:"allowedClients"`
@@ -605,6 +1457,472 @@ func (o VolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) VolumeExport
 	}).(VolumeExportPolicyRuleOutput)
 }
 
+type GetSnapshotPolicyDailySchedule struct {
+	// Hour of the day that the snapshots will be created.
+	Hour int `pulumi:"hour"`
+	// Minute of the hour that the snapshots will be created.
+	Minute int `pulumi:"minute"`
+	// How many hourly snapshots to keep.
+	SnapshotsToKeep int `pulumi:"snapshotsToKeep"`
+}
+
+// GetSnapshotPolicyDailyScheduleInput is an input type that accepts GetSnapshotPolicyDailyScheduleArgs and GetSnapshotPolicyDailyScheduleOutput values.
+// You can construct a concrete instance of `GetSnapshotPolicyDailyScheduleInput` via:
+//
+//          GetSnapshotPolicyDailyScheduleArgs{...}
+type GetSnapshotPolicyDailyScheduleInput interface {
+	pulumi.Input
+
+	ToGetSnapshotPolicyDailyScheduleOutput() GetSnapshotPolicyDailyScheduleOutput
+	ToGetSnapshotPolicyDailyScheduleOutputWithContext(context.Context) GetSnapshotPolicyDailyScheduleOutput
+}
+
+type GetSnapshotPolicyDailyScheduleArgs struct {
+	// Hour of the day that the snapshots will be created.
+	Hour pulumi.IntInput `pulumi:"hour"`
+	// Minute of the hour that the snapshots will be created.
+	Minute pulumi.IntInput `pulumi:"minute"`
+	// How many hourly snapshots to keep.
+	SnapshotsToKeep pulumi.IntInput `pulumi:"snapshotsToKeep"`
+}
+
+func (GetSnapshotPolicyDailyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotPolicyDailySchedule)(nil)).Elem()
+}
+
+func (i GetSnapshotPolicyDailyScheduleArgs) ToGetSnapshotPolicyDailyScheduleOutput() GetSnapshotPolicyDailyScheduleOutput {
+	return i.ToGetSnapshotPolicyDailyScheduleOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotPolicyDailyScheduleArgs) ToGetSnapshotPolicyDailyScheduleOutputWithContext(ctx context.Context) GetSnapshotPolicyDailyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyDailyScheduleOutput)
+}
+
+// GetSnapshotPolicyDailyScheduleArrayInput is an input type that accepts GetSnapshotPolicyDailyScheduleArray and GetSnapshotPolicyDailyScheduleArrayOutput values.
+// You can construct a concrete instance of `GetSnapshotPolicyDailyScheduleArrayInput` via:
+//
+//          GetSnapshotPolicyDailyScheduleArray{ GetSnapshotPolicyDailyScheduleArgs{...} }
+type GetSnapshotPolicyDailyScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetSnapshotPolicyDailyScheduleArrayOutput() GetSnapshotPolicyDailyScheduleArrayOutput
+	ToGetSnapshotPolicyDailyScheduleArrayOutputWithContext(context.Context) GetSnapshotPolicyDailyScheduleArrayOutput
+}
+
+type GetSnapshotPolicyDailyScheduleArray []GetSnapshotPolicyDailyScheduleInput
+
+func (GetSnapshotPolicyDailyScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotPolicyDailySchedule)(nil)).Elem()
+}
+
+func (i GetSnapshotPolicyDailyScheduleArray) ToGetSnapshotPolicyDailyScheduleArrayOutput() GetSnapshotPolicyDailyScheduleArrayOutput {
+	return i.ToGetSnapshotPolicyDailyScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotPolicyDailyScheduleArray) ToGetSnapshotPolicyDailyScheduleArrayOutputWithContext(ctx context.Context) GetSnapshotPolicyDailyScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyDailyScheduleArrayOutput)
+}
+
+type GetSnapshotPolicyDailyScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotPolicyDailyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotPolicyDailySchedule)(nil)).Elem()
+}
+
+func (o GetSnapshotPolicyDailyScheduleOutput) ToGetSnapshotPolicyDailyScheduleOutput() GetSnapshotPolicyDailyScheduleOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyDailyScheduleOutput) ToGetSnapshotPolicyDailyScheduleOutputWithContext(ctx context.Context) GetSnapshotPolicyDailyScheduleOutput {
+	return o
+}
+
+// Hour of the day that the snapshots will be created.
+func (o GetSnapshotPolicyDailyScheduleOutput) Hour() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyDailySchedule) int { return v.Hour }).(pulumi.IntOutput)
+}
+
+// Minute of the hour that the snapshots will be created.
+func (o GetSnapshotPolicyDailyScheduleOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyDailySchedule) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+// How many hourly snapshots to keep.
+func (o GetSnapshotPolicyDailyScheduleOutput) SnapshotsToKeep() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyDailySchedule) int { return v.SnapshotsToKeep }).(pulumi.IntOutput)
+}
+
+type GetSnapshotPolicyDailyScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotPolicyDailyScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotPolicyDailySchedule)(nil)).Elem()
+}
+
+func (o GetSnapshotPolicyDailyScheduleArrayOutput) ToGetSnapshotPolicyDailyScheduleArrayOutput() GetSnapshotPolicyDailyScheduleArrayOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyDailyScheduleArrayOutput) ToGetSnapshotPolicyDailyScheduleArrayOutputWithContext(ctx context.Context) GetSnapshotPolicyDailyScheduleArrayOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyDailyScheduleArrayOutput) Index(i pulumi.IntInput) GetSnapshotPolicyDailyScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotPolicyDailySchedule {
+		return vs[0].([]GetSnapshotPolicyDailySchedule)[vs[1].(int)]
+	}).(GetSnapshotPolicyDailyScheduleOutput)
+}
+
+type GetSnapshotPolicyHourlySchedule struct {
+	// Minute of the hour that the snapshots will be created.
+	Minute int `pulumi:"minute"`
+	// How many hourly snapshots to keep.
+	SnapshotsToKeep int `pulumi:"snapshotsToKeep"`
+}
+
+// GetSnapshotPolicyHourlyScheduleInput is an input type that accepts GetSnapshotPolicyHourlyScheduleArgs and GetSnapshotPolicyHourlyScheduleOutput values.
+// You can construct a concrete instance of `GetSnapshotPolicyHourlyScheduleInput` via:
+//
+//          GetSnapshotPolicyHourlyScheduleArgs{...}
+type GetSnapshotPolicyHourlyScheduleInput interface {
+	pulumi.Input
+
+	ToGetSnapshotPolicyHourlyScheduleOutput() GetSnapshotPolicyHourlyScheduleOutput
+	ToGetSnapshotPolicyHourlyScheduleOutputWithContext(context.Context) GetSnapshotPolicyHourlyScheduleOutput
+}
+
+type GetSnapshotPolicyHourlyScheduleArgs struct {
+	// Minute of the hour that the snapshots will be created.
+	Minute pulumi.IntInput `pulumi:"minute"`
+	// How many hourly snapshots to keep.
+	SnapshotsToKeep pulumi.IntInput `pulumi:"snapshotsToKeep"`
+}
+
+func (GetSnapshotPolicyHourlyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotPolicyHourlySchedule)(nil)).Elem()
+}
+
+func (i GetSnapshotPolicyHourlyScheduleArgs) ToGetSnapshotPolicyHourlyScheduleOutput() GetSnapshotPolicyHourlyScheduleOutput {
+	return i.ToGetSnapshotPolicyHourlyScheduleOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotPolicyHourlyScheduleArgs) ToGetSnapshotPolicyHourlyScheduleOutputWithContext(ctx context.Context) GetSnapshotPolicyHourlyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyHourlyScheduleOutput)
+}
+
+// GetSnapshotPolicyHourlyScheduleArrayInput is an input type that accepts GetSnapshotPolicyHourlyScheduleArray and GetSnapshotPolicyHourlyScheduleArrayOutput values.
+// You can construct a concrete instance of `GetSnapshotPolicyHourlyScheduleArrayInput` via:
+//
+//          GetSnapshotPolicyHourlyScheduleArray{ GetSnapshotPolicyHourlyScheduleArgs{...} }
+type GetSnapshotPolicyHourlyScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetSnapshotPolicyHourlyScheduleArrayOutput() GetSnapshotPolicyHourlyScheduleArrayOutput
+	ToGetSnapshotPolicyHourlyScheduleArrayOutputWithContext(context.Context) GetSnapshotPolicyHourlyScheduleArrayOutput
+}
+
+type GetSnapshotPolicyHourlyScheduleArray []GetSnapshotPolicyHourlyScheduleInput
+
+func (GetSnapshotPolicyHourlyScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotPolicyHourlySchedule)(nil)).Elem()
+}
+
+func (i GetSnapshotPolicyHourlyScheduleArray) ToGetSnapshotPolicyHourlyScheduleArrayOutput() GetSnapshotPolicyHourlyScheduleArrayOutput {
+	return i.ToGetSnapshotPolicyHourlyScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotPolicyHourlyScheduleArray) ToGetSnapshotPolicyHourlyScheduleArrayOutputWithContext(ctx context.Context) GetSnapshotPolicyHourlyScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyHourlyScheduleArrayOutput)
+}
+
+type GetSnapshotPolicyHourlyScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotPolicyHourlyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotPolicyHourlySchedule)(nil)).Elem()
+}
+
+func (o GetSnapshotPolicyHourlyScheduleOutput) ToGetSnapshotPolicyHourlyScheduleOutput() GetSnapshotPolicyHourlyScheduleOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyHourlyScheduleOutput) ToGetSnapshotPolicyHourlyScheduleOutputWithContext(ctx context.Context) GetSnapshotPolicyHourlyScheduleOutput {
+	return o
+}
+
+// Minute of the hour that the snapshots will be created.
+func (o GetSnapshotPolicyHourlyScheduleOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyHourlySchedule) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+// How many hourly snapshots to keep.
+func (o GetSnapshotPolicyHourlyScheduleOutput) SnapshotsToKeep() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyHourlySchedule) int { return v.SnapshotsToKeep }).(pulumi.IntOutput)
+}
+
+type GetSnapshotPolicyHourlyScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotPolicyHourlyScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotPolicyHourlySchedule)(nil)).Elem()
+}
+
+func (o GetSnapshotPolicyHourlyScheduleArrayOutput) ToGetSnapshotPolicyHourlyScheduleArrayOutput() GetSnapshotPolicyHourlyScheduleArrayOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyHourlyScheduleArrayOutput) ToGetSnapshotPolicyHourlyScheduleArrayOutputWithContext(ctx context.Context) GetSnapshotPolicyHourlyScheduleArrayOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyHourlyScheduleArrayOutput) Index(i pulumi.IntInput) GetSnapshotPolicyHourlyScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotPolicyHourlySchedule {
+		return vs[0].([]GetSnapshotPolicyHourlySchedule)[vs[1].(int)]
+	}).(GetSnapshotPolicyHourlyScheduleOutput)
+}
+
+type GetSnapshotPolicyMonthlySchedule struct {
+	DaysOfMonths []int `pulumi:"daysOfMonths"`
+	// Hour of the day that the snapshots will be created.
+	Hour int `pulumi:"hour"`
+	// Minute of the hour that the snapshots will be created.
+	Minute int `pulumi:"minute"`
+	// How many hourly snapshots to keep.
+	SnapshotsToKeep int `pulumi:"snapshotsToKeep"`
+}
+
+// GetSnapshotPolicyMonthlyScheduleInput is an input type that accepts GetSnapshotPolicyMonthlyScheduleArgs and GetSnapshotPolicyMonthlyScheduleOutput values.
+// You can construct a concrete instance of `GetSnapshotPolicyMonthlyScheduleInput` via:
+//
+//          GetSnapshotPolicyMonthlyScheduleArgs{...}
+type GetSnapshotPolicyMonthlyScheduleInput interface {
+	pulumi.Input
+
+	ToGetSnapshotPolicyMonthlyScheduleOutput() GetSnapshotPolicyMonthlyScheduleOutput
+	ToGetSnapshotPolicyMonthlyScheduleOutputWithContext(context.Context) GetSnapshotPolicyMonthlyScheduleOutput
+}
+
+type GetSnapshotPolicyMonthlyScheduleArgs struct {
+	DaysOfMonths pulumi.IntArrayInput `pulumi:"daysOfMonths"`
+	// Hour of the day that the snapshots will be created.
+	Hour pulumi.IntInput `pulumi:"hour"`
+	// Minute of the hour that the snapshots will be created.
+	Minute pulumi.IntInput `pulumi:"minute"`
+	// How many hourly snapshots to keep.
+	SnapshotsToKeep pulumi.IntInput `pulumi:"snapshotsToKeep"`
+}
+
+func (GetSnapshotPolicyMonthlyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotPolicyMonthlySchedule)(nil)).Elem()
+}
+
+func (i GetSnapshotPolicyMonthlyScheduleArgs) ToGetSnapshotPolicyMonthlyScheduleOutput() GetSnapshotPolicyMonthlyScheduleOutput {
+	return i.ToGetSnapshotPolicyMonthlyScheduleOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotPolicyMonthlyScheduleArgs) ToGetSnapshotPolicyMonthlyScheduleOutputWithContext(ctx context.Context) GetSnapshotPolicyMonthlyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyMonthlyScheduleOutput)
+}
+
+// GetSnapshotPolicyMonthlyScheduleArrayInput is an input type that accepts GetSnapshotPolicyMonthlyScheduleArray and GetSnapshotPolicyMonthlyScheduleArrayOutput values.
+// You can construct a concrete instance of `GetSnapshotPolicyMonthlyScheduleArrayInput` via:
+//
+//          GetSnapshotPolicyMonthlyScheduleArray{ GetSnapshotPolicyMonthlyScheduleArgs{...} }
+type GetSnapshotPolicyMonthlyScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetSnapshotPolicyMonthlyScheduleArrayOutput() GetSnapshotPolicyMonthlyScheduleArrayOutput
+	ToGetSnapshotPolicyMonthlyScheduleArrayOutputWithContext(context.Context) GetSnapshotPolicyMonthlyScheduleArrayOutput
+}
+
+type GetSnapshotPolicyMonthlyScheduleArray []GetSnapshotPolicyMonthlyScheduleInput
+
+func (GetSnapshotPolicyMonthlyScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotPolicyMonthlySchedule)(nil)).Elem()
+}
+
+func (i GetSnapshotPolicyMonthlyScheduleArray) ToGetSnapshotPolicyMonthlyScheduleArrayOutput() GetSnapshotPolicyMonthlyScheduleArrayOutput {
+	return i.ToGetSnapshotPolicyMonthlyScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotPolicyMonthlyScheduleArray) ToGetSnapshotPolicyMonthlyScheduleArrayOutputWithContext(ctx context.Context) GetSnapshotPolicyMonthlyScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyMonthlyScheduleArrayOutput)
+}
+
+type GetSnapshotPolicyMonthlyScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotPolicyMonthlyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotPolicyMonthlySchedule)(nil)).Elem()
+}
+
+func (o GetSnapshotPolicyMonthlyScheduleOutput) ToGetSnapshotPolicyMonthlyScheduleOutput() GetSnapshotPolicyMonthlyScheduleOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyMonthlyScheduleOutput) ToGetSnapshotPolicyMonthlyScheduleOutputWithContext(ctx context.Context) GetSnapshotPolicyMonthlyScheduleOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyMonthlyScheduleOutput) DaysOfMonths() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyMonthlySchedule) []int { return v.DaysOfMonths }).(pulumi.IntArrayOutput)
+}
+
+// Hour of the day that the snapshots will be created.
+func (o GetSnapshotPolicyMonthlyScheduleOutput) Hour() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyMonthlySchedule) int { return v.Hour }).(pulumi.IntOutput)
+}
+
+// Minute of the hour that the snapshots will be created.
+func (o GetSnapshotPolicyMonthlyScheduleOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyMonthlySchedule) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+// How many hourly snapshots to keep.
+func (o GetSnapshotPolicyMonthlyScheduleOutput) SnapshotsToKeep() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyMonthlySchedule) int { return v.SnapshotsToKeep }).(pulumi.IntOutput)
+}
+
+type GetSnapshotPolicyMonthlyScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotPolicyMonthlyScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotPolicyMonthlySchedule)(nil)).Elem()
+}
+
+func (o GetSnapshotPolicyMonthlyScheduleArrayOutput) ToGetSnapshotPolicyMonthlyScheduleArrayOutput() GetSnapshotPolicyMonthlyScheduleArrayOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyMonthlyScheduleArrayOutput) ToGetSnapshotPolicyMonthlyScheduleArrayOutputWithContext(ctx context.Context) GetSnapshotPolicyMonthlyScheduleArrayOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyMonthlyScheduleArrayOutput) Index(i pulumi.IntInput) GetSnapshotPolicyMonthlyScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotPolicyMonthlySchedule {
+		return vs[0].([]GetSnapshotPolicyMonthlySchedule)[vs[1].(int)]
+	}).(GetSnapshotPolicyMonthlyScheduleOutput)
+}
+
+type GetSnapshotPolicyWeeklySchedule struct {
+	// List of the week days using English names when the snapshots will be created.
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// Hour of the day that the snapshots will be created.
+	Hour int `pulumi:"hour"`
+	// Minute of the hour that the snapshots will be created.
+	Minute int `pulumi:"minute"`
+	// How many hourly snapshots to keep.
+	SnapshotsToKeep int `pulumi:"snapshotsToKeep"`
+}
+
+// GetSnapshotPolicyWeeklyScheduleInput is an input type that accepts GetSnapshotPolicyWeeklyScheduleArgs and GetSnapshotPolicyWeeklyScheduleOutput values.
+// You can construct a concrete instance of `GetSnapshotPolicyWeeklyScheduleInput` via:
+//
+//          GetSnapshotPolicyWeeklyScheduleArgs{...}
+type GetSnapshotPolicyWeeklyScheduleInput interface {
+	pulumi.Input
+
+	ToGetSnapshotPolicyWeeklyScheduleOutput() GetSnapshotPolicyWeeklyScheduleOutput
+	ToGetSnapshotPolicyWeeklyScheduleOutputWithContext(context.Context) GetSnapshotPolicyWeeklyScheduleOutput
+}
+
+type GetSnapshotPolicyWeeklyScheduleArgs struct {
+	// List of the week days using English names when the snapshots will be created.
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// Hour of the day that the snapshots will be created.
+	Hour pulumi.IntInput `pulumi:"hour"`
+	// Minute of the hour that the snapshots will be created.
+	Minute pulumi.IntInput `pulumi:"minute"`
+	// How many hourly snapshots to keep.
+	SnapshotsToKeep pulumi.IntInput `pulumi:"snapshotsToKeep"`
+}
+
+func (GetSnapshotPolicyWeeklyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotPolicyWeeklySchedule)(nil)).Elem()
+}
+
+func (i GetSnapshotPolicyWeeklyScheduleArgs) ToGetSnapshotPolicyWeeklyScheduleOutput() GetSnapshotPolicyWeeklyScheduleOutput {
+	return i.ToGetSnapshotPolicyWeeklyScheduleOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotPolicyWeeklyScheduleArgs) ToGetSnapshotPolicyWeeklyScheduleOutputWithContext(ctx context.Context) GetSnapshotPolicyWeeklyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyWeeklyScheduleOutput)
+}
+
+// GetSnapshotPolicyWeeklyScheduleArrayInput is an input type that accepts GetSnapshotPolicyWeeklyScheduleArray and GetSnapshotPolicyWeeklyScheduleArrayOutput values.
+// You can construct a concrete instance of `GetSnapshotPolicyWeeklyScheduleArrayInput` via:
+//
+//          GetSnapshotPolicyWeeklyScheduleArray{ GetSnapshotPolicyWeeklyScheduleArgs{...} }
+type GetSnapshotPolicyWeeklyScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetSnapshotPolicyWeeklyScheduleArrayOutput() GetSnapshotPolicyWeeklyScheduleArrayOutput
+	ToGetSnapshotPolicyWeeklyScheduleArrayOutputWithContext(context.Context) GetSnapshotPolicyWeeklyScheduleArrayOutput
+}
+
+type GetSnapshotPolicyWeeklyScheduleArray []GetSnapshotPolicyWeeklyScheduleInput
+
+func (GetSnapshotPolicyWeeklyScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotPolicyWeeklySchedule)(nil)).Elem()
+}
+
+func (i GetSnapshotPolicyWeeklyScheduleArray) ToGetSnapshotPolicyWeeklyScheduleArrayOutput() GetSnapshotPolicyWeeklyScheduleArrayOutput {
+	return i.ToGetSnapshotPolicyWeeklyScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotPolicyWeeklyScheduleArray) ToGetSnapshotPolicyWeeklyScheduleArrayOutputWithContext(ctx context.Context) GetSnapshotPolicyWeeklyScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyWeeklyScheduleArrayOutput)
+}
+
+type GetSnapshotPolicyWeeklyScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotPolicyWeeklyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotPolicyWeeklySchedule)(nil)).Elem()
+}
+
+func (o GetSnapshotPolicyWeeklyScheduleOutput) ToGetSnapshotPolicyWeeklyScheduleOutput() GetSnapshotPolicyWeeklyScheduleOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyWeeklyScheduleOutput) ToGetSnapshotPolicyWeeklyScheduleOutputWithContext(ctx context.Context) GetSnapshotPolicyWeeklyScheduleOutput {
+	return o
+}
+
+// List of the week days using English names when the snapshots will be created.
+func (o GetSnapshotPolicyWeeklyScheduleOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyWeeklySchedule) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// Hour of the day that the snapshots will be created.
+func (o GetSnapshotPolicyWeeklyScheduleOutput) Hour() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyWeeklySchedule) int { return v.Hour }).(pulumi.IntOutput)
+}
+
+// Minute of the hour that the snapshots will be created.
+func (o GetSnapshotPolicyWeeklyScheduleOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyWeeklySchedule) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+// How many hourly snapshots to keep.
+func (o GetSnapshotPolicyWeeklyScheduleOutput) SnapshotsToKeep() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotPolicyWeeklySchedule) int { return v.SnapshotsToKeep }).(pulumi.IntOutput)
+}
+
+type GetSnapshotPolicyWeeklyScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotPolicyWeeklyScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotPolicyWeeklySchedule)(nil)).Elem()
+}
+
+func (o GetSnapshotPolicyWeeklyScheduleArrayOutput) ToGetSnapshotPolicyWeeklyScheduleArrayOutput() GetSnapshotPolicyWeeklyScheduleArrayOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyWeeklyScheduleArrayOutput) ToGetSnapshotPolicyWeeklyScheduleArrayOutputWithContext(ctx context.Context) GetSnapshotPolicyWeeklyScheduleArrayOutput {
+	return o
+}
+
+func (o GetSnapshotPolicyWeeklyScheduleArrayOutput) Index(i pulumi.IntInput) GetSnapshotPolicyWeeklyScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotPolicyWeeklySchedule {
+		return vs[0].([]GetSnapshotPolicyWeeklySchedule)[vs[1].(int)]
+	}).(GetSnapshotPolicyWeeklyScheduleOutput)
+}
+
 type GetVolumeDataProtectionReplication struct {
 	// The endpoint type.
 	EndpointType string `pulumi:"endpointType"`
@@ -741,18 +2059,54 @@ func (o GetVolumeDataProtectionReplicationArrayOutput) Index(i pulumi.IntInput) 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryInput)(nil)).Elem(), AccountActiveDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryPtrInput)(nil)).Elem(), AccountActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyDailyScheduleInput)(nil)).Elem(), SnapshotPolicyDailyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyDailySchedulePtrInput)(nil)).Elem(), SnapshotPolicyDailyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyHourlyScheduleInput)(nil)).Elem(), SnapshotPolicyHourlyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyHourlySchedulePtrInput)(nil)).Elem(), SnapshotPolicyHourlyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyMonthlyScheduleInput)(nil)).Elem(), SnapshotPolicyMonthlyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyMonthlySchedulePtrInput)(nil)).Elem(), SnapshotPolicyMonthlyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyWeeklyScheduleInput)(nil)).Elem(), SnapshotPolicyWeeklyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyWeeklySchedulePtrInput)(nil)).Elem(), SnapshotPolicyWeeklyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionReplicationInput)(nil)).Elem(), VolumeDataProtectionReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionReplicationPtrInput)(nil)).Elem(), VolumeDataProtectionReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionSnapshotPolicyInput)(nil)).Elem(), VolumeDataProtectionSnapshotPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionSnapshotPolicyPtrInput)(nil)).Elem(), VolumeDataProtectionSnapshotPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeExportPolicyRuleInput)(nil)).Elem(), VolumeExportPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeExportPolicyRuleArrayInput)(nil)).Elem(), VolumeExportPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyDailyScheduleInput)(nil)).Elem(), GetSnapshotPolicyDailyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyDailyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyDailyScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyHourlyScheduleInput)(nil)).Elem(), GetSnapshotPolicyHourlyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyHourlyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyHourlyScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyMonthlyScheduleInput)(nil)).Elem(), GetSnapshotPolicyMonthlyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyMonthlyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyMonthlyScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyWeeklyScheduleInput)(nil)).Elem(), GetSnapshotPolicyWeeklyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyWeeklyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyWeeklyScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionReplicationInput)(nil)).Elem(), GetVolumeDataProtectionReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionReplicationArrayInput)(nil)).Elem(), GetVolumeDataProtectionReplicationArray{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyDailyScheduleOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyDailySchedulePtrOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyHourlyScheduleOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyHourlySchedulePtrOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyMonthlyScheduleOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyMonthlySchedulePtrOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyWeeklyScheduleOutput{})
+	pulumi.RegisterOutputType(SnapshotPolicyWeeklySchedulePtrOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionReplicationOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionReplicationPtrOutput{})
+	pulumi.RegisterOutputType(VolumeDataProtectionSnapshotPolicyOutput{})
+	pulumi.RegisterOutputType(VolumeDataProtectionSnapshotPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VolumeExportPolicyRuleOutput{})
 	pulumi.RegisterOutputType(VolumeExportPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetSnapshotPolicyDailyScheduleOutput{})
+	pulumi.RegisterOutputType(GetSnapshotPolicyDailyScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetSnapshotPolicyHourlyScheduleOutput{})
+	pulumi.RegisterOutputType(GetSnapshotPolicyHourlyScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetSnapshotPolicyMonthlyScheduleOutput{})
+	pulumi.RegisterOutputType(GetSnapshotPolicyMonthlyScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetSnapshotPolicyWeeklyScheduleOutput{})
+	pulumi.RegisterOutputType(GetSnapshotPolicyWeeklyScheduleArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionReplicationOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionReplicationArrayOutput{})
 }

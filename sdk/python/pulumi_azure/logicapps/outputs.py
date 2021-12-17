@@ -31,7 +31,10 @@ __all__ = [
     'WorkflowAccessControlAction',
     'WorkflowAccessControlContent',
     'WorkflowAccessControlTrigger',
+    'WorkflowAccessControlTriggerOpenAuthenticationPolicy',
+    'WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim',
     'WorkflowAccessControlWorkflowManagement',
+    'WorkflowIdentity',
 ]
 
 @pulumi.output_type
@@ -1334,6 +1337,8 @@ class WorkflowAccessControlTrigger(dict):
         suggest = None
         if key == "allowedCallerIpAddressRanges":
             suggest = "allowed_caller_ip_address_ranges"
+        elif key == "openAuthenticationPolicies":
+            suggest = "open_authentication_policies"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkflowAccessControlTrigger. Access the value via the '{suggest}' property getter instead.")
@@ -1347,11 +1352,15 @@ class WorkflowAccessControlTrigger(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_caller_ip_address_ranges: Sequence[str]):
+                 allowed_caller_ip_address_ranges: Sequence[str],
+                 open_authentication_policies: Optional[Sequence['outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicy']] = None):
         """
         :param Sequence[str] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
+        :param Sequence['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs'] open_authentication_policies: A `open_authentication_policy` block as defined below.
         """
         pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+        if open_authentication_policies is not None:
+            pulumi.set(__self__, "open_authentication_policies", open_authentication_policies)
 
     @property
     @pulumi.getter(name="allowedCallerIpAddressRanges")
@@ -1360,6 +1369,72 @@ class WorkflowAccessControlTrigger(dict):
         A list of the allowed caller IP address ranges.
         """
         return pulumi.get(self, "allowed_caller_ip_address_ranges")
+
+    @property
+    @pulumi.getter(name="openAuthenticationPolicies")
+    def open_authentication_policies(self) -> Optional[Sequence['outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicy']]:
+        """
+        A `open_authentication_policy` block as defined below.
+        """
+        return pulumi.get(self, "open_authentication_policies")
+
+
+@pulumi.output_type
+class WorkflowAccessControlTriggerOpenAuthenticationPolicy(dict):
+    def __init__(__self__, *,
+                 claims: Sequence['outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim'],
+                 name: str):
+        """
+        :param Sequence['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs'] claims: A `claim` block as defined below.
+        :param str name: The OAuth policy name for the Logic App Workflow.
+        """
+        pulumi.set(__self__, "claims", claims)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def claims(self) -> Sequence['outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim']:
+        """
+        A `claim` block as defined below.
+        """
+        return pulumi.get(self, "claims")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The OAuth policy name for the Logic App Workflow.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of the OAuth policy claim for the Logic App Workflow.
+        :param str value: The value of the OAuth policy claim for the Logic App Workflow.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the OAuth policy claim for the Logic App Workflow.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the OAuth policy claim for the Logic App Workflow.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1395,5 +1470,80 @@ class WorkflowAccessControlWorkflowManagement(dict):
         A list of the allowed caller IP address ranges.
         """
         return pulumi.get(self, "allowed_caller_ip_address_ranges")
+
+
+@pulumi.output_type
+class WorkflowIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
+        :param Sequence[str] identity_ids: A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        """
+        return pulumi.get(self, "tenant_id")
 
 

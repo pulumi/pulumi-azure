@@ -58,7 +58,7 @@ namespace Pulumi.Azure.ApiManagement
     public partial class ApiVersionSet : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+        /// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         /// </summary>
         [Output("apiManagementName")]
         public Output<string> ApiManagementName { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the API Version Set. Changing this forces a new resource to be created.
+        /// The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ApiVersionSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+        /// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiManagementName", required: true)]
         public Input<string> ApiManagementName { get; set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the API Version Set. Changing this forces a new resource to be created.
+        /// The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class ApiVersionSetState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+        /// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiManagementName")]
         public Input<string>? ApiManagementName { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The name of the API Version Set. Changing this forces a new resource to be created.
+        /// The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -75,6 +75,10 @@ export class Workflow extends pulumi.CustomResource {
     public /*out*/ readonly connectorOutboundIpAddresses!: pulumi.Output<string[]>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.logicapps.WorkflowIdentity | undefined>;
+    /**
      * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
      */
     public readonly integrationServiceEnvironmentId!: pulumi.Output<string | undefined>;
@@ -141,6 +145,7 @@ export class Workflow extends pulumi.CustomResource {
             inputs["connectorEndpointIpAddresses"] = state ? state.connectorEndpointIpAddresses : undefined;
             inputs["connectorOutboundIpAddresses"] = state ? state.connectorOutboundIpAddresses : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["integrationServiceEnvironmentId"] = state ? state.integrationServiceEnvironmentId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["logicAppIntegrationAccountId"] = state ? state.logicAppIntegrationAccountId : undefined;
@@ -160,6 +165,7 @@ export class Workflow extends pulumi.CustomResource {
             }
             inputs["accessControl"] = args ? args.accessControl : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["integrationServiceEnvironmentId"] = args ? args.integrationServiceEnvironmentId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["logicAppIntegrationAccountId"] = args ? args.logicAppIntegrationAccountId : undefined;
@@ -204,6 +210,10 @@ export interface WorkflowState {
      */
     connectorOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     enabled?: pulumi.Input<boolean>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.logicapps.WorkflowIdentity>;
     /**
      * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
      */
@@ -263,6 +273,10 @@ export interface WorkflowArgs {
      */
     accessControl?: pulumi.Input<inputs.logicapps.WorkflowAccessControl>;
     enabled?: pulumi.Input<boolean>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.logicapps.WorkflowIdentity>;
     /**
      * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
      */

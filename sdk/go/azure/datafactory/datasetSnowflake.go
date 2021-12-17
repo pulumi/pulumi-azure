@@ -41,7 +41,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewLinkedServiceSnowflake(ctx, "exampleLinkedServiceSnowflake", &datafactory.LinkedServiceSnowflakeArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			ConnectionString:  pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 // 		})
 // 		if err != nil {
@@ -49,7 +49,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewDatasetSnowflake(ctx, "exampleDatasetSnowflake", &datafactory.DatasetSnowflakeArgs{
 // 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
-// 			DataFactoryName:   pulumi.Any(azurerm_data_factory.Test.Name),
+// 			DataFactoryId:     pulumi.Any(azurerm_data_factory.Test.Id),
 // 			LinkedServiceName: pulumi.Any(azurerm_data_factory_linked_service_snowflake.Test.Name),
 // 			SchemaName:        pulumi.String("foo_schema"),
 // 			TableName:         pulumi.String("foo_table"),
@@ -78,7 +78,11 @@ type DatasetSnowflake struct {
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset Snowflake.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset Snowflake.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -109,9 +113,6 @@ func NewDatasetSnowflake(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.LinkedServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
 	}
@@ -144,7 +145,11 @@ type datasetSnowflakeState struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset Snowflake.
 	Annotations []string `pulumi:"annotations"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset Snowflake.
 	Description *string `pulumi:"description"`
@@ -173,7 +178,11 @@ type DatasetSnowflakeState struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset Snowflake.
 	Annotations pulumi.StringArrayInput
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset Snowflake.
 	Description pulumi.StringPtrInput
@@ -206,8 +215,12 @@ type datasetSnowflakeArgs struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset Snowflake.
 	Annotations []string `pulumi:"annotations"`
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset Snowflake.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -236,8 +249,12 @@ type DatasetSnowflakeArgs struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset Snowflake.
 	Annotations pulumi.StringArrayInput
-	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset Snowflake.
 	Description pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.

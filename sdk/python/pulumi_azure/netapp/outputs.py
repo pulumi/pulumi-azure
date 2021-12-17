@@ -10,8 +10,17 @@ from .. import _utilities
 
 __all__ = [
     'AccountActiveDirectory',
+    'SnapshotPolicyDailySchedule',
+    'SnapshotPolicyHourlySchedule',
+    'SnapshotPolicyMonthlySchedule',
+    'SnapshotPolicyWeeklySchedule',
     'VolumeDataProtectionReplication',
+    'VolumeDataProtectionSnapshotPolicy',
     'VolumeExportPolicyRule',
+    'GetSnapshotPolicyDailyScheduleResult',
+    'GetSnapshotPolicyHourlyScheduleResult',
+    'GetSnapshotPolicyMonthlyScheduleResult',
+    'GetSnapshotPolicyWeeklyScheduleResult',
     'GetVolumeDataProtectionReplicationResult',
 ]
 
@@ -111,6 +120,245 @@ class AccountActiveDirectory(dict):
 
 
 @pulumi.output_type
+class SnapshotPolicyDailySchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotsToKeep":
+            suggest = "snapshots_to_keep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotPolicyDailySchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotPolicyDailySchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotPolicyDailySchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hour: int,
+                 minute: int,
+                 snapshots_to_keep: int):
+        """
+        :param int hour: Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        :param int minute: Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        :param int snapshots_to_keep: How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "minute", minute)
+        pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @property
+    @pulumi.getter
+    def hour(self) -> int:
+        """
+        Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> int:
+        """
+        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> int:
+        """
+        How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class SnapshotPolicyHourlySchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotsToKeep":
+            suggest = "snapshots_to_keep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotPolicyHourlySchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotPolicyHourlySchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotPolicyHourlySchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minute: int,
+                 snapshots_to_keep: int):
+        """
+        :param int minute: Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        :param int snapshots_to_keep: How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        pulumi.set(__self__, "minute", minute)
+        pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @property
+    @pulumi.getter
+    def minute(self) -> int:
+        """
+        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> int:
+        """
+        How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class SnapshotPolicyMonthlySchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysOfMonths":
+            suggest = "days_of_months"
+        elif key == "snapshotsToKeep":
+            suggest = "snapshots_to_keep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotPolicyMonthlySchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotPolicyMonthlySchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotPolicyMonthlySchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_of_months: Sequence[int],
+                 hour: int,
+                 minute: int,
+                 snapshots_to_keep: int):
+        """
+        :param int hour: Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        :param int minute: Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        :param int snapshots_to_keep: How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        pulumi.set(__self__, "days_of_months", days_of_months)
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "minute", minute)
+        pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @property
+    @pulumi.getter(name="daysOfMonths")
+    def days_of_months(self) -> Sequence[int]:
+        return pulumi.get(self, "days_of_months")
+
+    @property
+    @pulumi.getter
+    def hour(self) -> int:
+        """
+        Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> int:
+        """
+        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> int:
+        """
+        How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class SnapshotPolicyWeeklySchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysOfWeeks":
+            suggest = "days_of_weeks"
+        elif key == "snapshotsToKeep":
+            suggest = "snapshots_to_keep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotPolicyWeeklySchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotPolicyWeeklySchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotPolicyWeeklySchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_of_weeks: Sequence[str],
+                 hour: int,
+                 minute: int,
+                 snapshots_to_keep: int):
+        """
+        :param Sequence[str] days_of_weeks: List of the week days using English names when the snapshots will be created.
+        :param int hour: Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        :param int minute: Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        :param int snapshots_to_keep: How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "minute", minute)
+        pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> Sequence[str]:
+        """
+        List of the week days using English names when the snapshots will be created.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @property
+    @pulumi.getter
+    def hour(self) -> int:
+        """
+        Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> int:
+        """
+        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> int:
+        """
+        How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
 class VolumeDataProtectionReplication(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -183,6 +431,41 @@ class VolumeDataProtectionReplication(dict):
         The endpoint type, default value is `dst` for destination.
         """
         return pulumi.get(self, "endpoint_type")
+
+
+@pulumi.output_type
+class VolumeDataProtectionSnapshotPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snapshotPolicyId":
+            suggest = "snapshot_policy_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeDataProtectionSnapshotPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeDataProtectionSnapshotPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeDataProtectionSnapshotPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 snapshot_policy_id: str):
+        """
+        :param str snapshot_policy_id: Resource ID of the snapshot policy to apply to the volume.
+        """
+        pulumi.set(__self__, "snapshot_policy_id", snapshot_policy_id)
+
+    @property
+    @pulumi.getter(name="snapshotPolicyId")
+    def snapshot_policy_id(self) -> str:
+        """
+        Resource ID of the snapshot policy to apply to the volume.
+        """
+        return pulumi.get(self, "snapshot_policy_id")
 
 
 @pulumi.output_type
@@ -317,6 +600,173 @@ class VolumeExportPolicyRule(dict):
         Is the file system on unix read and write?
         """
         return pulumi.get(self, "unix_read_write")
+
+
+@pulumi.output_type
+class GetSnapshotPolicyDailyScheduleResult(dict):
+    def __init__(__self__, *,
+                 hour: int,
+                 minute: int,
+                 snapshots_to_keep: int):
+        """
+        :param int hour: Hour of the day that the snapshots will be created.
+        :param int minute: Minute of the hour that the snapshots will be created.
+        :param int snapshots_to_keep: How many hourly snapshots to keep.
+        """
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "minute", minute)
+        pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @property
+    @pulumi.getter
+    def hour(self) -> int:
+        """
+        Hour of the day that the snapshots will be created.
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> int:
+        """
+        Minute of the hour that the snapshots will be created.
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> int:
+        """
+        How many hourly snapshots to keep.
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class GetSnapshotPolicyHourlyScheduleResult(dict):
+    def __init__(__self__, *,
+                 minute: int,
+                 snapshots_to_keep: int):
+        """
+        :param int minute: Minute of the hour that the snapshots will be created.
+        :param int snapshots_to_keep: How many hourly snapshots to keep.
+        """
+        pulumi.set(__self__, "minute", minute)
+        pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @property
+    @pulumi.getter
+    def minute(self) -> int:
+        """
+        Minute of the hour that the snapshots will be created.
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> int:
+        """
+        How many hourly snapshots to keep.
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class GetSnapshotPolicyMonthlyScheduleResult(dict):
+    def __init__(__self__, *,
+                 days_of_months: Sequence[int],
+                 hour: int,
+                 minute: int,
+                 snapshots_to_keep: int):
+        """
+        :param int hour: Hour of the day that the snapshots will be created.
+        :param int minute: Minute of the hour that the snapshots will be created.
+        :param int snapshots_to_keep: How many hourly snapshots to keep.
+        """
+        pulumi.set(__self__, "days_of_months", days_of_months)
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "minute", minute)
+        pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @property
+    @pulumi.getter(name="daysOfMonths")
+    def days_of_months(self) -> Sequence[int]:
+        return pulumi.get(self, "days_of_months")
+
+    @property
+    @pulumi.getter
+    def hour(self) -> int:
+        """
+        Hour of the day that the snapshots will be created.
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> int:
+        """
+        Minute of the hour that the snapshots will be created.
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> int:
+        """
+        How many hourly snapshots to keep.
+        """
+        return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class GetSnapshotPolicyWeeklyScheduleResult(dict):
+    def __init__(__self__, *,
+                 days_of_weeks: Sequence[str],
+                 hour: int,
+                 minute: int,
+                 snapshots_to_keep: int):
+        """
+        :param Sequence[str] days_of_weeks: List of the week days using English names when the snapshots will be created.
+        :param int hour: Hour of the day that the snapshots will be created.
+        :param int minute: Minute of the hour that the snapshots will be created.
+        :param int snapshots_to_keep: How many hourly snapshots to keep.
+        """
+        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "minute", minute)
+        pulumi.set(__self__, "snapshots_to_keep", snapshots_to_keep)
+
+    @property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> Sequence[str]:
+        """
+        List of the week days using English names when the snapshots will be created.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @property
+    @pulumi.getter
+    def hour(self) -> int:
+        """
+        Hour of the day that the snapshots will be created.
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> int:
+        """
+        Minute of the hour that the snapshots will be created.
+        """
+        return pulumi.get(self, "minute")
+
+    @property
+    @pulumi.getter(name="snapshotsToKeep")
+    def snapshots_to_keep(self) -> int:
+        """
+        How many hourly snapshots to keep.
+        """
+        return pulumi.get(self, "snapshots_to_keep")
 
 
 @pulumi.output_type

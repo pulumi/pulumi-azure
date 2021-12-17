@@ -815,6 +815,114 @@ func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResourceGroupPolicyAssignmentNonComplianceMessage struct {
+	// The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+	Content string `pulumi:"content"`
+	// When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+}
+
+// ResourceGroupPolicyAssignmentNonComplianceMessageInput is an input type that accepts ResourceGroupPolicyAssignmentNonComplianceMessageArgs and ResourceGroupPolicyAssignmentNonComplianceMessageOutput values.
+// You can construct a concrete instance of `ResourceGroupPolicyAssignmentNonComplianceMessageInput` via:
+//
+//          ResourceGroupPolicyAssignmentNonComplianceMessageArgs{...}
+type ResourceGroupPolicyAssignmentNonComplianceMessageInput interface {
+	pulumi.Input
+
+	ToResourceGroupPolicyAssignmentNonComplianceMessageOutput() ResourceGroupPolicyAssignmentNonComplianceMessageOutput
+	ToResourceGroupPolicyAssignmentNonComplianceMessageOutputWithContext(context.Context) ResourceGroupPolicyAssignmentNonComplianceMessageOutput
+}
+
+type ResourceGroupPolicyAssignmentNonComplianceMessageArgs struct {
+	// The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+	Content pulumi.StringInput `pulumi:"content"`
+	// When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+	PolicyDefinitionReferenceId pulumi.StringPtrInput `pulumi:"policyDefinitionReferenceId"`
+}
+
+func (ResourceGroupPolicyAssignmentNonComplianceMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (i ResourceGroupPolicyAssignmentNonComplianceMessageArgs) ToResourceGroupPolicyAssignmentNonComplianceMessageOutput() ResourceGroupPolicyAssignmentNonComplianceMessageOutput {
+	return i.ToResourceGroupPolicyAssignmentNonComplianceMessageOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupPolicyAssignmentNonComplianceMessageArgs) ToResourceGroupPolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentNonComplianceMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentNonComplianceMessageOutput)
+}
+
+// ResourceGroupPolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts ResourceGroupPolicyAssignmentNonComplianceMessageArray and ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput values.
+// You can construct a concrete instance of `ResourceGroupPolicyAssignmentNonComplianceMessageArrayInput` via:
+//
+//          ResourceGroupPolicyAssignmentNonComplianceMessageArray{ ResourceGroupPolicyAssignmentNonComplianceMessageArgs{...} }
+type ResourceGroupPolicyAssignmentNonComplianceMessageArrayInput interface {
+	pulumi.Input
+
+	ToResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput() ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput
+	ToResourceGroupPolicyAssignmentNonComplianceMessageArrayOutputWithContext(context.Context) ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput
+}
+
+type ResourceGroupPolicyAssignmentNonComplianceMessageArray []ResourceGroupPolicyAssignmentNonComplianceMessageInput
+
+func (ResourceGroupPolicyAssignmentNonComplianceMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (i ResourceGroupPolicyAssignmentNonComplianceMessageArray) ToResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput() ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput {
+	return i.ToResourceGroupPolicyAssignmentNonComplianceMessageArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupPolicyAssignmentNonComplianceMessageArray) ToResourceGroupPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput)
+}
+
+type ResourceGroupPolicyAssignmentNonComplianceMessageOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupPolicyAssignmentNonComplianceMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (o ResourceGroupPolicyAssignmentNonComplianceMessageOutput) ToResourceGroupPolicyAssignmentNonComplianceMessageOutput() ResourceGroupPolicyAssignmentNonComplianceMessageOutput {
+	return o
+}
+
+func (o ResourceGroupPolicyAssignmentNonComplianceMessageOutput) ToResourceGroupPolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentNonComplianceMessageOutput {
+	return o
+}
+
+// The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+func (o ResourceGroupPolicyAssignmentNonComplianceMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupPolicyAssignmentNonComplianceMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+func (o ResourceGroupPolicyAssignmentNonComplianceMessageOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGroupPolicyAssignmentNonComplianceMessage) *string {
+		return v.PolicyDefinitionReferenceId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (o ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput) ToResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput() ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput {
+	return o
+}
+
+func (o ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput) ToResourceGroupPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput {
+	return o
+}
+
+func (o ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.IntInput) ResourceGroupPolicyAssignmentNonComplianceMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceGroupPolicyAssignmentNonComplianceMessage {
+		return vs[0].([]ResourceGroupPolicyAssignmentNonComplianceMessage)[vs[1].(int)]
+	}).(ResourceGroupPolicyAssignmentNonComplianceMessageOutput)
+}
+
 type ResourcePolicyAssignmentIdentity struct {
 	// The Principal ID of the Policy Assignment for this Resource.
 	PrincipalId *string `pulumi:"principalId"`
@@ -988,6 +1096,112 @@ func (o ResourcePolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type ResourcePolicyAssignmentNonComplianceMessage struct {
+	// The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+	Content string `pulumi:"content"`
+	// When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+}
+
+// ResourcePolicyAssignmentNonComplianceMessageInput is an input type that accepts ResourcePolicyAssignmentNonComplianceMessageArgs and ResourcePolicyAssignmentNonComplianceMessageOutput values.
+// You can construct a concrete instance of `ResourcePolicyAssignmentNonComplianceMessageInput` via:
+//
+//          ResourcePolicyAssignmentNonComplianceMessageArgs{...}
+type ResourcePolicyAssignmentNonComplianceMessageInput interface {
+	pulumi.Input
+
+	ToResourcePolicyAssignmentNonComplianceMessageOutput() ResourcePolicyAssignmentNonComplianceMessageOutput
+	ToResourcePolicyAssignmentNonComplianceMessageOutputWithContext(context.Context) ResourcePolicyAssignmentNonComplianceMessageOutput
+}
+
+type ResourcePolicyAssignmentNonComplianceMessageArgs struct {
+	// The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+	Content pulumi.StringInput `pulumi:"content"`
+	// When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+	PolicyDefinitionReferenceId pulumi.StringPtrInput `pulumi:"policyDefinitionReferenceId"`
+}
+
+func (ResourcePolicyAssignmentNonComplianceMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (i ResourcePolicyAssignmentNonComplianceMessageArgs) ToResourcePolicyAssignmentNonComplianceMessageOutput() ResourcePolicyAssignmentNonComplianceMessageOutput {
+	return i.ToResourcePolicyAssignmentNonComplianceMessageOutputWithContext(context.Background())
+}
+
+func (i ResourcePolicyAssignmentNonComplianceMessageArgs) ToResourcePolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) ResourcePolicyAssignmentNonComplianceMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentNonComplianceMessageOutput)
+}
+
+// ResourcePolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts ResourcePolicyAssignmentNonComplianceMessageArray and ResourcePolicyAssignmentNonComplianceMessageArrayOutput values.
+// You can construct a concrete instance of `ResourcePolicyAssignmentNonComplianceMessageArrayInput` via:
+//
+//          ResourcePolicyAssignmentNonComplianceMessageArray{ ResourcePolicyAssignmentNonComplianceMessageArgs{...} }
+type ResourcePolicyAssignmentNonComplianceMessageArrayInput interface {
+	pulumi.Input
+
+	ToResourcePolicyAssignmentNonComplianceMessageArrayOutput() ResourcePolicyAssignmentNonComplianceMessageArrayOutput
+	ToResourcePolicyAssignmentNonComplianceMessageArrayOutputWithContext(context.Context) ResourcePolicyAssignmentNonComplianceMessageArrayOutput
+}
+
+type ResourcePolicyAssignmentNonComplianceMessageArray []ResourcePolicyAssignmentNonComplianceMessageInput
+
+func (ResourcePolicyAssignmentNonComplianceMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourcePolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (i ResourcePolicyAssignmentNonComplianceMessageArray) ToResourcePolicyAssignmentNonComplianceMessageArrayOutput() ResourcePolicyAssignmentNonComplianceMessageArrayOutput {
+	return i.ToResourcePolicyAssignmentNonComplianceMessageArrayOutputWithContext(context.Background())
+}
+
+func (i ResourcePolicyAssignmentNonComplianceMessageArray) ToResourcePolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) ResourcePolicyAssignmentNonComplianceMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyAssignmentNonComplianceMessageArrayOutput)
+}
+
+type ResourcePolicyAssignmentNonComplianceMessageOutput struct{ *pulumi.OutputState }
+
+func (ResourcePolicyAssignmentNonComplianceMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (o ResourcePolicyAssignmentNonComplianceMessageOutput) ToResourcePolicyAssignmentNonComplianceMessageOutput() ResourcePolicyAssignmentNonComplianceMessageOutput {
+	return o
+}
+
+func (o ResourcePolicyAssignmentNonComplianceMessageOutput) ToResourcePolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) ResourcePolicyAssignmentNonComplianceMessageOutput {
+	return o
+}
+
+// The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+func (o ResourcePolicyAssignmentNonComplianceMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourcePolicyAssignmentNonComplianceMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+func (o ResourcePolicyAssignmentNonComplianceMessageOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourcePolicyAssignmentNonComplianceMessage) *string { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
+}
+
+type ResourcePolicyAssignmentNonComplianceMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourcePolicyAssignmentNonComplianceMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourcePolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (o ResourcePolicyAssignmentNonComplianceMessageArrayOutput) ToResourcePolicyAssignmentNonComplianceMessageArrayOutput() ResourcePolicyAssignmentNonComplianceMessageArrayOutput {
+	return o
+}
+
+func (o ResourcePolicyAssignmentNonComplianceMessageArrayOutput) ToResourcePolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) ResourcePolicyAssignmentNonComplianceMessageArrayOutput {
+	return o
+}
+
+func (o ResourcePolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.IntInput) ResourcePolicyAssignmentNonComplianceMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourcePolicyAssignmentNonComplianceMessage {
+		return vs[0].([]ResourcePolicyAssignmentNonComplianceMessage)[vs[1].(int)]
+	}).(ResourcePolicyAssignmentNonComplianceMessageOutput)
 }
 
 type ResourceProviderRegistrationFeature struct {
@@ -1583,6 +1797,112 @@ func (o SubscriptionPolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type SubscriptionPolicyAssignmentNonComplianceMessage struct {
+	// The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+	Content string `pulumi:"content"`
+	// When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+}
+
+// SubscriptionPolicyAssignmentNonComplianceMessageInput is an input type that accepts SubscriptionPolicyAssignmentNonComplianceMessageArgs and SubscriptionPolicyAssignmentNonComplianceMessageOutput values.
+// You can construct a concrete instance of `SubscriptionPolicyAssignmentNonComplianceMessageInput` via:
+//
+//          SubscriptionPolicyAssignmentNonComplianceMessageArgs{...}
+type SubscriptionPolicyAssignmentNonComplianceMessageInput interface {
+	pulumi.Input
+
+	ToSubscriptionPolicyAssignmentNonComplianceMessageOutput() SubscriptionPolicyAssignmentNonComplianceMessageOutput
+	ToSubscriptionPolicyAssignmentNonComplianceMessageOutputWithContext(context.Context) SubscriptionPolicyAssignmentNonComplianceMessageOutput
+}
+
+type SubscriptionPolicyAssignmentNonComplianceMessageArgs struct {
+	// The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+	Content pulumi.StringInput `pulumi:"content"`
+	// When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+	PolicyDefinitionReferenceId pulumi.StringPtrInput `pulumi:"policyDefinitionReferenceId"`
+}
+
+func (SubscriptionPolicyAssignmentNonComplianceMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (i SubscriptionPolicyAssignmentNonComplianceMessageArgs) ToSubscriptionPolicyAssignmentNonComplianceMessageOutput() SubscriptionPolicyAssignmentNonComplianceMessageOutput {
+	return i.ToSubscriptionPolicyAssignmentNonComplianceMessageOutputWithContext(context.Background())
+}
+
+func (i SubscriptionPolicyAssignmentNonComplianceMessageArgs) ToSubscriptionPolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentNonComplianceMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentNonComplianceMessageOutput)
+}
+
+// SubscriptionPolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts SubscriptionPolicyAssignmentNonComplianceMessageArray and SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput values.
+// You can construct a concrete instance of `SubscriptionPolicyAssignmentNonComplianceMessageArrayInput` via:
+//
+//          SubscriptionPolicyAssignmentNonComplianceMessageArray{ SubscriptionPolicyAssignmentNonComplianceMessageArgs{...} }
+type SubscriptionPolicyAssignmentNonComplianceMessageArrayInput interface {
+	pulumi.Input
+
+	ToSubscriptionPolicyAssignmentNonComplianceMessageArrayOutput() SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput
+	ToSubscriptionPolicyAssignmentNonComplianceMessageArrayOutputWithContext(context.Context) SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput
+}
+
+type SubscriptionPolicyAssignmentNonComplianceMessageArray []SubscriptionPolicyAssignmentNonComplianceMessageInput
+
+func (SubscriptionPolicyAssignmentNonComplianceMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (i SubscriptionPolicyAssignmentNonComplianceMessageArray) ToSubscriptionPolicyAssignmentNonComplianceMessageArrayOutput() SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput {
+	return i.ToSubscriptionPolicyAssignmentNonComplianceMessageArrayOutputWithContext(context.Background())
+}
+
+func (i SubscriptionPolicyAssignmentNonComplianceMessageArray) ToSubscriptionPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput)
+}
+
+type SubscriptionPolicyAssignmentNonComplianceMessageOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionPolicyAssignmentNonComplianceMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (o SubscriptionPolicyAssignmentNonComplianceMessageOutput) ToSubscriptionPolicyAssignmentNonComplianceMessageOutput() SubscriptionPolicyAssignmentNonComplianceMessageOutput {
+	return o
+}
+
+func (o SubscriptionPolicyAssignmentNonComplianceMessageOutput) ToSubscriptionPolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentNonComplianceMessageOutput {
+	return o
+}
+
+// The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+func (o SubscriptionPolicyAssignmentNonComplianceMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionPolicyAssignmentNonComplianceMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+func (o SubscriptionPolicyAssignmentNonComplianceMessageOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionPolicyAssignmentNonComplianceMessage) *string { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
+}
+
+type SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (o SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput) ToSubscriptionPolicyAssignmentNonComplianceMessageArrayOutput() SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput {
+	return o
+}
+
+func (o SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput) ToSubscriptionPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput {
+	return o
+}
+
+func (o SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.IntInput) SubscriptionPolicyAssignmentNonComplianceMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionPolicyAssignmentNonComplianceMessage {
+		return vs[0].([]SubscriptionPolicyAssignmentNonComplianceMessage)[vs[1].(int)]
+	}).(SubscriptionPolicyAssignmentNonComplianceMessageOutput)
+}
+
 type GetResourcesResource struct {
 	// The ID of this Resource.
 	Id string `pulumi:"id"`
@@ -1898,8 +2218,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportExportDataStorageLocationPtrInput)(nil)).Elem(), ResourceGroupCostManagementExportExportDataStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupPolicyAssignmentIdentityInput)(nil)).Elem(), ResourceGroupPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupPolicyAssignmentIdentityPtrInput)(nil)).Elem(), ResourceGroupPolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupPolicyAssignmentNonComplianceMessageInput)(nil)).Elem(), ResourceGroupPolicyAssignmentNonComplianceMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupPolicyAssignmentNonComplianceMessageArrayInput)(nil)).Elem(), ResourceGroupPolicyAssignmentNonComplianceMessageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyAssignmentIdentityInput)(nil)).Elem(), ResourcePolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyAssignmentIdentityPtrInput)(nil)).Elem(), ResourcePolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyAssignmentNonComplianceMessageInput)(nil)).Elem(), ResourcePolicyAssignmentNonComplianceMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyAssignmentNonComplianceMessageArrayInput)(nil)).Elem(), ResourcePolicyAssignmentNonComplianceMessageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProviderRegistrationFeatureInput)(nil)).Elem(), ResourceProviderRegistrationFeatureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceProviderRegistrationFeatureArrayInput)(nil)).Elem(), ResourceProviderRegistrationFeatureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportExportDataOptionsInput)(nil)).Elem(), SubscriptionCostManagementExportExportDataOptionsArgs{})
@@ -1908,6 +2232,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportExportDataStorageLocationPtrInput)(nil)).Elem(), SubscriptionCostManagementExportExportDataStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentIdentityInput)(nil)).Elem(), SubscriptionPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentIdentityPtrInput)(nil)).Elem(), SubscriptionPolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentNonComplianceMessageInput)(nil)).Elem(), SubscriptionPolicyAssignmentNonComplianceMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentNonComplianceMessageArrayInput)(nil)).Elem(), SubscriptionPolicyAssignmentNonComplianceMessageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceInput)(nil)).Elem(), GetResourcesResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceArrayInput)(nil)).Elem(), GetResourcesResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubscriptionsSubscriptionInput)(nil)).Elem(), GetSubscriptionsSubscriptionArgs{})
@@ -1924,8 +2250,12 @@ func init() {
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupPolicyAssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceGroupPolicyAssignmentIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceGroupPolicyAssignmentNonComplianceMessageOutput{})
+	pulumi.RegisterOutputType(ResourceGroupPolicyAssignmentNonComplianceMessageArrayOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyAssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyAssignmentIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourcePolicyAssignmentNonComplianceMessageOutput{})
+	pulumi.RegisterOutputType(ResourcePolicyAssignmentNonComplianceMessageArrayOutput{})
 	pulumi.RegisterOutputType(ResourceProviderRegistrationFeatureOutput{})
 	pulumi.RegisterOutputType(ResourceProviderRegistrationFeatureArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionCostManagementExportExportDataOptionsOutput{})
@@ -1934,6 +2264,8 @@ func init() {
 	pulumi.RegisterOutputType(SubscriptionCostManagementExportExportDataStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentIdentityPtrOutput{})
+	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentNonComplianceMessageOutput{})
+	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceArrayOutput{})
 	pulumi.RegisterOutputType(GetSubscriptionsSubscriptionOutput{})

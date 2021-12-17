@@ -89,12 +89,14 @@ type Service struct {
 	Cors ServiceCorArrayOutput `pulumi:"cors"`
 	// A `features` block as documented below.
 	//
-	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
+	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
 	Features ServiceFeatureArrayOutput `pulumi:"features"`
 	// The FQDN of the SignalR service.
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// The publicly accessible IP of the SignalR service.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	// Specifies if Live Trace is enabled or not.
+	LiveTraceEnabled pulumi.BoolOutput `pulumi:"liveTraceEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies if Messaging Logs are enabled or not.
@@ -166,12 +168,14 @@ type serviceState struct {
 	Cors []ServiceCor `pulumi:"cors"`
 	// A `features` block as documented below.
 	//
-	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
+	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
 	Features []ServiceFeature `pulumi:"features"`
 	// The FQDN of the SignalR service.
 	Hostname *string `pulumi:"hostname"`
 	// The publicly accessible IP of the SignalR service.
 	IpAddress *string `pulumi:"ipAddress"`
+	// Specifies if Live Trace is enabled or not.
+	LiveTraceEnabled *bool `pulumi:"liveTraceEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies if Messaging Logs are enabled or not.
@@ -209,12 +213,14 @@ type ServiceState struct {
 	Cors ServiceCorArrayInput
 	// A `features` block as documented below.
 	//
-	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
+	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
 	Features ServiceFeatureArrayInput
 	// The FQDN of the SignalR service.
 	Hostname pulumi.StringPtrInput
 	// The publicly accessible IP of the SignalR service.
 	IpAddress pulumi.StringPtrInput
+	// Specifies if Live Trace is enabled or not.
+	LiveTraceEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies if Messaging Logs are enabled or not.
@@ -256,8 +262,10 @@ type serviceArgs struct {
 	Cors []ServiceCor `pulumi:"cors"`
 	// A `features` block as documented below.
 	//
-	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
+	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
 	Features []ServiceFeature `pulumi:"features"`
+	// Specifies if Live Trace is enabled or not.
+	LiveTraceEnabled *bool `pulumi:"liveTraceEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies if Messaging Logs are enabled or not.
@@ -284,8 +292,10 @@ type ServiceArgs struct {
 	Cors ServiceCorArrayInput
 	// A `features` block as documented below.
 	//
-	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`
+	// Deprecated: Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`
 	Features ServiceFeatureArrayInput
+	// Specifies if Live Trace is enabled or not.
+	LiveTraceEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies if Messaging Logs are enabled or not.

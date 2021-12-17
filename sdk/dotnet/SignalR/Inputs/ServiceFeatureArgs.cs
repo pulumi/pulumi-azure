@@ -13,7 +13,7 @@ namespace Pulumi.Azure.SignalR.Inputs
     public sealed class ServiceFeatureArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
+        /// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
         /// </summary>
         [Input("flag", required: true)]
         public Input<string> Flag { get; set; } = null!;

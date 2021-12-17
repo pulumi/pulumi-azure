@@ -19,12 +19,14 @@ export * from "./sqlPoolExtendedAuditingPolicy";
 export * from "./sqlPoolSecurityAlertPolicy";
 export * from "./sqlPoolVulnerabilityAssessment";
 export * from "./sqlPoolVulnerabilityAssessmentBaseline";
+export * from "./sqlPoolWorkloadClassifier";
 export * from "./sqlPoolWorkloadGroup";
 export * from "./workspace";
 export * from "./workspaceAadAdmin";
 export * from "./workspaceExtendedAuditingPolicy";
 export * from "./workspaceKey";
 export * from "./workspaceSecurityAlertPolicy";
+export * from "./workspaceSqlAadAdmin";
 export * from "./workspaceVulnerabilityAssessment";
 
 // Import resources to register:
@@ -41,12 +43,14 @@ import { SqlPoolExtendedAuditingPolicy } from "./sqlPoolExtendedAuditingPolicy";
 import { SqlPoolSecurityAlertPolicy } from "./sqlPoolSecurityAlertPolicy";
 import { SqlPoolVulnerabilityAssessment } from "./sqlPoolVulnerabilityAssessment";
 import { SqlPoolVulnerabilityAssessmentBaseline } from "./sqlPoolVulnerabilityAssessmentBaseline";
+import { SqlPoolWorkloadClassifier } from "./sqlPoolWorkloadClassifier";
 import { SqlPoolWorkloadGroup } from "./sqlPoolWorkloadGroup";
 import { Workspace } from "./workspace";
 import { WorkspaceAadAdmin } from "./workspaceAadAdmin";
 import { WorkspaceExtendedAuditingPolicy } from "./workspaceExtendedAuditingPolicy";
 import { WorkspaceKey } from "./workspaceKey";
 import { WorkspaceSecurityAlertPolicy } from "./workspaceSecurityAlertPolicy";
+import { WorkspaceSqlAadAdmin } from "./workspaceSqlAadAdmin";
 import { WorkspaceVulnerabilityAssessment } from "./workspaceVulnerabilityAssessment";
 
 const _module = {
@@ -79,6 +83,8 @@ const _module = {
                 return new SqlPoolVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure:synapse/sqlPoolVulnerabilityAssessmentBaseline:SqlPoolVulnerabilityAssessmentBaseline":
                 return new SqlPoolVulnerabilityAssessmentBaseline(name, <any>undefined, { urn })
+            case "azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier":
+                return new SqlPoolWorkloadClassifier(name, <any>undefined, { urn })
             case "azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup":
                 return new SqlPoolWorkloadGroup(name, <any>undefined, { urn })
             case "azure:synapse/workspace:Workspace":
@@ -91,6 +97,8 @@ const _module = {
                 return new WorkspaceKey(name, <any>undefined, { urn })
             case "azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy":
                 return new WorkspaceSecurityAlertPolicy(name, <any>undefined, { urn })
+            case "azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin":
+                return new WorkspaceSqlAadAdmin(name, <any>undefined, { urn })
             case "azure:synapse/workspaceVulnerabilityAssessment:WorkspaceVulnerabilityAssessment":
                 return new WorkspaceVulnerabilityAssessment(name, <any>undefined, { urn })
             default:
@@ -111,10 +119,12 @@ pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolExtendedAuditingP
 pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolSecurityAlertPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolVulnerabilityAssessmentBaseline", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolWorkloadClassifier", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/sqlPoolWorkloadGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspace", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspaceAadAdmin", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspaceExtendedAuditingPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspaceKey", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspaceSecurityAlertPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "synapse/workspaceSqlAadAdmin", _module)
 pulumi.runtime.registerResourceModule("azure", "synapse/workspaceVulnerabilityAssessment", _module)

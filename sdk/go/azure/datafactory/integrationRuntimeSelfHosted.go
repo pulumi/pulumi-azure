@@ -32,7 +32,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 		})
@@ -40,8 +40,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewIntegrationRuntimeSelfHosted(ctx, "exampleIntegrationRuntimeSelfHosted", &datafactory.IntegrationRuntimeSelfHostedArgs{
-// 			ResourceGroupName: pulumi.String("example"),
-// 			DataFactoryName:   pulumi.String("example"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -65,7 +65,11 @@ type IntegrationRuntimeSelfHosted struct {
 	AuthKey1 pulumi.StringOutput `pulumi:"authKey1"`
 	// The secondary integration runtime authentication key.
 	AuthKey2 pulumi.StringOutput `pulumi:"authKey2"`
-	// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -84,9 +88,6 @@ func NewIntegrationRuntimeSelfHosted(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -116,7 +117,11 @@ type integrationRuntimeSelfHostedState struct {
 	AuthKey1 *string `pulumi:"authKey1"`
 	// The secondary integration runtime authentication key.
 	AuthKey2 *string `pulumi:"authKey2"`
-	// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
@@ -133,7 +138,11 @@ type IntegrationRuntimeSelfHostedState struct {
 	AuthKey1 pulumi.StringPtrInput
 	// The secondary integration runtime authentication key.
 	AuthKey2 pulumi.StringPtrInput
-	// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
@@ -150,8 +159,12 @@ func (IntegrationRuntimeSelfHostedState) ElementType() reflect.Type {
 }
 
 type integrationRuntimeSelfHostedArgs struct {
-	// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
@@ -164,8 +177,12 @@ type integrationRuntimeSelfHostedArgs struct {
 
 // The set of arguments for constructing a IntegrationRuntimeSelfHosted resource.
 type IntegrationRuntimeSelfHostedArgs struct {
-	// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-	DataFactoryName pulumi.StringInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
 	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.

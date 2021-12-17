@@ -45,7 +45,7 @@ class ServiceFeatureArgs:
                  flag: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] flag: The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
+        :param pulumi.Input[str] flag: The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
         :param pulumi.Input[str] value: A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
         """
         pulumi.set(__self__, "flag", flag)
@@ -55,7 +55,7 @@ class ServiceFeatureArgs:
     @pulumi.getter
     def flag(self) -> pulumi.Input[str]:
         """
-        The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
+        The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
         """
         return pulumi.get(self, "flag")
 

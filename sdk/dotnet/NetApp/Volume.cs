@@ -97,6 +97,10 @@ namespace Pulumi.Azure.NetApp
     ///                 RemoteVolumeResourceId = azurerm_netapp_volume.Example_primary.Id,
     ///                 ReplicationFrequency = "10minutes",
     ///             },
+    ///             DataProtectionSnapshotPolicy = new Azure.NetApp.Inputs.VolumeDataProtectionSnapshotPolicyArgs
+    ///             {
+    ///                 SnapshotPolicyId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotpolicy1",
+    ///             },
     ///         });
     ///     }
     /// 
@@ -131,6 +135,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Output("dataProtectionReplication")]
         public Output<Outputs.VolumeDataProtectionReplication?> DataProtectionReplication { get; private set; } = null!;
+
+        /// <summary>
+        /// A `data_protection_snapshot_policy` block as defined below.
+        /// </summary>
+        [Output("dataProtectionSnapshotPolicy")]
+        public Output<Outputs.VolumeDataProtectionSnapshotPolicy?> DataProtectionSnapshotPolicy { get; private set; } = null!;
 
         /// <summary>
         /// One or more `export_policy_rule` block defined below.
@@ -190,7 +200,7 @@ namespace Pulumi.Azure.NetApp
         /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         /// </summary>
         [Output("snapshotDirectoryVisible")]
-        public Output<bool?> SnapshotDirectoryVisible { get; private set; } = null!;
+        public Output<bool> SnapshotDirectoryVisible { get; private set; } = null!;
 
         /// <summary>
         /// The maximum Storage Quota allowed for a file system in Gigabytes.
@@ -285,6 +295,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("dataProtectionReplication")]
         public Input<Inputs.VolumeDataProtectionReplicationArgs>? DataProtectionReplication { get; set; }
+
+        /// <summary>
+        /// A `data_protection_snapshot_policy` block as defined below.
+        /// </summary>
+        [Input("dataProtectionSnapshotPolicy")]
+        public Input<Inputs.VolumeDataProtectionSnapshotPolicyArgs>? DataProtectionSnapshotPolicy { get; set; }
 
         [Input("exportPolicyRules")]
         private InputList<Inputs.VolumeExportPolicyRuleArgs>? _exportPolicyRules;
@@ -412,6 +428,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("dataProtectionReplication")]
         public Input<Inputs.VolumeDataProtectionReplicationGetArgs>? DataProtectionReplication { get; set; }
+
+        /// <summary>
+        /// A `data_protection_snapshot_policy` block as defined below.
+        /// </summary>
+        [Input("dataProtectionSnapshotPolicy")]
+        public Input<Inputs.VolumeDataProtectionSnapshotPolicyGetArgs>? DataProtectionSnapshotPolicy { get; set; }
 
         [Input("exportPolicyRules")]
         private InputList<Inputs.VolumeExportPolicyRuleGetArgs>? _exportPolicyRules;

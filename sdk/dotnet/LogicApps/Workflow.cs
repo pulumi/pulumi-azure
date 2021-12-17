@@ -75,6 +75,12 @@ namespace Pulumi.Azure.LogicApps
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.WorkflowIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
         /// </summary>
         [Output("integrationServiceEnvironmentId")]
@@ -202,6 +208,12 @@ namespace Pulumi.Azure.LogicApps
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.WorkflowIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
         /// </summary>
         [Input("integrationServiceEnvironmentId")]
@@ -324,6 +336,12 @@ namespace Pulumi.Azure.LogicApps
 
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.WorkflowIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.

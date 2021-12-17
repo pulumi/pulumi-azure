@@ -41,7 +41,7 @@ import (
 // 		}
 // 		_, err = datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -66,7 +66,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datafactory.NewPipeline(ctx, "test", &datafactory.PipelineArgs{
 // 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
-// 			DataFactoryName:   pulumi.Any(azurerm_data_factory.Test.Name),
+// 			DataFactoryId:     pulumi.Any(azurerm_data_factory.Test.Id),
 // 			Variables: pulumi.StringMap{
 // 				"bob": pulumi.String("item1"),
 // 			},
@@ -96,7 +96,11 @@ type Pipeline struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
 	Concurrency pulumi.IntPtrOutput `pulumi:"concurrency"`
-	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Pipeline.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -121,9 +125,6 @@ func NewPipeline(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -155,7 +156,11 @@ type pipelineState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
 	Concurrency *int `pulumi:"concurrency"`
-	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Pipeline.
 	Description *string `pulumi:"description"`
@@ -180,7 +185,11 @@ type PipelineState struct {
 	Annotations pulumi.StringArrayInput
 	// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
 	Concurrency pulumi.IntPtrInput
-	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Pipeline.
 	Description pulumi.StringPtrInput
@@ -209,8 +218,12 @@ type pipelineArgs struct {
 	Annotations []string `pulumi:"annotations"`
 	// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
 	Concurrency *int `pulumi:"concurrency"`
-	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Pipeline.
 	Description *string `pulumi:"description"`
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
@@ -235,8 +248,12 @@ type PipelineArgs struct {
 	Annotations pulumi.StringArrayInput
 	// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
 	Concurrency pulumi.IntPtrInput
-	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
-	DataFactoryName pulumi.StringInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Pipeline.
 	Description pulumi.StringPtrInput
 	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.

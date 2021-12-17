@@ -15,7 +15,6 @@ __all__ = ['DatasetParquetArgs', 'DatasetParquet']
 @pulumi.input_type
 class DatasetParquetArgs:
     def __init__(__self__, *,
-                 data_factory_name: pulumi.Input[str],
                  linked_service_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -23,6 +22,8 @@ class DatasetParquetArgs:
                  azure_blob_storage_location: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
+                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  http_server_location: Optional[pulumi.Input['DatasetParquetHttpServerLocationArgs']] = None,
@@ -31,13 +32,13 @@ class DatasetParquetArgs:
                  schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]] = None):
         """
         The set of arguments for constructing a DatasetParquet resource.
-        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input['DatasetParquetHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
@@ -45,7 +46,6 @@ class DatasetParquetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
-        pulumi.set(__self__, "data_factory_name", data_factory_name)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_properties is not None:
@@ -58,6 +58,13 @@ class DatasetParquetArgs:
             pulumi.set(__self__, "compression_codec", compression_codec)
         if compression_level is not None:
             pulumi.set(__self__, "compression_level", compression_level)
+        if data_factory_id is not None:
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
+        if data_factory_name is not None:
+            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
+        if data_factory_name is not None:
+            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if folder is not None:
@@ -70,18 +77,6 @@ class DatasetParquetArgs:
             pulumi.set(__self__, "parameters", parameters)
         if schema_columns is not None:
             pulumi.set(__self__, "schema_columns", schema_columns)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Input[str]:
-        """
-        The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -165,6 +160,27 @@ class DatasetParquetArgs:
         pulumi.set(self, "compression_level", value)
 
     @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_id", value)
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @data_factory_name.setter
+    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_name", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -245,6 +261,7 @@ class _DatasetParquetState:
                  azure_blob_storage_location: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
@@ -280,6 +297,11 @@ class _DatasetParquetState:
             pulumi.set(__self__, "compression_codec", compression_codec)
         if compression_level is not None:
             pulumi.set(__self__, "compression_level", compression_level)
+        if data_factory_id is not None:
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
+        if data_factory_name is not None:
+            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
         if data_factory_name is not None:
             pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
@@ -355,6 +377,15 @@ class _DatasetParquetState:
     @compression_level.setter
     def compression_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "compression_level", value)
+
+    @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_id", value)
 
     @property
     @pulumi.getter(name="dataFactoryName")
@@ -475,6 +506,7 @@ class DatasetParquet(pulumi.CustomResource):
                  azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
@@ -500,12 +532,12 @@ class DatasetParquet(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             authentication_type="Anonymous",
             url="https://www.bing.com")
         example_dataset_parquet = azure.datafactory.DatasetParquet("exampleDatasetParquet",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
             http_server_location=azure.datafactory.DatasetParquetHttpServerLocationArgs(
                 relative_url="http://www.bing.com",
@@ -559,12 +591,12 @@ class DatasetParquet(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             authentication_type="Anonymous",
             url="https://www.bing.com")
         example_dataset_parquet = azure.datafactory.DatasetParquet("exampleDatasetParquet",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
             http_server_location=azure.datafactory.DatasetParquetHttpServerLocationArgs(
                 relative_url="http://www.bing.com",
@@ -601,6 +633,7 @@ class DatasetParquet(pulumi.CustomResource):
                  azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
@@ -627,8 +660,10 @@ class DatasetParquet(pulumi.CustomResource):
             __props__.__dict__["azure_blob_storage_location"] = azure_blob_storage_location
             __props__.__dict__["compression_codec"] = compression_codec
             __props__.__dict__["compression_level"] = compression_level
-            if data_factory_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_factory_name'")
+            __props__.__dict__["data_factory_id"] = data_factory_id
+            if data_factory_name is not None and not opts.urn:
+                warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+                pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
             __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["folder"] = folder
@@ -657,6 +692,7 @@ class DatasetParquet(pulumi.CustomResource):
             azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']]] = None,
             compression_codec: Optional[pulumi.Input[str]] = None,
             compression_level: Optional[pulumi.Input[str]] = None,
+            data_factory_id: Optional[pulumi.Input[str]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             folder: Optional[pulumi.Input[str]] = None,
@@ -696,6 +732,7 @@ class DatasetParquet(pulumi.CustomResource):
         __props__.__dict__["azure_blob_storage_location"] = azure_blob_storage_location
         __props__.__dict__["compression_codec"] = compression_codec
         __props__.__dict__["compression_level"] = compression_level
+        __props__.__dict__["data_factory_id"] = data_factory_id
         __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["folder"] = folder
@@ -743,6 +780,11 @@ class DatasetParquet(pulumi.CustomResource):
     @pulumi.getter(name="compressionLevel")
     def compression_level(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "compression_level")
+
+    @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "data_factory_id")
 
     @property
     @pulumi.getter(name="dataFactoryName")

@@ -15,11 +15,14 @@ __all__ = [
     'ResourceGroupCostManagementExportExportDataOptionsArgs',
     'ResourceGroupCostManagementExportExportDataStorageLocationArgs',
     'ResourceGroupPolicyAssignmentIdentityArgs',
+    'ResourceGroupPolicyAssignmentNonComplianceMessageArgs',
     'ResourcePolicyAssignmentIdentityArgs',
+    'ResourcePolicyAssignmentNonComplianceMessageArgs',
     'ResourceProviderRegistrationFeatureArgs',
     'SubscriptionCostManagementExportExportDataOptionsArgs',
     'SubscriptionCostManagementExportExportDataStorageLocationArgs',
     'SubscriptionPolicyAssignmentIdentityArgs',
+    'SubscriptionPolicyAssignmentNonComplianceMessageArgs',
 ]
 
 @pulumi.input_type
@@ -264,6 +267,44 @@ class ResourceGroupPolicyAssignmentIdentityArgs:
 
 
 @pulumi.input_type
+class ResourceGroupPolicyAssignmentNonComplianceMessageArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] content: The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+        :param pulumi.Input[str] policy_definition_reference_id: When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+        """
+        pulumi.set(__self__, "content", content)
+        if policy_definition_reference_id is not None:
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+        """
+        return pulumi.get(self, "policy_definition_reference_id")
+
+    @policy_definition_reference_id.setter
+    def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_definition_reference_id", value)
+
+
+@pulumi.input_type
 class ResourcePolicyAssignmentIdentityArgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -316,6 +357,44 @@ class ResourcePolicyAssignmentIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ResourcePolicyAssignmentNonComplianceMessageArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] content: The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+        :param pulumi.Input[str] policy_definition_reference_id: When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+        """
+        pulumi.set(__self__, "content", content)
+        if policy_definition_reference_id is not None:
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+        """
+        return pulumi.get(self, "policy_definition_reference_id")
+
+    @policy_definition_reference_id.setter
+    def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_definition_reference_id", value)
 
 
 @pulumi.input_type
@@ -482,5 +561,43 @@ class SubscriptionPolicyAssignmentIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class SubscriptionPolicyAssignmentNonComplianceMessageArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] content: The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+        :param pulumi.Input[str] policy_definition_reference_id: When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+        """
+        pulumi.set(__self__, "content", content)
+        if policy_definition_reference_id is not None:
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+        """
+        return pulumi.get(self, "policy_definition_reference_id")
+
+    @policy_definition_reference_id.setter
+    def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_definition_reference_id", value)
 
 

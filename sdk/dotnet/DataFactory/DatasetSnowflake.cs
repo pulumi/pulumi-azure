@@ -34,13 +34,13 @@ namespace Pulumi.Azure.DataFactory
     ///         var exampleLinkedServiceSnowflake = new Azure.DataFactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", new Azure.DataFactory.LinkedServiceSnowflakeArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
     ///         });
     ///         var exampleDatasetSnowflake = new Azure.DataFactory.DatasetSnowflake("exampleDatasetSnowflake", new Azure.DataFactory.DatasetSnowflakeArgs
     ///         {
     ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             DataFactoryName = azurerm_data_factory.Test.Name,
+    ///             DataFactoryId = azurerm_data_factory.Test.Id,
     ///             LinkedServiceName = azurerm_data_factory_linked_service_snowflake.Test.Name,
     ///             SchemaName = "foo_schema",
     ///             TableName = "foo_table",
@@ -76,7 +76,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Output("dataFactoryName")]
         public Output<string> DataFactoryName { get; private set; } = null!;
@@ -209,10 +215,16 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// The description for the Data Factory Dataset Snowflake.
@@ -321,7 +333,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryName")]
         public Input<string>? DataFactoryName { get; set; }

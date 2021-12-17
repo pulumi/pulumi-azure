@@ -93,6 +93,7 @@ from .virtual_network_gateway import *
 from .virtual_network_gateway_connection import *
 from .virtual_network_peering import *
 from .virtual_wan import *
+from .vnp_gateway_nat_rule import *
 from .vpn_gateway import *
 from .vpn_gateway_connection import *
 from .vpn_server_configuration import *

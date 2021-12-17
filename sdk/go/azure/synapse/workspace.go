@@ -256,7 +256,7 @@ type Workspace struct {
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// An `sqlAadAdmin` block as defined below.
-	SqlAadAdmin WorkspaceSqlAadAdminOutput `pulumi:"sqlAadAdmin"`
+	SqlAadAdmin WorkspaceSqlAadAdminTypeOutput `pulumi:"sqlAadAdmin"`
 	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
 	SqlAdministratorLogin pulumi.StringOutput `pulumi:"sqlAdministratorLogin"`
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
@@ -343,7 +343,7 @@ type workspaceState struct {
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// An `sqlAadAdmin` block as defined below.
-	SqlAadAdmin *WorkspaceSqlAadAdmin `pulumi:"sqlAadAdmin"`
+	SqlAadAdmin *WorkspaceSqlAadAdminType `pulumi:"sqlAadAdmin"`
 	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
@@ -390,7 +390,7 @@ type WorkspaceState struct {
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// An `sqlAadAdmin` block as defined below.
-	SqlAadAdmin WorkspaceSqlAadAdminPtrInput
+	SqlAadAdmin WorkspaceSqlAadAdminTypePtrInput
 	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
 	SqlAdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
@@ -437,7 +437,7 @@ type workspaceArgs struct {
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// An `sqlAadAdmin` block as defined below.
-	SqlAadAdmin *WorkspaceSqlAadAdmin `pulumi:"sqlAadAdmin"`
+	SqlAadAdmin *WorkspaceSqlAadAdminType `pulumi:"sqlAadAdmin"`
 	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
 	SqlAdministratorLogin string `pulumi:"sqlAdministratorLogin"`
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
@@ -481,7 +481,7 @@ type WorkspaceArgs struct {
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// An `sqlAadAdmin` block as defined below.
-	SqlAadAdmin WorkspaceSqlAadAdminPtrInput
+	SqlAadAdmin WorkspaceSqlAadAdminTypePtrInput
 	// Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
 	SqlAdministratorLogin pulumi.StringInput
 	// The Password associated with the `sqlAdministratorLogin` for the SQL administrator.

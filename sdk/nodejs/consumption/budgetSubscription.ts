@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     shortName: "example",
  * });
  * const exampleBudgetSubscription = new azure.consumption.BudgetSubscription("exampleBudgetSubscription", {
- *     subscriptionId: current.then(current => current.subscriptionId),
+ *     subscriptionId: current.then(current => current.id),
  *     amount: 1000,
  *     timeGrain: "Monthly",
  *     timePeriod: {
@@ -116,7 +116,7 @@ export class BudgetSubscription extends pulumi.CustomResource {
      */
     public readonly filter!: pulumi.Output<outputs.consumption.BudgetSubscriptionFilter | undefined>;
     /**
-     * The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+     * The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -124,7 +124,7 @@ export class BudgetSubscription extends pulumi.CustomResource {
      */
     public readonly notifications!: pulumi.Output<outputs.consumption.BudgetSubscriptionNotification[]>;
     /**
-     * The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+     * The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
      */
     public readonly subscriptionId!: pulumi.Output<string>;
     /**
@@ -204,7 +204,7 @@ export interface BudgetSubscriptionState {
      */
     filter?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilter>;
     /**
-     * The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+     * The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -212,7 +212,7 @@ export interface BudgetSubscriptionState {
      */
     notifications?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetSubscriptionNotification>[]>;
     /**
-     * The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+     * The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
      */
     subscriptionId?: pulumi.Input<string>;
     /**
@@ -242,7 +242,7 @@ export interface BudgetSubscriptionArgs {
      */
     filter?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilter>;
     /**
-     * The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+     * The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -250,7 +250,7 @@ export interface BudgetSubscriptionArgs {
      */
     notifications: pulumi.Input<pulumi.Input<inputs.consumption.BudgetSubscriptionNotification>[]>;
     /**
-     * The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+     * The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
      */
     subscriptionId: pulumi.Input<string>;
     /**

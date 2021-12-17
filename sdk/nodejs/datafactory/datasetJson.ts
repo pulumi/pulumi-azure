@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  * });
  * const exampleLinkedServiceWeb = new azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     authenticationType: "Anonymous",
  *     url: "https://www.bing.com",
  * });
  * const exampleDatasetJson = new azure.datafactory.DatasetJson("exampleDatasetJson", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceWeb.name,
  *     httpServerLocation: {
  *         relativeUrl: "/fizz/buzz/",
@@ -87,7 +87,13 @@ export class DatasetJson extends pulumi.CustomResource {
      */
     public readonly azureBlobStorageLocation!: pulumi.Output<outputs.datafactory.DatasetJsonAzureBlobStorageLocation | undefined>;
     /**
-     * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    public readonly dataFactoryId!: pulumi.Output<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
@@ -143,6 +149,7 @@ export class DatasetJson extends pulumi.CustomResource {
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
+            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["encoding"] = state ? state.encoding : undefined;
@@ -155,9 +162,6 @@ export class DatasetJson extends pulumi.CustomResource {
             inputs["schemaColumns"] = state ? state.schemaColumns : undefined;
         } else {
             const args = argsOrState as DatasetJsonArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFactoryName'");
-            }
             if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
             }
@@ -167,6 +171,7 @@ export class DatasetJson extends pulumi.CustomResource {
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
+            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["encoding"] = args ? args.encoding : undefined;
@@ -202,7 +207,13 @@ export interface DatasetJsonState {
      */
     azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation>;
     /**
-     * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     dataFactoryName?: pulumi.Input<string>;
     /**
@@ -260,9 +271,15 @@ export interface DatasetJsonArgs {
      */
     azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation>;
     /**
-     * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryName: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+     */
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */

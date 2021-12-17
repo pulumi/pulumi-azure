@@ -34,7 +34,7 @@ namespace Pulumi.Azure.DataFactory
     ///         var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new Azure.DataFactory.PipelineArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///         });
     ///     }
     /// 
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.DataFactory
     ///         var test = new Azure.DataFactory.Pipeline("test", new Azure.DataFactory.PipelineArgs
     ///         {
     ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             DataFactoryName = azurerm_data_factory.Test.Name,
+    ///             DataFactoryId = azurerm_data_factory.Test.Id,
     ///             Variables = 
     ///             {
     ///                 { "bob", "item1" },
@@ -107,7 +107,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<int?> Concurrency { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Output("dataFactoryName")]
         public Output<string> DataFactoryName { get; private set; } = null!;
@@ -225,10 +231,16 @@ namespace Pulumi.Azure.DataFactory
         public Input<int>? Concurrency { get; set; }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// The description for the Data Factory Pipeline.
@@ -316,7 +328,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<int>? Concurrency { get; set; }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryName")]
         public Input<string>? DataFactoryName { get; set; }

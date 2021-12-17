@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Virtual Hub IP.
+// Manages a Virtual Hub IP. This resource is also known as a Route Server.
 //
 // > **NOTE** Virtual Hub IP only supports Standard Virtual Hub without Virtual Wan.
 //
@@ -99,7 +99,7 @@ type VirtualHubIp struct {
 	PrivateIpAddress pulumi.StringPtrOutput `pulumi:"privateIpAddress"`
 	// The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
 	PrivateIpAllocationMethod pulumi.StringPtrOutput `pulumi:"privateIpAllocationMethod"`
-	// The ID of the Public IP Address.
+	// The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
 	PublicIpAddressId pulumi.StringPtrOutput `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -148,7 +148,7 @@ type virtualHubIpState struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
-	// The ID of the Public IP Address.
+	// The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -163,7 +163,7 @@ type VirtualHubIpState struct {
 	PrivateIpAddress pulumi.StringPtrInput
 	// The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput
-	// The ID of the Public IP Address.
+	// The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
 	PublicIpAddressId pulumi.StringPtrInput
 	// The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
@@ -182,7 +182,7 @@ type virtualHubIpArgs struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
-	// The ID of the Public IP Address.
+	// The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
@@ -198,7 +198,7 @@ type VirtualHubIpArgs struct {
 	PrivateIpAddress pulumi.StringPtrInput
 	// The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput
-	// The ID of the Public IP Address.
+	// The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
 	PublicIpAddressId pulumi.StringPtrInput
 	// The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput

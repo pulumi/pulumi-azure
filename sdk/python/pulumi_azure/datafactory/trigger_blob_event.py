@@ -441,7 +441,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_pipeline = azure.datafactory.Pipeline("examplePipeline",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name)
+            data_factory_id=example_factory.id)
         example_account = azure.storage.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -519,7 +519,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_pipeline = azure.datafactory.Pipeline("examplePipeline",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name)
+            data_factory_id=example_factory.id)
         example_account = azure.storage.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,

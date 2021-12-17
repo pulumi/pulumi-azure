@@ -14,7 +14,7 @@ namespace Pulumi.Azure.SignalR.Outputs
     public sealed class ServiceFeature
     {
         /// <summary>
-        /// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
+        /// The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
         /// </summary>
         public readonly string Flag;
         /// <summary>

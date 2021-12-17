@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> ContainerName { get; private set; } = null!;
 
         /// <summary>
-        /// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
+        /// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("encoding")]
         public Output<string?> Encoding { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
-        /// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
+        /// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? ContainerName { get; set; }
 
         /// <summary>
-        /// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
+        /// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }

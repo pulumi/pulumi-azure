@@ -24,6 +24,7 @@ class GroupPolicyAssignmentArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentNonComplianceMessageArgs']]]] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[str]] = None):
         """
@@ -37,6 +38,7 @@ class GroupPolicyAssignmentArgs:
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentNonComplianceMessageArgs']]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
         """
@@ -56,6 +58,8 @@ class GroupPolicyAssignmentArgs:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if non_compliance_messages is not None:
+            pulumi.set(__self__, "non_compliance_messages", non_compliance_messages)
         if not_scopes is not None:
             pulumi.set(__self__, "not_scopes", not_scopes)
         if parameters is not None:
@@ -170,6 +174,18 @@ class GroupPolicyAssignmentArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="nonComplianceMessages")
+    def non_compliance_messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentNonComplianceMessageArgs']]]]:
+        """
+        One or more `non_compliance_message` blocks as defined below.
+        """
+        return pulumi.get(self, "non_compliance_messages")
+
+    @non_compliance_messages.setter
+    def non_compliance_messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentNonComplianceMessageArgs']]]]):
+        pulumi.set(self, "non_compliance_messages", value)
+
+    @property
     @pulumi.getter(name="notScopes")
     def not_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -205,6 +221,7 @@ class _GroupPolicyAssignmentState:
                  management_group_id: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentNonComplianceMessageArgs']]]] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None):
@@ -218,6 +235,7 @@ class _GroupPolicyAssignmentState:
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentNonComplianceMessageArgs']]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
@@ -238,6 +256,8 @@ class _GroupPolicyAssignmentState:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if non_compliance_messages is not None:
+            pulumi.set(__self__, "non_compliance_messages", non_compliance_messages)
         if not_scopes is not None:
             pulumi.set(__self__, "not_scopes", not_scopes)
         if parameters is not None:
@@ -342,6 +362,18 @@ class _GroupPolicyAssignmentState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="nonComplianceMessages")
+    def non_compliance_messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentNonComplianceMessageArgs']]]]:
+        """
+        One or more `non_compliance_message` blocks as defined below.
+        """
+        return pulumi.get(self, "non_compliance_messages")
+
+    @non_compliance_messages.setter
+    def non_compliance_messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentNonComplianceMessageArgs']]]]):
+        pulumi.set(self, "non_compliance_messages", value)
+
+    @property
     @pulumi.getter(name="notScopes")
     def not_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -391,6 +423,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
                  management_group_id: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupPolicyAssignmentNonComplianceMessageArgs']]]]] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
@@ -444,6 +477,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupPolicyAssignmentNonComplianceMessageArgs']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
@@ -516,6 +550,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
                  management_group_id: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupPolicyAssignmentNonComplianceMessageArgs']]]]] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
@@ -541,6 +576,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
             __props__.__dict__["management_group_id"] = management_group_id
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
+            __props__.__dict__["non_compliance_messages"] = non_compliance_messages
             __props__.__dict__["not_scopes"] = not_scopes
             __props__.__dict__["parameters"] = parameters
             if policy_definition_id is None and not opts.urn:
@@ -564,6 +600,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
             management_group_id: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupPolicyAssignmentNonComplianceMessageArgs']]]]] = None,
             not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             parameters: Optional[pulumi.Input[str]] = None,
             policy_definition_id: Optional[pulumi.Input[str]] = None) -> 'GroupPolicyAssignment':
@@ -582,6 +619,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupPolicyAssignmentNonComplianceMessageArgs']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy. Changing this forces a new Management Group Policy Assignment to be created.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
@@ -598,6 +636,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         __props__.__dict__["management_group_id"] = management_group_id
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["name"] = name
+        __props__.__dict__["non_compliance_messages"] = non_compliance_messages
         __props__.__dict__["not_scopes"] = not_scopes
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["policy_definition_id"] = policy_definition_id
@@ -666,6 +705,14 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nonComplianceMessages")
+    def non_compliance_messages(self) -> pulumi.Output[Optional[Sequence['outputs.GroupPolicyAssignmentNonComplianceMessage']]]:
+        """
+        One or more `non_compliance_message` blocks as defined below.
+        """
+        return pulumi.get(self, "non_compliance_messages")
 
     @property
     @pulumi.getter(name="notScopes")

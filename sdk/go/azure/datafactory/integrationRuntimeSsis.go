@@ -40,7 +40,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = datafactory.NewIntegrationRuntimeSsis(ctx, "exampleIntegrationRuntimeSsis", &datafactory.IntegrationRuntimeSsisArgs{
-// 			DataFactoryName:   exampleFactory.Name,
+// 			DataFactoryId:     exampleFactory.ID(),
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			NodeSize:          pulumi.String("Standard_D8_v3"),
@@ -67,7 +67,11 @@ type IntegrationRuntimeSsis struct {
 	CatalogInfo IntegrationRuntimeSsisCatalogInfoPtrOutput `pulumi:"catalogInfo"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeSsisCustomSetupScriptPtrOutput `pulumi:"customSetupScript"`
-	// Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -104,9 +108,6 @@ func NewIntegrationRuntimeSsis(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DataFactoryName == nil {
-		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
-	}
 	if args.NodeSize == nil {
 		return nil, errors.New("invalid value for required argument 'NodeSize'")
 	}
@@ -139,7 +140,11 @@ type integrationRuntimeSsisState struct {
 	CatalogInfo *IntegrationRuntimeSsisCatalogInfo `pulumi:"catalogInfo"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript *IntegrationRuntimeSsisCustomSetupScript `pulumi:"customSetupScript"`
-	// Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
@@ -174,7 +179,11 @@ type IntegrationRuntimeSsisState struct {
 	CatalogInfo IntegrationRuntimeSsisCatalogInfoPtrInput
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeSsisCustomSetupScriptPtrInput
-	// Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
 	DataFactoryName pulumi.StringPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
@@ -213,8 +222,12 @@ type integrationRuntimeSsisArgs struct {
 	CatalogInfo *IntegrationRuntimeSsisCatalogInfo `pulumi:"catalogInfo"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript *IntegrationRuntimeSsisCustomSetupScript `pulumi:"customSetupScript"`
-	// Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
-	DataFactoryName string `pulumi:"dataFactoryName"`
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId *string `pulumi:"dataFactoryId"`
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -249,8 +262,12 @@ type IntegrationRuntimeSsisArgs struct {
 	CatalogInfo IntegrationRuntimeSsisCatalogInfoPtrInput
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeSsisCustomSetupScriptPtrInput
-	// Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
-	DataFactoryName pulumi.StringInput
+	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+	DataFactoryId pulumi.StringPtrInput
+	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+	//
+	// Deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+	DataFactoryName pulumi.StringPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
 	// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.

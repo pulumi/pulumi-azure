@@ -143,6 +143,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualNetworkPeering{}
 	case "azure:network/virtualWan:VirtualWan":
 		r = &VirtualWan{}
+	case "azure:network/vnpGatewayNatRule:VnpGatewayNatRule":
+		r = &VnpGatewayNatRule{}
 	case "azure:network/vpnGateway:VpnGateway":
 		r = &VpnGateway{}
 	case "azure:network/vpnGatewayConnection:VpnGatewayConnection":
@@ -467,6 +469,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/virtualWan",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/vnpGatewayNatRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

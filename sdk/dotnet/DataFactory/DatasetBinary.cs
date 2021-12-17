@@ -34,7 +34,7 @@ namespace Pulumi.Azure.DataFactory
     ///         var exampleLinkedServiceSftp = new Azure.DataFactory.LinkedServiceSftp("exampleLinkedServiceSftp", new Azure.DataFactory.LinkedServiceSftpArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             AuthenticationType = "Basic",
     ///             Host = "http://www.bing.com",
     ///             Port = 22,
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.DataFactory
     ///         var exampleDatasetBinary = new Azure.DataFactory.DatasetBinary("exampleDatasetBinary", new Azure.DataFactory.DatasetBinaryArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DataFactoryName = exampleFactory.Name,
+    ///             DataFactoryId = exampleFactory.Id,
     ///             LinkedServiceName = exampleLinkedServiceSftp.Name,
     ///             SftpServerLocation = new Azure.DataFactory.Inputs.DatasetBinarySftpServerLocationArgs
     ///             {
@@ -93,7 +93,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.DatasetBinaryCompression?> Compression { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Output("dataFactoryId")]
+        public Output<string> DataFactoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Output("dataFactoryName")]
         public Output<string> DataFactoryName { get; private set; } = null!;
@@ -230,10 +236,16 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.DatasetBinaryCompressionArgs>? Compression { get; set; }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
-        [Input("dataFactoryName", required: true)]
-        public Input<string> DataFactoryName { get; set; } = null!;
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryName")]
+        public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
         /// The description for the Data Factory Dataset.
@@ -334,7 +346,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.DatasetBinaryCompressionGetArgs>? Compression { get; set; }
 
         /// <summary>
-        /// The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
+        /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        /// </summary>
+        [Input("dataFactoryId")]
+        public Input<string>? DataFactoryId { get; set; }
+
+        /// <summary>
+        /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryName")]
         public Input<string>? DataFactoryName { get; set; }

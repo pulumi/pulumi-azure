@@ -26,6 +26,14 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? ConnectionMode;
         /// <summary>
+        /// A list of the egress Nat Rule Ids.
+        /// </summary>
+        public readonly ImmutableArray<string> EgressNatRuleIds;
+        /// <summary>
+        /// A list of the ingress Nat Rule Ids.
+        /// </summary>
+        public readonly ImmutableArray<string> IngressNatRuleIds;
+        /// <summary>
         /// One or more `ipsec_policy` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.VpnGatewayConnectionVpnLinkIpsecPolicy> IpsecPolicies;
@@ -70,6 +78,10 @@ namespace Pulumi.Azure.Network.Outputs
 
             string? connectionMode,
 
+            ImmutableArray<string> egressNatRuleIds,
+
+            ImmutableArray<string> ingressNatRuleIds,
+
             ImmutableArray<Outputs.VpnGatewayConnectionVpnLinkIpsecPolicy> ipsecPolicies,
 
             bool? localAzureIpAddressEnabled,
@@ -91,6 +103,8 @@ namespace Pulumi.Azure.Network.Outputs
             BandwidthMbps = bandwidthMbps;
             BgpEnabled = bgpEnabled;
             ConnectionMode = connectionMode;
+            EgressNatRuleIds = egressNatRuleIds;
+            IngressNatRuleIds = ingressNatRuleIds;
             IpsecPolicies = ipsecPolicies;
             LocalAzureIpAddressEnabled = localAzureIpAddressEnabled;
             Name = name;

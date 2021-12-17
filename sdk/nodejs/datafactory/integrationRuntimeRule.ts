@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleIntegrationRuntimeRule = new azure.datafactory.IntegrationRuntimeRule("exampleIntegrationRuntimeRule", {
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  * });
@@ -74,7 +74,13 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
      */
     public readonly coreCount!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    public readonly dataFactoryId!: pulumi.Output<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
@@ -118,6 +124,7 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
             inputs["cleanupEnabled"] = state ? state.cleanupEnabled : undefined;
             inputs["computeType"] = state ? state.computeType : undefined;
             inputs["coreCount"] = state ? state.coreCount : undefined;
+            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -127,15 +134,13 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
             inputs["virtualNetworkEnabled"] = state ? state.virtualNetworkEnabled : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeRuleArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFactoryName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["cleanupEnabled"] = args ? args.cleanupEnabled : undefined;
             inputs["computeType"] = args ? args.computeType : undefined;
             inputs["coreCount"] = args ? args.coreCount : undefined;
+            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -168,7 +173,13 @@ export interface IntegrationRuntimeRuleState {
      */
     coreCount?: pulumi.Input<number>;
     /**
-     * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     dataFactoryName?: pulumi.Input<string>;
     /**
@@ -214,9 +225,15 @@ export interface IntegrationRuntimeRuleArgs {
      */
     coreCount?: pulumi.Input<number>;
     /**
-     * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryName: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+     */
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */

@@ -56,6 +56,10 @@ export interface GetFunctionAppHostKeysResult {
      */
     readonly defaultFunctionKey: string;
     /**
+     * Function App resource's Durable Task Extension system key.
+     */
+    readonly durabletaskExtensionKey: string;
+    /**
      * Function App resource's Event Grid Extension Config system key.
      */
     readonly eventGridExtensionConfigKey: string;
@@ -72,6 +76,10 @@ export interface GetFunctionAppHostKeysResult {
     readonly name: string;
     readonly primaryKey: string;
     readonly resourceGroupName: string;
+    /**
+     * Function App resource's SignalR Extension system key.
+     */
+    readonly signalrExtensionKey: string;
 }
 
 export function getFunctionAppHostKeysOutput(args: GetFunctionAppHostKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionAppHostKeysResult> {

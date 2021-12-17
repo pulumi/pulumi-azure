@@ -24,6 +24,18 @@ namespace Pulumi.Azure.LogicApps.Inputs
             set => _allowedCallerIpAddressRanges = value;
         }
 
+        [Input("openAuthenticationPolicies")]
+        private InputList<Inputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs>? _openAuthenticationPolicies;
+
+        /// <summary>
+        /// A `open_authentication_policy` block as defined below.
+        /// </summary>
+        public InputList<Inputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs> OpenAuthenticationPolicies
+        {
+            get => _openAuthenticationPolicies ?? (_openAuthenticationPolicies = new InputList<Inputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs>());
+            set => _openAuthenticationPolicies = value;
+        }
+
         public WorkflowAccessControlTriggerArgs()
         {
         }

@@ -65,6 +65,9 @@ import * as utilities from "../utilities";
  *         remoteVolumeResourceId: azurerm_netapp_volume.example_primary.id,
  *         replicationFrequency: "10minutes",
  *     },
+ *     dataProtectionSnapshotPolicy: {
+ *         snapshotPolicyId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotpolicy1",
+ *     },
  * });
  * ```
  *
@@ -117,6 +120,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly dataProtectionReplication!: pulumi.Output<outputs.netapp.VolumeDataProtectionReplication | undefined>;
     /**
+     * A `dataProtectionSnapshotPolicy` block as defined below.
+     */
+    public readonly dataProtectionSnapshotPolicy!: pulumi.Output<outputs.netapp.VolumeDataProtectionSnapshotPolicy | undefined>;
+    /**
      * One or more `exportPolicyRule` block defined below.
      */
     public readonly exportPolicyRules!: pulumi.Output<outputs.netapp.VolumeExportPolicyRule[] | undefined>;
@@ -155,7 +162,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
      */
-    public readonly snapshotDirectoryVisible!: pulumi.Output<boolean | undefined>;
+    public readonly snapshotDirectoryVisible!: pulumi.Output<boolean>;
     /**
      * The maximum Storage Quota allowed for a file system in Gigabytes.
      */
@@ -193,6 +200,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["createFromSnapshotResourceId"] = state ? state.createFromSnapshotResourceId : undefined;
             inputs["dataProtectionReplication"] = state ? state.dataProtectionReplication : undefined;
+            inputs["dataProtectionSnapshotPolicy"] = state ? state.dataProtectionSnapshotPolicy : undefined;
             inputs["exportPolicyRules"] = state ? state.exportPolicyRules : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["mountIpAddresses"] = state ? state.mountIpAddresses : undefined;
@@ -234,6 +242,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["createFromSnapshotResourceId"] = args ? args.createFromSnapshotResourceId : undefined;
             inputs["dataProtectionReplication"] = args ? args.dataProtectionReplication : undefined;
+            inputs["dataProtectionSnapshotPolicy"] = args ? args.dataProtectionSnapshotPolicy : undefined;
             inputs["exportPolicyRules"] = args ? args.exportPolicyRules : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -273,6 +282,10 @@ export interface VolumeState {
      * A `dataProtectionReplication` block as defined below.
      */
     dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeDataProtectionReplication>;
+    /**
+     * A `dataProtectionSnapshotPolicy` block as defined below.
+     */
+    dataProtectionSnapshotPolicy?: pulumi.Input<inputs.netapp.VolumeDataProtectionSnapshotPolicy>;
     /**
      * One or more `exportPolicyRule` block defined below.
      */
@@ -351,6 +364,10 @@ export interface VolumeArgs {
      * A `dataProtectionReplication` block as defined below.
      */
     dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeDataProtectionReplication>;
+    /**
+     * A `dataProtectionSnapshotPolicy` block as defined below.
+     */
+    dataProtectionSnapshotPolicy?: pulumi.Input<inputs.netapp.VolumeDataProtectionSnapshotPolicy>;
     /**
      * One or more `exportPolicyRule` block defined below.
      */

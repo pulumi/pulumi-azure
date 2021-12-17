@@ -12162,6 +12162,2366 @@ func (o RegistryRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type RegistryTaskAgentSetting struct {
+	// The number of cores required for the Container Registry Task.
+	Cpu int `pulumi:"cpu"`
+}
+
+// RegistryTaskAgentSettingInput is an input type that accepts RegistryTaskAgentSettingArgs and RegistryTaskAgentSettingOutput values.
+// You can construct a concrete instance of `RegistryTaskAgentSettingInput` via:
+//
+//          RegistryTaskAgentSettingArgs{...}
+type RegistryTaskAgentSettingInput interface {
+	pulumi.Input
+
+	ToRegistryTaskAgentSettingOutput() RegistryTaskAgentSettingOutput
+	ToRegistryTaskAgentSettingOutputWithContext(context.Context) RegistryTaskAgentSettingOutput
+}
+
+type RegistryTaskAgentSettingArgs struct {
+	// The number of cores required for the Container Registry Task.
+	Cpu pulumi.IntInput `pulumi:"cpu"`
+}
+
+func (RegistryTaskAgentSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskAgentSetting)(nil)).Elem()
+}
+
+func (i RegistryTaskAgentSettingArgs) ToRegistryTaskAgentSettingOutput() RegistryTaskAgentSettingOutput {
+	return i.ToRegistryTaskAgentSettingOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskAgentSettingArgs) ToRegistryTaskAgentSettingOutputWithContext(ctx context.Context) RegistryTaskAgentSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskAgentSettingOutput)
+}
+
+func (i RegistryTaskAgentSettingArgs) ToRegistryTaskAgentSettingPtrOutput() RegistryTaskAgentSettingPtrOutput {
+	return i.ToRegistryTaskAgentSettingPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskAgentSettingArgs) ToRegistryTaskAgentSettingPtrOutputWithContext(ctx context.Context) RegistryTaskAgentSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskAgentSettingOutput).ToRegistryTaskAgentSettingPtrOutputWithContext(ctx)
+}
+
+// RegistryTaskAgentSettingPtrInput is an input type that accepts RegistryTaskAgentSettingArgs, RegistryTaskAgentSettingPtr and RegistryTaskAgentSettingPtrOutput values.
+// You can construct a concrete instance of `RegistryTaskAgentSettingPtrInput` via:
+//
+//          RegistryTaskAgentSettingArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryTaskAgentSettingPtrInput interface {
+	pulumi.Input
+
+	ToRegistryTaskAgentSettingPtrOutput() RegistryTaskAgentSettingPtrOutput
+	ToRegistryTaskAgentSettingPtrOutputWithContext(context.Context) RegistryTaskAgentSettingPtrOutput
+}
+
+type registryTaskAgentSettingPtrType RegistryTaskAgentSettingArgs
+
+func RegistryTaskAgentSettingPtr(v *RegistryTaskAgentSettingArgs) RegistryTaskAgentSettingPtrInput {
+	return (*registryTaskAgentSettingPtrType)(v)
+}
+
+func (*registryTaskAgentSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskAgentSetting)(nil)).Elem()
+}
+
+func (i *registryTaskAgentSettingPtrType) ToRegistryTaskAgentSettingPtrOutput() RegistryTaskAgentSettingPtrOutput {
+	return i.ToRegistryTaskAgentSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *registryTaskAgentSettingPtrType) ToRegistryTaskAgentSettingPtrOutputWithContext(ctx context.Context) RegistryTaskAgentSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskAgentSettingPtrOutput)
+}
+
+type RegistryTaskAgentSettingOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskAgentSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskAgentSetting)(nil)).Elem()
+}
+
+func (o RegistryTaskAgentSettingOutput) ToRegistryTaskAgentSettingOutput() RegistryTaskAgentSettingOutput {
+	return o
+}
+
+func (o RegistryTaskAgentSettingOutput) ToRegistryTaskAgentSettingOutputWithContext(ctx context.Context) RegistryTaskAgentSettingOutput {
+	return o
+}
+
+func (o RegistryTaskAgentSettingOutput) ToRegistryTaskAgentSettingPtrOutput() RegistryTaskAgentSettingPtrOutput {
+	return o.ToRegistryTaskAgentSettingPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryTaskAgentSettingOutput) ToRegistryTaskAgentSettingPtrOutputWithContext(ctx context.Context) RegistryTaskAgentSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskAgentSetting) *RegistryTaskAgentSetting {
+		return &v
+	}).(RegistryTaskAgentSettingPtrOutput)
+}
+
+// The number of cores required for the Container Registry Task.
+func (o RegistryTaskAgentSettingOutput) Cpu() pulumi.IntOutput {
+	return o.ApplyT(func(v RegistryTaskAgentSetting) int { return v.Cpu }).(pulumi.IntOutput)
+}
+
+type RegistryTaskAgentSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskAgentSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskAgentSetting)(nil)).Elem()
+}
+
+func (o RegistryTaskAgentSettingPtrOutput) ToRegistryTaskAgentSettingPtrOutput() RegistryTaskAgentSettingPtrOutput {
+	return o
+}
+
+func (o RegistryTaskAgentSettingPtrOutput) ToRegistryTaskAgentSettingPtrOutputWithContext(ctx context.Context) RegistryTaskAgentSettingPtrOutput {
+	return o
+}
+
+func (o RegistryTaskAgentSettingPtrOutput) Elem() RegistryTaskAgentSettingOutput {
+	return o.ApplyT(func(v *RegistryTaskAgentSetting) RegistryTaskAgentSetting {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryTaskAgentSetting
+		return ret
+	}).(RegistryTaskAgentSettingOutput)
+}
+
+// The number of cores required for the Container Registry Task.
+func (o RegistryTaskAgentSettingPtrOutput) Cpu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskAgentSetting) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Cpu
+	}).(pulumi.IntPtrOutput)
+}
+
+type RegistryTaskBaseImageTrigger struct {
+	// Should the trigger be enabled? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// The name which should be used for this trigger.
+	Name string `pulumi:"name"`
+	// The type of the trigger. Possible values are `All` and `Runtime`.
+	Type string `pulumi:"type"`
+	// The endpoint URL for receiving the trigger.
+	UpdateTriggerEndpoint *string `pulumi:"updateTriggerEndpoint"`
+	// Type of payload body for the trigger. Possible values are `Default` and `Token`.
+	UpdateTriggerPayloadType *string `pulumi:"updateTriggerPayloadType"`
+}
+
+// RegistryTaskBaseImageTriggerInput is an input type that accepts RegistryTaskBaseImageTriggerArgs and RegistryTaskBaseImageTriggerOutput values.
+// You can construct a concrete instance of `RegistryTaskBaseImageTriggerInput` via:
+//
+//          RegistryTaskBaseImageTriggerArgs{...}
+type RegistryTaskBaseImageTriggerInput interface {
+	pulumi.Input
+
+	ToRegistryTaskBaseImageTriggerOutput() RegistryTaskBaseImageTriggerOutput
+	ToRegistryTaskBaseImageTriggerOutputWithContext(context.Context) RegistryTaskBaseImageTriggerOutput
+}
+
+type RegistryTaskBaseImageTriggerArgs struct {
+	// Should the trigger be enabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The name which should be used for this trigger.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the trigger. Possible values are `All` and `Runtime`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The endpoint URL for receiving the trigger.
+	UpdateTriggerEndpoint pulumi.StringPtrInput `pulumi:"updateTriggerEndpoint"`
+	// Type of payload body for the trigger. Possible values are `Default` and `Token`.
+	UpdateTriggerPayloadType pulumi.StringPtrInput `pulumi:"updateTriggerPayloadType"`
+}
+
+func (RegistryTaskBaseImageTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskBaseImageTrigger)(nil)).Elem()
+}
+
+func (i RegistryTaskBaseImageTriggerArgs) ToRegistryTaskBaseImageTriggerOutput() RegistryTaskBaseImageTriggerOutput {
+	return i.ToRegistryTaskBaseImageTriggerOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskBaseImageTriggerArgs) ToRegistryTaskBaseImageTriggerOutputWithContext(ctx context.Context) RegistryTaskBaseImageTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskBaseImageTriggerOutput)
+}
+
+func (i RegistryTaskBaseImageTriggerArgs) ToRegistryTaskBaseImageTriggerPtrOutput() RegistryTaskBaseImageTriggerPtrOutput {
+	return i.ToRegistryTaskBaseImageTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskBaseImageTriggerArgs) ToRegistryTaskBaseImageTriggerPtrOutputWithContext(ctx context.Context) RegistryTaskBaseImageTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskBaseImageTriggerOutput).ToRegistryTaskBaseImageTriggerPtrOutputWithContext(ctx)
+}
+
+// RegistryTaskBaseImageTriggerPtrInput is an input type that accepts RegistryTaskBaseImageTriggerArgs, RegistryTaskBaseImageTriggerPtr and RegistryTaskBaseImageTriggerPtrOutput values.
+// You can construct a concrete instance of `RegistryTaskBaseImageTriggerPtrInput` via:
+//
+//          RegistryTaskBaseImageTriggerArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryTaskBaseImageTriggerPtrInput interface {
+	pulumi.Input
+
+	ToRegistryTaskBaseImageTriggerPtrOutput() RegistryTaskBaseImageTriggerPtrOutput
+	ToRegistryTaskBaseImageTriggerPtrOutputWithContext(context.Context) RegistryTaskBaseImageTriggerPtrOutput
+}
+
+type registryTaskBaseImageTriggerPtrType RegistryTaskBaseImageTriggerArgs
+
+func RegistryTaskBaseImageTriggerPtr(v *RegistryTaskBaseImageTriggerArgs) RegistryTaskBaseImageTriggerPtrInput {
+	return (*registryTaskBaseImageTriggerPtrType)(v)
+}
+
+func (*registryTaskBaseImageTriggerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskBaseImageTrigger)(nil)).Elem()
+}
+
+func (i *registryTaskBaseImageTriggerPtrType) ToRegistryTaskBaseImageTriggerPtrOutput() RegistryTaskBaseImageTriggerPtrOutput {
+	return i.ToRegistryTaskBaseImageTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i *registryTaskBaseImageTriggerPtrType) ToRegistryTaskBaseImageTriggerPtrOutputWithContext(ctx context.Context) RegistryTaskBaseImageTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskBaseImageTriggerPtrOutput)
+}
+
+type RegistryTaskBaseImageTriggerOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskBaseImageTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskBaseImageTrigger)(nil)).Elem()
+}
+
+func (o RegistryTaskBaseImageTriggerOutput) ToRegistryTaskBaseImageTriggerOutput() RegistryTaskBaseImageTriggerOutput {
+	return o
+}
+
+func (o RegistryTaskBaseImageTriggerOutput) ToRegistryTaskBaseImageTriggerOutputWithContext(ctx context.Context) RegistryTaskBaseImageTriggerOutput {
+	return o
+}
+
+func (o RegistryTaskBaseImageTriggerOutput) ToRegistryTaskBaseImageTriggerPtrOutput() RegistryTaskBaseImageTriggerPtrOutput {
+	return o.ToRegistryTaskBaseImageTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryTaskBaseImageTriggerOutput) ToRegistryTaskBaseImageTriggerPtrOutputWithContext(ctx context.Context) RegistryTaskBaseImageTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskBaseImageTrigger) *RegistryTaskBaseImageTrigger {
+		return &v
+	}).(RegistryTaskBaseImageTriggerPtrOutput)
+}
+
+// Should the trigger be enabled? Defaults to `true`.
+func (o RegistryTaskBaseImageTriggerOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RegistryTaskBaseImageTrigger) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name which should be used for this trigger.
+func (o RegistryTaskBaseImageTriggerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskBaseImageTrigger) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the trigger. Possible values are `All` and `Runtime`.
+func (o RegistryTaskBaseImageTriggerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskBaseImageTrigger) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The endpoint URL for receiving the trigger.
+func (o RegistryTaskBaseImageTriggerOutput) UpdateTriggerEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskBaseImageTrigger) *string { return v.UpdateTriggerEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Type of payload body for the trigger. Possible values are `Default` and `Token`.
+func (o RegistryTaskBaseImageTriggerOutput) UpdateTriggerPayloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskBaseImageTrigger) *string { return v.UpdateTriggerPayloadType }).(pulumi.StringPtrOutput)
+}
+
+type RegistryTaskBaseImageTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskBaseImageTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskBaseImageTrigger)(nil)).Elem()
+}
+
+func (o RegistryTaskBaseImageTriggerPtrOutput) ToRegistryTaskBaseImageTriggerPtrOutput() RegistryTaskBaseImageTriggerPtrOutput {
+	return o
+}
+
+func (o RegistryTaskBaseImageTriggerPtrOutput) ToRegistryTaskBaseImageTriggerPtrOutputWithContext(ctx context.Context) RegistryTaskBaseImageTriggerPtrOutput {
+	return o
+}
+
+func (o RegistryTaskBaseImageTriggerPtrOutput) Elem() RegistryTaskBaseImageTriggerOutput {
+	return o.ApplyT(func(v *RegistryTaskBaseImageTrigger) RegistryTaskBaseImageTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryTaskBaseImageTrigger
+		return ret
+	}).(RegistryTaskBaseImageTriggerOutput)
+}
+
+// Should the trigger be enabled? Defaults to `true`.
+func (o RegistryTaskBaseImageTriggerPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskBaseImageTrigger) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name which should be used for this trigger.
+func (o RegistryTaskBaseImageTriggerPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskBaseImageTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the trigger. Possible values are `All` and `Runtime`.
+func (o RegistryTaskBaseImageTriggerPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskBaseImageTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint URL for receiving the trigger.
+func (o RegistryTaskBaseImageTriggerPtrOutput) UpdateTriggerEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskBaseImageTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTriggerEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of payload body for the trigger. Possible values are `Default` and `Token`.
+func (o RegistryTaskBaseImageTriggerPtrOutput) UpdateTriggerPayloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskBaseImageTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateTriggerPayloadType
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryTaskDockerStep struct {
+	// Specifies a map of arguments to be used when executing this step.
+	Arguments map[string]string `pulumi:"arguments"`
+	// Should the image cache be enabled? Defaults to `true`.
+	CacheEnabled *bool `pulumi:"cacheEnabled"`
+	// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+	ContextAccessToken string `pulumi:"contextAccessToken"`
+	// The URL (absolute or relative) of the source context for this step.
+	ContextPath string `pulumi:"contextPath"`
+	// The  Dockerfile path relative to the source context.
+	DockerfilePath string `pulumi:"dockerfilePath"`
+	// Specifies a list of fully qualified image names including the repository and tag.
+	ImageNames []string `pulumi:"imageNames"`
+	// Should the image built be pushed to the registry or not? Defaults to `true`.
+	PushEnabled *bool `pulumi:"pushEnabled"`
+	// Specifies a map of *secret* arguments to be used when executing this step.
+	SecretArguments map[string]string `pulumi:"secretArguments"`
+	// The name of the target build stage for the docker build.
+	Target *string `pulumi:"target"`
+}
+
+// RegistryTaskDockerStepInput is an input type that accepts RegistryTaskDockerStepArgs and RegistryTaskDockerStepOutput values.
+// You can construct a concrete instance of `RegistryTaskDockerStepInput` via:
+//
+//          RegistryTaskDockerStepArgs{...}
+type RegistryTaskDockerStepInput interface {
+	pulumi.Input
+
+	ToRegistryTaskDockerStepOutput() RegistryTaskDockerStepOutput
+	ToRegistryTaskDockerStepOutputWithContext(context.Context) RegistryTaskDockerStepOutput
+}
+
+type RegistryTaskDockerStepArgs struct {
+	// Specifies a map of arguments to be used when executing this step.
+	Arguments pulumi.StringMapInput `pulumi:"arguments"`
+	// Should the image cache be enabled? Defaults to `true`.
+	CacheEnabled pulumi.BoolPtrInput `pulumi:"cacheEnabled"`
+	// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+	ContextAccessToken pulumi.StringInput `pulumi:"contextAccessToken"`
+	// The URL (absolute or relative) of the source context for this step.
+	ContextPath pulumi.StringInput `pulumi:"contextPath"`
+	// The  Dockerfile path relative to the source context.
+	DockerfilePath pulumi.StringInput `pulumi:"dockerfilePath"`
+	// Specifies a list of fully qualified image names including the repository and tag.
+	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
+	// Should the image built be pushed to the registry or not? Defaults to `true`.
+	PushEnabled pulumi.BoolPtrInput `pulumi:"pushEnabled"`
+	// Specifies a map of *secret* arguments to be used when executing this step.
+	SecretArguments pulumi.StringMapInput `pulumi:"secretArguments"`
+	// The name of the target build stage for the docker build.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (RegistryTaskDockerStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskDockerStep)(nil)).Elem()
+}
+
+func (i RegistryTaskDockerStepArgs) ToRegistryTaskDockerStepOutput() RegistryTaskDockerStepOutput {
+	return i.ToRegistryTaskDockerStepOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskDockerStepArgs) ToRegistryTaskDockerStepOutputWithContext(ctx context.Context) RegistryTaskDockerStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskDockerStepOutput)
+}
+
+func (i RegistryTaskDockerStepArgs) ToRegistryTaskDockerStepPtrOutput() RegistryTaskDockerStepPtrOutput {
+	return i.ToRegistryTaskDockerStepPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskDockerStepArgs) ToRegistryTaskDockerStepPtrOutputWithContext(ctx context.Context) RegistryTaskDockerStepPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskDockerStepOutput).ToRegistryTaskDockerStepPtrOutputWithContext(ctx)
+}
+
+// RegistryTaskDockerStepPtrInput is an input type that accepts RegistryTaskDockerStepArgs, RegistryTaskDockerStepPtr and RegistryTaskDockerStepPtrOutput values.
+// You can construct a concrete instance of `RegistryTaskDockerStepPtrInput` via:
+//
+//          RegistryTaskDockerStepArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryTaskDockerStepPtrInput interface {
+	pulumi.Input
+
+	ToRegistryTaskDockerStepPtrOutput() RegistryTaskDockerStepPtrOutput
+	ToRegistryTaskDockerStepPtrOutputWithContext(context.Context) RegistryTaskDockerStepPtrOutput
+}
+
+type registryTaskDockerStepPtrType RegistryTaskDockerStepArgs
+
+func RegistryTaskDockerStepPtr(v *RegistryTaskDockerStepArgs) RegistryTaskDockerStepPtrInput {
+	return (*registryTaskDockerStepPtrType)(v)
+}
+
+func (*registryTaskDockerStepPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskDockerStep)(nil)).Elem()
+}
+
+func (i *registryTaskDockerStepPtrType) ToRegistryTaskDockerStepPtrOutput() RegistryTaskDockerStepPtrOutput {
+	return i.ToRegistryTaskDockerStepPtrOutputWithContext(context.Background())
+}
+
+func (i *registryTaskDockerStepPtrType) ToRegistryTaskDockerStepPtrOutputWithContext(ctx context.Context) RegistryTaskDockerStepPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskDockerStepPtrOutput)
+}
+
+type RegistryTaskDockerStepOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskDockerStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskDockerStep)(nil)).Elem()
+}
+
+func (o RegistryTaskDockerStepOutput) ToRegistryTaskDockerStepOutput() RegistryTaskDockerStepOutput {
+	return o
+}
+
+func (o RegistryTaskDockerStepOutput) ToRegistryTaskDockerStepOutputWithContext(ctx context.Context) RegistryTaskDockerStepOutput {
+	return o
+}
+
+func (o RegistryTaskDockerStepOutput) ToRegistryTaskDockerStepPtrOutput() RegistryTaskDockerStepPtrOutput {
+	return o.ToRegistryTaskDockerStepPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryTaskDockerStepOutput) ToRegistryTaskDockerStepPtrOutputWithContext(ctx context.Context) RegistryTaskDockerStepPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskDockerStep) *RegistryTaskDockerStep {
+		return &v
+	}).(RegistryTaskDockerStepPtrOutput)
+}
+
+// Specifies a map of arguments to be used when executing this step.
+func (o RegistryTaskDockerStepOutput) Arguments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RegistryTaskDockerStep) map[string]string { return v.Arguments }).(pulumi.StringMapOutput)
+}
+
+// Should the image cache be enabled? Defaults to `true`.
+func (o RegistryTaskDockerStepOutput) CacheEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RegistryTaskDockerStep) *bool { return v.CacheEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+func (o RegistryTaskDockerStepOutput) ContextAccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskDockerStep) string { return v.ContextAccessToken }).(pulumi.StringOutput)
+}
+
+// The URL (absolute or relative) of the source context for this step.
+func (o RegistryTaskDockerStepOutput) ContextPath() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskDockerStep) string { return v.ContextPath }).(pulumi.StringOutput)
+}
+
+// The  Dockerfile path relative to the source context.
+func (o RegistryTaskDockerStepOutput) DockerfilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskDockerStep) string { return v.DockerfilePath }).(pulumi.StringOutput)
+}
+
+// Specifies a list of fully qualified image names including the repository and tag.
+func (o RegistryTaskDockerStepOutput) ImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RegistryTaskDockerStep) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
+}
+
+// Should the image built be pushed to the registry or not? Defaults to `true`.
+func (o RegistryTaskDockerStepOutput) PushEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RegistryTaskDockerStep) *bool { return v.PushEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a map of *secret* arguments to be used when executing this step.
+func (o RegistryTaskDockerStepOutput) SecretArguments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RegistryTaskDockerStep) map[string]string { return v.SecretArguments }).(pulumi.StringMapOutput)
+}
+
+// The name of the target build stage for the docker build.
+func (o RegistryTaskDockerStepOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskDockerStep) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type RegistryTaskDockerStepPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskDockerStepPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskDockerStep)(nil)).Elem()
+}
+
+func (o RegistryTaskDockerStepPtrOutput) ToRegistryTaskDockerStepPtrOutput() RegistryTaskDockerStepPtrOutput {
+	return o
+}
+
+func (o RegistryTaskDockerStepPtrOutput) ToRegistryTaskDockerStepPtrOutputWithContext(ctx context.Context) RegistryTaskDockerStepPtrOutput {
+	return o
+}
+
+func (o RegistryTaskDockerStepPtrOutput) Elem() RegistryTaskDockerStepOutput {
+	return o.ApplyT(func(v *RegistryTaskDockerStep) RegistryTaskDockerStep {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryTaskDockerStep
+		return ret
+	}).(RegistryTaskDockerStepOutput)
+}
+
+// Specifies a map of arguments to be used when executing this step.
+func (o RegistryTaskDockerStepPtrOutput) Arguments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RegistryTaskDockerStep) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Arguments
+	}).(pulumi.StringMapOutput)
+}
+
+// Should the image cache be enabled? Defaults to `true`.
+func (o RegistryTaskDockerStepPtrOutput) CacheEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskDockerStep) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CacheEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+func (o RegistryTaskDockerStepPtrOutput) ContextAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskDockerStep) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContextAccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL (absolute or relative) of the source context for this step.
+func (o RegistryTaskDockerStepPtrOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskDockerStep) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContextPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The  Dockerfile path relative to the source context.
+func (o RegistryTaskDockerStepPtrOutput) DockerfilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskDockerStep) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DockerfilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of fully qualified image names including the repository and tag.
+func (o RegistryTaskDockerStepPtrOutput) ImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RegistryTaskDockerStep) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Should the image built be pushed to the registry or not? Defaults to `true`.
+func (o RegistryTaskDockerStepPtrOutput) PushEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskDockerStep) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PushEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a map of *secret* arguments to be used when executing this step.
+func (o RegistryTaskDockerStepPtrOutput) SecretArguments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RegistryTaskDockerStep) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArguments
+	}).(pulumi.StringMapOutput)
+}
+
+// The name of the target build stage for the docker build.
+func (o RegistryTaskDockerStepPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskDockerStep) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryTaskEncodedStep struct {
+	// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+	ContextAccessToken *string `pulumi:"contextAccessToken"`
+	// The URL (absolute or relative) of the source context for this step.
+	ContextPath *string `pulumi:"contextPath"`
+	// Specifies a map of secret values that can be passed when running a task.
+	SecretValues map[string]string `pulumi:"secretValues"`
+	// The (optionally base64 encoded) content of the build template.
+	TaskContent string `pulumi:"taskContent"`
+	// The (optionally base64 encoded) content of the build parameters.
+	ValueContent *string `pulumi:"valueContent"`
+	// Specifies a map of values that can be passed when running a task.
+	Values map[string]string `pulumi:"values"`
+}
+
+// RegistryTaskEncodedStepInput is an input type that accepts RegistryTaskEncodedStepArgs and RegistryTaskEncodedStepOutput values.
+// You can construct a concrete instance of `RegistryTaskEncodedStepInput` via:
+//
+//          RegistryTaskEncodedStepArgs{...}
+type RegistryTaskEncodedStepInput interface {
+	pulumi.Input
+
+	ToRegistryTaskEncodedStepOutput() RegistryTaskEncodedStepOutput
+	ToRegistryTaskEncodedStepOutputWithContext(context.Context) RegistryTaskEncodedStepOutput
+}
+
+type RegistryTaskEncodedStepArgs struct {
+	// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
+	// The URL (absolute or relative) of the source context for this step.
+	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
+	// Specifies a map of secret values that can be passed when running a task.
+	SecretValues pulumi.StringMapInput `pulumi:"secretValues"`
+	// The (optionally base64 encoded) content of the build template.
+	TaskContent pulumi.StringInput `pulumi:"taskContent"`
+	// The (optionally base64 encoded) content of the build parameters.
+	ValueContent pulumi.StringPtrInput `pulumi:"valueContent"`
+	// Specifies a map of values that can be passed when running a task.
+	Values pulumi.StringMapInput `pulumi:"values"`
+}
+
+func (RegistryTaskEncodedStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskEncodedStep)(nil)).Elem()
+}
+
+func (i RegistryTaskEncodedStepArgs) ToRegistryTaskEncodedStepOutput() RegistryTaskEncodedStepOutput {
+	return i.ToRegistryTaskEncodedStepOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskEncodedStepArgs) ToRegistryTaskEncodedStepOutputWithContext(ctx context.Context) RegistryTaskEncodedStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskEncodedStepOutput)
+}
+
+func (i RegistryTaskEncodedStepArgs) ToRegistryTaskEncodedStepPtrOutput() RegistryTaskEncodedStepPtrOutput {
+	return i.ToRegistryTaskEncodedStepPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskEncodedStepArgs) ToRegistryTaskEncodedStepPtrOutputWithContext(ctx context.Context) RegistryTaskEncodedStepPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskEncodedStepOutput).ToRegistryTaskEncodedStepPtrOutputWithContext(ctx)
+}
+
+// RegistryTaskEncodedStepPtrInput is an input type that accepts RegistryTaskEncodedStepArgs, RegistryTaskEncodedStepPtr and RegistryTaskEncodedStepPtrOutput values.
+// You can construct a concrete instance of `RegistryTaskEncodedStepPtrInput` via:
+//
+//          RegistryTaskEncodedStepArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryTaskEncodedStepPtrInput interface {
+	pulumi.Input
+
+	ToRegistryTaskEncodedStepPtrOutput() RegistryTaskEncodedStepPtrOutput
+	ToRegistryTaskEncodedStepPtrOutputWithContext(context.Context) RegistryTaskEncodedStepPtrOutput
+}
+
+type registryTaskEncodedStepPtrType RegistryTaskEncodedStepArgs
+
+func RegistryTaskEncodedStepPtr(v *RegistryTaskEncodedStepArgs) RegistryTaskEncodedStepPtrInput {
+	return (*registryTaskEncodedStepPtrType)(v)
+}
+
+func (*registryTaskEncodedStepPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskEncodedStep)(nil)).Elem()
+}
+
+func (i *registryTaskEncodedStepPtrType) ToRegistryTaskEncodedStepPtrOutput() RegistryTaskEncodedStepPtrOutput {
+	return i.ToRegistryTaskEncodedStepPtrOutputWithContext(context.Background())
+}
+
+func (i *registryTaskEncodedStepPtrType) ToRegistryTaskEncodedStepPtrOutputWithContext(ctx context.Context) RegistryTaskEncodedStepPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskEncodedStepPtrOutput)
+}
+
+type RegistryTaskEncodedStepOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskEncodedStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskEncodedStep)(nil)).Elem()
+}
+
+func (o RegistryTaskEncodedStepOutput) ToRegistryTaskEncodedStepOutput() RegistryTaskEncodedStepOutput {
+	return o
+}
+
+func (o RegistryTaskEncodedStepOutput) ToRegistryTaskEncodedStepOutputWithContext(ctx context.Context) RegistryTaskEncodedStepOutput {
+	return o
+}
+
+func (o RegistryTaskEncodedStepOutput) ToRegistryTaskEncodedStepPtrOutput() RegistryTaskEncodedStepPtrOutput {
+	return o.ToRegistryTaskEncodedStepPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryTaskEncodedStepOutput) ToRegistryTaskEncodedStepPtrOutputWithContext(ctx context.Context) RegistryTaskEncodedStepPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskEncodedStep) *RegistryTaskEncodedStep {
+		return &v
+	}).(RegistryTaskEncodedStepPtrOutput)
+}
+
+// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+func (o RegistryTaskEncodedStepOutput) ContextAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskEncodedStep) *string { return v.ContextAccessToken }).(pulumi.StringPtrOutput)
+}
+
+// The URL (absolute or relative) of the source context for this step.
+func (o RegistryTaskEncodedStepOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskEncodedStep) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a map of secret values that can be passed when running a task.
+func (o RegistryTaskEncodedStepOutput) SecretValues() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RegistryTaskEncodedStep) map[string]string { return v.SecretValues }).(pulumi.StringMapOutput)
+}
+
+// The (optionally base64 encoded) content of the build template.
+func (o RegistryTaskEncodedStepOutput) TaskContent() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskEncodedStep) string { return v.TaskContent }).(pulumi.StringOutput)
+}
+
+// The (optionally base64 encoded) content of the build parameters.
+func (o RegistryTaskEncodedStepOutput) ValueContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskEncodedStep) *string { return v.ValueContent }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a map of values that can be passed when running a task.
+func (o RegistryTaskEncodedStepOutput) Values() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RegistryTaskEncodedStep) map[string]string { return v.Values }).(pulumi.StringMapOutput)
+}
+
+type RegistryTaskEncodedStepPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskEncodedStepPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskEncodedStep)(nil)).Elem()
+}
+
+func (o RegistryTaskEncodedStepPtrOutput) ToRegistryTaskEncodedStepPtrOutput() RegistryTaskEncodedStepPtrOutput {
+	return o
+}
+
+func (o RegistryTaskEncodedStepPtrOutput) ToRegistryTaskEncodedStepPtrOutputWithContext(ctx context.Context) RegistryTaskEncodedStepPtrOutput {
+	return o
+}
+
+func (o RegistryTaskEncodedStepPtrOutput) Elem() RegistryTaskEncodedStepOutput {
+	return o.ApplyT(func(v *RegistryTaskEncodedStep) RegistryTaskEncodedStep {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryTaskEncodedStep
+		return ret
+	}).(RegistryTaskEncodedStepOutput)
+}
+
+// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+func (o RegistryTaskEncodedStepPtrOutput) ContextAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskEncodedStep) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContextAccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL (absolute or relative) of the source context for this step.
+func (o RegistryTaskEncodedStepPtrOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskEncodedStep) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContextPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a map of secret values that can be passed when running a task.
+func (o RegistryTaskEncodedStepPtrOutput) SecretValues() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RegistryTaskEncodedStep) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretValues
+	}).(pulumi.StringMapOutput)
+}
+
+// The (optionally base64 encoded) content of the build template.
+func (o RegistryTaskEncodedStepPtrOutput) TaskContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskEncodedStep) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TaskContent
+	}).(pulumi.StringPtrOutput)
+}
+
+// The (optionally base64 encoded) content of the build parameters.
+func (o RegistryTaskEncodedStepPtrOutput) ValueContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskEncodedStep) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValueContent
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a map of values that can be passed when running a task.
+func (o RegistryTaskEncodedStepPtrOutput) Values() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RegistryTaskEncodedStep) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringMapOutput)
+}
+
+type RegistryTaskFileStep struct {
+	// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+	ContextAccessToken *string `pulumi:"contextAccessToken"`
+	// The URL (absolute or relative) of the source context for this step.
+	ContextPath *string `pulumi:"contextPath"`
+	// Specifies a map of secret values that can be passed when running a task.
+	SecretValues map[string]string `pulumi:"secretValues"`
+	// The task template file path relative to the source context.
+	TaskFilePath string `pulumi:"taskFilePath"`
+	// The parameters file path relative to the source context.
+	ValueFilePath *string `pulumi:"valueFilePath"`
+	// Specifies a map of values that can be passed when running a task.
+	Values map[string]string `pulumi:"values"`
+}
+
+// RegistryTaskFileStepInput is an input type that accepts RegistryTaskFileStepArgs and RegistryTaskFileStepOutput values.
+// You can construct a concrete instance of `RegistryTaskFileStepInput` via:
+//
+//          RegistryTaskFileStepArgs{...}
+type RegistryTaskFileStepInput interface {
+	pulumi.Input
+
+	ToRegistryTaskFileStepOutput() RegistryTaskFileStepOutput
+	ToRegistryTaskFileStepOutputWithContext(context.Context) RegistryTaskFileStepOutput
+}
+
+type RegistryTaskFileStepArgs struct {
+	// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
+	// The URL (absolute or relative) of the source context for this step.
+	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
+	// Specifies a map of secret values that can be passed when running a task.
+	SecretValues pulumi.StringMapInput `pulumi:"secretValues"`
+	// The task template file path relative to the source context.
+	TaskFilePath pulumi.StringInput `pulumi:"taskFilePath"`
+	// The parameters file path relative to the source context.
+	ValueFilePath pulumi.StringPtrInput `pulumi:"valueFilePath"`
+	// Specifies a map of values that can be passed when running a task.
+	Values pulumi.StringMapInput `pulumi:"values"`
+}
+
+func (RegistryTaskFileStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskFileStep)(nil)).Elem()
+}
+
+func (i RegistryTaskFileStepArgs) ToRegistryTaskFileStepOutput() RegistryTaskFileStepOutput {
+	return i.ToRegistryTaskFileStepOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskFileStepArgs) ToRegistryTaskFileStepOutputWithContext(ctx context.Context) RegistryTaskFileStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskFileStepOutput)
+}
+
+func (i RegistryTaskFileStepArgs) ToRegistryTaskFileStepPtrOutput() RegistryTaskFileStepPtrOutput {
+	return i.ToRegistryTaskFileStepPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskFileStepArgs) ToRegistryTaskFileStepPtrOutputWithContext(ctx context.Context) RegistryTaskFileStepPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskFileStepOutput).ToRegistryTaskFileStepPtrOutputWithContext(ctx)
+}
+
+// RegistryTaskFileStepPtrInput is an input type that accepts RegistryTaskFileStepArgs, RegistryTaskFileStepPtr and RegistryTaskFileStepPtrOutput values.
+// You can construct a concrete instance of `RegistryTaskFileStepPtrInput` via:
+//
+//          RegistryTaskFileStepArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryTaskFileStepPtrInput interface {
+	pulumi.Input
+
+	ToRegistryTaskFileStepPtrOutput() RegistryTaskFileStepPtrOutput
+	ToRegistryTaskFileStepPtrOutputWithContext(context.Context) RegistryTaskFileStepPtrOutput
+}
+
+type registryTaskFileStepPtrType RegistryTaskFileStepArgs
+
+func RegistryTaskFileStepPtr(v *RegistryTaskFileStepArgs) RegistryTaskFileStepPtrInput {
+	return (*registryTaskFileStepPtrType)(v)
+}
+
+func (*registryTaskFileStepPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskFileStep)(nil)).Elem()
+}
+
+func (i *registryTaskFileStepPtrType) ToRegistryTaskFileStepPtrOutput() RegistryTaskFileStepPtrOutput {
+	return i.ToRegistryTaskFileStepPtrOutputWithContext(context.Background())
+}
+
+func (i *registryTaskFileStepPtrType) ToRegistryTaskFileStepPtrOutputWithContext(ctx context.Context) RegistryTaskFileStepPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskFileStepPtrOutput)
+}
+
+type RegistryTaskFileStepOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskFileStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskFileStep)(nil)).Elem()
+}
+
+func (o RegistryTaskFileStepOutput) ToRegistryTaskFileStepOutput() RegistryTaskFileStepOutput {
+	return o
+}
+
+func (o RegistryTaskFileStepOutput) ToRegistryTaskFileStepOutputWithContext(ctx context.Context) RegistryTaskFileStepOutput {
+	return o
+}
+
+func (o RegistryTaskFileStepOutput) ToRegistryTaskFileStepPtrOutput() RegistryTaskFileStepPtrOutput {
+	return o.ToRegistryTaskFileStepPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryTaskFileStepOutput) ToRegistryTaskFileStepPtrOutputWithContext(ctx context.Context) RegistryTaskFileStepPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskFileStep) *RegistryTaskFileStep {
+		return &v
+	}).(RegistryTaskFileStepPtrOutput)
+}
+
+// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+func (o RegistryTaskFileStepOutput) ContextAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskFileStep) *string { return v.ContextAccessToken }).(pulumi.StringPtrOutput)
+}
+
+// The URL (absolute or relative) of the source context for this step.
+func (o RegistryTaskFileStepOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskFileStep) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a map of secret values that can be passed when running a task.
+func (o RegistryTaskFileStepOutput) SecretValues() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RegistryTaskFileStep) map[string]string { return v.SecretValues }).(pulumi.StringMapOutput)
+}
+
+// The task template file path relative to the source context.
+func (o RegistryTaskFileStepOutput) TaskFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskFileStep) string { return v.TaskFilePath }).(pulumi.StringOutput)
+}
+
+// The parameters file path relative to the source context.
+func (o RegistryTaskFileStepOutput) ValueFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskFileStep) *string { return v.ValueFilePath }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a map of values that can be passed when running a task.
+func (o RegistryTaskFileStepOutput) Values() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RegistryTaskFileStep) map[string]string { return v.Values }).(pulumi.StringMapOutput)
+}
+
+type RegistryTaskFileStepPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskFileStepPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskFileStep)(nil)).Elem()
+}
+
+func (o RegistryTaskFileStepPtrOutput) ToRegistryTaskFileStepPtrOutput() RegistryTaskFileStepPtrOutput {
+	return o
+}
+
+func (o RegistryTaskFileStepPtrOutput) ToRegistryTaskFileStepPtrOutputWithContext(ctx context.Context) RegistryTaskFileStepPtrOutput {
+	return o
+}
+
+func (o RegistryTaskFileStepPtrOutput) Elem() RegistryTaskFileStepOutput {
+	return o.ApplyT(func(v *RegistryTaskFileStep) RegistryTaskFileStep {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryTaskFileStep
+		return ret
+	}).(RegistryTaskFileStepOutput)
+}
+
+// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+func (o RegistryTaskFileStepPtrOutput) ContextAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskFileStep) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContextAccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL (absolute or relative) of the source context for this step.
+func (o RegistryTaskFileStepPtrOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskFileStep) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContextPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a map of secret values that can be passed when running a task.
+func (o RegistryTaskFileStepPtrOutput) SecretValues() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RegistryTaskFileStep) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretValues
+	}).(pulumi.StringMapOutput)
+}
+
+// The task template file path relative to the source context.
+func (o RegistryTaskFileStepPtrOutput) TaskFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskFileStep) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TaskFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The parameters file path relative to the source context.
+func (o RegistryTaskFileStepPtrOutput) ValueFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskFileStep) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValueFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a map of values that can be passed when running a task.
+func (o RegistryTaskFileStepPtrOutput) Values() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RegistryTaskFileStep) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringMapOutput)
+}
+
+type RegistryTaskIdentity struct {
+	// Specifies a list of user assigned identity IDs.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// RegistryTaskIdentityInput is an input type that accepts RegistryTaskIdentityArgs and RegistryTaskIdentityOutput values.
+// You can construct a concrete instance of `RegistryTaskIdentityInput` via:
+//
+//          RegistryTaskIdentityArgs{...}
+type RegistryTaskIdentityInput interface {
+	pulumi.Input
+
+	ToRegistryTaskIdentityOutput() RegistryTaskIdentityOutput
+	ToRegistryTaskIdentityOutputWithContext(context.Context) RegistryTaskIdentityOutput
+}
+
+type RegistryTaskIdentityArgs struct {
+	// Specifies a list of user assigned identity IDs.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RegistryTaskIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskIdentity)(nil)).Elem()
+}
+
+func (i RegistryTaskIdentityArgs) ToRegistryTaskIdentityOutput() RegistryTaskIdentityOutput {
+	return i.ToRegistryTaskIdentityOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskIdentityArgs) ToRegistryTaskIdentityOutputWithContext(ctx context.Context) RegistryTaskIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskIdentityOutput)
+}
+
+func (i RegistryTaskIdentityArgs) ToRegistryTaskIdentityPtrOutput() RegistryTaskIdentityPtrOutput {
+	return i.ToRegistryTaskIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskIdentityArgs) ToRegistryTaskIdentityPtrOutputWithContext(ctx context.Context) RegistryTaskIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskIdentityOutput).ToRegistryTaskIdentityPtrOutputWithContext(ctx)
+}
+
+// RegistryTaskIdentityPtrInput is an input type that accepts RegistryTaskIdentityArgs, RegistryTaskIdentityPtr and RegistryTaskIdentityPtrOutput values.
+// You can construct a concrete instance of `RegistryTaskIdentityPtrInput` via:
+//
+//          RegistryTaskIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryTaskIdentityPtrInput interface {
+	pulumi.Input
+
+	ToRegistryTaskIdentityPtrOutput() RegistryTaskIdentityPtrOutput
+	ToRegistryTaskIdentityPtrOutputWithContext(context.Context) RegistryTaskIdentityPtrOutput
+}
+
+type registryTaskIdentityPtrType RegistryTaskIdentityArgs
+
+func RegistryTaskIdentityPtr(v *RegistryTaskIdentityArgs) RegistryTaskIdentityPtrInput {
+	return (*registryTaskIdentityPtrType)(v)
+}
+
+func (*registryTaskIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskIdentity)(nil)).Elem()
+}
+
+func (i *registryTaskIdentityPtrType) ToRegistryTaskIdentityPtrOutput() RegistryTaskIdentityPtrOutput {
+	return i.ToRegistryTaskIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *registryTaskIdentityPtrType) ToRegistryTaskIdentityPtrOutputWithContext(ctx context.Context) RegistryTaskIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskIdentityPtrOutput)
+}
+
+type RegistryTaskIdentityOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskIdentity)(nil)).Elem()
+}
+
+func (o RegistryTaskIdentityOutput) ToRegistryTaskIdentityOutput() RegistryTaskIdentityOutput {
+	return o
+}
+
+func (o RegistryTaskIdentityOutput) ToRegistryTaskIdentityOutputWithContext(ctx context.Context) RegistryTaskIdentityOutput {
+	return o
+}
+
+func (o RegistryTaskIdentityOutput) ToRegistryTaskIdentityPtrOutput() RegistryTaskIdentityPtrOutput {
+	return o.ToRegistryTaskIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryTaskIdentityOutput) ToRegistryTaskIdentityPtrOutputWithContext(ctx context.Context) RegistryTaskIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskIdentity) *RegistryTaskIdentity {
+		return &v
+	}).(RegistryTaskIdentityPtrOutput)
+}
+
+// Specifies a list of user assigned identity IDs.
+func (o RegistryTaskIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RegistryTaskIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o RegistryTaskIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o RegistryTaskIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+func (o RegistryTaskIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RegistryTaskIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskIdentity)(nil)).Elem()
+}
+
+func (o RegistryTaskIdentityPtrOutput) ToRegistryTaskIdentityPtrOutput() RegistryTaskIdentityPtrOutput {
+	return o
+}
+
+func (o RegistryTaskIdentityPtrOutput) ToRegistryTaskIdentityPtrOutputWithContext(ctx context.Context) RegistryTaskIdentityPtrOutput {
+	return o
+}
+
+func (o RegistryTaskIdentityPtrOutput) Elem() RegistryTaskIdentityOutput {
+	return o.ApplyT(func(v *RegistryTaskIdentity) RegistryTaskIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryTaskIdentity
+		return ret
+	}).(RegistryTaskIdentityOutput)
+}
+
+// Specifies a list of user assigned identity IDs.
+func (o RegistryTaskIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RegistryTaskIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RegistryTaskIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RegistryTaskIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+func (o RegistryTaskIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryTaskPlatform struct {
+	// The OS architecture. Possible values are `amd64`, `x86`, `386`, `arm` and `arm64`.
+	Architecture *string `pulumi:"architecture"`
+	// The operating system type required for the task. Possible values are `Windows` and `Linux`.
+	Os string `pulumi:"os"`
+	// The variant of the CPU. Possible values are `v6`, `v7`, `v8`.
+	Variant *string `pulumi:"variant"`
+}
+
+// RegistryTaskPlatformInput is an input type that accepts RegistryTaskPlatformArgs and RegistryTaskPlatformOutput values.
+// You can construct a concrete instance of `RegistryTaskPlatformInput` via:
+//
+//          RegistryTaskPlatformArgs{...}
+type RegistryTaskPlatformInput interface {
+	pulumi.Input
+
+	ToRegistryTaskPlatformOutput() RegistryTaskPlatformOutput
+	ToRegistryTaskPlatformOutputWithContext(context.Context) RegistryTaskPlatformOutput
+}
+
+type RegistryTaskPlatformArgs struct {
+	// The OS architecture. Possible values are `amd64`, `x86`, `386`, `arm` and `arm64`.
+	Architecture pulumi.StringPtrInput `pulumi:"architecture"`
+	// The operating system type required for the task. Possible values are `Windows` and `Linux`.
+	Os pulumi.StringInput `pulumi:"os"`
+	// The variant of the CPU. Possible values are `v6`, `v7`, `v8`.
+	Variant pulumi.StringPtrInput `pulumi:"variant"`
+}
+
+func (RegistryTaskPlatformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskPlatform)(nil)).Elem()
+}
+
+func (i RegistryTaskPlatformArgs) ToRegistryTaskPlatformOutput() RegistryTaskPlatformOutput {
+	return i.ToRegistryTaskPlatformOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskPlatformArgs) ToRegistryTaskPlatformOutputWithContext(ctx context.Context) RegistryTaskPlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskPlatformOutput)
+}
+
+func (i RegistryTaskPlatformArgs) ToRegistryTaskPlatformPtrOutput() RegistryTaskPlatformPtrOutput {
+	return i.ToRegistryTaskPlatformPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskPlatformArgs) ToRegistryTaskPlatformPtrOutputWithContext(ctx context.Context) RegistryTaskPlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskPlatformOutput).ToRegistryTaskPlatformPtrOutputWithContext(ctx)
+}
+
+// RegistryTaskPlatformPtrInput is an input type that accepts RegistryTaskPlatformArgs, RegistryTaskPlatformPtr and RegistryTaskPlatformPtrOutput values.
+// You can construct a concrete instance of `RegistryTaskPlatformPtrInput` via:
+//
+//          RegistryTaskPlatformArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryTaskPlatformPtrInput interface {
+	pulumi.Input
+
+	ToRegistryTaskPlatformPtrOutput() RegistryTaskPlatformPtrOutput
+	ToRegistryTaskPlatformPtrOutputWithContext(context.Context) RegistryTaskPlatformPtrOutput
+}
+
+type registryTaskPlatformPtrType RegistryTaskPlatformArgs
+
+func RegistryTaskPlatformPtr(v *RegistryTaskPlatformArgs) RegistryTaskPlatformPtrInput {
+	return (*registryTaskPlatformPtrType)(v)
+}
+
+func (*registryTaskPlatformPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskPlatform)(nil)).Elem()
+}
+
+func (i *registryTaskPlatformPtrType) ToRegistryTaskPlatformPtrOutput() RegistryTaskPlatformPtrOutput {
+	return i.ToRegistryTaskPlatformPtrOutputWithContext(context.Background())
+}
+
+func (i *registryTaskPlatformPtrType) ToRegistryTaskPlatformPtrOutputWithContext(ctx context.Context) RegistryTaskPlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskPlatformPtrOutput)
+}
+
+type RegistryTaskPlatformOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskPlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskPlatform)(nil)).Elem()
+}
+
+func (o RegistryTaskPlatformOutput) ToRegistryTaskPlatformOutput() RegistryTaskPlatformOutput {
+	return o
+}
+
+func (o RegistryTaskPlatformOutput) ToRegistryTaskPlatformOutputWithContext(ctx context.Context) RegistryTaskPlatformOutput {
+	return o
+}
+
+func (o RegistryTaskPlatformOutput) ToRegistryTaskPlatformPtrOutput() RegistryTaskPlatformPtrOutput {
+	return o.ToRegistryTaskPlatformPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryTaskPlatformOutput) ToRegistryTaskPlatformPtrOutputWithContext(ctx context.Context) RegistryTaskPlatformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskPlatform) *RegistryTaskPlatform {
+		return &v
+	}).(RegistryTaskPlatformPtrOutput)
+}
+
+// The OS architecture. Possible values are `amd64`, `x86`, `386`, `arm` and `arm64`.
+func (o RegistryTaskPlatformOutput) Architecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskPlatform) *string { return v.Architecture }).(pulumi.StringPtrOutput)
+}
+
+// The operating system type required for the task. Possible values are `Windows` and `Linux`.
+func (o RegistryTaskPlatformOutput) Os() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskPlatform) string { return v.Os }).(pulumi.StringOutput)
+}
+
+// The variant of the CPU. Possible values are `v6`, `v7`, `v8`.
+func (o RegistryTaskPlatformOutput) Variant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskPlatform) *string { return v.Variant }).(pulumi.StringPtrOutput)
+}
+
+type RegistryTaskPlatformPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskPlatformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskPlatform)(nil)).Elem()
+}
+
+func (o RegistryTaskPlatformPtrOutput) ToRegistryTaskPlatformPtrOutput() RegistryTaskPlatformPtrOutput {
+	return o
+}
+
+func (o RegistryTaskPlatformPtrOutput) ToRegistryTaskPlatformPtrOutputWithContext(ctx context.Context) RegistryTaskPlatformPtrOutput {
+	return o
+}
+
+func (o RegistryTaskPlatformPtrOutput) Elem() RegistryTaskPlatformOutput {
+	return o.ApplyT(func(v *RegistryTaskPlatform) RegistryTaskPlatform {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryTaskPlatform
+		return ret
+	}).(RegistryTaskPlatformOutput)
+}
+
+// The OS architecture. Possible values are `amd64`, `x86`, `386`, `arm` and `arm64`.
+func (o RegistryTaskPlatformPtrOutput) Architecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskPlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Architecture
+	}).(pulumi.StringPtrOutput)
+}
+
+// The operating system type required for the task. Possible values are `Windows` and `Linux`.
+func (o RegistryTaskPlatformPtrOutput) Os() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskPlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Os
+	}).(pulumi.StringPtrOutput)
+}
+
+// The variant of the CPU. Possible values are `v6`, `v7`, `v8`.
+func (o RegistryTaskPlatformPtrOutput) Variant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskPlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Variant
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryTaskRegistryCredential struct {
+	// One or more `custom` blocks as defined above.
+	Customs []RegistryTaskRegistryCredentialCustom `pulumi:"customs"`
+	// One `source` block as defined below.
+	Source *RegistryTaskRegistryCredentialSource `pulumi:"source"`
+}
+
+// RegistryTaskRegistryCredentialInput is an input type that accepts RegistryTaskRegistryCredentialArgs and RegistryTaskRegistryCredentialOutput values.
+// You can construct a concrete instance of `RegistryTaskRegistryCredentialInput` via:
+//
+//          RegistryTaskRegistryCredentialArgs{...}
+type RegistryTaskRegistryCredentialInput interface {
+	pulumi.Input
+
+	ToRegistryTaskRegistryCredentialOutput() RegistryTaskRegistryCredentialOutput
+	ToRegistryTaskRegistryCredentialOutputWithContext(context.Context) RegistryTaskRegistryCredentialOutput
+}
+
+type RegistryTaskRegistryCredentialArgs struct {
+	// One or more `custom` blocks as defined above.
+	Customs RegistryTaskRegistryCredentialCustomArrayInput `pulumi:"customs"`
+	// One `source` block as defined below.
+	Source RegistryTaskRegistryCredentialSourcePtrInput `pulumi:"source"`
+}
+
+func (RegistryTaskRegistryCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskRegistryCredential)(nil)).Elem()
+}
+
+func (i RegistryTaskRegistryCredentialArgs) ToRegistryTaskRegistryCredentialOutput() RegistryTaskRegistryCredentialOutput {
+	return i.ToRegistryTaskRegistryCredentialOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskRegistryCredentialArgs) ToRegistryTaskRegistryCredentialOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialOutput)
+}
+
+func (i RegistryTaskRegistryCredentialArgs) ToRegistryTaskRegistryCredentialPtrOutput() RegistryTaskRegistryCredentialPtrOutput {
+	return i.ToRegistryTaskRegistryCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskRegistryCredentialArgs) ToRegistryTaskRegistryCredentialPtrOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialOutput).ToRegistryTaskRegistryCredentialPtrOutputWithContext(ctx)
+}
+
+// RegistryTaskRegistryCredentialPtrInput is an input type that accepts RegistryTaskRegistryCredentialArgs, RegistryTaskRegistryCredentialPtr and RegistryTaskRegistryCredentialPtrOutput values.
+// You can construct a concrete instance of `RegistryTaskRegistryCredentialPtrInput` via:
+//
+//          RegistryTaskRegistryCredentialArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryTaskRegistryCredentialPtrInput interface {
+	pulumi.Input
+
+	ToRegistryTaskRegistryCredentialPtrOutput() RegistryTaskRegistryCredentialPtrOutput
+	ToRegistryTaskRegistryCredentialPtrOutputWithContext(context.Context) RegistryTaskRegistryCredentialPtrOutput
+}
+
+type registryTaskRegistryCredentialPtrType RegistryTaskRegistryCredentialArgs
+
+func RegistryTaskRegistryCredentialPtr(v *RegistryTaskRegistryCredentialArgs) RegistryTaskRegistryCredentialPtrInput {
+	return (*registryTaskRegistryCredentialPtrType)(v)
+}
+
+func (*registryTaskRegistryCredentialPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskRegistryCredential)(nil)).Elem()
+}
+
+func (i *registryTaskRegistryCredentialPtrType) ToRegistryTaskRegistryCredentialPtrOutput() RegistryTaskRegistryCredentialPtrOutput {
+	return i.ToRegistryTaskRegistryCredentialPtrOutputWithContext(context.Background())
+}
+
+func (i *registryTaskRegistryCredentialPtrType) ToRegistryTaskRegistryCredentialPtrOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialPtrOutput)
+}
+
+type RegistryTaskRegistryCredentialOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskRegistryCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskRegistryCredential)(nil)).Elem()
+}
+
+func (o RegistryTaskRegistryCredentialOutput) ToRegistryTaskRegistryCredentialOutput() RegistryTaskRegistryCredentialOutput {
+	return o
+}
+
+func (o RegistryTaskRegistryCredentialOutput) ToRegistryTaskRegistryCredentialOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialOutput {
+	return o
+}
+
+func (o RegistryTaskRegistryCredentialOutput) ToRegistryTaskRegistryCredentialPtrOutput() RegistryTaskRegistryCredentialPtrOutput {
+	return o.ToRegistryTaskRegistryCredentialPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryTaskRegistryCredentialOutput) ToRegistryTaskRegistryCredentialPtrOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskRegistryCredential) *RegistryTaskRegistryCredential {
+		return &v
+	}).(RegistryTaskRegistryCredentialPtrOutput)
+}
+
+// One or more `custom` blocks as defined above.
+func (o RegistryTaskRegistryCredentialOutput) Customs() RegistryTaskRegistryCredentialCustomArrayOutput {
+	return o.ApplyT(func(v RegistryTaskRegistryCredential) []RegistryTaskRegistryCredentialCustom { return v.Customs }).(RegistryTaskRegistryCredentialCustomArrayOutput)
+}
+
+// One `source` block as defined below.
+func (o RegistryTaskRegistryCredentialOutput) Source() RegistryTaskRegistryCredentialSourcePtrOutput {
+	return o.ApplyT(func(v RegistryTaskRegistryCredential) *RegistryTaskRegistryCredentialSource { return v.Source }).(RegistryTaskRegistryCredentialSourcePtrOutput)
+}
+
+type RegistryTaskRegistryCredentialPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskRegistryCredentialPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskRegistryCredential)(nil)).Elem()
+}
+
+func (o RegistryTaskRegistryCredentialPtrOutput) ToRegistryTaskRegistryCredentialPtrOutput() RegistryTaskRegistryCredentialPtrOutput {
+	return o
+}
+
+func (o RegistryTaskRegistryCredentialPtrOutput) ToRegistryTaskRegistryCredentialPtrOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialPtrOutput {
+	return o
+}
+
+func (o RegistryTaskRegistryCredentialPtrOutput) Elem() RegistryTaskRegistryCredentialOutput {
+	return o.ApplyT(func(v *RegistryTaskRegistryCredential) RegistryTaskRegistryCredential {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryTaskRegistryCredential
+		return ret
+	}).(RegistryTaskRegistryCredentialOutput)
+}
+
+// One or more `custom` blocks as defined above.
+func (o RegistryTaskRegistryCredentialPtrOutput) Customs() RegistryTaskRegistryCredentialCustomArrayOutput {
+	return o.ApplyT(func(v *RegistryTaskRegistryCredential) []RegistryTaskRegistryCredentialCustom {
+		if v == nil {
+			return nil
+		}
+		return v.Customs
+	}).(RegistryTaskRegistryCredentialCustomArrayOutput)
+}
+
+// One `source` block as defined below.
+func (o RegistryTaskRegistryCredentialPtrOutput) Source() RegistryTaskRegistryCredentialSourcePtrOutput {
+	return o.ApplyT(func(v *RegistryTaskRegistryCredential) *RegistryTaskRegistryCredentialSource {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(RegistryTaskRegistryCredentialSourcePtrOutput)
+}
+
+type RegistryTaskRegistryCredentialCustom struct {
+	// The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+	Identity *string `pulumi:"identity"`
+	// The login server of the custom Container Registry.
+	LoginServer string `pulumi:"loginServer"`
+	// The password for logging into the custom Container Registry. It can be either a plain text of password, or a Keyvault Secret ID.
+	Password *string `pulumi:"password"`
+	// The username for logging into the custom Container Registry. It can be either a plain text of username, or a Keyvault Secret ID.
+	Username *string `pulumi:"username"`
+}
+
+// RegistryTaskRegistryCredentialCustomInput is an input type that accepts RegistryTaskRegistryCredentialCustomArgs and RegistryTaskRegistryCredentialCustomOutput values.
+// You can construct a concrete instance of `RegistryTaskRegistryCredentialCustomInput` via:
+//
+//          RegistryTaskRegistryCredentialCustomArgs{...}
+type RegistryTaskRegistryCredentialCustomInput interface {
+	pulumi.Input
+
+	ToRegistryTaskRegistryCredentialCustomOutput() RegistryTaskRegistryCredentialCustomOutput
+	ToRegistryTaskRegistryCredentialCustomOutputWithContext(context.Context) RegistryTaskRegistryCredentialCustomOutput
+}
+
+type RegistryTaskRegistryCredentialCustomArgs struct {
+	// The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
+	// The login server of the custom Container Registry.
+	LoginServer pulumi.StringInput `pulumi:"loginServer"`
+	// The password for logging into the custom Container Registry. It can be either a plain text of password, or a Keyvault Secret ID.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The username for logging into the custom Container Registry. It can be either a plain text of username, or a Keyvault Secret ID.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (RegistryTaskRegistryCredentialCustomArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskRegistryCredentialCustom)(nil)).Elem()
+}
+
+func (i RegistryTaskRegistryCredentialCustomArgs) ToRegistryTaskRegistryCredentialCustomOutput() RegistryTaskRegistryCredentialCustomOutput {
+	return i.ToRegistryTaskRegistryCredentialCustomOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskRegistryCredentialCustomArgs) ToRegistryTaskRegistryCredentialCustomOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialCustomOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialCustomOutput)
+}
+
+// RegistryTaskRegistryCredentialCustomArrayInput is an input type that accepts RegistryTaskRegistryCredentialCustomArray and RegistryTaskRegistryCredentialCustomArrayOutput values.
+// You can construct a concrete instance of `RegistryTaskRegistryCredentialCustomArrayInput` via:
+//
+//          RegistryTaskRegistryCredentialCustomArray{ RegistryTaskRegistryCredentialCustomArgs{...} }
+type RegistryTaskRegistryCredentialCustomArrayInput interface {
+	pulumi.Input
+
+	ToRegistryTaskRegistryCredentialCustomArrayOutput() RegistryTaskRegistryCredentialCustomArrayOutput
+	ToRegistryTaskRegistryCredentialCustomArrayOutputWithContext(context.Context) RegistryTaskRegistryCredentialCustomArrayOutput
+}
+
+type RegistryTaskRegistryCredentialCustomArray []RegistryTaskRegistryCredentialCustomInput
+
+func (RegistryTaskRegistryCredentialCustomArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryTaskRegistryCredentialCustom)(nil)).Elem()
+}
+
+func (i RegistryTaskRegistryCredentialCustomArray) ToRegistryTaskRegistryCredentialCustomArrayOutput() RegistryTaskRegistryCredentialCustomArrayOutput {
+	return i.ToRegistryTaskRegistryCredentialCustomArrayOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskRegistryCredentialCustomArray) ToRegistryTaskRegistryCredentialCustomArrayOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialCustomArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialCustomArrayOutput)
+}
+
+type RegistryTaskRegistryCredentialCustomOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskRegistryCredentialCustomOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskRegistryCredentialCustom)(nil)).Elem()
+}
+
+func (o RegistryTaskRegistryCredentialCustomOutput) ToRegistryTaskRegistryCredentialCustomOutput() RegistryTaskRegistryCredentialCustomOutput {
+	return o
+}
+
+func (o RegistryTaskRegistryCredentialCustomOutput) ToRegistryTaskRegistryCredentialCustomOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialCustomOutput {
+	return o
+}
+
+// The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+func (o RegistryTaskRegistryCredentialCustomOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskRegistryCredentialCustom) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// The login server of the custom Container Registry.
+func (o RegistryTaskRegistryCredentialCustomOutput) LoginServer() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskRegistryCredentialCustom) string { return v.LoginServer }).(pulumi.StringOutput)
+}
+
+// The password for logging into the custom Container Registry. It can be either a plain text of password, or a Keyvault Secret ID.
+func (o RegistryTaskRegistryCredentialCustomOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskRegistryCredentialCustom) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The username for logging into the custom Container Registry. It can be either a plain text of username, or a Keyvault Secret ID.
+func (o RegistryTaskRegistryCredentialCustomOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskRegistryCredentialCustom) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type RegistryTaskRegistryCredentialCustomArrayOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskRegistryCredentialCustomArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryTaskRegistryCredentialCustom)(nil)).Elem()
+}
+
+func (o RegistryTaskRegistryCredentialCustomArrayOutput) ToRegistryTaskRegistryCredentialCustomArrayOutput() RegistryTaskRegistryCredentialCustomArrayOutput {
+	return o
+}
+
+func (o RegistryTaskRegistryCredentialCustomArrayOutput) ToRegistryTaskRegistryCredentialCustomArrayOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialCustomArrayOutput {
+	return o
+}
+
+func (o RegistryTaskRegistryCredentialCustomArrayOutput) Index(i pulumi.IntInput) RegistryTaskRegistryCredentialCustomOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryTaskRegistryCredentialCustom {
+		return vs[0].([]RegistryTaskRegistryCredentialCustom)[vs[1].(int)]
+	}).(RegistryTaskRegistryCredentialCustomOutput)
+}
+
+type RegistryTaskRegistryCredentialSource struct {
+	// The login mode for the source registry. Possible values are `None` and `Default`.
+	LoginMode string `pulumi:"loginMode"`
+}
+
+// RegistryTaskRegistryCredentialSourceInput is an input type that accepts RegistryTaskRegistryCredentialSourceArgs and RegistryTaskRegistryCredentialSourceOutput values.
+// You can construct a concrete instance of `RegistryTaskRegistryCredentialSourceInput` via:
+//
+//          RegistryTaskRegistryCredentialSourceArgs{...}
+type RegistryTaskRegistryCredentialSourceInput interface {
+	pulumi.Input
+
+	ToRegistryTaskRegistryCredentialSourceOutput() RegistryTaskRegistryCredentialSourceOutput
+	ToRegistryTaskRegistryCredentialSourceOutputWithContext(context.Context) RegistryTaskRegistryCredentialSourceOutput
+}
+
+type RegistryTaskRegistryCredentialSourceArgs struct {
+	// The login mode for the source registry. Possible values are `None` and `Default`.
+	LoginMode pulumi.StringInput `pulumi:"loginMode"`
+}
+
+func (RegistryTaskRegistryCredentialSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskRegistryCredentialSource)(nil)).Elem()
+}
+
+func (i RegistryTaskRegistryCredentialSourceArgs) ToRegistryTaskRegistryCredentialSourceOutput() RegistryTaskRegistryCredentialSourceOutput {
+	return i.ToRegistryTaskRegistryCredentialSourceOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskRegistryCredentialSourceArgs) ToRegistryTaskRegistryCredentialSourceOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialSourceOutput)
+}
+
+func (i RegistryTaskRegistryCredentialSourceArgs) ToRegistryTaskRegistryCredentialSourcePtrOutput() RegistryTaskRegistryCredentialSourcePtrOutput {
+	return i.ToRegistryTaskRegistryCredentialSourcePtrOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskRegistryCredentialSourceArgs) ToRegistryTaskRegistryCredentialSourcePtrOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialSourceOutput).ToRegistryTaskRegistryCredentialSourcePtrOutputWithContext(ctx)
+}
+
+// RegistryTaskRegistryCredentialSourcePtrInput is an input type that accepts RegistryTaskRegistryCredentialSourceArgs, RegistryTaskRegistryCredentialSourcePtr and RegistryTaskRegistryCredentialSourcePtrOutput values.
+// You can construct a concrete instance of `RegistryTaskRegistryCredentialSourcePtrInput` via:
+//
+//          RegistryTaskRegistryCredentialSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryTaskRegistryCredentialSourcePtrInput interface {
+	pulumi.Input
+
+	ToRegistryTaskRegistryCredentialSourcePtrOutput() RegistryTaskRegistryCredentialSourcePtrOutput
+	ToRegistryTaskRegistryCredentialSourcePtrOutputWithContext(context.Context) RegistryTaskRegistryCredentialSourcePtrOutput
+}
+
+type registryTaskRegistryCredentialSourcePtrType RegistryTaskRegistryCredentialSourceArgs
+
+func RegistryTaskRegistryCredentialSourcePtr(v *RegistryTaskRegistryCredentialSourceArgs) RegistryTaskRegistryCredentialSourcePtrInput {
+	return (*registryTaskRegistryCredentialSourcePtrType)(v)
+}
+
+func (*registryTaskRegistryCredentialSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskRegistryCredentialSource)(nil)).Elem()
+}
+
+func (i *registryTaskRegistryCredentialSourcePtrType) ToRegistryTaskRegistryCredentialSourcePtrOutput() RegistryTaskRegistryCredentialSourcePtrOutput {
+	return i.ToRegistryTaskRegistryCredentialSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *registryTaskRegistryCredentialSourcePtrType) ToRegistryTaskRegistryCredentialSourcePtrOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskRegistryCredentialSourcePtrOutput)
+}
+
+type RegistryTaskRegistryCredentialSourceOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskRegistryCredentialSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskRegistryCredentialSource)(nil)).Elem()
+}
+
+func (o RegistryTaskRegistryCredentialSourceOutput) ToRegistryTaskRegistryCredentialSourceOutput() RegistryTaskRegistryCredentialSourceOutput {
+	return o
+}
+
+func (o RegistryTaskRegistryCredentialSourceOutput) ToRegistryTaskRegistryCredentialSourceOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialSourceOutput {
+	return o
+}
+
+func (o RegistryTaskRegistryCredentialSourceOutput) ToRegistryTaskRegistryCredentialSourcePtrOutput() RegistryTaskRegistryCredentialSourcePtrOutput {
+	return o.ToRegistryTaskRegistryCredentialSourcePtrOutputWithContext(context.Background())
+}
+
+func (o RegistryTaskRegistryCredentialSourceOutput) ToRegistryTaskRegistryCredentialSourcePtrOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskRegistryCredentialSource) *RegistryTaskRegistryCredentialSource {
+		return &v
+	}).(RegistryTaskRegistryCredentialSourcePtrOutput)
+}
+
+// The login mode for the source registry. Possible values are `None` and `Default`.
+func (o RegistryTaskRegistryCredentialSourceOutput) LoginMode() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskRegistryCredentialSource) string { return v.LoginMode }).(pulumi.StringOutput)
+}
+
+type RegistryTaskRegistryCredentialSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskRegistryCredentialSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskRegistryCredentialSource)(nil)).Elem()
+}
+
+func (o RegistryTaskRegistryCredentialSourcePtrOutput) ToRegistryTaskRegistryCredentialSourcePtrOutput() RegistryTaskRegistryCredentialSourcePtrOutput {
+	return o
+}
+
+func (o RegistryTaskRegistryCredentialSourcePtrOutput) ToRegistryTaskRegistryCredentialSourcePtrOutputWithContext(ctx context.Context) RegistryTaskRegistryCredentialSourcePtrOutput {
+	return o
+}
+
+func (o RegistryTaskRegistryCredentialSourcePtrOutput) Elem() RegistryTaskRegistryCredentialSourceOutput {
+	return o.ApplyT(func(v *RegistryTaskRegistryCredentialSource) RegistryTaskRegistryCredentialSource {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryTaskRegistryCredentialSource
+		return ret
+	}).(RegistryTaskRegistryCredentialSourceOutput)
+}
+
+// The login mode for the source registry. Possible values are `None` and `Default`.
+func (o RegistryTaskRegistryCredentialSourcePtrOutput) LoginMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskRegistryCredentialSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LoginMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryTaskSourceTrigger struct {
+	// A `authentication` block as defined above.
+	Authentication *RegistryTaskSourceTriggerAuthentication `pulumi:"authentication"`
+	// The branch name of the source code.
+	Branch *string `pulumi:"branch"`
+	// Should the trigger be enabled? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies a list of source events corresponding to the trigger. Possible values are `commit` and `pullrequest`.
+	Events []string `pulumi:"events"`
+	// The name which should be used for this trigger.
+	Name string `pulumi:"name"`
+	// The full URL to the source code repository.
+	RepositoryUrl string `pulumi:"repositoryUrl"`
+	// The type of the source control service. Possible values are `Github` and `VisualStudioTeamService`.
+	SourceType string `pulumi:"sourceType"`
+}
+
+// RegistryTaskSourceTriggerInput is an input type that accepts RegistryTaskSourceTriggerArgs and RegistryTaskSourceTriggerOutput values.
+// You can construct a concrete instance of `RegistryTaskSourceTriggerInput` via:
+//
+//          RegistryTaskSourceTriggerArgs{...}
+type RegistryTaskSourceTriggerInput interface {
+	pulumi.Input
+
+	ToRegistryTaskSourceTriggerOutput() RegistryTaskSourceTriggerOutput
+	ToRegistryTaskSourceTriggerOutputWithContext(context.Context) RegistryTaskSourceTriggerOutput
+}
+
+type RegistryTaskSourceTriggerArgs struct {
+	// A `authentication` block as defined above.
+	Authentication RegistryTaskSourceTriggerAuthenticationPtrInput `pulumi:"authentication"`
+	// The branch name of the source code.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// Should the trigger be enabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Specifies a list of source events corresponding to the trigger. Possible values are `commit` and `pullrequest`.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// The name which should be used for this trigger.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The full URL to the source code repository.
+	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
+	// The type of the source control service. Possible values are `Github` and `VisualStudioTeamService`.
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
+}
+
+func (RegistryTaskSourceTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskSourceTrigger)(nil)).Elem()
+}
+
+func (i RegistryTaskSourceTriggerArgs) ToRegistryTaskSourceTriggerOutput() RegistryTaskSourceTriggerOutput {
+	return i.ToRegistryTaskSourceTriggerOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskSourceTriggerArgs) ToRegistryTaskSourceTriggerOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskSourceTriggerOutput)
+}
+
+// RegistryTaskSourceTriggerArrayInput is an input type that accepts RegistryTaskSourceTriggerArray and RegistryTaskSourceTriggerArrayOutput values.
+// You can construct a concrete instance of `RegistryTaskSourceTriggerArrayInput` via:
+//
+//          RegistryTaskSourceTriggerArray{ RegistryTaskSourceTriggerArgs{...} }
+type RegistryTaskSourceTriggerArrayInput interface {
+	pulumi.Input
+
+	ToRegistryTaskSourceTriggerArrayOutput() RegistryTaskSourceTriggerArrayOutput
+	ToRegistryTaskSourceTriggerArrayOutputWithContext(context.Context) RegistryTaskSourceTriggerArrayOutput
+}
+
+type RegistryTaskSourceTriggerArray []RegistryTaskSourceTriggerInput
+
+func (RegistryTaskSourceTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryTaskSourceTrigger)(nil)).Elem()
+}
+
+func (i RegistryTaskSourceTriggerArray) ToRegistryTaskSourceTriggerArrayOutput() RegistryTaskSourceTriggerArrayOutput {
+	return i.ToRegistryTaskSourceTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskSourceTriggerArray) ToRegistryTaskSourceTriggerArrayOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskSourceTriggerArrayOutput)
+}
+
+type RegistryTaskSourceTriggerOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskSourceTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskSourceTrigger)(nil)).Elem()
+}
+
+func (o RegistryTaskSourceTriggerOutput) ToRegistryTaskSourceTriggerOutput() RegistryTaskSourceTriggerOutput {
+	return o
+}
+
+func (o RegistryTaskSourceTriggerOutput) ToRegistryTaskSourceTriggerOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerOutput {
+	return o
+}
+
+// A `authentication` block as defined above.
+func (o RegistryTaskSourceTriggerOutput) Authentication() RegistryTaskSourceTriggerAuthenticationPtrOutput {
+	return o.ApplyT(func(v RegistryTaskSourceTrigger) *RegistryTaskSourceTriggerAuthentication { return v.Authentication }).(RegistryTaskSourceTriggerAuthenticationPtrOutput)
+}
+
+// The branch name of the source code.
+func (o RegistryTaskSourceTriggerOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskSourceTrigger) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Should the trigger be enabled? Defaults to `true`.
+func (o RegistryTaskSourceTriggerOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RegistryTaskSourceTrigger) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies a list of source events corresponding to the trigger. Possible values are `commit` and `pullrequest`.
+func (o RegistryTaskSourceTriggerOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RegistryTaskSourceTrigger) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// The name which should be used for this trigger.
+func (o RegistryTaskSourceTriggerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskSourceTrigger) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The full URL to the source code repository.
+func (o RegistryTaskSourceTriggerOutput) RepositoryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskSourceTrigger) string { return v.RepositoryUrl }).(pulumi.StringOutput)
+}
+
+// The type of the source control service. Possible values are `Github` and `VisualStudioTeamService`.
+func (o RegistryTaskSourceTriggerOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskSourceTrigger) string { return v.SourceType }).(pulumi.StringOutput)
+}
+
+type RegistryTaskSourceTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskSourceTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryTaskSourceTrigger)(nil)).Elem()
+}
+
+func (o RegistryTaskSourceTriggerArrayOutput) ToRegistryTaskSourceTriggerArrayOutput() RegistryTaskSourceTriggerArrayOutput {
+	return o
+}
+
+func (o RegistryTaskSourceTriggerArrayOutput) ToRegistryTaskSourceTriggerArrayOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerArrayOutput {
+	return o
+}
+
+func (o RegistryTaskSourceTriggerArrayOutput) Index(i pulumi.IntInput) RegistryTaskSourceTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryTaskSourceTrigger {
+		return vs[0].([]RegistryTaskSourceTrigger)[vs[1].(int)]
+	}).(RegistryTaskSourceTriggerOutput)
+}
+
+type RegistryTaskSourceTriggerAuthentication struct {
+	// Time in seconds that the token remains valid.
+	ExpireInSeconds *int `pulumi:"expireInSeconds"`
+	// The refresh token used to refresh the access token.
+	RefreshToken *string `pulumi:"refreshToken"`
+	// The scope of the access token.
+	Scope *string `pulumi:"scope"`
+	// The access token used to access the source control provider.
+	Token string `pulumi:"token"`
+	// The type of the token. Possible values are `PAT` (personal access token) and `OAuth`.
+	TokenType string `pulumi:"tokenType"`
+}
+
+// RegistryTaskSourceTriggerAuthenticationInput is an input type that accepts RegistryTaskSourceTriggerAuthenticationArgs and RegistryTaskSourceTriggerAuthenticationOutput values.
+// You can construct a concrete instance of `RegistryTaskSourceTriggerAuthenticationInput` via:
+//
+//          RegistryTaskSourceTriggerAuthenticationArgs{...}
+type RegistryTaskSourceTriggerAuthenticationInput interface {
+	pulumi.Input
+
+	ToRegistryTaskSourceTriggerAuthenticationOutput() RegistryTaskSourceTriggerAuthenticationOutput
+	ToRegistryTaskSourceTriggerAuthenticationOutputWithContext(context.Context) RegistryTaskSourceTriggerAuthenticationOutput
+}
+
+type RegistryTaskSourceTriggerAuthenticationArgs struct {
+	// Time in seconds that the token remains valid.
+	ExpireInSeconds pulumi.IntPtrInput `pulumi:"expireInSeconds"`
+	// The refresh token used to refresh the access token.
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
+	// The scope of the access token.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// The access token used to access the source control provider.
+	Token pulumi.StringInput `pulumi:"token"`
+	// The type of the token. Possible values are `PAT` (personal access token) and `OAuth`.
+	TokenType pulumi.StringInput `pulumi:"tokenType"`
+}
+
+func (RegistryTaskSourceTriggerAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskSourceTriggerAuthentication)(nil)).Elem()
+}
+
+func (i RegistryTaskSourceTriggerAuthenticationArgs) ToRegistryTaskSourceTriggerAuthenticationOutput() RegistryTaskSourceTriggerAuthenticationOutput {
+	return i.ToRegistryTaskSourceTriggerAuthenticationOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskSourceTriggerAuthenticationArgs) ToRegistryTaskSourceTriggerAuthenticationOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskSourceTriggerAuthenticationOutput)
+}
+
+func (i RegistryTaskSourceTriggerAuthenticationArgs) ToRegistryTaskSourceTriggerAuthenticationPtrOutput() RegistryTaskSourceTriggerAuthenticationPtrOutput {
+	return i.ToRegistryTaskSourceTriggerAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskSourceTriggerAuthenticationArgs) ToRegistryTaskSourceTriggerAuthenticationPtrOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskSourceTriggerAuthenticationOutput).ToRegistryTaskSourceTriggerAuthenticationPtrOutputWithContext(ctx)
+}
+
+// RegistryTaskSourceTriggerAuthenticationPtrInput is an input type that accepts RegistryTaskSourceTriggerAuthenticationArgs, RegistryTaskSourceTriggerAuthenticationPtr and RegistryTaskSourceTriggerAuthenticationPtrOutput values.
+// You can construct a concrete instance of `RegistryTaskSourceTriggerAuthenticationPtrInput` via:
+//
+//          RegistryTaskSourceTriggerAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryTaskSourceTriggerAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToRegistryTaskSourceTriggerAuthenticationPtrOutput() RegistryTaskSourceTriggerAuthenticationPtrOutput
+	ToRegistryTaskSourceTriggerAuthenticationPtrOutputWithContext(context.Context) RegistryTaskSourceTriggerAuthenticationPtrOutput
+}
+
+type registryTaskSourceTriggerAuthenticationPtrType RegistryTaskSourceTriggerAuthenticationArgs
+
+func RegistryTaskSourceTriggerAuthenticationPtr(v *RegistryTaskSourceTriggerAuthenticationArgs) RegistryTaskSourceTriggerAuthenticationPtrInput {
+	return (*registryTaskSourceTriggerAuthenticationPtrType)(v)
+}
+
+func (*registryTaskSourceTriggerAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskSourceTriggerAuthentication)(nil)).Elem()
+}
+
+func (i *registryTaskSourceTriggerAuthenticationPtrType) ToRegistryTaskSourceTriggerAuthenticationPtrOutput() RegistryTaskSourceTriggerAuthenticationPtrOutput {
+	return i.ToRegistryTaskSourceTriggerAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *registryTaskSourceTriggerAuthenticationPtrType) ToRegistryTaskSourceTriggerAuthenticationPtrOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskSourceTriggerAuthenticationPtrOutput)
+}
+
+type RegistryTaskSourceTriggerAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskSourceTriggerAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskSourceTriggerAuthentication)(nil)).Elem()
+}
+
+func (o RegistryTaskSourceTriggerAuthenticationOutput) ToRegistryTaskSourceTriggerAuthenticationOutput() RegistryTaskSourceTriggerAuthenticationOutput {
+	return o
+}
+
+func (o RegistryTaskSourceTriggerAuthenticationOutput) ToRegistryTaskSourceTriggerAuthenticationOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerAuthenticationOutput {
+	return o
+}
+
+func (o RegistryTaskSourceTriggerAuthenticationOutput) ToRegistryTaskSourceTriggerAuthenticationPtrOutput() RegistryTaskSourceTriggerAuthenticationPtrOutput {
+	return o.ToRegistryTaskSourceTriggerAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryTaskSourceTriggerAuthenticationOutput) ToRegistryTaskSourceTriggerAuthenticationPtrOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryTaskSourceTriggerAuthentication) *RegistryTaskSourceTriggerAuthentication {
+		return &v
+	}).(RegistryTaskSourceTriggerAuthenticationPtrOutput)
+}
+
+// Time in seconds that the token remains valid.
+func (o RegistryTaskSourceTriggerAuthenticationOutput) ExpireInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RegistryTaskSourceTriggerAuthentication) *int { return v.ExpireInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The refresh token used to refresh the access token.
+func (o RegistryTaskSourceTriggerAuthenticationOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskSourceTriggerAuthentication) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+// The scope of the access token.
+func (o RegistryTaskSourceTriggerAuthenticationOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryTaskSourceTriggerAuthentication) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The access token used to access the source control provider.
+func (o RegistryTaskSourceTriggerAuthenticationOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskSourceTriggerAuthentication) string { return v.Token }).(pulumi.StringOutput)
+}
+
+// The type of the token. Possible values are `PAT` (personal access token) and `OAuth`.
+func (o RegistryTaskSourceTriggerAuthenticationOutput) TokenType() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskSourceTriggerAuthentication) string { return v.TokenType }).(pulumi.StringOutput)
+}
+
+type RegistryTaskSourceTriggerAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskSourceTriggerAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTaskSourceTriggerAuthentication)(nil)).Elem()
+}
+
+func (o RegistryTaskSourceTriggerAuthenticationPtrOutput) ToRegistryTaskSourceTriggerAuthenticationPtrOutput() RegistryTaskSourceTriggerAuthenticationPtrOutput {
+	return o
+}
+
+func (o RegistryTaskSourceTriggerAuthenticationPtrOutput) ToRegistryTaskSourceTriggerAuthenticationPtrOutputWithContext(ctx context.Context) RegistryTaskSourceTriggerAuthenticationPtrOutput {
+	return o
+}
+
+func (o RegistryTaskSourceTriggerAuthenticationPtrOutput) Elem() RegistryTaskSourceTriggerAuthenticationOutput {
+	return o.ApplyT(func(v *RegistryTaskSourceTriggerAuthentication) RegistryTaskSourceTriggerAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryTaskSourceTriggerAuthentication
+		return ret
+	}).(RegistryTaskSourceTriggerAuthenticationOutput)
+}
+
+// Time in seconds that the token remains valid.
+func (o RegistryTaskSourceTriggerAuthenticationPtrOutput) ExpireInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskSourceTriggerAuthentication) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpireInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The refresh token used to refresh the access token.
+func (o RegistryTaskSourceTriggerAuthenticationPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskSourceTriggerAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The scope of the access token.
+func (o RegistryTaskSourceTriggerAuthenticationPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskSourceTriggerAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The access token used to access the source control provider.
+func (o RegistryTaskSourceTriggerAuthenticationPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskSourceTriggerAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the token. Possible values are `PAT` (personal access token) and `OAuth`.
+func (o RegistryTaskSourceTriggerAuthenticationPtrOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryTaskSourceTriggerAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenType
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryTaskTimerTrigger struct {
+	// Should the trigger be enabled? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// The name which should be used for this trigger.
+	Name string `pulumi:"name"`
+	// The CRON expression for the task schedule.
+	Schedule string `pulumi:"schedule"`
+}
+
+// RegistryTaskTimerTriggerInput is an input type that accepts RegistryTaskTimerTriggerArgs and RegistryTaskTimerTriggerOutput values.
+// You can construct a concrete instance of `RegistryTaskTimerTriggerInput` via:
+//
+//          RegistryTaskTimerTriggerArgs{...}
+type RegistryTaskTimerTriggerInput interface {
+	pulumi.Input
+
+	ToRegistryTaskTimerTriggerOutput() RegistryTaskTimerTriggerOutput
+	ToRegistryTaskTimerTriggerOutputWithContext(context.Context) RegistryTaskTimerTriggerOutput
+}
+
+type RegistryTaskTimerTriggerArgs struct {
+	// Should the trigger be enabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The name which should be used for this trigger.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The CRON expression for the task schedule.
+	Schedule pulumi.StringInput `pulumi:"schedule"`
+}
+
+func (RegistryTaskTimerTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskTimerTrigger)(nil)).Elem()
+}
+
+func (i RegistryTaskTimerTriggerArgs) ToRegistryTaskTimerTriggerOutput() RegistryTaskTimerTriggerOutput {
+	return i.ToRegistryTaskTimerTriggerOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskTimerTriggerArgs) ToRegistryTaskTimerTriggerOutputWithContext(ctx context.Context) RegistryTaskTimerTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskTimerTriggerOutput)
+}
+
+// RegistryTaskTimerTriggerArrayInput is an input type that accepts RegistryTaskTimerTriggerArray and RegistryTaskTimerTriggerArrayOutput values.
+// You can construct a concrete instance of `RegistryTaskTimerTriggerArrayInput` via:
+//
+//          RegistryTaskTimerTriggerArray{ RegistryTaskTimerTriggerArgs{...} }
+type RegistryTaskTimerTriggerArrayInput interface {
+	pulumi.Input
+
+	ToRegistryTaskTimerTriggerArrayOutput() RegistryTaskTimerTriggerArrayOutput
+	ToRegistryTaskTimerTriggerArrayOutputWithContext(context.Context) RegistryTaskTimerTriggerArrayOutput
+}
+
+type RegistryTaskTimerTriggerArray []RegistryTaskTimerTriggerInput
+
+func (RegistryTaskTimerTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryTaskTimerTrigger)(nil)).Elem()
+}
+
+func (i RegistryTaskTimerTriggerArray) ToRegistryTaskTimerTriggerArrayOutput() RegistryTaskTimerTriggerArrayOutput {
+	return i.ToRegistryTaskTimerTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i RegistryTaskTimerTriggerArray) ToRegistryTaskTimerTriggerArrayOutputWithContext(ctx context.Context) RegistryTaskTimerTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskTimerTriggerArrayOutput)
+}
+
+type RegistryTaskTimerTriggerOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskTimerTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTaskTimerTrigger)(nil)).Elem()
+}
+
+func (o RegistryTaskTimerTriggerOutput) ToRegistryTaskTimerTriggerOutput() RegistryTaskTimerTriggerOutput {
+	return o
+}
+
+func (o RegistryTaskTimerTriggerOutput) ToRegistryTaskTimerTriggerOutputWithContext(ctx context.Context) RegistryTaskTimerTriggerOutput {
+	return o
+}
+
+// Should the trigger be enabled? Defaults to `true`.
+func (o RegistryTaskTimerTriggerOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RegistryTaskTimerTrigger) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name which should be used for this trigger.
+func (o RegistryTaskTimerTriggerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskTimerTrigger) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The CRON expression for the task schedule.
+func (o RegistryTaskTimerTriggerOutput) Schedule() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryTaskTimerTrigger) string { return v.Schedule }).(pulumi.StringOutput)
+}
+
+type RegistryTaskTimerTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (RegistryTaskTimerTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryTaskTimerTrigger)(nil)).Elem()
+}
+
+func (o RegistryTaskTimerTriggerArrayOutput) ToRegistryTaskTimerTriggerArrayOutput() RegistryTaskTimerTriggerArrayOutput {
+	return o
+}
+
+func (o RegistryTaskTimerTriggerArrayOutput) ToRegistryTaskTimerTriggerArrayOutputWithContext(ctx context.Context) RegistryTaskTimerTriggerArrayOutput {
+	return o
+}
+
+func (o RegistryTaskTimerTriggerArrayOutput) Index(i pulumi.IntInput) RegistryTaskTimerTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryTaskTimerTrigger {
+		return vs[0].([]RegistryTaskTimerTrigger)[vs[1].(int)]
+	}).(RegistryTaskTimerTriggerOutput)
+}
+
 type RegistryTrustPolicy struct {
 	// Boolean value that indicates whether the policy is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -15493,6 +17853,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryNetworkRuleSetVirtualNetworkArrayInput)(nil)).Elem(), RegistryNetworkRuleSetVirtualNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRetentionPolicyInput)(nil)).Elem(), RegistryRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRetentionPolicyPtrInput)(nil)).Elem(), RegistryRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskAgentSettingInput)(nil)).Elem(), RegistryTaskAgentSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskAgentSettingPtrInput)(nil)).Elem(), RegistryTaskAgentSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskBaseImageTriggerInput)(nil)).Elem(), RegistryTaskBaseImageTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskBaseImageTriggerPtrInput)(nil)).Elem(), RegistryTaskBaseImageTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskDockerStepInput)(nil)).Elem(), RegistryTaskDockerStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskDockerStepPtrInput)(nil)).Elem(), RegistryTaskDockerStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskEncodedStepInput)(nil)).Elem(), RegistryTaskEncodedStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskEncodedStepPtrInput)(nil)).Elem(), RegistryTaskEncodedStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskFileStepInput)(nil)).Elem(), RegistryTaskFileStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskFileStepPtrInput)(nil)).Elem(), RegistryTaskFileStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskIdentityInput)(nil)).Elem(), RegistryTaskIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskIdentityPtrInput)(nil)).Elem(), RegistryTaskIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskPlatformInput)(nil)).Elem(), RegistryTaskPlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskPlatformPtrInput)(nil)).Elem(), RegistryTaskPlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskRegistryCredentialInput)(nil)).Elem(), RegistryTaskRegistryCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskRegistryCredentialPtrInput)(nil)).Elem(), RegistryTaskRegistryCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskRegistryCredentialCustomInput)(nil)).Elem(), RegistryTaskRegistryCredentialCustomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskRegistryCredentialCustomArrayInput)(nil)).Elem(), RegistryTaskRegistryCredentialCustomArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskRegistryCredentialSourceInput)(nil)).Elem(), RegistryTaskRegistryCredentialSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskRegistryCredentialSourcePtrInput)(nil)).Elem(), RegistryTaskRegistryCredentialSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskSourceTriggerInput)(nil)).Elem(), RegistryTaskSourceTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskSourceTriggerArrayInput)(nil)).Elem(), RegistryTaskSourceTriggerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskSourceTriggerAuthenticationInput)(nil)).Elem(), RegistryTaskSourceTriggerAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskSourceTriggerAuthenticationPtrInput)(nil)).Elem(), RegistryTaskSourceTriggerAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskTimerTriggerInput)(nil)).Elem(), RegistryTaskTimerTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskTimerTriggerArrayInput)(nil)).Elem(), RegistryTaskTimerTriggerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTrustPolicyInput)(nil)).Elem(), RegistryTrustPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTrustPolicyPtrInput)(nil)).Elem(), RegistryTrustPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterNodePoolUpgradeSettingInput)(nil)).Elem(), GetClusterNodePoolUpgradeSettingArgs{})
@@ -15667,6 +18053,32 @@ func init() {
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetVirtualNetworkArrayOutput{})
 	pulumi.RegisterOutputType(RegistryRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(RegistryRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RegistryTaskAgentSettingOutput{})
+	pulumi.RegisterOutputType(RegistryTaskAgentSettingPtrOutput{})
+	pulumi.RegisterOutputType(RegistryTaskBaseImageTriggerOutput{})
+	pulumi.RegisterOutputType(RegistryTaskBaseImageTriggerPtrOutput{})
+	pulumi.RegisterOutputType(RegistryTaskDockerStepOutput{})
+	pulumi.RegisterOutputType(RegistryTaskDockerStepPtrOutput{})
+	pulumi.RegisterOutputType(RegistryTaskEncodedStepOutput{})
+	pulumi.RegisterOutputType(RegistryTaskEncodedStepPtrOutput{})
+	pulumi.RegisterOutputType(RegistryTaskFileStepOutput{})
+	pulumi.RegisterOutputType(RegistryTaskFileStepPtrOutput{})
+	pulumi.RegisterOutputType(RegistryTaskIdentityOutput{})
+	pulumi.RegisterOutputType(RegistryTaskIdentityPtrOutput{})
+	pulumi.RegisterOutputType(RegistryTaskPlatformOutput{})
+	pulumi.RegisterOutputType(RegistryTaskPlatformPtrOutput{})
+	pulumi.RegisterOutputType(RegistryTaskRegistryCredentialOutput{})
+	pulumi.RegisterOutputType(RegistryTaskRegistryCredentialPtrOutput{})
+	pulumi.RegisterOutputType(RegistryTaskRegistryCredentialCustomOutput{})
+	pulumi.RegisterOutputType(RegistryTaskRegistryCredentialCustomArrayOutput{})
+	pulumi.RegisterOutputType(RegistryTaskRegistryCredentialSourceOutput{})
+	pulumi.RegisterOutputType(RegistryTaskRegistryCredentialSourcePtrOutput{})
+	pulumi.RegisterOutputType(RegistryTaskSourceTriggerOutput{})
+	pulumi.RegisterOutputType(RegistryTaskSourceTriggerArrayOutput{})
+	pulumi.RegisterOutputType(RegistryTaskSourceTriggerAuthenticationOutput{})
+	pulumi.RegisterOutputType(RegistryTaskSourceTriggerAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(RegistryTaskTimerTriggerOutput{})
+	pulumi.RegisterOutputType(RegistryTaskTimerTriggerArrayOutput{})
 	pulumi.RegisterOutputType(RegistryTrustPolicyOutput{})
 	pulumi.RegisterOutputType(RegistryTrustPolicyPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterNodePoolUpgradeSettingOutput{})

@@ -3322,9 +3322,13 @@ func (o ApiOperationRequestQueryParameterArrayOutput) Index(i pulumi.IntInput) A
 type ApiOperationRequestRepresentation struct {
 	// The Content Type of this representation, such as `application/json`.
 	ContentType string `pulumi:"contentType"`
+	// One or more `example` blocks as defined above.
+	Examples []ApiOperationRequestRepresentationExample `pulumi:"examples"`
 	// One or more `formParameter` block as defined above.
 	FormParameters []ApiOperationRequestRepresentationFormParameter `pulumi:"formParameters"`
 	// An example of this representation.
+	//
+	// Deprecated: Deprecated in favour of `example`
 	Sample *string `pulumi:"sample"`
 	// The ID of an API Management Schema which represents this Response.
 	SchemaId *string `pulumi:"schemaId"`
@@ -3346,9 +3350,13 @@ type ApiOperationRequestRepresentationInput interface {
 type ApiOperationRequestRepresentationArgs struct {
 	// The Content Type of this representation, such as `application/json`.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// One or more `example` blocks as defined above.
+	Examples ApiOperationRequestRepresentationExampleArrayInput `pulumi:"examples"`
 	// One or more `formParameter` block as defined above.
 	FormParameters ApiOperationRequestRepresentationFormParameterArrayInput `pulumi:"formParameters"`
 	// An example of this representation.
+	//
+	// Deprecated: Deprecated in favour of `example`
 	Sample pulumi.StringPtrInput `pulumi:"sample"`
 	// The ID of an API Management Schema which represents this Response.
 	SchemaId pulumi.StringPtrInput `pulumi:"schemaId"`
@@ -3412,6 +3420,13 @@ func (o ApiOperationRequestRepresentationOutput) ContentType() pulumi.StringOutp
 	return o.ApplyT(func(v ApiOperationRequestRepresentation) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
+// One or more `example` blocks as defined above.
+func (o ApiOperationRequestRepresentationOutput) Examples() ApiOperationRequestRepresentationExampleArrayOutput {
+	return o.ApplyT(func(v ApiOperationRequestRepresentation) []ApiOperationRequestRepresentationExample {
+		return v.Examples
+	}).(ApiOperationRequestRepresentationExampleArrayOutput)
+}
+
 // One or more `formParameter` block as defined above.
 func (o ApiOperationRequestRepresentationOutput) FormParameters() ApiOperationRequestRepresentationFormParameterArrayOutput {
 	return o.ApplyT(func(v ApiOperationRequestRepresentation) []ApiOperationRequestRepresentationFormParameter {
@@ -3420,6 +3435,8 @@ func (o ApiOperationRequestRepresentationOutput) FormParameters() ApiOperationRe
 }
 
 // An example of this representation.
+//
+// Deprecated: Deprecated in favour of `example`
 func (o ApiOperationRequestRepresentationOutput) Sample() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOperationRequestRepresentation) *string { return v.Sample }).(pulumi.StringPtrOutput)
 }
@@ -3452,6 +3469,139 @@ func (o ApiOperationRequestRepresentationArrayOutput) Index(i pulumi.IntInput) A
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationRequestRepresentation {
 		return vs[0].([]ApiOperationRequestRepresentation)[vs[1].(int)]
 	}).(ApiOperationRequestRepresentationOutput)
+}
+
+type ApiOperationRequestRepresentationExample struct {
+	// A long description for this example.
+	Description *string `pulumi:"description"`
+	// A URL that points to the literal example.
+	ExternalValue *string `pulumi:"externalValue"`
+	// The name of this example.
+	Name string `pulumi:"name"`
+	// A short description for this example.
+	Summary *string `pulumi:"summary"`
+	// The example of the representation.
+	Value *string `pulumi:"value"`
+}
+
+// ApiOperationRequestRepresentationExampleInput is an input type that accepts ApiOperationRequestRepresentationExampleArgs and ApiOperationRequestRepresentationExampleOutput values.
+// You can construct a concrete instance of `ApiOperationRequestRepresentationExampleInput` via:
+//
+//          ApiOperationRequestRepresentationExampleArgs{...}
+type ApiOperationRequestRepresentationExampleInput interface {
+	pulumi.Input
+
+	ToApiOperationRequestRepresentationExampleOutput() ApiOperationRequestRepresentationExampleOutput
+	ToApiOperationRequestRepresentationExampleOutputWithContext(context.Context) ApiOperationRequestRepresentationExampleOutput
+}
+
+type ApiOperationRequestRepresentationExampleArgs struct {
+	// A long description for this example.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A URL that points to the literal example.
+	ExternalValue pulumi.StringPtrInput `pulumi:"externalValue"`
+	// The name of this example.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A short description for this example.
+	Summary pulumi.StringPtrInput `pulumi:"summary"`
+	// The example of the representation.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ApiOperationRequestRepresentationExampleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationRequestRepresentationExample)(nil)).Elem()
+}
+
+func (i ApiOperationRequestRepresentationExampleArgs) ToApiOperationRequestRepresentationExampleOutput() ApiOperationRequestRepresentationExampleOutput {
+	return i.ToApiOperationRequestRepresentationExampleOutputWithContext(context.Background())
+}
+
+func (i ApiOperationRequestRepresentationExampleArgs) ToApiOperationRequestRepresentationExampleOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationExampleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestRepresentationExampleOutput)
+}
+
+// ApiOperationRequestRepresentationExampleArrayInput is an input type that accepts ApiOperationRequestRepresentationExampleArray and ApiOperationRequestRepresentationExampleArrayOutput values.
+// You can construct a concrete instance of `ApiOperationRequestRepresentationExampleArrayInput` via:
+//
+//          ApiOperationRequestRepresentationExampleArray{ ApiOperationRequestRepresentationExampleArgs{...} }
+type ApiOperationRequestRepresentationExampleArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationRequestRepresentationExampleArrayOutput() ApiOperationRequestRepresentationExampleArrayOutput
+	ToApiOperationRequestRepresentationExampleArrayOutputWithContext(context.Context) ApiOperationRequestRepresentationExampleArrayOutput
+}
+
+type ApiOperationRequestRepresentationExampleArray []ApiOperationRequestRepresentationExampleInput
+
+func (ApiOperationRequestRepresentationExampleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiOperationRequestRepresentationExample)(nil)).Elem()
+}
+
+func (i ApiOperationRequestRepresentationExampleArray) ToApiOperationRequestRepresentationExampleArrayOutput() ApiOperationRequestRepresentationExampleArrayOutput {
+	return i.ToApiOperationRequestRepresentationExampleArrayOutputWithContext(context.Background())
+}
+
+func (i ApiOperationRequestRepresentationExampleArray) ToApiOperationRequestRepresentationExampleArrayOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationExampleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationRequestRepresentationExampleArrayOutput)
+}
+
+type ApiOperationRequestRepresentationExampleOutput struct{ *pulumi.OutputState }
+
+func (ApiOperationRequestRepresentationExampleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationRequestRepresentationExample)(nil)).Elem()
+}
+
+func (o ApiOperationRequestRepresentationExampleOutput) ToApiOperationRequestRepresentationExampleOutput() ApiOperationRequestRepresentationExampleOutput {
+	return o
+}
+
+func (o ApiOperationRequestRepresentationExampleOutput) ToApiOperationRequestRepresentationExampleOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationExampleOutput {
+	return o
+}
+
+// A long description for this example.
+func (o ApiOperationRequestRepresentationExampleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOperationRequestRepresentationExample) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A URL that points to the literal example.
+func (o ApiOperationRequestRepresentationExampleOutput) ExternalValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOperationRequestRepresentationExample) *string { return v.ExternalValue }).(pulumi.StringPtrOutput)
+}
+
+// The name of this example.
+func (o ApiOperationRequestRepresentationExampleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiOperationRequestRepresentationExample) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A short description for this example.
+func (o ApiOperationRequestRepresentationExampleOutput) Summary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOperationRequestRepresentationExample) *string { return v.Summary }).(pulumi.StringPtrOutput)
+}
+
+// The example of the representation.
+func (o ApiOperationRequestRepresentationExampleOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOperationRequestRepresentationExample) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ApiOperationRequestRepresentationExampleArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiOperationRequestRepresentationExampleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiOperationRequestRepresentationExample)(nil)).Elem()
+}
+
+func (o ApiOperationRequestRepresentationExampleArrayOutput) ToApiOperationRequestRepresentationExampleArrayOutput() ApiOperationRequestRepresentationExampleArrayOutput {
+	return o
+}
+
+func (o ApiOperationRequestRepresentationExampleArrayOutput) ToApiOperationRequestRepresentationExampleArrayOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationExampleArrayOutput {
+	return o
+}
+
+func (o ApiOperationRequestRepresentationExampleArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestRepresentationExampleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationRequestRepresentationExample {
+		return vs[0].([]ApiOperationRequestRepresentationExample)[vs[1].(int)]
+	}).(ApiOperationRequestRepresentationExampleOutput)
 }
 
 type ApiOperationRequestRepresentationFormParameter struct {
@@ -3865,9 +4015,13 @@ func (o ApiOperationResponseHeaderArrayOutput) Index(i pulumi.IntInput) ApiOpera
 type ApiOperationResponseRepresentation struct {
 	// The Content Type of this representation, such as `application/json`.
 	ContentType string `pulumi:"contentType"`
+	// One or more `example` blocks as defined above.
+	Examples []ApiOperationResponseRepresentationExample `pulumi:"examples"`
 	// One or more `formParameter` block as defined above.
 	FormParameters []ApiOperationResponseRepresentationFormParameter `pulumi:"formParameters"`
 	// An example of this representation.
+	//
+	// Deprecated: Deprecated in favour of `example`
 	Sample *string `pulumi:"sample"`
 	// The ID of an API Management Schema which represents this Response.
 	SchemaId *string `pulumi:"schemaId"`
@@ -3889,9 +4043,13 @@ type ApiOperationResponseRepresentationInput interface {
 type ApiOperationResponseRepresentationArgs struct {
 	// The Content Type of this representation, such as `application/json`.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// One or more `example` blocks as defined above.
+	Examples ApiOperationResponseRepresentationExampleArrayInput `pulumi:"examples"`
 	// One or more `formParameter` block as defined above.
 	FormParameters ApiOperationResponseRepresentationFormParameterArrayInput `pulumi:"formParameters"`
 	// An example of this representation.
+	//
+	// Deprecated: Deprecated in favour of `example`
 	Sample pulumi.StringPtrInput `pulumi:"sample"`
 	// The ID of an API Management Schema which represents this Response.
 	SchemaId pulumi.StringPtrInput `pulumi:"schemaId"`
@@ -3955,6 +4113,13 @@ func (o ApiOperationResponseRepresentationOutput) ContentType() pulumi.StringOut
 	return o.ApplyT(func(v ApiOperationResponseRepresentation) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
+// One or more `example` blocks as defined above.
+func (o ApiOperationResponseRepresentationOutput) Examples() ApiOperationResponseRepresentationExampleArrayOutput {
+	return o.ApplyT(func(v ApiOperationResponseRepresentation) []ApiOperationResponseRepresentationExample {
+		return v.Examples
+	}).(ApiOperationResponseRepresentationExampleArrayOutput)
+}
+
 // One or more `formParameter` block as defined above.
 func (o ApiOperationResponseRepresentationOutput) FormParameters() ApiOperationResponseRepresentationFormParameterArrayOutput {
 	return o.ApplyT(func(v ApiOperationResponseRepresentation) []ApiOperationResponseRepresentationFormParameter {
@@ -3963,6 +4128,8 @@ func (o ApiOperationResponseRepresentationOutput) FormParameters() ApiOperationR
 }
 
 // An example of this representation.
+//
+// Deprecated: Deprecated in favour of `example`
 func (o ApiOperationResponseRepresentationOutput) Sample() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOperationResponseRepresentation) *string { return v.Sample }).(pulumi.StringPtrOutput)
 }
@@ -3995,6 +4162,139 @@ func (o ApiOperationResponseRepresentationArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationResponseRepresentation {
 		return vs[0].([]ApiOperationResponseRepresentation)[vs[1].(int)]
 	}).(ApiOperationResponseRepresentationOutput)
+}
+
+type ApiOperationResponseRepresentationExample struct {
+	// A long description for this example.
+	Description *string `pulumi:"description"`
+	// A URL that points to the literal example.
+	ExternalValue *string `pulumi:"externalValue"`
+	// The name of this example.
+	Name string `pulumi:"name"`
+	// A short description for this example.
+	Summary *string `pulumi:"summary"`
+	// The example of the representation.
+	Value *string `pulumi:"value"`
+}
+
+// ApiOperationResponseRepresentationExampleInput is an input type that accepts ApiOperationResponseRepresentationExampleArgs and ApiOperationResponseRepresentationExampleOutput values.
+// You can construct a concrete instance of `ApiOperationResponseRepresentationExampleInput` via:
+//
+//          ApiOperationResponseRepresentationExampleArgs{...}
+type ApiOperationResponseRepresentationExampleInput interface {
+	pulumi.Input
+
+	ToApiOperationResponseRepresentationExampleOutput() ApiOperationResponseRepresentationExampleOutput
+	ToApiOperationResponseRepresentationExampleOutputWithContext(context.Context) ApiOperationResponseRepresentationExampleOutput
+}
+
+type ApiOperationResponseRepresentationExampleArgs struct {
+	// A long description for this example.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A URL that points to the literal example.
+	ExternalValue pulumi.StringPtrInput `pulumi:"externalValue"`
+	// The name of this example.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A short description for this example.
+	Summary pulumi.StringPtrInput `pulumi:"summary"`
+	// The example of the representation.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ApiOperationResponseRepresentationExampleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationResponseRepresentationExample)(nil)).Elem()
+}
+
+func (i ApiOperationResponseRepresentationExampleArgs) ToApiOperationResponseRepresentationExampleOutput() ApiOperationResponseRepresentationExampleOutput {
+	return i.ToApiOperationResponseRepresentationExampleOutputWithContext(context.Background())
+}
+
+func (i ApiOperationResponseRepresentationExampleArgs) ToApiOperationResponseRepresentationExampleOutputWithContext(ctx context.Context) ApiOperationResponseRepresentationExampleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseRepresentationExampleOutput)
+}
+
+// ApiOperationResponseRepresentationExampleArrayInput is an input type that accepts ApiOperationResponseRepresentationExampleArray and ApiOperationResponseRepresentationExampleArrayOutput values.
+// You can construct a concrete instance of `ApiOperationResponseRepresentationExampleArrayInput` via:
+//
+//          ApiOperationResponseRepresentationExampleArray{ ApiOperationResponseRepresentationExampleArgs{...} }
+type ApiOperationResponseRepresentationExampleArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationResponseRepresentationExampleArrayOutput() ApiOperationResponseRepresentationExampleArrayOutput
+	ToApiOperationResponseRepresentationExampleArrayOutputWithContext(context.Context) ApiOperationResponseRepresentationExampleArrayOutput
+}
+
+type ApiOperationResponseRepresentationExampleArray []ApiOperationResponseRepresentationExampleInput
+
+func (ApiOperationResponseRepresentationExampleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiOperationResponseRepresentationExample)(nil)).Elem()
+}
+
+func (i ApiOperationResponseRepresentationExampleArray) ToApiOperationResponseRepresentationExampleArrayOutput() ApiOperationResponseRepresentationExampleArrayOutput {
+	return i.ToApiOperationResponseRepresentationExampleArrayOutputWithContext(context.Background())
+}
+
+func (i ApiOperationResponseRepresentationExampleArray) ToApiOperationResponseRepresentationExampleArrayOutputWithContext(ctx context.Context) ApiOperationResponseRepresentationExampleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationResponseRepresentationExampleArrayOutput)
+}
+
+type ApiOperationResponseRepresentationExampleOutput struct{ *pulumi.OutputState }
+
+func (ApiOperationResponseRepresentationExampleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationResponseRepresentationExample)(nil)).Elem()
+}
+
+func (o ApiOperationResponseRepresentationExampleOutput) ToApiOperationResponseRepresentationExampleOutput() ApiOperationResponseRepresentationExampleOutput {
+	return o
+}
+
+func (o ApiOperationResponseRepresentationExampleOutput) ToApiOperationResponseRepresentationExampleOutputWithContext(ctx context.Context) ApiOperationResponseRepresentationExampleOutput {
+	return o
+}
+
+// A long description for this example.
+func (o ApiOperationResponseRepresentationExampleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOperationResponseRepresentationExample) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A URL that points to the literal example.
+func (o ApiOperationResponseRepresentationExampleOutput) ExternalValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOperationResponseRepresentationExample) *string { return v.ExternalValue }).(pulumi.StringPtrOutput)
+}
+
+// The name of this example.
+func (o ApiOperationResponseRepresentationExampleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiOperationResponseRepresentationExample) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A short description for this example.
+func (o ApiOperationResponseRepresentationExampleOutput) Summary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOperationResponseRepresentationExample) *string { return v.Summary }).(pulumi.StringPtrOutput)
+}
+
+// The example of the representation.
+func (o ApiOperationResponseRepresentationExampleOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOperationResponseRepresentationExample) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ApiOperationResponseRepresentationExampleArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiOperationResponseRepresentationExampleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiOperationResponseRepresentationExample)(nil)).Elem()
+}
+
+func (o ApiOperationResponseRepresentationExampleArrayOutput) ToApiOperationResponseRepresentationExampleArrayOutput() ApiOperationResponseRepresentationExampleArrayOutput {
+	return o
+}
+
+func (o ApiOperationResponseRepresentationExampleArrayOutput) ToApiOperationResponseRepresentationExampleArrayOutputWithContext(ctx context.Context) ApiOperationResponseRepresentationExampleArrayOutput {
+	return o
+}
+
+func (o ApiOperationResponseRepresentationExampleArrayOutput) Index(i pulumi.IntInput) ApiOperationResponseRepresentationExampleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiOperationResponseRepresentationExample {
+		return vs[0].([]ApiOperationResponseRepresentationExample)[vs[1].(int)]
+	}).(ApiOperationResponseRepresentationExampleOutput)
 }
 
 type ApiOperationResponseRepresentationFormParameter struct {
@@ -13548,6 +13848,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationRequestQueryParameterArrayInput)(nil)).Elem(), ApiOperationRequestQueryParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationRequestRepresentationInput)(nil)).Elem(), ApiOperationRequestRepresentationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationRequestRepresentationArrayInput)(nil)).Elem(), ApiOperationRequestRepresentationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationRequestRepresentationExampleInput)(nil)).Elem(), ApiOperationRequestRepresentationExampleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationRequestRepresentationExampleArrayInput)(nil)).Elem(), ApiOperationRequestRepresentationExampleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationRequestRepresentationFormParameterInput)(nil)).Elem(), ApiOperationRequestRepresentationFormParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationRequestRepresentationFormParameterArrayInput)(nil)).Elem(), ApiOperationRequestRepresentationFormParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationResponseInput)(nil)).Elem(), ApiOperationResponseArgs{})
@@ -13556,6 +13858,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationResponseHeaderArrayInput)(nil)).Elem(), ApiOperationResponseHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationResponseRepresentationInput)(nil)).Elem(), ApiOperationResponseRepresentationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationResponseRepresentationArrayInput)(nil)).Elem(), ApiOperationResponseRepresentationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationResponseRepresentationExampleInput)(nil)).Elem(), ApiOperationResponseRepresentationExampleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationResponseRepresentationExampleArrayInput)(nil)).Elem(), ApiOperationResponseRepresentationExampleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationResponseRepresentationFormParameterInput)(nil)).Elem(), ApiOperationResponseRepresentationFormParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationResponseRepresentationFormParameterArrayInput)(nil)).Elem(), ApiOperationResponseRepresentationFormParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOperationTemplateParameterInput)(nil)).Elem(), ApiOperationTemplateParameterArgs{})
@@ -13730,6 +14034,8 @@ func init() {
 	pulumi.RegisterOutputType(ApiOperationRequestQueryParameterArrayOutput{})
 	pulumi.RegisterOutputType(ApiOperationRequestRepresentationOutput{})
 	pulumi.RegisterOutputType(ApiOperationRequestRepresentationArrayOutput{})
+	pulumi.RegisterOutputType(ApiOperationRequestRepresentationExampleOutput{})
+	pulumi.RegisterOutputType(ApiOperationRequestRepresentationExampleArrayOutput{})
 	pulumi.RegisterOutputType(ApiOperationRequestRepresentationFormParameterOutput{})
 	pulumi.RegisterOutputType(ApiOperationRequestRepresentationFormParameterArrayOutput{})
 	pulumi.RegisterOutputType(ApiOperationResponseOutput{})
@@ -13738,6 +14044,8 @@ func init() {
 	pulumi.RegisterOutputType(ApiOperationResponseHeaderArrayOutput{})
 	pulumi.RegisterOutputType(ApiOperationResponseRepresentationOutput{})
 	pulumi.RegisterOutputType(ApiOperationResponseRepresentationArrayOutput{})
+	pulumi.RegisterOutputType(ApiOperationResponseRepresentationExampleOutput{})
+	pulumi.RegisterOutputType(ApiOperationResponseRepresentationExampleArrayOutput{})
 	pulumi.RegisterOutputType(ApiOperationResponseRepresentationFormParameterOutput{})
 	pulumi.RegisterOutputType(ApiOperationResponseRepresentationFormParameterArrayOutput{})
 	pulumi.RegisterOutputType(ApiOperationTemplateParameterOutput{})

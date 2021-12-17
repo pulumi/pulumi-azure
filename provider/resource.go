@@ -581,6 +581,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_container_registry_scope_map": {Tok: azureResource(azureContainerService, "RegistryScopeMap")},
 			"azurerm_container_registry_token":     {Tok: azureResource(azureContainerService, "RegistryToken")},
+			"azurerm_container_registry_task":      {Tok: azureResource(azureContainerService, "RegistryTask")},
 
 			// Batch
 			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},
@@ -1147,6 +1148,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Maps
 			"azurerm_maps_account": {Tok: azureResource(azureMaps, "Account")},
+			"azurerm_maps_creator": {Tok: azureResource(azureMaps, "Creator")},
 
 			// Media
 			"azurerm_media_asset":              {Tok: azureResource(azureMedia, "Asset")},
@@ -1555,6 +1557,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_vpn_site":                    {Tok: azureResource(azureNetwork, "VpnSite")},
 			"azurerm_express_route_port":          {Tok: azureResource(azureNetwork, "ExpressRoutePort")},
 			"azurerm_virtual_network_dns_servers": {Tok: azureResource(azureNetwork, "VirtualNetworkDnsServers")},
+			"azurerm_vpn_gateway_nat_rule":        {Tok: azureResource(azureNetwork, "VnpGatewayNatRule")},
 
 			// Redis
 			"azurerm_redis_cache":               {Tok: azureResource(azureRedis, "Cache")},
@@ -1833,10 +1836,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_healthcare_service": {Tok: azureResource(azureHealthcare, "Service")},
 
 			// NetApp
-			"azurerm_netapp_account":  {Tok: azureResource(azureNetapp, "Account")},
-			"azurerm_netapp_pool":     {Tok: azureResource(azureNetapp, "Pool")},
-			"azurerm_netapp_volume":   {Tok: azureResource(azureNetapp, "Volume")},
-			"azurerm_netapp_snapshot": {Tok: azureResource(azureNetapp, "Snapshot")},
+			"azurerm_netapp_account":         {Tok: azureResource(azureNetapp, "Account")},
+			"azurerm_netapp_pool":            {Tok: azureResource(azureNetapp, "Pool")},
+			"azurerm_netapp_volume":          {Tok: azureResource(azureNetapp, "Volume")},
+			"azurerm_netapp_snapshot":        {Tok: azureResource(azureNetapp, "Snapshot")},
+			"azurerm_netapp_snapshot_policy": {Tok: azureResource(azureNetapp, "SnapshotPolicy")},
 
 			//AppConfiguration
 			"azurerm_app_configuration":         {Tok: azureResource(azureAppConfiguration, "ConfigurationStore")},
@@ -1980,6 +1984,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_synapse_sql_pool_vulnerability_assessment_baseline": {Tok: azureResource(azureSynapse, "SqlPoolVulnerabilityAssessmentBaseline")},
 			"azurerm_synapse_workspace_aad_admin":                        {Tok: azureResource(azureSynapse, "WorkspaceAadAdmin")},
 			"azurerm_synapse_sql_pool_workload_group":                    {Tok: azureResource(azureSynapse, "SqlPoolWorkloadGroup")},
+			"azurerm_synapse_sql_pool_workload_classifier":               {Tok: azureResource(azureSynapse, "SqlPoolWorkloadClassifier")},
+			"azurerm_synapse_workspace_sql_aad_admin":                    {Tok: azureResource(azureSynapse, "WorkspaceSqlAadAdmin")},
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},
@@ -2084,29 +2090,30 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_batch_application":                 {Tok: azureDataSource(azureBatch, "getApplication")},
-			"azurerm_subscriptions":                     {Tok: azureDataSource(azureCore, "getSubscriptions")},
-			"azurerm_cdn_profile":                       {Tok: azureDataSource(azureCDN, "getProfile")},
-			"azurerm_client_config":                     {Tok: azureDataSource(azureCore, "getClientConfig")},
-			"azurerm_container_registry":                {Tok: azureDataSource(azureContainerService, "getRegistry")},
-			"azurerm_cosmosdb_account":                  {Tok: azureDataSource(azureCosmosDB, "getAccount")},
-			"azurerm_cosmosdb_mongo_database":           {Tok: azureDataSource(azureCosmosDB, "getMongoDatabase")},
-			"azurerm_data_lake_store":                   {Tok: azureDataSource(azureDatalake, "getStore")},
-			"azurerm_data_protection_backup_vault":      {Tok: azureDataSource(azureDataProtection, "getBackupVault")},
-			"azurerm_data_share_account":                {Tok: azureDataSource(azureDataShare, "getAccount")},
-			"azurerm_data_share":                        {Tok: azureDataSource(azureDataShare, "getShare")},
-			"azurerm_data_share_dataset_blob_storage":   {Tok: azureDataSource(azureDataShare, "getDatasetBlobStorage")},
-			"azurerm_data_share_dataset_data_lake_gen1": {Tok: azureDataSource(azureDataShare, "getDatasetDataLakeGen1")},
-			"azurerm_data_share_dataset_data_lake_gen2": {Tok: azureDataSource(azureDataShare, "getDatasetDataLakeGen2")},
-			"azurerm_data_share_dataset_kusto_cluster":  {Tok: azureDataSource(azureDataShare, "getDatasetKustoCluster")},
-			"azurerm_data_share_dataset_kusto_database": {Tok: azureDataSource(azureDataShare, "getDatasetKustoDatabase")},
-			"azurerm_dev_test_lab":                      {Tok: azureDataSource(azureDevTest, "getLab")},
-			"azurerm_dev_test_virtual_network":          {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
-			"azurerm_image":                             {Tok: azureDataSource(azureCompute, "getImage")},
-			"azurerm_images":                            {Tok: azureDataSource(azureCompute, "getImages")},
-			"azurerm_shared_image":                      {Tok: azureDataSource(azureCompute, "getSharedImage")},
-			"azurerm_shared_image_gallery":              {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
-			"azurerm_shared_image_version":              {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
+			"azurerm_batch_application":                     {Tok: azureDataSource(azureBatch, "getApplication")},
+			"azurerm_subscriptions":                         {Tok: azureDataSource(azureCore, "getSubscriptions")},
+			"azurerm_cdn_profile":                           {Tok: azureDataSource(azureCDN, "getProfile")},
+			"azurerm_client_config":                         {Tok: azureDataSource(azureCore, "getClientConfig")},
+			"azurerm_container_registry":                    {Tok: azureDataSource(azureContainerService, "getRegistry")},
+			"azurerm_cosmosdb_account":                      {Tok: azureDataSource(azureCosmosDB, "getAccount")},
+			"azurerm_cosmosdb_mongo_database":               {Tok: azureDataSource(azureCosmosDB, "getMongoDatabase")},
+			"azurerm_cosmosdb_restorable_database_accounts": {Tok: azureDataSource(azureCosmosDB, "getRestorableDatabaseAccounts")},
+			"azurerm_data_lake_store":                       {Tok: azureDataSource(azureDatalake, "getStore")},
+			"azurerm_data_protection_backup_vault":          {Tok: azureDataSource(azureDataProtection, "getBackupVault")},
+			"azurerm_data_share_account":                    {Tok: azureDataSource(azureDataShare, "getAccount")},
+			"azurerm_data_share":                            {Tok: azureDataSource(azureDataShare, "getShare")},
+			"azurerm_data_share_dataset_blob_storage":       {Tok: azureDataSource(azureDataShare, "getDatasetBlobStorage")},
+			"azurerm_data_share_dataset_data_lake_gen1":     {Tok: azureDataSource(azureDataShare, "getDatasetDataLakeGen1")},
+			"azurerm_data_share_dataset_data_lake_gen2":     {Tok: azureDataSource(azureDataShare, "getDatasetDataLakeGen2")},
+			"azurerm_data_share_dataset_kusto_cluster":      {Tok: azureDataSource(azureDataShare, "getDatasetKustoCluster")},
+			"azurerm_data_share_dataset_kusto_database":     {Tok: azureDataSource(azureDataShare, "getDatasetKustoDatabase")},
+			"azurerm_dev_test_lab":                          {Tok: azureDataSource(azureDevTest, "getLab")},
+			"azurerm_dev_test_virtual_network":              {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
+			"azurerm_image":                                 {Tok: azureDataSource(azureCompute, "getImage")},
+			"azurerm_images":                                {Tok: azureDataSource(azureCompute, "getImages")},
+			"azurerm_shared_image":                          {Tok: azureDataSource(azureCompute, "getSharedImage")},
+			"azurerm_shared_image_gallery":                  {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
+			"azurerm_shared_image_version":                  {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
 			"azurerm_lb": {
 				Tok: azureDataSource(azureLB, "getLB"),
 				Docs: &tfbridge.DocInfo{
@@ -2257,6 +2264,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_netapp_pool":                   {Tok: azureDataSource(azureNetapp, "getPool")},
 			"azurerm_netapp_volume":                 {Tok: azureDataSource(azureNetapp, "getVolume")},
 			"azurerm_netapp_snapshot":               {Tok: azureDataSource(azureNetapp, "getSnapshot")},
+			"azurerm_netapp_snapshot_policy":        {Tok: azureDataSource(azureNetapp, "getSnapshotPolicy")},
 			"azurerm_private_link_service":          {Tok: azureDataSource(azurePrivateLink, "getService")},
 			"azurerm_private_endpoint_connection":   {Tok: azureDataSource(azurePrivateLink, "getEndpointConnection")},
 			"azurerm_private_link_service_endpoint_connections": {
@@ -2321,6 +2329,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_app_configuration": {
 				Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore"),
+			},
+			"azurerm_app_configuration_key": {
+				Tok: azureDataSource(azureAppConfiguration, "getConfigurationKey"),
 			},
 			"azurerm_servicebus_subscription":         {Tok: azureDataSource(azureServiceBus, "getSubscription")},
 			"azurerm_machine_learning_workspace":      {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},

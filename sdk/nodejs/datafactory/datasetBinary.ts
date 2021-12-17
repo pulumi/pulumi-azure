@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleLinkedServiceSftp = new azure.datafactory.LinkedServiceSftp("exampleLinkedServiceSftp", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     authenticationType: "Basic",
  *     host: "http://www.bing.com",
  *     port: 22,
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleDatasetBinary = new azure.datafactory.DatasetBinary("exampleDatasetBinary", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceSftp.name,
  *     sftpServerLocation: {
  *         path: "/test/",
@@ -92,7 +92,13 @@ export class DatasetBinary extends pulumi.CustomResource {
      */
     public readonly compression!: pulumi.Output<outputs.datafactory.DatasetBinaryCompression | undefined>;
     /**
-     * The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    public readonly dataFactoryId!: pulumi.Output<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
@@ -146,6 +152,7 @@ export class DatasetBinary extends pulumi.CustomResource {
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
             inputs["compression"] = state ? state.compression : undefined;
+            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["folder"] = state ? state.folder : undefined;
@@ -157,9 +164,6 @@ export class DatasetBinary extends pulumi.CustomResource {
             inputs["sftpServerLocation"] = state ? state.sftpServerLocation : undefined;
         } else {
             const args = argsOrState as DatasetBinaryArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFactoryName'");
-            }
             if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
             }
@@ -170,6 +174,7 @@ export class DatasetBinary extends pulumi.CustomResource {
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
             inputs["compression"] = args ? args.compression : undefined;
+            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["folder"] = args ? args.folder : undefined;
@@ -208,7 +213,13 @@ export interface DatasetBinaryState {
      */
     compression?: pulumi.Input<inputs.datafactory.DatasetBinaryCompression>;
     /**
-     * The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     dataFactoryName?: pulumi.Input<string>;
     /**
@@ -267,9 +278,15 @@ export interface DatasetBinaryArgs {
      */
     compression?: pulumi.Input<inputs.datafactory.DatasetBinaryCompression>;
     /**
-     * The Data Factory name in which to associate the Binary Dataset with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryName: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+     */
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */

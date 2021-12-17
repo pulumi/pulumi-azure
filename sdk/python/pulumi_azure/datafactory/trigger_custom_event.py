@@ -408,7 +408,7 @@ class TriggerCustomEvent(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_pipeline = azure.datafactory.Pipeline("examplePipeline",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name)
+            data_factory_id=example_factory.id)
         example_topic = azure.eventgrid.Topic("exampleTopic",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
@@ -482,7 +482,7 @@ class TriggerCustomEvent(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_pipeline = azure.datafactory.Pipeline("examplePipeline",
             resource_group_name=example_resource_group.name,
-            data_factory_name=example_factory.name)
+            data_factory_id=example_factory.id)
         example_topic = azure.eventgrid.Topic("exampleTopic",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)

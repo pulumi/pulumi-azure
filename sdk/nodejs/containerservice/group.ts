@@ -120,7 +120,7 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
-     * Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+     * Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
@@ -259,7 +259,7 @@ export interface GroupState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+     * Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
      */
     ipAddressType?: pulumi.Input<string>;
     /**
@@ -325,7 +325,7 @@ export interface GroupArgs {
      */
     imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[]>;
     /**
-     * Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+     * Specifies the ip address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
      */
     ipAddressType?: pulumi.Input<string>;
     /**

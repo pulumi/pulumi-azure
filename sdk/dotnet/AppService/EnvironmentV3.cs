@@ -12,8 +12,6 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages a 3rd Generation (v3) App Service Environment.
     /// 
-    /// &gt; **NOTE:** App Service Environment V3 is currently in Preview.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

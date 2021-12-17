@@ -185,9 +185,119 @@ func (o GroupPolicyAssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GroupPolicyAssignmentNonComplianceMessage struct {
+	// The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+	Content string `pulumi:"content"`
+	// When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+}
+
+// GroupPolicyAssignmentNonComplianceMessageInput is an input type that accepts GroupPolicyAssignmentNonComplianceMessageArgs and GroupPolicyAssignmentNonComplianceMessageOutput values.
+// You can construct a concrete instance of `GroupPolicyAssignmentNonComplianceMessageInput` via:
+//
+//          GroupPolicyAssignmentNonComplianceMessageArgs{...}
+type GroupPolicyAssignmentNonComplianceMessageInput interface {
+	pulumi.Input
+
+	ToGroupPolicyAssignmentNonComplianceMessageOutput() GroupPolicyAssignmentNonComplianceMessageOutput
+	ToGroupPolicyAssignmentNonComplianceMessageOutputWithContext(context.Context) GroupPolicyAssignmentNonComplianceMessageOutput
+}
+
+type GroupPolicyAssignmentNonComplianceMessageArgs struct {
+	// The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+	Content pulumi.StringInput `pulumi:"content"`
+	// When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+	PolicyDefinitionReferenceId pulumi.StringPtrInput `pulumi:"policyDefinitionReferenceId"`
+}
+
+func (GroupPolicyAssignmentNonComplianceMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (i GroupPolicyAssignmentNonComplianceMessageArgs) ToGroupPolicyAssignmentNonComplianceMessageOutput() GroupPolicyAssignmentNonComplianceMessageOutput {
+	return i.ToGroupPolicyAssignmentNonComplianceMessageOutputWithContext(context.Background())
+}
+
+func (i GroupPolicyAssignmentNonComplianceMessageArgs) ToGroupPolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) GroupPolicyAssignmentNonComplianceMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentNonComplianceMessageOutput)
+}
+
+// GroupPolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts GroupPolicyAssignmentNonComplianceMessageArray and GroupPolicyAssignmentNonComplianceMessageArrayOutput values.
+// You can construct a concrete instance of `GroupPolicyAssignmentNonComplianceMessageArrayInput` via:
+//
+//          GroupPolicyAssignmentNonComplianceMessageArray{ GroupPolicyAssignmentNonComplianceMessageArgs{...} }
+type GroupPolicyAssignmentNonComplianceMessageArrayInput interface {
+	pulumi.Input
+
+	ToGroupPolicyAssignmentNonComplianceMessageArrayOutput() GroupPolicyAssignmentNonComplianceMessageArrayOutput
+	ToGroupPolicyAssignmentNonComplianceMessageArrayOutputWithContext(context.Context) GroupPolicyAssignmentNonComplianceMessageArrayOutput
+}
+
+type GroupPolicyAssignmentNonComplianceMessageArray []GroupPolicyAssignmentNonComplianceMessageInput
+
+func (GroupPolicyAssignmentNonComplianceMessageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (i GroupPolicyAssignmentNonComplianceMessageArray) ToGroupPolicyAssignmentNonComplianceMessageArrayOutput() GroupPolicyAssignmentNonComplianceMessageArrayOutput {
+	return i.ToGroupPolicyAssignmentNonComplianceMessageArrayOutputWithContext(context.Background())
+}
+
+func (i GroupPolicyAssignmentNonComplianceMessageArray) ToGroupPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentNonComplianceMessageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentNonComplianceMessageArrayOutput)
+}
+
+type GroupPolicyAssignmentNonComplianceMessageOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicyAssignmentNonComplianceMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (o GroupPolicyAssignmentNonComplianceMessageOutput) ToGroupPolicyAssignmentNonComplianceMessageOutput() GroupPolicyAssignmentNonComplianceMessageOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentNonComplianceMessageOutput) ToGroupPolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) GroupPolicyAssignmentNonComplianceMessageOutput {
+	return o
+}
+
+// The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+func (o GroupPolicyAssignmentNonComplianceMessageOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentNonComplianceMessage) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+func (o GroupPolicyAssignmentNonComplianceMessageOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentNonComplianceMessage) *string { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
+}
+
+type GroupPolicyAssignmentNonComplianceMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicyAssignmentNonComplianceMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicyAssignmentNonComplianceMessage)(nil)).Elem()
+}
+
+func (o GroupPolicyAssignmentNonComplianceMessageArrayOutput) ToGroupPolicyAssignmentNonComplianceMessageArrayOutput() GroupPolicyAssignmentNonComplianceMessageArrayOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentNonComplianceMessageArrayOutput) ToGroupPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentNonComplianceMessageArrayOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.IntInput) GroupPolicyAssignmentNonComplianceMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupPolicyAssignmentNonComplianceMessage {
+		return vs[0].([]GroupPolicyAssignmentNonComplianceMessage)[vs[1].(int)]
+	}).(GroupPolicyAssignmentNonComplianceMessageOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentIdentityInput)(nil)).Elem(), GroupPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentIdentityPtrInput)(nil)).Elem(), GroupPolicyAssignmentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentNonComplianceMessageInput)(nil)).Elem(), GroupPolicyAssignmentNonComplianceMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentNonComplianceMessageArrayInput)(nil)).Elem(), GroupPolicyAssignmentNonComplianceMessageArray{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GroupPolicyAssignmentNonComplianceMessageOutput{})
+	pulumi.RegisterOutputType(GroupPolicyAssignmentNonComplianceMessageArrayOutput{})
 }

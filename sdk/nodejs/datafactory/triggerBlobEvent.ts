@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * });
  * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     dataFactoryName: exampleFactory.name,
+ *     dataFactoryId: exampleFactory.id,
  * });
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,

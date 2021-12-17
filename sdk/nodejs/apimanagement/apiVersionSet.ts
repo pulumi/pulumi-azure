@@ -66,7 +66,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+     * The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
      */
     public readonly apiManagementName!: pulumi.Output<string>;
     /**
@@ -78,7 +78,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * The name of the API Version Set. Changing this forces a new resource to be created.
+     * The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -154,7 +154,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
  */
 export interface ApiVersionSetState {
     /**
-     * The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+     * The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
      */
     apiManagementName?: pulumi.Input<string>;
     /**
@@ -166,7 +166,7 @@ export interface ApiVersionSetState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The name of the API Version Set. Changing this forces a new resource to be created.
+     * The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface ApiVersionSetState {
  */
 export interface ApiVersionSetArgs {
     /**
-     * The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+     * The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
      */
     apiManagementName: pulumi.Input<string>;
     /**
@@ -204,7 +204,7 @@ export interface ApiVersionSetArgs {
      */
     displayName: pulumi.Input<string>;
     /**
-     * The name of the API Version Set. Changing this forces a new resource to be created.
+     * The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

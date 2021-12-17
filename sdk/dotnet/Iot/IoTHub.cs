@@ -133,6 +133,20 @@ namespace Pulumi.Azure.Iot
     ///                     },
     ///                 },
     ///             },
+    ///             CloudToDevice = new Azure.Iot.Inputs.IoTHubCloudToDeviceArgs
+    ///             {
+    ///                 MaxDeliveryCount = 30,
+    ///                 DefaultTtl = "PT1H",
+    ///                 Feedbacks = 
+    ///                 {
+    ///                     new Azure.Iot.Inputs.IoTHubCloudToDeviceFeedbackArgs
+    ///                     {
+    ///                         TimeToLive = "PT1H10M",
+    ///                         MaxDeliveryCount = 15,
+    ///                         LockDuration = "PT30S",
+    ///                     },
+    ///                 },
+    ///             },
     ///             Tags = 
     ///             {
     ///                 { "purpose", "testing" },
@@ -154,6 +168,12 @@ namespace Pulumi.Azure.Iot
     [AzureResourceType("azure:iot/ioTHub:IoTHub")]
     public partial class IoTHub : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A `cloud_to_device` block as defined below.
+        /// </summary>
+        [Output("cloudToDevice")]
+        public Output<Outputs.IoTHubCloudToDevice> CloudToDevice { get; private set; } = null!;
+
         /// <summary>
         /// An `endpoint` block as defined below.
         /// </summary>
@@ -332,6 +352,12 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `cloud_to_device` block as defined below.
+        /// </summary>
+        [Input("cloudToDevice")]
+        public Input<Inputs.IoTHubCloudToDeviceArgs>? CloudToDevice { get; set; }
+
         [Input("endpoints")]
         private InputList<Inputs.IoTHubEndpointArgs>? _endpoints;
 
@@ -459,6 +485,12 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `cloud_to_device` block as defined below.
+        /// </summary>
+        [Input("cloudToDevice")]
+        public Input<Inputs.IoTHubCloudToDeviceGetArgs>? CloudToDevice { get; set; }
+
         [Input("endpoints")]
         private InputList<Inputs.IoTHubEndpointGetArgs>? _endpoints;
 

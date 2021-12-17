@@ -18,6 +18,8 @@ __all__ = [
     'AccountCorsRule',
     'AccountGeoLocation',
     'AccountIdentity',
+    'AccountRestore',
+    'AccountRestoreDatabase',
     'AccountVirtualNetworkRule',
     'CassandraKeyspaceAutoscaleSettings',
     'CassandraTableAutoscaleSettings',
@@ -52,6 +54,8 @@ __all__ = [
     'GetAccountConsistencyPolicyResult',
     'GetAccountGeoLocationResult',
     'GetAccountVirtualNetworkRuleResult',
+    'GetRestorableDatabaseAccountsAccountResult',
+    'GetRestorableDatabaseAccountsAccountRestorableLocationResult',
 ]
 
 @pulumi.output_type
@@ -510,6 +514,113 @@ class AccountIdentity(dict):
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class AccountRestore(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restoreTimestampInUtc":
+            suggest = "restore_timestamp_in_utc"
+        elif key == "sourceCosmosdbAccountId":
+            suggest = "source_cosmosdb_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountRestore. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountRestore.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountRestore.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 restore_timestamp_in_utc: str,
+                 source_cosmosdb_account_id: str,
+                 databases: Optional[Sequence['outputs.AccountRestoreDatabase']] = None):
+        """
+        :param str restore_timestamp_in_utc: The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
+        :param str source_cosmosdb_account_id: The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+        :param Sequence['AccountRestoreDatabaseArgs'] databases: A `database` block as defined below. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+        pulumi.set(__self__, "source_cosmosdb_account_id", source_cosmosdb_account_id)
+        if databases is not None:
+            pulumi.set(__self__, "databases", databases)
+
+    @property
+    @pulumi.getter(name="restoreTimestampInUtc")
+    def restore_timestamp_in_utc(self) -> str:
+        """
+        The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "restore_timestamp_in_utc")
+
+    @property
+    @pulumi.getter(name="sourceCosmosdbAccountId")
+    def source_cosmosdb_account_id(self) -> str:
+        """
+        The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_cosmosdb_account_id")
+
+    @property
+    @pulumi.getter
+    def databases(self) -> Optional[Sequence['outputs.AccountRestoreDatabase']]:
+        """
+        A `database` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "databases")
+
+
+@pulumi.output_type
+class AccountRestoreDatabase(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionNames":
+            suggest = "collection_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountRestoreDatabase. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountRestoreDatabase.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountRestoreDatabase.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 collection_names: Optional[Sequence[str]] = None):
+        """
+        :param str name: The database name for the restore request. Changing this forces a new resource to be created.
+        :param Sequence[str] collection_names: A list of the collection names for the restore request. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        if collection_names is not None:
+            pulumi.set(__self__, "collection_names", collection_names)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The database name for the restore request. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="collectionNames")
+    def collection_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of the collection names for the restore request. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "collection_names")
 
 
 @pulumi.output_type
@@ -1746,5 +1857,118 @@ class GetAccountVirtualNetworkRuleResult(dict):
         The ID of the virtual network subnet.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetRestorableDatabaseAccountsAccountResult(dict):
+    def __init__(__self__, *,
+                 api_type: str,
+                 creation_time: str,
+                 deletion_time: str,
+                 id: str,
+                 restorable_locations: Sequence['outputs.GetRestorableDatabaseAccountsAccountRestorableLocationResult']):
+        """
+        :param str api_type: The API type of the Cosmos DB Restorable Database Account.
+        :param str creation_time: The creation time of the regional Cosmos DB Restorable Database Account.
+        :param str deletion_time: The deletion time of the regional Cosmos DB Restorable Database Account.
+        :param str id: The ID of the Cosmos DB Restorable Database Account.
+        :param Sequence['GetRestorableDatabaseAccountsAccountRestorableLocationArgs'] restorable_locations: One or more `restorable_locations` blocks as defined below.
+        """
+        pulumi.set(__self__, "api_type", api_type)
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "deletion_time", deletion_time)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "restorable_locations", restorable_locations)
+
+    @property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> str:
+        """
+        The API type of the Cosmos DB Restorable Database Account.
+        """
+        return pulumi.get(self, "api_type")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The creation time of the regional Cosmos DB Restorable Database Account.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="deletionTime")
+    def deletion_time(self) -> str:
+        """
+        The deletion time of the regional Cosmos DB Restorable Database Account.
+        """
+        return pulumi.get(self, "deletion_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Cosmos DB Restorable Database Account.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="restorableLocations")
+    def restorable_locations(self) -> Sequence['outputs.GetRestorableDatabaseAccountsAccountRestorableLocationResult']:
+        """
+        One or more `restorable_locations` blocks as defined below.
+        """
+        return pulumi.get(self, "restorable_locations")
+
+
+@pulumi.output_type
+class GetRestorableDatabaseAccountsAccountRestorableLocationResult(dict):
+    def __init__(__self__, *,
+                 creation_time: str,
+                 deletion_time: str,
+                 location: str,
+                 regional_database_account_instance_id: str):
+        """
+        :param str creation_time: The creation time of the regional Cosmos DB Restorable Database Account.
+        :param str deletion_time: The deletion time of the regional Cosmos DB Restorable Database Account.
+        :param str location: The location where the Cosmos DB Database Account.
+        :param str regional_database_account_instance_id: The instance ID of the regional Cosmos DB Restorable Database Account.
+        """
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "deletion_time", deletion_time)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "regional_database_account_instance_id", regional_database_account_instance_id)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The creation time of the regional Cosmos DB Restorable Database Account.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="deletionTime")
+    def deletion_time(self) -> str:
+        """
+        The deletion time of the regional Cosmos DB Restorable Database Account.
+        """
+        return pulumi.get(self, "deletion_time")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location where the Cosmos DB Database Account.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="regionalDatabaseAccountInstanceId")
+    def regional_database_account_instance_id(self) -> str:
+        """
+        The instance ID of the regional Cosmos DB Restorable Database Account.
+        """
+        return pulumi.get(self, "regional_database_account_instance_id")
 
 

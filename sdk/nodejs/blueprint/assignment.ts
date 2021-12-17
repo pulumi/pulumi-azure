@@ -136,11 +136,15 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
+     */
+    public readonly lockExcludeActions!: pulumi.Output<string[] | undefined>;
+    /**
      * a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
      */
     public readonly lockExcludePrincipals!: pulumi.Output<string[] | undefined>;
     /**
-     * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
+     * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
      */
     public readonly lockMode!: pulumi.Output<string | undefined>;
     /**
@@ -186,6 +190,7 @@ export class Assignment extends pulumi.CustomResource {
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["lockExcludeActions"] = state ? state.lockExcludeActions : undefined;
             inputs["lockExcludePrincipals"] = state ? state.lockExcludePrincipals : undefined;
             inputs["lockMode"] = state ? state.lockMode : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -204,6 +209,7 @@ export class Assignment extends pulumi.CustomResource {
             }
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["lockExcludeActions"] = args ? args.lockExcludeActions : undefined;
             inputs["lockExcludePrincipals"] = args ? args.lockExcludePrincipals : undefined;
             inputs["lockMode"] = args ? args.lockMode : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -248,11 +254,15 @@ export interface AssignmentState {
      */
     location?: pulumi.Input<string>;
     /**
+     * a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
+     */
+    lockExcludeActions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
      */
     lockExcludePrincipals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
+     * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
      */
     lockMode?: pulumi.Input<string>;
     /**
@@ -294,11 +304,15 @@ export interface AssignmentArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
+     */
+    lockExcludeActions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
      */
     lockExcludePrincipals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
+     * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
      */
     lockMode?: pulumi.Input<string>;
     /**

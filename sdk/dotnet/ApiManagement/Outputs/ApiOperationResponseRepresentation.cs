@@ -18,6 +18,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string ContentType;
         /// <summary>
+        /// One or more `example` blocks as defined above.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApiOperationResponseRepresentationExample> Examples;
+        /// <summary>
         /// One or more `form_parameter` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiOperationResponseRepresentationFormParameter> FormParameters;
@@ -38,6 +42,8 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         private ApiOperationResponseRepresentation(
             string contentType,
 
+            ImmutableArray<Outputs.ApiOperationResponseRepresentationExample> examples,
+
             ImmutableArray<Outputs.ApiOperationResponseRepresentationFormParameter> formParameters,
 
             string? sample,
@@ -47,6 +53,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
             string? typeName)
         {
             ContentType = contentType;
+            Examples = examples;
             FormParameters = formParameters;
             Sample = sample;
             SchemaId = schemaId;

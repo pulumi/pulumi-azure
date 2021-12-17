@@ -71,6 +71,19 @@ __all__ = [
     'RegistryNetworkRuleSetIpRule',
     'RegistryNetworkRuleSetVirtualNetwork',
     'RegistryRetentionPolicy',
+    'RegistryTaskAgentSetting',
+    'RegistryTaskBaseImageTrigger',
+    'RegistryTaskDockerStep',
+    'RegistryTaskEncodedStep',
+    'RegistryTaskFileStep',
+    'RegistryTaskIdentity',
+    'RegistryTaskPlatform',
+    'RegistryTaskRegistryCredential',
+    'RegistryTaskRegistryCredentialCustom',
+    'RegistryTaskRegistryCredentialSource',
+    'RegistryTaskSourceTrigger',
+    'RegistryTaskSourceTriggerAuthentication',
+    'RegistryTaskTimerTrigger',
     'RegistryTrustPolicy',
     'GetClusterNodePoolUpgradeSettingResult',
     'GetKubernetesClusterAddonProfileResult',
@@ -5552,6 +5565,934 @@ class RegistryRetentionPolicy(dict):
     def enabled(self) -> Optional[bool]:
         """
         Boolean value that indicates whether the policy is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class RegistryTaskAgentSetting(dict):
+    def __init__(__self__, *,
+                 cpu: int):
+        """
+        :param int cpu: The number of cores required for the Container Registry Task.
+        """
+        pulumi.set(__self__, "cpu", cpu)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> int:
+        """
+        The number of cores required for the Container Registry Task.
+        """
+        return pulumi.get(self, "cpu")
+
+
+@pulumi.output_type
+class RegistryTaskBaseImageTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "updateTriggerEndpoint":
+            suggest = "update_trigger_endpoint"
+        elif key == "updateTriggerPayloadType":
+            suggest = "update_trigger_payload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryTaskBaseImageTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryTaskBaseImageTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryTaskBaseImageTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 enabled: Optional[bool] = None,
+                 update_trigger_endpoint: Optional[str] = None,
+                 update_trigger_payload_type: Optional[str] = None):
+        """
+        :param str name: The name which should be used for this trigger.
+        :param str type: The type of the trigger. Possible values are `All` and `Runtime`.
+        :param bool enabled: Should the trigger be enabled? Defaults to `true`.
+        :param str update_trigger_endpoint: The endpoint URL for receiving the trigger.
+        :param str update_trigger_payload_type: Type of payload body for the trigger. Possible values are `Default` and `Token`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if update_trigger_endpoint is not None:
+            pulumi.set(__self__, "update_trigger_endpoint", update_trigger_endpoint)
+        if update_trigger_payload_type is not None:
+            pulumi.set(__self__, "update_trigger_payload_type", update_trigger_payload_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this trigger.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the trigger. Possible values are `All` and `Runtime`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Should the trigger be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="updateTriggerEndpoint")
+    def update_trigger_endpoint(self) -> Optional[str]:
+        """
+        The endpoint URL for receiving the trigger.
+        """
+        return pulumi.get(self, "update_trigger_endpoint")
+
+    @property
+    @pulumi.getter(name="updateTriggerPayloadType")
+    def update_trigger_payload_type(self) -> Optional[str]:
+        """
+        Type of payload body for the trigger. Possible values are `Default` and `Token`.
+        """
+        return pulumi.get(self, "update_trigger_payload_type")
+
+
+@pulumi.output_type
+class RegistryTaskDockerStep(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contextAccessToken":
+            suggest = "context_access_token"
+        elif key == "contextPath":
+            suggest = "context_path"
+        elif key == "dockerfilePath":
+            suggest = "dockerfile_path"
+        elif key == "cacheEnabled":
+            suggest = "cache_enabled"
+        elif key == "imageNames":
+            suggest = "image_names"
+        elif key == "pushEnabled":
+            suggest = "push_enabled"
+        elif key == "secretArguments":
+            suggest = "secret_arguments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryTaskDockerStep. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryTaskDockerStep.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryTaskDockerStep.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 context_access_token: str,
+                 context_path: str,
+                 dockerfile_path: str,
+                 arguments: Optional[Mapping[str, str]] = None,
+                 cache_enabled: Optional[bool] = None,
+                 image_names: Optional[Sequence[str]] = None,
+                 push_enabled: Optional[bool] = None,
+                 secret_arguments: Optional[Mapping[str, str]] = None,
+                 target: Optional[str] = None):
+        """
+        :param str context_access_token: The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+        :param str context_path: The URL (absolute or relative) of the source context for this step.
+        :param str dockerfile_path: The  Dockerfile path relative to the source context.
+        :param Mapping[str, str] arguments: Specifies a map of arguments to be used when executing this step.
+        :param bool cache_enabled: Should the image cache be enabled? Defaults to `true`.
+        :param Sequence[str] image_names: Specifies a list of fully qualified image names including the repository and tag.
+        :param bool push_enabled: Should the image built be pushed to the registry or not? Defaults to `true`.
+        :param Mapping[str, str] secret_arguments: Specifies a map of *secret* arguments to be used when executing this step.
+        :param str target: The name of the target build stage for the docker build.
+        """
+        pulumi.set(__self__, "context_access_token", context_access_token)
+        pulumi.set(__self__, "context_path", context_path)
+        pulumi.set(__self__, "dockerfile_path", dockerfile_path)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if cache_enabled is not None:
+            pulumi.set(__self__, "cache_enabled", cache_enabled)
+        if image_names is not None:
+            pulumi.set(__self__, "image_names", image_names)
+        if push_enabled is not None:
+            pulumi.set(__self__, "push_enabled", push_enabled)
+        if secret_arguments is not None:
+            pulumi.set(__self__, "secret_arguments", secret_arguments)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> str:
+        """
+        The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> str:
+        """
+        The URL (absolute or relative) of the source context for this step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @property
+    @pulumi.getter(name="dockerfilePath")
+    def dockerfile_path(self) -> str:
+        """
+        The  Dockerfile path relative to the source context.
+        """
+        return pulumi.get(self, "dockerfile_path")
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of arguments to be used when executing this step.
+        """
+        return pulumi.get(self, "arguments")
+
+    @property
+    @pulumi.getter(name="cacheEnabled")
+    def cache_enabled(self) -> Optional[bool]:
+        """
+        Should the image cache be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "cache_enabled")
+
+    @property
+    @pulumi.getter(name="imageNames")
+    def image_names(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of fully qualified image names including the repository and tag.
+        """
+        return pulumi.get(self, "image_names")
+
+    @property
+    @pulumi.getter(name="pushEnabled")
+    def push_enabled(self) -> Optional[bool]:
+        """
+        Should the image built be pushed to the registry or not? Defaults to `true`.
+        """
+        return pulumi.get(self, "push_enabled")
+
+    @property
+    @pulumi.getter(name="secretArguments")
+    def secret_arguments(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of *secret* arguments to be used when executing this step.
+        """
+        return pulumi.get(self, "secret_arguments")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        The name of the target build stage for the docker build.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class RegistryTaskEncodedStep(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskContent":
+            suggest = "task_content"
+        elif key == "contextAccessToken":
+            suggest = "context_access_token"
+        elif key == "contextPath":
+            suggest = "context_path"
+        elif key == "secretValues":
+            suggest = "secret_values"
+        elif key == "valueContent":
+            suggest = "value_content"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryTaskEncodedStep. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryTaskEncodedStep.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryTaskEncodedStep.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 task_content: str,
+                 context_access_token: Optional[str] = None,
+                 context_path: Optional[str] = None,
+                 secret_values: Optional[Mapping[str, str]] = None,
+                 value_content: Optional[str] = None,
+                 values: Optional[Mapping[str, str]] = None):
+        """
+        :param str task_content: The (optionally base64 encoded) content of the build template.
+        :param str context_access_token: The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+        :param str context_path: The URL (absolute or relative) of the source context for this step.
+        :param Mapping[str, str] secret_values: Specifies a map of secret values that can be passed when running a task.
+        :param str value_content: The (optionally base64 encoded) content of the build parameters.
+        :param Mapping[str, str] values: Specifies a map of values that can be passed when running a task.
+        """
+        pulumi.set(__self__, "task_content", task_content)
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if secret_values is not None:
+            pulumi.set(__self__, "secret_values", secret_values)
+        if value_content is not None:
+            pulumi.set(__self__, "value_content", value_content)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="taskContent")
+    def task_content(self) -> str:
+        """
+        The (optionally base64 encoded) content of the build template.
+        """
+        return pulumi.get(self, "task_content")
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[str]:
+        """
+        The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[str]:
+        """
+        The URL (absolute or relative) of the source context for this step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @property
+    @pulumi.getter(name="secretValues")
+    def secret_values(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of secret values that can be passed when running a task.
+        """
+        return pulumi.get(self, "secret_values")
+
+    @property
+    @pulumi.getter(name="valueContent")
+    def value_content(self) -> Optional[str]:
+        """
+        The (optionally base64 encoded) content of the build parameters.
+        """
+        return pulumi.get(self, "value_content")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of values that can be passed when running a task.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class RegistryTaskFileStep(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskFilePath":
+            suggest = "task_file_path"
+        elif key == "contextAccessToken":
+            suggest = "context_access_token"
+        elif key == "contextPath":
+            suggest = "context_path"
+        elif key == "secretValues":
+            suggest = "secret_values"
+        elif key == "valueFilePath":
+            suggest = "value_file_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryTaskFileStep. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryTaskFileStep.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryTaskFileStep.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 task_file_path: str,
+                 context_access_token: Optional[str] = None,
+                 context_path: Optional[str] = None,
+                 secret_values: Optional[Mapping[str, str]] = None,
+                 value_file_path: Optional[str] = None,
+                 values: Optional[Mapping[str, str]] = None):
+        """
+        :param str task_file_path: The task template file path relative to the source context.
+        :param str context_access_token: The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+        :param str context_path: The URL (absolute or relative) of the source context for this step.
+        :param Mapping[str, str] secret_values: Specifies a map of secret values that can be passed when running a task.
+        :param str value_file_path: The parameters file path relative to the source context.
+        :param Mapping[str, str] values: Specifies a map of values that can be passed when running a task.
+        """
+        pulumi.set(__self__, "task_file_path", task_file_path)
+        if context_access_token is not None:
+            pulumi.set(__self__, "context_access_token", context_access_token)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if secret_values is not None:
+            pulumi.set(__self__, "secret_values", secret_values)
+        if value_file_path is not None:
+            pulumi.set(__self__, "value_file_path", value_file_path)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="taskFilePath")
+    def task_file_path(self) -> str:
+        """
+        The task template file path relative to the source context.
+        """
+        return pulumi.get(self, "task_file_path")
+
+    @property
+    @pulumi.getter(name="contextAccessToken")
+    def context_access_token(self) -> Optional[str]:
+        """
+        The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+        """
+        return pulumi.get(self, "context_access_token")
+
+    @property
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[str]:
+        """
+        The URL (absolute or relative) of the source context for this step.
+        """
+        return pulumi.get(self, "context_path")
+
+    @property
+    @pulumi.getter(name="secretValues")
+    def secret_values(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of secret values that can be passed when running a task.
+        """
+        return pulumi.get(self, "secret_values")
+
+    @property
+    @pulumi.getter(name="valueFilePath")
+    def value_file_path(self) -> Optional[str]:
+        """
+        The parameters file path relative to the source context.
+        """
+        return pulumi.get(self, "value_file_path")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of values that can be passed when running a task.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class RegistryTaskIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryTaskIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryTaskIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryTaskIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of user assigned identity IDs.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of user assigned identity IDs.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class RegistryTaskPlatform(dict):
+    def __init__(__self__, *,
+                 os: str,
+                 architecture: Optional[str] = None,
+                 variant: Optional[str] = None):
+        """
+        :param str os: The operating system type required for the task. Possible values are `Windows` and `Linux`.
+        :param str architecture: The OS architecture. Possible values are `amd64`, `x86`, `386`, `arm` and `arm64`.
+        :param str variant: The variant of the CPU. Possible values are `v6`, `v7`, `v8`.
+        """
+        pulumi.set(__self__, "os", os)
+        if architecture is not None:
+            pulumi.set(__self__, "architecture", architecture)
+        if variant is not None:
+            pulumi.set(__self__, "variant", variant)
+
+    @property
+    @pulumi.getter
+    def os(self) -> str:
+        """
+        The operating system type required for the task. Possible values are `Windows` and `Linux`.
+        """
+        return pulumi.get(self, "os")
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> Optional[str]:
+        """
+        The OS architecture. Possible values are `amd64`, `x86`, `386`, `arm` and `arm64`.
+        """
+        return pulumi.get(self, "architecture")
+
+    @property
+    @pulumi.getter
+    def variant(self) -> Optional[str]:
+        """
+        The variant of the CPU. Possible values are `v6`, `v7`, `v8`.
+        """
+        return pulumi.get(self, "variant")
+
+
+@pulumi.output_type
+class RegistryTaskRegistryCredential(dict):
+    def __init__(__self__, *,
+                 customs: Optional[Sequence['outputs.RegistryTaskRegistryCredentialCustom']] = None,
+                 source: Optional['outputs.RegistryTaskRegistryCredentialSource'] = None):
+        """
+        :param Sequence['RegistryTaskRegistryCredentialCustomArgs'] customs: One or more `custom` blocks as defined above.
+        :param 'RegistryTaskRegistryCredentialSourceArgs' source: One `source` block as defined below.
+        """
+        if customs is not None:
+            pulumi.set(__self__, "customs", customs)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def customs(self) -> Optional[Sequence['outputs.RegistryTaskRegistryCredentialCustom']]:
+        """
+        One or more `custom` blocks as defined above.
+        """
+        return pulumi.get(self, "customs")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.RegistryTaskRegistryCredentialSource']:
+        """
+        One `source` block as defined below.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class RegistryTaskRegistryCredentialCustom(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loginServer":
+            suggest = "login_server"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryTaskRegistryCredentialCustom. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryTaskRegistryCredentialCustom.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryTaskRegistryCredentialCustom.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 login_server: str,
+                 identity: Optional[str] = None,
+                 password: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        :param str login_server: The login server of the custom Container Registry.
+        :param str identity: The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+        :param str password: The password for logging into the custom Container Registry. It can be either a plain text of password, or a Keyvault Secret ID.
+        :param str username: The username for logging into the custom Container Registry. It can be either a plain text of username, or a Keyvault Secret ID.
+        """
+        pulumi.set(__self__, "login_server", login_server)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="loginServer")
+    def login_server(self) -> str:
+        """
+        The login server of the custom Container Registry.
+        """
+        return pulumi.get(self, "login_server")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[str]:
+        """
+        The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password for logging into the custom Container Registry. It can be either a plain text of password, or a Keyvault Secret ID.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The username for logging into the custom Container Registry. It can be either a plain text of username, or a Keyvault Secret ID.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class RegistryTaskRegistryCredentialSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loginMode":
+            suggest = "login_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryTaskRegistryCredentialSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryTaskRegistryCredentialSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryTaskRegistryCredentialSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 login_mode: str):
+        """
+        :param str login_mode: The login mode for the source registry. Possible values are `None` and `Default`.
+        """
+        pulumi.set(__self__, "login_mode", login_mode)
+
+    @property
+    @pulumi.getter(name="loginMode")
+    def login_mode(self) -> str:
+        """
+        The login mode for the source registry. Possible values are `None` and `Default`.
+        """
+        return pulumi.get(self, "login_mode")
+
+
+@pulumi.output_type
+class RegistryTaskSourceTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryUrl":
+            suggest = "repository_url"
+        elif key == "sourceType":
+            suggest = "source_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryTaskSourceTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryTaskSourceTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryTaskSourceTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 events: Sequence[str],
+                 name: str,
+                 repository_url: str,
+                 source_type: str,
+                 authentication: Optional['outputs.RegistryTaskSourceTriggerAuthentication'] = None,
+                 branch: Optional[str] = None,
+                 enabled: Optional[bool] = None):
+        """
+        :param Sequence[str] events: Specifies a list of source events corresponding to the trigger. Possible values are `commit` and `pullrequest`.
+        :param str name: The name which should be used for this trigger.
+        :param str repository_url: The full URL to the source code repository.
+        :param str source_type: The type of the source control service. Possible values are `Github` and `VisualStudioTeamService`.
+        :param 'RegistryTaskSourceTriggerAuthenticationArgs' authentication: A `authentication` block as defined above.
+        :param str branch: The branch name of the source code.
+        :param bool enabled: Should the trigger be enabled? Defaults to `true`.
+        """
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "repository_url", repository_url)
+        pulumi.set(__self__, "source_type", source_type)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Sequence[str]:
+        """
+        Specifies a list of source events corresponding to the trigger. Possible values are `commit` and `pullrequest`.
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this trigger.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> str:
+        """
+        The full URL to the source code repository.
+        """
+        return pulumi.get(self, "repository_url")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> str:
+        """
+        The type of the source control service. Possible values are `Github` and `VisualStudioTeamService`.
+        """
+        return pulumi.get(self, "source_type")
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional['outputs.RegistryTaskSourceTriggerAuthentication']:
+        """
+        A `authentication` block as defined above.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        """
+        The branch name of the source code.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Should the trigger be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class RegistryTaskSourceTriggerAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tokenType":
+            suggest = "token_type"
+        elif key == "expireInSeconds":
+            suggest = "expire_in_seconds"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryTaskSourceTriggerAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryTaskSourceTriggerAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryTaskSourceTriggerAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 token: str,
+                 token_type: str,
+                 expire_in_seconds: Optional[int] = None,
+                 refresh_token: Optional[str] = None,
+                 scope: Optional[str] = None):
+        """
+        :param str token: The access token used to access the source control provider.
+        :param str token_type: The type of the token. Possible values are `PAT` (personal access token) and `OAuth`.
+        :param int expire_in_seconds: Time in seconds that the token remains valid.
+        :param str refresh_token: The refresh token used to refresh the access token.
+        :param str scope: The scope of the access token.
+        """
+        pulumi.set(__self__, "token", token)
+        pulumi.set(__self__, "token_type", token_type)
+        if expire_in_seconds is not None:
+            pulumi.set(__self__, "expire_in_seconds", expire_in_seconds)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        The access token used to access the source control provider.
+        """
+        return pulumi.get(self, "token")
+
+    @property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> str:
+        """
+        The type of the token. Possible values are `PAT` (personal access token) and `OAuth`.
+        """
+        return pulumi.get(self, "token_type")
+
+    @property
+    @pulumi.getter(name="expireInSeconds")
+    def expire_in_seconds(self) -> Optional[int]:
+        """
+        Time in seconds that the token remains valid.
+        """
+        return pulumi.get(self, "expire_in_seconds")
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[str]:
+        """
+        The refresh token used to refresh the access token.
+        """
+        return pulumi.get(self, "refresh_token")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        The scope of the access token.
+        """
+        return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class RegistryTaskTimerTrigger(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 schedule: str,
+                 enabled: Optional[bool] = None):
+        """
+        :param str name: The name which should be used for this trigger.
+        :param str schedule: The CRON expression for the task schedule.
+        :param bool enabled: Should the trigger be enabled? Defaults to `true`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "schedule", schedule)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this trigger.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> str:
+        """
+        The CRON expression for the task schedule.
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Should the trigger be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

@@ -116,6 +116,12 @@ namespace Pulumi.Azure.SignalR
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if Live Trace is enabled or not.
+        /// </summary>
+        [Output("liveTraceEnabled")]
+        public Output<bool> LiveTraceEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -269,12 +275,18 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// A `features` block as documented below.
         /// </summary>
-        [Obsolete(@"Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`")]
+        [Obsolete(@"Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`")]
         public InputList<Inputs.ServiceFeatureArgs> Features
         {
             get => _features ?? (_features = new InputList<Inputs.ServiceFeatureArgs>());
             set => _features = value;
         }
+
+        /// <summary>
+        /// Specifies if Live Trace is enabled or not.
+        /// </summary>
+        [Input("liveTraceEnabled")]
+        public Input<bool>? LiveTraceEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
@@ -367,7 +379,7 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// A `features` block as documented below.
         /// </summary>
-        [Obsolete(@"Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled` and `service_mode`")]
+        [Obsolete(@"Deprecated in favour of `connectivity_logs_enabled`, `messaging_logs_enabled`, `live_trace_enabled` and `service_mode`")]
         public InputList<Inputs.ServiceFeatureGetArgs> Features
         {
             get => _features ?? (_features = new InputList<Inputs.ServiceFeatureGetArgs>());
@@ -385,6 +397,12 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
+
+        /// <summary>
+        /// Specifies if Live Trace is enabled or not.
+        /// </summary>
+        [Input("liveTraceEnabled")]
+        public Input<bool>? LiveTraceEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.

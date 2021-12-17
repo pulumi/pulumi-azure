@@ -66,13 +66,13 @@ import (
 type ApiVersionSet struct {
 	pulumi.CustomResourceState
 
-	// The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+	// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// The description of API Version Set.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of this API Version Set.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The name of the API Version Set. Changing this forces a new resource to be created.
+	// The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -125,13 +125,13 @@ func GetApiVersionSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiVersionSet resources.
 type apiVersionSetState struct {
-	// The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+	// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// The description of API Version Set.
 	Description *string `pulumi:"description"`
 	// The display name of this API Version Set.
 	DisplayName *string `pulumi:"displayName"`
-	// The name of the API Version Set. Changing this forces a new resource to be created.
+	// The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -144,13 +144,13 @@ type apiVersionSetState struct {
 }
 
 type ApiVersionSetState struct {
-	// The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+	// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringPtrInput
 	// The description of API Version Set.
 	Description pulumi.StringPtrInput
 	// The display name of this API Version Set.
 	DisplayName pulumi.StringPtrInput
-	// The name of the API Version Set. Changing this forces a new resource to be created.
+	// The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -167,13 +167,13 @@ func (ApiVersionSetState) ElementType() reflect.Type {
 }
 
 type apiVersionSetArgs struct {
-	// The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+	// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// The description of API Version Set.
 	Description *string `pulumi:"description"`
 	// The display name of this API Version Set.
 	DisplayName string `pulumi:"displayName"`
-	// The name of the API Version Set. Changing this forces a new resource to be created.
+	// The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -187,13 +187,13 @@ type apiVersionSetArgs struct {
 
 // The set of arguments for constructing a ApiVersionSet resource.
 type ApiVersionSetArgs struct {
-	// The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+	// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
 	// The description of API Version Set.
 	Description pulumi.StringPtrInput
 	// The display name of this API Version Set.
 	DisplayName pulumi.StringInput
-	// The name of the API Version Set. Changing this forces a new resource to be created.
+	// The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

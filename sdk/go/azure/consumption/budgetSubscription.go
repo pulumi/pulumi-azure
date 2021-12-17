@@ -45,7 +45,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = consumption.NewBudgetSubscription(ctx, "exampleBudgetSubscription", &consumption.BudgetSubscriptionArgs{
-// 			SubscriptionId: pulumi.String(current.SubscriptionId),
+// 			SubscriptionId: pulumi.String(current.Id),
 // 			Amount:         pulumi.Float64(1000),
 // 			TimeGrain:      pulumi.String("Monthly"),
 // 			TimePeriod: &consumption.BudgetSubscriptionTimePeriodArgs{
@@ -123,11 +123,11 @@ type BudgetSubscription struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter BudgetSubscriptionFilterPtrOutput `pulumi:"filter"`
-	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `notification` blocks as defined below.
 	Notifications BudgetSubscriptionNotificationArrayOutput `pulumi:"notifications"`
-	// The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+	// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
 	TimeGrain pulumi.StringPtrOutput `pulumi:"timeGrain"`
@@ -182,11 +182,11 @@ type budgetSubscriptionState struct {
 	Etag *string `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter *BudgetSubscriptionFilter `pulumi:"filter"`
-	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `notification` blocks as defined below.
 	Notifications []BudgetSubscriptionNotification `pulumi:"notifications"`
-	// The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+	// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
 	TimeGrain *string `pulumi:"timeGrain"`
@@ -201,11 +201,11 @@ type BudgetSubscriptionState struct {
 	Etag pulumi.StringPtrInput
 	// A `filter` block as defined below.
 	Filter BudgetSubscriptionFilterPtrInput
-	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `notification` blocks as defined below.
 	Notifications BudgetSubscriptionNotificationArrayInput
-	// The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+	// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
 	SubscriptionId pulumi.StringPtrInput
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
 	TimeGrain pulumi.StringPtrInput
@@ -224,11 +224,11 @@ type budgetSubscriptionArgs struct {
 	Etag *string `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter *BudgetSubscriptionFilter `pulumi:"filter"`
-	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `notification` blocks as defined below.
 	Notifications []BudgetSubscriptionNotification `pulumi:"notifications"`
-	// The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+	// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
 	SubscriptionId string `pulumi:"subscriptionId"`
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
 	TimeGrain *string `pulumi:"timeGrain"`
@@ -244,11 +244,11 @@ type BudgetSubscriptionArgs struct {
 	Etag pulumi.StringPtrInput
 	// A `filter` block as defined below.
 	Filter BudgetSubscriptionFilterPtrInput
-	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+	// The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `notification` blocks as defined below.
 	Notifications BudgetSubscriptionNotificationArrayInput
-	// The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
+	// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
 	SubscriptionId pulumi.StringInput
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
 	TimeGrain pulumi.StringPtrInput

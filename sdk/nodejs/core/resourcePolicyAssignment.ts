@@ -107,6 +107,10 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * One or more `nonComplianceMessage` blocks as defined below.
+     */
+    public readonly nonComplianceMessages!: pulumi.Output<outputs.core.ResourcePolicyAssignmentNonComplianceMessage[] | undefined>;
+    /**
      * Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
      */
     public readonly notScopes!: pulumi.Output<string[] | undefined>;
@@ -143,6 +147,7 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["nonComplianceMessages"] = state ? state.nonComplianceMessages : undefined;
             inputs["notScopes"] = state ? state.notScopes : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
@@ -162,6 +167,7 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["nonComplianceMessages"] = args ? args.nonComplianceMessages : undefined;
             inputs["notScopes"] = args ? args.notScopes : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
@@ -206,6 +212,10 @@ export interface ResourcePolicyAssignmentState {
      * The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * One or more `nonComplianceMessage` blocks as defined below.
+     */
+    nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentNonComplianceMessage>[]>;
     /**
      * Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
      */
@@ -256,6 +266,10 @@ export interface ResourcePolicyAssignmentArgs {
      * The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * One or more `nonComplianceMessage` blocks as defined below.
+     */
+    nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentNonComplianceMessage>[]>;
     /**
      * Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
      */

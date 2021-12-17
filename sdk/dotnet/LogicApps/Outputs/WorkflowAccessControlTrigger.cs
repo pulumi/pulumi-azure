@@ -17,11 +17,19 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// A list of the allowed caller IP address ranges.
         /// </summary>
         public readonly ImmutableArray<string> AllowedCallerIpAddressRanges;
+        /// <summary>
+        /// A `open_authentication_policy` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicy> OpenAuthenticationPolicies;
 
         [OutputConstructor]
-        private WorkflowAccessControlTrigger(ImmutableArray<string> allowedCallerIpAddressRanges)
+        private WorkflowAccessControlTrigger(
+            ImmutableArray<string> allowedCallerIpAddressRanges,
+
+            ImmutableArray<Outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicy> openAuthenticationPolicies)
         {
             AllowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
+            OpenAuthenticationPolicies = openAuthenticationPolicies;
         }
     }
 }

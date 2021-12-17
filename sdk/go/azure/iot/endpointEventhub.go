@@ -102,7 +102,12 @@ type EndpointEventhub struct {
 
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
-	IothubName       pulumi.StringOutput `pulumi:"iothubName"`
+	// The IoTHub ID for the endpoint.
+	IothubId pulumi.StringOutput `pulumi:"iothubId"`
+	// The IoTHub name for the endpoint.
+	//
+	// Deprecated: Deprecated in favour of `iothub_id`
+	IothubName pulumi.StringOutput `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name              pulumi.StringOutput `pulumi:"name"`
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -117,9 +122,6 @@ func NewEndpointEventhub(ctx *pulumi.Context,
 
 	if args.ConnectionString == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionString'")
-	}
-	if args.IothubName == nil {
-		return nil, errors.New("invalid value for required argument 'IothubName'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -148,7 +150,12 @@ func GetEndpointEventhub(ctx *pulumi.Context,
 type endpointEventhubState struct {
 	// The connection string for the endpoint.
 	ConnectionString *string `pulumi:"connectionString"`
-	IothubName       *string `pulumi:"iothubName"`
+	// The IoTHub ID for the endpoint.
+	IothubId *string `pulumi:"iothubId"`
+	// The IoTHub name for the endpoint.
+	//
+	// Deprecated: Deprecated in favour of `iothub_id`
+	IothubName *string `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name              *string `pulumi:"name"`
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -157,7 +164,12 @@ type endpointEventhubState struct {
 type EndpointEventhubState struct {
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringPtrInput
-	IothubName       pulumi.StringPtrInput
+	// The IoTHub ID for the endpoint.
+	IothubId pulumi.StringPtrInput
+	// The IoTHub name for the endpoint.
+	//
+	// Deprecated: Deprecated in favour of `iothub_id`
+	IothubName pulumi.StringPtrInput
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringPtrInput
@@ -170,7 +182,12 @@ func (EndpointEventhubState) ElementType() reflect.Type {
 type endpointEventhubArgs struct {
 	// The connection string for the endpoint.
 	ConnectionString string `pulumi:"connectionString"`
-	IothubName       string `pulumi:"iothubName"`
+	// The IoTHub ID for the endpoint.
+	IothubId *string `pulumi:"iothubId"`
+	// The IoTHub name for the endpoint.
+	//
+	// Deprecated: Deprecated in favour of `iothub_id`
+	IothubName *string `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name              *string `pulumi:"name"`
 	ResourceGroupName string  `pulumi:"resourceGroupName"`
@@ -180,7 +197,12 @@ type endpointEventhubArgs struct {
 type EndpointEventhubArgs struct {
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringInput
-	IothubName       pulumi.StringInput
+	// The IoTHub ID for the endpoint.
+	IothubId pulumi.StringPtrInput
+	// The IoTHub name for the endpoint.
+	//
+	// Deprecated: Deprecated in favour of `iothub_id`
+	IothubName pulumi.StringPtrInput
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput

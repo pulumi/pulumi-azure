@@ -16,6 +16,7 @@ export * from "./kubernetesCluster";
 export * from "./kubernetesClusterNodePool";
 export * from "./registry";
 export * from "./registryScopeMap";
+export * from "./registryTask";
 export * from "./registryToken";
 export * from "./registryWebhook";
 export * from "./registryWebook";
@@ -26,6 +27,7 @@ import { KubernetesCluster } from "./kubernetesCluster";
 import { KubernetesClusterNodePool } from "./kubernetesClusterNodePool";
 import { Registry } from "./registry";
 import { RegistryScopeMap } from "./registryScopeMap";
+import { RegistryTask } from "./registryTask";
 import { RegistryToken } from "./registryToken";
 import { RegistryWebhook } from "./registryWebhook";
 import { RegistryWebook } from "./registryWebook";
@@ -44,6 +46,8 @@ const _module = {
                 return new Registry(name, <any>undefined, { urn })
             case "azure:containerservice/registryScopeMap:RegistryScopeMap":
                 return new RegistryScopeMap(name, <any>undefined, { urn })
+            case "azure:containerservice/registryTask:RegistryTask":
+                return new RegistryTask(name, <any>undefined, { urn })
             case "azure:containerservice/registryToken:RegistryToken":
                 return new RegistryToken(name, <any>undefined, { urn })
             case "azure:containerservice/registryWebhook:RegistryWebhook":
@@ -60,6 +64,7 @@ pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesClust
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesClusterNodePool", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registry", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryScopeMap", _module)
+pulumi.runtime.registerResourceModule("azure", "containerservice/registryTask", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryToken", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryWebhook", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryWebook", _module)

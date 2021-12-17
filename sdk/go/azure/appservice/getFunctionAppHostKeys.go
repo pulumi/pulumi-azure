@@ -56,6 +56,8 @@ type GetFunctionAppHostKeysArgs struct {
 type GetFunctionAppHostKeysResult struct {
 	// Function App resource's default function key.
 	DefaultFunctionKey string `pulumi:"defaultFunctionKey"`
+	// Function App resource's Durable Task Extension system key.
+	DurabletaskExtensionKey string `pulumi:"durabletaskExtensionKey"`
 	// Function App resource's Event Grid Extension Config system key.
 	EventGridExtensionConfigKey string `pulumi:"eventGridExtensionConfigKey"`
 	// The provider-assigned unique ID for this managed resource.
@@ -67,6 +69,8 @@ type GetFunctionAppHostKeysResult struct {
 	Name              string `pulumi:"name"`
 	PrimaryKey        string `pulumi:"primaryKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Function App resource's SignalR Extension system key.
+	SignalrExtensionKey string `pulumi:"signalrExtensionKey"`
 }
 
 func GetFunctionAppHostKeysOutput(ctx *pulumi.Context, args GetFunctionAppHostKeysOutputArgs, opts ...pulumi.InvokeOption) GetFunctionAppHostKeysResultOutput {
@@ -110,6 +114,11 @@ func (o GetFunctionAppHostKeysResultOutput) DefaultFunctionKey() pulumi.StringOu
 	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.DefaultFunctionKey }).(pulumi.StringOutput)
 }
 
+// Function App resource's Durable Task Extension system key.
+func (o GetFunctionAppHostKeysResultOutput) DurabletaskExtensionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.DurabletaskExtensionKey }).(pulumi.StringOutput)
+}
+
 // Function App resource's Event Grid Extension Config system key.
 func (o GetFunctionAppHostKeysResultOutput) EventGridExtensionConfigKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.EventGridExtensionConfigKey }).(pulumi.StringOutput)
@@ -137,6 +146,11 @@ func (o GetFunctionAppHostKeysResultOutput) PrimaryKey() pulumi.StringOutput {
 
 func (o GetFunctionAppHostKeysResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Function App resource's SignalR Extension system key.
+func (o GetFunctionAppHostKeysResultOutput) SignalrExtensionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppHostKeysResult) string { return v.SignalrExtensionKey }).(pulumi.StringOutput)
 }
 
 func init() {

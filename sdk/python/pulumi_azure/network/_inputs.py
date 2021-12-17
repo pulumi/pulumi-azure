@@ -22,6 +22,9 @@ __all__ = [
     'ApplicationGatewayHttpListenerArgs',
     'ApplicationGatewayHttpListenerCustomErrorConfigurationArgs',
     'ApplicationGatewayIdentityArgs',
+    'ApplicationGatewayPrivateEndpointConnectionArgs',
+    'ApplicationGatewayPrivateLinkConfigurationArgs',
+    'ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs',
     'ApplicationGatewayProbeArgs',
     'ApplicationGatewayProbeMatchArgs',
     'ApplicationGatewayRedirectConfigurationArgs',
@@ -690,6 +693,8 @@ class ApplicationGatewayFrontendIpConfigurationArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  private_ip_address_allocation: Optional[pulumi.Input[str]] = None,
+                 private_link_configuration_id: Optional[pulumi.Input[str]] = None,
+                 private_link_configuration_name: Optional[pulumi.Input[str]] = None,
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
@@ -697,6 +702,8 @@ class ApplicationGatewayFrontendIpConfigurationArgs:
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input[str] private_ip_address: The Private IP Address to use for the Application Gateway.
         :param pulumi.Input[str] private_ip_address_allocation: The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        :param pulumi.Input[str] private_link_configuration_id: The ID of the associated private link configuration.
+        :param pulumi.Input[str] private_link_configuration_name: The name of the private link configuration to use for this frontend IP configuration.
         :param pulumi.Input[str] public_ip_address_id: The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet.
         """
@@ -707,6 +714,10 @@ class ApplicationGatewayFrontendIpConfigurationArgs:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if private_ip_address_allocation is not None:
             pulumi.set(__self__, "private_ip_address_allocation", private_ip_address_allocation)
+        if private_link_configuration_id is not None:
+            pulumi.set(__self__, "private_link_configuration_id", private_link_configuration_id)
+        if private_link_configuration_name is not None:
+            pulumi.set(__self__, "private_link_configuration_name", private_link_configuration_name)
         if public_ip_address_id is not None:
             pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         if subnet_id is not None:
@@ -759,6 +770,30 @@ class ApplicationGatewayFrontendIpConfigurationArgs:
     @private_ip_address_allocation.setter
     def private_ip_address_allocation(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_ip_address_allocation", value)
+
+    @property
+    @pulumi.getter(name="privateLinkConfigurationId")
+    def private_link_configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated private link configuration.
+        """
+        return pulumi.get(self, "private_link_configuration_id")
+
+    @private_link_configuration_id.setter
+    def private_link_configuration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_configuration_id", value)
+
+    @property
+    @pulumi.getter(name="privateLinkConfigurationName")
+    def private_link_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the private link configuration to use for this frontend IP configuration.
+        """
+        return pulumi.get(self, "private_link_configuration_name")
+
+    @private_link_configuration_name.setter
+    def private_link_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_configuration_name", value)
 
     @property
     @pulumi.getter(name="publicIpAddressId")
@@ -1239,6 +1274,181 @@ class ApplicationGatewayIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ApplicationGatewayPrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
+        :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Rewrite Rule Set
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Application Gateway. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ApplicationGatewayPrivateLinkConfigurationArgs:
+    def __init__(__self__, *,
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs']]],
+                 name: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
+        :param pulumi.Input[str] name: The name of the private link configuration.
+        :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
+        """
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        pulumi.set(__self__, "name", name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs']]]:
+        """
+        One or more `ip_configuration` blocks as defined below.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @ip_configurations.setter
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs']]]):
+        pulumi.set(self, "ip_configurations", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the private link configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Rewrite Rule Set
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 primary: pulumi.Input[bool],
+                 private_ip_address_allocation: pulumi.Input[str],
+                 subnet_id: pulumi.Input[str],
+                 private_ip_address: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the IP configuration.
+        :param pulumi.Input[bool] primary: Is this the Primary IP Configuration?
+        :param pulumi.Input[str] private_ip_address_allocation: The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet the private link configuration should connect to.
+        :param pulumi.Input[str] private_ip_address: The Static IP Address which should be used.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "private_ip_address_allocation", private_ip_address_allocation)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the IP configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> pulumi.Input[bool]:
+        """
+        Is this the Primary IP Configuration?
+        """
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "primary", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddressAllocation")
+    def private_ip_address_allocation(self) -> pulumi.Input[str]:
+        """
+        The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        """
+        return pulumi.get(self, "private_ip_address_allocation")
+
+    @private_ip_address_allocation.setter
+    def private_ip_address_allocation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_ip_address_allocation", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the subnet the private link configuration should connect to.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Static IP Address which should be used.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
 
 
 @pulumi.input_type
@@ -9795,6 +10005,8 @@ class VpnGatewayConnectionVpnLinkArgs:
                  bandwidth_mbps: Optional[pulumi.Input[int]] = None,
                  bgp_enabled: Optional[pulumi.Input[bool]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
+                 egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]] = None,
                  local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  policy_based_traffic_selector_enabled: Optional[pulumi.Input[bool]] = None,
@@ -9808,6 +10020,8 @@ class VpnGatewayConnectionVpnLinkArgs:
         :param pulumi.Input[int] bandwidth_mbps: The expected connection bandwidth in MBPS. Defaults to `10`.
         :param pulumi.Input[bool] bgp_enabled: Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[str] connection_mode: The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress Nat Rule Ids.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress Nat Rule Ids.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]] ipsec_policies: One or more `ipsec_policy` blocks as defined above.
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Whether to use local azure ip to initiate connection? Defaults to `false`.
         :param pulumi.Input[bool] policy_based_traffic_selector_enabled: Whether to enable policy-based traffic selectors? Defaults to `false`.
@@ -9824,6 +10038,10 @@ class VpnGatewayConnectionVpnLinkArgs:
             pulumi.set(__self__, "bgp_enabled", bgp_enabled)
         if connection_mode is not None:
             pulumi.set(__self__, "connection_mode", connection_mode)
+        if egress_nat_rule_ids is not None:
+            pulumi.set(__self__, "egress_nat_rule_ids", egress_nat_rule_ids)
+        if ingress_nat_rule_ids is not None:
+            pulumi.set(__self__, "ingress_nat_rule_ids", ingress_nat_rule_ids)
         if ipsec_policies is not None:
             pulumi.set(__self__, "ipsec_policies", ipsec_policies)
         if local_azure_ip_address_enabled is not None:
@@ -9898,6 +10116,30 @@ class VpnGatewayConnectionVpnLinkArgs:
     @connection_mode.setter
     def connection_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_mode", value)
+
+    @property
+    @pulumi.getter(name="egressNatRuleIds")
+    def egress_nat_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the egress Nat Rule Ids.
+        """
+        return pulumi.get(self, "egress_nat_rule_ids")
+
+    @egress_nat_rule_ids.setter
+    def egress_nat_rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "egress_nat_rule_ids", value)
+
+    @property
+    @pulumi.getter(name="ingressNatRuleIds")
+    def ingress_nat_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the ingress Nat Rule Ids.
+        """
+        return pulumi.get(self, "ingress_nat_rule_ids")
+
+    @ingress_nat_rule_ids.setter
+    def ingress_nat_rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ingress_nat_rule_ids", value)
 
     @property
     @pulumi.getter(name="ipsecPolicies")

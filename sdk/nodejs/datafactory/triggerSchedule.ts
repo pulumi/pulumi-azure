@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  * });
  * const testPipeline = new azure.datafactory.Pipeline("testPipeline", {
  *     resourceGroupName: azurerm_resource_group.test.name,
- *     dataFactoryName: azurerm_data_factory.test.name,
+ *     dataFactoryId: azurerm_data_factory.test.id,
  * });
  * const testTriggerSchedule = new azure.datafactory.TriggerSchedule("testTriggerSchedule", {
- *     dataFactoryName: azurerm_data_factory.test.name,
+ *     dataFactoryId: azurerm_data_factory.test.id,
  *     resourceGroupName: azurerm_resource_group.test.name,
  *     pipelineName: testPipeline.name,
  *     interval: 5,
@@ -77,7 +77,13 @@ export class TriggerSchedule extends pulumi.CustomResource {
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
-     * The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    public readonly dataFactoryId!: pulumi.Output<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
@@ -136,6 +142,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
             const state = argsOrState as TriggerScheduleState | undefined;
             inputs["activated"] = state ? state.activated : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
+            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["endTime"] = state ? state.endTime : undefined;
@@ -149,9 +156,6 @@ export class TriggerSchedule extends pulumi.CustomResource {
             inputs["startTime"] = state ? state.startTime : undefined;
         } else {
             const args = argsOrState as TriggerScheduleArgs | undefined;
-            if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dataFactoryName'");
-            }
             if ((!args || args.pipelineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pipelineName'");
             }
@@ -160,6 +164,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
             }
             inputs["activated"] = args ? args.activated : undefined;
             inputs["annotations"] = args ? args.annotations : undefined;
+            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["endTime"] = args ? args.endTime : undefined;
@@ -192,7 +197,13 @@ export interface TriggerScheduleState {
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+     */
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
      */
     dataFactoryName?: pulumi.Input<string>;
     /**
@@ -250,9 +261,15 @@ export interface TriggerScheduleArgs {
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
+     * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    dataFactoryName: pulumi.Input<string>;
+    dataFactoryId?: pulumi.Input<string>;
+    /**
+     * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+     *
+     * @deprecated `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider
+     */
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The Schedule Trigger's description.
      */

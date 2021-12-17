@@ -396,11 +396,17 @@ export namespace apimanagement {
          */
         contentType: pulumi.Input<string>;
         /**
+         * One or more `example` blocks as defined above.
+         */
+        examples?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationRequestRepresentationExample>[]>;
+        /**
          * One or more `formParameter` block as defined above.
          */
         formParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationRequestRepresentationFormParameter>[]>;
         /**
          * An example of this representation.
+         *
+         * @deprecated Deprecated in favour of `example`
          */
         sample?: pulumi.Input<string>;
         /**
@@ -411,6 +417,29 @@ export namespace apimanagement {
          * The Type Name defined by the Schema.
          */
         typeName?: pulumi.Input<string>;
+    }
+
+    export interface ApiOperationRequestRepresentationExample {
+        /**
+         * A long description for this example.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: pulumi.Input<string>;
+        /**
+         * The name of this example.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A short description for this example.
+         */
+        summary?: pulumi.Input<string>;
+        /**
+         * The example of the representation.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface ApiOperationRequestRepresentationFormParameter {
@@ -492,11 +521,17 @@ export namespace apimanagement {
          */
         contentType: pulumi.Input<string>;
         /**
+         * One or more `example` blocks as defined above.
+         */
+        examples?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponseRepresentationExample>[]>;
+        /**
          * One or more `formParameter` block as defined above.
          */
         formParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponseRepresentationFormParameter>[]>;
         /**
          * An example of this representation.
+         *
+         * @deprecated Deprecated in favour of `example`
          */
         sample?: pulumi.Input<string>;
         /**
@@ -507,6 +542,29 @@ export namespace apimanagement {
          * The Type Name defined by the Schema.
          */
         typeName?: pulumi.Input<string>;
+    }
+
+    export interface ApiOperationResponseRepresentationExample {
+        /**
+         * A long description for this example.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: pulumi.Input<string>;
+        /**
+         * The name of this example.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A short description for this example.
+         */
+        summary?: pulumi.Input<string>;
+        /**
+         * The example of the representation.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface ApiOperationResponseRepresentationFormParameter {
@@ -8792,12 +8850,270 @@ export namespace containerservice {
         enabled?: pulumi.Input<boolean>;
     }
 
+    export interface RegistryTaskAgentSetting {
+        /**
+         * The number of cores required for the Container Registry Task.
+         */
+        cpu: pulumi.Input<number>;
+    }
+
+    export interface RegistryTaskBaseImageTrigger {
+        /**
+         * Should the trigger be enabled? Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name which should be used for this trigger.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The type of the trigger. Possible values are `All` and `Runtime`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The endpoint URL for receiving the trigger.
+         */
+        updateTriggerEndpoint?: pulumi.Input<string>;
+        /**
+         * Type of payload body for the trigger. Possible values are `Default` and `Token`.
+         */
+        updateTriggerPayloadType?: pulumi.Input<string>;
+    }
+
+    export interface RegistryTaskDockerStep {
+        /**
+         * Specifies a map of arguments to be used when executing this step.
+         */
+        arguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Should the image cache be enabled? Defaults to `true`.
+         */
+        cacheEnabled?: pulumi.Input<boolean>;
+        /**
+         * The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+         */
+        contextAccessToken: pulumi.Input<string>;
+        /**
+         * The URL (absolute or relative) of the source context for this step.
+         */
+        contextPath: pulumi.Input<string>;
+        /**
+         * The  Dockerfile path relative to the source context.
+         */
+        dockerfilePath: pulumi.Input<string>;
+        /**
+         * Specifies a list of fully qualified image names including the repository and tag.
+         */
+        imageNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Should the image built be pushed to the registry or not? Defaults to `true`.
+         */
+        pushEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies a map of *secret* arguments to be used when executing this step.
+         */
+        secretArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The name of the target build stage for the docker build.
+         */
+        target?: pulumi.Input<string>;
+    }
+
+    export interface RegistryTaskEncodedStep {
+        /**
+         * The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+         */
+        contextAccessToken?: pulumi.Input<string>;
+        /**
+         * The URL (absolute or relative) of the source context for this step.
+         */
+        contextPath?: pulumi.Input<string>;
+        /**
+         * Specifies a map of secret values that can be passed when running a task.
+         */
+        secretValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The (optionally base64 encoded) content of the build template.
+         */
+        taskContent: pulumi.Input<string>;
+        /**
+         * The (optionally base64 encoded) content of the build parameters.
+         */
+        valueContent?: pulumi.Input<string>;
+        /**
+         * Specifies a map of values that can be passed when running a task.
+         */
+        values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface RegistryTaskFileStep {
+        /**
+         * The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
+         */
+        contextAccessToken?: pulumi.Input<string>;
+        /**
+         * The URL (absolute or relative) of the source context for this step.
+         */
+        contextPath?: pulumi.Input<string>;
+        /**
+         * Specifies a map of secret values that can be passed when running a task.
+         */
+        secretValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The task template file path relative to the source context.
+         */
+        taskFilePath: pulumi.Input<string>;
+        /**
+         * The parameters file path relative to the source context.
+         */
+        valueFilePath?: pulumi.Input<string>;
+        /**
+         * Specifies a map of values that can be passed when running a task.
+         */
+        values?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface RegistryTaskIdentity {
+        /**
+         * Specifies a list of user assigned identity IDs.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of the identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RegistryTaskPlatform {
+        /**
+         * The OS architecture. Possible values are `amd64`, `x86`, `386`, `arm` and `arm64`.
+         */
+        architecture?: pulumi.Input<string>;
+        /**
+         * The operating system type required for the task. Possible values are `Windows` and `Linux`.
+         */
+        os: pulumi.Input<string>;
+        /**
+         * The variant of the CPU. Possible values are `v6`, `v7`, `v8`.
+         */
+        variant?: pulumi.Input<string>;
+    }
+
+    export interface RegistryTaskRegistryCredential {
+        /**
+         * One or more `custom` blocks as defined above.
+         */
+        customs?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryTaskRegistryCredentialCustom>[]>;
+        /**
+         * One `source` block as defined below.
+         */
+        source?: pulumi.Input<inputs.containerservice.RegistryTaskRegistryCredentialSource>;
+    }
+
+    export interface RegistryTaskRegistryCredentialCustom {
+        /**
+         * The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `system`.
+         */
+        identity?: pulumi.Input<string>;
+        /**
+         * The login server of the custom Container Registry.
+         */
+        loginServer: pulumi.Input<string>;
+        /**
+         * The password for logging into the custom Container Registry. It can be either a plain text of password, or a Keyvault Secret ID.
+         */
+        password?: pulumi.Input<string>;
+        /**
+         * The username for logging into the custom Container Registry. It can be either a plain text of username, or a Keyvault Secret ID.
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    export interface RegistryTaskRegistryCredentialSource {
+        /**
+         * The login mode for the source registry. Possible values are `None` and `Default`.
+         */
+        loginMode: pulumi.Input<string>;
+    }
+
+    export interface RegistryTaskSourceTrigger {
+        /**
+         * A `authentication` block as defined above.
+         */
+        authentication?: pulumi.Input<inputs.containerservice.RegistryTaskSourceTriggerAuthentication>;
+        /**
+         * The branch name of the source code.
+         */
+        branch?: pulumi.Input<string>;
+        /**
+         * Should the trigger be enabled? Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies a list of source events corresponding to the trigger. Possible values are `commit` and `pullrequest`.
+         */
+        events: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name which should be used for this trigger.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The full URL to the source code repository.
+         */
+        repositoryUrl: pulumi.Input<string>;
+        /**
+         * The type of the source control service. Possible values are `Github` and `VisualStudioTeamService`.
+         */
+        sourceType: pulumi.Input<string>;
+    }
+
+    export interface RegistryTaskSourceTriggerAuthentication {
+        /**
+         * Time in seconds that the token remains valid.
+         */
+        expireInSeconds?: pulumi.Input<number>;
+        /**
+         * The refresh token used to refresh the access token.
+         */
+        refreshToken?: pulumi.Input<string>;
+        /**
+         * The scope of the access token.
+         */
+        scope?: pulumi.Input<string>;
+        /**
+         * The access token used to access the source control provider.
+         */
+        token: pulumi.Input<string>;
+        /**
+         * The type of the token. Possible values are `PAT` (personal access token) and `OAuth`.
+         */
+        tokenType: pulumi.Input<string>;
+    }
+
+    export interface RegistryTaskTimerTrigger {
+        /**
+         * Should the trigger be enabled? Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name which should be used for this trigger.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The CRON expression for the task schedule.
+         */
+        schedule: pulumi.Input<string>;
+    }
+
     export interface RegistryTrustPolicy {
         /**
          * Boolean value that indicates whether the policy is enabled.
          */
         enabled?: pulumi.Input<boolean>;
     }
+
 }
 
 export namespace core {
@@ -8871,6 +9187,17 @@ export namespace core {
         type?: pulumi.Input<string>;
     }
 
+    export interface ResourceGroupPolicyAssignmentNonComplianceMessage {
+        /**
+         * The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+         */
+        policyDefinitionReferenceId?: pulumi.Input<string>;
+    }
+
     export interface ResourcePolicyAssignmentIdentity {
         /**
          * The Principal ID of the Policy Assignment for this Resource.
@@ -8884,6 +9211,17 @@ export namespace core {
          * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface ResourcePolicyAssignmentNonComplianceMessage {
+        /**
+         * The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+         */
+        policyDefinitionReferenceId?: pulumi.Input<string>;
     }
 
     export interface ResourceProviderRegistrationFeature {
@@ -8932,6 +9270,17 @@ export namespace core {
          * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface SubscriptionPolicyAssignmentNonComplianceMessage {
+        /**
+         * The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+         */
+        policyDefinitionReferenceId?: pulumi.Input<string>;
     }
 }
 
@@ -9052,6 +9401,32 @@ export namespace cosmosdb {
          * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface AccountRestore {
+        /**
+         * A `database` block as defined below. Changing this forces a new resource to be created.
+         */
+        databases?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountRestoreDatabase>[]>;
+        /**
+         * The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
+         */
+        restoreTimestampInUtc: pulumi.Input<string>;
+        /**
+         * The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+         */
+        sourceCosmosdbAccountId: pulumi.Input<string>;
+    }
+
+    export interface AccountRestoreDatabase {
+        /**
+         * A list of the collection names for the restore request. Changing this forces a new resource to be created.
+         */
+        collectionNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The database name for the restore request. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
     }
 
     export interface AccountVirtualNetworkRule {
@@ -9356,6 +9731,7 @@ export namespace cosmosdb {
          */
         maxThroughput?: pulumi.Input<number>;
     }
+
 }
 
 export namespace costmanagement {
@@ -10293,7 +10669,7 @@ export namespace datafactory {
          */
         dualStandbyPairName?: pulumi.Input<string>;
         /**
-         * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+         * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `S0`, `S1`, `S2`, `S3`, `S4`, `S6`, `S7`, `S9`, `S12`, `P1`, `P2`, `P4`, `P6`, `P11`, `P15`, `GP_S_Gen5_1`, `GP_S_Gen5_2`, `GP_S_Gen5_4`, `GP_S_Gen5_6`, `GP_S_Gen5_8`, `GP_S_Gen5_10`, `GP_S_Gen5_12`, `GP_S_Gen5_14`, `GP_S_Gen5_16`, `GP_S_Gen5_18`, `GP_S_Gen5_20`, `GP_S_Gen5_24`, `GP_S_Gen5_32`, `GP_S_Gen5_40`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_6`, `GP_Gen5_8`, `GP_Gen5_10`, `GP_Gen5_12`, `GP_Gen5_14`, `GP_Gen5_16`, `GP_Gen5_18`, `GP_Gen5_20`, `GP_Gen5_24`, `GP_Gen5_32`, `GP_Gen5_40`, `GP_Gen5_80`, `BC_Gen5_2`, `BC_Gen5_4`, `BC_Gen5_6`, `BC_Gen5_8`, `BC_Gen5_10`, `BC_Gen5_12`, `BC_Gen5_14`, `BC_Gen5_16`, `BC_Gen5_18`, `BC_Gen5_20`, `BC_Gen5_24`, `BC_Gen5_32`, `BC_Gen5_40`, `BC_Gen5_80`, `HS_Gen5_2`, `HS_Gen5_4`, `HS_Gen5_6`, `HS_Gen5_8`, `HS_Gen5_10`, `HS_Gen5_12`, `HS_Gen5_14`, `HS_Gen5_16`, `HS_Gen5_18`, `HS_Gen5_20`, `HS_Gen5_24`, `HS_Gen5_32`, `HS_Gen5_40` and `HS_Gen5_80`.
          */
         pricingTier?: pulumi.Input<string>;
         /**
@@ -15979,9 +16355,39 @@ export namespace hsm {
 }
 
 export namespace iot {
+    export interface IoTHubCloudToDevice {
+        /**
+         * The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+         */
+        defaultTtl?: pulumi.Input<string>;
+        /**
+         * A `feedback` block as defined below.
+         */
+        feedbacks?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubCloudToDeviceFeedback>[]>;
+        /**
+         * The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`, and evaluates to `10` by default.
+         */
+        maxDeliveryCount?: pulumi.Input<number>;
+    }
+
+    export interface IoTHubCloudToDeviceFeedback {
+        /**
+         * The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT60S` by default.
+         */
+        lockDuration?: pulumi.Input<string>;
+        /**
+         * The maximum delivery count for the feedback queue. This value must be between `1` and `100`, and evaluates to `10` by default.
+         */
+        maxDeliveryCount?: pulumi.Input<number>;
+        /**
+         * The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
+         */
+        timeToLive?: pulumi.Input<string>;
+    }
+
     export interface IoTHubEndpoint {
         /**
-         * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+         * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
          */
         batchFrequencyInSeconds?: pulumi.Input<number>;
         /**
@@ -15993,15 +16399,15 @@ export namespace iot {
          */
         containerName?: pulumi.Input<string>;
         /**
-         * Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+         * Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
          */
         encoding?: pulumi.Input<string>;
         /**
-         * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+         * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
          */
         fileNameFormat?: pulumi.Input<string>;
         /**
-         * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+         * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
          */
         maxChunkSizeInBytes?: pulumi.Input<number>;
         /**
@@ -16062,15 +16468,15 @@ export namespace iot {
          */
         containerName: pulumi.Input<string>;
         /**
-         * The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+         * The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to `PT1H` by default.
          */
         defaultTtl?: pulumi.Input<string>;
         /**
-         * The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+         * The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to `PT1M` by default.
          */
         lockDuration?: pulumi.Input<string>;
         /**
-         * The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+         * The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to `10` by default.
          */
         maxDeliveryCount?: pulumi.Input<number>;
         /**
@@ -16078,7 +16484,7 @@ export namespace iot {
          */
         notifications?: pulumi.Input<boolean>;
         /**
-         * The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+         * The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to `PT1H` by default.
          */
         sasTtl?: pulumi.Input<string>;
     }
@@ -17353,6 +17759,32 @@ export namespace logicapps {
          * A list of the allowed caller IP address ranges.
          */
         allowedCallerIpAddressRanges: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `openAuthenticationPolicy` block as defined below.
+         */
+        openAuthenticationPolicies?: pulumi.Input<pulumi.Input<inputs.logicapps.WorkflowAccessControlTriggerOpenAuthenticationPolicy>[]>;
+    }
+
+    export interface WorkflowAccessControlTriggerOpenAuthenticationPolicy {
+        /**
+         * A `claim` block as defined below.
+         */
+        claims: pulumi.Input<pulumi.Input<inputs.logicapps.WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim>[]>;
+        /**
+         * The OAuth policy name for the Logic App Workflow.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim {
+        /**
+         * The name of the OAuth policy claim for the Logic App Workflow.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the OAuth policy claim for the Logic App Workflow.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface WorkflowAccessControlWorkflowManagement {
@@ -17362,6 +17794,24 @@ export namespace logicapps {
         allowedCallerIpAddressRanges: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface WorkflowIdentity {
+        /**
+         * A list of Managed Identity ID's which should be assigned to this Logic App Workflow.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Managed Identity assigned to this Logic App Workflow. Possible values are `SystemAssigned` and `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
 }
 
 export namespace machinelearning {
@@ -17623,6 +18073,17 @@ export namespace management {
          * The Type of Managed Identity which should be added to this Policy Definition. The only possible value is `SystemAssigned`.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface GroupPolicyAssignmentNonComplianceMessage {
+        /**
+         * The non-compliance message text. When assigning policy sets (initiatives), unless `policyDefinitionReferenceId` is specified then this message will be the default for all policies.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+         */
+        policyDefinitionReferenceId?: pulumi.Input<string>;
     }
 }
 
@@ -20011,6 +20472,67 @@ export namespace netapp {
         username: pulumi.Input<string>;
     }
 
+    export interface SnapshotPolicyDailySchedule {
+        /**
+         * Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+         */
+        hour: pulumi.Input<number>;
+        /**
+         * Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+         */
+        minute: pulumi.Input<number>;
+        /**
+         * How many hourly snapshots to keep, valid range is from 0 to 255.
+         */
+        snapshotsToKeep: pulumi.Input<number>;
+    }
+
+    export interface SnapshotPolicyHourlySchedule {
+        /**
+         * Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+         */
+        minute: pulumi.Input<number>;
+        /**
+         * How many hourly snapshots to keep, valid range is from 0 to 255.
+         */
+        snapshotsToKeep: pulumi.Input<number>;
+    }
+
+    export interface SnapshotPolicyMonthlySchedule {
+        daysOfMonths: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+         */
+        hour: pulumi.Input<number>;
+        /**
+         * Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+         */
+        minute: pulumi.Input<number>;
+        /**
+         * How many hourly snapshots to keep, valid range is from 0 to 255.
+         */
+        snapshotsToKeep: pulumi.Input<number>;
+    }
+
+    export interface SnapshotPolicyWeeklySchedule {
+        /**
+         * List of the week days using English names when the snapshots will be created.
+         */
+        daysOfWeeks: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+         */
+        hour: pulumi.Input<number>;
+        /**
+         * Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+         */
+        minute: pulumi.Input<number>;
+        /**
+         * How many hourly snapshots to keep, valid range is from 0 to 255.
+         */
+        snapshotsToKeep: pulumi.Input<number>;
+    }
+
     export interface VolumeDataProtectionReplication {
         /**
          * The endpoint type, default value is `dst` for destination.
@@ -20028,6 +20550,13 @@ export namespace netapp {
          * Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
          */
         replicationFrequency: pulumi.Input<string>;
+    }
+
+    export interface VolumeDataProtectionSnapshotPolicy {
+        /**
+         * Resource ID of the snapshot policy to apply to the volume.
+         */
+        snapshotPolicyId: pulumi.Input<string>;
     }
 
     export interface VolumeExportPolicyRule {
@@ -20068,6 +20597,7 @@ export namespace netapp {
          */
         unixReadWrite?: pulumi.Input<boolean>;
     }
+
 }
 
 export namespace network {
@@ -20234,6 +20764,14 @@ export namespace network {
          */
         privateIpAddressAllocation?: pulumi.Input<string>;
         /**
+         * The ID of the associated private link configuration.
+         */
+        privateLinkConfigurationId?: pulumi.Input<string>;
+        /**
+         * The name of the private link configuration to use for this frontend IP configuration.
+         */
+        privateLinkConfigurationName?: pulumi.Input<string>;
+        /**
          * The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
          */
         publicIpAddressId?: pulumi.Input<string>;
@@ -20364,6 +20902,55 @@ export namespace network {
          * The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface ApplicationGatewayPrivateEndpointConnection {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface ApplicationGatewayPrivateLinkConfiguration {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * One or more `ipConfiguration` blocks as defined below.
+         */
+        ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayPrivateLinkConfigurationIpConfiguration>[]>;
+        /**
+         * The name of the private link configuration.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface ApplicationGatewayPrivateLinkConfigurationIpConfiguration {
+        /**
+         * The name of the IP configuration.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Is this the Primary IP Configuration?
+         */
+        primary: pulumi.Input<boolean>;
+        /**
+         * The Static IP Address which should be used.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
+         * The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+         */
+        privateIpAddressAllocation: pulumi.Input<string>;
+        /**
+         * The ID of the subnet the private link configuration should connect to.
+         */
+        subnetId: pulumi.Input<string>;
     }
 
     export interface ApplicationGatewayProbe {
@@ -22718,6 +23305,14 @@ export namespace network {
          */
         connectionMode?: pulumi.Input<string>;
         /**
+         * A list of the egress Nat Rule Ids.
+         */
+        egressNatRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of the ingress Nat Rule Ids.
+         */
+        ingressNatRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * One or more `ipsecPolicy` blocks as defined above.
          */
         ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionVpnLinkIpsecPolicy>[]>;
@@ -24425,7 +25020,7 @@ export namespace signalr {
 
     export interface ServiceFeature {
         /**
-         * The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
+         * The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, `EnableLiveTrace` and `ServiceMode`.
          */
         flag: pulumi.Input<string>;
         /**

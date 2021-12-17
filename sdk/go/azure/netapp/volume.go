@@ -103,6 +103,9 @@ import (
 // 				RemoteVolumeResourceId: pulumi.Any(azurerm_netapp_volume.Example_primary.Id),
 // 				ReplicationFrequency:   pulumi.String("10minutes"),
 // 			},
+// 			DataProtectionSnapshotPolicy: &netapp.VolumeDataProtectionSnapshotPolicyArgs{
+// 				SnapshotPolicyId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotpolicy1"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -128,6 +131,8 @@ type Volume struct {
 	CreateFromSnapshotResourceId pulumi.StringOutput `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionReplication` block as defined below.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrOutput `pulumi:"dataProtectionReplication"`
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicy VolumeDataProtectionSnapshotPolicyPtrOutput `pulumi:"dataProtectionSnapshotPolicy"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayOutput `pulumi:"exportPolicyRules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -147,7 +152,7 @@ type Volume struct {
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
 	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
 	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
-	SnapshotDirectoryVisible pulumi.BoolPtrOutput `pulumi:"snapshotDirectoryVisible"`
+	SnapshotDirectoryVisible pulumi.BoolOutput `pulumi:"snapshotDirectoryVisible"`
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
 	StorageQuotaInGb pulumi.IntOutput `pulumi:"storageQuotaInGb"`
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
@@ -216,6 +221,8 @@ type volumeState struct {
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionReplication` block as defined below.
 	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicy *VolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicy"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -255,6 +262,8 @@ type VolumeState struct {
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
 	// A `dataProtectionReplication` block as defined below.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicy VolumeDataProtectionSnapshotPolicyPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -298,6 +307,8 @@ type volumeArgs struct {
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionReplication` block as defined below.
 	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicy *VolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicy"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -336,6 +347,8 @@ type VolumeArgs struct {
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
 	// A `dataProtectionReplication` block as defined below.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicy VolumeDataProtectionSnapshotPolicyPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

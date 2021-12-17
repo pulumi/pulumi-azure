@@ -136,9 +136,11 @@ type Assignment struct {
 	Identity AssignmentIdentityPtrOutput `pulumi:"identity"`
 	// The Azure location of the Assignment.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
+	LockExcludeActions pulumi.StringArrayOutput `pulumi:"lockExcludeActions"`
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludePrincipals pulumi.StringArrayOutput `pulumi:"lockExcludePrincipals"`
-	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
+	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
 	LockMode pulumi.StringPtrOutput `pulumi:"lockMode"`
 	// The name of the Blueprint Assignment
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -199,9 +201,11 @@ type assignmentState struct {
 	Identity *AssignmentIdentity `pulumi:"identity"`
 	// The Azure location of the Assignment.
 	Location *string `pulumi:"location"`
+	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
+	LockExcludeActions []string `pulumi:"lockExcludeActions"`
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludePrincipals []string `pulumi:"lockExcludePrincipals"`
-	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
+	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
 	LockMode *string `pulumi:"lockMode"`
 	// The name of the Blueprint Assignment
 	Name *string `pulumi:"name"`
@@ -228,9 +232,11 @@ type AssignmentState struct {
 	Identity AssignmentIdentityPtrInput
 	// The Azure location of the Assignment.
 	Location pulumi.StringPtrInput
+	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
+	LockExcludeActions pulumi.StringArrayInput
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludePrincipals pulumi.StringArrayInput
-	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
+	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
 	LockMode pulumi.StringPtrInput
 	// The name of the Blueprint Assignment
 	Name pulumi.StringPtrInput
@@ -255,9 +261,11 @@ type assignmentArgs struct {
 	Identity *AssignmentIdentity `pulumi:"identity"`
 	// The Azure location of the Assignment.
 	Location *string `pulumi:"location"`
+	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
+	LockExcludeActions []string `pulumi:"lockExcludeActions"`
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludePrincipals []string `pulumi:"lockExcludePrincipals"`
-	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
+	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
 	LockMode *string `pulumi:"lockMode"`
 	// The name of the Blueprint Assignment
 	Name *string `pulumi:"name"`
@@ -277,9 +285,11 @@ type AssignmentArgs struct {
 	Identity AssignmentIdentityPtrInput
 	// The Azure location of the Assignment.
 	Location pulumi.StringPtrInput
+	// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
+	LockExcludeActions pulumi.StringArrayInput
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludePrincipals pulumi.StringArrayInput
-	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
+	// The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`.
 	LockMode pulumi.StringPtrInput
 	// The name of the Blueprint Assignment
 	Name pulumi.StringPtrInput

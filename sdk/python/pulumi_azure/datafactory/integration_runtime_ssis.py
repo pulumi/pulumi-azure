@@ -15,11 +15,12 @@ __all__ = ['IntegrationRuntimeSsisArgs', 'IntegrationRuntimeSsis']
 @pulumi.input_type
 class IntegrationRuntimeSsisArgs:
     def __init__(__self__, *,
-                 data_factory_name: pulumi.Input[str],
                  node_size: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
                  custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
+                 data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  express_custom_setup: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']] = None,
@@ -33,11 +34,12 @@ class IntegrationRuntimeSsisArgs:
                  vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']] = None):
         """
         The set of arguments for constructing a IntegrationRuntimeSsis resource.
-        :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_size: The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs'] catalog_info: A `catalog_info` block as defined below.
         :param pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs'] custom_setup_script: A `custom_setup_script` block as defined below.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs'] express_custom_setup: An `express_custom_setup` block as defined below.
@@ -50,13 +52,19 @@ class IntegrationRuntimeSsisArgs:
         :param pulumi.Input['IntegrationRuntimeSsisProxyArgs'] proxy: A `proxy` block as defined below.
         :param pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs'] vnet_integration: A `vnet_integration` block as defined below.
         """
-        pulumi.set(__self__, "data_factory_name", data_factory_name)
         pulumi.set(__self__, "node_size", node_size)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if catalog_info is not None:
             pulumi.set(__self__, "catalog_info", catalog_info)
         if custom_setup_script is not None:
             pulumi.set(__self__, "custom_setup_script", custom_setup_script)
+        if data_factory_id is not None:
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
+        if data_factory_name is not None:
+            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
+        if data_factory_name is not None:
+            pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if edition is not None:
@@ -79,18 +87,6 @@ class IntegrationRuntimeSsisArgs:
             pulumi.set(__self__, "proxy", proxy)
         if vnet_integration is not None:
             pulumi.set(__self__, "vnet_integration", vnet_integration)
-
-    @property
-    @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> pulumi.Input[str]:
-        """
-        Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "data_factory_name")
-
-    @data_factory_name.setter
-    def data_factory_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter(name="nodeSize")
@@ -139,6 +135,30 @@ class IntegrationRuntimeSsisArgs:
     @custom_setup_script.setter
     def custom_setup_script(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']]):
         pulumi.set(self, "custom_setup_script", value)
+
+    @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_id", value)
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @data_factory_name.setter
+    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_name", value)
 
     @property
     @pulumi.getter
@@ -278,6 +298,7 @@ class _IntegrationRuntimeSsisState:
     def __init__(__self__, *,
                  catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
                  custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
@@ -296,7 +317,8 @@ class _IntegrationRuntimeSsisState:
         Input properties used for looking up and filtering IntegrationRuntimeSsis resources.
         :param pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs'] catalog_info: A `catalog_info` block as defined below.
         :param pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs'] custom_setup_script: A `custom_setup_script` block as defined below.
-        :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs'] express_custom_setup: An `express_custom_setup` block as defined below.
@@ -315,6 +337,11 @@ class _IntegrationRuntimeSsisState:
             pulumi.set(__self__, "catalog_info", catalog_info)
         if custom_setup_script is not None:
             pulumi.set(__self__, "custom_setup_script", custom_setup_script)
+        if data_factory_id is not None:
+            pulumi.set(__self__, "data_factory_id", data_factory_id)
+        if data_factory_name is not None:
+            warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
         if data_factory_name is not None:
             pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
@@ -369,10 +396,22 @@ class _IntegrationRuntimeSsisState:
         pulumi.set(self, "custom_setup_script", value)
 
     @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @data_factory_id.setter
+    def data_factory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_id", value)
+
+    @property
     @pulumi.getter(name="dataFactoryName")
     def data_factory_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
+        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_name")
 
@@ -544,6 +583,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_info: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCatalogInfoArgs']]] = None,
                  custom_setup_script: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCustomSetupScriptArgs']]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
@@ -573,7 +613,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
         example_integration_runtime_ssis = azure.datafactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis",
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             node_size="Standard_D8_v3")
@@ -591,7 +631,8 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCatalogInfoArgs']] catalog_info: A `catalog_info` block as defined below.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCustomSetupScriptArgs']] custom_setup_script: A `custom_setup_script` block as defined below.
-        :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressCustomSetupArgs']] express_custom_setup: An `express_custom_setup` block as defined below.
@@ -626,7 +667,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
         example_integration_runtime_ssis = azure.datafactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis",
-            data_factory_name=example_factory.name,
+            data_factory_id=example_factory.id,
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             node_size="Standard_D8_v3")
@@ -657,6 +698,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_info: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCatalogInfoArgs']]] = None,
                  custom_setup_script: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCustomSetupScriptArgs']]] = None,
+                 data_factory_id: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
@@ -685,8 +727,10 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
 
             __props__.__dict__["catalog_info"] = catalog_info
             __props__.__dict__["custom_setup_script"] = custom_setup_script
-            if data_factory_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_factory_name'")
+            __props__.__dict__["data_factory_id"] = data_factory_id
+            if data_factory_name is not None and not opts.urn:
+                warnings.warn("""`data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""", DeprecationWarning)
+                pulumi.log.warn("""data_factory_name is deprecated: `data_factory_name` is deprecated in favour of `data_factory_id` and will be removed in version 3.0 of the AzureRM provider""")
             __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["edition"] = edition
@@ -717,6 +761,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_info: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCatalogInfoArgs']]] = None,
             custom_setup_script: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCustomSetupScriptArgs']]] = None,
+            data_factory_id: Optional[pulumi.Input[str]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             edition: Optional[pulumi.Input[str]] = None,
@@ -740,7 +785,8 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCatalogInfoArgs']] catalog_info: A `catalog_info` block as defined below.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCustomSetupScriptArgs']] custom_setup_script: A `custom_setup_script` block as defined below.
-        :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressCustomSetupArgs']] express_custom_setup: An `express_custom_setup` block as defined below.
@@ -761,6 +807,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
 
         __props__.__dict__["catalog_info"] = catalog_info
         __props__.__dict__["custom_setup_script"] = custom_setup_script
+        __props__.__dict__["data_factory_id"] = data_factory_id
         __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["edition"] = edition
@@ -794,10 +841,18 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         return pulumi.get(self, "custom_setup_script")
 
     @property
+    @pulumi.getter(name="dataFactoryId")
+    def data_factory_id(self) -> pulumi.Output[str]:
+        """
+        The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_id")
+
+    @property
     @pulumi.getter(name="dataFactoryName")
     def data_factory_name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Data Factory the Azure-SSIS Integration Runtime belongs to. Changing this forces a new resource to be created.
+        The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_name")
 
