@@ -166,7 +166,7 @@ type ScheduledQueryRulesLogInput interface {
 }
 
 func (*ScheduledQueryRulesLog) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRulesLog)(nil))
+	return reflect.TypeOf((**ScheduledQueryRulesLog)(nil)).Elem()
 }
 
 func (i *ScheduledQueryRulesLog) ToScheduledQueryRulesLogOutput() ScheduledQueryRulesLogOutput {
@@ -175,35 +175,6 @@ func (i *ScheduledQueryRulesLog) ToScheduledQueryRulesLogOutput() ScheduledQuery
 
 func (i *ScheduledQueryRulesLog) ToScheduledQueryRulesLogOutputWithContext(ctx context.Context) ScheduledQueryRulesLogOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogOutput)
-}
-
-func (i *ScheduledQueryRulesLog) ToScheduledQueryRulesLogPtrOutput() ScheduledQueryRulesLogPtrOutput {
-	return i.ToScheduledQueryRulesLogPtrOutputWithContext(context.Background())
-}
-
-func (i *ScheduledQueryRulesLog) ToScheduledQueryRulesLogPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogPtrOutput)
-}
-
-type ScheduledQueryRulesLogPtrInput interface {
-	pulumi.Input
-
-	ToScheduledQueryRulesLogPtrOutput() ScheduledQueryRulesLogPtrOutput
-	ToScheduledQueryRulesLogPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogPtrOutput
-}
-
-type scheduledQueryRulesLogPtrType ScheduledQueryRulesLogArgs
-
-func (*scheduledQueryRulesLogPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledQueryRulesLog)(nil))
-}
-
-func (i *scheduledQueryRulesLogPtrType) ToScheduledQueryRulesLogPtrOutput() ScheduledQueryRulesLogPtrOutput {
-	return i.ToScheduledQueryRulesLogPtrOutputWithContext(context.Background())
-}
-
-func (i *scheduledQueryRulesLogPtrType) ToScheduledQueryRulesLogPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogPtrOutput)
 }
 
 // ScheduledQueryRulesLogArrayInput is an input type that accepts ScheduledQueryRulesLogArray and ScheduledQueryRulesLogArrayOutput values.
@@ -259,7 +230,7 @@ func (i ScheduledQueryRulesLogMap) ToScheduledQueryRulesLogMapOutputWithContext(
 type ScheduledQueryRulesLogOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesLogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRulesLog)(nil))
+	return reflect.TypeOf((**ScheduledQueryRulesLog)(nil)).Elem()
 }
 
 func (o ScheduledQueryRulesLogOutput) ToScheduledQueryRulesLogOutput() ScheduledQueryRulesLogOutput {
@@ -270,44 +241,10 @@ func (o ScheduledQueryRulesLogOutput) ToScheduledQueryRulesLogOutputWithContext(
 	return o
 }
 
-func (o ScheduledQueryRulesLogOutput) ToScheduledQueryRulesLogPtrOutput() ScheduledQueryRulesLogPtrOutput {
-	return o.ToScheduledQueryRulesLogPtrOutputWithContext(context.Background())
-}
-
-func (o ScheduledQueryRulesLogOutput) ToScheduledQueryRulesLogPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesLog) *ScheduledQueryRulesLog {
-		return &v
-	}).(ScheduledQueryRulesLogPtrOutput)
-}
-
-type ScheduledQueryRulesLogPtrOutput struct{ *pulumi.OutputState }
-
-func (ScheduledQueryRulesLogPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledQueryRulesLog)(nil))
-}
-
-func (o ScheduledQueryRulesLogPtrOutput) ToScheduledQueryRulesLogPtrOutput() ScheduledQueryRulesLogPtrOutput {
-	return o
-}
-
-func (o ScheduledQueryRulesLogPtrOutput) ToScheduledQueryRulesLogPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogPtrOutput {
-	return o
-}
-
-func (o ScheduledQueryRulesLogPtrOutput) Elem() ScheduledQueryRulesLogOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesLog) ScheduledQueryRulesLog {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduledQueryRulesLog
-		return ret
-	}).(ScheduledQueryRulesLogOutput)
-}
-
 type ScheduledQueryRulesLogArrayOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesLogArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduledQueryRulesLog)(nil))
+	return reflect.TypeOf((*[]*ScheduledQueryRulesLog)(nil)).Elem()
 }
 
 func (o ScheduledQueryRulesLogArrayOutput) ToScheduledQueryRulesLogArrayOutput() ScheduledQueryRulesLogArrayOutput {
@@ -319,15 +256,15 @@ func (o ScheduledQueryRulesLogArrayOutput) ToScheduledQueryRulesLogArrayOutputWi
 }
 
 func (o ScheduledQueryRulesLogArrayOutput) Index(i pulumi.IntInput) ScheduledQueryRulesLogOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledQueryRulesLog {
-		return vs[0].([]ScheduledQueryRulesLog)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScheduledQueryRulesLog {
+		return vs[0].([]*ScheduledQueryRulesLog)[vs[1].(int)]
 	}).(ScheduledQueryRulesLogOutput)
 }
 
 type ScheduledQueryRulesLogMapOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesLogMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ScheduledQueryRulesLog)(nil))
+	return reflect.TypeOf((*map[string]*ScheduledQueryRulesLog)(nil)).Elem()
 }
 
 func (o ScheduledQueryRulesLogMapOutput) ToScheduledQueryRulesLogMapOutput() ScheduledQueryRulesLogMapOutput {
@@ -339,18 +276,16 @@ func (o ScheduledQueryRulesLogMapOutput) ToScheduledQueryRulesLogMapOutputWithCo
 }
 
 func (o ScheduledQueryRulesLogMapOutput) MapIndex(k pulumi.StringInput) ScheduledQueryRulesLogOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScheduledQueryRulesLog {
-		return vs[0].(map[string]ScheduledQueryRulesLog)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ScheduledQueryRulesLog {
+		return vs[0].(map[string]*ScheduledQueryRulesLog)[vs[1].(string)]
 	}).(ScheduledQueryRulesLogOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogInput)(nil)).Elem(), &ScheduledQueryRulesLog{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogPtrInput)(nil)).Elem(), &ScheduledQueryRulesLog{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogArrayInput)(nil)).Elem(), ScheduledQueryRulesLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogMapInput)(nil)).Elem(), ScheduledQueryRulesLogMap{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogOutput{})
-	pulumi.RegisterOutputType(ScheduledQueryRulesLogPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogArrayOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogMapOutput{})
 }

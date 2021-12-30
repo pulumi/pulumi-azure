@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleAccountSAS = exampleAccount.primaryConnectionString.apply(primaryConnectionString => azure.storage.getAccountSAS({
- *     connectionString: primaryConnectionString,
+ * const exampleAccountSAS = azure.storage.getAccountSASOutput({
+ *     connectionString: exampleAccount.primaryConnectionString,
  *     httpsOnly: true,
  *     resourceTypes: {
  *         service: true,
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *         update: false,
  *         process: false,
  *     },
- * }));
+ * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -161,17 +161,17 @@ export class ManagedStorageAccountSasTokenDefinition extends pulumi.CustomResour
      */
     constructor(name: string, args: ManagedStorageAccountSasTokenDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedStorageAccountSasTokenDefinitionArgs | ManagedStorageAccountSasTokenDefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedStorageAccountSasTokenDefinitionState | undefined;
-            inputs["managedStorageAccountId"] = state ? state.managedStorageAccountId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["sasTemplateUri"] = state ? state.sasTemplateUri : undefined;
-            inputs["sasType"] = state ? state.sasType : undefined;
-            inputs["secretId"] = state ? state.secretId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["validityPeriod"] = state ? state.validityPeriod : undefined;
+            resourceInputs["managedStorageAccountId"] = state ? state.managedStorageAccountId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["sasTemplateUri"] = state ? state.sasTemplateUri : undefined;
+            resourceInputs["sasType"] = state ? state.sasType : undefined;
+            resourceInputs["secretId"] = state ? state.secretId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["validityPeriod"] = state ? state.validityPeriod : undefined;
         } else {
             const args = argsOrState as ManagedStorageAccountSasTokenDefinitionArgs | undefined;
             if ((!args || args.managedStorageAccountId === undefined) && !opts.urn) {
@@ -186,18 +186,18 @@ export class ManagedStorageAccountSasTokenDefinition extends pulumi.CustomResour
             if ((!args || args.validityPeriod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'validityPeriod'");
             }
-            inputs["managedStorageAccountId"] = args ? args.managedStorageAccountId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["sasTemplateUri"] = args ? args.sasTemplateUri : undefined;
-            inputs["sasType"] = args ? args.sasType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validityPeriod"] = args ? args.validityPeriod : undefined;
-            inputs["secretId"] = undefined /*out*/;
+            resourceInputs["managedStorageAccountId"] = args ? args.managedStorageAccountId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["sasTemplateUri"] = args ? args.sasTemplateUri : undefined;
+            resourceInputs["sasType"] = args ? args.sasType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["validityPeriod"] = args ? args.validityPeriod : undefined;
+            resourceInputs["secretId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ManagedStorageAccountSasTokenDefinition.__pulumiType, name, inputs, opts);
+        super(ManagedStorageAccountSasTokenDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

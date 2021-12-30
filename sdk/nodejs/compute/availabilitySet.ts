@@ -101,36 +101,36 @@ export class AvailabilitySet extends pulumi.CustomResource {
      */
     constructor(name: string, args: AvailabilitySetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AvailabilitySetArgs | AvailabilitySetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AvailabilitySetState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managed"] = state ? state.managed : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
-            inputs["platformUpdateDomainCount"] = state ? state.platformUpdateDomainCount : undefined;
-            inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managed"] = state ? state.managed : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
+            resourceInputs["platformUpdateDomainCount"] = state ? state.platformUpdateDomainCount : undefined;
+            resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AvailabilitySetArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managed"] = args ? args.managed : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
-            inputs["platformUpdateDomainCount"] = args ? args.platformUpdateDomainCount : undefined;
-            inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managed"] = args ? args.managed : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
+            resourceInputs["platformUpdateDomainCount"] = args ? args.platformUpdateDomainCount : undefined;
+            resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AvailabilitySet.__pulumiType, name, inputs, opts);
+        super(AvailabilitySet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

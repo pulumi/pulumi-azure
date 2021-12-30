@@ -213,7 +213,7 @@ type AssetInput interface {
 }
 
 func (*Asset) ElementType() reflect.Type {
-	return reflect.TypeOf((*Asset)(nil))
+	return reflect.TypeOf((**Asset)(nil)).Elem()
 }
 
 func (i *Asset) ToAssetOutput() AssetOutput {
@@ -222,35 +222,6 @@ func (i *Asset) ToAssetOutput() AssetOutput {
 
 func (i *Asset) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssetOutput)
-}
-
-func (i *Asset) ToAssetPtrOutput() AssetPtrOutput {
-	return i.ToAssetPtrOutputWithContext(context.Background())
-}
-
-func (i *Asset) ToAssetPtrOutputWithContext(ctx context.Context) AssetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetPtrOutput)
-}
-
-type AssetPtrInput interface {
-	pulumi.Input
-
-	ToAssetPtrOutput() AssetPtrOutput
-	ToAssetPtrOutputWithContext(ctx context.Context) AssetPtrOutput
-}
-
-type assetPtrType AssetArgs
-
-func (*assetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Asset)(nil))
-}
-
-func (i *assetPtrType) ToAssetPtrOutput() AssetPtrOutput {
-	return i.ToAssetPtrOutputWithContext(context.Background())
-}
-
-func (i *assetPtrType) ToAssetPtrOutputWithContext(ctx context.Context) AssetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetPtrOutput)
 }
 
 // AssetArrayInput is an input type that accepts AssetArray and AssetArrayOutput values.
@@ -306,7 +277,7 @@ func (i AssetMap) ToAssetMapOutputWithContext(ctx context.Context) AssetMapOutpu
 type AssetOutput struct{ *pulumi.OutputState }
 
 func (AssetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Asset)(nil))
+	return reflect.TypeOf((**Asset)(nil)).Elem()
 }
 
 func (o AssetOutput) ToAssetOutput() AssetOutput {
@@ -317,44 +288,10 @@ func (o AssetOutput) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 	return o
 }
 
-func (o AssetOutput) ToAssetPtrOutput() AssetPtrOutput {
-	return o.ToAssetPtrOutputWithContext(context.Background())
-}
-
-func (o AssetOutput) ToAssetPtrOutputWithContext(ctx context.Context) AssetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Asset) *Asset {
-		return &v
-	}).(AssetPtrOutput)
-}
-
-type AssetPtrOutput struct{ *pulumi.OutputState }
-
-func (AssetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Asset)(nil))
-}
-
-func (o AssetPtrOutput) ToAssetPtrOutput() AssetPtrOutput {
-	return o
-}
-
-func (o AssetPtrOutput) ToAssetPtrOutputWithContext(ctx context.Context) AssetPtrOutput {
-	return o
-}
-
-func (o AssetPtrOutput) Elem() AssetOutput {
-	return o.ApplyT(func(v *Asset) Asset {
-		if v != nil {
-			return *v
-		}
-		var ret Asset
-		return ret
-	}).(AssetOutput)
-}
-
 type AssetArrayOutput struct{ *pulumi.OutputState }
 
 func (AssetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Asset)(nil))
+	return reflect.TypeOf((*[]*Asset)(nil)).Elem()
 }
 
 func (o AssetArrayOutput) ToAssetArrayOutput() AssetArrayOutput {
@@ -366,15 +303,15 @@ func (o AssetArrayOutput) ToAssetArrayOutputWithContext(ctx context.Context) Ass
 }
 
 func (o AssetArrayOutput) Index(i pulumi.IntInput) AssetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Asset {
-		return vs[0].([]Asset)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Asset {
+		return vs[0].([]*Asset)[vs[1].(int)]
 	}).(AssetOutput)
 }
 
 type AssetMapOutput struct{ *pulumi.OutputState }
 
 func (AssetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Asset)(nil))
+	return reflect.TypeOf((*map[string]*Asset)(nil)).Elem()
 }
 
 func (o AssetMapOutput) ToAssetMapOutput() AssetMapOutput {
@@ -386,18 +323,16 @@ func (o AssetMapOutput) ToAssetMapOutputWithContext(ctx context.Context) AssetMa
 }
 
 func (o AssetMapOutput) MapIndex(k pulumi.StringInput) AssetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Asset {
-		return vs[0].(map[string]Asset)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Asset {
+		return vs[0].(map[string]*Asset)[vs[1].(string)]
 	}).(AssetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetInput)(nil)).Elem(), &Asset{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssetPtrInput)(nil)).Elem(), &Asset{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetArrayInput)(nil)).Elem(), AssetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetMapInput)(nil)).Elem(), AssetMap{})
 	pulumi.RegisterOutputType(AssetOutput{})
-	pulumi.RegisterOutputType(AssetPtrOutput{})
 	pulumi.RegisterOutputType(AssetArrayOutput{})
 	pulumi.RegisterOutputType(AssetMapOutput{})
 }

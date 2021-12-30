@@ -219,7 +219,7 @@ type BastionHostInput interface {
 }
 
 func (*BastionHost) ElementType() reflect.Type {
-	return reflect.TypeOf((*BastionHost)(nil))
+	return reflect.TypeOf((**BastionHost)(nil)).Elem()
 }
 
 func (i *BastionHost) ToBastionHostOutput() BastionHostOutput {
@@ -228,35 +228,6 @@ func (i *BastionHost) ToBastionHostOutput() BastionHostOutput {
 
 func (i *BastionHost) ToBastionHostOutputWithContext(ctx context.Context) BastionHostOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BastionHostOutput)
-}
-
-func (i *BastionHost) ToBastionHostPtrOutput() BastionHostPtrOutput {
-	return i.ToBastionHostPtrOutputWithContext(context.Background())
-}
-
-func (i *BastionHost) ToBastionHostPtrOutputWithContext(ctx context.Context) BastionHostPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BastionHostPtrOutput)
-}
-
-type BastionHostPtrInput interface {
-	pulumi.Input
-
-	ToBastionHostPtrOutput() BastionHostPtrOutput
-	ToBastionHostPtrOutputWithContext(ctx context.Context) BastionHostPtrOutput
-}
-
-type bastionHostPtrType BastionHostArgs
-
-func (*bastionHostPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BastionHost)(nil))
-}
-
-func (i *bastionHostPtrType) ToBastionHostPtrOutput() BastionHostPtrOutput {
-	return i.ToBastionHostPtrOutputWithContext(context.Background())
-}
-
-func (i *bastionHostPtrType) ToBastionHostPtrOutputWithContext(ctx context.Context) BastionHostPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BastionHostPtrOutput)
 }
 
 // BastionHostArrayInput is an input type that accepts BastionHostArray and BastionHostArrayOutput values.
@@ -312,7 +283,7 @@ func (i BastionHostMap) ToBastionHostMapOutputWithContext(ctx context.Context) B
 type BastionHostOutput struct{ *pulumi.OutputState }
 
 func (BastionHostOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BastionHost)(nil))
+	return reflect.TypeOf((**BastionHost)(nil)).Elem()
 }
 
 func (o BastionHostOutput) ToBastionHostOutput() BastionHostOutput {
@@ -323,44 +294,10 @@ func (o BastionHostOutput) ToBastionHostOutputWithContext(ctx context.Context) B
 	return o
 }
 
-func (o BastionHostOutput) ToBastionHostPtrOutput() BastionHostPtrOutput {
-	return o.ToBastionHostPtrOutputWithContext(context.Background())
-}
-
-func (o BastionHostOutput) ToBastionHostPtrOutputWithContext(ctx context.Context) BastionHostPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BastionHost) *BastionHost {
-		return &v
-	}).(BastionHostPtrOutput)
-}
-
-type BastionHostPtrOutput struct{ *pulumi.OutputState }
-
-func (BastionHostPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BastionHost)(nil))
-}
-
-func (o BastionHostPtrOutput) ToBastionHostPtrOutput() BastionHostPtrOutput {
-	return o
-}
-
-func (o BastionHostPtrOutput) ToBastionHostPtrOutputWithContext(ctx context.Context) BastionHostPtrOutput {
-	return o
-}
-
-func (o BastionHostPtrOutput) Elem() BastionHostOutput {
-	return o.ApplyT(func(v *BastionHost) BastionHost {
-		if v != nil {
-			return *v
-		}
-		var ret BastionHost
-		return ret
-	}).(BastionHostOutput)
-}
-
 type BastionHostArrayOutput struct{ *pulumi.OutputState }
 
 func (BastionHostArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BastionHost)(nil))
+	return reflect.TypeOf((*[]*BastionHost)(nil)).Elem()
 }
 
 func (o BastionHostArrayOutput) ToBastionHostArrayOutput() BastionHostArrayOutput {
@@ -372,15 +309,15 @@ func (o BastionHostArrayOutput) ToBastionHostArrayOutputWithContext(ctx context.
 }
 
 func (o BastionHostArrayOutput) Index(i pulumi.IntInput) BastionHostOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BastionHost {
-		return vs[0].([]BastionHost)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BastionHost {
+		return vs[0].([]*BastionHost)[vs[1].(int)]
 	}).(BastionHostOutput)
 }
 
 type BastionHostMapOutput struct{ *pulumi.OutputState }
 
 func (BastionHostMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BastionHost)(nil))
+	return reflect.TypeOf((*map[string]*BastionHost)(nil)).Elem()
 }
 
 func (o BastionHostMapOutput) ToBastionHostMapOutput() BastionHostMapOutput {
@@ -392,18 +329,16 @@ func (o BastionHostMapOutput) ToBastionHostMapOutputWithContext(ctx context.Cont
 }
 
 func (o BastionHostMapOutput) MapIndex(k pulumi.StringInput) BastionHostOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BastionHost {
-		return vs[0].(map[string]BastionHost)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BastionHost {
+		return vs[0].(map[string]*BastionHost)[vs[1].(string)]
 	}).(BastionHostOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostInput)(nil)).Elem(), &BastionHost{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostPtrInput)(nil)).Elem(), &BastionHost{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostArrayInput)(nil)).Elem(), BastionHostArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostMapInput)(nil)).Elem(), BastionHostMap{})
 	pulumi.RegisterOutputType(BastionHostOutput{})
-	pulumi.RegisterOutputType(BastionHostPtrOutput{})
 	pulumi.RegisterOutputType(BastionHostArrayOutput{})
 	pulumi.RegisterOutputType(BastionHostMapOutput{})
 }

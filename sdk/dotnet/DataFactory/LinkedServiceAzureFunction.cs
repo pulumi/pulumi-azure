@@ -26,11 +26,11 @@ namespace Pulumi.Azure.DataFactory
     ///         {
     ///             Location = "West Europe",
     ///         });
-    ///         var exampleFunctionApp = exampleResourceGroup.Name.Apply(name =&gt; Azure.AppService.GetFunctionApp.InvokeAsync(new Azure.AppService.GetFunctionAppArgs
+    ///         var exampleFunctionApp = Azure.AppService.GetFunctionApp.Invoke(new Azure.AppService.GetFunctionAppInvokeArgs
     ///         {
     ///             Name = "test-azure-functions",
-    ///             ResourceGroupName = name,
-    ///         }));
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
     ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
     ///         {
     ///             Location = exampleResourceGroup.Location,

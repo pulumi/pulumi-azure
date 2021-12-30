@@ -115,13 +115,13 @@ export class SlotVirtualNetworkSwiftConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: SlotVirtualNetworkSwiftConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SlotVirtualNetworkSwiftConnectionArgs | SlotVirtualNetworkSwiftConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SlotVirtualNetworkSwiftConnectionState | undefined;
-            inputs["appServiceId"] = state ? state.appServiceId : undefined;
-            inputs["slotName"] = state ? state.slotName : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["appServiceId"] = state ? state.appServiceId : undefined;
+            resourceInputs["slotName"] = state ? state.slotName : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as SlotVirtualNetworkSwiftConnectionArgs | undefined;
             if ((!args || args.appServiceId === undefined) && !opts.urn) {
@@ -133,14 +133,14 @@ export class SlotVirtualNetworkSwiftConnection extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["appServiceId"] = args ? args.appServiceId : undefined;
-            inputs["slotName"] = args ? args.slotName : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["appServiceId"] = args ? args.appServiceId : undefined;
+            resourceInputs["slotName"] = args ? args.slotName : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SlotVirtualNetworkSwiftConnection.__pulumiType, name, inputs, opts);
+        super(SlotVirtualNetworkSwiftConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

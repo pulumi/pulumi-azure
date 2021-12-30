@@ -123,21 +123,21 @@ export class LogzMonitor extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogzMonitorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogzMonitorArgs | LogzMonitorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogzMonitorState | undefined;
-            inputs["companyName"] = state ? state.companyName : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["enterpriseAppId"] = state ? state.enterpriseAppId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["logzOrganizationId"] = state ? state.logzOrganizationId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["plan"] = state ? state.plan : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["singleSignOnUrl"] = state ? state.singleSignOnUrl : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["user"] = state ? state.user : undefined;
+            resourceInputs["companyName"] = state ? state.companyName : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["enterpriseAppId"] = state ? state.enterpriseAppId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["logzOrganizationId"] = state ? state.logzOrganizationId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["plan"] = state ? state.plan : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["singleSignOnUrl"] = state ? state.singleSignOnUrl : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as LogzMonitorArgs | undefined;
             if ((!args || args.plan === undefined) && !opts.urn) {
@@ -149,22 +149,22 @@ export class LogzMonitor extends pulumi.CustomResource {
             if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            inputs["companyName"] = args ? args.companyName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["enterpriseAppId"] = args ? args.enterpriseAppId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["user"] = args ? args.user : undefined;
-            inputs["logzOrganizationId"] = undefined /*out*/;
-            inputs["singleSignOnUrl"] = undefined /*out*/;
+            resourceInputs["companyName"] = args ? args.companyName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["enterpriseAppId"] = args ? args.enterpriseAppId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["logzOrganizationId"] = undefined /*out*/;
+            resourceInputs["singleSignOnUrl"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LogzMonitor.__pulumiType, name, inputs, opts);
+        super(LogzMonitor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

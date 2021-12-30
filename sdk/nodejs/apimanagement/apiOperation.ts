@@ -125,21 +125,21 @@ export class ApiOperation extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiOperationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiOperationArgs | ApiOperationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiOperationState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["apiName"] = state ? state.apiName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["method"] = state ? state.method : undefined;
-            inputs["operationId"] = state ? state.operationId : undefined;
-            inputs["request"] = state ? state.request : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["responses"] = state ? state.responses : undefined;
-            inputs["templateParameters"] = state ? state.templateParameters : undefined;
-            inputs["urlTemplate"] = state ? state.urlTemplate : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["apiName"] = state ? state.apiName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["method"] = state ? state.method : undefined;
+            resourceInputs["operationId"] = state ? state.operationId : undefined;
+            resourceInputs["request"] = state ? state.request : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["responses"] = state ? state.responses : undefined;
+            resourceInputs["templateParameters"] = state ? state.templateParameters : undefined;
+            resourceInputs["urlTemplate"] = state ? state.urlTemplate : undefined;
         } else {
             const args = argsOrState as ApiOperationArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -163,22 +163,22 @@ export class ApiOperation extends pulumi.CustomResource {
             if ((!args || args.urlTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'urlTemplate'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["apiName"] = args ? args.apiName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["method"] = args ? args.method : undefined;
-            inputs["operationId"] = args ? args.operationId : undefined;
-            inputs["request"] = args ? args.request : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["responses"] = args ? args.responses : undefined;
-            inputs["templateParameters"] = args ? args.templateParameters : undefined;
-            inputs["urlTemplate"] = args ? args.urlTemplate : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["apiName"] = args ? args.apiName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["method"] = args ? args.method : undefined;
+            resourceInputs["operationId"] = args ? args.operationId : undefined;
+            resourceInputs["request"] = args ? args.request : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["responses"] = args ? args.responses : undefined;
+            resourceInputs["templateParameters"] = args ? args.templateParameters : undefined;
+            resourceInputs["urlTemplate"] = args ? args.urlTemplate : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ApiOperation.__pulumiType, name, inputs, opts);
+        super(ApiOperation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

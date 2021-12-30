@@ -137,25 +137,25 @@ export class SecuritySolution extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecuritySolutionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecuritySolutionArgs | SecuritySolutionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecuritySolutionState | undefined;
-            inputs["additionalWorkspaces"] = state ? state.additionalWorkspaces : undefined;
-            inputs["disabledDataSources"] = state ? state.disabledDataSources : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["eventsToExports"] = state ? state.eventsToExports : undefined;
-            inputs["iothubIds"] = state ? state.iothubIds : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["logUnmaskedIpsEnabled"] = state ? state.logUnmaskedIpsEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["queryForResources"] = state ? state.queryForResources : undefined;
-            inputs["querySubscriptionIds"] = state ? state.querySubscriptionIds : undefined;
-            inputs["recommendationsEnabled"] = state ? state.recommendationsEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["additionalWorkspaces"] = state ? state.additionalWorkspaces : undefined;
+            resourceInputs["disabledDataSources"] = state ? state.disabledDataSources : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["eventsToExports"] = state ? state.eventsToExports : undefined;
+            resourceInputs["iothubIds"] = state ? state.iothubIds : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["logUnmaskedIpsEnabled"] = state ? state.logUnmaskedIpsEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["queryForResources"] = state ? state.queryForResources : undefined;
+            resourceInputs["querySubscriptionIds"] = state ? state.querySubscriptionIds : undefined;
+            resourceInputs["recommendationsEnabled"] = state ? state.recommendationsEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SecuritySolutionArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -167,26 +167,26 @@ export class SecuritySolution extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["additionalWorkspaces"] = args ? args.additionalWorkspaces : undefined;
-            inputs["disabledDataSources"] = args ? args.disabledDataSources : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["eventsToExports"] = args ? args.eventsToExports : undefined;
-            inputs["iothubIds"] = args ? args.iothubIds : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["logUnmaskedIpsEnabled"] = args ? args.logUnmaskedIpsEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["queryForResources"] = args ? args.queryForResources : undefined;
-            inputs["querySubscriptionIds"] = args ? args.querySubscriptionIds : undefined;
-            inputs["recommendationsEnabled"] = args ? args.recommendationsEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalWorkspaces"] = args ? args.additionalWorkspaces : undefined;
+            resourceInputs["disabledDataSources"] = args ? args.disabledDataSources : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["eventsToExports"] = args ? args.eventsToExports : undefined;
+            resourceInputs["iothubIds"] = args ? args.iothubIds : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["logUnmaskedIpsEnabled"] = args ? args.logUnmaskedIpsEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queryForResources"] = args ? args.queryForResources : undefined;
+            resourceInputs["querySubscriptionIds"] = args ? args.querySubscriptionIds : undefined;
+            resourceInputs["recommendationsEnabled"] = args ? args.recommendationsEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SecuritySolution.__pulumiType, name, inputs, opts);
+        super(SecuritySolution.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -115,19 +115,19 @@ export class Probe extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProbeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProbeArgs | ProbeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProbeState | undefined;
-            inputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;
-            inputs["loadBalancerRules"] = state ? state.loadBalancerRules : undefined;
-            inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["numberOfProbes"] = state ? state.numberOfProbes : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["requestPath"] = state ? state.requestPath : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;
+            resourceInputs["loadBalancerRules"] = state ? state.loadBalancerRules : undefined;
+            resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["numberOfProbes"] = state ? state.numberOfProbes : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["requestPath"] = state ? state.requestPath : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ProbeArgs | undefined;
             if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
@@ -139,20 +139,20 @@ export class Probe extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["intervalInSeconds"] = args ? args.intervalInSeconds : undefined;
-            inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["numberOfProbes"] = args ? args.numberOfProbes : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["requestPath"] = args ? args.requestPath : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["loadBalancerRules"] = undefined /*out*/;
+            resourceInputs["intervalInSeconds"] = args ? args.intervalInSeconds : undefined;
+            resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["numberOfProbes"] = args ? args.numberOfProbes : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["requestPath"] = args ? args.requestPath : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["loadBalancerRules"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Probe.__pulumiType, name, inputs, opts);
+        super(Probe.__pulumiType, name, resourceInputs, opts);
     }
 }
 

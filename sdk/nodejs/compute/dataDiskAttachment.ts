@@ -151,16 +151,16 @@ export class DataDiskAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataDiskAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataDiskAttachmentArgs | DataDiskAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataDiskAttachmentState | undefined;
-            inputs["caching"] = state ? state.caching : undefined;
-            inputs["createOption"] = state ? state.createOption : undefined;
-            inputs["lun"] = state ? state.lun : undefined;
-            inputs["managedDiskId"] = state ? state.managedDiskId : undefined;
-            inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
-            inputs["writeAcceleratorEnabled"] = state ? state.writeAcceleratorEnabled : undefined;
+            resourceInputs["caching"] = state ? state.caching : undefined;
+            resourceInputs["createOption"] = state ? state.createOption : undefined;
+            resourceInputs["lun"] = state ? state.lun : undefined;
+            resourceInputs["managedDiskId"] = state ? state.managedDiskId : undefined;
+            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["writeAcceleratorEnabled"] = state ? state.writeAcceleratorEnabled : undefined;
         } else {
             const args = argsOrState as DataDiskAttachmentArgs | undefined;
             if ((!args || args.caching === undefined) && !opts.urn) {
@@ -175,17 +175,17 @@ export class DataDiskAttachment extends pulumi.CustomResource {
             if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
-            inputs["caching"] = args ? args.caching : undefined;
-            inputs["createOption"] = args ? args.createOption : undefined;
-            inputs["lun"] = args ? args.lun : undefined;
-            inputs["managedDiskId"] = args ? args.managedDiskId : undefined;
-            inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
-            inputs["writeAcceleratorEnabled"] = args ? args.writeAcceleratorEnabled : undefined;
+            resourceInputs["caching"] = args ? args.caching : undefined;
+            resourceInputs["createOption"] = args ? args.createOption : undefined;
+            resourceInputs["lun"] = args ? args.lun : undefined;
+            resourceInputs["managedDiskId"] = args ? args.managedDiskId : undefined;
+            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
+            resourceInputs["writeAcceleratorEnabled"] = args ? args.writeAcceleratorEnabled : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DataDiskAttachment.__pulumiType, name, inputs, opts);
+        super(DataDiskAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -49,6 +49,27 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		example := storage.GetAccountBlobContainerSASOutput(ctx, storage.GetAccountBlobContainerSASOutputArgs{
+// 			ConnectionString: storage.PrimaryConnectionString,
+// 			ContainerName:    container.Name,
+// 			HttpsOnly:        pulumi.Bool(true),
+// 			IpAddress:        pulumi.String("168.1.5.65"),
+// 			Start:            pulumi.String("2018-03-21"),
+// 			Expiry:           pulumi.String("2018-03-21"),
+// 			Permissions: &storage.GetAccountBlobContainerSASPermissionsArgs{
+// 				Read:   pulumi.Bool(true),
+// 				Add:    pulumi.Bool(true),
+// 				Create: pulumi.Bool(false),
+// 				Write:  pulumi.Bool(false),
+// 				Delete: pulumi.Bool(true),
+// 				List:   pulumi.Bool(true),
+// 			},
+// 			CacheControl:       pulumi.String("max-age=5"),
+// 			ContentDisposition: pulumi.String("inline"),
+// 			ContentEncoding:    pulumi.String("deflate"),
+// 			ContentLanguage:    pulumi.String("en-US"),
+// 			ContentType:        pulumi.String("application/json"),
+// 		}, nil)
 // 		ctx.Export("sasUrlQueryString", example.ApplyT(func(example storage.GetAccountBlobContainerSASResult) (string, error) {
 // 			return example.Sas, nil
 // 		}).(pulumi.StringOutput))

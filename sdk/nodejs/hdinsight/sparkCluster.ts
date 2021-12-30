@@ -183,29 +183,29 @@ export class SparkCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: SparkClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SparkClusterArgs | SparkClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SparkClusterState | undefined;
-            inputs["clusterVersion"] = state ? state.clusterVersion : undefined;
-            inputs["componentVersion"] = state ? state.componentVersion : undefined;
-            inputs["encryptionInTransitEnabled"] = state ? state.encryptionInTransitEnabled : undefined;
-            inputs["gateway"] = state ? state.gateway : undefined;
-            inputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["metastores"] = state ? state.metastores : undefined;
-            inputs["monitor"] = state ? state.monitor : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["network"] = state ? state.network : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["securityProfile"] = state ? state.securityProfile : undefined;
-            inputs["sshEndpoint"] = state ? state.sshEndpoint : undefined;
-            inputs["storageAccountGen2"] = state ? state.storageAccountGen2 : undefined;
-            inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tier"] = state ? state.tier : undefined;
-            inputs["tlsMinVersion"] = state ? state.tlsMinVersion : undefined;
+            resourceInputs["clusterVersion"] = state ? state.clusterVersion : undefined;
+            resourceInputs["componentVersion"] = state ? state.componentVersion : undefined;
+            resourceInputs["encryptionInTransitEnabled"] = state ? state.encryptionInTransitEnabled : undefined;
+            resourceInputs["gateway"] = state ? state.gateway : undefined;
+            resourceInputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["metastores"] = state ? state.metastores : undefined;
+            resourceInputs["monitor"] = state ? state.monitor : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["network"] = state ? state.network : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["securityProfile"] = state ? state.securityProfile : undefined;
+            resourceInputs["sshEndpoint"] = state ? state.sshEndpoint : undefined;
+            resourceInputs["storageAccountGen2"] = state ? state.storageAccountGen2 : undefined;
+            resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tier"] = state ? state.tier : undefined;
+            resourceInputs["tlsMinVersion"] = state ? state.tlsMinVersion : undefined;
         } else {
             const args = argsOrState as SparkClusterArgs | undefined;
             if ((!args || args.clusterVersion === undefined) && !opts.urn) {
@@ -226,30 +226,30 @@ export class SparkCluster extends pulumi.CustomResource {
             if ((!args || args.tier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
-            inputs["clusterVersion"] = args ? args.clusterVersion : undefined;
-            inputs["componentVersion"] = args ? args.componentVersion : undefined;
-            inputs["encryptionInTransitEnabled"] = args ? args.encryptionInTransitEnabled : undefined;
-            inputs["gateway"] = args ? args.gateway : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["metastores"] = args ? args.metastores : undefined;
-            inputs["monitor"] = args ? args.monitor : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["network"] = args ? args.network : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["securityProfile"] = args ? args.securityProfile : undefined;
-            inputs["storageAccountGen2"] = args ? args.storageAccountGen2 : undefined;
-            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tier"] = args ? args.tier : undefined;
-            inputs["tlsMinVersion"] = args ? args.tlsMinVersion : undefined;
-            inputs["httpsEndpoint"] = undefined /*out*/;
-            inputs["sshEndpoint"] = undefined /*out*/;
+            resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
+            resourceInputs["componentVersion"] = args ? args.componentVersion : undefined;
+            resourceInputs["encryptionInTransitEnabled"] = args ? args.encryptionInTransitEnabled : undefined;
+            resourceInputs["gateway"] = args ? args.gateway : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["metastores"] = args ? args.metastores : undefined;
+            resourceInputs["monitor"] = args ? args.monitor : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["network"] = args ? args.network : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
+            resourceInputs["storageAccountGen2"] = args ? args.storageAccountGen2 : undefined;
+            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["tlsMinVersion"] = args ? args.tlsMinVersion : undefined;
+            resourceInputs["httpsEndpoint"] = undefined /*out*/;
+            resourceInputs["sshEndpoint"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SparkCluster.__pulumiType, name, inputs, opts);
+        super(SparkCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -31,7 +31,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = management.NewLock(ctx, "subscription_level", &management.LockArgs{
+// 		_, err = management.NewLock(ctx, "subscription-level", &management.LockArgs{
 // 			Scope:     pulumi.String(current.Id),
 // 			LockLevel: pulumi.String("CanNotDelete"),
 // 			Notes:     pulumi.String("Items can't be deleted in this subscription!"),
@@ -63,7 +63,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = management.NewLock(ctx, "resource_group_level", &management.LockArgs{
+// 		_, err = management.NewLock(ctx, "resource-group-level", &management.LockArgs{
 // 			Scope:     example.ID(),
 // 			LockLevel: pulumi.String("ReadOnly"),
 // 			Notes:     pulumi.String("This Resource Group is Read-Only"),
@@ -104,7 +104,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = management.NewLock(ctx, "public_ip", &management.LockArgs{
+// 		_, err = management.NewLock(ctx, "public-ip", &management.LockArgs{
 // 			Scope:     examplePublicIp.ID(),
 // 			LockLevel: pulumi.String("CanNotDelete"),
 // 			Notes:     pulumi.String("Locked because it's needed by a third-party"),
@@ -238,7 +238,7 @@ type LockInput interface {
 }
 
 func (*Lock) ElementType() reflect.Type {
-	return reflect.TypeOf((*Lock)(nil))
+	return reflect.TypeOf((**Lock)(nil)).Elem()
 }
 
 func (i *Lock) ToLockOutput() LockOutput {
@@ -247,35 +247,6 @@ func (i *Lock) ToLockOutput() LockOutput {
 
 func (i *Lock) ToLockOutputWithContext(ctx context.Context) LockOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LockOutput)
-}
-
-func (i *Lock) ToLockPtrOutput() LockPtrOutput {
-	return i.ToLockPtrOutputWithContext(context.Background())
-}
-
-func (i *Lock) ToLockPtrOutputWithContext(ctx context.Context) LockPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LockPtrOutput)
-}
-
-type LockPtrInput interface {
-	pulumi.Input
-
-	ToLockPtrOutput() LockPtrOutput
-	ToLockPtrOutputWithContext(ctx context.Context) LockPtrOutput
-}
-
-type lockPtrType LockArgs
-
-func (*lockPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Lock)(nil))
-}
-
-func (i *lockPtrType) ToLockPtrOutput() LockPtrOutput {
-	return i.ToLockPtrOutputWithContext(context.Background())
-}
-
-func (i *lockPtrType) ToLockPtrOutputWithContext(ctx context.Context) LockPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LockPtrOutput)
 }
 
 // LockArrayInput is an input type that accepts LockArray and LockArrayOutput values.
@@ -331,7 +302,7 @@ func (i LockMap) ToLockMapOutputWithContext(ctx context.Context) LockMapOutput {
 type LockOutput struct{ *pulumi.OutputState }
 
 func (LockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Lock)(nil))
+	return reflect.TypeOf((**Lock)(nil)).Elem()
 }
 
 func (o LockOutput) ToLockOutput() LockOutput {
@@ -342,44 +313,10 @@ func (o LockOutput) ToLockOutputWithContext(ctx context.Context) LockOutput {
 	return o
 }
 
-func (o LockOutput) ToLockPtrOutput() LockPtrOutput {
-	return o.ToLockPtrOutputWithContext(context.Background())
-}
-
-func (o LockOutput) ToLockPtrOutputWithContext(ctx context.Context) LockPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Lock) *Lock {
-		return &v
-	}).(LockPtrOutput)
-}
-
-type LockPtrOutput struct{ *pulumi.OutputState }
-
-func (LockPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Lock)(nil))
-}
-
-func (o LockPtrOutput) ToLockPtrOutput() LockPtrOutput {
-	return o
-}
-
-func (o LockPtrOutput) ToLockPtrOutputWithContext(ctx context.Context) LockPtrOutput {
-	return o
-}
-
-func (o LockPtrOutput) Elem() LockOutput {
-	return o.ApplyT(func(v *Lock) Lock {
-		if v != nil {
-			return *v
-		}
-		var ret Lock
-		return ret
-	}).(LockOutput)
-}
-
 type LockArrayOutput struct{ *pulumi.OutputState }
 
 func (LockArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Lock)(nil))
+	return reflect.TypeOf((*[]*Lock)(nil)).Elem()
 }
 
 func (o LockArrayOutput) ToLockArrayOutput() LockArrayOutput {
@@ -391,15 +328,15 @@ func (o LockArrayOutput) ToLockArrayOutputWithContext(ctx context.Context) LockA
 }
 
 func (o LockArrayOutput) Index(i pulumi.IntInput) LockOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Lock {
-		return vs[0].([]Lock)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Lock {
+		return vs[0].([]*Lock)[vs[1].(int)]
 	}).(LockOutput)
 }
 
 type LockMapOutput struct{ *pulumi.OutputState }
 
 func (LockMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Lock)(nil))
+	return reflect.TypeOf((*map[string]*Lock)(nil)).Elem()
 }
 
 func (o LockMapOutput) ToLockMapOutput() LockMapOutput {
@@ -411,18 +348,16 @@ func (o LockMapOutput) ToLockMapOutputWithContext(ctx context.Context) LockMapOu
 }
 
 func (o LockMapOutput) MapIndex(k pulumi.StringInput) LockOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Lock {
-		return vs[0].(map[string]Lock)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Lock {
+		return vs[0].(map[string]*Lock)[vs[1].(string)]
 	}).(LockOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LockInput)(nil)).Elem(), &Lock{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LockPtrInput)(nil)).Elem(), &Lock{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LockArrayInput)(nil)).Elem(), LockArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LockMapInput)(nil)).Elem(), LockMap{})
 	pulumi.RegisterOutputType(LockOutput{})
-	pulumi.RegisterOutputType(LockPtrOutput{})
 	pulumi.RegisterOutputType(LockArrayOutput{})
 	pulumi.RegisterOutputType(LockMapOutput{})
 }

@@ -153,29 +153,29 @@ export class AuthorizationServer extends pulumi.CustomResource {
      */
     constructor(name: string, args: AuthorizationServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AuthorizationServerArgs | AuthorizationServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizationServerState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["authorizationEndpoint"] = state ? state.authorizationEndpoint : undefined;
-            inputs["authorizationMethods"] = state ? state.authorizationMethods : undefined;
-            inputs["bearerTokenSendingMethods"] = state ? state.bearerTokenSendingMethods : undefined;
-            inputs["clientAuthenticationMethods"] = state ? state.clientAuthenticationMethods : undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["clientRegistrationEndpoint"] = state ? state.clientRegistrationEndpoint : undefined;
-            inputs["clientSecret"] = state ? state.clientSecret : undefined;
-            inputs["defaultScope"] = state ? state.defaultScope : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["grantTypes"] = state ? state.grantTypes : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["resourceOwnerPassword"] = state ? state.resourceOwnerPassword : undefined;
-            inputs["resourceOwnerUsername"] = state ? state.resourceOwnerUsername : undefined;
-            inputs["supportState"] = state ? state.supportState : undefined;
-            inputs["tokenBodyParameters"] = state ? state.tokenBodyParameters : undefined;
-            inputs["tokenEndpoint"] = state ? state.tokenEndpoint : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["authorizationEndpoint"] = state ? state.authorizationEndpoint : undefined;
+            resourceInputs["authorizationMethods"] = state ? state.authorizationMethods : undefined;
+            resourceInputs["bearerTokenSendingMethods"] = state ? state.bearerTokenSendingMethods : undefined;
+            resourceInputs["clientAuthenticationMethods"] = state ? state.clientAuthenticationMethods : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["clientRegistrationEndpoint"] = state ? state.clientRegistrationEndpoint : undefined;
+            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["defaultScope"] = state ? state.defaultScope : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["grantTypes"] = state ? state.grantTypes : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["resourceOwnerPassword"] = state ? state.resourceOwnerPassword : undefined;
+            resourceInputs["resourceOwnerUsername"] = state ? state.resourceOwnerUsername : undefined;
+            resourceInputs["supportState"] = state ? state.supportState : undefined;
+            resourceInputs["tokenBodyParameters"] = state ? state.tokenBodyParameters : undefined;
+            resourceInputs["tokenEndpoint"] = state ? state.tokenEndpoint : undefined;
         } else {
             const args = argsOrState as AuthorizationServerArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -202,30 +202,30 @@ export class AuthorizationServer extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
-            inputs["authorizationMethods"] = args ? args.authorizationMethods : undefined;
-            inputs["bearerTokenSendingMethods"] = args ? args.bearerTokenSendingMethods : undefined;
-            inputs["clientAuthenticationMethods"] = args ? args.clientAuthenticationMethods : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientRegistrationEndpoint"] = args ? args.clientRegistrationEndpoint : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["defaultScope"] = args ? args.defaultScope : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["grantTypes"] = args ? args.grantTypes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceOwnerPassword"] = args ? args.resourceOwnerPassword : undefined;
-            inputs["resourceOwnerUsername"] = args ? args.resourceOwnerUsername : undefined;
-            inputs["supportState"] = args ? args.supportState : undefined;
-            inputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
-            inputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
+            resourceInputs["authorizationMethods"] = args ? args.authorizationMethods : undefined;
+            resourceInputs["bearerTokenSendingMethods"] = args ? args.bearerTokenSendingMethods : undefined;
+            resourceInputs["clientAuthenticationMethods"] = args ? args.clientAuthenticationMethods : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientRegistrationEndpoint"] = args ? args.clientRegistrationEndpoint : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["defaultScope"] = args ? args.defaultScope : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["grantTypes"] = args ? args.grantTypes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceOwnerPassword"] = args ? args.resourceOwnerPassword : undefined;
+            resourceInputs["resourceOwnerUsername"] = args ? args.resourceOwnerUsername : undefined;
+            resourceInputs["supportState"] = args ? args.supportState : undefined;
+            resourceInputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
+            resourceInputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AuthorizationServer.__pulumiType, name, inputs, opts);
+        super(AuthorizationServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

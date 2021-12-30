@@ -170,32 +170,32 @@ export class Api extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiArgs | ApiState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["import"] = state ? state.import : undefined;
-            inputs["isCurrent"] = state ? state.isCurrent : undefined;
-            inputs["isOnline"] = state ? state.isOnline : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["oauth2Authorization"] = state ? state.oauth2Authorization : undefined;
-            inputs["openidAuthentication"] = state ? state.openidAuthentication : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["protocols"] = state ? state.protocols : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["revision"] = state ? state.revision : undefined;
-            inputs["revisionDescription"] = state ? state.revisionDescription : undefined;
-            inputs["serviceUrl"] = state ? state.serviceUrl : undefined;
-            inputs["soapPassThrough"] = state ? state.soapPassThrough : undefined;
-            inputs["sourceApiId"] = state ? state.sourceApiId : undefined;
-            inputs["subscriptionKeyParameterNames"] = state ? state.subscriptionKeyParameterNames : undefined;
-            inputs["subscriptionRequired"] = state ? state.subscriptionRequired : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["versionDescription"] = state ? state.versionDescription : undefined;
-            inputs["versionSetId"] = state ? state.versionSetId : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["import"] = state ? state.import : undefined;
+            resourceInputs["isCurrent"] = state ? state.isCurrent : undefined;
+            resourceInputs["isOnline"] = state ? state.isOnline : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["oauth2Authorization"] = state ? state.oauth2Authorization : undefined;
+            resourceInputs["openidAuthentication"] = state ? state.openidAuthentication : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["protocols"] = state ? state.protocols : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["revision"] = state ? state.revision : undefined;
+            resourceInputs["revisionDescription"] = state ? state.revisionDescription : undefined;
+            resourceInputs["serviceUrl"] = state ? state.serviceUrl : undefined;
+            resourceInputs["soapPassThrough"] = state ? state.soapPassThrough : undefined;
+            resourceInputs["sourceApiId"] = state ? state.sourceApiId : undefined;
+            resourceInputs["subscriptionKeyParameterNames"] = state ? state.subscriptionKeyParameterNames : undefined;
+            resourceInputs["subscriptionRequired"] = state ? state.subscriptionRequired : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["versionDescription"] = state ? state.versionDescription : undefined;
+            resourceInputs["versionSetId"] = state ? state.versionSetId : undefined;
         } else {
             const args = argsOrState as ApiArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -207,33 +207,33 @@ export class Api extends pulumi.CustomResource {
             if ((!args || args.revision === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'revision'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["import"] = args ? args.import : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["oauth2Authorization"] = args ? args.oauth2Authorization : undefined;
-            inputs["openidAuthentication"] = args ? args.openidAuthentication : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["protocols"] = args ? args.protocols : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["revision"] = args ? args.revision : undefined;
-            inputs["revisionDescription"] = args ? args.revisionDescription : undefined;
-            inputs["serviceUrl"] = args ? args.serviceUrl : undefined;
-            inputs["soapPassThrough"] = args ? args.soapPassThrough : undefined;
-            inputs["sourceApiId"] = args ? args.sourceApiId : undefined;
-            inputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
-            inputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["versionDescription"] = args ? args.versionDescription : undefined;
-            inputs["versionSetId"] = args ? args.versionSetId : undefined;
-            inputs["isCurrent"] = undefined /*out*/;
-            inputs["isOnline"] = undefined /*out*/;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["import"] = args ? args.import : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["oauth2Authorization"] = args ? args.oauth2Authorization : undefined;
+            resourceInputs["openidAuthentication"] = args ? args.openidAuthentication : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["protocols"] = args ? args.protocols : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["revision"] = args ? args.revision : undefined;
+            resourceInputs["revisionDescription"] = args ? args.revisionDescription : undefined;
+            resourceInputs["serviceUrl"] = args ? args.serviceUrl : undefined;
+            resourceInputs["soapPassThrough"] = args ? args.soapPassThrough : undefined;
+            resourceInputs["sourceApiId"] = args ? args.sourceApiId : undefined;
+            resourceInputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
+            resourceInputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
+            resourceInputs["versionSetId"] = args ? args.versionSetId : undefined;
+            resourceInputs["isCurrent"] = undefined /*out*/;
+            resourceInputs["isOnline"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Api.__pulumiType, name, inputs, opts);
+        super(Api.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -235,7 +235,7 @@ type VnpGatewayNatRuleInput interface {
 }
 
 func (*VnpGatewayNatRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnpGatewayNatRule)(nil))
+	return reflect.TypeOf((**VnpGatewayNatRule)(nil)).Elem()
 }
 
 func (i *VnpGatewayNatRule) ToVnpGatewayNatRuleOutput() VnpGatewayNatRuleOutput {
@@ -244,35 +244,6 @@ func (i *VnpGatewayNatRule) ToVnpGatewayNatRuleOutput() VnpGatewayNatRuleOutput 
 
 func (i *VnpGatewayNatRule) ToVnpGatewayNatRuleOutputWithContext(ctx context.Context) VnpGatewayNatRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VnpGatewayNatRuleOutput)
-}
-
-func (i *VnpGatewayNatRule) ToVnpGatewayNatRulePtrOutput() VnpGatewayNatRulePtrOutput {
-	return i.ToVnpGatewayNatRulePtrOutputWithContext(context.Background())
-}
-
-func (i *VnpGatewayNatRule) ToVnpGatewayNatRulePtrOutputWithContext(ctx context.Context) VnpGatewayNatRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnpGatewayNatRulePtrOutput)
-}
-
-type VnpGatewayNatRulePtrInput interface {
-	pulumi.Input
-
-	ToVnpGatewayNatRulePtrOutput() VnpGatewayNatRulePtrOutput
-	ToVnpGatewayNatRulePtrOutputWithContext(ctx context.Context) VnpGatewayNatRulePtrOutput
-}
-
-type vnpGatewayNatRulePtrType VnpGatewayNatRuleArgs
-
-func (*vnpGatewayNatRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnpGatewayNatRule)(nil))
-}
-
-func (i *vnpGatewayNatRulePtrType) ToVnpGatewayNatRulePtrOutput() VnpGatewayNatRulePtrOutput {
-	return i.ToVnpGatewayNatRulePtrOutputWithContext(context.Background())
-}
-
-func (i *vnpGatewayNatRulePtrType) ToVnpGatewayNatRulePtrOutputWithContext(ctx context.Context) VnpGatewayNatRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnpGatewayNatRulePtrOutput)
 }
 
 // VnpGatewayNatRuleArrayInput is an input type that accepts VnpGatewayNatRuleArray and VnpGatewayNatRuleArrayOutput values.
@@ -328,7 +299,7 @@ func (i VnpGatewayNatRuleMap) ToVnpGatewayNatRuleMapOutputWithContext(ctx contex
 type VnpGatewayNatRuleOutput struct{ *pulumi.OutputState }
 
 func (VnpGatewayNatRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnpGatewayNatRule)(nil))
+	return reflect.TypeOf((**VnpGatewayNatRule)(nil)).Elem()
 }
 
 func (o VnpGatewayNatRuleOutput) ToVnpGatewayNatRuleOutput() VnpGatewayNatRuleOutput {
@@ -339,44 +310,10 @@ func (o VnpGatewayNatRuleOutput) ToVnpGatewayNatRuleOutputWithContext(ctx contex
 	return o
 }
 
-func (o VnpGatewayNatRuleOutput) ToVnpGatewayNatRulePtrOutput() VnpGatewayNatRulePtrOutput {
-	return o.ToVnpGatewayNatRulePtrOutputWithContext(context.Background())
-}
-
-func (o VnpGatewayNatRuleOutput) ToVnpGatewayNatRulePtrOutputWithContext(ctx context.Context) VnpGatewayNatRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VnpGatewayNatRule) *VnpGatewayNatRule {
-		return &v
-	}).(VnpGatewayNatRulePtrOutput)
-}
-
-type VnpGatewayNatRulePtrOutput struct{ *pulumi.OutputState }
-
-func (VnpGatewayNatRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnpGatewayNatRule)(nil))
-}
-
-func (o VnpGatewayNatRulePtrOutput) ToVnpGatewayNatRulePtrOutput() VnpGatewayNatRulePtrOutput {
-	return o
-}
-
-func (o VnpGatewayNatRulePtrOutput) ToVnpGatewayNatRulePtrOutputWithContext(ctx context.Context) VnpGatewayNatRulePtrOutput {
-	return o
-}
-
-func (o VnpGatewayNatRulePtrOutput) Elem() VnpGatewayNatRuleOutput {
-	return o.ApplyT(func(v *VnpGatewayNatRule) VnpGatewayNatRule {
-		if v != nil {
-			return *v
-		}
-		var ret VnpGatewayNatRule
-		return ret
-	}).(VnpGatewayNatRuleOutput)
-}
-
 type VnpGatewayNatRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (VnpGatewayNatRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VnpGatewayNatRule)(nil))
+	return reflect.TypeOf((*[]*VnpGatewayNatRule)(nil)).Elem()
 }
 
 func (o VnpGatewayNatRuleArrayOutput) ToVnpGatewayNatRuleArrayOutput() VnpGatewayNatRuleArrayOutput {
@@ -388,15 +325,15 @@ func (o VnpGatewayNatRuleArrayOutput) ToVnpGatewayNatRuleArrayOutputWithContext(
 }
 
 func (o VnpGatewayNatRuleArrayOutput) Index(i pulumi.IntInput) VnpGatewayNatRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VnpGatewayNatRule {
-		return vs[0].([]VnpGatewayNatRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VnpGatewayNatRule {
+		return vs[0].([]*VnpGatewayNatRule)[vs[1].(int)]
 	}).(VnpGatewayNatRuleOutput)
 }
 
 type VnpGatewayNatRuleMapOutput struct{ *pulumi.OutputState }
 
 func (VnpGatewayNatRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VnpGatewayNatRule)(nil))
+	return reflect.TypeOf((*map[string]*VnpGatewayNatRule)(nil)).Elem()
 }
 
 func (o VnpGatewayNatRuleMapOutput) ToVnpGatewayNatRuleMapOutput() VnpGatewayNatRuleMapOutput {
@@ -408,18 +345,16 @@ func (o VnpGatewayNatRuleMapOutput) ToVnpGatewayNatRuleMapOutputWithContext(ctx 
 }
 
 func (o VnpGatewayNatRuleMapOutput) MapIndex(k pulumi.StringInput) VnpGatewayNatRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VnpGatewayNatRule {
-		return vs[0].(map[string]VnpGatewayNatRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VnpGatewayNatRule {
+		return vs[0].(map[string]*VnpGatewayNatRule)[vs[1].(string)]
 	}).(VnpGatewayNatRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleInput)(nil)).Elem(), &VnpGatewayNatRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRulePtrInput)(nil)).Elem(), &VnpGatewayNatRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleArrayInput)(nil)).Elem(), VnpGatewayNatRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleMapInput)(nil)).Elem(), VnpGatewayNatRuleMap{})
 	pulumi.RegisterOutputType(VnpGatewayNatRuleOutput{})
-	pulumi.RegisterOutputType(VnpGatewayNatRulePtrOutput{})
 	pulumi.RegisterOutputType(VnpGatewayNatRuleArrayOutput{})
 	pulumi.RegisterOutputType(VnpGatewayNatRuleMapOutput{})
 }

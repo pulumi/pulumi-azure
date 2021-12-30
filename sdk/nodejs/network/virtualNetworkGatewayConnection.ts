@@ -300,30 +300,30 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkGatewayConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualNetworkGatewayConnectionArgs | VirtualNetworkGatewayConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkGatewayConnectionState | undefined;
-            inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
-            inputs["connectionProtocol"] = state ? state.connectionProtocol : undefined;
-            inputs["dpdTimeoutSeconds"] = state ? state.dpdTimeoutSeconds : undefined;
-            inputs["enableBgp"] = state ? state.enableBgp : undefined;
-            inputs["expressRouteCircuitId"] = state ? state.expressRouteCircuitId : undefined;
-            inputs["expressRouteGatewayBypass"] = state ? state.expressRouteGatewayBypass : undefined;
-            inputs["ipsecPolicy"] = state ? state.ipsecPolicy : undefined;
-            inputs["localAzureIpAddressEnabled"] = state ? state.localAzureIpAddressEnabled : undefined;
-            inputs["localNetworkGatewayId"] = state ? state.localNetworkGatewayId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["peerVirtualNetworkGatewayId"] = state ? state.peerVirtualNetworkGatewayId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["routingWeight"] = state ? state.routingWeight : undefined;
-            inputs["sharedKey"] = state ? state.sharedKey : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["trafficSelectorPolicy"] = state ? state.trafficSelectorPolicy : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["usePolicyBasedTrafficSelectors"] = state ? state.usePolicyBasedTrafficSelectors : undefined;
-            inputs["virtualNetworkGatewayId"] = state ? state.virtualNetworkGatewayId : undefined;
+            resourceInputs["authorizationKey"] = state ? state.authorizationKey : undefined;
+            resourceInputs["connectionProtocol"] = state ? state.connectionProtocol : undefined;
+            resourceInputs["dpdTimeoutSeconds"] = state ? state.dpdTimeoutSeconds : undefined;
+            resourceInputs["enableBgp"] = state ? state.enableBgp : undefined;
+            resourceInputs["expressRouteCircuitId"] = state ? state.expressRouteCircuitId : undefined;
+            resourceInputs["expressRouteGatewayBypass"] = state ? state.expressRouteGatewayBypass : undefined;
+            resourceInputs["ipsecPolicy"] = state ? state.ipsecPolicy : undefined;
+            resourceInputs["localAzureIpAddressEnabled"] = state ? state.localAzureIpAddressEnabled : undefined;
+            resourceInputs["localNetworkGatewayId"] = state ? state.localNetworkGatewayId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["peerVirtualNetworkGatewayId"] = state ? state.peerVirtualNetworkGatewayId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["routingWeight"] = state ? state.routingWeight : undefined;
+            resourceInputs["sharedKey"] = state ? state.sharedKey : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["trafficSelectorPolicy"] = state ? state.trafficSelectorPolicy : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["usePolicyBasedTrafficSelectors"] = state ? state.usePolicyBasedTrafficSelectors : undefined;
+            resourceInputs["virtualNetworkGatewayId"] = state ? state.virtualNetworkGatewayId : undefined;
         } else {
             const args = argsOrState as VirtualNetworkGatewayConnectionArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -335,31 +335,31 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkGatewayId'");
             }
-            inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            inputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
-            inputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
-            inputs["enableBgp"] = args ? args.enableBgp : undefined;
-            inputs["expressRouteCircuitId"] = args ? args.expressRouteCircuitId : undefined;
-            inputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
-            inputs["ipsecPolicy"] = args ? args.ipsecPolicy : undefined;
-            inputs["localAzureIpAddressEnabled"] = args ? args.localAzureIpAddressEnabled : undefined;
-            inputs["localNetworkGatewayId"] = args ? args.localNetworkGatewayId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["peerVirtualNetworkGatewayId"] = args ? args.peerVirtualNetworkGatewayId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routingWeight"] = args ? args.routingWeight : undefined;
-            inputs["sharedKey"] = args ? args.sharedKey : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trafficSelectorPolicy"] = args ? args.trafficSelectorPolicy : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
-            inputs["virtualNetworkGatewayId"] = args ? args.virtualNetworkGatewayId : undefined;
+            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            resourceInputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
+            resourceInputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
+            resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
+            resourceInputs["expressRouteCircuitId"] = args ? args.expressRouteCircuitId : undefined;
+            resourceInputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
+            resourceInputs["ipsecPolicy"] = args ? args.ipsecPolicy : undefined;
+            resourceInputs["localAzureIpAddressEnabled"] = args ? args.localAzureIpAddressEnabled : undefined;
+            resourceInputs["localNetworkGatewayId"] = args ? args.localNetworkGatewayId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["peerVirtualNetworkGatewayId"] = args ? args.peerVirtualNetworkGatewayId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
+            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trafficSelectorPolicy"] = args ? args.trafficSelectorPolicy : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
+            resourceInputs["virtualNetworkGatewayId"] = args ? args.virtualNetworkGatewayId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VirtualNetworkGatewayConnection.__pulumiType, name, inputs, opts);
+        super(VirtualNetworkGatewayConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

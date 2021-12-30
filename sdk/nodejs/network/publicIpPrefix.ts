@@ -110,40 +110,40 @@ export class PublicIpPrefix extends pulumi.CustomResource {
      */
     constructor(name: string, args: PublicIpPrefixArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PublicIpPrefixArgs | PublicIpPrefixState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PublicIpPrefixState | undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["ipPrefix"] = state ? state.ipPrefix : undefined;
-            inputs["ipVersion"] = state ? state.ipVersion : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["prefixLength"] = state ? state.prefixLength : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["ipPrefix"] = state ? state.ipPrefix : undefined;
+            resourceInputs["ipVersion"] = state ? state.ipVersion : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["prefixLength"] = state ? state.prefixLength : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as PublicIpPrefixArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["ipVersion"] = args ? args.ipVersion : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["prefixLength"] = args ? args.prefixLength : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["ipPrefix"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["ipVersion"] = args ? args.ipVersion : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["prefixLength"] = args ? args.prefixLength : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["ipPrefix"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PublicIpPrefix.__pulumiType, name, inputs, opts);
+        super(PublicIpPrefix.__pulumiType, name, resourceInputs, opts);
     }
 }
 

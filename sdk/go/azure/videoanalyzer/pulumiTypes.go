@@ -47,47 +47,6 @@ func (i AnalyzerIdentityArgs) ToAnalyzerIdentityOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerIdentityOutput)
 }
 
-func (i AnalyzerIdentityArgs) ToAnalyzerIdentityPtrOutput() AnalyzerIdentityPtrOutput {
-	return i.ToAnalyzerIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i AnalyzerIdentityArgs) ToAnalyzerIdentityPtrOutputWithContext(ctx context.Context) AnalyzerIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerIdentityOutput).ToAnalyzerIdentityPtrOutputWithContext(ctx)
-}
-
-// AnalyzerIdentityPtrInput is an input type that accepts AnalyzerIdentityArgs, AnalyzerIdentityPtr and AnalyzerIdentityPtrOutput values.
-// You can construct a concrete instance of `AnalyzerIdentityPtrInput` via:
-//
-//          AnalyzerIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type AnalyzerIdentityPtrInput interface {
-	pulumi.Input
-
-	ToAnalyzerIdentityPtrOutput() AnalyzerIdentityPtrOutput
-	ToAnalyzerIdentityPtrOutputWithContext(context.Context) AnalyzerIdentityPtrOutput
-}
-
-type analyzerIdentityPtrType AnalyzerIdentityArgs
-
-func AnalyzerIdentityPtr(v *AnalyzerIdentityArgs) AnalyzerIdentityPtrInput {
-	return (*analyzerIdentityPtrType)(v)
-}
-
-func (*analyzerIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyzerIdentity)(nil)).Elem()
-}
-
-func (i *analyzerIdentityPtrType) ToAnalyzerIdentityPtrOutput() AnalyzerIdentityPtrOutput {
-	return i.ToAnalyzerIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *analyzerIdentityPtrType) ToAnalyzerIdentityPtrOutputWithContext(ctx context.Context) AnalyzerIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerIdentityPtrOutput)
-}
-
 type AnalyzerIdentityOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerIdentityOutput) ElementType() reflect.Type {
@@ -102,16 +61,6 @@ func (o AnalyzerIdentityOutput) ToAnalyzerIdentityOutputWithContext(ctx context.
 	return o
 }
 
-func (o AnalyzerIdentityOutput) ToAnalyzerIdentityPtrOutput() AnalyzerIdentityPtrOutput {
-	return o.ToAnalyzerIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o AnalyzerIdentityOutput) ToAnalyzerIdentityPtrOutputWithContext(ctx context.Context) AnalyzerIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyzerIdentity) *AnalyzerIdentity {
-		return &v
-	}).(AnalyzerIdentityPtrOutput)
-}
-
 // A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
 func (o AnalyzerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
@@ -120,50 +69,6 @@ func (o AnalyzerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 // Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
 func (o AnalyzerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyzerIdentity) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type AnalyzerIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalyzerIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyzerIdentity)(nil)).Elem()
-}
-
-func (o AnalyzerIdentityPtrOutput) ToAnalyzerIdentityPtrOutput() AnalyzerIdentityPtrOutput {
-	return o
-}
-
-func (o AnalyzerIdentityPtrOutput) ToAnalyzerIdentityPtrOutputWithContext(ctx context.Context) AnalyzerIdentityPtrOutput {
-	return o
-}
-
-func (o AnalyzerIdentityPtrOutput) Elem() AnalyzerIdentityOutput {
-	return o.ApplyT(func(v *AnalyzerIdentity) AnalyzerIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret AnalyzerIdentity
-		return ret
-	}).(AnalyzerIdentityOutput)
-}
-
-// A list of User Assigned Identity ID's to be assigned to this Video Analyzer.
-func (o AnalyzerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AnalyzerIdentity) []string {
-		if v == nil {
-			return nil
-		}
-		return v.IdentityIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// Specifies the type of Managed Identity that should be configured on this Video Analyzer. At this time the only possible value is `UserAssigned`.
-func (o AnalyzerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalyzerIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type AnalyzerStorageAccount struct {
@@ -203,47 +108,6 @@ func (i AnalyzerStorageAccountArgs) ToAnalyzerStorageAccountOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerStorageAccountOutput)
 }
 
-func (i AnalyzerStorageAccountArgs) ToAnalyzerStorageAccountPtrOutput() AnalyzerStorageAccountPtrOutput {
-	return i.ToAnalyzerStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (i AnalyzerStorageAccountArgs) ToAnalyzerStorageAccountPtrOutputWithContext(ctx context.Context) AnalyzerStorageAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerStorageAccountOutput).ToAnalyzerStorageAccountPtrOutputWithContext(ctx)
-}
-
-// AnalyzerStorageAccountPtrInput is an input type that accepts AnalyzerStorageAccountArgs, AnalyzerStorageAccountPtr and AnalyzerStorageAccountPtrOutput values.
-// You can construct a concrete instance of `AnalyzerStorageAccountPtrInput` via:
-//
-//          AnalyzerStorageAccountArgs{...}
-//
-//  or:
-//
-//          nil
-type AnalyzerStorageAccountPtrInput interface {
-	pulumi.Input
-
-	ToAnalyzerStorageAccountPtrOutput() AnalyzerStorageAccountPtrOutput
-	ToAnalyzerStorageAccountPtrOutputWithContext(context.Context) AnalyzerStorageAccountPtrOutput
-}
-
-type analyzerStorageAccountPtrType AnalyzerStorageAccountArgs
-
-func AnalyzerStorageAccountPtr(v *AnalyzerStorageAccountArgs) AnalyzerStorageAccountPtrInput {
-	return (*analyzerStorageAccountPtrType)(v)
-}
-
-func (*analyzerStorageAccountPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyzerStorageAccount)(nil)).Elem()
-}
-
-func (i *analyzerStorageAccountPtrType) ToAnalyzerStorageAccountPtrOutput() AnalyzerStorageAccountPtrOutput {
-	return i.ToAnalyzerStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *analyzerStorageAccountPtrType) ToAnalyzerStorageAccountPtrOutputWithContext(ctx context.Context) AnalyzerStorageAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerStorageAccountPtrOutput)
-}
-
 type AnalyzerStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerStorageAccountOutput) ElementType() reflect.Type {
@@ -258,16 +122,6 @@ func (o AnalyzerStorageAccountOutput) ToAnalyzerStorageAccountOutputWithContext(
 	return o
 }
 
-func (o AnalyzerStorageAccountOutput) ToAnalyzerStorageAccountPtrOutput() AnalyzerStorageAccountPtrOutput {
-	return o.ToAnalyzerStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (o AnalyzerStorageAccountOutput) ToAnalyzerStorageAccountPtrOutputWithContext(ctx context.Context) AnalyzerStorageAccountPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyzerStorageAccount) *AnalyzerStorageAccount {
-		return &v
-	}).(AnalyzerStorageAccountPtrOutput)
-}
-
 // Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
 func (o AnalyzerStorageAccountOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyzerStorageAccount) string { return v.Id }).(pulumi.StringOutput)
@@ -278,57 +132,9 @@ func (o AnalyzerStorageAccountOutput) UserAssignedIdentityId() pulumi.StringOutp
 	return o.ApplyT(func(v AnalyzerStorageAccount) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
-type AnalyzerStorageAccountPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalyzerStorageAccountPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyzerStorageAccount)(nil)).Elem()
-}
-
-func (o AnalyzerStorageAccountPtrOutput) ToAnalyzerStorageAccountPtrOutput() AnalyzerStorageAccountPtrOutput {
-	return o
-}
-
-func (o AnalyzerStorageAccountPtrOutput) ToAnalyzerStorageAccountPtrOutputWithContext(ctx context.Context) AnalyzerStorageAccountPtrOutput {
-	return o
-}
-
-func (o AnalyzerStorageAccountPtrOutput) Elem() AnalyzerStorageAccountOutput {
-	return o.ApplyT(func(v *AnalyzerStorageAccount) AnalyzerStorageAccount {
-		if v != nil {
-			return *v
-		}
-		var ret AnalyzerStorageAccount
-		return ret
-	}).(AnalyzerStorageAccountOutput)
-}
-
-// Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
-func (o AnalyzerStorageAccountPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalyzerStorageAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the User Assigned Identity ID which should be assigned to a access this Storage Account.
-func (o AnalyzerStorageAccountPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalyzerStorageAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UserAssignedIdentityId
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerIdentityInput)(nil)).Elem(), AnalyzerIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerIdentityPtrInput)(nil)).Elem(), AnalyzerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerStorageAccountInput)(nil)).Elem(), AnalyzerStorageAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerStorageAccountPtrInput)(nil)).Elem(), AnalyzerStorageAccountArgs{})
 	pulumi.RegisterOutputType(AnalyzerIdentityOutput{})
-	pulumi.RegisterOutputType(AnalyzerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AnalyzerStorageAccountOutput{})
-	pulumi.RegisterOutputType(AnalyzerStorageAccountPtrOutput{})
 }

@@ -188,7 +188,7 @@ type JobCredentialInput interface {
 }
 
 func (*JobCredential) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobCredential)(nil))
+	return reflect.TypeOf((**JobCredential)(nil)).Elem()
 }
 
 func (i *JobCredential) ToJobCredentialOutput() JobCredentialOutput {
@@ -197,35 +197,6 @@ func (i *JobCredential) ToJobCredentialOutput() JobCredentialOutput {
 
 func (i *JobCredential) ToJobCredentialOutputWithContext(ctx context.Context) JobCredentialOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobCredentialOutput)
-}
-
-func (i *JobCredential) ToJobCredentialPtrOutput() JobCredentialPtrOutput {
-	return i.ToJobCredentialPtrOutputWithContext(context.Background())
-}
-
-func (i *JobCredential) ToJobCredentialPtrOutputWithContext(ctx context.Context) JobCredentialPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobCredentialPtrOutput)
-}
-
-type JobCredentialPtrInput interface {
-	pulumi.Input
-
-	ToJobCredentialPtrOutput() JobCredentialPtrOutput
-	ToJobCredentialPtrOutputWithContext(ctx context.Context) JobCredentialPtrOutput
-}
-
-type jobCredentialPtrType JobCredentialArgs
-
-func (*jobCredentialPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobCredential)(nil))
-}
-
-func (i *jobCredentialPtrType) ToJobCredentialPtrOutput() JobCredentialPtrOutput {
-	return i.ToJobCredentialPtrOutputWithContext(context.Background())
-}
-
-func (i *jobCredentialPtrType) ToJobCredentialPtrOutputWithContext(ctx context.Context) JobCredentialPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobCredentialPtrOutput)
 }
 
 // JobCredentialArrayInput is an input type that accepts JobCredentialArray and JobCredentialArrayOutput values.
@@ -281,7 +252,7 @@ func (i JobCredentialMap) ToJobCredentialMapOutputWithContext(ctx context.Contex
 type JobCredentialOutput struct{ *pulumi.OutputState }
 
 func (JobCredentialOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobCredential)(nil))
+	return reflect.TypeOf((**JobCredential)(nil)).Elem()
 }
 
 func (o JobCredentialOutput) ToJobCredentialOutput() JobCredentialOutput {
@@ -292,44 +263,10 @@ func (o JobCredentialOutput) ToJobCredentialOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o JobCredentialOutput) ToJobCredentialPtrOutput() JobCredentialPtrOutput {
-	return o.ToJobCredentialPtrOutputWithContext(context.Background())
-}
-
-func (o JobCredentialOutput) ToJobCredentialPtrOutputWithContext(ctx context.Context) JobCredentialPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobCredential) *JobCredential {
-		return &v
-	}).(JobCredentialPtrOutput)
-}
-
-type JobCredentialPtrOutput struct{ *pulumi.OutputState }
-
-func (JobCredentialPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobCredential)(nil))
-}
-
-func (o JobCredentialPtrOutput) ToJobCredentialPtrOutput() JobCredentialPtrOutput {
-	return o
-}
-
-func (o JobCredentialPtrOutput) ToJobCredentialPtrOutputWithContext(ctx context.Context) JobCredentialPtrOutput {
-	return o
-}
-
-func (o JobCredentialPtrOutput) Elem() JobCredentialOutput {
-	return o.ApplyT(func(v *JobCredential) JobCredential {
-		if v != nil {
-			return *v
-		}
-		var ret JobCredential
-		return ret
-	}).(JobCredentialOutput)
-}
-
 type JobCredentialArrayOutput struct{ *pulumi.OutputState }
 
 func (JobCredentialArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobCredential)(nil))
+	return reflect.TypeOf((*[]*JobCredential)(nil)).Elem()
 }
 
 func (o JobCredentialArrayOutput) ToJobCredentialArrayOutput() JobCredentialArrayOutput {
@@ -341,15 +278,15 @@ func (o JobCredentialArrayOutput) ToJobCredentialArrayOutputWithContext(ctx cont
 }
 
 func (o JobCredentialArrayOutput) Index(i pulumi.IntInput) JobCredentialOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobCredential {
-		return vs[0].([]JobCredential)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JobCredential {
+		return vs[0].([]*JobCredential)[vs[1].(int)]
 	}).(JobCredentialOutput)
 }
 
 type JobCredentialMapOutput struct{ *pulumi.OutputState }
 
 func (JobCredentialMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]JobCredential)(nil))
+	return reflect.TypeOf((*map[string]*JobCredential)(nil)).Elem()
 }
 
 func (o JobCredentialMapOutput) ToJobCredentialMapOutput() JobCredentialMapOutput {
@@ -361,18 +298,16 @@ func (o JobCredentialMapOutput) ToJobCredentialMapOutputWithContext(ctx context.
 }
 
 func (o JobCredentialMapOutput) MapIndex(k pulumi.StringInput) JobCredentialOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) JobCredential {
-		return vs[0].(map[string]JobCredential)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *JobCredential {
+		return vs[0].(map[string]*JobCredential)[vs[1].(string)]
 	}).(JobCredentialOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobCredentialInput)(nil)).Elem(), &JobCredential{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobCredentialPtrInput)(nil)).Elem(), &JobCredential{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobCredentialArrayInput)(nil)).Elem(), JobCredentialArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobCredentialMapInput)(nil)).Elem(), JobCredentialMap{})
 	pulumi.RegisterOutputType(JobCredentialOutput{})
-	pulumi.RegisterOutputType(JobCredentialPtrOutput{})
 	pulumi.RegisterOutputType(JobCredentialArrayOutput{})
 	pulumi.RegisterOutputType(JobCredentialMapOutput{})
 }

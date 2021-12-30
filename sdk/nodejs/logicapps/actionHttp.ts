@@ -100,17 +100,17 @@ export class ActionHttp extends pulumi.CustomResource {
      */
     constructor(name: string, args: ActionHttpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionHttpArgs | ActionHttpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionHttpState | undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["headers"] = state ? state.headers : undefined;
-            inputs["logicAppId"] = state ? state.logicAppId : undefined;
-            inputs["method"] = state ? state.method : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["runAfters"] = state ? state.runAfters : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["headers"] = state ? state.headers : undefined;
+            resourceInputs["logicAppId"] = state ? state.logicAppId : undefined;
+            resourceInputs["method"] = state ? state.method : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["runAfters"] = state ? state.runAfters : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as ActionHttpArgs | undefined;
             if ((!args || args.logicAppId === undefined) && !opts.urn) {
@@ -122,18 +122,18 @@ export class ActionHttp extends pulumi.CustomResource {
             if ((!args || args.uri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'uri'");
             }
-            inputs["body"] = args ? args.body : undefined;
-            inputs["headers"] = args ? args.headers : undefined;
-            inputs["logicAppId"] = args ? args.logicAppId : undefined;
-            inputs["method"] = args ? args.method : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["runAfters"] = args ? args.runAfters : undefined;
-            inputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["headers"] = args ? args.headers : undefined;
+            resourceInputs["logicAppId"] = args ? args.logicAppId : undefined;
+            resourceInputs["method"] = args ? args.method : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["runAfters"] = args ? args.runAfters : undefined;
+            resourceInputs["uri"] = args ? args.uri : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ActionHttp.__pulumiType, name, inputs, opts);
+        super(ActionHttp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

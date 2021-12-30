@@ -97,12 +97,12 @@ export class NetworkInterfaceSecurityGroupAssociation extends pulumi.CustomResou
      */
     constructor(name: string, args: NetworkInterfaceSecurityGroupAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkInterfaceSecurityGroupAssociationArgs | NetworkInterfaceSecurityGroupAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceSecurityGroupAssociationState | undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceSecurityGroupAssociationArgs | undefined;
             if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
@@ -111,13 +111,13 @@ export class NetworkInterfaceSecurityGroupAssociation extends pulumi.CustomResou
             if ((!args || args.networkSecurityGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityGroupId'");
             }
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NetworkInterfaceSecurityGroupAssociation.__pulumiType, name, inputs, opts);
+        super(NetworkInterfaceSecurityGroupAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

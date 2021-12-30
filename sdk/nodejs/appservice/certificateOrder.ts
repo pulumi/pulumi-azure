@@ -145,58 +145,58 @@ export class CertificateOrder extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateOrderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateOrderArgs | CertificateOrderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateOrderState | undefined;
-            inputs["appServiceCertificateNotRenewableReasons"] = state ? state.appServiceCertificateNotRenewableReasons : undefined;
-            inputs["autoRenew"] = state ? state.autoRenew : undefined;
-            inputs["certificates"] = state ? state.certificates : undefined;
-            inputs["csr"] = state ? state.csr : undefined;
-            inputs["distinguishedName"] = state ? state.distinguishedName : undefined;
-            inputs["domainVerificationToken"] = state ? state.domainVerificationToken : undefined;
-            inputs["expirationTime"] = state ? state.expirationTime : undefined;
-            inputs["intermediateThumbprint"] = state ? state.intermediateThumbprint : undefined;
-            inputs["isPrivateKeyExternal"] = state ? state.isPrivateKeyExternal : undefined;
-            inputs["keySize"] = state ? state.keySize : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["productType"] = state ? state.productType : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["rootThumbprint"] = state ? state.rootThumbprint : undefined;
-            inputs["signedCertificateThumbprint"] = state ? state.signedCertificateThumbprint : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["validityInYears"] = state ? state.validityInYears : undefined;
+            resourceInputs["appServiceCertificateNotRenewableReasons"] = state ? state.appServiceCertificateNotRenewableReasons : undefined;
+            resourceInputs["autoRenew"] = state ? state.autoRenew : undefined;
+            resourceInputs["certificates"] = state ? state.certificates : undefined;
+            resourceInputs["csr"] = state ? state.csr : undefined;
+            resourceInputs["distinguishedName"] = state ? state.distinguishedName : undefined;
+            resourceInputs["domainVerificationToken"] = state ? state.domainVerificationToken : undefined;
+            resourceInputs["expirationTime"] = state ? state.expirationTime : undefined;
+            resourceInputs["intermediateThumbprint"] = state ? state.intermediateThumbprint : undefined;
+            resourceInputs["isPrivateKeyExternal"] = state ? state.isPrivateKeyExternal : undefined;
+            resourceInputs["keySize"] = state ? state.keySize : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["productType"] = state ? state.productType : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["rootThumbprint"] = state ? state.rootThumbprint : undefined;
+            resourceInputs["signedCertificateThumbprint"] = state ? state.signedCertificateThumbprint : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["validityInYears"] = state ? state.validityInYears : undefined;
         } else {
             const args = argsOrState as CertificateOrderArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoRenew"] = args ? args.autoRenew : undefined;
-            inputs["csr"] = args ? args.csr : undefined;
-            inputs["distinguishedName"] = args ? args.distinguishedName : undefined;
-            inputs["keySize"] = args ? args.keySize : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["productType"] = args ? args.productType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validityInYears"] = args ? args.validityInYears : undefined;
-            inputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
-            inputs["certificates"] = undefined /*out*/;
-            inputs["domainVerificationToken"] = undefined /*out*/;
-            inputs["expirationTime"] = undefined /*out*/;
-            inputs["intermediateThumbprint"] = undefined /*out*/;
-            inputs["isPrivateKeyExternal"] = undefined /*out*/;
-            inputs["rootThumbprint"] = undefined /*out*/;
-            inputs["signedCertificateThumbprint"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["autoRenew"] = args ? args.autoRenew : undefined;
+            resourceInputs["csr"] = args ? args.csr : undefined;
+            resourceInputs["distinguishedName"] = args ? args.distinguishedName : undefined;
+            resourceInputs["keySize"] = args ? args.keySize : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["productType"] = args ? args.productType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["validityInYears"] = args ? args.validityInYears : undefined;
+            resourceInputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
+            resourceInputs["certificates"] = undefined /*out*/;
+            resourceInputs["domainVerificationToken"] = undefined /*out*/;
+            resourceInputs["expirationTime"] = undefined /*out*/;
+            resourceInputs["intermediateThumbprint"] = undefined /*out*/;
+            resourceInputs["isPrivateKeyExternal"] = undefined /*out*/;
+            resourceInputs["rootThumbprint"] = undefined /*out*/;
+            resourceInputs["signedCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CertificateOrder.__pulumiType, name, inputs, opts);
+        super(CertificateOrder.__pulumiType, name, resourceInputs, opts);
     }
 }
 

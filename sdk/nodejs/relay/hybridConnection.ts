@@ -96,15 +96,15 @@ export class HybridConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: HybridConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HybridConnectionArgs | HybridConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HybridConnectionState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["relayNamespaceName"] = state ? state.relayNamespaceName : undefined;
-            inputs["requiresClientAuthorization"] = state ? state.requiresClientAuthorization : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["userMetadata"] = state ? state.userMetadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["relayNamespaceName"] = state ? state.relayNamespaceName : undefined;
+            resourceInputs["requiresClientAuthorization"] = state ? state.requiresClientAuthorization : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["userMetadata"] = state ? state.userMetadata : undefined;
         } else {
             const args = argsOrState as HybridConnectionArgs | undefined;
             if ((!args || args.relayNamespaceName === undefined) && !opts.urn) {
@@ -113,16 +113,16 @@ export class HybridConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["relayNamespaceName"] = args ? args.relayNamespaceName : undefined;
-            inputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["relayNamespaceName"] = args ? args.relayNamespaceName : undefined;
+            resourceInputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(HybridConnection.__pulumiType, name, inputs, opts);
+        super(HybridConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

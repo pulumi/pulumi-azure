@@ -120,14 +120,14 @@ export class ServiceNetworkAcl extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceNetworkAclArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceNetworkAclArgs | ServiceNetworkAclState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceNetworkAclState | undefined;
-            inputs["defaultAction"] = state ? state.defaultAction : undefined;
-            inputs["privateEndpoints"] = state ? state.privateEndpoints : undefined;
-            inputs["publicNetwork"] = state ? state.publicNetwork : undefined;
-            inputs["signalrServiceId"] = state ? state.signalrServiceId : undefined;
+            resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
+            resourceInputs["privateEndpoints"] = state ? state.privateEndpoints : undefined;
+            resourceInputs["publicNetwork"] = state ? state.publicNetwork : undefined;
+            resourceInputs["signalrServiceId"] = state ? state.signalrServiceId : undefined;
         } else {
             const args = argsOrState as ServiceNetworkAclArgs | undefined;
             if ((!args || args.defaultAction === undefined) && !opts.urn) {
@@ -139,15 +139,15 @@ export class ServiceNetworkAcl extends pulumi.CustomResource {
             if ((!args || args.signalrServiceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'signalrServiceId'");
             }
-            inputs["defaultAction"] = args ? args.defaultAction : undefined;
-            inputs["privateEndpoints"] = args ? args.privateEndpoints : undefined;
-            inputs["publicNetwork"] = args ? args.publicNetwork : undefined;
-            inputs["signalrServiceId"] = args ? args.signalrServiceId : undefined;
+            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
+            resourceInputs["privateEndpoints"] = args ? args.privateEndpoints : undefined;
+            resourceInputs["publicNetwork"] = args ? args.publicNetwork : undefined;
+            resourceInputs["signalrServiceId"] = args ? args.signalrServiceId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ServiceNetworkAcl.__pulumiType, name, inputs, opts);
+        super(ServiceNetworkAcl.__pulumiType, name, resourceInputs, opts);
     }
 }
 

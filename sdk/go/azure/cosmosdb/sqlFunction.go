@@ -166,7 +166,7 @@ type SqlFunctionInput interface {
 }
 
 func (*SqlFunction) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlFunction)(nil))
+	return reflect.TypeOf((**SqlFunction)(nil)).Elem()
 }
 
 func (i *SqlFunction) ToSqlFunctionOutput() SqlFunctionOutput {
@@ -175,35 +175,6 @@ func (i *SqlFunction) ToSqlFunctionOutput() SqlFunctionOutput {
 
 func (i *SqlFunction) ToSqlFunctionOutputWithContext(ctx context.Context) SqlFunctionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlFunctionOutput)
-}
-
-func (i *SqlFunction) ToSqlFunctionPtrOutput() SqlFunctionPtrOutput {
-	return i.ToSqlFunctionPtrOutputWithContext(context.Background())
-}
-
-func (i *SqlFunction) ToSqlFunctionPtrOutputWithContext(ctx context.Context) SqlFunctionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlFunctionPtrOutput)
-}
-
-type SqlFunctionPtrInput interface {
-	pulumi.Input
-
-	ToSqlFunctionPtrOutput() SqlFunctionPtrOutput
-	ToSqlFunctionPtrOutputWithContext(ctx context.Context) SqlFunctionPtrOutput
-}
-
-type sqlFunctionPtrType SqlFunctionArgs
-
-func (*sqlFunctionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlFunction)(nil))
-}
-
-func (i *sqlFunctionPtrType) ToSqlFunctionPtrOutput() SqlFunctionPtrOutput {
-	return i.ToSqlFunctionPtrOutputWithContext(context.Background())
-}
-
-func (i *sqlFunctionPtrType) ToSqlFunctionPtrOutputWithContext(ctx context.Context) SqlFunctionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlFunctionPtrOutput)
 }
 
 // SqlFunctionArrayInput is an input type that accepts SqlFunctionArray and SqlFunctionArrayOutput values.
@@ -259,7 +230,7 @@ func (i SqlFunctionMap) ToSqlFunctionMapOutputWithContext(ctx context.Context) S
 type SqlFunctionOutput struct{ *pulumi.OutputState }
 
 func (SqlFunctionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlFunction)(nil))
+	return reflect.TypeOf((**SqlFunction)(nil)).Elem()
 }
 
 func (o SqlFunctionOutput) ToSqlFunctionOutput() SqlFunctionOutput {
@@ -270,44 +241,10 @@ func (o SqlFunctionOutput) ToSqlFunctionOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SqlFunctionOutput) ToSqlFunctionPtrOutput() SqlFunctionPtrOutput {
-	return o.ToSqlFunctionPtrOutputWithContext(context.Background())
-}
-
-func (o SqlFunctionOutput) ToSqlFunctionPtrOutputWithContext(ctx context.Context) SqlFunctionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlFunction) *SqlFunction {
-		return &v
-	}).(SqlFunctionPtrOutput)
-}
-
-type SqlFunctionPtrOutput struct{ *pulumi.OutputState }
-
-func (SqlFunctionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlFunction)(nil))
-}
-
-func (o SqlFunctionPtrOutput) ToSqlFunctionPtrOutput() SqlFunctionPtrOutput {
-	return o
-}
-
-func (o SqlFunctionPtrOutput) ToSqlFunctionPtrOutputWithContext(ctx context.Context) SqlFunctionPtrOutput {
-	return o
-}
-
-func (o SqlFunctionPtrOutput) Elem() SqlFunctionOutput {
-	return o.ApplyT(func(v *SqlFunction) SqlFunction {
-		if v != nil {
-			return *v
-		}
-		var ret SqlFunction
-		return ret
-	}).(SqlFunctionOutput)
-}
-
 type SqlFunctionArrayOutput struct{ *pulumi.OutputState }
 
 func (SqlFunctionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SqlFunction)(nil))
+	return reflect.TypeOf((*[]*SqlFunction)(nil)).Elem()
 }
 
 func (o SqlFunctionArrayOutput) ToSqlFunctionArrayOutput() SqlFunctionArrayOutput {
@@ -319,15 +256,15 @@ func (o SqlFunctionArrayOutput) ToSqlFunctionArrayOutputWithContext(ctx context.
 }
 
 func (o SqlFunctionArrayOutput) Index(i pulumi.IntInput) SqlFunctionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlFunction {
-		return vs[0].([]SqlFunction)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlFunction {
+		return vs[0].([]*SqlFunction)[vs[1].(int)]
 	}).(SqlFunctionOutput)
 }
 
 type SqlFunctionMapOutput struct{ *pulumi.OutputState }
 
 func (SqlFunctionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SqlFunction)(nil))
+	return reflect.TypeOf((*map[string]*SqlFunction)(nil)).Elem()
 }
 
 func (o SqlFunctionMapOutput) ToSqlFunctionMapOutput() SqlFunctionMapOutput {
@@ -339,18 +276,16 @@ func (o SqlFunctionMapOutput) ToSqlFunctionMapOutputWithContext(ctx context.Cont
 }
 
 func (o SqlFunctionMapOutput) MapIndex(k pulumi.StringInput) SqlFunctionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlFunction {
-		return vs[0].(map[string]SqlFunction)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SqlFunction {
+		return vs[0].(map[string]*SqlFunction)[vs[1].(string)]
 	}).(SqlFunctionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlFunctionInput)(nil)).Elem(), &SqlFunction{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlFunctionPtrInput)(nil)).Elem(), &SqlFunction{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlFunctionArrayInput)(nil)).Elem(), SqlFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlFunctionMapInput)(nil)).Elem(), SqlFunctionMap{})
 	pulumi.RegisterOutputType(SqlFunctionOutput{})
-	pulumi.RegisterOutputType(SqlFunctionPtrOutput{})
 	pulumi.RegisterOutputType(SqlFunctionArrayOutput{})
 	pulumi.RegisterOutputType(SqlFunctionMapOutput{})
 }

@@ -175,7 +175,7 @@ type FabricInput interface {
 }
 
 func (*Fabric) ElementType() reflect.Type {
-	return reflect.TypeOf((*Fabric)(nil))
+	return reflect.TypeOf((**Fabric)(nil)).Elem()
 }
 
 func (i *Fabric) ToFabricOutput() FabricOutput {
@@ -184,35 +184,6 @@ func (i *Fabric) ToFabricOutput() FabricOutput {
 
 func (i *Fabric) ToFabricOutputWithContext(ctx context.Context) FabricOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FabricOutput)
-}
-
-func (i *Fabric) ToFabricPtrOutput() FabricPtrOutput {
-	return i.ToFabricPtrOutputWithContext(context.Background())
-}
-
-func (i *Fabric) ToFabricPtrOutputWithContext(ctx context.Context) FabricPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FabricPtrOutput)
-}
-
-type FabricPtrInput interface {
-	pulumi.Input
-
-	ToFabricPtrOutput() FabricPtrOutput
-	ToFabricPtrOutputWithContext(ctx context.Context) FabricPtrOutput
-}
-
-type fabricPtrType FabricArgs
-
-func (*fabricPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Fabric)(nil))
-}
-
-func (i *fabricPtrType) ToFabricPtrOutput() FabricPtrOutput {
-	return i.ToFabricPtrOutputWithContext(context.Background())
-}
-
-func (i *fabricPtrType) ToFabricPtrOutputWithContext(ctx context.Context) FabricPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FabricPtrOutput)
 }
 
 // FabricArrayInput is an input type that accepts FabricArray and FabricArrayOutput values.
@@ -268,7 +239,7 @@ func (i FabricMap) ToFabricMapOutputWithContext(ctx context.Context) FabricMapOu
 type FabricOutput struct{ *pulumi.OutputState }
 
 func (FabricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Fabric)(nil))
+	return reflect.TypeOf((**Fabric)(nil)).Elem()
 }
 
 func (o FabricOutput) ToFabricOutput() FabricOutput {
@@ -279,44 +250,10 @@ func (o FabricOutput) ToFabricOutputWithContext(ctx context.Context) FabricOutpu
 	return o
 }
 
-func (o FabricOutput) ToFabricPtrOutput() FabricPtrOutput {
-	return o.ToFabricPtrOutputWithContext(context.Background())
-}
-
-func (o FabricOutput) ToFabricPtrOutputWithContext(ctx context.Context) FabricPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Fabric) *Fabric {
-		return &v
-	}).(FabricPtrOutput)
-}
-
-type FabricPtrOutput struct{ *pulumi.OutputState }
-
-func (FabricPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Fabric)(nil))
-}
-
-func (o FabricPtrOutput) ToFabricPtrOutput() FabricPtrOutput {
-	return o
-}
-
-func (o FabricPtrOutput) ToFabricPtrOutputWithContext(ctx context.Context) FabricPtrOutput {
-	return o
-}
-
-func (o FabricPtrOutput) Elem() FabricOutput {
-	return o.ApplyT(func(v *Fabric) Fabric {
-		if v != nil {
-			return *v
-		}
-		var ret Fabric
-		return ret
-	}).(FabricOutput)
-}
-
 type FabricArrayOutput struct{ *pulumi.OutputState }
 
 func (FabricArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Fabric)(nil))
+	return reflect.TypeOf((*[]*Fabric)(nil)).Elem()
 }
 
 func (o FabricArrayOutput) ToFabricArrayOutput() FabricArrayOutput {
@@ -328,15 +265,15 @@ func (o FabricArrayOutput) ToFabricArrayOutputWithContext(ctx context.Context) F
 }
 
 func (o FabricArrayOutput) Index(i pulumi.IntInput) FabricOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Fabric {
-		return vs[0].([]Fabric)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Fabric {
+		return vs[0].([]*Fabric)[vs[1].(int)]
 	}).(FabricOutput)
 }
 
 type FabricMapOutput struct{ *pulumi.OutputState }
 
 func (FabricMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Fabric)(nil))
+	return reflect.TypeOf((*map[string]*Fabric)(nil)).Elem()
 }
 
 func (o FabricMapOutput) ToFabricMapOutput() FabricMapOutput {
@@ -348,18 +285,16 @@ func (o FabricMapOutput) ToFabricMapOutputWithContext(ctx context.Context) Fabri
 }
 
 func (o FabricMapOutput) MapIndex(k pulumi.StringInput) FabricOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Fabric {
-		return vs[0].(map[string]Fabric)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Fabric {
+		return vs[0].(map[string]*Fabric)[vs[1].(string)]
 	}).(FabricOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FabricInput)(nil)).Elem(), &Fabric{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FabricPtrInput)(nil)).Elem(), &Fabric{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FabricArrayInput)(nil)).Elem(), FabricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FabricMapInput)(nil)).Elem(), FabricMap{})
 	pulumi.RegisterOutputType(FabricOutput{})
-	pulumi.RegisterOutputType(FabricPtrOutput{})
 	pulumi.RegisterOutputType(FabricArrayOutput{})
 	pulumi.RegisterOutputType(FabricMapOutput{})
 }

@@ -147,15 +147,15 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterCustomerManagedKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterCustomerManagedKeyArgs | ClusterCustomerManagedKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterCustomerManagedKeyState | undefined;
-            inputs["clusterId"] = state ? state.clusterId : undefined;
-            inputs["keyName"] = state ? state.keyName : undefined;
-            inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            inputs["keyVersion"] = state ? state.keyVersion : undefined;
-            inputs["userIdentity"] = state ? state.userIdentity : undefined;
+            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
+            resourceInputs["keyName"] = state ? state.keyName : undefined;
+            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["keyVersion"] = state ? state.keyVersion : undefined;
+            resourceInputs["userIdentity"] = state ? state.userIdentity : undefined;
         } else {
             const args = argsOrState as ClusterCustomerManagedKeyArgs | undefined;
             if ((!args || args.clusterId === undefined) && !opts.urn) {
@@ -170,16 +170,16 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
             if ((!args || args.keyVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVersion'");
             }
-            inputs["clusterId"] = args ? args.clusterId : undefined;
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            inputs["keyVersion"] = args ? args.keyVersion : undefined;
-            inputs["userIdentity"] = args ? args.userIdentity : undefined;
+            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["keyVersion"] = args ? args.keyVersion : undefined;
+            resourceInputs["userIdentity"] = args ? args.userIdentity : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ClusterCustomerManagedKey.__pulumiType, name, inputs, opts);
+        super(ClusterCustomerManagedKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

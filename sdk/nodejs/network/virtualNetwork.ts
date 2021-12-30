@@ -157,22 +157,22 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualNetworkArgs | VirtualNetworkState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkState | undefined;
-            inputs["addressSpaces"] = state ? state.addressSpaces : undefined;
-            inputs["bgpCommunity"] = state ? state.bgpCommunity : undefined;
-            inputs["ddosProtectionPlan"] = state ? state.ddosProtectionPlan : undefined;
-            inputs["dnsServers"] = state ? state.dnsServers : undefined;
-            inputs["flowTimeoutInMinutes"] = state ? state.flowTimeoutInMinutes : undefined;
-            inputs["guid"] = state ? state.guid : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["subnets"] = state ? state.subnets : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vmProtectionEnabled"] = state ? state.vmProtectionEnabled : undefined;
+            resourceInputs["addressSpaces"] = state ? state.addressSpaces : undefined;
+            resourceInputs["bgpCommunity"] = state ? state.bgpCommunity : undefined;
+            resourceInputs["ddosProtectionPlan"] = state ? state.ddosProtectionPlan : undefined;
+            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
+            resourceInputs["flowTimeoutInMinutes"] = state ? state.flowTimeoutInMinutes : undefined;
+            resourceInputs["guid"] = state ? state.guid : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["subnets"] = state ? state.subnets : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["vmProtectionEnabled"] = state ? state.vmProtectionEnabled : undefined;
         } else {
             const args = argsOrState as VirtualNetworkArgs | undefined;
             if ((!args || args.addressSpaces === undefined) && !opts.urn) {
@@ -181,23 +181,23 @@ export class VirtualNetwork extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["addressSpaces"] = args ? args.addressSpaces : undefined;
-            inputs["bgpCommunity"] = args ? args.bgpCommunity : undefined;
-            inputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
-            inputs["dnsServers"] = args ? args.dnsServers : undefined;
-            inputs["flowTimeoutInMinutes"] = args ? args.flowTimeoutInMinutes : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnets"] = args ? args.subnets : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vmProtectionEnabled"] = args ? args.vmProtectionEnabled : undefined;
-            inputs["guid"] = undefined /*out*/;
+            resourceInputs["addressSpaces"] = args ? args.addressSpaces : undefined;
+            resourceInputs["bgpCommunity"] = args ? args.bgpCommunity : undefined;
+            resourceInputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
+            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["flowTimeoutInMinutes"] = args ? args.flowTimeoutInMinutes : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subnets"] = args ? args.subnets : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vmProtectionEnabled"] = args ? args.vmProtectionEnabled : undefined;
+            resourceInputs["guid"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VirtualNetwork.__pulumiType, name, inputs, opts);
+        super(VirtualNetwork.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -80,16 +80,16 @@ export class CacheNfsTarget extends pulumi.CustomResource {
      */
     constructor(name: string, args: CacheNfsTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CacheNfsTargetArgs | CacheNfsTargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheNfsTargetState | undefined;
-            inputs["cacheName"] = state ? state.cacheName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespaceJunctions"] = state ? state.namespaceJunctions : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["targetHostName"] = state ? state.targetHostName : undefined;
-            inputs["usageModel"] = state ? state.usageModel : undefined;
+            resourceInputs["cacheName"] = state ? state.cacheName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespaceJunctions"] = state ? state.namespaceJunctions : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["targetHostName"] = state ? state.targetHostName : undefined;
+            resourceInputs["usageModel"] = state ? state.usageModel : undefined;
         } else {
             const args = argsOrState as CacheNfsTargetArgs | undefined;
             if ((!args || args.cacheName === undefined) && !opts.urn) {
@@ -107,17 +107,17 @@ export class CacheNfsTarget extends pulumi.CustomResource {
             if ((!args || args.usageModel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'usageModel'");
             }
-            inputs["cacheName"] = args ? args.cacheName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceJunctions"] = args ? args.namespaceJunctions : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["targetHostName"] = args ? args.targetHostName : undefined;
-            inputs["usageModel"] = args ? args.usageModel : undefined;
+            resourceInputs["cacheName"] = args ? args.cacheName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceJunctions"] = args ? args.namespaceJunctions : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["targetHostName"] = args ? args.targetHostName : undefined;
+            resourceInputs["usageModel"] = args ? args.usageModel : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CacheNfsTarget.__pulumiType, name, inputs, opts);
+        super(CacheNfsTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

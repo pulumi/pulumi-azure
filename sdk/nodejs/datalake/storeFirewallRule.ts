@@ -94,15 +94,15 @@ export class StoreFirewallRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: StoreFirewallRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StoreFirewallRuleArgs | StoreFirewallRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StoreFirewallRuleState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["endIpAddress"] = state ? state.endIpAddress : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["startIpAddress"] = state ? state.startIpAddress : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["endIpAddress"] = state ? state.endIpAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["startIpAddress"] = state ? state.startIpAddress : undefined;
         } else {
             const args = argsOrState as StoreFirewallRuleArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -117,16 +117,16 @@ export class StoreFirewallRule extends pulumi.CustomResource {
             if ((!args || args.startIpAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["endIpAddress"] = args ? args.endIpAddress : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(StoreFirewallRule.__pulumiType, name, inputs, opts);
+        super(StoreFirewallRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -425,7 +425,7 @@ type SlotInput interface {
 }
 
 func (*Slot) ElementType() reflect.Type {
-	return reflect.TypeOf((*Slot)(nil))
+	return reflect.TypeOf((**Slot)(nil)).Elem()
 }
 
 func (i *Slot) ToSlotOutput() SlotOutput {
@@ -434,35 +434,6 @@ func (i *Slot) ToSlotOutput() SlotOutput {
 
 func (i *Slot) ToSlotOutputWithContext(ctx context.Context) SlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SlotOutput)
-}
-
-func (i *Slot) ToSlotPtrOutput() SlotPtrOutput {
-	return i.ToSlotPtrOutputWithContext(context.Background())
-}
-
-func (i *Slot) ToSlotPtrOutputWithContext(ctx context.Context) SlotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SlotPtrOutput)
-}
-
-type SlotPtrInput interface {
-	pulumi.Input
-
-	ToSlotPtrOutput() SlotPtrOutput
-	ToSlotPtrOutputWithContext(ctx context.Context) SlotPtrOutput
-}
-
-type slotPtrType SlotArgs
-
-func (*slotPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Slot)(nil))
-}
-
-func (i *slotPtrType) ToSlotPtrOutput() SlotPtrOutput {
-	return i.ToSlotPtrOutputWithContext(context.Background())
-}
-
-func (i *slotPtrType) ToSlotPtrOutputWithContext(ctx context.Context) SlotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SlotPtrOutput)
 }
 
 // SlotArrayInput is an input type that accepts SlotArray and SlotArrayOutput values.
@@ -518,7 +489,7 @@ func (i SlotMap) ToSlotMapOutputWithContext(ctx context.Context) SlotMapOutput {
 type SlotOutput struct{ *pulumi.OutputState }
 
 func (SlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Slot)(nil))
+	return reflect.TypeOf((**Slot)(nil)).Elem()
 }
 
 func (o SlotOutput) ToSlotOutput() SlotOutput {
@@ -529,44 +500,10 @@ func (o SlotOutput) ToSlotOutputWithContext(ctx context.Context) SlotOutput {
 	return o
 }
 
-func (o SlotOutput) ToSlotPtrOutput() SlotPtrOutput {
-	return o.ToSlotPtrOutputWithContext(context.Background())
-}
-
-func (o SlotOutput) ToSlotPtrOutputWithContext(ctx context.Context) SlotPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Slot) *Slot {
-		return &v
-	}).(SlotPtrOutput)
-}
-
-type SlotPtrOutput struct{ *pulumi.OutputState }
-
-func (SlotPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Slot)(nil))
-}
-
-func (o SlotPtrOutput) ToSlotPtrOutput() SlotPtrOutput {
-	return o
-}
-
-func (o SlotPtrOutput) ToSlotPtrOutputWithContext(ctx context.Context) SlotPtrOutput {
-	return o
-}
-
-func (o SlotPtrOutput) Elem() SlotOutput {
-	return o.ApplyT(func(v *Slot) Slot {
-		if v != nil {
-			return *v
-		}
-		var ret Slot
-		return ret
-	}).(SlotOutput)
-}
-
 type SlotArrayOutput struct{ *pulumi.OutputState }
 
 func (SlotArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Slot)(nil))
+	return reflect.TypeOf((*[]*Slot)(nil)).Elem()
 }
 
 func (o SlotArrayOutput) ToSlotArrayOutput() SlotArrayOutput {
@@ -578,15 +515,15 @@ func (o SlotArrayOutput) ToSlotArrayOutputWithContext(ctx context.Context) SlotA
 }
 
 func (o SlotArrayOutput) Index(i pulumi.IntInput) SlotOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Slot {
-		return vs[0].([]Slot)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Slot {
+		return vs[0].([]*Slot)[vs[1].(int)]
 	}).(SlotOutput)
 }
 
 type SlotMapOutput struct{ *pulumi.OutputState }
 
 func (SlotMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Slot)(nil))
+	return reflect.TypeOf((*map[string]*Slot)(nil)).Elem()
 }
 
 func (o SlotMapOutput) ToSlotMapOutput() SlotMapOutput {
@@ -598,18 +535,16 @@ func (o SlotMapOutput) ToSlotMapOutputWithContext(ctx context.Context) SlotMapOu
 }
 
 func (o SlotMapOutput) MapIndex(k pulumi.StringInput) SlotOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Slot {
-		return vs[0].(map[string]Slot)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Slot {
+		return vs[0].(map[string]*Slot)[vs[1].(string)]
 	}).(SlotOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotInput)(nil)).Elem(), &Slot{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SlotPtrInput)(nil)).Elem(), &Slot{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotArrayInput)(nil)).Elem(), SlotArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotMapInput)(nil)).Elem(), SlotMap{})
 	pulumi.RegisterOutputType(SlotOutput{})
-	pulumi.RegisterOutputType(SlotPtrOutput{})
 	pulumi.RegisterOutputType(SlotArrayOutput{})
 	pulumi.RegisterOutputType(SlotMapOutput{})
 }

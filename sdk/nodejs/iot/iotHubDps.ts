@@ -112,20 +112,20 @@ export class IotHubDps extends pulumi.CustomResource {
      */
     constructor(name: string, args: IotHubDpsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IotHubDpsArgs | IotHubDpsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IotHubDpsState | undefined;
-            inputs["allocationPolicy"] = state ? state.allocationPolicy : undefined;
-            inputs["deviceProvisioningHostName"] = state ? state.deviceProvisioningHostName : undefined;
-            inputs["idScope"] = state ? state.idScope : undefined;
-            inputs["linkedHubs"] = state ? state.linkedHubs : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serviceOperationsHostName"] = state ? state.serviceOperationsHostName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["allocationPolicy"] = state ? state.allocationPolicy : undefined;
+            resourceInputs["deviceProvisioningHostName"] = state ? state.deviceProvisioningHostName : undefined;
+            resourceInputs["idScope"] = state ? state.idScope : undefined;
+            resourceInputs["linkedHubs"] = state ? state.linkedHubs : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serviceOperationsHostName"] = state ? state.serviceOperationsHostName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as IotHubDpsArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -134,21 +134,21 @@ export class IotHubDps extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["allocationPolicy"] = args ? args.allocationPolicy : undefined;
-            inputs["linkedHubs"] = args ? args.linkedHubs : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["deviceProvisioningHostName"] = undefined /*out*/;
-            inputs["idScope"] = undefined /*out*/;
-            inputs["serviceOperationsHostName"] = undefined /*out*/;
+            resourceInputs["allocationPolicy"] = args ? args.allocationPolicy : undefined;
+            resourceInputs["linkedHubs"] = args ? args.linkedHubs : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deviceProvisioningHostName"] = undefined /*out*/;
+            resourceInputs["idScope"] = undefined /*out*/;
+            resourceInputs["serviceOperationsHostName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IotHubDps.__pulumiType, name, inputs, opts);
+        super(IotHubDps.__pulumiType, name, resourceInputs, opts);
     }
 }
 

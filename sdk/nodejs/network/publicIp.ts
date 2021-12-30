@@ -140,27 +140,27 @@ export class PublicIp extends pulumi.CustomResource {
      */
     constructor(name: string, args: PublicIpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PublicIpArgs | PublicIpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PublicIpState | undefined;
-            inputs["allocationMethod"] = state ? state.allocationMethod : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["domainNameLabel"] = state ? state.domainNameLabel : undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["ipTags"] = state ? state.ipTags : undefined;
-            inputs["ipVersion"] = state ? state.ipVersion : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publicIpPrefixId"] = state ? state.publicIpPrefixId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["reverseFqdn"] = state ? state.reverseFqdn : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["skuTier"] = state ? state.skuTier : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["allocationMethod"] = state ? state.allocationMethod : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["domainNameLabel"] = state ? state.domainNameLabel : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["ipTags"] = state ? state.ipTags : undefined;
+            resourceInputs["ipVersion"] = state ? state.ipVersion : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicIpPrefixId"] = state ? state.publicIpPrefixId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["reverseFqdn"] = state ? state.reverseFqdn : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as PublicIpArgs | undefined;
             if ((!args || args.allocationMethod === undefined) && !opts.urn) {
@@ -169,28 +169,28 @@ export class PublicIp extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allocationMethod"] = args ? args.allocationMethod : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["domainNameLabel"] = args ? args.domainNameLabel : undefined;
-            inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            inputs["ipTags"] = args ? args.ipTags : undefined;
-            inputs["ipVersion"] = args ? args.ipVersion : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicIpPrefixId"] = args ? args.publicIpPrefixId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["reverseFqdn"] = args ? args.reverseFqdn : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["skuTier"] = args ? args.skuTier : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["allocationMethod"] = args ? args.allocationMethod : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["domainNameLabel"] = args ? args.domainNameLabel : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
+            resourceInputs["ipTags"] = args ? args.ipTags : undefined;
+            resourceInputs["ipVersion"] = args ? args.ipVersion : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicIpPrefixId"] = args ? args.publicIpPrefixId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["reverseFqdn"] = args ? args.reverseFqdn : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["ipAddress"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PublicIp.__pulumiType, name, inputs, opts);
+        super(PublicIp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

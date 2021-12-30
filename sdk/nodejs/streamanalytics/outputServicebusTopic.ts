@@ -130,19 +130,19 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
      */
     constructor(name: string, args: OutputServicebusTopicArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OutputServicebusTopicArgs | OutputServicebusTopicState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputServicebusTopicState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["propertyColumns"] = state ? state.propertyColumns : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serialization"] = state ? state.serialization : undefined;
-            inputs["servicebusNamespace"] = state ? state.servicebusNamespace : undefined;
-            inputs["sharedAccessPolicyKey"] = state ? state.sharedAccessPolicyKey : undefined;
-            inputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
-            inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
-            inputs["topicName"] = state ? state.topicName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["propertyColumns"] = state ? state.propertyColumns : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serialization"] = state ? state.serialization : undefined;
+            resourceInputs["servicebusNamespace"] = state ? state.servicebusNamespace : undefined;
+            resourceInputs["sharedAccessPolicyKey"] = state ? state.sharedAccessPolicyKey : undefined;
+            resourceInputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
+            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as OutputServicebusTopicArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -166,20 +166,20 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
             if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["propertyColumns"] = args ? args.propertyColumns : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serialization"] = args ? args.serialization : undefined;
-            inputs["servicebusNamespace"] = args ? args.servicebusNamespace : undefined;
-            inputs["sharedAccessPolicyKey"] = args ? args.sharedAccessPolicyKey : undefined;
-            inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
-            inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
-            inputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["propertyColumns"] = args ? args.propertyColumns : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serialization"] = args ? args.serialization : undefined;
+            resourceInputs["servicebusNamespace"] = args ? args.servicebusNamespace : undefined;
+            resourceInputs["sharedAccessPolicyKey"] = args ? args.sharedAccessPolicyKey : undefined;
+            resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
+            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["topicName"] = args ? args.topicName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OutputServicebusTopic.__pulumiType, name, inputs, opts);
+        super(OutputServicebusTopic.__pulumiType, name, resourceInputs, opts);
     }
 }
 

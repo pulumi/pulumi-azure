@@ -71,15 +71,15 @@ export class MeshSecretValue extends pulumi.CustomResource {
      */
     constructor(name: string, args: MeshSecretValueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MeshSecretValueArgs | MeshSecretValueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MeshSecretValueState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["serviceFabricMeshSecretId"] = state ? state.serviceFabricMeshSecretId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["value"] = state ? state.value : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["serviceFabricMeshSecretId"] = state ? state.serviceFabricMeshSecretId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as MeshSecretValueArgs | undefined;
             if ((!args || args.serviceFabricMeshSecretId === undefined) && !opts.urn) {
@@ -88,16 +88,16 @@ export class MeshSecretValue extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["serviceFabricMeshSecretId"] = args ? args.serviceFabricMeshSecretId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["value"] = args ? args.value : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["serviceFabricMeshSecretId"] = args ? args.serviceFabricMeshSecretId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(MeshSecretValue.__pulumiType, name, inputs, opts);
+        super(MeshSecretValue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

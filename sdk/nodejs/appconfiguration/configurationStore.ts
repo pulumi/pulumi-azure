@@ -111,42 +111,42 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConfigurationStoreArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationStoreArgs | ConfigurationStoreState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationStoreState | undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["primaryReadKeys"] = state ? state.primaryReadKeys : undefined;
-            inputs["primaryWriteKeys"] = state ? state.primaryWriteKeys : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryReadKeys"] = state ? state.secondaryReadKeys : undefined;
-            inputs["secondaryWriteKeys"] = state ? state.secondaryWriteKeys : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryReadKeys"] = state ? state.primaryReadKeys : undefined;
+            resourceInputs["primaryWriteKeys"] = state ? state.primaryWriteKeys : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryReadKeys"] = state ? state.secondaryReadKeys : undefined;
+            resourceInputs["secondaryWriteKeys"] = state ? state.secondaryWriteKeys : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ConfigurationStoreArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["primaryReadKeys"] = undefined /*out*/;
-            inputs["primaryWriteKeys"] = undefined /*out*/;
-            inputs["secondaryReadKeys"] = undefined /*out*/;
-            inputs["secondaryWriteKeys"] = undefined /*out*/;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["primaryReadKeys"] = undefined /*out*/;
+            resourceInputs["primaryWriteKeys"] = undefined /*out*/;
+            resourceInputs["secondaryReadKeys"] = undefined /*out*/;
+            resourceInputs["secondaryWriteKeys"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ConfigurationStore.__pulumiType, name, inputs, opts);
+        super(ConfigurationStore.__pulumiType, name, resourceInputs, opts);
     }
 }
 

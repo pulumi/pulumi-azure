@@ -130,17 +130,17 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProtectionContainerMappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProtectionContainerMappingArgs | ProtectionContainerMappingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectionContainerMappingState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["recoveryFabricName"] = state ? state.recoveryFabricName : undefined;
-            inputs["recoveryReplicationPolicyId"] = state ? state.recoveryReplicationPolicyId : undefined;
-            inputs["recoverySourceProtectionContainerName"] = state ? state.recoverySourceProtectionContainerName : undefined;
-            inputs["recoveryTargetProtectionContainerId"] = state ? state.recoveryTargetProtectionContainerId : undefined;
-            inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["recoveryFabricName"] = state ? state.recoveryFabricName : undefined;
+            resourceInputs["recoveryReplicationPolicyId"] = state ? state.recoveryReplicationPolicyId : undefined;
+            resourceInputs["recoverySourceProtectionContainerName"] = state ? state.recoverySourceProtectionContainerName : undefined;
+            resourceInputs["recoveryTargetProtectionContainerId"] = state ? state.recoveryTargetProtectionContainerId : undefined;
+            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ProtectionContainerMappingArgs | undefined;
             if ((!args || args.recoveryFabricName === undefined) && !opts.urn) {
@@ -161,18 +161,18 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recoveryFabricName"] = args ? args.recoveryFabricName : undefined;
-            inputs["recoveryReplicationPolicyId"] = args ? args.recoveryReplicationPolicyId : undefined;
-            inputs["recoverySourceProtectionContainerName"] = args ? args.recoverySourceProtectionContainerName : undefined;
-            inputs["recoveryTargetProtectionContainerId"] = args ? args.recoveryTargetProtectionContainerId : undefined;
-            inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recoveryFabricName"] = args ? args.recoveryFabricName : undefined;
+            resourceInputs["recoveryReplicationPolicyId"] = args ? args.recoveryReplicationPolicyId : undefined;
+            resourceInputs["recoverySourceProtectionContainerName"] = args ? args.recoverySourceProtectionContainerName : undefined;
+            resourceInputs["recoveryTargetProtectionContainerId"] = args ? args.recoveryTargetProtectionContainerId : undefined;
+            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ProtectionContainerMapping.__pulumiType, name, inputs, opts);
+        super(ProtectionContainerMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

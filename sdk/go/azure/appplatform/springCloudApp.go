@@ -221,7 +221,7 @@ type SpringCloudAppInput interface {
 }
 
 func (*SpringCloudApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudApp)(nil))
+	return reflect.TypeOf((**SpringCloudApp)(nil)).Elem()
 }
 
 func (i *SpringCloudApp) ToSpringCloudAppOutput() SpringCloudAppOutput {
@@ -230,35 +230,6 @@ func (i *SpringCloudApp) ToSpringCloudAppOutput() SpringCloudAppOutput {
 
 func (i *SpringCloudApp) ToSpringCloudAppOutputWithContext(ctx context.Context) SpringCloudAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppOutput)
-}
-
-func (i *SpringCloudApp) ToSpringCloudAppPtrOutput() SpringCloudAppPtrOutput {
-	return i.ToSpringCloudAppPtrOutputWithContext(context.Background())
-}
-
-func (i *SpringCloudApp) ToSpringCloudAppPtrOutputWithContext(ctx context.Context) SpringCloudAppPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppPtrOutput)
-}
-
-type SpringCloudAppPtrInput interface {
-	pulumi.Input
-
-	ToSpringCloudAppPtrOutput() SpringCloudAppPtrOutput
-	ToSpringCloudAppPtrOutputWithContext(ctx context.Context) SpringCloudAppPtrOutput
-}
-
-type springCloudAppPtrType SpringCloudAppArgs
-
-func (*springCloudAppPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudApp)(nil))
-}
-
-func (i *springCloudAppPtrType) ToSpringCloudAppPtrOutput() SpringCloudAppPtrOutput {
-	return i.ToSpringCloudAppPtrOutputWithContext(context.Background())
-}
-
-func (i *springCloudAppPtrType) ToSpringCloudAppPtrOutputWithContext(ctx context.Context) SpringCloudAppPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppPtrOutput)
 }
 
 // SpringCloudAppArrayInput is an input type that accepts SpringCloudAppArray and SpringCloudAppArrayOutput values.
@@ -314,7 +285,7 @@ func (i SpringCloudAppMap) ToSpringCloudAppMapOutputWithContext(ctx context.Cont
 type SpringCloudAppOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudApp)(nil))
+	return reflect.TypeOf((**SpringCloudApp)(nil)).Elem()
 }
 
 func (o SpringCloudAppOutput) ToSpringCloudAppOutput() SpringCloudAppOutput {
@@ -325,44 +296,10 @@ func (o SpringCloudAppOutput) ToSpringCloudAppOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o SpringCloudAppOutput) ToSpringCloudAppPtrOutput() SpringCloudAppPtrOutput {
-	return o.ToSpringCloudAppPtrOutputWithContext(context.Background())
-}
-
-func (o SpringCloudAppOutput) ToSpringCloudAppPtrOutputWithContext(ctx context.Context) SpringCloudAppPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudApp) *SpringCloudApp {
-		return &v
-	}).(SpringCloudAppPtrOutput)
-}
-
-type SpringCloudAppPtrOutput struct{ *pulumi.OutputState }
-
-func (SpringCloudAppPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudApp)(nil))
-}
-
-func (o SpringCloudAppPtrOutput) ToSpringCloudAppPtrOutput() SpringCloudAppPtrOutput {
-	return o
-}
-
-func (o SpringCloudAppPtrOutput) ToSpringCloudAppPtrOutputWithContext(ctx context.Context) SpringCloudAppPtrOutput {
-	return o
-}
-
-func (o SpringCloudAppPtrOutput) Elem() SpringCloudAppOutput {
-	return o.ApplyT(func(v *SpringCloudApp) SpringCloudApp {
-		if v != nil {
-			return *v
-		}
-		var ret SpringCloudApp
-		return ret
-	}).(SpringCloudAppOutput)
-}
-
 type SpringCloudAppArrayOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpringCloudApp)(nil))
+	return reflect.TypeOf((*[]*SpringCloudApp)(nil)).Elem()
 }
 
 func (o SpringCloudAppArrayOutput) ToSpringCloudAppArrayOutput() SpringCloudAppArrayOutput {
@@ -374,15 +311,15 @@ func (o SpringCloudAppArrayOutput) ToSpringCloudAppArrayOutputWithContext(ctx co
 }
 
 func (o SpringCloudAppArrayOutput) Index(i pulumi.IntInput) SpringCloudAppOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudApp {
-		return vs[0].([]SpringCloudApp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudApp {
+		return vs[0].([]*SpringCloudApp)[vs[1].(int)]
 	}).(SpringCloudAppOutput)
 }
 
 type SpringCloudAppMapOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SpringCloudApp)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudApp)(nil)).Elem()
 }
 
 func (o SpringCloudAppMapOutput) ToSpringCloudAppMapOutput() SpringCloudAppMapOutput {
@@ -394,18 +331,16 @@ func (o SpringCloudAppMapOutput) ToSpringCloudAppMapOutputWithContext(ctx contex
 }
 
 func (o SpringCloudAppMapOutput) MapIndex(k pulumi.StringInput) SpringCloudAppOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpringCloudApp {
-		return vs[0].(map[string]SpringCloudApp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SpringCloudApp {
+		return vs[0].(map[string]*SpringCloudApp)[vs[1].(string)]
 	}).(SpringCloudAppOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppInput)(nil)).Elem(), &SpringCloudApp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppPtrInput)(nil)).Elem(), &SpringCloudApp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppArrayInput)(nil)).Elem(), SpringCloudAppArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppMapInput)(nil)).Elem(), SpringCloudAppMap{})
 	pulumi.RegisterOutputType(SpringCloudAppOutput{})
-	pulumi.RegisterOutputType(SpringCloudAppPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppMapOutput{})
 }

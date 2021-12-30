@@ -88,13 +88,13 @@ export class StoreFile extends pulumi.CustomResource {
      */
     constructor(name: string, args: StoreFileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StoreFileArgs | StoreFileState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StoreFileState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["localFilePath"] = state ? state.localFilePath : undefined;
-            inputs["remoteFilePath"] = state ? state.remoteFilePath : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["localFilePath"] = state ? state.localFilePath : undefined;
+            resourceInputs["remoteFilePath"] = state ? state.remoteFilePath : undefined;
         } else {
             const args = argsOrState as StoreFileArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -106,14 +106,14 @@ export class StoreFile extends pulumi.CustomResource {
             if ((!args || args.remoteFilePath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remoteFilePath'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["localFilePath"] = args ? args.localFilePath : undefined;
-            inputs["remoteFilePath"] = args ? args.remoteFilePath : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["localFilePath"] = args ? args.localFilePath : undefined;
+            resourceInputs["remoteFilePath"] = args ? args.remoteFilePath : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(StoreFile.__pulumiType, name, inputs, opts);
+        super(StoreFile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

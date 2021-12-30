@@ -118,34 +118,34 @@ export class IntegrationRuntimeAzure extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationRuntimeAzureArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationRuntimeAzureArgs | IntegrationRuntimeAzureState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeAzureState | undefined;
-            inputs["computeType"] = state ? state.computeType : undefined;
-            inputs["coreCount"] = state ? state.coreCount : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
-            inputs["timeToLiveMin"] = state ? state.timeToLiveMin : undefined;
+            resourceInputs["computeType"] = state ? state.computeType : undefined;
+            resourceInputs["coreCount"] = state ? state.coreCount : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["timeToLiveMin"] = state ? state.timeToLiveMin : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeAzureArgs | undefined;
             if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            inputs["computeType"] = args ? args.computeType : undefined;
-            inputs["coreCount"] = args ? args.coreCount : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
-            inputs["timeToLiveMin"] = args ? args.timeToLiveMin : undefined;
+            resourceInputs["computeType"] = args ? args.computeType : undefined;
+            resourceInputs["coreCount"] = args ? args.coreCount : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["timeToLiveMin"] = args ? args.timeToLiveMin : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IntegrationRuntimeAzure.__pulumiType, name, inputs, opts);
+        super(IntegrationRuntimeAzure.__pulumiType, name, resourceInputs, opts);
     }
 }
 

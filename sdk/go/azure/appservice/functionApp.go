@@ -537,7 +537,7 @@ type FunctionAppInput interface {
 }
 
 func (*FunctionApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionApp)(nil))
+	return reflect.TypeOf((**FunctionApp)(nil)).Elem()
 }
 
 func (i *FunctionApp) ToFunctionAppOutput() FunctionAppOutput {
@@ -546,35 +546,6 @@ func (i *FunctionApp) ToFunctionAppOutput() FunctionAppOutput {
 
 func (i *FunctionApp) ToFunctionAppOutputWithContext(ctx context.Context) FunctionAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppOutput)
-}
-
-func (i *FunctionApp) ToFunctionAppPtrOutput() FunctionAppPtrOutput {
-	return i.ToFunctionAppPtrOutputWithContext(context.Background())
-}
-
-func (i *FunctionApp) ToFunctionAppPtrOutputWithContext(ctx context.Context) FunctionAppPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppPtrOutput)
-}
-
-type FunctionAppPtrInput interface {
-	pulumi.Input
-
-	ToFunctionAppPtrOutput() FunctionAppPtrOutput
-	ToFunctionAppPtrOutputWithContext(ctx context.Context) FunctionAppPtrOutput
-}
-
-type functionAppPtrType FunctionAppArgs
-
-func (*functionAppPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionApp)(nil))
-}
-
-func (i *functionAppPtrType) ToFunctionAppPtrOutput() FunctionAppPtrOutput {
-	return i.ToFunctionAppPtrOutputWithContext(context.Background())
-}
-
-func (i *functionAppPtrType) ToFunctionAppPtrOutputWithContext(ctx context.Context) FunctionAppPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppPtrOutput)
 }
 
 // FunctionAppArrayInput is an input type that accepts FunctionAppArray and FunctionAppArrayOutput values.
@@ -630,7 +601,7 @@ func (i FunctionAppMap) ToFunctionAppMapOutputWithContext(ctx context.Context) F
 type FunctionAppOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionApp)(nil))
+	return reflect.TypeOf((**FunctionApp)(nil)).Elem()
 }
 
 func (o FunctionAppOutput) ToFunctionAppOutput() FunctionAppOutput {
@@ -641,44 +612,10 @@ func (o FunctionAppOutput) ToFunctionAppOutputWithContext(ctx context.Context) F
 	return o
 }
 
-func (o FunctionAppOutput) ToFunctionAppPtrOutput() FunctionAppPtrOutput {
-	return o.ToFunctionAppPtrOutputWithContext(context.Background())
-}
-
-func (o FunctionAppOutput) ToFunctionAppPtrOutputWithContext(ctx context.Context) FunctionAppPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionApp) *FunctionApp {
-		return &v
-	}).(FunctionAppPtrOutput)
-}
-
-type FunctionAppPtrOutput struct{ *pulumi.OutputState }
-
-func (FunctionAppPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionApp)(nil))
-}
-
-func (o FunctionAppPtrOutput) ToFunctionAppPtrOutput() FunctionAppPtrOutput {
-	return o
-}
-
-func (o FunctionAppPtrOutput) ToFunctionAppPtrOutputWithContext(ctx context.Context) FunctionAppPtrOutput {
-	return o
-}
-
-func (o FunctionAppPtrOutput) Elem() FunctionAppOutput {
-	return o.ApplyT(func(v *FunctionApp) FunctionApp {
-		if v != nil {
-			return *v
-		}
-		var ret FunctionApp
-		return ret
-	}).(FunctionAppOutput)
-}
-
 type FunctionAppArrayOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionApp)(nil))
+	return reflect.TypeOf((*[]*FunctionApp)(nil)).Elem()
 }
 
 func (o FunctionAppArrayOutput) ToFunctionAppArrayOutput() FunctionAppArrayOutput {
@@ -690,15 +627,15 @@ func (o FunctionAppArrayOutput) ToFunctionAppArrayOutputWithContext(ctx context.
 }
 
 func (o FunctionAppArrayOutput) Index(i pulumi.IntInput) FunctionAppOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionApp {
-		return vs[0].([]FunctionApp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionApp {
+		return vs[0].([]*FunctionApp)[vs[1].(int)]
 	}).(FunctionAppOutput)
 }
 
 type FunctionAppMapOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FunctionApp)(nil))
+	return reflect.TypeOf((*map[string]*FunctionApp)(nil)).Elem()
 }
 
 func (o FunctionAppMapOutput) ToFunctionAppMapOutput() FunctionAppMapOutput {
@@ -710,18 +647,16 @@ func (o FunctionAppMapOutput) ToFunctionAppMapOutputWithContext(ctx context.Cont
 }
 
 func (o FunctionAppMapOutput) MapIndex(k pulumi.StringInput) FunctionAppOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FunctionApp {
-		return vs[0].(map[string]FunctionApp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FunctionApp {
+		return vs[0].(map[string]*FunctionApp)[vs[1].(string)]
 	}).(FunctionAppOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAppInput)(nil)).Elem(), &FunctionApp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAppPtrInput)(nil)).Elem(), &FunctionApp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAppArrayInput)(nil)).Elem(), FunctionAppArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAppMapInput)(nil)).Elem(), FunctionAppMap{})
 	pulumi.RegisterOutputType(FunctionAppOutput{})
-	pulumi.RegisterOutputType(FunctionAppPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppMapOutput{})
 }

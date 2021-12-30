@@ -163,15 +163,15 @@ export class CustomerManagedKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: CustomerManagedKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CustomerManagedKeyArgs | CustomerManagedKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomerManagedKeyState | undefined;
-            inputs["keyName"] = state ? state.keyName : undefined;
-            inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            inputs["keyVersion"] = state ? state.keyVersion : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["userAssignedIdentityId"] = state ? state.userAssignedIdentityId : undefined;
+            resourceInputs["keyName"] = state ? state.keyName : undefined;
+            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["keyVersion"] = state ? state.keyVersion : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["userAssignedIdentityId"] = state ? state.userAssignedIdentityId : undefined;
         } else {
             const args = argsOrState as CustomerManagedKeyArgs | undefined;
             if ((!args || args.keyName === undefined) && !opts.urn) {
@@ -183,16 +183,16 @@ export class CustomerManagedKey extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            inputs["keyVersion"] = args ? args.keyVersion : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["userAssignedIdentityId"] = args ? args.userAssignedIdentityId : undefined;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["keyVersion"] = args ? args.keyVersion : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["userAssignedIdentityId"] = args ? args.userAssignedIdentityId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CustomerManagedKey.__pulumiType, name, inputs, opts);
+        super(CustomerManagedKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

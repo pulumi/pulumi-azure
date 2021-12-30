@@ -159,17 +159,17 @@ export class TemplateDeployment extends pulumi.CustomResource {
      */
     constructor(name: string, args: TemplateDeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TemplateDeploymentArgs | TemplateDeploymentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TemplateDeploymentState | undefined;
-            inputs["deploymentMode"] = state ? state.deploymentMode : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outputs"] = state ? state.outputs : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["parametersBody"] = state ? state.parametersBody : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["templateBody"] = state ? state.templateBody : undefined;
+            resourceInputs["deploymentMode"] = state ? state.deploymentMode : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputs"] = state ? state.outputs : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["parametersBody"] = state ? state.parametersBody : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["templateBody"] = state ? state.templateBody : undefined;
         } else {
             const args = argsOrState as TemplateDeploymentArgs | undefined;
             if ((!args || args.deploymentMode === undefined) && !opts.urn) {
@@ -178,18 +178,18 @@ export class TemplateDeployment extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["deploymentMode"] = args ? args.deploymentMode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["parametersBody"] = args ? args.parametersBody : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["templateBody"] = args ? args.templateBody : undefined;
-            inputs["outputs"] = undefined /*out*/;
+            resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["parametersBody"] = args ? args.parametersBody : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
+            resourceInputs["outputs"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TemplateDeployment.__pulumiType, name, inputs, opts);
+        super(TemplateDeployment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

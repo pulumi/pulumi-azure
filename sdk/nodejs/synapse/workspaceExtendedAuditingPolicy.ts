@@ -114,32 +114,32 @@ export class WorkspaceExtendedAuditingPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceExtendedAuditingPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceExtendedAuditingPolicyArgs | WorkspaceExtendedAuditingPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceExtendedAuditingPolicyState | undefined;
-            inputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
-            inputs["retentionInDays"] = state ? state.retentionInDays : undefined;
-            inputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            inputs["storageAccountAccessKeyIsSecondary"] = state ? state.storageAccountAccessKeyIsSecondary : undefined;
-            inputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
-            inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
+            resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
+            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountAccessKeyIsSecondary"] = state ? state.storageAccountAccessKeyIsSecondary : undefined;
+            resourceInputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
+            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceExtendedAuditingPolicyArgs | undefined;
             if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            inputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
-            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            inputs["storageAccountAccessKeyIsSecondary"] = args ? args.storageAccountAccessKeyIsSecondary : undefined;
-            inputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
-            inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
+            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountAccessKeyIsSecondary"] = args ? args.storageAccountAccessKeyIsSecondary : undefined;
+            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(WorkspaceExtendedAuditingPolicy.__pulumiType, name, inputs, opts);
+        super(WorkspaceExtendedAuditingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

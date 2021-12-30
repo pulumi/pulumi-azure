@@ -276,7 +276,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_account_sas = example_account.primary_connection_string.apply(lambda primary_connection_string: azure.storage.get_account_sas(connection_string=primary_connection_string,
+        example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
             https_only=True,
             resource_types=azure.storage.GetAccountSASResourceTypesArgs(
                 service=True,
@@ -300,7 +300,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
                 create=True,
                 update=False,
                 process=False,
-            )))
+            ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -343,7 +343,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_account_sas = example_account.primary_connection_string.apply(lambda primary_connection_string: azure.storage.get_account_sas(connection_string=primary_connection_string,
+        example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
             https_only=True,
             resource_types=azure.storage.GetAccountSASResourceTypesArgs(
                 service=True,
@@ -367,7 +367,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
                 create=True,
                 update=False,
                 process=False,
-            )))
+            ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -443,7 +443,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_account_sas = example_account.primary_connection_string.apply(lambda primary_connection_string: azure.storage.get_account_sas(connection_string=primary_connection_string,
+        example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
             https_only=True,
             resource_types=azure.storage.GetAccountSASResourceTypesArgs(
                 service=True,
@@ -467,7 +467,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
                 create=True,
                 update=False,
                 process=False,
-            )))
+            ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -510,7 +510,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_account_sas = example_account.primary_connection_string.apply(lambda primary_connection_string: azure.storage.get_account_sas(connection_string=primary_connection_string,
+        example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
             https_only=True,
             resource_types=azure.storage.GetAccountSASResourceTypesArgs(
                 service=True,
@@ -534,7 +534,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
                 create=True,
                 update=False,
                 process=False,
-            )))
+            ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,

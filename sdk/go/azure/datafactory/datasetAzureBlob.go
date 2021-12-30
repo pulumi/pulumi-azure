@@ -33,6 +33,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
+// 			Name:              pulumi.String("storageaccountname"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		}, nil)
 // 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
@@ -300,7 +304,7 @@ type DatasetAzureBlobInput interface {
 }
 
 func (*DatasetAzureBlob) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetAzureBlob)(nil))
+	return reflect.TypeOf((**DatasetAzureBlob)(nil)).Elem()
 }
 
 func (i *DatasetAzureBlob) ToDatasetAzureBlobOutput() DatasetAzureBlobOutput {
@@ -309,35 +313,6 @@ func (i *DatasetAzureBlob) ToDatasetAzureBlobOutput() DatasetAzureBlobOutput {
 
 func (i *DatasetAzureBlob) ToDatasetAzureBlobOutputWithContext(ctx context.Context) DatasetAzureBlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobOutput)
-}
-
-func (i *DatasetAzureBlob) ToDatasetAzureBlobPtrOutput() DatasetAzureBlobPtrOutput {
-	return i.ToDatasetAzureBlobPtrOutputWithContext(context.Background())
-}
-
-func (i *DatasetAzureBlob) ToDatasetAzureBlobPtrOutputWithContext(ctx context.Context) DatasetAzureBlobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobPtrOutput)
-}
-
-type DatasetAzureBlobPtrInput interface {
-	pulumi.Input
-
-	ToDatasetAzureBlobPtrOutput() DatasetAzureBlobPtrOutput
-	ToDatasetAzureBlobPtrOutputWithContext(ctx context.Context) DatasetAzureBlobPtrOutput
-}
-
-type datasetAzureBlobPtrType DatasetAzureBlobArgs
-
-func (*datasetAzureBlobPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetAzureBlob)(nil))
-}
-
-func (i *datasetAzureBlobPtrType) ToDatasetAzureBlobPtrOutput() DatasetAzureBlobPtrOutput {
-	return i.ToDatasetAzureBlobPtrOutputWithContext(context.Background())
-}
-
-func (i *datasetAzureBlobPtrType) ToDatasetAzureBlobPtrOutputWithContext(ctx context.Context) DatasetAzureBlobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureBlobPtrOutput)
 }
 
 // DatasetAzureBlobArrayInput is an input type that accepts DatasetAzureBlobArray and DatasetAzureBlobArrayOutput values.
@@ -393,7 +368,7 @@ func (i DatasetAzureBlobMap) ToDatasetAzureBlobMapOutputWithContext(ctx context.
 type DatasetAzureBlobOutput struct{ *pulumi.OutputState }
 
 func (DatasetAzureBlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetAzureBlob)(nil))
+	return reflect.TypeOf((**DatasetAzureBlob)(nil)).Elem()
 }
 
 func (o DatasetAzureBlobOutput) ToDatasetAzureBlobOutput() DatasetAzureBlobOutput {
@@ -404,44 +379,10 @@ func (o DatasetAzureBlobOutput) ToDatasetAzureBlobOutputWithContext(ctx context.
 	return o
 }
 
-func (o DatasetAzureBlobOutput) ToDatasetAzureBlobPtrOutput() DatasetAzureBlobPtrOutput {
-	return o.ToDatasetAzureBlobPtrOutputWithContext(context.Background())
-}
-
-func (o DatasetAzureBlobOutput) ToDatasetAzureBlobPtrOutputWithContext(ctx context.Context) DatasetAzureBlobPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetAzureBlob) *DatasetAzureBlob {
-		return &v
-	}).(DatasetAzureBlobPtrOutput)
-}
-
-type DatasetAzureBlobPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetAzureBlobPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetAzureBlob)(nil))
-}
-
-func (o DatasetAzureBlobPtrOutput) ToDatasetAzureBlobPtrOutput() DatasetAzureBlobPtrOutput {
-	return o
-}
-
-func (o DatasetAzureBlobPtrOutput) ToDatasetAzureBlobPtrOutputWithContext(ctx context.Context) DatasetAzureBlobPtrOutput {
-	return o
-}
-
-func (o DatasetAzureBlobPtrOutput) Elem() DatasetAzureBlobOutput {
-	return o.ApplyT(func(v *DatasetAzureBlob) DatasetAzureBlob {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetAzureBlob
-		return ret
-	}).(DatasetAzureBlobOutput)
-}
-
 type DatasetAzureBlobArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetAzureBlobArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetAzureBlob)(nil))
+	return reflect.TypeOf((*[]*DatasetAzureBlob)(nil)).Elem()
 }
 
 func (o DatasetAzureBlobArrayOutput) ToDatasetAzureBlobArrayOutput() DatasetAzureBlobArrayOutput {
@@ -453,15 +394,15 @@ func (o DatasetAzureBlobArrayOutput) ToDatasetAzureBlobArrayOutputWithContext(ct
 }
 
 func (o DatasetAzureBlobArrayOutput) Index(i pulumi.IntInput) DatasetAzureBlobOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetAzureBlob {
-		return vs[0].([]DatasetAzureBlob)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetAzureBlob {
+		return vs[0].([]*DatasetAzureBlob)[vs[1].(int)]
 	}).(DatasetAzureBlobOutput)
 }
 
 type DatasetAzureBlobMapOutput struct{ *pulumi.OutputState }
 
 func (DatasetAzureBlobMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatasetAzureBlob)(nil))
+	return reflect.TypeOf((*map[string]*DatasetAzureBlob)(nil)).Elem()
 }
 
 func (o DatasetAzureBlobMapOutput) ToDatasetAzureBlobMapOutput() DatasetAzureBlobMapOutput {
@@ -473,18 +414,16 @@ func (o DatasetAzureBlobMapOutput) ToDatasetAzureBlobMapOutputWithContext(ctx co
 }
 
 func (o DatasetAzureBlobMapOutput) MapIndex(k pulumi.StringInput) DatasetAzureBlobOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetAzureBlob {
-		return vs[0].(map[string]DatasetAzureBlob)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatasetAzureBlob {
+		return vs[0].(map[string]*DatasetAzureBlob)[vs[1].(string)]
 	}).(DatasetAzureBlobOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobInput)(nil)).Elem(), &DatasetAzureBlob{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobPtrInput)(nil)).Elem(), &DatasetAzureBlob{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobArrayInput)(nil)).Elem(), DatasetAzureBlobArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobMapInput)(nil)).Elem(), DatasetAzureBlobMap{})
 	pulumi.RegisterOutputType(DatasetAzureBlobOutput{})
-	pulumi.RegisterOutputType(DatasetAzureBlobPtrOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobArrayOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobMapOutput{})
 }

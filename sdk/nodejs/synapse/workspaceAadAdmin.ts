@@ -133,14 +133,14 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceAadAdminArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceAadAdminArgs | WorkspaceAadAdminState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceAadAdminState | undefined;
-            inputs["login"] = state ? state.login : undefined;
-            inputs["objectId"] = state ? state.objectId : undefined;
-            inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["login"] = state ? state.login : undefined;
+            resourceInputs["objectId"] = state ? state.objectId : undefined;
+            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as WorkspaceAadAdminArgs | undefined;
             if ((!args || args.login === undefined) && !opts.urn) {
@@ -155,15 +155,15 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
             if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            inputs["login"] = args ? args.login : undefined;
-            inputs["objectId"] = args ? args.objectId : undefined;
-            inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["login"] = args ? args.login : undefined;
+            resourceInputs["objectId"] = args ? args.objectId : undefined;
+            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(WorkspaceAadAdmin.__pulumiType, name, inputs, opts);
+        super(WorkspaceAadAdmin.__pulumiType, name, resourceInputs, opts);
     }
 }
 

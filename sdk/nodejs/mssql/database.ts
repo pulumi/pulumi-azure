@@ -198,70 +198,70 @@ export class Database extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatabaseArgs | DatabaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabaseState | undefined;
-            inputs["autoPauseDelayInMinutes"] = state ? state.autoPauseDelayInMinutes : undefined;
-            inputs["collation"] = state ? state.collation : undefined;
-            inputs["createMode"] = state ? state.createMode : undefined;
-            inputs["creationSourceDatabaseId"] = state ? state.creationSourceDatabaseId : undefined;
-            inputs["elasticPoolId"] = state ? state.elasticPoolId : undefined;
-            inputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
-            inputs["geoBackupEnabled"] = state ? state.geoBackupEnabled : undefined;
-            inputs["licenseType"] = state ? state.licenseType : undefined;
-            inputs["longTermRetentionPolicy"] = state ? state.longTermRetentionPolicy : undefined;
-            inputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
-            inputs["minCapacity"] = state ? state.minCapacity : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["readReplicaCount"] = state ? state.readReplicaCount : undefined;
-            inputs["readScale"] = state ? state.readScale : undefined;
-            inputs["recoverDatabaseId"] = state ? state.recoverDatabaseId : undefined;
-            inputs["restoreDroppedDatabaseId"] = state ? state.restoreDroppedDatabaseId : undefined;
-            inputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
-            inputs["sampleName"] = state ? state.sampleName : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
-            inputs["shortTermRetentionPolicy"] = state ? state.shortTermRetentionPolicy : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["storageAccountType"] = state ? state.storageAccountType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
-            inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
+            resourceInputs["autoPauseDelayInMinutes"] = state ? state.autoPauseDelayInMinutes : undefined;
+            resourceInputs["collation"] = state ? state.collation : undefined;
+            resourceInputs["createMode"] = state ? state.createMode : undefined;
+            resourceInputs["creationSourceDatabaseId"] = state ? state.creationSourceDatabaseId : undefined;
+            resourceInputs["elasticPoolId"] = state ? state.elasticPoolId : undefined;
+            resourceInputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
+            resourceInputs["geoBackupEnabled"] = state ? state.geoBackupEnabled : undefined;
+            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
+            resourceInputs["longTermRetentionPolicy"] = state ? state.longTermRetentionPolicy : undefined;
+            resourceInputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
+            resourceInputs["minCapacity"] = state ? state.minCapacity : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["readReplicaCount"] = state ? state.readReplicaCount : undefined;
+            resourceInputs["readScale"] = state ? state.readScale : undefined;
+            resourceInputs["recoverDatabaseId"] = state ? state.recoverDatabaseId : undefined;
+            resourceInputs["restoreDroppedDatabaseId"] = state ? state.restoreDroppedDatabaseId : undefined;
+            resourceInputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
+            resourceInputs["sampleName"] = state ? state.sampleName : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["shortTermRetentionPolicy"] = state ? state.shortTermRetentionPolicy : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["storageAccountType"] = state ? state.storageAccountType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
+            resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            inputs["autoPauseDelayInMinutes"] = args ? args.autoPauseDelayInMinutes : undefined;
-            inputs["collation"] = args ? args.collation : undefined;
-            inputs["createMode"] = args ? args.createMode : undefined;
-            inputs["creationSourceDatabaseId"] = args ? args.creationSourceDatabaseId : undefined;
-            inputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
-            inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
-            inputs["geoBackupEnabled"] = args ? args.geoBackupEnabled : undefined;
-            inputs["licenseType"] = args ? args.licenseType : undefined;
-            inputs["longTermRetentionPolicy"] = args ? args.longTermRetentionPolicy : undefined;
-            inputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
-            inputs["minCapacity"] = args ? args.minCapacity : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["readReplicaCount"] = args ? args.readReplicaCount : undefined;
-            inputs["readScale"] = args ? args.readScale : undefined;
-            inputs["recoverDatabaseId"] = args ? args.recoverDatabaseId : undefined;
-            inputs["restoreDroppedDatabaseId"] = args ? args.restoreDroppedDatabaseId : undefined;
-            inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            inputs["sampleName"] = args ? args.sampleName : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["shortTermRetentionPolicy"] = args ? args.shortTermRetentionPolicy : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["storageAccountType"] = args ? args.storageAccountType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
-            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["autoPauseDelayInMinutes"] = args ? args.autoPauseDelayInMinutes : undefined;
+            resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["creationSourceDatabaseId"] = args ? args.creationSourceDatabaseId : undefined;
+            resourceInputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
+            resourceInputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
+            resourceInputs["geoBackupEnabled"] = args ? args.geoBackupEnabled : undefined;
+            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["longTermRetentionPolicy"] = args ? args.longTermRetentionPolicy : undefined;
+            resourceInputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
+            resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["readReplicaCount"] = args ? args.readReplicaCount : undefined;
+            resourceInputs["readScale"] = args ? args.readScale : undefined;
+            resourceInputs["recoverDatabaseId"] = args ? args.recoverDatabaseId : undefined;
+            resourceInputs["restoreDroppedDatabaseId"] = args ? args.restoreDroppedDatabaseId : undefined;
+            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
+            resourceInputs["sampleName"] = args ? args.sampleName : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["shortTermRetentionPolicy"] = args ? args.shortTermRetentionPolicy : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["storageAccountType"] = args ? args.storageAccountType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Database.__pulumiType, name, inputs, opts);
+        super(Database.__pulumiType, name, resourceInputs, opts);
     }
 }
 

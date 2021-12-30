@@ -144,48 +144,48 @@ export class Firewall extends pulumi.CustomResource {
      */
     constructor(name: string, args: FirewallArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirewallArgs | FirewallState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallState | undefined;
-            inputs["dnsServers"] = state ? state.dnsServers : undefined;
-            inputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
-            inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managementIpConfiguration"] = state ? state.managementIpConfiguration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["privateIpRanges"] = state ? state.privateIpRanges : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["skuTier"] = state ? state.skuTier : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["threatIntelMode"] = state ? state.threatIntelMode : undefined;
-            inputs["virtualHub"] = state ? state.virtualHub : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
+            resourceInputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
+            resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managementIpConfiguration"] = state ? state.managementIpConfiguration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateIpRanges"] = state ? state.privateIpRanges : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["threatIntelMode"] = state ? state.threatIntelMode : undefined;
+            resourceInputs["virtualHub"] = state ? state.virtualHub : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as FirewallArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dnsServers"] = args ? args.dnsServers : undefined;
-            inputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
-            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managementIpConfiguration"] = args ? args.managementIpConfiguration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateIpRanges"] = args ? args.privateIpRanges : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["skuTier"] = args ? args.skuTier : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
-            inputs["virtualHub"] = args ? args.virtualHub : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
+            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managementIpConfiguration"] = args ? args.managementIpConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateIpRanges"] = args ? args.privateIpRanges : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
+            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Firewall.__pulumiType, name, inputs, opts);
+        super(Firewall.__pulumiType, name, resourceInputs, opts);
     }
 }
 

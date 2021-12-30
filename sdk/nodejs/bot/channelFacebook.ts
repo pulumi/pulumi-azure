@@ -107,16 +107,16 @@ export class ChannelFacebook extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelFacebookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelFacebookArgs | ChannelFacebookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelFacebookState | undefined;
-            inputs["botName"] = state ? state.botName : undefined;
-            inputs["facebookApplicationId"] = state ? state.facebookApplicationId : undefined;
-            inputs["facebookApplicationSecret"] = state ? state.facebookApplicationSecret : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["pages"] = state ? state.pages : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["botName"] = state ? state.botName : undefined;
+            resourceInputs["facebookApplicationId"] = state ? state.facebookApplicationId : undefined;
+            resourceInputs["facebookApplicationSecret"] = state ? state.facebookApplicationSecret : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["pages"] = state ? state.pages : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ChannelFacebookArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -134,17 +134,17 @@ export class ChannelFacebook extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["botName"] = args ? args.botName : undefined;
-            inputs["facebookApplicationId"] = args ? args.facebookApplicationId : undefined;
-            inputs["facebookApplicationSecret"] = args ? args.facebookApplicationSecret : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["pages"] = args ? args.pages : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["facebookApplicationId"] = args ? args.facebookApplicationId : undefined;
+            resourceInputs["facebookApplicationSecret"] = args ? args.facebookApplicationSecret : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["pages"] = args ? args.pages : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ChannelFacebook.__pulumiType, name, inputs, opts);
+        super(ChannelFacebook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

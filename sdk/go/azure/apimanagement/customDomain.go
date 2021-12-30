@@ -250,7 +250,7 @@ type CustomDomainInput interface {
 }
 
 func (*CustomDomain) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomain)(nil))
+	return reflect.TypeOf((**CustomDomain)(nil)).Elem()
 }
 
 func (i *CustomDomain) ToCustomDomainOutput() CustomDomainOutput {
@@ -259,35 +259,6 @@ func (i *CustomDomain) ToCustomDomainOutput() CustomDomainOutput {
 
 func (i *CustomDomain) ToCustomDomainOutputWithContext(ctx context.Context) CustomDomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainOutput)
-}
-
-func (i *CustomDomain) ToCustomDomainPtrOutput() CustomDomainPtrOutput {
-	return i.ToCustomDomainPtrOutputWithContext(context.Background())
-}
-
-func (i *CustomDomain) ToCustomDomainPtrOutputWithContext(ctx context.Context) CustomDomainPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPtrOutput)
-}
-
-type CustomDomainPtrInput interface {
-	pulumi.Input
-
-	ToCustomDomainPtrOutput() CustomDomainPtrOutput
-	ToCustomDomainPtrOutputWithContext(ctx context.Context) CustomDomainPtrOutput
-}
-
-type customDomainPtrType CustomDomainArgs
-
-func (*customDomainPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDomain)(nil))
-}
-
-func (i *customDomainPtrType) ToCustomDomainPtrOutput() CustomDomainPtrOutput {
-	return i.ToCustomDomainPtrOutputWithContext(context.Background())
-}
-
-func (i *customDomainPtrType) ToCustomDomainPtrOutputWithContext(ctx context.Context) CustomDomainPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPtrOutput)
 }
 
 // CustomDomainArrayInput is an input type that accepts CustomDomainArray and CustomDomainArrayOutput values.
@@ -343,7 +314,7 @@ func (i CustomDomainMap) ToCustomDomainMapOutputWithContext(ctx context.Context)
 type CustomDomainOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomain)(nil))
+	return reflect.TypeOf((**CustomDomain)(nil)).Elem()
 }
 
 func (o CustomDomainOutput) ToCustomDomainOutput() CustomDomainOutput {
@@ -354,44 +325,10 @@ func (o CustomDomainOutput) ToCustomDomainOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o CustomDomainOutput) ToCustomDomainPtrOutput() CustomDomainPtrOutput {
-	return o.ToCustomDomainPtrOutputWithContext(context.Background())
-}
-
-func (o CustomDomainOutput) ToCustomDomainPtrOutputWithContext(ctx context.Context) CustomDomainPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomain) *CustomDomain {
-		return &v
-	}).(CustomDomainPtrOutput)
-}
-
-type CustomDomainPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomDomainPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDomain)(nil))
-}
-
-func (o CustomDomainPtrOutput) ToCustomDomainPtrOutput() CustomDomainPtrOutput {
-	return o
-}
-
-func (o CustomDomainPtrOutput) ToCustomDomainPtrOutputWithContext(ctx context.Context) CustomDomainPtrOutput {
-	return o
-}
-
-func (o CustomDomainPtrOutput) Elem() CustomDomainOutput {
-	return o.ApplyT(func(v *CustomDomain) CustomDomain {
-		if v != nil {
-			return *v
-		}
-		var ret CustomDomain
-		return ret
-	}).(CustomDomainOutput)
-}
-
 type CustomDomainArrayOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomDomain)(nil))
+	return reflect.TypeOf((*[]*CustomDomain)(nil)).Elem()
 }
 
 func (o CustomDomainArrayOutput) ToCustomDomainArrayOutput() CustomDomainArrayOutput {
@@ -403,15 +340,15 @@ func (o CustomDomainArrayOutput) ToCustomDomainArrayOutputWithContext(ctx contex
 }
 
 func (o CustomDomainArrayOutput) Index(i pulumi.IntInput) CustomDomainOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDomain {
-		return vs[0].([]CustomDomain)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomDomain {
+		return vs[0].([]*CustomDomain)[vs[1].(int)]
 	}).(CustomDomainOutput)
 }
 
 type CustomDomainMapOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CustomDomain)(nil))
+	return reflect.TypeOf((*map[string]*CustomDomain)(nil)).Elem()
 }
 
 func (o CustomDomainMapOutput) ToCustomDomainMapOutput() CustomDomainMapOutput {
@@ -423,18 +360,16 @@ func (o CustomDomainMapOutput) ToCustomDomainMapOutputWithContext(ctx context.Co
 }
 
 func (o CustomDomainMapOutput) MapIndex(k pulumi.StringInput) CustomDomainOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CustomDomain {
-		return vs[0].(map[string]CustomDomain)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CustomDomain {
+		return vs[0].(map[string]*CustomDomain)[vs[1].(string)]
 	}).(CustomDomainOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainInput)(nil)).Elem(), &CustomDomain{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainPtrInput)(nil)).Elem(), &CustomDomain{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainArrayInput)(nil)).Elem(), CustomDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainMapInput)(nil)).Elem(), CustomDomainMap{})
 	pulumi.RegisterOutputType(CustomDomainOutput{})
-	pulumi.RegisterOutputType(CustomDomainPtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(CustomDomainMapOutput{})
 }

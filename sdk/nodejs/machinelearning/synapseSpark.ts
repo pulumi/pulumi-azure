@@ -151,18 +151,18 @@ export class SynapseSpark extends pulumi.CustomResource {
      */
     constructor(name: string, args: SynapseSparkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SynapseSparkArgs | SynapseSparkState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SynapseSparkState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["synapseSparkPoolId"] = state ? state.synapseSparkPoolId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["synapseSparkPoolId"] = state ? state.synapseSparkPoolId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SynapseSparkArgs | undefined;
             if ((!args || args.machineLearningWorkspaceId === undefined) && !opts.urn) {
@@ -171,19 +171,19 @@ export class SynapseSpark extends pulumi.CustomResource {
             if ((!args || args.synapseSparkPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseSparkPoolId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["synapseSparkPoolId"] = args ? args.synapseSparkPoolId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["synapseSparkPoolId"] = args ? args.synapseSparkPoolId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SynapseSpark.__pulumiType, name, inputs, opts);
+        super(SynapseSpark.__pulumiType, name, resourceInputs, opts);
     }
 }
 

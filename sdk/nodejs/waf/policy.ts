@@ -179,19 +179,19 @@ export class Policy extends pulumi.CustomResource {
      */
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            inputs["customRules"] = state ? state.customRules : undefined;
-            inputs["httpListenerIds"] = state ? state.httpListenerIds : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managedRules"] = state ? state.managedRules : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pathBasedRuleIds"] = state ? state.pathBasedRuleIds : undefined;
-            inputs["policySettings"] = state ? state.policySettings : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["customRules"] = state ? state.customRules : undefined;
+            resourceInputs["httpListenerIds"] = state ? state.httpListenerIds : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedRules"] = state ? state.managedRules : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pathBasedRuleIds"] = state ? state.pathBasedRuleIds : undefined;
+            resourceInputs["policySettings"] = state ? state.policySettings : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
             if ((!args || args.managedRules === undefined) && !opts.urn) {
@@ -200,20 +200,20 @@ export class Policy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["customRules"] = args ? args.customRules : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedRules"] = args ? args.managedRules : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policySettings"] = args ? args.policySettings : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["httpListenerIds"] = undefined /*out*/;
-            inputs["pathBasedRuleIds"] = undefined /*out*/;
+            resourceInputs["customRules"] = args ? args.customRules : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedRules"] = args ? args.managedRules : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policySettings"] = args ? args.policySettings : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["httpListenerIds"] = undefined /*out*/;
+            resourceInputs["pathBasedRuleIds"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Policy.__pulumiType, name, inputs, opts);
+        super(Policy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

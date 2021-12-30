@@ -197,7 +197,7 @@ type AAAARecordInput interface {
 }
 
 func (*AAAARecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*AAAARecord)(nil))
+	return reflect.TypeOf((**AAAARecord)(nil)).Elem()
 }
 
 func (i *AAAARecord) ToAAAARecordOutput() AAAARecordOutput {
@@ -206,35 +206,6 @@ func (i *AAAARecord) ToAAAARecordOutput() AAAARecordOutput {
 
 func (i *AAAARecord) ToAAAARecordOutputWithContext(ctx context.Context) AAAARecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordOutput)
-}
-
-func (i *AAAARecord) ToAAAARecordPtrOutput() AAAARecordPtrOutput {
-	return i.ToAAAARecordPtrOutputWithContext(context.Background())
-}
-
-func (i *AAAARecord) ToAAAARecordPtrOutputWithContext(ctx context.Context) AAAARecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordPtrOutput)
-}
-
-type AAAARecordPtrInput interface {
-	pulumi.Input
-
-	ToAAAARecordPtrOutput() AAAARecordPtrOutput
-	ToAAAARecordPtrOutputWithContext(ctx context.Context) AAAARecordPtrOutput
-}
-
-type aaaarecordPtrType AAAARecordArgs
-
-func (*aaaarecordPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AAAARecord)(nil))
-}
-
-func (i *aaaarecordPtrType) ToAAAARecordPtrOutput() AAAARecordPtrOutput {
-	return i.ToAAAARecordPtrOutputWithContext(context.Background())
-}
-
-func (i *aaaarecordPtrType) ToAAAARecordPtrOutputWithContext(ctx context.Context) AAAARecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordPtrOutput)
 }
 
 // AAAARecordArrayInput is an input type that accepts AAAARecordArray and AAAARecordArrayOutput values.
@@ -290,7 +261,7 @@ func (i AAAARecordMap) ToAAAARecordMapOutputWithContext(ctx context.Context) AAA
 type AAAARecordOutput struct{ *pulumi.OutputState }
 
 func (AAAARecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AAAARecord)(nil))
+	return reflect.TypeOf((**AAAARecord)(nil)).Elem()
 }
 
 func (o AAAARecordOutput) ToAAAARecordOutput() AAAARecordOutput {
@@ -301,44 +272,10 @@ func (o AAAARecordOutput) ToAAAARecordOutputWithContext(ctx context.Context) AAA
 	return o
 }
 
-func (o AAAARecordOutput) ToAAAARecordPtrOutput() AAAARecordPtrOutput {
-	return o.ToAAAARecordPtrOutputWithContext(context.Background())
-}
-
-func (o AAAARecordOutput) ToAAAARecordPtrOutputWithContext(ctx context.Context) AAAARecordPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AAAARecord) *AAAARecord {
-		return &v
-	}).(AAAARecordPtrOutput)
-}
-
-type AAAARecordPtrOutput struct{ *pulumi.OutputState }
-
-func (AAAARecordPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AAAARecord)(nil))
-}
-
-func (o AAAARecordPtrOutput) ToAAAARecordPtrOutput() AAAARecordPtrOutput {
-	return o
-}
-
-func (o AAAARecordPtrOutput) ToAAAARecordPtrOutputWithContext(ctx context.Context) AAAARecordPtrOutput {
-	return o
-}
-
-func (o AAAARecordPtrOutput) Elem() AAAARecordOutput {
-	return o.ApplyT(func(v *AAAARecord) AAAARecord {
-		if v != nil {
-			return *v
-		}
-		var ret AAAARecord
-		return ret
-	}).(AAAARecordOutput)
-}
-
 type AAAARecordArrayOutput struct{ *pulumi.OutputState }
 
 func (AAAARecordArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AAAARecord)(nil))
+	return reflect.TypeOf((*[]*AAAARecord)(nil)).Elem()
 }
 
 func (o AAAARecordArrayOutput) ToAAAARecordArrayOutput() AAAARecordArrayOutput {
@@ -350,15 +287,15 @@ func (o AAAARecordArrayOutput) ToAAAARecordArrayOutputWithContext(ctx context.Co
 }
 
 func (o AAAARecordArrayOutput) Index(i pulumi.IntInput) AAAARecordOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AAAARecord {
-		return vs[0].([]AAAARecord)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AAAARecord {
+		return vs[0].([]*AAAARecord)[vs[1].(int)]
 	}).(AAAARecordOutput)
 }
 
 type AAAARecordMapOutput struct{ *pulumi.OutputState }
 
 func (AAAARecordMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AAAARecord)(nil))
+	return reflect.TypeOf((*map[string]*AAAARecord)(nil)).Elem()
 }
 
 func (o AAAARecordMapOutput) ToAAAARecordMapOutput() AAAARecordMapOutput {
@@ -370,18 +307,16 @@ func (o AAAARecordMapOutput) ToAAAARecordMapOutputWithContext(ctx context.Contex
 }
 
 func (o AAAARecordMapOutput) MapIndex(k pulumi.StringInput) AAAARecordOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AAAARecord {
-		return vs[0].(map[string]AAAARecord)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AAAARecord {
+		return vs[0].(map[string]*AAAARecord)[vs[1].(string)]
 	}).(AAAARecordOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AAAARecordInput)(nil)).Elem(), &AAAARecord{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AAAARecordPtrInput)(nil)).Elem(), &AAAARecord{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AAAARecordArrayInput)(nil)).Elem(), AAAARecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AAAARecordMapInput)(nil)).Elem(), AAAARecordMap{})
 	pulumi.RegisterOutputType(AAAARecordOutput{})
-	pulumi.RegisterOutputType(AAAARecordPtrOutput{})
 	pulumi.RegisterOutputType(AAAARecordArrayOutput{})
 	pulumi.RegisterOutputType(AAAARecordMapOutput{})
 }

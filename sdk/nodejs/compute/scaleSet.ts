@@ -373,38 +373,38 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScaleSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScaleSetArgs | ScaleSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScaleSetState | undefined;
-            inputs["automaticOsUpgrade"] = state ? state.automaticOsUpgrade : undefined;
-            inputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
-            inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
-            inputs["extensions"] = state ? state.extensions : undefined;
-            inputs["healthProbeId"] = state ? state.healthProbeId : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["licenseType"] = state ? state.licenseType : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkProfiles"] = state ? state.networkProfiles : undefined;
-            inputs["osProfile"] = state ? state.osProfile : undefined;
-            inputs["osProfileLinuxConfig"] = state ? state.osProfileLinuxConfig : undefined;
-            inputs["osProfileSecrets"] = state ? state.osProfileSecrets : undefined;
-            inputs["osProfileWindowsConfig"] = state ? state.osProfileWindowsConfig : undefined;
-            inputs["overprovision"] = state ? state.overprovision : undefined;
-            inputs["plan"] = state ? state.plan : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["rollingUpgradePolicy"] = state ? state.rollingUpgradePolicy : undefined;
-            inputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["storageProfileDataDisks"] = state ? state.storageProfileDataDisks : undefined;
-            inputs["storageProfileImageReference"] = state ? state.storageProfileImageReference : undefined;
-            inputs["storageProfileOsDisk"] = state ? state.storageProfileOsDisk : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["upgradePolicyMode"] = state ? state.upgradePolicyMode : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["automaticOsUpgrade"] = state ? state.automaticOsUpgrade : undefined;
+            resourceInputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
+            resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
+            resourceInputs["extensions"] = state ? state.extensions : undefined;
+            resourceInputs["healthProbeId"] = state ? state.healthProbeId : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkProfiles"] = state ? state.networkProfiles : undefined;
+            resourceInputs["osProfile"] = state ? state.osProfile : undefined;
+            resourceInputs["osProfileLinuxConfig"] = state ? state.osProfileLinuxConfig : undefined;
+            resourceInputs["osProfileSecrets"] = state ? state.osProfileSecrets : undefined;
+            resourceInputs["osProfileWindowsConfig"] = state ? state.osProfileWindowsConfig : undefined;
+            resourceInputs["overprovision"] = state ? state.overprovision : undefined;
+            resourceInputs["plan"] = state ? state.plan : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["rollingUpgradePolicy"] = state ? state.rollingUpgradePolicy : undefined;
+            resourceInputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["storageProfileDataDisks"] = state ? state.storageProfileDataDisks : undefined;
+            resourceInputs["storageProfileImageReference"] = state ? state.storageProfileImageReference : undefined;
+            resourceInputs["storageProfileOsDisk"] = state ? state.storageProfileOsDisk : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["upgradePolicyMode"] = state ? state.upgradePolicyMode : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ScaleSetArgs | undefined;
             if ((!args || args.networkProfiles === undefined) && !opts.urn) {
@@ -425,39 +425,39 @@ export class ScaleSet extends pulumi.CustomResource {
             if ((!args || args.upgradePolicyMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'upgradePolicyMode'");
             }
-            inputs["automaticOsUpgrade"] = args ? args.automaticOsUpgrade : undefined;
-            inputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
-            inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            inputs["extensions"] = args ? args.extensions : undefined;
-            inputs["healthProbeId"] = args ? args.healthProbeId : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["licenseType"] = args ? args.licenseType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkProfiles"] = args ? args.networkProfiles : undefined;
-            inputs["osProfile"] = args ? args.osProfile : undefined;
-            inputs["osProfileLinuxConfig"] = args ? args.osProfileLinuxConfig : undefined;
-            inputs["osProfileSecrets"] = args ? args.osProfileSecrets : undefined;
-            inputs["osProfileWindowsConfig"] = args ? args.osProfileWindowsConfig : undefined;
-            inputs["overprovision"] = args ? args.overprovision : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rollingUpgradePolicy"] = args ? args.rollingUpgradePolicy : undefined;
-            inputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["storageProfileDataDisks"] = args ? args.storageProfileDataDisks : undefined;
-            inputs["storageProfileImageReference"] = args ? args.storageProfileImageReference : undefined;
-            inputs["storageProfileOsDisk"] = args ? args.storageProfileOsDisk : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["upgradePolicyMode"] = args ? args.upgradePolicyMode : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["automaticOsUpgrade"] = args ? args.automaticOsUpgrade : undefined;
+            resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
+            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            resourceInputs["extensions"] = args ? args.extensions : undefined;
+            resourceInputs["healthProbeId"] = args ? args.healthProbeId : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkProfiles"] = args ? args.networkProfiles : undefined;
+            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
+            resourceInputs["osProfileLinuxConfig"] = args ? args.osProfileLinuxConfig : undefined;
+            resourceInputs["osProfileSecrets"] = args ? args.osProfileSecrets : undefined;
+            resourceInputs["osProfileWindowsConfig"] = args ? args.osProfileWindowsConfig : undefined;
+            resourceInputs["overprovision"] = args ? args.overprovision : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rollingUpgradePolicy"] = args ? args.rollingUpgradePolicy : undefined;
+            resourceInputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["storageProfileDataDisks"] = args ? args.storageProfileDataDisks : undefined;
+            resourceInputs["storageProfileImageReference"] = args ? args.storageProfileImageReference : undefined;
+            resourceInputs["storageProfileOsDisk"] = args ? args.storageProfileOsDisk : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upgradePolicyMode"] = args ? args.upgradePolicyMode : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ScaleSet.__pulumiType, name, inputs, opts);
+        super(ScaleSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

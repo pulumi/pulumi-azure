@@ -127,16 +127,16 @@ export class Analyzer extends pulumi.CustomResource {
      */
     constructor(name: string, args: AnalyzerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AnalyzerArgs | AnalyzerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyzerState | undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["storageAccount"] = state ? state.storageAccount : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["storageAccount"] = state ? state.storageAccount : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AnalyzerArgs | undefined;
             if ((!args || args.identity === undefined) && !opts.urn) {
@@ -148,17 +148,17 @@ export class Analyzer extends pulumi.CustomResource {
             if ((!args || args.storageAccount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccount'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccount"] = args ? args.storageAccount : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Analyzer.__pulumiType, name, inputs, opts);
+        super(Analyzer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

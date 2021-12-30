@@ -83,26 +83,26 @@ export class Table extends pulumi.CustomResource {
      */
     constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TableArgs | TableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableState | undefined;
-            inputs["acls"] = state ? state.acls : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["acls"] = state ? state.acls : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
             if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            inputs["acls"] = args ? args.acls : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["acls"] = args ? args.acls : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Table.__pulumiType, name, inputs, opts);
+        super(Table.__pulumiType, name, resourceInputs, opts);
     }
 }
 

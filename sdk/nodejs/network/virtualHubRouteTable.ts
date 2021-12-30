@@ -122,28 +122,28 @@ export class VirtualHubRouteTable extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualHubRouteTableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualHubRouteTableArgs | VirtualHubRouteTableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualHubRouteTableState | undefined;
-            inputs["labels"] = state ? state.labels : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["routes"] = state ? state.routes : undefined;
-            inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["routes"] = state ? state.routes : undefined;
+            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
         } else {
             const args = argsOrState as VirtualHubRouteTableArgs | undefined;
             if ((!args || args.virtualHubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["routes"] = args ? args.routes : undefined;
-            inputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["routes"] = args ? args.routes : undefined;
+            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VirtualHubRouteTable.__pulumiType, name, inputs, opts);
+        super(VirtualHubRouteTable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

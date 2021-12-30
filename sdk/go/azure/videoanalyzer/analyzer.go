@@ -232,7 +232,7 @@ type AnalyzerInput interface {
 }
 
 func (*Analyzer) ElementType() reflect.Type {
-	return reflect.TypeOf((*Analyzer)(nil))
+	return reflect.TypeOf((**Analyzer)(nil)).Elem()
 }
 
 func (i *Analyzer) ToAnalyzerOutput() AnalyzerOutput {
@@ -241,35 +241,6 @@ func (i *Analyzer) ToAnalyzerOutput() AnalyzerOutput {
 
 func (i *Analyzer) ToAnalyzerOutputWithContext(ctx context.Context) AnalyzerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerOutput)
-}
-
-func (i *Analyzer) ToAnalyzerPtrOutput() AnalyzerPtrOutput {
-	return i.ToAnalyzerPtrOutputWithContext(context.Background())
-}
-
-func (i *Analyzer) ToAnalyzerPtrOutputWithContext(ctx context.Context) AnalyzerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerPtrOutput)
-}
-
-type AnalyzerPtrInput interface {
-	pulumi.Input
-
-	ToAnalyzerPtrOutput() AnalyzerPtrOutput
-	ToAnalyzerPtrOutputWithContext(ctx context.Context) AnalyzerPtrOutput
-}
-
-type analyzerPtrType AnalyzerArgs
-
-func (*analyzerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Analyzer)(nil))
-}
-
-func (i *analyzerPtrType) ToAnalyzerPtrOutput() AnalyzerPtrOutput {
-	return i.ToAnalyzerPtrOutputWithContext(context.Background())
-}
-
-func (i *analyzerPtrType) ToAnalyzerPtrOutputWithContext(ctx context.Context) AnalyzerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerPtrOutput)
 }
 
 // AnalyzerArrayInput is an input type that accepts AnalyzerArray and AnalyzerArrayOutput values.
@@ -325,7 +296,7 @@ func (i AnalyzerMap) ToAnalyzerMapOutputWithContext(ctx context.Context) Analyze
 type AnalyzerOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Analyzer)(nil))
+	return reflect.TypeOf((**Analyzer)(nil)).Elem()
 }
 
 func (o AnalyzerOutput) ToAnalyzerOutput() AnalyzerOutput {
@@ -336,44 +307,10 @@ func (o AnalyzerOutput) ToAnalyzerOutputWithContext(ctx context.Context) Analyze
 	return o
 }
 
-func (o AnalyzerOutput) ToAnalyzerPtrOutput() AnalyzerPtrOutput {
-	return o.ToAnalyzerPtrOutputWithContext(context.Background())
-}
-
-func (o AnalyzerOutput) ToAnalyzerPtrOutputWithContext(ctx context.Context) AnalyzerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Analyzer) *Analyzer {
-		return &v
-	}).(AnalyzerPtrOutput)
-}
-
-type AnalyzerPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalyzerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Analyzer)(nil))
-}
-
-func (o AnalyzerPtrOutput) ToAnalyzerPtrOutput() AnalyzerPtrOutput {
-	return o
-}
-
-func (o AnalyzerPtrOutput) ToAnalyzerPtrOutputWithContext(ctx context.Context) AnalyzerPtrOutput {
-	return o
-}
-
-func (o AnalyzerPtrOutput) Elem() AnalyzerOutput {
-	return o.ApplyT(func(v *Analyzer) Analyzer {
-		if v != nil {
-			return *v
-		}
-		var ret Analyzer
-		return ret
-	}).(AnalyzerOutput)
-}
-
 type AnalyzerArrayOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Analyzer)(nil))
+	return reflect.TypeOf((*[]*Analyzer)(nil)).Elem()
 }
 
 func (o AnalyzerArrayOutput) ToAnalyzerArrayOutput() AnalyzerArrayOutput {
@@ -385,15 +322,15 @@ func (o AnalyzerArrayOutput) ToAnalyzerArrayOutputWithContext(ctx context.Contex
 }
 
 func (o AnalyzerArrayOutput) Index(i pulumi.IntInput) AnalyzerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Analyzer {
-		return vs[0].([]Analyzer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Analyzer {
+		return vs[0].([]*Analyzer)[vs[1].(int)]
 	}).(AnalyzerOutput)
 }
 
 type AnalyzerMapOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Analyzer)(nil))
+	return reflect.TypeOf((*map[string]*Analyzer)(nil)).Elem()
 }
 
 func (o AnalyzerMapOutput) ToAnalyzerMapOutput() AnalyzerMapOutput {
@@ -405,18 +342,16 @@ func (o AnalyzerMapOutput) ToAnalyzerMapOutputWithContext(ctx context.Context) A
 }
 
 func (o AnalyzerMapOutput) MapIndex(k pulumi.StringInput) AnalyzerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Analyzer {
-		return vs[0].(map[string]Analyzer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Analyzer {
+		return vs[0].(map[string]*Analyzer)[vs[1].(string)]
 	}).(AnalyzerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerInput)(nil)).Elem(), &Analyzer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerPtrInput)(nil)).Elem(), &Analyzer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerArrayInput)(nil)).Elem(), AnalyzerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerMapInput)(nil)).Elem(), AnalyzerMap{})
 	pulumi.RegisterOutputType(AnalyzerOutput{})
-	pulumi.RegisterOutputType(AnalyzerPtrOutput{})
 	pulumi.RegisterOutputType(AnalyzerArrayOutput{})
 	pulumi.RegisterOutputType(AnalyzerMapOutput{})
 }

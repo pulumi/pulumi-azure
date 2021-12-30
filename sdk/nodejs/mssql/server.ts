@@ -148,26 +148,26 @@ export class Server extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
-            inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
-            inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
-            inputs["azureadAdministrator"] = state ? state.azureadAdministrator : undefined;
-            inputs["connectionPolicy"] = state ? state.connectionPolicy : undefined;
-            inputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
-            inputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["primaryUserAssignedIdentityId"] = state ? state.primaryUserAssignedIdentityId : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["restorableDroppedDatabaseIds"] = state ? state.restorableDroppedDatabaseIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
+            resourceInputs["azureadAdministrator"] = state ? state.azureadAdministrator : undefined;
+            resourceInputs["connectionPolicy"] = state ? state.connectionPolicy : undefined;
+            resourceInputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
+            resourceInputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryUserAssignedIdentityId"] = state ? state.primaryUserAssignedIdentityId : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["restorableDroppedDatabaseIds"] = state ? state.restorableDroppedDatabaseIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
             if ((!args || args.administratorLogin === undefined) && !opts.urn) {
@@ -182,27 +182,27 @@ export class Server extends pulumi.CustomResource {
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            inputs["azureadAdministrator"] = args ? args.azureadAdministrator : undefined;
-            inputs["connectionPolicy"] = args ? args.connectionPolicy : undefined;
-            inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
-            inputs["restorableDroppedDatabaseIds"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["azureadAdministrator"] = args ? args.azureadAdministrator : undefined;
+            resourceInputs["connectionPolicy"] = args ? args.connectionPolicy : undefined;
+            resourceInputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            resourceInputs["restorableDroppedDatabaseIds"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Server.__pulumiType, name, inputs, opts);
+        super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }
 

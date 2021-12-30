@@ -131,16 +131,16 @@ export class BackupPolicyPostgresql extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackupPolicyPostgresqlArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BackupPolicyPostgresqlArgs | BackupPolicyPostgresqlState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupPolicyPostgresqlState | undefined;
-            inputs["backupRepeatingTimeIntervals"] = state ? state.backupRepeatingTimeIntervals : undefined;
-            inputs["defaultRetentionDuration"] = state ? state.defaultRetentionDuration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["retentionRules"] = state ? state.retentionRules : undefined;
-            inputs["vaultName"] = state ? state.vaultName : undefined;
+            resourceInputs["backupRepeatingTimeIntervals"] = state ? state.backupRepeatingTimeIntervals : undefined;
+            resourceInputs["defaultRetentionDuration"] = state ? state.defaultRetentionDuration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["retentionRules"] = state ? state.retentionRules : undefined;
+            resourceInputs["vaultName"] = state ? state.vaultName : undefined;
         } else {
             const args = argsOrState as BackupPolicyPostgresqlArgs | undefined;
             if ((!args || args.backupRepeatingTimeIntervals === undefined) && !opts.urn) {
@@ -155,17 +155,17 @@ export class BackupPolicyPostgresql extends pulumi.CustomResource {
             if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            inputs["backupRepeatingTimeIntervals"] = args ? args.backupRepeatingTimeIntervals : undefined;
-            inputs["defaultRetentionDuration"] = args ? args.defaultRetentionDuration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionRules"] = args ? args.retentionRules : undefined;
-            inputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["backupRepeatingTimeIntervals"] = args ? args.backupRepeatingTimeIntervals : undefined;
+            resourceInputs["defaultRetentionDuration"] = args ? args.defaultRetentionDuration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionRules"] = args ? args.retentionRules : undefined;
+            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BackupPolicyPostgresql.__pulumiType, name, inputs, opts);
+        super(BackupPolicyPostgresql.__pulumiType, name, resourceInputs, opts);
     }
 }
 

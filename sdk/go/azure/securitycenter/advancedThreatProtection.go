@@ -152,7 +152,7 @@ type AdvancedThreatProtectionInput interface {
 }
 
 func (*AdvancedThreatProtection) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdvancedThreatProtection)(nil))
+	return reflect.TypeOf((**AdvancedThreatProtection)(nil)).Elem()
 }
 
 func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionOutput() AdvancedThreatProtectionOutput {
@@ -161,35 +161,6 @@ func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionOutput() AdvancedTh
 
 func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionOutputWithContext(ctx context.Context) AdvancedThreatProtectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionOutput)
-}
-
-func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionPtrOutput() AdvancedThreatProtectionPtrOutput {
-	return i.ToAdvancedThreatProtectionPtrOutputWithContext(context.Background())
-}
-
-func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) AdvancedThreatProtectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionPtrOutput)
-}
-
-type AdvancedThreatProtectionPtrInput interface {
-	pulumi.Input
-
-	ToAdvancedThreatProtectionPtrOutput() AdvancedThreatProtectionPtrOutput
-	ToAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) AdvancedThreatProtectionPtrOutput
-}
-
-type advancedThreatProtectionPtrType AdvancedThreatProtectionArgs
-
-func (*advancedThreatProtectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdvancedThreatProtection)(nil))
-}
-
-func (i *advancedThreatProtectionPtrType) ToAdvancedThreatProtectionPtrOutput() AdvancedThreatProtectionPtrOutput {
-	return i.ToAdvancedThreatProtectionPtrOutputWithContext(context.Background())
-}
-
-func (i *advancedThreatProtectionPtrType) ToAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) AdvancedThreatProtectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionPtrOutput)
 }
 
 // AdvancedThreatProtectionArrayInput is an input type that accepts AdvancedThreatProtectionArray and AdvancedThreatProtectionArrayOutput values.
@@ -245,7 +216,7 @@ func (i AdvancedThreatProtectionMap) ToAdvancedThreatProtectionMapOutputWithCont
 type AdvancedThreatProtectionOutput struct{ *pulumi.OutputState }
 
 func (AdvancedThreatProtectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdvancedThreatProtection)(nil))
+	return reflect.TypeOf((**AdvancedThreatProtection)(nil)).Elem()
 }
 
 func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionOutput() AdvancedThreatProtectionOutput {
@@ -256,44 +227,10 @@ func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionOutputWithCont
 	return o
 }
 
-func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionPtrOutput() AdvancedThreatProtectionPtrOutput {
-	return o.ToAdvancedThreatProtectionPtrOutputWithContext(context.Background())
-}
-
-func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) AdvancedThreatProtectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdvancedThreatProtection) *AdvancedThreatProtection {
-		return &v
-	}).(AdvancedThreatProtectionPtrOutput)
-}
-
-type AdvancedThreatProtectionPtrOutput struct{ *pulumi.OutputState }
-
-func (AdvancedThreatProtectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdvancedThreatProtection)(nil))
-}
-
-func (o AdvancedThreatProtectionPtrOutput) ToAdvancedThreatProtectionPtrOutput() AdvancedThreatProtectionPtrOutput {
-	return o
-}
-
-func (o AdvancedThreatProtectionPtrOutput) ToAdvancedThreatProtectionPtrOutputWithContext(ctx context.Context) AdvancedThreatProtectionPtrOutput {
-	return o
-}
-
-func (o AdvancedThreatProtectionPtrOutput) Elem() AdvancedThreatProtectionOutput {
-	return o.ApplyT(func(v *AdvancedThreatProtection) AdvancedThreatProtection {
-		if v != nil {
-			return *v
-		}
-		var ret AdvancedThreatProtection
-		return ret
-	}).(AdvancedThreatProtectionOutput)
-}
-
 type AdvancedThreatProtectionArrayOutput struct{ *pulumi.OutputState }
 
 func (AdvancedThreatProtectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AdvancedThreatProtection)(nil))
+	return reflect.TypeOf((*[]*AdvancedThreatProtection)(nil)).Elem()
 }
 
 func (o AdvancedThreatProtectionArrayOutput) ToAdvancedThreatProtectionArrayOutput() AdvancedThreatProtectionArrayOutput {
@@ -305,15 +242,15 @@ func (o AdvancedThreatProtectionArrayOutput) ToAdvancedThreatProtectionArrayOutp
 }
 
 func (o AdvancedThreatProtectionArrayOutput) Index(i pulumi.IntInput) AdvancedThreatProtectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdvancedThreatProtection {
-		return vs[0].([]AdvancedThreatProtection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AdvancedThreatProtection {
+		return vs[0].([]*AdvancedThreatProtection)[vs[1].(int)]
 	}).(AdvancedThreatProtectionOutput)
 }
 
 type AdvancedThreatProtectionMapOutput struct{ *pulumi.OutputState }
 
 func (AdvancedThreatProtectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AdvancedThreatProtection)(nil))
+	return reflect.TypeOf((*map[string]*AdvancedThreatProtection)(nil)).Elem()
 }
 
 func (o AdvancedThreatProtectionMapOutput) ToAdvancedThreatProtectionMapOutput() AdvancedThreatProtectionMapOutput {
@@ -325,18 +262,16 @@ func (o AdvancedThreatProtectionMapOutput) ToAdvancedThreatProtectionMapOutputWi
 }
 
 func (o AdvancedThreatProtectionMapOutput) MapIndex(k pulumi.StringInput) AdvancedThreatProtectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AdvancedThreatProtection {
-		return vs[0].(map[string]AdvancedThreatProtection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AdvancedThreatProtection {
+		return vs[0].(map[string]*AdvancedThreatProtection)[vs[1].(string)]
 	}).(AdvancedThreatProtectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedThreatProtectionInput)(nil)).Elem(), &AdvancedThreatProtection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedThreatProtectionPtrInput)(nil)).Elem(), &AdvancedThreatProtection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedThreatProtectionArrayInput)(nil)).Elem(), AdvancedThreatProtectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AdvancedThreatProtectionMapInput)(nil)).Elem(), AdvancedThreatProtectionMap{})
 	pulumi.RegisterOutputType(AdvancedThreatProtectionOutput{})
-	pulumi.RegisterOutputType(AdvancedThreatProtectionPtrOutput{})
 	pulumi.RegisterOutputType(AdvancedThreatProtectionArrayOutput{})
 	pulumi.RegisterOutputType(AdvancedThreatProtectionMapOutput{})
 }

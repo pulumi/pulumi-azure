@@ -95,15 +95,15 @@ export class RegistryScopeMap extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegistryScopeMapArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegistryScopeMapArgs | RegistryScopeMapState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryScopeMapState | undefined;
-            inputs["actions"] = state ? state.actions : undefined;
-            inputs["containerRegistryName"] = state ? state.containerRegistryName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["actions"] = state ? state.actions : undefined;
+            resourceInputs["containerRegistryName"] = state ? state.containerRegistryName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as RegistryScopeMapArgs | undefined;
             if ((!args || args.actions === undefined) && !opts.urn) {
@@ -115,16 +115,16 @@ export class RegistryScopeMap extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["containerRegistryName"] = args ? args.containerRegistryName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["containerRegistryName"] = args ? args.containerRegistryName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RegistryScopeMap.__pulumiType, name, inputs, opts);
+        super(RegistryScopeMap.__pulumiType, name, resourceInputs, opts);
     }
 }
 

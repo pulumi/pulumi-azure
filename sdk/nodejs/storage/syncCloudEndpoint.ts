@@ -109,15 +109,15 @@ export class SyncCloudEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: SyncCloudEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SyncCloudEndpointArgs | SyncCloudEndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyncCloudEndpointState | undefined;
-            inputs["fileShareName"] = state ? state.fileShareName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["storageAccountTenantId"] = state ? state.storageAccountTenantId : undefined;
-            inputs["storageSyncGroupId"] = state ? state.storageSyncGroupId : undefined;
+            resourceInputs["fileShareName"] = state ? state.fileShareName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["storageAccountTenantId"] = state ? state.storageAccountTenantId : undefined;
+            resourceInputs["storageSyncGroupId"] = state ? state.storageSyncGroupId : undefined;
         } else {
             const args = argsOrState as SyncCloudEndpointArgs | undefined;
             if ((!args || args.fileShareName === undefined) && !opts.urn) {
@@ -129,16 +129,16 @@ export class SyncCloudEndpoint extends pulumi.CustomResource {
             if ((!args || args.storageSyncGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncGroupId'");
             }
-            inputs["fileShareName"] = args ? args.fileShareName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["storageAccountTenantId"] = args ? args.storageAccountTenantId : undefined;
-            inputs["storageSyncGroupId"] = args ? args.storageSyncGroupId : undefined;
+            resourceInputs["fileShareName"] = args ? args.fileShareName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["storageAccountTenantId"] = args ? args.storageAccountTenantId : undefined;
+            resourceInputs["storageSyncGroupId"] = args ? args.storageSyncGroupId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SyncCloudEndpoint.__pulumiType, name, inputs, opts);
+        super(SyncCloudEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -321,7 +321,7 @@ type SubscriptionRuleInput interface {
 }
 
 func (*SubscriptionRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionRule)(nil))
+	return reflect.TypeOf((**SubscriptionRule)(nil)).Elem()
 }
 
 func (i *SubscriptionRule) ToSubscriptionRuleOutput() SubscriptionRuleOutput {
@@ -330,35 +330,6 @@ func (i *SubscriptionRule) ToSubscriptionRuleOutput() SubscriptionRuleOutput {
 
 func (i *SubscriptionRule) ToSubscriptionRuleOutputWithContext(ctx context.Context) SubscriptionRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRuleOutput)
-}
-
-func (i *SubscriptionRule) ToSubscriptionRulePtrOutput() SubscriptionRulePtrOutput {
-	return i.ToSubscriptionRulePtrOutputWithContext(context.Background())
-}
-
-func (i *SubscriptionRule) ToSubscriptionRulePtrOutputWithContext(ctx context.Context) SubscriptionRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRulePtrOutput)
-}
-
-type SubscriptionRulePtrInput interface {
-	pulumi.Input
-
-	ToSubscriptionRulePtrOutput() SubscriptionRulePtrOutput
-	ToSubscriptionRulePtrOutputWithContext(ctx context.Context) SubscriptionRulePtrOutput
-}
-
-type subscriptionRulePtrType SubscriptionRuleArgs
-
-func (*subscriptionRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionRule)(nil))
-}
-
-func (i *subscriptionRulePtrType) ToSubscriptionRulePtrOutput() SubscriptionRulePtrOutput {
-	return i.ToSubscriptionRulePtrOutputWithContext(context.Background())
-}
-
-func (i *subscriptionRulePtrType) ToSubscriptionRulePtrOutputWithContext(ctx context.Context) SubscriptionRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionRulePtrOutput)
 }
 
 // SubscriptionRuleArrayInput is an input type that accepts SubscriptionRuleArray and SubscriptionRuleArrayOutput values.
@@ -414,7 +385,7 @@ func (i SubscriptionRuleMap) ToSubscriptionRuleMapOutputWithContext(ctx context.
 type SubscriptionRuleOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionRule)(nil))
+	return reflect.TypeOf((**SubscriptionRule)(nil)).Elem()
 }
 
 func (o SubscriptionRuleOutput) ToSubscriptionRuleOutput() SubscriptionRuleOutput {
@@ -425,44 +396,10 @@ func (o SubscriptionRuleOutput) ToSubscriptionRuleOutputWithContext(ctx context.
 	return o
 }
 
-func (o SubscriptionRuleOutput) ToSubscriptionRulePtrOutput() SubscriptionRulePtrOutput {
-	return o.ToSubscriptionRulePtrOutputWithContext(context.Background())
-}
-
-func (o SubscriptionRuleOutput) ToSubscriptionRulePtrOutputWithContext(ctx context.Context) SubscriptionRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionRule) *SubscriptionRule {
-		return &v
-	}).(SubscriptionRulePtrOutput)
-}
-
-type SubscriptionRulePtrOutput struct{ *pulumi.OutputState }
-
-func (SubscriptionRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionRule)(nil))
-}
-
-func (o SubscriptionRulePtrOutput) ToSubscriptionRulePtrOutput() SubscriptionRulePtrOutput {
-	return o
-}
-
-func (o SubscriptionRulePtrOutput) ToSubscriptionRulePtrOutputWithContext(ctx context.Context) SubscriptionRulePtrOutput {
-	return o
-}
-
-func (o SubscriptionRulePtrOutput) Elem() SubscriptionRuleOutput {
-	return o.ApplyT(func(v *SubscriptionRule) SubscriptionRule {
-		if v != nil {
-			return *v
-		}
-		var ret SubscriptionRule
-		return ret
-	}).(SubscriptionRuleOutput)
-}
-
 type SubscriptionRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SubscriptionRule)(nil))
+	return reflect.TypeOf((*[]*SubscriptionRule)(nil)).Elem()
 }
 
 func (o SubscriptionRuleArrayOutput) ToSubscriptionRuleArrayOutput() SubscriptionRuleArrayOutput {
@@ -474,15 +411,15 @@ func (o SubscriptionRuleArrayOutput) ToSubscriptionRuleArrayOutputWithContext(ct
 }
 
 func (o SubscriptionRuleArrayOutput) Index(i pulumi.IntInput) SubscriptionRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionRule {
-		return vs[0].([]SubscriptionRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubscriptionRule {
+		return vs[0].([]*SubscriptionRule)[vs[1].(int)]
 	}).(SubscriptionRuleOutput)
 }
 
 type SubscriptionRuleMapOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SubscriptionRule)(nil))
+	return reflect.TypeOf((*map[string]*SubscriptionRule)(nil)).Elem()
 }
 
 func (o SubscriptionRuleMapOutput) ToSubscriptionRuleMapOutput() SubscriptionRuleMapOutput {
@@ -494,18 +431,16 @@ func (o SubscriptionRuleMapOutput) ToSubscriptionRuleMapOutputWithContext(ctx co
 }
 
 func (o SubscriptionRuleMapOutput) MapIndex(k pulumi.StringInput) SubscriptionRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SubscriptionRule {
-		return vs[0].(map[string]SubscriptionRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SubscriptionRule {
+		return vs[0].(map[string]*SubscriptionRule)[vs[1].(string)]
 	}).(SubscriptionRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleInput)(nil)).Elem(), &SubscriptionRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRulePtrInput)(nil)).Elem(), &SubscriptionRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleArrayInput)(nil)).Elem(), SubscriptionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleMapInput)(nil)).Elem(), SubscriptionRuleMap{})
 	pulumi.RegisterOutputType(SubscriptionRuleOutput{})
-	pulumi.RegisterOutputType(SubscriptionRulePtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionRuleArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionRuleMapOutput{})
 }

@@ -273,7 +273,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
         example_container = azure.storage.Container("exampleContainer",
             storage_account_name=example_storage / account_account["name"],
             container_access_type="container")
-        example_service_principal = example_account.name.apply(lambda name: azuread.get_service_principal(display_name=name))
+        example_service_principal = azuread.get_service_principal_output(display_name=example_account.name)
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             scope=example_storage / account_account["id"],
             role_definition_name="Storage Blob Data Reader",
@@ -341,7 +341,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
         example_container = azure.storage.Container("exampleContainer",
             storage_account_name=example_storage / account_account["name"],
             container_access_type="container")
-        example_service_principal = example_account.name.apply(lambda name: azuread.get_service_principal(display_name=name))
+        example_service_principal = azuread.get_service_principal_output(display_name=example_account.name)
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             scope=example_storage / account_account["id"],
             role_definition_name="Storage Blob Data Reader",

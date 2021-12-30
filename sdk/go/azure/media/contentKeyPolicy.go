@@ -270,7 +270,7 @@ type ContentKeyPolicyInput interface {
 }
 
 func (*ContentKeyPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicy)(nil))
+	return reflect.TypeOf((**ContentKeyPolicy)(nil)).Elem()
 }
 
 func (i *ContentKeyPolicy) ToContentKeyPolicyOutput() ContentKeyPolicyOutput {
@@ -279,35 +279,6 @@ func (i *ContentKeyPolicy) ToContentKeyPolicyOutput() ContentKeyPolicyOutput {
 
 func (i *ContentKeyPolicy) ToContentKeyPolicyOutputWithContext(ctx context.Context) ContentKeyPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyOutput)
-}
-
-func (i *ContentKeyPolicy) ToContentKeyPolicyPtrOutput() ContentKeyPolicyPtrOutput {
-	return i.ToContentKeyPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *ContentKeyPolicy) ToContentKeyPolicyPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPtrOutput)
-}
-
-type ContentKeyPolicyPtrInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyPtrOutput() ContentKeyPolicyPtrOutput
-	ToContentKeyPolicyPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPtrOutput
-}
-
-type contentKeyPolicyPtrType ContentKeyPolicyArgs
-
-func (*contentKeyPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContentKeyPolicy)(nil))
-}
-
-func (i *contentKeyPolicyPtrType) ToContentKeyPolicyPtrOutput() ContentKeyPolicyPtrOutput {
-	return i.ToContentKeyPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *contentKeyPolicyPtrType) ToContentKeyPolicyPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPtrOutput)
 }
 
 // ContentKeyPolicyArrayInput is an input type that accepts ContentKeyPolicyArray and ContentKeyPolicyArrayOutput values.
@@ -363,7 +334,7 @@ func (i ContentKeyPolicyMap) ToContentKeyPolicyMapOutputWithContext(ctx context.
 type ContentKeyPolicyOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicy)(nil))
+	return reflect.TypeOf((**ContentKeyPolicy)(nil)).Elem()
 }
 
 func (o ContentKeyPolicyOutput) ToContentKeyPolicyOutput() ContentKeyPolicyOutput {
@@ -374,44 +345,10 @@ func (o ContentKeyPolicyOutput) ToContentKeyPolicyOutputWithContext(ctx context.
 	return o
 }
 
-func (o ContentKeyPolicyOutput) ToContentKeyPolicyPtrOutput() ContentKeyPolicyPtrOutput {
-	return o.ToContentKeyPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ContentKeyPolicyOutput) ToContentKeyPolicyPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicy) *ContentKeyPolicy {
-		return &v
-	}).(ContentKeyPolicyPtrOutput)
-}
-
-type ContentKeyPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContentKeyPolicy)(nil))
-}
-
-func (o ContentKeyPolicyPtrOutput) ToContentKeyPolicyPtrOutput() ContentKeyPolicyPtrOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPtrOutput) ToContentKeyPolicyPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPtrOutput {
-	return o
-}
-
-func (o ContentKeyPolicyPtrOutput) Elem() ContentKeyPolicyOutput {
-	return o.ApplyT(func(v *ContentKeyPolicy) ContentKeyPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ContentKeyPolicy
-		return ret
-	}).(ContentKeyPolicyOutput)
-}
-
 type ContentKeyPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ContentKeyPolicy)(nil))
+	return reflect.TypeOf((*[]*ContentKeyPolicy)(nil)).Elem()
 }
 
 func (o ContentKeyPolicyArrayOutput) ToContentKeyPolicyArrayOutput() ContentKeyPolicyArrayOutput {
@@ -423,15 +360,15 @@ func (o ContentKeyPolicyArrayOutput) ToContentKeyPolicyArrayOutputWithContext(ct
 }
 
 func (o ContentKeyPolicyArrayOutput) Index(i pulumi.IntInput) ContentKeyPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentKeyPolicy {
-		return vs[0].([]ContentKeyPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContentKeyPolicy {
+		return vs[0].([]*ContentKeyPolicy)[vs[1].(int)]
 	}).(ContentKeyPolicyOutput)
 }
 
 type ContentKeyPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ContentKeyPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ContentKeyPolicy)(nil)).Elem()
 }
 
 func (o ContentKeyPolicyMapOutput) ToContentKeyPolicyMapOutput() ContentKeyPolicyMapOutput {
@@ -443,18 +380,16 @@ func (o ContentKeyPolicyMapOutput) ToContentKeyPolicyMapOutputWithContext(ctx co
 }
 
 func (o ContentKeyPolicyMapOutput) MapIndex(k pulumi.StringInput) ContentKeyPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ContentKeyPolicy {
-		return vs[0].(map[string]ContentKeyPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ContentKeyPolicy {
+		return vs[0].(map[string]*ContentKeyPolicy)[vs[1].(string)]
 	}).(ContentKeyPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContentKeyPolicyInput)(nil)).Elem(), &ContentKeyPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ContentKeyPolicyPtrInput)(nil)).Elem(), &ContentKeyPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContentKeyPolicyArrayInput)(nil)).Elem(), ContentKeyPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContentKeyPolicyMapInput)(nil)).Elem(), ContentKeyPolicyMap{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyMapOutput{})
 }

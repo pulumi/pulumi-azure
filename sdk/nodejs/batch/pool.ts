@@ -200,27 +200,27 @@ export class Pool extends pulumi.CustomResource {
      */
     constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PoolArgs | PoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PoolState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["autoScale"] = state ? state.autoScale : undefined;
-            inputs["certificates"] = state ? state.certificates : undefined;
-            inputs["containerConfiguration"] = state ? state.containerConfiguration : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["fixedScale"] = state ? state.fixedScale : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["maxTasksPerNode"] = state ? state.maxTasksPerNode : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
-            inputs["nodeAgentSkuId"] = state ? state.nodeAgentSkuId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["startTask"] = state ? state.startTask : undefined;
-            inputs["stopPendingResizeOperation"] = state ? state.stopPendingResizeOperation : undefined;
-            inputs["storageImageReference"] = state ? state.storageImageReference : undefined;
-            inputs["vmSize"] = state ? state.vmSize : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["autoScale"] = state ? state.autoScale : undefined;
+            resourceInputs["certificates"] = state ? state.certificates : undefined;
+            resourceInputs["containerConfiguration"] = state ? state.containerConfiguration : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["fixedScale"] = state ? state.fixedScale : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["maxTasksPerNode"] = state ? state.maxTasksPerNode : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
+            resourceInputs["nodeAgentSkuId"] = state ? state.nodeAgentSkuId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["startTask"] = state ? state.startTask : undefined;
+            resourceInputs["stopPendingResizeOperation"] = state ? state.stopPendingResizeOperation : undefined;
+            resourceInputs["storageImageReference"] = state ? state.storageImageReference : undefined;
+            resourceInputs["vmSize"] = state ? state.vmSize : undefined;
         } else {
             const args = argsOrState as PoolArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -238,28 +238,28 @@ export class Pool extends pulumi.CustomResource {
             if ((!args || args.vmSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmSize'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["autoScale"] = args ? args.autoScale : undefined;
-            inputs["certificates"] = args ? args.certificates : undefined;
-            inputs["containerConfiguration"] = args ? args.containerConfiguration : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["fixedScale"] = args ? args.fixedScale : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["maxTasksPerNode"] = args ? args.maxTasksPerNode : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            inputs["nodeAgentSkuId"] = args ? args.nodeAgentSkuId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["startTask"] = args ? args.startTask : undefined;
-            inputs["stopPendingResizeOperation"] = args ? args.stopPendingResizeOperation : undefined;
-            inputs["storageImageReference"] = args ? args.storageImageReference : undefined;
-            inputs["vmSize"] = args ? args.vmSize : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["autoScale"] = args ? args.autoScale : undefined;
+            resourceInputs["certificates"] = args ? args.certificates : undefined;
+            resourceInputs["containerConfiguration"] = args ? args.containerConfiguration : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["fixedScale"] = args ? args.fixedScale : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["maxTasksPerNode"] = args ? args.maxTasksPerNode : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            resourceInputs["nodeAgentSkuId"] = args ? args.nodeAgentSkuId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["startTask"] = args ? args.startTask : undefined;
+            resourceInputs["stopPendingResizeOperation"] = args ? args.stopPendingResizeOperation : undefined;
+            resourceInputs["storageImageReference"] = args ? args.storageImageReference : undefined;
+            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Pool.__pulumiType, name, inputs, opts);
+        super(Pool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

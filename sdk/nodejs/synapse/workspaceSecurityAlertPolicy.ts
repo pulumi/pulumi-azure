@@ -135,18 +135,18 @@ export class WorkspaceSecurityAlertPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceSecurityAlertPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceSecurityAlertPolicyArgs | WorkspaceSecurityAlertPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceSecurityAlertPolicyState | undefined;
-            inputs["disabledAlerts"] = state ? state.disabledAlerts : undefined;
-            inputs["emailAccountAdminsEnabled"] = state ? state.emailAccountAdminsEnabled : undefined;
-            inputs["emailAddresses"] = state ? state.emailAddresses : undefined;
-            inputs["policyState"] = state ? state.policyState : undefined;
-            inputs["retentionDays"] = state ? state.retentionDays : undefined;
-            inputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            inputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
-            inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["disabledAlerts"] = state ? state.disabledAlerts : undefined;
+            resourceInputs["emailAccountAdminsEnabled"] = state ? state.emailAccountAdminsEnabled : undefined;
+            resourceInputs["emailAddresses"] = state ? state.emailAddresses : undefined;
+            resourceInputs["policyState"] = state ? state.policyState : undefined;
+            resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
+            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
+            resourceInputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
+            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceSecurityAlertPolicyArgs | undefined;
             if ((!args || args.policyState === undefined) && !opts.urn) {
@@ -155,19 +155,19 @@ export class WorkspaceSecurityAlertPolicy extends pulumi.CustomResource {
             if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            inputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
-            inputs["emailAccountAdminsEnabled"] = args ? args.emailAccountAdminsEnabled : undefined;
-            inputs["emailAddresses"] = args ? args.emailAddresses : undefined;
-            inputs["policyState"] = args ? args.policyState : undefined;
-            inputs["retentionDays"] = args ? args.retentionDays : undefined;
-            inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            inputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
-            inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
+            resourceInputs["emailAccountAdminsEnabled"] = args ? args.emailAccountAdminsEnabled : undefined;
+            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
+            resourceInputs["policyState"] = args ? args.policyState : undefined;
+            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(WorkspaceSecurityAlertPolicy.__pulumiType, name, inputs, opts);
+        super(WorkspaceSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

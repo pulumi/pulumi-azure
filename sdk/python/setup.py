@@ -45,7 +45,7 @@ setup(name='pulumi_azure',
       cmdclass={
           'install': InstallPluginCommand,
       },
-      keywords='pulumi azure',
+      keywords='pulumi azure category/cloud',
       url='https://pulumi.io',
       project_urls={
           'Repository': 'https://github.com/pulumi/pulumi-azure'
@@ -55,6 +55,7 @@ setup(name='pulumi_azure',
       package_data={
           'pulumi_azure': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

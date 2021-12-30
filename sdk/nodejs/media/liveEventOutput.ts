@@ -50,18 +50,18 @@ export class LiveEventOutput extends pulumi.CustomResource {
      */
     constructor(name: string, args: LiveEventOutputArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LiveEventOutputArgs | LiveEventOutputState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LiveEventOutputState | undefined;
-            inputs["archiveWindowDuration"] = state ? state.archiveWindowDuration : undefined;
-            inputs["assetName"] = state ? state.assetName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["hlsFragmentsPerTsSegment"] = state ? state.hlsFragmentsPerTsSegment : undefined;
-            inputs["liveEventId"] = state ? state.liveEventId : undefined;
-            inputs["manifestName"] = state ? state.manifestName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outputSnapTimeInSeconds"] = state ? state.outputSnapTimeInSeconds : undefined;
+            resourceInputs["archiveWindowDuration"] = state ? state.archiveWindowDuration : undefined;
+            resourceInputs["assetName"] = state ? state.assetName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["hlsFragmentsPerTsSegment"] = state ? state.hlsFragmentsPerTsSegment : undefined;
+            resourceInputs["liveEventId"] = state ? state.liveEventId : undefined;
+            resourceInputs["manifestName"] = state ? state.manifestName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputSnapTimeInSeconds"] = state ? state.outputSnapTimeInSeconds : undefined;
         } else {
             const args = argsOrState as LiveEventOutputArgs | undefined;
             if ((!args || args.archiveWindowDuration === undefined) && !opts.urn) {
@@ -73,19 +73,19 @@ export class LiveEventOutput extends pulumi.CustomResource {
             if ((!args || args.liveEventId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'liveEventId'");
             }
-            inputs["archiveWindowDuration"] = args ? args.archiveWindowDuration : undefined;
-            inputs["assetName"] = args ? args.assetName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["hlsFragmentsPerTsSegment"] = args ? args.hlsFragmentsPerTsSegment : undefined;
-            inputs["liveEventId"] = args ? args.liveEventId : undefined;
-            inputs["manifestName"] = args ? args.manifestName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["outputSnapTimeInSeconds"] = args ? args.outputSnapTimeInSeconds : undefined;
+            resourceInputs["archiveWindowDuration"] = args ? args.archiveWindowDuration : undefined;
+            resourceInputs["assetName"] = args ? args.assetName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["hlsFragmentsPerTsSegment"] = args ? args.hlsFragmentsPerTsSegment : undefined;
+            resourceInputs["liveEventId"] = args ? args.liveEventId : undefined;
+            resourceInputs["manifestName"] = args ? args.manifestName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outputSnapTimeInSeconds"] = args ? args.outputSnapTimeInSeconds : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LiveEventOutput.__pulumiType, name, inputs, opts);
+        super(LiveEventOutput.__pulumiType, name, resourceInputs, opts);
     }
 }
 

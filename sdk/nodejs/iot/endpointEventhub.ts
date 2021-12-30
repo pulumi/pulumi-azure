@@ -118,15 +118,15 @@ export class EndpointEventhub extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointEventhubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointEventhubArgs | EndpointEventhubState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointEventhubState | undefined;
-            inputs["connectionString"] = state ? state.connectionString : undefined;
-            inputs["iothubId"] = state ? state.iothubId : undefined;
-            inputs["iothubName"] = state ? state.iothubName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
+            resourceInputs["iothubId"] = state ? state.iothubId : undefined;
+            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as EndpointEventhubArgs | undefined;
             if ((!args || args.connectionString === undefined) && !opts.urn) {
@@ -135,16 +135,16 @@ export class EndpointEventhub extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["connectionString"] = args ? args.connectionString : undefined;
-            inputs["iothubId"] = args ? args.iothubId : undefined;
-            inputs["iothubName"] = args ? args.iothubName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["iothubId"] = args ? args.iothubId : undefined;
+            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EndpointEventhub.__pulumiType, name, inputs, opts);
+        super(EndpointEventhub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -263,7 +263,7 @@ type PointToPointVpnGatewayInput interface {
 }
 
 func (*PointToPointVpnGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*PointToPointVpnGateway)(nil))
+	return reflect.TypeOf((**PointToPointVpnGateway)(nil)).Elem()
 }
 
 func (i *PointToPointVpnGateway) ToPointToPointVpnGatewayOutput() PointToPointVpnGatewayOutput {
@@ -272,35 +272,6 @@ func (i *PointToPointVpnGateway) ToPointToPointVpnGatewayOutput() PointToPointVp
 
 func (i *PointToPointVpnGateway) ToPointToPointVpnGatewayOutputWithContext(ctx context.Context) PointToPointVpnGatewayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayOutput)
-}
-
-func (i *PointToPointVpnGateway) ToPointToPointVpnGatewayPtrOutput() PointToPointVpnGatewayPtrOutput {
-	return i.ToPointToPointVpnGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *PointToPointVpnGateway) ToPointToPointVpnGatewayPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayPtrOutput)
-}
-
-type PointToPointVpnGatewayPtrInput interface {
-	pulumi.Input
-
-	ToPointToPointVpnGatewayPtrOutput() PointToPointVpnGatewayPtrOutput
-	ToPointToPointVpnGatewayPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayPtrOutput
-}
-
-type pointToPointVpnGatewayPtrType PointToPointVpnGatewayArgs
-
-func (*pointToPointVpnGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PointToPointVpnGateway)(nil))
-}
-
-func (i *pointToPointVpnGatewayPtrType) ToPointToPointVpnGatewayPtrOutput() PointToPointVpnGatewayPtrOutput {
-	return i.ToPointToPointVpnGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *pointToPointVpnGatewayPtrType) ToPointToPointVpnGatewayPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayPtrOutput)
 }
 
 // PointToPointVpnGatewayArrayInput is an input type that accepts PointToPointVpnGatewayArray and PointToPointVpnGatewayArrayOutput values.
@@ -356,7 +327,7 @@ func (i PointToPointVpnGatewayMap) ToPointToPointVpnGatewayMapOutputWithContext(
 type PointToPointVpnGatewayOutput struct{ *pulumi.OutputState }
 
 func (PointToPointVpnGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PointToPointVpnGateway)(nil))
+	return reflect.TypeOf((**PointToPointVpnGateway)(nil)).Elem()
 }
 
 func (o PointToPointVpnGatewayOutput) ToPointToPointVpnGatewayOutput() PointToPointVpnGatewayOutput {
@@ -367,44 +338,10 @@ func (o PointToPointVpnGatewayOutput) ToPointToPointVpnGatewayOutputWithContext(
 	return o
 }
 
-func (o PointToPointVpnGatewayOutput) ToPointToPointVpnGatewayPtrOutput() PointToPointVpnGatewayPtrOutput {
-	return o.ToPointToPointVpnGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o PointToPointVpnGatewayOutput) ToPointToPointVpnGatewayPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PointToPointVpnGateway) *PointToPointVpnGateway {
-		return &v
-	}).(PointToPointVpnGatewayPtrOutput)
-}
-
-type PointToPointVpnGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (PointToPointVpnGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PointToPointVpnGateway)(nil))
-}
-
-func (o PointToPointVpnGatewayPtrOutput) ToPointToPointVpnGatewayPtrOutput() PointToPointVpnGatewayPtrOutput {
-	return o
-}
-
-func (o PointToPointVpnGatewayPtrOutput) ToPointToPointVpnGatewayPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayPtrOutput {
-	return o
-}
-
-func (o PointToPointVpnGatewayPtrOutput) Elem() PointToPointVpnGatewayOutput {
-	return o.ApplyT(func(v *PointToPointVpnGateway) PointToPointVpnGateway {
-		if v != nil {
-			return *v
-		}
-		var ret PointToPointVpnGateway
-		return ret
-	}).(PointToPointVpnGatewayOutput)
-}
-
 type PointToPointVpnGatewayArrayOutput struct{ *pulumi.OutputState }
 
 func (PointToPointVpnGatewayArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PointToPointVpnGateway)(nil))
+	return reflect.TypeOf((*[]*PointToPointVpnGateway)(nil)).Elem()
 }
 
 func (o PointToPointVpnGatewayArrayOutput) ToPointToPointVpnGatewayArrayOutput() PointToPointVpnGatewayArrayOutput {
@@ -416,15 +353,15 @@ func (o PointToPointVpnGatewayArrayOutput) ToPointToPointVpnGatewayArrayOutputWi
 }
 
 func (o PointToPointVpnGatewayArrayOutput) Index(i pulumi.IntInput) PointToPointVpnGatewayOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PointToPointVpnGateway {
-		return vs[0].([]PointToPointVpnGateway)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PointToPointVpnGateway {
+		return vs[0].([]*PointToPointVpnGateway)[vs[1].(int)]
 	}).(PointToPointVpnGatewayOutput)
 }
 
 type PointToPointVpnGatewayMapOutput struct{ *pulumi.OutputState }
 
 func (PointToPointVpnGatewayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PointToPointVpnGateway)(nil))
+	return reflect.TypeOf((*map[string]*PointToPointVpnGateway)(nil)).Elem()
 }
 
 func (o PointToPointVpnGatewayMapOutput) ToPointToPointVpnGatewayMapOutput() PointToPointVpnGatewayMapOutput {
@@ -436,18 +373,16 @@ func (o PointToPointVpnGatewayMapOutput) ToPointToPointVpnGatewayMapOutputWithCo
 }
 
 func (o PointToPointVpnGatewayMapOutput) MapIndex(k pulumi.StringInput) PointToPointVpnGatewayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PointToPointVpnGateway {
-		return vs[0].(map[string]PointToPointVpnGateway)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PointToPointVpnGateway {
+		return vs[0].(map[string]*PointToPointVpnGateway)[vs[1].(string)]
 	}).(PointToPointVpnGatewayOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayInput)(nil)).Elem(), &PointToPointVpnGateway{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayPtrInput)(nil)).Elem(), &PointToPointVpnGateway{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayArrayInput)(nil)).Elem(), PointToPointVpnGatewayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PointToPointVpnGatewayMapInput)(nil)).Elem(), PointToPointVpnGatewayMap{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayOutput{})
-	pulumi.RegisterOutputType(PointToPointVpnGatewayPtrOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayArrayOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayMapOutput{})
 }

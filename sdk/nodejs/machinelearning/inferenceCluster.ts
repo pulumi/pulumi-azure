@@ -168,19 +168,19 @@ export class InferenceCluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: InferenceClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InferenceClusterArgs | InferenceClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InferenceClusterState | undefined;
-            inputs["clusterPurpose"] = state ? state.clusterPurpose : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["kubernetesClusterId"] = state ? state.kubernetesClusterId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ssl"] = state ? state.ssl : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["clusterPurpose"] = state ? state.clusterPurpose : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["kubernetesClusterId"] = state ? state.kubernetesClusterId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ssl"] = state ? state.ssl : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as InferenceClusterArgs | undefined;
             if ((!args || args.kubernetesClusterId === undefined) && !opts.urn) {
@@ -189,20 +189,20 @@ export class InferenceCluster extends pulumi.CustomResource {
             if ((!args || args.machineLearningWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'machineLearningWorkspaceId'");
             }
-            inputs["clusterPurpose"] = args ? args.clusterPurpose : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["kubernetesClusterId"] = args ? args.kubernetesClusterId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ssl"] = args ? args.ssl : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterPurpose"] = args ? args.clusterPurpose : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["kubernetesClusterId"] = args ? args.kubernetesClusterId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ssl"] = args ? args.ssl : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(InferenceCluster.__pulumiType, name, inputs, opts);
+        super(InferenceCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -95,13 +95,13 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
      */
     constructor(name: string, args: NotificationRecipientUserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotificationRecipientUserArgs | NotificationRecipientUserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationRecipientUserState | undefined;
-            inputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            inputs["notificationType"] = state ? state.notificationType : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
+            resourceInputs["notificationType"] = state ? state.notificationType : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as NotificationRecipientUserArgs | undefined;
             if ((!args || args.apiManagementId === undefined) && !opts.urn) {
@@ -113,14 +113,14 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            inputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            inputs["notificationType"] = args ? args.notificationType : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
+            resourceInputs["notificationType"] = args ? args.notificationType : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NotificationRecipientUser.__pulumiType, name, inputs, opts);
+        super(NotificationRecipientUser.__pulumiType, name, resourceInputs, opts);
     }
 }
 

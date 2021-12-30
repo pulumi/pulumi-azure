@@ -110,18 +110,18 @@ export class ActionRuleActionGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ActionRuleActionGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionRuleActionGroupArgs | ActionRuleActionGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionRuleActionGroupState | undefined;
-            inputs["actionGroupId"] = state ? state.actionGroupId : undefined;
-            inputs["condition"] = state ? state.condition : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["actionGroupId"] = state ? state.actionGroupId : undefined;
+            resourceInputs["condition"] = state ? state.condition : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ActionRuleActionGroupArgs | undefined;
             if ((!args || args.actionGroupId === undefined) && !opts.urn) {
@@ -130,19 +130,19 @@ export class ActionRuleActionGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["actionGroupId"] = args ? args.actionGroupId : undefined;
-            inputs["condition"] = args ? args.condition : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actionGroupId"] = args ? args.actionGroupId : undefined;
+            resourceInputs["condition"] = args ? args.condition : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ActionRuleActionGroup.__pulumiType, name, inputs, opts);
+        super(ActionRuleActionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -117,15 +117,15 @@ export class DatasetKustoDatabase extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatasetKustoDatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatasetKustoDatabaseArgs | DatasetKustoDatabaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetKustoDatabaseState | undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["kustoClusterLocation"] = state ? state.kustoClusterLocation : undefined;
-            inputs["kustoDatabaseId"] = state ? state.kustoDatabaseId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["shareId"] = state ? state.shareId : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["kustoClusterLocation"] = state ? state.kustoClusterLocation : undefined;
+            resourceInputs["kustoDatabaseId"] = state ? state.kustoDatabaseId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["shareId"] = state ? state.shareId : undefined;
         } else {
             const args = argsOrState as DatasetKustoDatabaseArgs | undefined;
             if ((!args || args.kustoDatabaseId === undefined) && !opts.urn) {
@@ -134,16 +134,16 @@ export class DatasetKustoDatabase extends pulumi.CustomResource {
             if ((!args || args.shareId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareId'");
             }
-            inputs["kustoDatabaseId"] = args ? args.kustoDatabaseId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["shareId"] = args ? args.shareId : undefined;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["kustoClusterLocation"] = undefined /*out*/;
+            resourceInputs["kustoDatabaseId"] = args ? args.kustoDatabaseId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["shareId"] = args ? args.shareId : undefined;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["kustoClusterLocation"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DatasetKustoDatabase.__pulumiType, name, inputs, opts);
+        super(DatasetKustoDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

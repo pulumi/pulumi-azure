@@ -117,20 +117,20 @@ export class Connection extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionState | undefined;
-            inputs["botName"] = state ? state.botName : undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["clientSecret"] = state ? state.clientSecret : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scopes"] = state ? state.scopes : undefined;
-            inputs["serviceProviderName"] = state ? state.serviceProviderName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["botName"] = state ? state.botName : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["serviceProviderName"] = state ? state.serviceProviderName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -148,21 +148,21 @@ export class Connection extends pulumi.CustomResource {
             if ((!args || args.serviceProviderName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceProviderName'");
             }
-            inputs["botName"] = args ? args.botName : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
-            inputs["serviceProviderName"] = args ? args.serviceProviderName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["serviceProviderName"] = args ? args.serviceProviderName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Connection.__pulumiType, name, inputs, opts);
+        super(Connection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

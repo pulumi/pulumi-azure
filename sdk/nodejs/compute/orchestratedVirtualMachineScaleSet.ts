@@ -137,39 +137,39 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrchestratedVirtualMachineScaleSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrchestratedVirtualMachineScaleSetArgs | OrchestratedVirtualMachineScaleSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrchestratedVirtualMachineScaleSetState | undefined;
-            inputs["automaticInstanceRepair"] = state ? state.automaticInstanceRepair : undefined;
-            inputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
-            inputs["dataDisks"] = state ? state.dataDisks : undefined;
-            inputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
-            inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
-            inputs["extensions"] = state ? state.extensions : undefined;
-            inputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["instances"] = state ? state.instances : undefined;
-            inputs["licenseType"] = state ? state.licenseType : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["maxBidPrice"] = state ? state.maxBidPrice : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            inputs["osDisk"] = state ? state.osDisk : undefined;
-            inputs["osProfile"] = state ? state.osProfile : undefined;
-            inputs["plan"] = state ? state.plan : undefined;
-            inputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["sourceImageId"] = state ? state.sourceImageId : undefined;
-            inputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["terminationNotification"] = state ? state.terminationNotification : undefined;
-            inputs["uniqueId"] = state ? state.uniqueId : undefined;
-            inputs["zoneBalance"] = state ? state.zoneBalance : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["automaticInstanceRepair"] = state ? state.automaticInstanceRepair : undefined;
+            resourceInputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
+            resourceInputs["dataDisks"] = state ? state.dataDisks : undefined;
+            resourceInputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
+            resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
+            resourceInputs["extensions"] = state ? state.extensions : undefined;
+            resourceInputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["instances"] = state ? state.instances : undefined;
+            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["maxBidPrice"] = state ? state.maxBidPrice : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
+            resourceInputs["osDisk"] = state ? state.osDisk : undefined;
+            resourceInputs["osProfile"] = state ? state.osProfile : undefined;
+            resourceInputs["plan"] = state ? state.plan : undefined;
+            resourceInputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["sourceImageId"] = state ? state.sourceImageId : undefined;
+            resourceInputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["terminationNotification"] = state ? state.terminationNotification : undefined;
+            resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
+            resourceInputs["zoneBalance"] = state ? state.zoneBalance : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as OrchestratedVirtualMachineScaleSetArgs | undefined;
             if ((!args || args.platformFaultDomainCount === undefined) && !opts.urn) {
@@ -178,40 +178,40 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automaticInstanceRepair"] = args ? args.automaticInstanceRepair : undefined;
-            inputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
-            inputs["dataDisks"] = args ? args.dataDisks : undefined;
-            inputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
-            inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            inputs["extensions"] = args ? args.extensions : undefined;
-            inputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["instances"] = args ? args.instances : undefined;
-            inputs["licenseType"] = args ? args.licenseType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maxBidPrice"] = args ? args.maxBidPrice : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            inputs["osDisk"] = args ? args.osDisk : undefined;
-            inputs["osProfile"] = args ? args.osProfile : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["sourceImageId"] = args ? args.sourceImageId : undefined;
-            inputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["terminationNotification"] = args ? args.terminationNotification : undefined;
-            inputs["zoneBalance"] = args ? args.zoneBalance : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["uniqueId"] = undefined /*out*/;
+            resourceInputs["automaticInstanceRepair"] = args ? args.automaticInstanceRepair : undefined;
+            resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
+            resourceInputs["dataDisks"] = args ? args.dataDisks : undefined;
+            resourceInputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
+            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            resourceInputs["extensions"] = args ? args.extensions : undefined;
+            resourceInputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["instances"] = args ? args.instances : undefined;
+            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxBidPrice"] = args ? args.maxBidPrice : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
+            resourceInputs["osDisk"] = args ? args.osDisk : undefined;
+            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["sourceImageId"] = args ? args.sourceImageId : undefined;
+            resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["terminationNotification"] = args ? args.terminationNotification : undefined;
+            resourceInputs["zoneBalance"] = args ? args.zoneBalance : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["uniqueId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OrchestratedVirtualMachineScaleSet.__pulumiType, name, inputs, opts);
+        super(OrchestratedVirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

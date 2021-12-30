@@ -102,19 +102,19 @@ export class AssessmentPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssessmentPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssessmentPolicyArgs | AssessmentPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssessmentPolicyState | undefined;
-            inputs["categories"] = state ? state.categories : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["implementationEffort"] = state ? state.implementationEffort : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["remediationDescription"] = state ? state.remediationDescription : undefined;
-            inputs["severity"] = state ? state.severity : undefined;
-            inputs["threats"] = state ? state.threats : undefined;
-            inputs["userImpact"] = state ? state.userImpact : undefined;
+            resourceInputs["categories"] = state ? state.categories : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["implementationEffort"] = state ? state.implementationEffort : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["remediationDescription"] = state ? state.remediationDescription : undefined;
+            resourceInputs["severity"] = state ? state.severity : undefined;
+            resourceInputs["threats"] = state ? state.threats : undefined;
+            resourceInputs["userImpact"] = state ? state.userImpact : undefined;
         } else {
             const args = argsOrState as AssessmentPolicyArgs | undefined;
             if ((!args || args.description === undefined) && !opts.urn) {
@@ -123,20 +123,20 @@ export class AssessmentPolicy extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            inputs["categories"] = args ? args.categories : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["implementationEffort"] = args ? args.implementationEffort : undefined;
-            inputs["remediationDescription"] = args ? args.remediationDescription : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["threats"] = args ? args.threats : undefined;
-            inputs["userImpact"] = args ? args.userImpact : undefined;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["categories"] = args ? args.categories : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["implementationEffort"] = args ? args.implementationEffort : undefined;
+            resourceInputs["remediationDescription"] = args ? args.remediationDescription : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["threats"] = args ? args.threats : undefined;
+            resourceInputs["userImpact"] = args ? args.userImpact : undefined;
+            resourceInputs["name"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AssessmentPolicy.__pulumiType, name, inputs, opts);
+        super(AssessmentPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

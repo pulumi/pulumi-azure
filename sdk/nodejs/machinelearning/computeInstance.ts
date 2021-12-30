@@ -171,22 +171,22 @@ export class ComputeInstance extends pulumi.CustomResource {
      */
     constructor(name: string, args: ComputeInstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ComputeInstanceArgs | ComputeInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ComputeInstanceState | undefined;
-            inputs["assignToUser"] = state ? state.assignToUser : undefined;
-            inputs["authorizationType"] = state ? state.authorizationType : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ssh"] = state ? state.ssh : undefined;
-            inputs["subnetResourceId"] = state ? state.subnetResourceId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualMachineSize"] = state ? state.virtualMachineSize : undefined;
+            resourceInputs["assignToUser"] = state ? state.assignToUser : undefined;
+            resourceInputs["authorizationType"] = state ? state.authorizationType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ssh"] = state ? state.ssh : undefined;
+            resourceInputs["subnetResourceId"] = state ? state.subnetResourceId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualMachineSize"] = state ? state.virtualMachineSize : undefined;
         } else {
             const args = argsOrState as ComputeInstanceArgs | undefined;
             if ((!args || args.machineLearningWorkspaceId === undefined) && !opts.urn) {
@@ -195,23 +195,23 @@ export class ComputeInstance extends pulumi.CustomResource {
             if ((!args || args.virtualMachineSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineSize'");
             }
-            inputs["assignToUser"] = args ? args.assignToUser : undefined;
-            inputs["authorizationType"] = args ? args.authorizationType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ssh"] = args ? args.ssh : undefined;
-            inputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualMachineSize"] = args ? args.virtualMachineSize : undefined;
+            resourceInputs["assignToUser"] = args ? args.assignToUser : undefined;
+            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ssh"] = args ? args.ssh : undefined;
+            resourceInputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualMachineSize"] = args ? args.virtualMachineSize : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ComputeInstance.__pulumiType, name, inputs, opts);
+        super(ComputeInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -123,38 +123,38 @@ export class LinkedService extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkedServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServiceArgs | LinkedServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceState | undefined;
-            inputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["readAccessId"] = state ? state.readAccessId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["workspaceId"] = state ? state.workspaceId : undefined;
-            inputs["workspaceName"] = state ? state.workspaceName : undefined;
-            inputs["writeAccessId"] = state ? state.writeAccessId : undefined;
+            resourceInputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["readAccessId"] = state ? state.readAccessId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["workspaceName"] = state ? state.workspaceName : undefined;
+            resourceInputs["writeAccessId"] = state ? state.writeAccessId : undefined;
         } else {
             const args = argsOrState as LinkedServiceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
-            inputs["readAccessId"] = args ? args.readAccessId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceId"] = args ? args.workspaceId : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["writeAccessId"] = args ? args.writeAccessId : undefined;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
+            resourceInputs["readAccessId"] = args ? args.readAccessId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["writeAccessId"] = args ? args.writeAccessId : undefined;
+            resourceInputs["name"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LinkedService.__pulumiType, name, inputs, opts);
+        super(LinkedService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -128,40 +128,40 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     constructor(name: string, args: SpringCloudServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpringCloudServiceArgs | SpringCloudServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudServiceState | undefined;
-            inputs["configServerGitSetting"] = state ? state.configServerGitSetting : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["network"] = state ? state.network : undefined;
-            inputs["outboundPublicIpAddresses"] = state ? state.outboundPublicIpAddresses : undefined;
-            inputs["requiredNetworkTrafficRules"] = state ? state.requiredNetworkTrafficRules : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["trace"] = state ? state.trace : undefined;
+            resourceInputs["configServerGitSetting"] = state ? state.configServerGitSetting : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["network"] = state ? state.network : undefined;
+            resourceInputs["outboundPublicIpAddresses"] = state ? state.outboundPublicIpAddresses : undefined;
+            resourceInputs["requiredNetworkTrafficRules"] = state ? state.requiredNetworkTrafficRules : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["trace"] = state ? state.trace : undefined;
         } else {
             const args = argsOrState as SpringCloudServiceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["configServerGitSetting"] = args ? args.configServerGitSetting : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["network"] = args ? args.network : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trace"] = args ? args.trace : undefined;
-            inputs["outboundPublicIpAddresses"] = undefined /*out*/;
-            inputs["requiredNetworkTrafficRules"] = undefined /*out*/;
+            resourceInputs["configServerGitSetting"] = args ? args.configServerGitSetting : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["network"] = args ? args.network : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trace"] = args ? args.trace : undefined;
+            resourceInputs["outboundPublicIpAddresses"] = undefined /*out*/;
+            resourceInputs["requiredNetworkTrafficRules"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SpringCloudService.__pulumiType, name, inputs, opts);
+        super(SpringCloudService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

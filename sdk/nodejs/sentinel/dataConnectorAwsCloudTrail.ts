@@ -94,13 +94,13 @@ export class DataConnectorAwsCloudTrail extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataConnectorAwsCloudTrailArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataConnectorAwsCloudTrailArgs | DataConnectorAwsCloudTrailState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorAwsCloudTrailState | undefined;
-            inputs["awsRoleArn"] = state ? state.awsRoleArn : undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["awsRoleArn"] = state ? state.awsRoleArn : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as DataConnectorAwsCloudTrailArgs | undefined;
             if ((!args || args.awsRoleArn === undefined) && !opts.urn) {
@@ -109,14 +109,14 @@ export class DataConnectorAwsCloudTrail extends pulumi.CustomResource {
             if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            inputs["awsRoleArn"] = args ? args.awsRoleArn : undefined;
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["awsRoleArn"] = args ? args.awsRoleArn : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DataConnectorAwsCloudTrail.__pulumiType, name, inputs, opts);
+        super(DataConnectorAwsCloudTrail.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -111,16 +111,16 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
      */
     constructor(name: string, args: CustomHostnameBindingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CustomHostnameBindingArgs | CustomHostnameBindingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomHostnameBindingState | undefined;
-            inputs["appServiceName"] = state ? state.appServiceName : undefined;
-            inputs["hostname"] = state ? state.hostname : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sslState"] = state ? state.sslState : undefined;
-            inputs["thumbprint"] = state ? state.thumbprint : undefined;
-            inputs["virtualIp"] = state ? state.virtualIp : undefined;
+            resourceInputs["appServiceName"] = state ? state.appServiceName : undefined;
+            resourceInputs["hostname"] = state ? state.hostname : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sslState"] = state ? state.sslState : undefined;
+            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["virtualIp"] = state ? state.virtualIp : undefined;
         } else {
             const args = argsOrState as CustomHostnameBindingArgs | undefined;
             if ((!args || args.appServiceName === undefined) && !opts.urn) {
@@ -132,17 +132,17 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["appServiceName"] = args ? args.appServiceName : undefined;
-            inputs["hostname"] = args ? args.hostname : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sslState"] = args ? args.sslState : undefined;
-            inputs["thumbprint"] = args ? args.thumbprint : undefined;
-            inputs["virtualIp"] = undefined /*out*/;
+            resourceInputs["appServiceName"] = args ? args.appServiceName : undefined;
+            resourceInputs["hostname"] = args ? args.hostname : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sslState"] = args ? args.sslState : undefined;
+            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["virtualIp"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CustomHostnameBinding.__pulumiType, name, inputs, opts);
+        super(CustomHostnameBinding.__pulumiType, name, resourceInputs, opts);
     }
 }
 

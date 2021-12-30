@@ -145,21 +145,21 @@ export class TriggerCustomEvent extends pulumi.CustomResource {
      */
     constructor(name: string, args: TriggerCustomEventArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TriggerCustomEventArgs | TriggerCustomEventState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerCustomEventState | undefined;
-            inputs["activated"] = state ? state.activated : undefined;
-            inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["eventgridTopicId"] = state ? state.eventgridTopicId : undefined;
-            inputs["events"] = state ? state.events : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pipelines"] = state ? state.pipelines : undefined;
-            inputs["subjectBeginsWith"] = state ? state.subjectBeginsWith : undefined;
-            inputs["subjectEndsWith"] = state ? state.subjectEndsWith : undefined;
+            resourceInputs["activated"] = state ? state.activated : undefined;
+            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["eventgridTopicId"] = state ? state.eventgridTopicId : undefined;
+            resourceInputs["events"] = state ? state.events : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pipelines"] = state ? state.pipelines : undefined;
+            resourceInputs["subjectBeginsWith"] = state ? state.subjectBeginsWith : undefined;
+            resourceInputs["subjectEndsWith"] = state ? state.subjectEndsWith : undefined;
         } else {
             const args = argsOrState as TriggerCustomEventArgs | undefined;
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
@@ -174,22 +174,22 @@ export class TriggerCustomEvent extends pulumi.CustomResource {
             if ((!args || args.pipelines === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pipelines'");
             }
-            inputs["activated"] = args ? args.activated : undefined;
-            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["eventgridTopicId"] = args ? args.eventgridTopicId : undefined;
-            inputs["events"] = args ? args.events : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pipelines"] = args ? args.pipelines : undefined;
-            inputs["subjectBeginsWith"] = args ? args.subjectBeginsWith : undefined;
-            inputs["subjectEndsWith"] = args ? args.subjectEndsWith : undefined;
+            resourceInputs["activated"] = args ? args.activated : undefined;
+            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventgridTopicId"] = args ? args.eventgridTopicId : undefined;
+            resourceInputs["events"] = args ? args.events : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pipelines"] = args ? args.pipelines : undefined;
+            resourceInputs["subjectBeginsWith"] = args ? args.subjectBeginsWith : undefined;
+            resourceInputs["subjectEndsWith"] = args ? args.subjectEndsWith : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TriggerCustomEvent.__pulumiType, name, inputs, opts);
+        super(TriggerCustomEvent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -199,7 +199,7 @@ type ServerExtendedAuditingPolicyInput interface {
 }
 
 func (*ServerExtendedAuditingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerExtendedAuditingPolicy)(nil))
+	return reflect.TypeOf((**ServerExtendedAuditingPolicy)(nil)).Elem()
 }
 
 func (i *ServerExtendedAuditingPolicy) ToServerExtendedAuditingPolicyOutput() ServerExtendedAuditingPolicyOutput {
@@ -208,35 +208,6 @@ func (i *ServerExtendedAuditingPolicy) ToServerExtendedAuditingPolicyOutput() Se
 
 func (i *ServerExtendedAuditingPolicy) ToServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyOutput)
-}
-
-func (i *ServerExtendedAuditingPolicy) ToServerExtendedAuditingPolicyPtrOutput() ServerExtendedAuditingPolicyPtrOutput {
-	return i.ToServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *ServerExtendedAuditingPolicy) ToServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyPtrOutput)
-}
-
-type ServerExtendedAuditingPolicyPtrInput interface {
-	pulumi.Input
-
-	ToServerExtendedAuditingPolicyPtrOutput() ServerExtendedAuditingPolicyPtrOutput
-	ToServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyPtrOutput
-}
-
-type serverExtendedAuditingPolicyPtrType ServerExtendedAuditingPolicyArgs
-
-func (*serverExtendedAuditingPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerExtendedAuditingPolicy)(nil))
-}
-
-func (i *serverExtendedAuditingPolicyPtrType) ToServerExtendedAuditingPolicyPtrOutput() ServerExtendedAuditingPolicyPtrOutput {
-	return i.ToServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *serverExtendedAuditingPolicyPtrType) ToServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyPtrOutput)
 }
 
 // ServerExtendedAuditingPolicyArrayInput is an input type that accepts ServerExtendedAuditingPolicyArray and ServerExtendedAuditingPolicyArrayOutput values.
@@ -292,7 +263,7 @@ func (i ServerExtendedAuditingPolicyMap) ToServerExtendedAuditingPolicyMapOutput
 type ServerExtendedAuditingPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerExtendedAuditingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerExtendedAuditingPolicy)(nil))
+	return reflect.TypeOf((**ServerExtendedAuditingPolicy)(nil)).Elem()
 }
 
 func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyOutput() ServerExtendedAuditingPolicyOutput {
@@ -303,44 +274,10 @@ func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyOutput
 	return o
 }
 
-func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyPtrOutput() ServerExtendedAuditingPolicyPtrOutput {
-	return o.ToServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerExtendedAuditingPolicy) *ServerExtendedAuditingPolicy {
-		return &v
-	}).(ServerExtendedAuditingPolicyPtrOutput)
-}
-
-type ServerExtendedAuditingPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ServerExtendedAuditingPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerExtendedAuditingPolicy)(nil))
-}
-
-func (o ServerExtendedAuditingPolicyPtrOutput) ToServerExtendedAuditingPolicyPtrOutput() ServerExtendedAuditingPolicyPtrOutput {
-	return o
-}
-
-func (o ServerExtendedAuditingPolicyPtrOutput) ToServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyPtrOutput {
-	return o
-}
-
-func (o ServerExtendedAuditingPolicyPtrOutput) Elem() ServerExtendedAuditingPolicyOutput {
-	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) ServerExtendedAuditingPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ServerExtendedAuditingPolicy
-		return ret
-	}).(ServerExtendedAuditingPolicyOutput)
-}
-
 type ServerExtendedAuditingPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (ServerExtendedAuditingPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerExtendedAuditingPolicy)(nil))
+	return reflect.TypeOf((*[]*ServerExtendedAuditingPolicy)(nil)).Elem()
 }
 
 func (o ServerExtendedAuditingPolicyArrayOutput) ToServerExtendedAuditingPolicyArrayOutput() ServerExtendedAuditingPolicyArrayOutput {
@@ -352,15 +289,15 @@ func (o ServerExtendedAuditingPolicyArrayOutput) ToServerExtendedAuditingPolicyA
 }
 
 func (o ServerExtendedAuditingPolicyArrayOutput) Index(i pulumi.IntInput) ServerExtendedAuditingPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerExtendedAuditingPolicy {
-		return vs[0].([]ServerExtendedAuditingPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerExtendedAuditingPolicy {
+		return vs[0].([]*ServerExtendedAuditingPolicy)[vs[1].(int)]
 	}).(ServerExtendedAuditingPolicyOutput)
 }
 
 type ServerExtendedAuditingPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ServerExtendedAuditingPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServerExtendedAuditingPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ServerExtendedAuditingPolicy)(nil)).Elem()
 }
 
 func (o ServerExtendedAuditingPolicyMapOutput) ToServerExtendedAuditingPolicyMapOutput() ServerExtendedAuditingPolicyMapOutput {
@@ -372,18 +309,16 @@ func (o ServerExtendedAuditingPolicyMapOutput) ToServerExtendedAuditingPolicyMap
 }
 
 func (o ServerExtendedAuditingPolicyMapOutput) MapIndex(k pulumi.StringInput) ServerExtendedAuditingPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServerExtendedAuditingPolicy {
-		return vs[0].(map[string]ServerExtendedAuditingPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServerExtendedAuditingPolicy {
+		return vs[0].(map[string]*ServerExtendedAuditingPolicy)[vs[1].(string)]
 	}).(ServerExtendedAuditingPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerExtendedAuditingPolicyInput)(nil)).Elem(), &ServerExtendedAuditingPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerExtendedAuditingPolicyPtrInput)(nil)).Elem(), &ServerExtendedAuditingPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerExtendedAuditingPolicyArrayInput)(nil)).Elem(), ServerExtendedAuditingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerExtendedAuditingPolicyMapInput)(nil)).Elem(), ServerExtendedAuditingPolicyMap{})
 	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyOutput{})
-	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyMapOutput{})
 }

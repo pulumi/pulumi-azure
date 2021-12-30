@@ -219,7 +219,7 @@ type ProtectedVMInput interface {
 }
 
 func (*ProtectedVM) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedVM)(nil))
+	return reflect.TypeOf((**ProtectedVM)(nil)).Elem()
 }
 
 func (i *ProtectedVM) ToProtectedVMOutput() ProtectedVMOutput {
@@ -228,35 +228,6 @@ func (i *ProtectedVM) ToProtectedVMOutput() ProtectedVMOutput {
 
 func (i *ProtectedVM) ToProtectedVMOutputWithContext(ctx context.Context) ProtectedVMOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMOutput)
-}
-
-func (i *ProtectedVM) ToProtectedVMPtrOutput() ProtectedVMPtrOutput {
-	return i.ToProtectedVMPtrOutputWithContext(context.Background())
-}
-
-func (i *ProtectedVM) ToProtectedVMPtrOutputWithContext(ctx context.Context) ProtectedVMPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMPtrOutput)
-}
-
-type ProtectedVMPtrInput interface {
-	pulumi.Input
-
-	ToProtectedVMPtrOutput() ProtectedVMPtrOutput
-	ToProtectedVMPtrOutputWithContext(ctx context.Context) ProtectedVMPtrOutput
-}
-
-type protectedVMPtrType ProtectedVMArgs
-
-func (*protectedVMPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectedVM)(nil))
-}
-
-func (i *protectedVMPtrType) ToProtectedVMPtrOutput() ProtectedVMPtrOutput {
-	return i.ToProtectedVMPtrOutputWithContext(context.Background())
-}
-
-func (i *protectedVMPtrType) ToProtectedVMPtrOutputWithContext(ctx context.Context) ProtectedVMPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectedVMPtrOutput)
 }
 
 // ProtectedVMArrayInput is an input type that accepts ProtectedVMArray and ProtectedVMArrayOutput values.
@@ -312,7 +283,7 @@ func (i ProtectedVMMap) ToProtectedVMMapOutputWithContext(ctx context.Context) P
 type ProtectedVMOutput struct{ *pulumi.OutputState }
 
 func (ProtectedVMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedVM)(nil))
+	return reflect.TypeOf((**ProtectedVM)(nil)).Elem()
 }
 
 func (o ProtectedVMOutput) ToProtectedVMOutput() ProtectedVMOutput {
@@ -323,44 +294,10 @@ func (o ProtectedVMOutput) ToProtectedVMOutputWithContext(ctx context.Context) P
 	return o
 }
 
-func (o ProtectedVMOutput) ToProtectedVMPtrOutput() ProtectedVMPtrOutput {
-	return o.ToProtectedVMPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectedVMOutput) ToProtectedVMPtrOutputWithContext(ctx context.Context) ProtectedVMPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectedVM) *ProtectedVM {
-		return &v
-	}).(ProtectedVMPtrOutput)
-}
-
-type ProtectedVMPtrOutput struct{ *pulumi.OutputState }
-
-func (ProtectedVMPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectedVM)(nil))
-}
-
-func (o ProtectedVMPtrOutput) ToProtectedVMPtrOutput() ProtectedVMPtrOutput {
-	return o
-}
-
-func (o ProtectedVMPtrOutput) ToProtectedVMPtrOutputWithContext(ctx context.Context) ProtectedVMPtrOutput {
-	return o
-}
-
-func (o ProtectedVMPtrOutput) Elem() ProtectedVMOutput {
-	return o.ApplyT(func(v *ProtectedVM) ProtectedVM {
-		if v != nil {
-			return *v
-		}
-		var ret ProtectedVM
-		return ret
-	}).(ProtectedVMOutput)
-}
-
 type ProtectedVMArrayOutput struct{ *pulumi.OutputState }
 
 func (ProtectedVMArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProtectedVM)(nil))
+	return reflect.TypeOf((*[]*ProtectedVM)(nil)).Elem()
 }
 
 func (o ProtectedVMArrayOutput) ToProtectedVMArrayOutput() ProtectedVMArrayOutput {
@@ -372,15 +309,15 @@ func (o ProtectedVMArrayOutput) ToProtectedVMArrayOutputWithContext(ctx context.
 }
 
 func (o ProtectedVMArrayOutput) Index(i pulumi.IntInput) ProtectedVMOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProtectedVM {
-		return vs[0].([]ProtectedVM)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProtectedVM {
+		return vs[0].([]*ProtectedVM)[vs[1].(int)]
 	}).(ProtectedVMOutput)
 }
 
 type ProtectedVMMapOutput struct{ *pulumi.OutputState }
 
 func (ProtectedVMMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProtectedVM)(nil))
+	return reflect.TypeOf((*map[string]*ProtectedVM)(nil)).Elem()
 }
 
 func (o ProtectedVMMapOutput) ToProtectedVMMapOutput() ProtectedVMMapOutput {
@@ -392,18 +329,16 @@ func (o ProtectedVMMapOutput) ToProtectedVMMapOutputWithContext(ctx context.Cont
 }
 
 func (o ProtectedVMMapOutput) MapIndex(k pulumi.StringInput) ProtectedVMOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProtectedVM {
-		return vs[0].(map[string]ProtectedVM)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProtectedVM {
+		return vs[0].(map[string]*ProtectedVM)[vs[1].(string)]
 	}).(ProtectedVMOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedVMInput)(nil)).Elem(), &ProtectedVM{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedVMPtrInput)(nil)).Elem(), &ProtectedVM{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedVMArrayInput)(nil)).Elem(), ProtectedVMArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectedVMMapInput)(nil)).Elem(), ProtectedVMMap{})
 	pulumi.RegisterOutputType(ProtectedVMOutput{})
-	pulumi.RegisterOutputType(ProtectedVMPtrOutput{})
 	pulumi.RegisterOutputType(ProtectedVMArrayOutput{})
 	pulumi.RegisterOutputType(ProtectedVMMapOutput{})
 }

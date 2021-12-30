@@ -190,7 +190,7 @@ type DataConnectorMicrosoftCloudAppSecurityInput interface {
 }
 
 func (*DataConnectorMicrosoftCloudAppSecurity) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorMicrosoftCloudAppSecurity)(nil))
+	return reflect.TypeOf((**DataConnectorMicrosoftCloudAppSecurity)(nil)).Elem()
 }
 
 func (i *DataConnectorMicrosoftCloudAppSecurity) ToDataConnectorMicrosoftCloudAppSecurityOutput() DataConnectorMicrosoftCloudAppSecurityOutput {
@@ -199,35 +199,6 @@ func (i *DataConnectorMicrosoftCloudAppSecurity) ToDataConnectorMicrosoftCloudAp
 
 func (i *DataConnectorMicrosoftCloudAppSecurity) ToDataConnectorMicrosoftCloudAppSecurityOutputWithContext(ctx context.Context) DataConnectorMicrosoftCloudAppSecurityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftCloudAppSecurityOutput)
-}
-
-func (i *DataConnectorMicrosoftCloudAppSecurity) ToDataConnectorMicrosoftCloudAppSecurityPtrOutput() DataConnectorMicrosoftCloudAppSecurityPtrOutput {
-	return i.ToDataConnectorMicrosoftCloudAppSecurityPtrOutputWithContext(context.Background())
-}
-
-func (i *DataConnectorMicrosoftCloudAppSecurity) ToDataConnectorMicrosoftCloudAppSecurityPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftCloudAppSecurityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftCloudAppSecurityPtrOutput)
-}
-
-type DataConnectorMicrosoftCloudAppSecurityPtrInput interface {
-	pulumi.Input
-
-	ToDataConnectorMicrosoftCloudAppSecurityPtrOutput() DataConnectorMicrosoftCloudAppSecurityPtrOutput
-	ToDataConnectorMicrosoftCloudAppSecurityPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftCloudAppSecurityPtrOutput
-}
-
-type dataConnectorMicrosoftCloudAppSecurityPtrType DataConnectorMicrosoftCloudAppSecurityArgs
-
-func (*dataConnectorMicrosoftCloudAppSecurityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorMicrosoftCloudAppSecurity)(nil))
-}
-
-func (i *dataConnectorMicrosoftCloudAppSecurityPtrType) ToDataConnectorMicrosoftCloudAppSecurityPtrOutput() DataConnectorMicrosoftCloudAppSecurityPtrOutput {
-	return i.ToDataConnectorMicrosoftCloudAppSecurityPtrOutputWithContext(context.Background())
-}
-
-func (i *dataConnectorMicrosoftCloudAppSecurityPtrType) ToDataConnectorMicrosoftCloudAppSecurityPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftCloudAppSecurityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftCloudAppSecurityPtrOutput)
 }
 
 // DataConnectorMicrosoftCloudAppSecurityArrayInput is an input type that accepts DataConnectorMicrosoftCloudAppSecurityArray and DataConnectorMicrosoftCloudAppSecurityArrayOutput values.
@@ -283,7 +254,7 @@ func (i DataConnectorMicrosoftCloudAppSecurityMap) ToDataConnectorMicrosoftCloud
 type DataConnectorMicrosoftCloudAppSecurityOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftCloudAppSecurityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorMicrosoftCloudAppSecurity)(nil))
+	return reflect.TypeOf((**DataConnectorMicrosoftCloudAppSecurity)(nil)).Elem()
 }
 
 func (o DataConnectorMicrosoftCloudAppSecurityOutput) ToDataConnectorMicrosoftCloudAppSecurityOutput() DataConnectorMicrosoftCloudAppSecurityOutput {
@@ -294,44 +265,10 @@ func (o DataConnectorMicrosoftCloudAppSecurityOutput) ToDataConnectorMicrosoftCl
 	return o
 }
 
-func (o DataConnectorMicrosoftCloudAppSecurityOutput) ToDataConnectorMicrosoftCloudAppSecurityPtrOutput() DataConnectorMicrosoftCloudAppSecurityPtrOutput {
-	return o.ToDataConnectorMicrosoftCloudAppSecurityPtrOutputWithContext(context.Background())
-}
-
-func (o DataConnectorMicrosoftCloudAppSecurityOutput) ToDataConnectorMicrosoftCloudAppSecurityPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftCloudAppSecurityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorMicrosoftCloudAppSecurity) *DataConnectorMicrosoftCloudAppSecurity {
-		return &v
-	}).(DataConnectorMicrosoftCloudAppSecurityPtrOutput)
-}
-
-type DataConnectorMicrosoftCloudAppSecurityPtrOutput struct{ *pulumi.OutputState }
-
-func (DataConnectorMicrosoftCloudAppSecurityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorMicrosoftCloudAppSecurity)(nil))
-}
-
-func (o DataConnectorMicrosoftCloudAppSecurityPtrOutput) ToDataConnectorMicrosoftCloudAppSecurityPtrOutput() DataConnectorMicrosoftCloudAppSecurityPtrOutput {
-	return o
-}
-
-func (o DataConnectorMicrosoftCloudAppSecurityPtrOutput) ToDataConnectorMicrosoftCloudAppSecurityPtrOutputWithContext(ctx context.Context) DataConnectorMicrosoftCloudAppSecurityPtrOutput {
-	return o
-}
-
-func (o DataConnectorMicrosoftCloudAppSecurityPtrOutput) Elem() DataConnectorMicrosoftCloudAppSecurityOutput {
-	return o.ApplyT(func(v *DataConnectorMicrosoftCloudAppSecurity) DataConnectorMicrosoftCloudAppSecurity {
-		if v != nil {
-			return *v
-		}
-		var ret DataConnectorMicrosoftCloudAppSecurity
-		return ret
-	}).(DataConnectorMicrosoftCloudAppSecurityOutput)
-}
-
 type DataConnectorMicrosoftCloudAppSecurityArrayOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftCloudAppSecurityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataConnectorMicrosoftCloudAppSecurity)(nil))
+	return reflect.TypeOf((*[]*DataConnectorMicrosoftCloudAppSecurity)(nil)).Elem()
 }
 
 func (o DataConnectorMicrosoftCloudAppSecurityArrayOutput) ToDataConnectorMicrosoftCloudAppSecurityArrayOutput() DataConnectorMicrosoftCloudAppSecurityArrayOutput {
@@ -343,15 +280,15 @@ func (o DataConnectorMicrosoftCloudAppSecurityArrayOutput) ToDataConnectorMicros
 }
 
 func (o DataConnectorMicrosoftCloudAppSecurityArrayOutput) Index(i pulumi.IntInput) DataConnectorMicrosoftCloudAppSecurityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataConnectorMicrosoftCloudAppSecurity {
-		return vs[0].([]DataConnectorMicrosoftCloudAppSecurity)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorMicrosoftCloudAppSecurity {
+		return vs[0].([]*DataConnectorMicrosoftCloudAppSecurity)[vs[1].(int)]
 	}).(DataConnectorMicrosoftCloudAppSecurityOutput)
 }
 
 type DataConnectorMicrosoftCloudAppSecurityMapOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftCloudAppSecurityMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataConnectorMicrosoftCloudAppSecurity)(nil))
+	return reflect.TypeOf((*map[string]*DataConnectorMicrosoftCloudAppSecurity)(nil)).Elem()
 }
 
 func (o DataConnectorMicrosoftCloudAppSecurityMapOutput) ToDataConnectorMicrosoftCloudAppSecurityMapOutput() DataConnectorMicrosoftCloudAppSecurityMapOutput {
@@ -363,18 +300,16 @@ func (o DataConnectorMicrosoftCloudAppSecurityMapOutput) ToDataConnectorMicrosof
 }
 
 func (o DataConnectorMicrosoftCloudAppSecurityMapOutput) MapIndex(k pulumi.StringInput) DataConnectorMicrosoftCloudAppSecurityOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataConnectorMicrosoftCloudAppSecurity {
-		return vs[0].(map[string]DataConnectorMicrosoftCloudAppSecurity)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataConnectorMicrosoftCloudAppSecurity {
+		return vs[0].(map[string]*DataConnectorMicrosoftCloudAppSecurity)[vs[1].(string)]
 	}).(DataConnectorMicrosoftCloudAppSecurityOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftCloudAppSecurityInput)(nil)).Elem(), &DataConnectorMicrosoftCloudAppSecurity{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftCloudAppSecurityPtrInput)(nil)).Elem(), &DataConnectorMicrosoftCloudAppSecurity{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftCloudAppSecurityArrayInput)(nil)).Elem(), DataConnectorMicrosoftCloudAppSecurityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorMicrosoftCloudAppSecurityMapInput)(nil)).Elem(), DataConnectorMicrosoftCloudAppSecurityMap{})
 	pulumi.RegisterOutputType(DataConnectorMicrosoftCloudAppSecurityOutput{})
-	pulumi.RegisterOutputType(DataConnectorMicrosoftCloudAppSecurityPtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorMicrosoftCloudAppSecurityArrayOutput{})
 	pulumi.RegisterOutputType(DataConnectorMicrosoftCloudAppSecurityMapOutput{})
 }

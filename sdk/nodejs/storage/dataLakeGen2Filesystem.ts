@@ -95,28 +95,28 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataLakeGen2FilesystemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataLakeGen2FilesystemArgs | DataLakeGen2FilesystemState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataLakeGen2FilesystemState | undefined;
-            inputs["aces"] = state ? state.aces : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["aces"] = state ? state.aces : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as DataLakeGen2FilesystemArgs | undefined;
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            inputs["aces"] = args ? args.aces : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["aces"] = args ? args.aces : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DataLakeGen2Filesystem.__pulumiType, name, inputs, opts);
+        super(DataLakeGen2Filesystem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

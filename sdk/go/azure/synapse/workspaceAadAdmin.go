@@ -241,7 +241,7 @@ type WorkspaceAadAdminInput interface {
 }
 
 func (*WorkspaceAadAdmin) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceAadAdmin)(nil))
+	return reflect.TypeOf((**WorkspaceAadAdmin)(nil)).Elem()
 }
 
 func (i *WorkspaceAadAdmin) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {
@@ -250,35 +250,6 @@ func (i *WorkspaceAadAdmin) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput 
 
 func (i *WorkspaceAadAdmin) ToWorkspaceAadAdminOutputWithContext(ctx context.Context) WorkspaceAadAdminOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminOutput)
-}
-
-func (i *WorkspaceAadAdmin) ToWorkspaceAadAdminPtrOutput() WorkspaceAadAdminPtrOutput {
-	return i.ToWorkspaceAadAdminPtrOutputWithContext(context.Background())
-}
-
-func (i *WorkspaceAadAdmin) ToWorkspaceAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceAadAdminPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminPtrOutput)
-}
-
-type WorkspaceAadAdminPtrInput interface {
-	pulumi.Input
-
-	ToWorkspaceAadAdminPtrOutput() WorkspaceAadAdminPtrOutput
-	ToWorkspaceAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceAadAdminPtrOutput
-}
-
-type workspaceAadAdminPtrType WorkspaceAadAdminArgs
-
-func (*workspaceAadAdminPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceAadAdmin)(nil))
-}
-
-func (i *workspaceAadAdminPtrType) ToWorkspaceAadAdminPtrOutput() WorkspaceAadAdminPtrOutput {
-	return i.ToWorkspaceAadAdminPtrOutputWithContext(context.Background())
-}
-
-func (i *workspaceAadAdminPtrType) ToWorkspaceAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceAadAdminPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminPtrOutput)
 }
 
 // WorkspaceAadAdminArrayInput is an input type that accepts WorkspaceAadAdminArray and WorkspaceAadAdminArrayOutput values.
@@ -334,7 +305,7 @@ func (i WorkspaceAadAdminMap) ToWorkspaceAadAdminMapOutputWithContext(ctx contex
 type WorkspaceAadAdminOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceAadAdminOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceAadAdmin)(nil))
+	return reflect.TypeOf((**WorkspaceAadAdmin)(nil)).Elem()
 }
 
 func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {
@@ -345,44 +316,10 @@ func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutputWithContext(ctx contex
 	return o
 }
 
-func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminPtrOutput() WorkspaceAadAdminPtrOutput {
-	return o.ToWorkspaceAadAdminPtrOutputWithContext(context.Background())
-}
-
-func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceAadAdminPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceAadAdmin) *WorkspaceAadAdmin {
-		return &v
-	}).(WorkspaceAadAdminPtrOutput)
-}
-
-type WorkspaceAadAdminPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceAadAdminPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceAadAdmin)(nil))
-}
-
-func (o WorkspaceAadAdminPtrOutput) ToWorkspaceAadAdminPtrOutput() WorkspaceAadAdminPtrOutput {
-	return o
-}
-
-func (o WorkspaceAadAdminPtrOutput) ToWorkspaceAadAdminPtrOutputWithContext(ctx context.Context) WorkspaceAadAdminPtrOutput {
-	return o
-}
-
-func (o WorkspaceAadAdminPtrOutput) Elem() WorkspaceAadAdminOutput {
-	return o.ApplyT(func(v *WorkspaceAadAdmin) WorkspaceAadAdmin {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceAadAdmin
-		return ret
-	}).(WorkspaceAadAdminOutput)
-}
-
 type WorkspaceAadAdminArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceAadAdminArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkspaceAadAdmin)(nil))
+	return reflect.TypeOf((*[]*WorkspaceAadAdmin)(nil)).Elem()
 }
 
 func (o WorkspaceAadAdminArrayOutput) ToWorkspaceAadAdminArrayOutput() WorkspaceAadAdminArrayOutput {
@@ -394,15 +331,15 @@ func (o WorkspaceAadAdminArrayOutput) ToWorkspaceAadAdminArrayOutputWithContext(
 }
 
 func (o WorkspaceAadAdminArrayOutput) Index(i pulumi.IntInput) WorkspaceAadAdminOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceAadAdmin {
-		return vs[0].([]WorkspaceAadAdmin)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceAadAdmin {
+		return vs[0].([]*WorkspaceAadAdmin)[vs[1].(int)]
 	}).(WorkspaceAadAdminOutput)
 }
 
 type WorkspaceAadAdminMapOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceAadAdminMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkspaceAadAdmin)(nil))
+	return reflect.TypeOf((*map[string]*WorkspaceAadAdmin)(nil)).Elem()
 }
 
 func (o WorkspaceAadAdminMapOutput) ToWorkspaceAadAdminMapOutput() WorkspaceAadAdminMapOutput {
@@ -414,18 +351,16 @@ func (o WorkspaceAadAdminMapOutput) ToWorkspaceAadAdminMapOutputWithContext(ctx 
 }
 
 func (o WorkspaceAadAdminMapOutput) MapIndex(k pulumi.StringInput) WorkspaceAadAdminOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkspaceAadAdmin {
-		return vs[0].(map[string]WorkspaceAadAdmin)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *WorkspaceAadAdmin {
+		return vs[0].(map[string]*WorkspaceAadAdmin)[vs[1].(string)]
 	}).(WorkspaceAadAdminOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminInput)(nil)).Elem(), &WorkspaceAadAdmin{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminPtrInput)(nil)).Elem(), &WorkspaceAadAdmin{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminArrayInput)(nil)).Elem(), WorkspaceAadAdminArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceAadAdminMapInput)(nil)).Elem(), WorkspaceAadAdminMap{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminOutput{})
-	pulumi.RegisterOutputType(WorkspaceAadAdminPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminMapOutput{})
 }

@@ -146,26 +146,26 @@ export class Rule extends pulumi.CustomResource {
      */
     constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleArgs | RuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleState | undefined;
-            inputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
-            inputs["backendAddressPoolIds"] = state ? state.backendAddressPoolIds : undefined;
-            inputs["backendPort"] = state ? state.backendPort : undefined;
-            inputs["disableOutboundSnat"] = state ? state.disableOutboundSnat : undefined;
-            inputs["enableFloatingIp"] = state ? state.enableFloatingIp : undefined;
-            inputs["enableTcpReset"] = state ? state.enableTcpReset : undefined;
-            inputs["frontendIpConfigurationId"] = state ? state.frontendIpConfigurationId : undefined;
-            inputs["frontendIpConfigurationName"] = state ? state.frontendIpConfigurationName : undefined;
-            inputs["frontendPort"] = state ? state.frontendPort : undefined;
-            inputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
-            inputs["loadDistribution"] = state ? state.loadDistribution : undefined;
-            inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["probeId"] = state ? state.probeId : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
+            resourceInputs["backendAddressPoolIds"] = state ? state.backendAddressPoolIds : undefined;
+            resourceInputs["backendPort"] = state ? state.backendPort : undefined;
+            resourceInputs["disableOutboundSnat"] = state ? state.disableOutboundSnat : undefined;
+            resourceInputs["enableFloatingIp"] = state ? state.enableFloatingIp : undefined;
+            resourceInputs["enableTcpReset"] = state ? state.enableTcpReset : undefined;
+            resourceInputs["frontendIpConfigurationId"] = state ? state.frontendIpConfigurationId : undefined;
+            resourceInputs["frontendIpConfigurationName"] = state ? state.frontendIpConfigurationName : undefined;
+            resourceInputs["frontendPort"] = state ? state.frontendPort : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
+            resourceInputs["loadDistribution"] = state ? state.loadDistribution : undefined;
+            resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["probeId"] = state ? state.probeId : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as RuleArgs | undefined;
             if ((!args || args.backendPort === undefined) && !opts.urn) {
@@ -186,27 +186,27 @@ export class Rule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
-            inputs["backendAddressPoolIds"] = args ? args.backendAddressPoolIds : undefined;
-            inputs["backendPort"] = args ? args.backendPort : undefined;
-            inputs["disableOutboundSnat"] = args ? args.disableOutboundSnat : undefined;
-            inputs["enableFloatingIp"] = args ? args.enableFloatingIp : undefined;
-            inputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
-            inputs["frontendIpConfigurationName"] = args ? args.frontendIpConfigurationName : undefined;
-            inputs["frontendPort"] = args ? args.frontendPort : undefined;
-            inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            inputs["loadDistribution"] = args ? args.loadDistribution : undefined;
-            inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["probeId"] = args ? args.probeId : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["frontendIpConfigurationId"] = undefined /*out*/;
+            resourceInputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
+            resourceInputs["backendAddressPoolIds"] = args ? args.backendAddressPoolIds : undefined;
+            resourceInputs["backendPort"] = args ? args.backendPort : undefined;
+            resourceInputs["disableOutboundSnat"] = args ? args.disableOutboundSnat : undefined;
+            resourceInputs["enableFloatingIp"] = args ? args.enableFloatingIp : undefined;
+            resourceInputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
+            resourceInputs["frontendIpConfigurationName"] = args ? args.frontendIpConfigurationName : undefined;
+            resourceInputs["frontendPort"] = args ? args.frontendPort : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
+            resourceInputs["loadDistribution"] = args ? args.loadDistribution : undefined;
+            resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["probeId"] = args ? args.probeId : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["frontendIpConfigurationId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Rule.__pulumiType, name, inputs, opts);
+        super(Rule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

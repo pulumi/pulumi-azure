@@ -117,14 +117,14 @@ export class Lock extends pulumi.CustomResource {
      */
     constructor(name: string, args: LockArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LockArgs | LockState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LockState | undefined;
-            inputs["lockLevel"] = state ? state.lockLevel : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["lockLevel"] = state ? state.lockLevel : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as LockArgs | undefined;
             if ((!args || args.lockLevel === undefined) && !opts.urn) {
@@ -133,17 +133,17 @@ export class Lock extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["lockLevel"] = args ? args.lockLevel : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["lockLevel"] = args ? args.lockLevel : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:managementresource/manangementLock:ManangementLock" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Lock.__pulumiType, name, inputs, opts);
+        super(Lock.__pulumiType, name, resourceInputs, opts);
     }
 }
 

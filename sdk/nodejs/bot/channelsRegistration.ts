@@ -129,25 +129,25 @@ export class ChannelsRegistration extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelsRegistrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelsRegistrationArgs | ChannelsRegistrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelsRegistrationState | undefined;
-            inputs["cmkKeyVaultUrl"] = state ? state.cmkKeyVaultUrl : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["developerAppInsightsApiKey"] = state ? state.developerAppInsightsApiKey : undefined;
-            inputs["developerAppInsightsApplicationId"] = state ? state.developerAppInsightsApplicationId : undefined;
-            inputs["developerAppInsightsKey"] = state ? state.developerAppInsightsKey : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["iconUrl"] = state ? state.iconUrl : undefined;
-            inputs["isolatedNetworkEnabled"] = state ? state.isolatedNetworkEnabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["microsoftAppId"] = state ? state.microsoftAppId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["cmkKeyVaultUrl"] = state ? state.cmkKeyVaultUrl : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["developerAppInsightsApiKey"] = state ? state.developerAppInsightsApiKey : undefined;
+            resourceInputs["developerAppInsightsApplicationId"] = state ? state.developerAppInsightsApplicationId : undefined;
+            resourceInputs["developerAppInsightsKey"] = state ? state.developerAppInsightsKey : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["iconUrl"] = state ? state.iconUrl : undefined;
+            resourceInputs["isolatedNetworkEnabled"] = state ? state.isolatedNetworkEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["microsoftAppId"] = state ? state.microsoftAppId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ChannelsRegistrationArgs | undefined;
             if ((!args || args.microsoftAppId === undefined) && !opts.urn) {
@@ -159,26 +159,26 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["cmkKeyVaultUrl"] = args ? args.cmkKeyVaultUrl : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["developerAppInsightsApiKey"] = args ? args.developerAppInsightsApiKey : undefined;
-            inputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
-            inputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["endpoint"] = args ? args.endpoint : undefined;
-            inputs["iconUrl"] = args ? args.iconUrl : undefined;
-            inputs["isolatedNetworkEnabled"] = args ? args.isolatedNetworkEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["microsoftAppId"] = args ? args.microsoftAppId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cmkKeyVaultUrl"] = args ? args.cmkKeyVaultUrl : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["developerAppInsightsApiKey"] = args ? args.developerAppInsightsApiKey : undefined;
+            resourceInputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
+            resourceInputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["iconUrl"] = args ? args.iconUrl : undefined;
+            resourceInputs["isolatedNetworkEnabled"] = args ? args.isolatedNetworkEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["microsoftAppId"] = args ? args.microsoftAppId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ChannelsRegistration.__pulumiType, name, inputs, opts);
+        super(ChannelsRegistration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -126,38 +126,38 @@ export class Image extends pulumi.CustomResource {
      */
     constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ImageArgs | ImageState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImageState | undefined;
-            inputs["dataDisks"] = state ? state.dataDisks : undefined;
-            inputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["osDisk"] = state ? state.osDisk : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sourceVirtualMachineId"] = state ? state.sourceVirtualMachineId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["zoneResilient"] = state ? state.zoneResilient : undefined;
+            resourceInputs["dataDisks"] = state ? state.dataDisks : undefined;
+            resourceInputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["osDisk"] = state ? state.osDisk : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sourceVirtualMachineId"] = state ? state.sourceVirtualMachineId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zoneResilient"] = state ? state.zoneResilient : undefined;
         } else {
             const args = argsOrState as ImageArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dataDisks"] = args ? args.dataDisks : undefined;
-            inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["osDisk"] = args ? args.osDisk : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceVirtualMachineId"] = args ? args.sourceVirtualMachineId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zoneResilient"] = args ? args.zoneResilient : undefined;
+            resourceInputs["dataDisks"] = args ? args.dataDisks : undefined;
+            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["osDisk"] = args ? args.osDisk : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceVirtualMachineId"] = args ? args.sourceVirtualMachineId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneResilient"] = args ? args.zoneResilient : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Image.__pulumiType, name, inputs, opts);
+        super(Image.__pulumiType, name, resourceInputs, opts);
     }
 }
 

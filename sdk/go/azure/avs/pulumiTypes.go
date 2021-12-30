@@ -175,47 +175,6 @@ func (i PrivateCloudManagementClusterArgs) ToPrivateCloudManagementClusterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudManagementClusterOutput)
 }
 
-func (i PrivateCloudManagementClusterArgs) ToPrivateCloudManagementClusterPtrOutput() PrivateCloudManagementClusterPtrOutput {
-	return i.ToPrivateCloudManagementClusterPtrOutputWithContext(context.Background())
-}
-
-func (i PrivateCloudManagementClusterArgs) ToPrivateCloudManagementClusterPtrOutputWithContext(ctx context.Context) PrivateCloudManagementClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudManagementClusterOutput).ToPrivateCloudManagementClusterPtrOutputWithContext(ctx)
-}
-
-// PrivateCloudManagementClusterPtrInput is an input type that accepts PrivateCloudManagementClusterArgs, PrivateCloudManagementClusterPtr and PrivateCloudManagementClusterPtrOutput values.
-// You can construct a concrete instance of `PrivateCloudManagementClusterPtrInput` via:
-//
-//          PrivateCloudManagementClusterArgs{...}
-//
-//  or:
-//
-//          nil
-type PrivateCloudManagementClusterPtrInput interface {
-	pulumi.Input
-
-	ToPrivateCloudManagementClusterPtrOutput() PrivateCloudManagementClusterPtrOutput
-	ToPrivateCloudManagementClusterPtrOutputWithContext(context.Context) PrivateCloudManagementClusterPtrOutput
-}
-
-type privateCloudManagementClusterPtrType PrivateCloudManagementClusterArgs
-
-func PrivateCloudManagementClusterPtr(v *PrivateCloudManagementClusterArgs) PrivateCloudManagementClusterPtrInput {
-	return (*privateCloudManagementClusterPtrType)(v)
-}
-
-func (*privateCloudManagementClusterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateCloudManagementCluster)(nil)).Elem()
-}
-
-func (i *privateCloudManagementClusterPtrType) ToPrivateCloudManagementClusterPtrOutput() PrivateCloudManagementClusterPtrOutput {
-	return i.ToPrivateCloudManagementClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *privateCloudManagementClusterPtrType) ToPrivateCloudManagementClusterPtrOutputWithContext(ctx context.Context) PrivateCloudManagementClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudManagementClusterPtrOutput)
-}
-
 type PrivateCloudManagementClusterOutput struct{ *pulumi.OutputState }
 
 func (PrivateCloudManagementClusterOutput) ElementType() reflect.Type {
@@ -228,16 +187,6 @@ func (o PrivateCloudManagementClusterOutput) ToPrivateCloudManagementClusterOutp
 
 func (o PrivateCloudManagementClusterOutput) ToPrivateCloudManagementClusterOutputWithContext(ctx context.Context) PrivateCloudManagementClusterOutput {
 	return o
-}
-
-func (o PrivateCloudManagementClusterOutput) ToPrivateCloudManagementClusterPtrOutput() PrivateCloudManagementClusterPtrOutput {
-	return o.ToPrivateCloudManagementClusterPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateCloudManagementClusterOutput) ToPrivateCloudManagementClusterPtrOutputWithContext(ctx context.Context) PrivateCloudManagementClusterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateCloudManagementCluster) *PrivateCloudManagementCluster {
-		return &v
-	}).(PrivateCloudManagementClusterPtrOutput)
 }
 
 // A list of hosts in the management cluster.
@@ -253,60 +202,6 @@ func (o PrivateCloudManagementClusterOutput) Id() pulumi.IntPtrOutput {
 // The size of the management cluster. This field can not updated with `internetConnectionEnabled` together.
 func (o PrivateCloudManagementClusterOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v PrivateCloudManagementCluster) int { return v.Size }).(pulumi.IntOutput)
-}
-
-type PrivateCloudManagementClusterPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateCloudManagementClusterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateCloudManagementCluster)(nil)).Elem()
-}
-
-func (o PrivateCloudManagementClusterPtrOutput) ToPrivateCloudManagementClusterPtrOutput() PrivateCloudManagementClusterPtrOutput {
-	return o
-}
-
-func (o PrivateCloudManagementClusterPtrOutput) ToPrivateCloudManagementClusterPtrOutputWithContext(ctx context.Context) PrivateCloudManagementClusterPtrOutput {
-	return o
-}
-
-func (o PrivateCloudManagementClusterPtrOutput) Elem() PrivateCloudManagementClusterOutput {
-	return o.ApplyT(func(v *PrivateCloudManagementCluster) PrivateCloudManagementCluster {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateCloudManagementCluster
-		return ret
-	}).(PrivateCloudManagementClusterOutput)
-}
-
-// A list of hosts in the management cluster.
-func (o PrivateCloudManagementClusterPtrOutput) Hosts() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PrivateCloudManagementCluster) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Hosts
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the  management cluster.
-func (o PrivateCloudManagementClusterPtrOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PrivateCloudManagementCluster) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Id
-	}).(pulumi.IntPtrOutput)
-}
-
-// The size of the management cluster. This field can not updated with `internetConnectionEnabled` together.
-func (o PrivateCloudManagementClusterPtrOutput) Size() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PrivateCloudManagementCluster) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Size
-	}).(pulumi.IntPtrOutput)
 }
 
 type GetPrivateCloudCircuit struct {
@@ -552,7 +447,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudCircuitInput)(nil)).Elem(), PrivateCloudCircuitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudCircuitArrayInput)(nil)).Elem(), PrivateCloudCircuitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudManagementClusterInput)(nil)).Elem(), PrivateCloudManagementClusterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateCloudManagementClusterPtrInput)(nil)).Elem(), PrivateCloudManagementClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateCloudCircuitInput)(nil)).Elem(), GetPrivateCloudCircuitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateCloudCircuitArrayInput)(nil)).Elem(), GetPrivateCloudCircuitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateCloudManagementClusterInput)(nil)).Elem(), GetPrivateCloudManagementClusterArgs{})
@@ -560,7 +454,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateCloudCircuitOutput{})
 	pulumi.RegisterOutputType(PrivateCloudCircuitArrayOutput{})
 	pulumi.RegisterOutputType(PrivateCloudManagementClusterOutput{})
-	pulumi.RegisterOutputType(PrivateCloudManagementClusterPtrOutput{})
 	pulumi.RegisterOutputType(GetPrivateCloudCircuitOutput{})
 	pulumi.RegisterOutputType(GetPrivateCloudCircuitArrayOutput{})
 	pulumi.RegisterOutputType(GetPrivateCloudManagementClusterOutput{})

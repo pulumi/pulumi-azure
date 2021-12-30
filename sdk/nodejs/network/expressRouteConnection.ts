@@ -140,17 +140,17 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRouteConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExpressRouteConnectionArgs | ExpressRouteConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRouteConnectionState | undefined;
-            inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
-            inputs["enableInternetSecurity"] = state ? state.enableInternetSecurity : undefined;
-            inputs["expressRouteCircuitPeeringId"] = state ? state.expressRouteCircuitPeeringId : undefined;
-            inputs["expressRouteGatewayId"] = state ? state.expressRouteGatewayId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["routing"] = state ? state.routing : undefined;
-            inputs["routingWeight"] = state ? state.routingWeight : undefined;
+            resourceInputs["authorizationKey"] = state ? state.authorizationKey : undefined;
+            resourceInputs["enableInternetSecurity"] = state ? state.enableInternetSecurity : undefined;
+            resourceInputs["expressRouteCircuitPeeringId"] = state ? state.expressRouteCircuitPeeringId : undefined;
+            resourceInputs["expressRouteGatewayId"] = state ? state.expressRouteGatewayId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["routing"] = state ? state.routing : undefined;
+            resourceInputs["routingWeight"] = state ? state.routingWeight : undefined;
         } else {
             const args = argsOrState as ExpressRouteConnectionArgs | undefined;
             if ((!args || args.expressRouteCircuitPeeringId === undefined) && !opts.urn) {
@@ -159,18 +159,18 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             if ((!args || args.expressRouteGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteGatewayId'");
             }
-            inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            inputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
-            inputs["expressRouteCircuitPeeringId"] = args ? args.expressRouteCircuitPeeringId : undefined;
-            inputs["expressRouteGatewayId"] = args ? args.expressRouteGatewayId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["routing"] = args ? args.routing : undefined;
-            inputs["routingWeight"] = args ? args.routingWeight : undefined;
+            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            resourceInputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
+            resourceInputs["expressRouteCircuitPeeringId"] = args ? args.expressRouteCircuitPeeringId : undefined;
+            resourceInputs["expressRouteGatewayId"] = args ? args.expressRouteGatewayId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["routing"] = args ? args.routing : undefined;
+            resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ExpressRouteConnection.__pulumiType, name, inputs, opts);
+        super(ExpressRouteConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

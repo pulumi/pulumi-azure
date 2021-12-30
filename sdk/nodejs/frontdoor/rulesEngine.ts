@@ -115,16 +115,16 @@ export class RulesEngine extends pulumi.CustomResource {
      */
     constructor(name: string, args: RulesEngineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RulesEngineArgs | RulesEngineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RulesEngineState | undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["frontdoorName"] = state ? state.frontdoorName : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["frontdoorName"] = state ? state.frontdoorName : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as RulesEngineArgs | undefined;
             if ((!args || args.frontdoorName === undefined) && !opts.urn) {
@@ -133,17 +133,17 @@ export class RulesEngine extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["frontdoorName"] = args ? args.frontdoorName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["location"] = undefined /*out*/;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["frontdoorName"] = args ? args.frontdoorName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["location"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RulesEngine.__pulumiType, name, inputs, opts);
+        super(RulesEngine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

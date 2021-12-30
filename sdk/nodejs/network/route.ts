@@ -100,16 +100,16 @@ export class Route extends pulumi.CustomResource {
      */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
-            inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nextHopInIpAddress"] = state ? state.nextHopInIpAddress : undefined;
-            inputs["nextHopType"] = state ? state.nextHopType : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["routeTableName"] = state ? state.routeTableName : undefined;
+            resourceInputs["addressPrefix"] = state ? state.addressPrefix : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nextHopInIpAddress"] = state ? state.nextHopInIpAddress : undefined;
+            resourceInputs["nextHopType"] = state ? state.nextHopType : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["routeTableName"] = state ? state.routeTableName : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
             if ((!args || args.addressPrefix === undefined) && !opts.urn) {
@@ -124,17 +124,17 @@ export class Route extends pulumi.CustomResource {
             if ((!args || args.routeTableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableName'");
             }
-            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nextHopInIpAddress"] = args ? args.nextHopInIpAddress : undefined;
-            inputs["nextHopType"] = args ? args.nextHopType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeTableName"] = args ? args.routeTableName : undefined;
+            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nextHopInIpAddress"] = args ? args.nextHopInIpAddress : undefined;
+            resourceInputs["nextHopType"] = args ? args.nextHopType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routeTableName"] = args ? args.routeTableName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Route.__pulumiType, name, inputs, opts);
+        super(Route.__pulumiType, name, resourceInputs, opts);
     }
 }
 

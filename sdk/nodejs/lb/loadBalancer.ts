@@ -112,38 +112,38 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
-            inputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
-            inputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["skuTier"] = state ? state.skuTier : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
+            resourceInputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["skuTier"] = args ? args.skuTier : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["privateIpAddress"] = undefined /*out*/;
-            inputs["privateIpAddresses"] = undefined /*out*/;
+            resourceInputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["privateIpAddress"] = undefined /*out*/;
+            resourceInputs["privateIpAddresses"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LoadBalancer.__pulumiType, name, inputs, opts);
+        super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -629,47 +629,6 @@ func (i ClusterSkuArgs) ToClusterSkuOutputWithContext(ctx context.Context) Clust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuOutput)
 }
 
-func (i ClusterSkuArgs) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
-	return i.ToClusterSkuPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterSkuArgs) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuOutput).ToClusterSkuPtrOutputWithContext(ctx)
-}
-
-// ClusterSkuPtrInput is an input type that accepts ClusterSkuArgs, ClusterSkuPtr and ClusterSkuPtrOutput values.
-// You can construct a concrete instance of `ClusterSkuPtrInput` via:
-//
-//          ClusterSkuArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterSkuPtrInput interface {
-	pulumi.Input
-
-	ToClusterSkuPtrOutput() ClusterSkuPtrOutput
-	ToClusterSkuPtrOutputWithContext(context.Context) ClusterSkuPtrOutput
-}
-
-type clusterSkuPtrType ClusterSkuArgs
-
-func ClusterSkuPtr(v *ClusterSkuArgs) ClusterSkuPtrInput {
-	return (*clusterSkuPtrType)(v)
-}
-
-func (*clusterSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterSku)(nil)).Elem()
-}
-
-func (i *clusterSkuPtrType) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
-	return i.ToClusterSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterSkuPtrType) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuPtrOutput)
-}
-
 type ClusterSkuOutput struct{ *pulumi.OutputState }
 
 func (ClusterSkuOutput) ElementType() reflect.Type {
@@ -684,16 +643,6 @@ func (o ClusterSkuOutput) ToClusterSkuOutputWithContext(ctx context.Context) Clu
 	return o
 }
 
-func (o ClusterSkuOutput) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
-	return o.ToClusterSkuPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSku) *ClusterSku {
-		return &v
-	}).(ClusterSkuPtrOutput)
-}
-
 // Specifies the node count for the cluster. Boundaries depend on the sku name.
 func (o ClusterSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
@@ -702,50 +651,6 @@ func (o ClusterSkuOutput) Capacity() pulumi.IntPtrOutput {
 // The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E64i_v3`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s`, `Standard_L8s`, `Standard_L16s_v2` and `Standard_L8s_v2`.
 func (o ClusterSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type ClusterSkuPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterSku)(nil)).Elem()
-}
-
-func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
-	return o
-}
-
-func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
-	return o
-}
-
-func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
-	return o.ApplyT(func(v *ClusterSku) ClusterSku {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterSku
-		return ret
-	}).(ClusterSkuOutput)
-}
-
-// Specifies the node count for the cluster. Boundaries depend on the sku name.
-func (o ClusterSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterSku) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E64i_v3`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s`, `Standard_L8s`, `Standard_L16s_v2` and `Standard_L8s_v2`.
-func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterSku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterVirtualNetworkConfiguration struct {
@@ -931,7 +836,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOptimizedAutoScaleInput)(nil)).Elem(), ClusterOptimizedAutoScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOptimizedAutoScalePtrInput)(nil)).Elem(), ClusterOptimizedAutoScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuInput)(nil)).Elem(), ClusterSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuPtrInput)(nil)).Elem(), ClusterSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVirtualNetworkConfigurationInput)(nil)).Elem(), ClusterVirtualNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVirtualNetworkConfigurationPtrInput)(nil)).Elem(), ClusterVirtualNetworkConfigurationArgs{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationSharingOutput{})
@@ -941,7 +845,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOptimizedAutoScaleOutput{})
 	pulumi.RegisterOutputType(ClusterOptimizedAutoScalePtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuOutput{})
-	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVirtualNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterVirtualNetworkConfigurationPtrOutput{})
 }

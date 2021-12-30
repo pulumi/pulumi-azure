@@ -161,26 +161,26 @@ export class MetricAlert extends pulumi.CustomResource {
      */
     constructor(name: string, args: MetricAlertArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MetricAlertArgs | MetricAlertState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MetricAlertState | undefined;
-            inputs["actions"] = state ? state.actions : undefined;
-            inputs["applicationInsightsWebTestLocationAvailabilityCriteria"] = state ? state.applicationInsightsWebTestLocationAvailabilityCriteria : undefined;
-            inputs["autoMitigate"] = state ? state.autoMitigate : undefined;
-            inputs["criterias"] = state ? state.criterias : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dynamicCriteria"] = state ? state.dynamicCriteria : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["frequency"] = state ? state.frequency : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scopes"] = state ? state.scopes : undefined;
-            inputs["severity"] = state ? state.severity : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["targetResourceLocation"] = state ? state.targetResourceLocation : undefined;
-            inputs["targetResourceType"] = state ? state.targetResourceType : undefined;
-            inputs["windowSize"] = state ? state.windowSize : undefined;
+            resourceInputs["actions"] = state ? state.actions : undefined;
+            resourceInputs["applicationInsightsWebTestLocationAvailabilityCriteria"] = state ? state.applicationInsightsWebTestLocationAvailabilityCriteria : undefined;
+            resourceInputs["autoMitigate"] = state ? state.autoMitigate : undefined;
+            resourceInputs["criterias"] = state ? state.criterias : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dynamicCriteria"] = state ? state.dynamicCriteria : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["severity"] = state ? state.severity : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["targetResourceLocation"] = state ? state.targetResourceLocation : undefined;
+            resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
+            resourceInputs["windowSize"] = state ? state.windowSize : undefined;
         } else {
             const args = argsOrState as MetricAlertArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -189,27 +189,27 @@ export class MetricAlert extends pulumi.CustomResource {
             if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["applicationInsightsWebTestLocationAvailabilityCriteria"] = args ? args.applicationInsightsWebTestLocationAvailabilityCriteria : undefined;
-            inputs["autoMitigate"] = args ? args.autoMitigate : undefined;
-            inputs["criterias"] = args ? args.criterias : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dynamicCriteria"] = args ? args.dynamicCriteria : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetResourceLocation"] = args ? args.targetResourceLocation : undefined;
-            inputs["targetResourceType"] = args ? args.targetResourceType : undefined;
-            inputs["windowSize"] = args ? args.windowSize : undefined;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["applicationInsightsWebTestLocationAvailabilityCriteria"] = args ? args.applicationInsightsWebTestLocationAvailabilityCriteria : undefined;
+            resourceInputs["autoMitigate"] = args ? args.autoMitigate : undefined;
+            resourceInputs["criterias"] = args ? args.criterias : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dynamicCriteria"] = args ? args.dynamicCriteria : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetResourceLocation"] = args ? args.targetResourceLocation : undefined;
+            resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
+            resourceInputs["windowSize"] = args ? args.windowSize : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(MetricAlert.__pulumiType, name, inputs, opts);
+        super(MetricAlert.__pulumiType, name, resourceInputs, opts);
     }
 }
 

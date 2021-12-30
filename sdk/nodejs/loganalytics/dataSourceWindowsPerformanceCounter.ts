@@ -103,17 +103,17 @@ export class DataSourceWindowsPerformanceCounter extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataSourceWindowsPerformanceCounterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataSourceWindowsPerformanceCounterArgs | DataSourceWindowsPerformanceCounterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataSourceWindowsPerformanceCounterState | undefined;
-            inputs["counterName"] = state ? state.counterName : undefined;
-            inputs["instanceName"] = state ? state.instanceName : undefined;
-            inputs["intervalSeconds"] = state ? state.intervalSeconds : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["objectName"] = state ? state.objectName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["workspaceName"] = state ? state.workspaceName : undefined;
+            resourceInputs["counterName"] = state ? state.counterName : undefined;
+            resourceInputs["instanceName"] = state ? state.instanceName : undefined;
+            resourceInputs["intervalSeconds"] = state ? state.intervalSeconds : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["objectName"] = state ? state.objectName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["workspaceName"] = state ? state.workspaceName : undefined;
         } else {
             const args = argsOrState as DataSourceWindowsPerformanceCounterArgs | undefined;
             if ((!args || args.counterName === undefined) && !opts.urn) {
@@ -134,18 +134,18 @@ export class DataSourceWindowsPerformanceCounter extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["counterName"] = args ? args.counterName : undefined;
-            inputs["instanceName"] = args ? args.instanceName : undefined;
-            inputs["intervalSeconds"] = args ? args.intervalSeconds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["objectName"] = args ? args.objectName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["counterName"] = args ? args.counterName : undefined;
+            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
+            resourceInputs["intervalSeconds"] = args ? args.intervalSeconds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["objectName"] = args ? args.objectName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DataSourceWindowsPerformanceCounter.__pulumiType, name, inputs, opts);
+        super(DataSourceWindowsPerformanceCounter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

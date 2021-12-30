@@ -954,47 +954,6 @@ func (i ElasticPoolPerDatabaseSettingsArgs) ToElasticPoolPerDatabaseSettingsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsOutput)
 }
 
-func (i ElasticPoolPerDatabaseSettingsArgs) ToElasticPoolPerDatabaseSettingsPtrOutput() ElasticPoolPerDatabaseSettingsPtrOutput {
-	return i.ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i ElasticPoolPerDatabaseSettingsArgs) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsOutput).ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx)
-}
-
-// ElasticPoolPerDatabaseSettingsPtrInput is an input type that accepts ElasticPoolPerDatabaseSettingsArgs, ElasticPoolPerDatabaseSettingsPtr and ElasticPoolPerDatabaseSettingsPtrOutput values.
-// You can construct a concrete instance of `ElasticPoolPerDatabaseSettingsPtrInput` via:
-//
-//          ElasticPoolPerDatabaseSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type ElasticPoolPerDatabaseSettingsPtrInput interface {
-	pulumi.Input
-
-	ToElasticPoolPerDatabaseSettingsPtrOutput() ElasticPoolPerDatabaseSettingsPtrOutput
-	ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(context.Context) ElasticPoolPerDatabaseSettingsPtrOutput
-}
-
-type elasticPoolPerDatabaseSettingsPtrType ElasticPoolPerDatabaseSettingsArgs
-
-func ElasticPoolPerDatabaseSettingsPtr(v *ElasticPoolPerDatabaseSettingsArgs) ElasticPoolPerDatabaseSettingsPtrInput {
-	return (*elasticPoolPerDatabaseSettingsPtrType)(v)
-}
-
-func (*elasticPoolPerDatabaseSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ElasticPoolPerDatabaseSettings)(nil)).Elem()
-}
-
-func (i *elasticPoolPerDatabaseSettingsPtrType) ToElasticPoolPerDatabaseSettingsPtrOutput() ElasticPoolPerDatabaseSettingsPtrOutput {
-	return i.ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *elasticPoolPerDatabaseSettingsPtrType) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsPtrOutput)
-}
-
 type ElasticPoolPerDatabaseSettingsOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolPerDatabaseSettingsOutput) ElementType() reflect.Type {
@@ -1009,16 +968,6 @@ func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsOu
 	return o
 }
 
-func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPtrOutput() ElasticPoolPerDatabaseSettingsPtrOutput {
-	return o.ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPoolPerDatabaseSettings) *ElasticPoolPerDatabaseSettings {
-		return &v
-	}).(ElasticPoolPerDatabaseSettingsPtrOutput)
-}
-
 // The maximum capacity any one database can consume.
 func (o ElasticPoolPerDatabaseSettingsOutput) MaxCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
@@ -1027,50 +976,6 @@ func (o ElasticPoolPerDatabaseSettingsOutput) MaxCapacity() pulumi.Float64Output
 // The minimum capacity all databases are guaranteed.
 func (o ElasticPoolPerDatabaseSettingsOutput) MinCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) float64 { return v.MinCapacity }).(pulumi.Float64Output)
-}
-
-type ElasticPoolPerDatabaseSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (ElasticPoolPerDatabaseSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ElasticPoolPerDatabaseSettings)(nil)).Elem()
-}
-
-func (o ElasticPoolPerDatabaseSettingsPtrOutput) ToElasticPoolPerDatabaseSettingsPtrOutput() ElasticPoolPerDatabaseSettingsPtrOutput {
-	return o
-}
-
-func (o ElasticPoolPerDatabaseSettingsPtrOutput) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
-	return o
-}
-
-func (o ElasticPoolPerDatabaseSettingsPtrOutput) Elem() ElasticPoolPerDatabaseSettingsOutput {
-	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) ElasticPoolPerDatabaseSettings {
-		if v != nil {
-			return *v
-		}
-		var ret ElasticPoolPerDatabaseSettings
-		return ret
-	}).(ElasticPoolPerDatabaseSettingsOutput)
-}
-
-// The maximum capacity any one database can consume.
-func (o ElasticPoolPerDatabaseSettingsPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxCapacity
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The minimum capacity all databases are guaranteed.
-func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.MinCapacity
-	}).(pulumi.Float64PtrOutput)
 }
 
 type ElasticPoolSku struct {
@@ -1118,47 +1023,6 @@ func (i ElasticPoolSkuArgs) ToElasticPoolSkuOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolSkuOutput)
 }
 
-func (i ElasticPoolSkuArgs) ToElasticPoolSkuPtrOutput() ElasticPoolSkuPtrOutput {
-	return i.ToElasticPoolSkuPtrOutputWithContext(context.Background())
-}
-
-func (i ElasticPoolSkuArgs) ToElasticPoolSkuPtrOutputWithContext(ctx context.Context) ElasticPoolSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolSkuOutput).ToElasticPoolSkuPtrOutputWithContext(ctx)
-}
-
-// ElasticPoolSkuPtrInput is an input type that accepts ElasticPoolSkuArgs, ElasticPoolSkuPtr and ElasticPoolSkuPtrOutput values.
-// You can construct a concrete instance of `ElasticPoolSkuPtrInput` via:
-//
-//          ElasticPoolSkuArgs{...}
-//
-//  or:
-//
-//          nil
-type ElasticPoolSkuPtrInput interface {
-	pulumi.Input
-
-	ToElasticPoolSkuPtrOutput() ElasticPoolSkuPtrOutput
-	ToElasticPoolSkuPtrOutputWithContext(context.Context) ElasticPoolSkuPtrOutput
-}
-
-type elasticPoolSkuPtrType ElasticPoolSkuArgs
-
-func ElasticPoolSkuPtr(v *ElasticPoolSkuArgs) ElasticPoolSkuPtrInput {
-	return (*elasticPoolSkuPtrType)(v)
-}
-
-func (*elasticPoolSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ElasticPoolSku)(nil)).Elem()
-}
-
-func (i *elasticPoolSkuPtrType) ToElasticPoolSkuPtrOutput() ElasticPoolSkuPtrOutput {
-	return i.ToElasticPoolSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *elasticPoolSkuPtrType) ToElasticPoolSkuPtrOutputWithContext(ctx context.Context) ElasticPoolSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolSkuPtrOutput)
-}
-
 type ElasticPoolSkuOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolSkuOutput) ElementType() reflect.Type {
@@ -1171,16 +1035,6 @@ func (o ElasticPoolSkuOutput) ToElasticPoolSkuOutput() ElasticPoolSkuOutput {
 
 func (o ElasticPoolSkuOutput) ToElasticPoolSkuOutputWithContext(ctx context.Context) ElasticPoolSkuOutput {
 	return o
-}
-
-func (o ElasticPoolSkuOutput) ToElasticPoolSkuPtrOutput() ElasticPoolSkuPtrOutput {
-	return o.ToElasticPoolSkuPtrOutputWithContext(context.Background())
-}
-
-func (o ElasticPoolSkuOutput) ToElasticPoolSkuPtrOutputWithContext(ctx context.Context) ElasticPoolSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPoolSku) *ElasticPoolSku {
-		return &v
-	}).(ElasticPoolSkuPtrOutput)
 }
 
 // The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
@@ -1201,70 +1055,6 @@ func (o ElasticPoolSkuOutput) Name() pulumi.StringOutput {
 // The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 func (o ElasticPoolSkuOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticPoolSku) string { return v.Tier }).(pulumi.StringOutput)
-}
-
-type ElasticPoolSkuPtrOutput struct{ *pulumi.OutputState }
-
-func (ElasticPoolSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ElasticPoolSku)(nil)).Elem()
-}
-
-func (o ElasticPoolSkuPtrOutput) ToElasticPoolSkuPtrOutput() ElasticPoolSkuPtrOutput {
-	return o
-}
-
-func (o ElasticPoolSkuPtrOutput) ToElasticPoolSkuPtrOutputWithContext(ctx context.Context) ElasticPoolSkuPtrOutput {
-	return o
-}
-
-func (o ElasticPoolSkuPtrOutput) Elem() ElasticPoolSkuOutput {
-	return o.ApplyT(func(v *ElasticPoolSku) ElasticPoolSku {
-		if v != nil {
-			return *v
-		}
-		var ret ElasticPoolSku
-		return ret
-	}).(ElasticPoolSkuOutput)
-}
-
-// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-func (o ElasticPoolSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ElasticPoolSku) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
-func (o ElasticPoolSkuPtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ElasticPoolSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
-func (o ElasticPoolSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ElasticPoolSku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-func (o ElasticPoolSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ElasticPoolSku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Tier
-	}).(pulumi.StringPtrOutput)
 }
 
 type FailoverGroupPartnerServer struct {
@@ -1419,47 +1209,6 @@ func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToFailoverGroupReadWri
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointFailoverPolicyOutput)
 }
 
-func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return i.ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointFailoverPolicyOutput).ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx)
-}
-
-// FailoverGroupReadWriteEndpointFailoverPolicyPtrInput is an input type that accepts FailoverGroupReadWriteEndpointFailoverPolicyArgs, FailoverGroupReadWriteEndpointFailoverPolicyPtr and FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput values.
-// You can construct a concrete instance of `FailoverGroupReadWriteEndpointFailoverPolicyPtrInput` via:
-//
-//          FailoverGroupReadWriteEndpointFailoverPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type FailoverGroupReadWriteEndpointFailoverPolicyPtrInput interface {
-	pulumi.Input
-
-	ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput
-	ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput
-}
-
-type failoverGroupReadWriteEndpointFailoverPolicyPtrType FailoverGroupReadWriteEndpointFailoverPolicyArgs
-
-func FailoverGroupReadWriteEndpointFailoverPolicyPtr(v *FailoverGroupReadWriteEndpointFailoverPolicyArgs) FailoverGroupReadWriteEndpointFailoverPolicyPtrInput {
-	return (*failoverGroupReadWriteEndpointFailoverPolicyPtrType)(v)
-}
-
-func (*failoverGroupReadWriteEndpointFailoverPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
-}
-
-func (i *failoverGroupReadWriteEndpointFailoverPolicyPtrType) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return i.ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *failoverGroupReadWriteEndpointFailoverPolicyPtrType) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
-}
-
 type FailoverGroupReadWriteEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupReadWriteEndpointFailoverPolicyOutput) ElementType() reflect.Type {
@@ -1474,16 +1223,6 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToFailoverGroupReadW
 	return o
 }
 
-func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o.ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReadWriteEndpointFailoverPolicy) *FailoverGroupReadWriteEndpointFailoverPolicy {
-		return &v
-	}).(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
-}
-
 // The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
 func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) GraceMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
@@ -1492,50 +1231,6 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) GraceMinutes() pulum
 // The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
 func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
-}
-
-type FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
-}
-
-func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o
-}
-
-func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o
-}
-
-func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Elem() FailoverGroupReadWriteEndpointFailoverPolicyOutput {
-	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointFailoverPolicy) FailoverGroupReadWriteEndpointFailoverPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret FailoverGroupReadWriteEndpointFailoverPolicy
-		return ret
-	}).(FailoverGroupReadWriteEndpointFailoverPolicyOutput)
-}
-
-// The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
-func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) GraceMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointFailoverPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.GraceMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
-func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointFailoverPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Mode
-	}).(pulumi.StringPtrOutput)
 }
 
 type ServerAzureadAdministrator struct {
@@ -4055,13 +3750,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultInput)(nil)).Elem(), DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayInput)(nil)).Elem(), DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticPoolPerDatabaseSettingsInput)(nil)).Elem(), ElasticPoolPerDatabaseSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ElasticPoolPerDatabaseSettingsPtrInput)(nil)).Elem(), ElasticPoolPerDatabaseSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticPoolSkuInput)(nil)).Elem(), ElasticPoolSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ElasticPoolSkuPtrInput)(nil)).Elem(), ElasticPoolSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupPartnerServerInput)(nil)).Elem(), FailoverGroupPartnerServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupPartnerServerArrayInput)(nil)).Elem(), FailoverGroupPartnerServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAzureadAdministratorInput)(nil)).Elem(), ServerAzureadAdministratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAzureadAdministratorPtrInput)(nil)).Elem(), ServerAzureadAdministratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerExtendedAuditingPolicyTypeInput)(nil)).Elem(), ServerExtendedAuditingPolicyTypeArgs{})
@@ -4101,13 +3793,10 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsOutput{})
-	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ElasticPoolSkuOutput{})
-	pulumi.RegisterOutputType(ElasticPoolSkuPtrOutput{})
 	pulumi.RegisterOutputType(FailoverGroupPartnerServerOutput{})
 	pulumi.RegisterOutputType(FailoverGroupPartnerServerArrayOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyOutput{})
-	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ServerAzureadAdministratorOutput{})
 	pulumi.RegisterOutputType(ServerAzureadAdministratorPtrOutput{})
 	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyTypeOutput{})

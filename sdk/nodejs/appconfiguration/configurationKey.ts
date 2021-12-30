@@ -181,20 +181,20 @@ export class ConfigurationKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConfigurationKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationKeyArgs | ConfigurationKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationKeyState | undefined;
-            inputs["configurationStoreId"] = state ? state.configurationStoreId : undefined;
-            inputs["contentType"] = state ? state.contentType : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["label"] = state ? state.label : undefined;
-            inputs["locked"] = state ? state.locked : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["value"] = state ? state.value : undefined;
-            inputs["vaultKeyReference"] = state ? state.vaultKeyReference : undefined;
+            resourceInputs["configurationStoreId"] = state ? state.configurationStoreId : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["label"] = state ? state.label : undefined;
+            resourceInputs["locked"] = state ? state.locked : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["vaultKeyReference"] = state ? state.vaultKeyReference : undefined;
         } else {
             const args = argsOrState as ConfigurationKeyArgs | undefined;
             if ((!args || args.configurationStoreId === undefined) && !opts.urn) {
@@ -203,21 +203,21 @@ export class ConfigurationKey extends pulumi.CustomResource {
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            inputs["configurationStoreId"] = args ? args.configurationStoreId : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["label"] = args ? args.label : undefined;
-            inputs["locked"] = args ? args.locked : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["vaultKeyReference"] = args ? args.vaultKeyReference : undefined;
+            resourceInputs["configurationStoreId"] = args ? args.configurationStoreId : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["locked"] = args ? args.locked : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["vaultKeyReference"] = args ? args.vaultKeyReference : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ConfigurationKey.__pulumiType, name, inputs, opts);
+        super(ConfigurationKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

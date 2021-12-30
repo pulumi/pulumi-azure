@@ -144,18 +144,18 @@ export class BudgetResourceGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: BudgetResourceGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BudgetResourceGroupArgs | BudgetResourceGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BudgetResourceGroupState | undefined;
-            inputs["amount"] = state ? state.amount : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["filter"] = state ? state.filter : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notifications"] = state ? state.notifications : undefined;
-            inputs["resourceGroupId"] = state ? state.resourceGroupId : undefined;
-            inputs["timeGrain"] = state ? state.timeGrain : undefined;
-            inputs["timePeriod"] = state ? state.timePeriod : undefined;
+            resourceInputs["amount"] = state ? state.amount : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["filter"] = state ? state.filter : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notifications"] = state ? state.notifications : undefined;
+            resourceInputs["resourceGroupId"] = state ? state.resourceGroupId : undefined;
+            resourceInputs["timeGrain"] = state ? state.timeGrain : undefined;
+            resourceInputs["timePeriod"] = state ? state.timePeriod : undefined;
         } else {
             const args = argsOrState as BudgetResourceGroupArgs | undefined;
             if ((!args || args.amount === undefined) && !opts.urn) {
@@ -170,19 +170,19 @@ export class BudgetResourceGroup extends pulumi.CustomResource {
             if ((!args || args.timePeriod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timePeriod'");
             }
-            inputs["amount"] = args ? args.amount : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notifications"] = args ? args.notifications : undefined;
-            inputs["resourceGroupId"] = args ? args.resourceGroupId : undefined;
-            inputs["timeGrain"] = args ? args.timeGrain : undefined;
-            inputs["timePeriod"] = args ? args.timePeriod : undefined;
+            resourceInputs["amount"] = args ? args.amount : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["resourceGroupId"] = args ? args.resourceGroupId : undefined;
+            resourceInputs["timeGrain"] = args ? args.timeGrain : undefined;
+            resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BudgetResourceGroup.__pulumiType, name, inputs, opts);
+        super(BudgetResourceGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

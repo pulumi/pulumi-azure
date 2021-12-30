@@ -110,17 +110,17 @@ export class VirtualHubConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualHubConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualHubConnectionArgs | VirtualHubConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualHubConnectionState | undefined;
-            inputs["hubToVitualNetworkTrafficAllowed"] = state ? state.hubToVitualNetworkTrafficAllowed : undefined;
-            inputs["internetSecurityEnabled"] = state ? state.internetSecurityEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["remoteVirtualNetworkId"] = state ? state.remoteVirtualNetworkId : undefined;
-            inputs["routing"] = state ? state.routing : undefined;
-            inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
-            inputs["vitualNetworkToHubGatewaysTrafficAllowed"] = state ? state.vitualNetworkToHubGatewaysTrafficAllowed : undefined;
+            resourceInputs["hubToVitualNetworkTrafficAllowed"] = state ? state.hubToVitualNetworkTrafficAllowed : undefined;
+            resourceInputs["internetSecurityEnabled"] = state ? state.internetSecurityEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["remoteVirtualNetworkId"] = state ? state.remoteVirtualNetworkId : undefined;
+            resourceInputs["routing"] = state ? state.routing : undefined;
+            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["vitualNetworkToHubGatewaysTrafficAllowed"] = state ? state.vitualNetworkToHubGatewaysTrafficAllowed : undefined;
         } else {
             const args = argsOrState as VirtualHubConnectionArgs | undefined;
             if ((!args || args.remoteVirtualNetworkId === undefined) && !opts.urn) {
@@ -129,18 +129,18 @@ export class VirtualHubConnection extends pulumi.CustomResource {
             if ((!args || args.virtualHubId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            inputs["hubToVitualNetworkTrafficAllowed"] = args ? args.hubToVitualNetworkTrafficAllowed : undefined;
-            inputs["internetSecurityEnabled"] = args ? args.internetSecurityEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["remoteVirtualNetworkId"] = args ? args.remoteVirtualNetworkId : undefined;
-            inputs["routing"] = args ? args.routing : undefined;
-            inputs["virtualHubId"] = args ? args.virtualHubId : undefined;
-            inputs["vitualNetworkToHubGatewaysTrafficAllowed"] = args ? args.vitualNetworkToHubGatewaysTrafficAllowed : undefined;
+            resourceInputs["hubToVitualNetworkTrafficAllowed"] = args ? args.hubToVitualNetworkTrafficAllowed : undefined;
+            resourceInputs["internetSecurityEnabled"] = args ? args.internetSecurityEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["remoteVirtualNetworkId"] = args ? args.remoteVirtualNetworkId : undefined;
+            resourceInputs["routing"] = args ? args.routing : undefined;
+            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["vitualNetworkToHubGatewaysTrafficAllowed"] = args ? args.vitualNetworkToHubGatewaysTrafficAllowed : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VirtualHubConnection.__pulumiType, name, inputs, opts);
+        super(VirtualHubConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

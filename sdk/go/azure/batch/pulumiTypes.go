@@ -2502,47 +2502,6 @@ func (i PoolStorageImageReferenceArgs) ToPoolStorageImageReferenceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStorageImageReferenceOutput)
 }
 
-func (i PoolStorageImageReferenceArgs) ToPoolStorageImageReferencePtrOutput() PoolStorageImageReferencePtrOutput {
-	return i.ToPoolStorageImageReferencePtrOutputWithContext(context.Background())
-}
-
-func (i PoolStorageImageReferenceArgs) ToPoolStorageImageReferencePtrOutputWithContext(ctx context.Context) PoolStorageImageReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PoolStorageImageReferenceOutput).ToPoolStorageImageReferencePtrOutputWithContext(ctx)
-}
-
-// PoolStorageImageReferencePtrInput is an input type that accepts PoolStorageImageReferenceArgs, PoolStorageImageReferencePtr and PoolStorageImageReferencePtrOutput values.
-// You can construct a concrete instance of `PoolStorageImageReferencePtrInput` via:
-//
-//          PoolStorageImageReferenceArgs{...}
-//
-//  or:
-//
-//          nil
-type PoolStorageImageReferencePtrInput interface {
-	pulumi.Input
-
-	ToPoolStorageImageReferencePtrOutput() PoolStorageImageReferencePtrOutput
-	ToPoolStorageImageReferencePtrOutputWithContext(context.Context) PoolStorageImageReferencePtrOutput
-}
-
-type poolStorageImageReferencePtrType PoolStorageImageReferenceArgs
-
-func PoolStorageImageReferencePtr(v *PoolStorageImageReferenceArgs) PoolStorageImageReferencePtrInput {
-	return (*poolStorageImageReferencePtrType)(v)
-}
-
-func (*poolStorageImageReferencePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PoolStorageImageReference)(nil)).Elem()
-}
-
-func (i *poolStorageImageReferencePtrType) ToPoolStorageImageReferencePtrOutput() PoolStorageImageReferencePtrOutput {
-	return i.ToPoolStorageImageReferencePtrOutputWithContext(context.Background())
-}
-
-func (i *poolStorageImageReferencePtrType) ToPoolStorageImageReferencePtrOutputWithContext(ctx context.Context) PoolStorageImageReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PoolStorageImageReferencePtrOutput)
-}
-
 type PoolStorageImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (PoolStorageImageReferenceOutput) ElementType() reflect.Type {
@@ -2555,16 +2514,6 @@ func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferenceOutput() Poo
 
 func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferenceOutputWithContext(ctx context.Context) PoolStorageImageReferenceOutput {
 	return o
-}
-
-func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferencePtrOutput() PoolStorageImageReferencePtrOutput {
-	return o.ToPoolStorageImageReferencePtrOutputWithContext(context.Background())
-}
-
-func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferencePtrOutputWithContext(ctx context.Context) PoolStorageImageReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolStorageImageReference) *PoolStorageImageReference {
-		return &v
-	}).(PoolStorageImageReferencePtrOutput)
 }
 
 // Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
@@ -2591,81 +2540,6 @@ func (o PoolStorageImageReferenceOutput) Sku() pulumi.StringPtrOutput {
 // Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferenceOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type PoolStorageImageReferencePtrOutput struct{ *pulumi.OutputState }
-
-func (PoolStorageImageReferencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PoolStorageImageReference)(nil)).Elem()
-}
-
-func (o PoolStorageImageReferencePtrOutput) ToPoolStorageImageReferencePtrOutput() PoolStorageImageReferencePtrOutput {
-	return o
-}
-
-func (o PoolStorageImageReferencePtrOutput) ToPoolStorageImageReferencePtrOutputWithContext(ctx context.Context) PoolStorageImageReferencePtrOutput {
-	return o
-}
-
-func (o PoolStorageImageReferencePtrOutput) Elem() PoolStorageImageReferenceOutput {
-	return o.ApplyT(func(v *PoolStorageImageReference) PoolStorageImageReference {
-		if v != nil {
-			return *v
-		}
-		var ret PoolStorageImageReference
-		return ret
-	}).(PoolStorageImageReferenceOutput)
-}
-
-// Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
-// ---
-func (o PoolStorageImageReferencePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PoolStorageImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
-func (o PoolStorageImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PoolStorageImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Offer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
-func (o PoolStorageImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PoolStorageImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Publisher
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
-func (o PoolStorageImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PoolStorageImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Sku
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
-func (o PoolStorageImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PoolStorageImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetAccountKeyVaultReference struct {
@@ -4292,7 +4166,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskUserIdentityAutoUserInput)(nil)).Elem(), PoolStartTaskUserIdentityAutoUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskUserIdentityAutoUserPtrInput)(nil)).Elem(), PoolStartTaskUserIdentityAutoUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStorageImageReferenceInput)(nil)).Elem(), PoolStorageImageReferenceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PoolStorageImageReferencePtrInput)(nil)).Elem(), PoolStorageImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountKeyVaultReferenceInput)(nil)).Elem(), GetAccountKeyVaultReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountKeyVaultReferenceArrayInput)(nil)).Elem(), GetAccountKeyVaultReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolAutoScaleInput)(nil)).Elem(), GetPoolAutoScaleArgs{})
@@ -4350,7 +4223,6 @@ func init() {
 	pulumi.RegisterOutputType(PoolStartTaskUserIdentityAutoUserOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskUserIdentityAutoUserPtrOutput{})
 	pulumi.RegisterOutputType(PoolStorageImageReferenceOutput{})
-	pulumi.RegisterOutputType(PoolStorageImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(GetAccountKeyVaultReferenceOutput{})
 	pulumi.RegisterOutputType(GetAccountKeyVaultReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolAutoScaleOutput{})

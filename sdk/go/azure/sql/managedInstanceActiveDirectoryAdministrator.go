@@ -206,7 +206,7 @@ type ManagedInstanceActiveDirectoryAdministratorInput interface {
 }
 
 func (*ManagedInstanceActiveDirectoryAdministrator) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceActiveDirectoryAdministrator)(nil))
+	return reflect.TypeOf((**ManagedInstanceActiveDirectoryAdministrator)(nil)).Elem()
 }
 
 func (i *ManagedInstanceActiveDirectoryAdministrator) ToManagedInstanceActiveDirectoryAdministratorOutput() ManagedInstanceActiveDirectoryAdministratorOutput {
@@ -215,35 +215,6 @@ func (i *ManagedInstanceActiveDirectoryAdministrator) ToManagedInstanceActiveDir
 
 func (i *ManagedInstanceActiveDirectoryAdministrator) ToManagedInstanceActiveDirectoryAdministratorOutputWithContext(ctx context.Context) ManagedInstanceActiveDirectoryAdministratorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceActiveDirectoryAdministratorOutput)
-}
-
-func (i *ManagedInstanceActiveDirectoryAdministrator) ToManagedInstanceActiveDirectoryAdministratorPtrOutput() ManagedInstanceActiveDirectoryAdministratorPtrOutput {
-	return i.ToManagedInstanceActiveDirectoryAdministratorPtrOutputWithContext(context.Background())
-}
-
-func (i *ManagedInstanceActiveDirectoryAdministrator) ToManagedInstanceActiveDirectoryAdministratorPtrOutputWithContext(ctx context.Context) ManagedInstanceActiveDirectoryAdministratorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceActiveDirectoryAdministratorPtrOutput)
-}
-
-type ManagedInstanceActiveDirectoryAdministratorPtrInput interface {
-	pulumi.Input
-
-	ToManagedInstanceActiveDirectoryAdministratorPtrOutput() ManagedInstanceActiveDirectoryAdministratorPtrOutput
-	ToManagedInstanceActiveDirectoryAdministratorPtrOutputWithContext(ctx context.Context) ManagedInstanceActiveDirectoryAdministratorPtrOutput
-}
-
-type managedInstanceActiveDirectoryAdministratorPtrType ManagedInstanceActiveDirectoryAdministratorArgs
-
-func (*managedInstanceActiveDirectoryAdministratorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedInstanceActiveDirectoryAdministrator)(nil))
-}
-
-func (i *managedInstanceActiveDirectoryAdministratorPtrType) ToManagedInstanceActiveDirectoryAdministratorPtrOutput() ManagedInstanceActiveDirectoryAdministratorPtrOutput {
-	return i.ToManagedInstanceActiveDirectoryAdministratorPtrOutputWithContext(context.Background())
-}
-
-func (i *managedInstanceActiveDirectoryAdministratorPtrType) ToManagedInstanceActiveDirectoryAdministratorPtrOutputWithContext(ctx context.Context) ManagedInstanceActiveDirectoryAdministratorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceActiveDirectoryAdministratorPtrOutput)
 }
 
 // ManagedInstanceActiveDirectoryAdministratorArrayInput is an input type that accepts ManagedInstanceActiveDirectoryAdministratorArray and ManagedInstanceActiveDirectoryAdministratorArrayOutput values.
@@ -299,7 +270,7 @@ func (i ManagedInstanceActiveDirectoryAdministratorMap) ToManagedInstanceActiveD
 type ManagedInstanceActiveDirectoryAdministratorOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceActiveDirectoryAdministratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceActiveDirectoryAdministrator)(nil))
+	return reflect.TypeOf((**ManagedInstanceActiveDirectoryAdministrator)(nil)).Elem()
 }
 
 func (o ManagedInstanceActiveDirectoryAdministratorOutput) ToManagedInstanceActiveDirectoryAdministratorOutput() ManagedInstanceActiveDirectoryAdministratorOutput {
@@ -310,44 +281,10 @@ func (o ManagedInstanceActiveDirectoryAdministratorOutput) ToManagedInstanceActi
 	return o
 }
 
-func (o ManagedInstanceActiveDirectoryAdministratorOutput) ToManagedInstanceActiveDirectoryAdministratorPtrOutput() ManagedInstanceActiveDirectoryAdministratorPtrOutput {
-	return o.ToManagedInstanceActiveDirectoryAdministratorPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedInstanceActiveDirectoryAdministratorOutput) ToManagedInstanceActiveDirectoryAdministratorPtrOutputWithContext(ctx context.Context) ManagedInstanceActiveDirectoryAdministratorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceActiveDirectoryAdministrator) *ManagedInstanceActiveDirectoryAdministrator {
-		return &v
-	}).(ManagedInstanceActiveDirectoryAdministratorPtrOutput)
-}
-
-type ManagedInstanceActiveDirectoryAdministratorPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedInstanceActiveDirectoryAdministratorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedInstanceActiveDirectoryAdministrator)(nil))
-}
-
-func (o ManagedInstanceActiveDirectoryAdministratorPtrOutput) ToManagedInstanceActiveDirectoryAdministratorPtrOutput() ManagedInstanceActiveDirectoryAdministratorPtrOutput {
-	return o
-}
-
-func (o ManagedInstanceActiveDirectoryAdministratorPtrOutput) ToManagedInstanceActiveDirectoryAdministratorPtrOutputWithContext(ctx context.Context) ManagedInstanceActiveDirectoryAdministratorPtrOutput {
-	return o
-}
-
-func (o ManagedInstanceActiveDirectoryAdministratorPtrOutput) Elem() ManagedInstanceActiveDirectoryAdministratorOutput {
-	return o.ApplyT(func(v *ManagedInstanceActiveDirectoryAdministrator) ManagedInstanceActiveDirectoryAdministrator {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedInstanceActiveDirectoryAdministrator
-		return ret
-	}).(ManagedInstanceActiveDirectoryAdministratorOutput)
-}
-
 type ManagedInstanceActiveDirectoryAdministratorArrayOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceActiveDirectoryAdministratorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedInstanceActiveDirectoryAdministrator)(nil))
+	return reflect.TypeOf((*[]*ManagedInstanceActiveDirectoryAdministrator)(nil)).Elem()
 }
 
 func (o ManagedInstanceActiveDirectoryAdministratorArrayOutput) ToManagedInstanceActiveDirectoryAdministratorArrayOutput() ManagedInstanceActiveDirectoryAdministratorArrayOutput {
@@ -359,15 +296,15 @@ func (o ManagedInstanceActiveDirectoryAdministratorArrayOutput) ToManagedInstanc
 }
 
 func (o ManagedInstanceActiveDirectoryAdministratorArrayOutput) Index(i pulumi.IntInput) ManagedInstanceActiveDirectoryAdministratorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedInstanceActiveDirectoryAdministrator {
-		return vs[0].([]ManagedInstanceActiveDirectoryAdministrator)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedInstanceActiveDirectoryAdministrator {
+		return vs[0].([]*ManagedInstanceActiveDirectoryAdministrator)[vs[1].(int)]
 	}).(ManagedInstanceActiveDirectoryAdministratorOutput)
 }
 
 type ManagedInstanceActiveDirectoryAdministratorMapOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceActiveDirectoryAdministratorMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedInstanceActiveDirectoryAdministrator)(nil))
+	return reflect.TypeOf((*map[string]*ManagedInstanceActiveDirectoryAdministrator)(nil)).Elem()
 }
 
 func (o ManagedInstanceActiveDirectoryAdministratorMapOutput) ToManagedInstanceActiveDirectoryAdministratorMapOutput() ManagedInstanceActiveDirectoryAdministratorMapOutput {
@@ -379,18 +316,16 @@ func (o ManagedInstanceActiveDirectoryAdministratorMapOutput) ToManagedInstanceA
 }
 
 func (o ManagedInstanceActiveDirectoryAdministratorMapOutput) MapIndex(k pulumi.StringInput) ManagedInstanceActiveDirectoryAdministratorOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedInstanceActiveDirectoryAdministrator {
-		return vs[0].(map[string]ManagedInstanceActiveDirectoryAdministrator)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ManagedInstanceActiveDirectoryAdministrator {
+		return vs[0].(map[string]*ManagedInstanceActiveDirectoryAdministrator)[vs[1].(string)]
 	}).(ManagedInstanceActiveDirectoryAdministratorOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceActiveDirectoryAdministratorInput)(nil)).Elem(), &ManagedInstanceActiveDirectoryAdministrator{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceActiveDirectoryAdministratorPtrInput)(nil)).Elem(), &ManagedInstanceActiveDirectoryAdministrator{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceActiveDirectoryAdministratorArrayInput)(nil)).Elem(), ManagedInstanceActiveDirectoryAdministratorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceActiveDirectoryAdministratorMapInput)(nil)).Elem(), ManagedInstanceActiveDirectoryAdministratorMap{})
 	pulumi.RegisterOutputType(ManagedInstanceActiveDirectoryAdministratorOutput{})
-	pulumi.RegisterOutputType(ManagedInstanceActiveDirectoryAdministratorPtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceActiveDirectoryAdministratorArrayOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceActiveDirectoryAdministratorMapOutput{})
 }

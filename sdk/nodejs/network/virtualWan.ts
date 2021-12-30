@@ -102,38 +102,38 @@ export class VirtualWan extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualWanArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualWanArgs | VirtualWanState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualWanState | undefined;
-            inputs["allowBranchToBranchTraffic"] = state ? state.allowBranchToBranchTraffic : undefined;
-            inputs["allowVnetToVnetTraffic"] = state ? state.allowVnetToVnetTraffic : undefined;
-            inputs["disableVpnEncryption"] = state ? state.disableVpnEncryption : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["office365LocalBreakoutCategory"] = state ? state.office365LocalBreakoutCategory : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["allowBranchToBranchTraffic"] = state ? state.allowBranchToBranchTraffic : undefined;
+            resourceInputs["allowVnetToVnetTraffic"] = state ? state.allowVnetToVnetTraffic : undefined;
+            resourceInputs["disableVpnEncryption"] = state ? state.disableVpnEncryption : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["office365LocalBreakoutCategory"] = state ? state.office365LocalBreakoutCategory : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as VirtualWanArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allowBranchToBranchTraffic"] = args ? args.allowBranchToBranchTraffic : undefined;
-            inputs["allowVnetToVnetTraffic"] = args ? args.allowVnetToVnetTraffic : undefined;
-            inputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["office365LocalBreakoutCategory"] = args ? args.office365LocalBreakoutCategory : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["allowBranchToBranchTraffic"] = args ? args.allowBranchToBranchTraffic : undefined;
+            resourceInputs["allowVnetToVnetTraffic"] = args ? args.allowVnetToVnetTraffic : undefined;
+            resourceInputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["office365LocalBreakoutCategory"] = args ? args.office365LocalBreakoutCategory : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VirtualWan.__pulumiType, name, inputs, opts);
+        super(VirtualWan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

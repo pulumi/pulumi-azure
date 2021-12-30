@@ -1091,47 +1091,6 @@ func (i BudgetManagementGroupTimePeriodArgs) ToBudgetManagementGroupTimePeriodOu
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupTimePeriodOutput)
 }
 
-func (i BudgetManagementGroupTimePeriodArgs) ToBudgetManagementGroupTimePeriodPtrOutput() BudgetManagementGroupTimePeriodPtrOutput {
-	return i.ToBudgetManagementGroupTimePeriodPtrOutputWithContext(context.Background())
-}
-
-func (i BudgetManagementGroupTimePeriodArgs) ToBudgetManagementGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetManagementGroupTimePeriodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupTimePeriodOutput).ToBudgetManagementGroupTimePeriodPtrOutputWithContext(ctx)
-}
-
-// BudgetManagementGroupTimePeriodPtrInput is an input type that accepts BudgetManagementGroupTimePeriodArgs, BudgetManagementGroupTimePeriodPtr and BudgetManagementGroupTimePeriodPtrOutput values.
-// You can construct a concrete instance of `BudgetManagementGroupTimePeriodPtrInput` via:
-//
-//          BudgetManagementGroupTimePeriodArgs{...}
-//
-//  or:
-//
-//          nil
-type BudgetManagementGroupTimePeriodPtrInput interface {
-	pulumi.Input
-
-	ToBudgetManagementGroupTimePeriodPtrOutput() BudgetManagementGroupTimePeriodPtrOutput
-	ToBudgetManagementGroupTimePeriodPtrOutputWithContext(context.Context) BudgetManagementGroupTimePeriodPtrOutput
-}
-
-type budgetManagementGroupTimePeriodPtrType BudgetManagementGroupTimePeriodArgs
-
-func BudgetManagementGroupTimePeriodPtr(v *BudgetManagementGroupTimePeriodArgs) BudgetManagementGroupTimePeriodPtrInput {
-	return (*budgetManagementGroupTimePeriodPtrType)(v)
-}
-
-func (*budgetManagementGroupTimePeriodPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetManagementGroupTimePeriod)(nil)).Elem()
-}
-
-func (i *budgetManagementGroupTimePeriodPtrType) ToBudgetManagementGroupTimePeriodPtrOutput() BudgetManagementGroupTimePeriodPtrOutput {
-	return i.ToBudgetManagementGroupTimePeriodPtrOutputWithContext(context.Background())
-}
-
-func (i *budgetManagementGroupTimePeriodPtrType) ToBudgetManagementGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetManagementGroupTimePeriodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupTimePeriodPtrOutput)
-}
-
 type BudgetManagementGroupTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupTimePeriodOutput) ElementType() reflect.Type {
@@ -1146,16 +1105,6 @@ func (o BudgetManagementGroupTimePeriodOutput) ToBudgetManagementGroupTimePeriod
 	return o
 }
 
-func (o BudgetManagementGroupTimePeriodOutput) ToBudgetManagementGroupTimePeriodPtrOutput() BudgetManagementGroupTimePeriodPtrOutput {
-	return o.ToBudgetManagementGroupTimePeriodPtrOutputWithContext(context.Background())
-}
-
-func (o BudgetManagementGroupTimePeriodOutput) ToBudgetManagementGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetManagementGroupTimePeriodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetManagementGroupTimePeriod) *BudgetManagementGroupTimePeriod {
-		return &v
-	}).(BudgetManagementGroupTimePeriodPtrOutput)
-}
-
 // The end date for the budget. If not set this will be 10 years after the start date.
 func (o BudgetManagementGroupTimePeriodOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetManagementGroupTimePeriod) *string { return v.EndDate }).(pulumi.StringPtrOutput)
@@ -1164,50 +1113,6 @@ func (o BudgetManagementGroupTimePeriodOutput) EndDate() pulumi.StringPtrOutput 
 // The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.
 func (o BudgetManagementGroupTimePeriodOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetManagementGroupTimePeriod) string { return v.StartDate }).(pulumi.StringOutput)
-}
-
-type BudgetManagementGroupTimePeriodPtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetManagementGroupTimePeriodPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetManagementGroupTimePeriod)(nil)).Elem()
-}
-
-func (o BudgetManagementGroupTimePeriodPtrOutput) ToBudgetManagementGroupTimePeriodPtrOutput() BudgetManagementGroupTimePeriodPtrOutput {
-	return o
-}
-
-func (o BudgetManagementGroupTimePeriodPtrOutput) ToBudgetManagementGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetManagementGroupTimePeriodPtrOutput {
-	return o
-}
-
-func (o BudgetManagementGroupTimePeriodPtrOutput) Elem() BudgetManagementGroupTimePeriodOutput {
-	return o.ApplyT(func(v *BudgetManagementGroupTimePeriod) BudgetManagementGroupTimePeriod {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetManagementGroupTimePeriod
-		return ret
-	}).(BudgetManagementGroupTimePeriodOutput)
-}
-
-// The end date for the budget. If not set this will be 10 years after the start date.
-func (o BudgetManagementGroupTimePeriodPtrOutput) EndDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetManagementGroupTimePeriod) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.
-func (o BudgetManagementGroupTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetManagementGroupTimePeriod) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StartDate
-	}).(pulumi.StringPtrOutput)
 }
 
 type BudgetResourceGroupFilter struct {
@@ -2309,47 +2214,6 @@ func (i BudgetResourceGroupTimePeriodArgs) ToBudgetResourceGroupTimePeriodOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupTimePeriodOutput)
 }
 
-func (i BudgetResourceGroupTimePeriodArgs) ToBudgetResourceGroupTimePeriodPtrOutput() BudgetResourceGroupTimePeriodPtrOutput {
-	return i.ToBudgetResourceGroupTimePeriodPtrOutputWithContext(context.Background())
-}
-
-func (i BudgetResourceGroupTimePeriodArgs) ToBudgetResourceGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetResourceGroupTimePeriodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupTimePeriodOutput).ToBudgetResourceGroupTimePeriodPtrOutputWithContext(ctx)
-}
-
-// BudgetResourceGroupTimePeriodPtrInput is an input type that accepts BudgetResourceGroupTimePeriodArgs, BudgetResourceGroupTimePeriodPtr and BudgetResourceGroupTimePeriodPtrOutput values.
-// You can construct a concrete instance of `BudgetResourceGroupTimePeriodPtrInput` via:
-//
-//          BudgetResourceGroupTimePeriodArgs{...}
-//
-//  or:
-//
-//          nil
-type BudgetResourceGroupTimePeriodPtrInput interface {
-	pulumi.Input
-
-	ToBudgetResourceGroupTimePeriodPtrOutput() BudgetResourceGroupTimePeriodPtrOutput
-	ToBudgetResourceGroupTimePeriodPtrOutputWithContext(context.Context) BudgetResourceGroupTimePeriodPtrOutput
-}
-
-type budgetResourceGroupTimePeriodPtrType BudgetResourceGroupTimePeriodArgs
-
-func BudgetResourceGroupTimePeriodPtr(v *BudgetResourceGroupTimePeriodArgs) BudgetResourceGroupTimePeriodPtrInput {
-	return (*budgetResourceGroupTimePeriodPtrType)(v)
-}
-
-func (*budgetResourceGroupTimePeriodPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetResourceGroupTimePeriod)(nil)).Elem()
-}
-
-func (i *budgetResourceGroupTimePeriodPtrType) ToBudgetResourceGroupTimePeriodPtrOutput() BudgetResourceGroupTimePeriodPtrOutput {
-	return i.ToBudgetResourceGroupTimePeriodPtrOutputWithContext(context.Background())
-}
-
-func (i *budgetResourceGroupTimePeriodPtrType) ToBudgetResourceGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetResourceGroupTimePeriodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceGroupTimePeriodPtrOutput)
-}
-
 type BudgetResourceGroupTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceGroupTimePeriodOutput) ElementType() reflect.Type {
@@ -2364,16 +2228,6 @@ func (o BudgetResourceGroupTimePeriodOutput) ToBudgetResourceGroupTimePeriodOutp
 	return o
 }
 
-func (o BudgetResourceGroupTimePeriodOutput) ToBudgetResourceGroupTimePeriodPtrOutput() BudgetResourceGroupTimePeriodPtrOutput {
-	return o.ToBudgetResourceGroupTimePeriodPtrOutputWithContext(context.Background())
-}
-
-func (o BudgetResourceGroupTimePeriodOutput) ToBudgetResourceGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetResourceGroupTimePeriodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetResourceGroupTimePeriod) *BudgetResourceGroupTimePeriod {
-		return &v
-	}).(BudgetResourceGroupTimePeriodPtrOutput)
-}
-
 // The end date for the budget. If not set this will be 10 years after the start date.
 func (o BudgetResourceGroupTimePeriodOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetResourceGroupTimePeriod) *string { return v.EndDate }).(pulumi.StringPtrOutput)
@@ -2382,50 +2236,6 @@ func (o BudgetResourceGroupTimePeriodOutput) EndDate() pulumi.StringPtrOutput {
 // The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Resource Group Consumption Budget to be created.
 func (o BudgetResourceGroupTimePeriodOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetResourceGroupTimePeriod) string { return v.StartDate }).(pulumi.StringOutput)
-}
-
-type BudgetResourceGroupTimePeriodPtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetResourceGroupTimePeriodPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetResourceGroupTimePeriod)(nil)).Elem()
-}
-
-func (o BudgetResourceGroupTimePeriodPtrOutput) ToBudgetResourceGroupTimePeriodPtrOutput() BudgetResourceGroupTimePeriodPtrOutput {
-	return o
-}
-
-func (o BudgetResourceGroupTimePeriodPtrOutput) ToBudgetResourceGroupTimePeriodPtrOutputWithContext(ctx context.Context) BudgetResourceGroupTimePeriodPtrOutput {
-	return o
-}
-
-func (o BudgetResourceGroupTimePeriodPtrOutput) Elem() BudgetResourceGroupTimePeriodOutput {
-	return o.ApplyT(func(v *BudgetResourceGroupTimePeriod) BudgetResourceGroupTimePeriod {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetResourceGroupTimePeriod
-		return ret
-	}).(BudgetResourceGroupTimePeriodOutput)
-}
-
-// The end date for the budget. If not set this will be 10 years after the start date.
-func (o BudgetResourceGroupTimePeriodPtrOutput) EndDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetResourceGroupTimePeriod) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Resource Group Consumption Budget to be created.
-func (o BudgetResourceGroupTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetResourceGroupTimePeriod) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StartDate
-	}).(pulumi.StringPtrOutput)
 }
 
 type BudgetSubscriptionFilter struct {
@@ -3527,47 +3337,6 @@ func (i BudgetSubscriptionTimePeriodArgs) ToBudgetSubscriptionTimePeriodOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionTimePeriodOutput)
 }
 
-func (i BudgetSubscriptionTimePeriodArgs) ToBudgetSubscriptionTimePeriodPtrOutput() BudgetSubscriptionTimePeriodPtrOutput {
-	return i.ToBudgetSubscriptionTimePeriodPtrOutputWithContext(context.Background())
-}
-
-func (i BudgetSubscriptionTimePeriodArgs) ToBudgetSubscriptionTimePeriodPtrOutputWithContext(ctx context.Context) BudgetSubscriptionTimePeriodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionTimePeriodOutput).ToBudgetSubscriptionTimePeriodPtrOutputWithContext(ctx)
-}
-
-// BudgetSubscriptionTimePeriodPtrInput is an input type that accepts BudgetSubscriptionTimePeriodArgs, BudgetSubscriptionTimePeriodPtr and BudgetSubscriptionTimePeriodPtrOutput values.
-// You can construct a concrete instance of `BudgetSubscriptionTimePeriodPtrInput` via:
-//
-//          BudgetSubscriptionTimePeriodArgs{...}
-//
-//  or:
-//
-//          nil
-type BudgetSubscriptionTimePeriodPtrInput interface {
-	pulumi.Input
-
-	ToBudgetSubscriptionTimePeriodPtrOutput() BudgetSubscriptionTimePeriodPtrOutput
-	ToBudgetSubscriptionTimePeriodPtrOutputWithContext(context.Context) BudgetSubscriptionTimePeriodPtrOutput
-}
-
-type budgetSubscriptionTimePeriodPtrType BudgetSubscriptionTimePeriodArgs
-
-func BudgetSubscriptionTimePeriodPtr(v *BudgetSubscriptionTimePeriodArgs) BudgetSubscriptionTimePeriodPtrInput {
-	return (*budgetSubscriptionTimePeriodPtrType)(v)
-}
-
-func (*budgetSubscriptionTimePeriodPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetSubscriptionTimePeriod)(nil)).Elem()
-}
-
-func (i *budgetSubscriptionTimePeriodPtrType) ToBudgetSubscriptionTimePeriodPtrOutput() BudgetSubscriptionTimePeriodPtrOutput {
-	return i.ToBudgetSubscriptionTimePeriodPtrOutputWithContext(context.Background())
-}
-
-func (i *budgetSubscriptionTimePeriodPtrType) ToBudgetSubscriptionTimePeriodPtrOutputWithContext(ctx context.Context) BudgetSubscriptionTimePeriodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionTimePeriodPtrOutput)
-}
-
 type BudgetSubscriptionTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionTimePeriodOutput) ElementType() reflect.Type {
@@ -3582,16 +3351,6 @@ func (o BudgetSubscriptionTimePeriodOutput) ToBudgetSubscriptionTimePeriodOutput
 	return o
 }
 
-func (o BudgetSubscriptionTimePeriodOutput) ToBudgetSubscriptionTimePeriodPtrOutput() BudgetSubscriptionTimePeriodPtrOutput {
-	return o.ToBudgetSubscriptionTimePeriodPtrOutputWithContext(context.Background())
-}
-
-func (o BudgetSubscriptionTimePeriodOutput) ToBudgetSubscriptionTimePeriodPtrOutputWithContext(ctx context.Context) BudgetSubscriptionTimePeriodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetSubscriptionTimePeriod) *BudgetSubscriptionTimePeriod {
-		return &v
-	}).(BudgetSubscriptionTimePeriodPtrOutput)
-}
-
 // The end date for the budget. If not set this will be 10 years after the start date.
 func (o BudgetSubscriptionTimePeriodOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetSubscriptionTimePeriod) *string { return v.EndDate }).(pulumi.StringPtrOutput)
@@ -3600,50 +3359,6 @@ func (o BudgetSubscriptionTimePeriodOutput) EndDate() pulumi.StringPtrOutput {
 // The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Subscription Consumption Budget to be created.
 func (o BudgetSubscriptionTimePeriodOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetSubscriptionTimePeriod) string { return v.StartDate }).(pulumi.StringOutput)
-}
-
-type BudgetSubscriptionTimePeriodPtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetSubscriptionTimePeriodPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetSubscriptionTimePeriod)(nil)).Elem()
-}
-
-func (o BudgetSubscriptionTimePeriodPtrOutput) ToBudgetSubscriptionTimePeriodPtrOutput() BudgetSubscriptionTimePeriodPtrOutput {
-	return o
-}
-
-func (o BudgetSubscriptionTimePeriodPtrOutput) ToBudgetSubscriptionTimePeriodPtrOutputWithContext(ctx context.Context) BudgetSubscriptionTimePeriodPtrOutput {
-	return o
-}
-
-func (o BudgetSubscriptionTimePeriodPtrOutput) Elem() BudgetSubscriptionTimePeriodOutput {
-	return o.ApplyT(func(v *BudgetSubscriptionTimePeriod) BudgetSubscriptionTimePeriod {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetSubscriptionTimePeriod
-		return ret
-	}).(BudgetSubscriptionTimePeriodOutput)
-}
-
-// The end date for the budget. If not set this will be 10 years after the start date.
-func (o BudgetSubscriptionTimePeriodPtrOutput) EndDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetSubscriptionTimePeriod) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Subscription Consumption Budget to be created.
-func (o BudgetSubscriptionTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetSubscriptionTimePeriod) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StartDate
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetBudgetResourceGroupFilter struct {
@@ -5534,7 +5249,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupNotificationInput)(nil)).Elem(), BudgetManagementGroupNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupNotificationArrayInput)(nil)).Elem(), BudgetManagementGroupNotificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupTimePeriodInput)(nil)).Elem(), BudgetManagementGroupTimePeriodArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BudgetManagementGroupTimePeriodPtrInput)(nil)).Elem(), BudgetManagementGroupTimePeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupFilterInput)(nil)).Elem(), BudgetResourceGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupFilterPtrInput)(nil)).Elem(), BudgetResourceGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupFilterDimensionInput)(nil)).Elem(), BudgetResourceGroupFilterDimensionArgs{})
@@ -5550,7 +5264,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupNotificationInput)(nil)).Elem(), BudgetResourceGroupNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupNotificationArrayInput)(nil)).Elem(), BudgetResourceGroupNotificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupTimePeriodInput)(nil)).Elem(), BudgetResourceGroupTimePeriodArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceGroupTimePeriodPtrInput)(nil)).Elem(), BudgetResourceGroupTimePeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionFilterInput)(nil)).Elem(), BudgetSubscriptionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionFilterPtrInput)(nil)).Elem(), BudgetSubscriptionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionFilterDimensionInput)(nil)).Elem(), BudgetSubscriptionFilterDimensionArgs{})
@@ -5566,7 +5279,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionNotificationInput)(nil)).Elem(), BudgetSubscriptionNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionNotificationArrayInput)(nil)).Elem(), BudgetSubscriptionNotificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionTimePeriodInput)(nil)).Elem(), BudgetSubscriptionTimePeriodArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BudgetSubscriptionTimePeriodPtrInput)(nil)).Elem(), BudgetSubscriptionTimePeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterInput)(nil)).Elem(), GetBudgetResourceGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterArrayInput)(nil)).Elem(), GetBudgetResourceGroupFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBudgetResourceGroupFilterDimensionInput)(nil)).Elem(), GetBudgetResourceGroupFilterDimensionArgs{})
@@ -5614,7 +5326,6 @@ func init() {
 	pulumi.RegisterOutputType(BudgetManagementGroupNotificationOutput{})
 	pulumi.RegisterOutputType(BudgetManagementGroupNotificationArrayOutput{})
 	pulumi.RegisterOutputType(BudgetManagementGroupTimePeriodOutput{})
-	pulumi.RegisterOutputType(BudgetManagementGroupTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupFilterOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupFilterPtrOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupFilterDimensionOutput{})
@@ -5630,7 +5341,6 @@ func init() {
 	pulumi.RegisterOutputType(BudgetResourceGroupNotificationOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupNotificationArrayOutput{})
 	pulumi.RegisterOutputType(BudgetResourceGroupTimePeriodOutput{})
-	pulumi.RegisterOutputType(BudgetResourceGroupTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(BudgetSubscriptionFilterOutput{})
 	pulumi.RegisterOutputType(BudgetSubscriptionFilterPtrOutput{})
 	pulumi.RegisterOutputType(BudgetSubscriptionFilterDimensionOutput{})
@@ -5646,7 +5356,6 @@ func init() {
 	pulumi.RegisterOutputType(BudgetSubscriptionNotificationOutput{})
 	pulumi.RegisterOutputType(BudgetSubscriptionNotificationArrayOutput{})
 	pulumi.RegisterOutputType(BudgetSubscriptionTimePeriodOutput{})
-	pulumi.RegisterOutputType(BudgetSubscriptionTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterOutput{})
 	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetBudgetResourceGroupFilterDimensionOutput{})

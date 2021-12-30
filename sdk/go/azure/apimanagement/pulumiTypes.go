@@ -8795,47 +8795,6 @@ func (i GatewayLocationDataArgs) ToGatewayLocationDataOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayLocationDataOutput)
 }
 
-func (i GatewayLocationDataArgs) ToGatewayLocationDataPtrOutput() GatewayLocationDataPtrOutput {
-	return i.ToGatewayLocationDataPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayLocationDataArgs) ToGatewayLocationDataPtrOutputWithContext(ctx context.Context) GatewayLocationDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayLocationDataOutput).ToGatewayLocationDataPtrOutputWithContext(ctx)
-}
-
-// GatewayLocationDataPtrInput is an input type that accepts GatewayLocationDataArgs, GatewayLocationDataPtr and GatewayLocationDataPtrOutput values.
-// You can construct a concrete instance of `GatewayLocationDataPtrInput` via:
-//
-//          GatewayLocationDataArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayLocationDataPtrInput interface {
-	pulumi.Input
-
-	ToGatewayLocationDataPtrOutput() GatewayLocationDataPtrOutput
-	ToGatewayLocationDataPtrOutputWithContext(context.Context) GatewayLocationDataPtrOutput
-}
-
-type gatewayLocationDataPtrType GatewayLocationDataArgs
-
-func GatewayLocationDataPtr(v *GatewayLocationDataArgs) GatewayLocationDataPtrInput {
-	return (*gatewayLocationDataPtrType)(v)
-}
-
-func (*gatewayLocationDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayLocationData)(nil)).Elem()
-}
-
-func (i *gatewayLocationDataPtrType) ToGatewayLocationDataPtrOutput() GatewayLocationDataPtrOutput {
-	return i.ToGatewayLocationDataPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayLocationDataPtrType) ToGatewayLocationDataPtrOutputWithContext(ctx context.Context) GatewayLocationDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayLocationDataPtrOutput)
-}
-
 type GatewayLocationDataOutput struct{ *pulumi.OutputState }
 
 func (GatewayLocationDataOutput) ElementType() reflect.Type {
@@ -8848,16 +8807,6 @@ func (o GatewayLocationDataOutput) ToGatewayLocationDataOutput() GatewayLocation
 
 func (o GatewayLocationDataOutput) ToGatewayLocationDataOutputWithContext(ctx context.Context) GatewayLocationDataOutput {
 	return o
-}
-
-func (o GatewayLocationDataOutput) ToGatewayLocationDataPtrOutput() GatewayLocationDataPtrOutput {
-	return o.ToGatewayLocationDataPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayLocationDataOutput) ToGatewayLocationDataPtrOutputWithContext(ctx context.Context) GatewayLocationDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayLocationData) *GatewayLocationData {
-		return &v
-	}).(GatewayLocationDataPtrOutput)
 }
 
 // The city or locality where the resource is located.
@@ -8878,70 +8827,6 @@ func (o GatewayLocationDataOutput) Name() pulumi.StringOutput {
 // The country or region where the resource is located.
 func (o GatewayLocationDataOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayLocationData) *string { return v.Region }).(pulumi.StringPtrOutput)
-}
-
-type GatewayLocationDataPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayLocationDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayLocationData)(nil)).Elem()
-}
-
-func (o GatewayLocationDataPtrOutput) ToGatewayLocationDataPtrOutput() GatewayLocationDataPtrOutput {
-	return o
-}
-
-func (o GatewayLocationDataPtrOutput) ToGatewayLocationDataPtrOutputWithContext(ctx context.Context) GatewayLocationDataPtrOutput {
-	return o
-}
-
-func (o GatewayLocationDataPtrOutput) Elem() GatewayLocationDataOutput {
-	return o.ApplyT(func(v *GatewayLocationData) GatewayLocationData {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayLocationData
-		return ret
-	}).(GatewayLocationDataOutput)
-}
-
-// The city or locality where the resource is located.
-func (o GatewayLocationDataPtrOutput) City() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayLocationData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.City
-	}).(pulumi.StringPtrOutput)
-}
-
-// The district, state, or province where the resource is located.
-func (o GatewayLocationDataPtrOutput) District() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayLocationData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.District
-	}).(pulumi.StringPtrOutput)
-}
-
-// A canonical name for the geographic or physical location.
-func (o GatewayLocationDataPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayLocationData) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The country or region where the resource is located.
-func (o GatewayLocationDataPtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GatewayLocationData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Region
-	}).(pulumi.StringPtrOutput)
 }
 
 type LoggerApplicationInsights struct {
@@ -13923,7 +13808,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticFrontendResponseDataMaskingQueryParamInput)(nil)).Elem(), DiagnosticFrontendResponseDataMaskingQueryParamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticFrontendResponseDataMaskingQueryParamArrayInput)(nil)).Elem(), DiagnosticFrontendResponseDataMaskingQueryParamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayLocationDataInput)(nil)).Elem(), GatewayLocationDataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayLocationDataPtrInput)(nil)).Elem(), GatewayLocationDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggerApplicationInsightsInput)(nil)).Elem(), LoggerApplicationInsightsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggerApplicationInsightsPtrInput)(nil)).Elem(), LoggerApplicationInsightsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggerEventhubInput)(nil)).Elem(), LoggerEventhubArgs{})
@@ -14109,7 +13993,6 @@ func init() {
 	pulumi.RegisterOutputType(DiagnosticFrontendResponseDataMaskingQueryParamOutput{})
 	pulumi.RegisterOutputType(DiagnosticFrontendResponseDataMaskingQueryParamArrayOutput{})
 	pulumi.RegisterOutputType(GatewayLocationDataOutput{})
-	pulumi.RegisterOutputType(GatewayLocationDataPtrOutput{})
 	pulumi.RegisterOutputType(LoggerApplicationInsightsOutput{})
 	pulumi.RegisterOutputType(LoggerApplicationInsightsPtrOutput{})
 	pulumi.RegisterOutputType(LoggerEventhubOutput{})

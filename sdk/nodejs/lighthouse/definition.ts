@@ -103,17 +103,17 @@ export class Definition extends pulumi.CustomResource {
      */
     constructor(name: string, args: DefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DefinitionArgs | DefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefinitionState | undefined;
-            inputs["authorizations"] = state ? state.authorizations : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["lighthouseDefinitionId"] = state ? state.lighthouseDefinitionId : undefined;
-            inputs["managingTenantId"] = state ? state.managingTenantId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["plan"] = state ? state.plan : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["authorizations"] = state ? state.authorizations : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["lighthouseDefinitionId"] = state ? state.lighthouseDefinitionId : undefined;
+            resourceInputs["managingTenantId"] = state ? state.managingTenantId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["plan"] = state ? state.plan : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
             if ((!args || args.authorizations === undefined) && !opts.urn) {
@@ -125,18 +125,18 @@ export class Definition extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["authorizations"] = args ? args.authorizations : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["lighthouseDefinitionId"] = args ? args.lighthouseDefinitionId : undefined;
-            inputs["managingTenantId"] = args ? args.managingTenantId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["lighthouseDefinitionId"] = args ? args.lighthouseDefinitionId : undefined;
+            resourceInputs["managingTenantId"] = args ? args.managingTenantId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Definition.__pulumiType, name, inputs, opts);
+        super(Definition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

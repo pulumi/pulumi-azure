@@ -235,7 +235,7 @@ type SubscriptionCostManagementExportInput interface {
 }
 
 func (*SubscriptionCostManagementExport) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionCostManagementExport)(nil))
+	return reflect.TypeOf((**SubscriptionCostManagementExport)(nil)).Elem()
 }
 
 func (i *SubscriptionCostManagementExport) ToSubscriptionCostManagementExportOutput() SubscriptionCostManagementExportOutput {
@@ -244,35 +244,6 @@ func (i *SubscriptionCostManagementExport) ToSubscriptionCostManagementExportOut
 
 func (i *SubscriptionCostManagementExport) ToSubscriptionCostManagementExportOutputWithContext(ctx context.Context) SubscriptionCostManagementExportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportOutput)
-}
-
-func (i *SubscriptionCostManagementExport) ToSubscriptionCostManagementExportPtrOutput() SubscriptionCostManagementExportPtrOutput {
-	return i.ToSubscriptionCostManagementExportPtrOutputWithContext(context.Background())
-}
-
-func (i *SubscriptionCostManagementExport) ToSubscriptionCostManagementExportPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportPtrOutput)
-}
-
-type SubscriptionCostManagementExportPtrInput interface {
-	pulumi.Input
-
-	ToSubscriptionCostManagementExportPtrOutput() SubscriptionCostManagementExportPtrOutput
-	ToSubscriptionCostManagementExportPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportPtrOutput
-}
-
-type subscriptionCostManagementExportPtrType SubscriptionCostManagementExportArgs
-
-func (*subscriptionCostManagementExportPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionCostManagementExport)(nil))
-}
-
-func (i *subscriptionCostManagementExportPtrType) ToSubscriptionCostManagementExportPtrOutput() SubscriptionCostManagementExportPtrOutput {
-	return i.ToSubscriptionCostManagementExportPtrOutputWithContext(context.Background())
-}
-
-func (i *subscriptionCostManagementExportPtrType) ToSubscriptionCostManagementExportPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportPtrOutput)
 }
 
 // SubscriptionCostManagementExportArrayInput is an input type that accepts SubscriptionCostManagementExportArray and SubscriptionCostManagementExportArrayOutput values.
@@ -328,7 +299,7 @@ func (i SubscriptionCostManagementExportMap) ToSubscriptionCostManagementExportM
 type SubscriptionCostManagementExportOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementExportOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionCostManagementExport)(nil))
+	return reflect.TypeOf((**SubscriptionCostManagementExport)(nil)).Elem()
 }
 
 func (o SubscriptionCostManagementExportOutput) ToSubscriptionCostManagementExportOutput() SubscriptionCostManagementExportOutput {
@@ -339,44 +310,10 @@ func (o SubscriptionCostManagementExportOutput) ToSubscriptionCostManagementExpo
 	return o
 }
 
-func (o SubscriptionCostManagementExportOutput) ToSubscriptionCostManagementExportPtrOutput() SubscriptionCostManagementExportPtrOutput {
-	return o.ToSubscriptionCostManagementExportPtrOutputWithContext(context.Background())
-}
-
-func (o SubscriptionCostManagementExportOutput) ToSubscriptionCostManagementExportPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionCostManagementExport) *SubscriptionCostManagementExport {
-		return &v
-	}).(SubscriptionCostManagementExportPtrOutput)
-}
-
-type SubscriptionCostManagementExportPtrOutput struct{ *pulumi.OutputState }
-
-func (SubscriptionCostManagementExportPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionCostManagementExport)(nil))
-}
-
-func (o SubscriptionCostManagementExportPtrOutput) ToSubscriptionCostManagementExportPtrOutput() SubscriptionCostManagementExportPtrOutput {
-	return o
-}
-
-func (o SubscriptionCostManagementExportPtrOutput) ToSubscriptionCostManagementExportPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementExportPtrOutput {
-	return o
-}
-
-func (o SubscriptionCostManagementExportPtrOutput) Elem() SubscriptionCostManagementExportOutput {
-	return o.ApplyT(func(v *SubscriptionCostManagementExport) SubscriptionCostManagementExport {
-		if v != nil {
-			return *v
-		}
-		var ret SubscriptionCostManagementExport
-		return ret
-	}).(SubscriptionCostManagementExportOutput)
-}
-
 type SubscriptionCostManagementExportArrayOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementExportArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SubscriptionCostManagementExport)(nil))
+	return reflect.TypeOf((*[]*SubscriptionCostManagementExport)(nil)).Elem()
 }
 
 func (o SubscriptionCostManagementExportArrayOutput) ToSubscriptionCostManagementExportArrayOutput() SubscriptionCostManagementExportArrayOutput {
@@ -388,15 +325,15 @@ func (o SubscriptionCostManagementExportArrayOutput) ToSubscriptionCostManagemen
 }
 
 func (o SubscriptionCostManagementExportArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementExportOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionCostManagementExport {
-		return vs[0].([]SubscriptionCostManagementExport)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubscriptionCostManagementExport {
+		return vs[0].([]*SubscriptionCostManagementExport)[vs[1].(int)]
 	}).(SubscriptionCostManagementExportOutput)
 }
 
 type SubscriptionCostManagementExportMapOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementExportMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SubscriptionCostManagementExport)(nil))
+	return reflect.TypeOf((*map[string]*SubscriptionCostManagementExport)(nil)).Elem()
 }
 
 func (o SubscriptionCostManagementExportMapOutput) ToSubscriptionCostManagementExportMapOutput() SubscriptionCostManagementExportMapOutput {
@@ -408,18 +345,16 @@ func (o SubscriptionCostManagementExportMapOutput) ToSubscriptionCostManagementE
 }
 
 func (o SubscriptionCostManagementExportMapOutput) MapIndex(k pulumi.StringInput) SubscriptionCostManagementExportOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SubscriptionCostManagementExport {
-		return vs[0].(map[string]SubscriptionCostManagementExport)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SubscriptionCostManagementExport {
+		return vs[0].(map[string]*SubscriptionCostManagementExport)[vs[1].(string)]
 	}).(SubscriptionCostManagementExportOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportInput)(nil)).Elem(), &SubscriptionCostManagementExport{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportPtrInput)(nil)).Elem(), &SubscriptionCostManagementExport{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportArrayInput)(nil)).Elem(), SubscriptionCostManagementExportArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportMapInput)(nil)).Elem(), SubscriptionCostManagementExportMap{})
 	pulumi.RegisterOutputType(SubscriptionCostManagementExportOutput{})
-	pulumi.RegisterOutputType(SubscriptionCostManagementExportPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionCostManagementExportArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionCostManagementExportMapOutput{})
 }

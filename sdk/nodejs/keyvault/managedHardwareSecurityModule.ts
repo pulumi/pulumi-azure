@@ -115,20 +115,20 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedHardwareSecurityModuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedHardwareSecurityModuleArgs | ManagedHardwareSecurityModuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedHardwareSecurityModuleState | undefined;
-            inputs["adminObjectIds"] = state ? state.adminObjectIds : undefined;
-            inputs["hsmUri"] = state ? state.hsmUri : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["softDeleteRetentionDays"] = state ? state.softDeleteRetentionDays : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["adminObjectIds"] = state ? state.adminObjectIds : undefined;
+            resourceInputs["hsmUri"] = state ? state.hsmUri : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["softDeleteRetentionDays"] = state ? state.softDeleteRetentionDays : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as ManagedHardwareSecurityModuleArgs | undefined;
             if ((!args || args.adminObjectIds === undefined) && !opts.urn) {
@@ -143,21 +143,21 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
             if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            inputs["adminObjectIds"] = args ? args.adminObjectIds : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["softDeleteRetentionDays"] = args ? args.softDeleteRetentionDays : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["hsmUri"] = undefined /*out*/;
+            resourceInputs["adminObjectIds"] = args ? args.adminObjectIds : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["softDeleteRetentionDays"] = args ? args.softDeleteRetentionDays : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["hsmUri"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ManagedHardwareSecurityModule.__pulumiType, name, inputs, opts);
+        super(ManagedHardwareSecurityModule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

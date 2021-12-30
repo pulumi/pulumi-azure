@@ -103,34 +103,34 @@ export class Container extends pulumi.CustomResource {
      */
     constructor(name: string, args: ContainerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ContainerArgs | ContainerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContainerState | undefined;
-            inputs["containerAccessType"] = state ? state.containerAccessType : undefined;
-            inputs["hasImmutabilityPolicy"] = state ? state.hasImmutabilityPolicy : undefined;
-            inputs["hasLegalHold"] = state ? state.hasLegalHold : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
-            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["containerAccessType"] = state ? state.containerAccessType : undefined;
+            resourceInputs["hasImmutabilityPolicy"] = state ? state.hasImmutabilityPolicy : undefined;
+            resourceInputs["hasLegalHold"] = state ? state.hasLegalHold : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
+            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as ContainerArgs | undefined;
             if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            inputs["containerAccessType"] = args ? args.containerAccessType : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["hasImmutabilityPolicy"] = undefined /*out*/;
-            inputs["hasLegalHold"] = undefined /*out*/;
-            inputs["resourceManagerId"] = undefined /*out*/;
+            resourceInputs["containerAccessType"] = args ? args.containerAccessType : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["hasImmutabilityPolicy"] = undefined /*out*/;
+            resourceInputs["hasLegalHold"] = undefined /*out*/;
+            resourceInputs["resourceManagerId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Container.__pulumiType, name, inputs, opts);
+        super(Container.__pulumiType, name, resourceInputs, opts);
     }
 }
 

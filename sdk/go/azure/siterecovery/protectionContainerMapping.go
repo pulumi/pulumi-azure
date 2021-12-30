@@ -88,7 +88,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = siterecovery.NewProtectionContainerMapping(ctx, "container_mapping", &siterecovery.ProtectionContainerMappingArgs{
+// 		_, err = siterecovery.NewProtectionContainerMapping(ctx, "container-mapping", &siterecovery.ProtectionContainerMappingArgs{
 // 			ResourceGroupName:                     secondaryResourceGroup.Name,
 // 			RecoveryVaultName:                     vault.Name,
 // 			RecoveryFabricName:                    primaryFabric.Name,
@@ -261,7 +261,7 @@ type ProtectionContainerMappingInput interface {
 }
 
 func (*ProtectionContainerMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionContainerMapping)(nil))
+	return reflect.TypeOf((**ProtectionContainerMapping)(nil)).Elem()
 }
 
 func (i *ProtectionContainerMapping) ToProtectionContainerMappingOutput() ProtectionContainerMappingOutput {
@@ -270,35 +270,6 @@ func (i *ProtectionContainerMapping) ToProtectionContainerMappingOutput() Protec
 
 func (i *ProtectionContainerMapping) ToProtectionContainerMappingOutputWithContext(ctx context.Context) ProtectionContainerMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingOutput)
-}
-
-func (i *ProtectionContainerMapping) ToProtectionContainerMappingPtrOutput() ProtectionContainerMappingPtrOutput {
-	return i.ToProtectionContainerMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *ProtectionContainerMapping) ToProtectionContainerMappingPtrOutputWithContext(ctx context.Context) ProtectionContainerMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingPtrOutput)
-}
-
-type ProtectionContainerMappingPtrInput interface {
-	pulumi.Input
-
-	ToProtectionContainerMappingPtrOutput() ProtectionContainerMappingPtrOutput
-	ToProtectionContainerMappingPtrOutputWithContext(ctx context.Context) ProtectionContainerMappingPtrOutput
-}
-
-type protectionContainerMappingPtrType ProtectionContainerMappingArgs
-
-func (*protectionContainerMappingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionContainerMapping)(nil))
-}
-
-func (i *protectionContainerMappingPtrType) ToProtectionContainerMappingPtrOutput() ProtectionContainerMappingPtrOutput {
-	return i.ToProtectionContainerMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *protectionContainerMappingPtrType) ToProtectionContainerMappingPtrOutputWithContext(ctx context.Context) ProtectionContainerMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingPtrOutput)
 }
 
 // ProtectionContainerMappingArrayInput is an input type that accepts ProtectionContainerMappingArray and ProtectionContainerMappingArrayOutput values.
@@ -354,7 +325,7 @@ func (i ProtectionContainerMappingMap) ToProtectionContainerMappingMapOutputWith
 type ProtectionContainerMappingOutput struct{ *pulumi.OutputState }
 
 func (ProtectionContainerMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionContainerMapping)(nil))
+	return reflect.TypeOf((**ProtectionContainerMapping)(nil)).Elem()
 }
 
 func (o ProtectionContainerMappingOutput) ToProtectionContainerMappingOutput() ProtectionContainerMappingOutput {
@@ -365,44 +336,10 @@ func (o ProtectionContainerMappingOutput) ToProtectionContainerMappingOutputWith
 	return o
 }
 
-func (o ProtectionContainerMappingOutput) ToProtectionContainerMappingPtrOutput() ProtectionContainerMappingPtrOutput {
-	return o.ToProtectionContainerMappingPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectionContainerMappingOutput) ToProtectionContainerMappingPtrOutputWithContext(ctx context.Context) ProtectionContainerMappingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionContainerMapping) *ProtectionContainerMapping {
-		return &v
-	}).(ProtectionContainerMappingPtrOutput)
-}
-
-type ProtectionContainerMappingPtrOutput struct{ *pulumi.OutputState }
-
-func (ProtectionContainerMappingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionContainerMapping)(nil))
-}
-
-func (o ProtectionContainerMappingPtrOutput) ToProtectionContainerMappingPtrOutput() ProtectionContainerMappingPtrOutput {
-	return o
-}
-
-func (o ProtectionContainerMappingPtrOutput) ToProtectionContainerMappingPtrOutputWithContext(ctx context.Context) ProtectionContainerMappingPtrOutput {
-	return o
-}
-
-func (o ProtectionContainerMappingPtrOutput) Elem() ProtectionContainerMappingOutput {
-	return o.ApplyT(func(v *ProtectionContainerMapping) ProtectionContainerMapping {
-		if v != nil {
-			return *v
-		}
-		var ret ProtectionContainerMapping
-		return ret
-	}).(ProtectionContainerMappingOutput)
-}
-
 type ProtectionContainerMappingArrayOutput struct{ *pulumi.OutputState }
 
 func (ProtectionContainerMappingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProtectionContainerMapping)(nil))
+	return reflect.TypeOf((*[]*ProtectionContainerMapping)(nil)).Elem()
 }
 
 func (o ProtectionContainerMappingArrayOutput) ToProtectionContainerMappingArrayOutput() ProtectionContainerMappingArrayOutput {
@@ -414,15 +351,15 @@ func (o ProtectionContainerMappingArrayOutput) ToProtectionContainerMappingArray
 }
 
 func (o ProtectionContainerMappingArrayOutput) Index(i pulumi.IntInput) ProtectionContainerMappingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProtectionContainerMapping {
-		return vs[0].([]ProtectionContainerMapping)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProtectionContainerMapping {
+		return vs[0].([]*ProtectionContainerMapping)[vs[1].(int)]
 	}).(ProtectionContainerMappingOutput)
 }
 
 type ProtectionContainerMappingMapOutput struct{ *pulumi.OutputState }
 
 func (ProtectionContainerMappingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProtectionContainerMapping)(nil))
+	return reflect.TypeOf((*map[string]*ProtectionContainerMapping)(nil)).Elem()
 }
 
 func (o ProtectionContainerMappingMapOutput) ToProtectionContainerMappingMapOutput() ProtectionContainerMappingMapOutput {
@@ -434,18 +371,16 @@ func (o ProtectionContainerMappingMapOutput) ToProtectionContainerMappingMapOutp
 }
 
 func (o ProtectionContainerMappingMapOutput) MapIndex(k pulumi.StringInput) ProtectionContainerMappingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProtectionContainerMapping {
-		return vs[0].(map[string]ProtectionContainerMapping)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProtectionContainerMapping {
+		return vs[0].(map[string]*ProtectionContainerMapping)[vs[1].(string)]
 	}).(ProtectionContainerMappingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionContainerMappingInput)(nil)).Elem(), &ProtectionContainerMapping{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionContainerMappingPtrInput)(nil)).Elem(), &ProtectionContainerMapping{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionContainerMappingArrayInput)(nil)).Elem(), ProtectionContainerMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionContainerMappingMapInput)(nil)).Elem(), ProtectionContainerMappingMap{})
 	pulumi.RegisterOutputType(ProtectionContainerMappingOutput{})
-	pulumi.RegisterOutputType(ProtectionContainerMappingPtrOutput{})
 	pulumi.RegisterOutputType(ProtectionContainerMappingArrayOutput{})
 	pulumi.RegisterOutputType(ProtectionContainerMappingMapOutput{})
 }

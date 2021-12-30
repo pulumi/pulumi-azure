@@ -152,22 +152,22 @@ export class TriggerBlobEvent extends pulumi.CustomResource {
      */
     constructor(name: string, args: TriggerBlobEventArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TriggerBlobEventArgs | TriggerBlobEventState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerBlobEventState | undefined;
-            inputs["activated"] = state ? state.activated : undefined;
-            inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["blobPathBeginsWith"] = state ? state.blobPathBeginsWith : undefined;
-            inputs["blobPathEndsWith"] = state ? state.blobPathEndsWith : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["events"] = state ? state.events : undefined;
-            inputs["ignoreEmptyBlobs"] = state ? state.ignoreEmptyBlobs : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pipelines"] = state ? state.pipelines : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["activated"] = state ? state.activated : undefined;
+            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["blobPathBeginsWith"] = state ? state.blobPathBeginsWith : undefined;
+            resourceInputs["blobPathEndsWith"] = state ? state.blobPathEndsWith : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["events"] = state ? state.events : undefined;
+            resourceInputs["ignoreEmptyBlobs"] = state ? state.ignoreEmptyBlobs : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pipelines"] = state ? state.pipelines : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as TriggerBlobEventArgs | undefined;
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
@@ -182,23 +182,23 @@ export class TriggerBlobEvent extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            inputs["activated"] = args ? args.activated : undefined;
-            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["blobPathBeginsWith"] = args ? args.blobPathBeginsWith : undefined;
-            inputs["blobPathEndsWith"] = args ? args.blobPathEndsWith : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["events"] = args ? args.events : undefined;
-            inputs["ignoreEmptyBlobs"] = args ? args.ignoreEmptyBlobs : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pipelines"] = args ? args.pipelines : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["activated"] = args ? args.activated : undefined;
+            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["blobPathBeginsWith"] = args ? args.blobPathBeginsWith : undefined;
+            resourceInputs["blobPathEndsWith"] = args ? args.blobPathEndsWith : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["events"] = args ? args.events : undefined;
+            resourceInputs["ignoreEmptyBlobs"] = args ? args.ignoreEmptyBlobs : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pipelines"] = args ? args.pipelines : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TriggerBlobEvent.__pulumiType, name, inputs, opts);
+        super(TriggerBlobEvent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -179,24 +179,24 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerTransparentDataEncryptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerTransparentDataEncryptionArgs | ServerTransparentDataEncryptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerTransparentDataEncryptionState | undefined;
-            inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
         } else {
             const args = argsOrState as ServerTransparentDataEncryptionArgs | undefined;
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ServerTransparentDataEncryption.__pulumiType, name, inputs, opts);
+        super(ServerTransparentDataEncryption.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -338,7 +338,7 @@ type ComputeClusterInput interface {
 }
 
 func (*ComputeCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeCluster)(nil))
+	return reflect.TypeOf((**ComputeCluster)(nil)).Elem()
 }
 
 func (i *ComputeCluster) ToComputeClusterOutput() ComputeClusterOutput {
@@ -347,35 +347,6 @@ func (i *ComputeCluster) ToComputeClusterOutput() ComputeClusterOutput {
 
 func (i *ComputeCluster) ToComputeClusterOutputWithContext(ctx context.Context) ComputeClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterOutput)
-}
-
-func (i *ComputeCluster) ToComputeClusterPtrOutput() ComputeClusterPtrOutput {
-	return i.ToComputeClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *ComputeCluster) ToComputeClusterPtrOutputWithContext(ctx context.Context) ComputeClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterPtrOutput)
-}
-
-type ComputeClusterPtrInput interface {
-	pulumi.Input
-
-	ToComputeClusterPtrOutput() ComputeClusterPtrOutput
-	ToComputeClusterPtrOutputWithContext(ctx context.Context) ComputeClusterPtrOutput
-}
-
-type computeClusterPtrType ComputeClusterArgs
-
-func (*computeClusterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeCluster)(nil))
-}
-
-func (i *computeClusterPtrType) ToComputeClusterPtrOutput() ComputeClusterPtrOutput {
-	return i.ToComputeClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *computeClusterPtrType) ToComputeClusterPtrOutputWithContext(ctx context.Context) ComputeClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterPtrOutput)
 }
 
 // ComputeClusterArrayInput is an input type that accepts ComputeClusterArray and ComputeClusterArrayOutput values.
@@ -431,7 +402,7 @@ func (i ComputeClusterMap) ToComputeClusterMapOutputWithContext(ctx context.Cont
 type ComputeClusterOutput struct{ *pulumi.OutputState }
 
 func (ComputeClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputeCluster)(nil))
+	return reflect.TypeOf((**ComputeCluster)(nil)).Elem()
 }
 
 func (o ComputeClusterOutput) ToComputeClusterOutput() ComputeClusterOutput {
@@ -442,44 +413,10 @@ func (o ComputeClusterOutput) ToComputeClusterOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ComputeClusterOutput) ToComputeClusterPtrOutput() ComputeClusterPtrOutput {
-	return o.ToComputeClusterPtrOutputWithContext(context.Background())
-}
-
-func (o ComputeClusterOutput) ToComputeClusterPtrOutputWithContext(ctx context.Context) ComputeClusterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeCluster) *ComputeCluster {
-		return &v
-	}).(ComputeClusterPtrOutput)
-}
-
-type ComputeClusterPtrOutput struct{ *pulumi.OutputState }
-
-func (ComputeClusterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeCluster)(nil))
-}
-
-func (o ComputeClusterPtrOutput) ToComputeClusterPtrOutput() ComputeClusterPtrOutput {
-	return o
-}
-
-func (o ComputeClusterPtrOutput) ToComputeClusterPtrOutputWithContext(ctx context.Context) ComputeClusterPtrOutput {
-	return o
-}
-
-func (o ComputeClusterPtrOutput) Elem() ComputeClusterOutput {
-	return o.ApplyT(func(v *ComputeCluster) ComputeCluster {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeCluster
-		return ret
-	}).(ComputeClusterOutput)
-}
-
 type ComputeClusterArrayOutput struct{ *pulumi.OutputState }
 
 func (ComputeClusterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ComputeCluster)(nil))
+	return reflect.TypeOf((*[]*ComputeCluster)(nil)).Elem()
 }
 
 func (o ComputeClusterArrayOutput) ToComputeClusterArrayOutput() ComputeClusterArrayOutput {
@@ -491,15 +428,15 @@ func (o ComputeClusterArrayOutput) ToComputeClusterArrayOutputWithContext(ctx co
 }
 
 func (o ComputeClusterArrayOutput) Index(i pulumi.IntInput) ComputeClusterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputeCluster {
-		return vs[0].([]ComputeCluster)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ComputeCluster {
+		return vs[0].([]*ComputeCluster)[vs[1].(int)]
 	}).(ComputeClusterOutput)
 }
 
 type ComputeClusterMapOutput struct{ *pulumi.OutputState }
 
 func (ComputeClusterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ComputeCluster)(nil))
+	return reflect.TypeOf((*map[string]*ComputeCluster)(nil)).Elem()
 }
 
 func (o ComputeClusterMapOutput) ToComputeClusterMapOutput() ComputeClusterMapOutput {
@@ -511,18 +448,16 @@ func (o ComputeClusterMapOutput) ToComputeClusterMapOutputWithContext(ctx contex
 }
 
 func (o ComputeClusterMapOutput) MapIndex(k pulumi.StringInput) ComputeClusterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ComputeCluster {
-		return vs[0].(map[string]ComputeCluster)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ComputeCluster {
+		return vs[0].(map[string]*ComputeCluster)[vs[1].(string)]
 	}).(ComputeClusterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterInput)(nil)).Elem(), &ComputeCluster{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterPtrInput)(nil)).Elem(), &ComputeCluster{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterArrayInput)(nil)).Elem(), ComputeClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterMapInput)(nil)).Elem(), ComputeClusterMap{})
 	pulumi.RegisterOutputType(ComputeClusterOutput{})
-	pulumi.RegisterOutputType(ComputeClusterPtrOutput{})
 	pulumi.RegisterOutputType(ComputeClusterArrayOutput{})
 	pulumi.RegisterOutputType(ComputeClusterMapOutput{})
 }

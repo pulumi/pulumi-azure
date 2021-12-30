@@ -208,7 +208,7 @@ type CustomHostnameBindingInput interface {
 }
 
 func (*CustomHostnameBinding) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomHostnameBinding)(nil))
+	return reflect.TypeOf((**CustomHostnameBinding)(nil)).Elem()
 }
 
 func (i *CustomHostnameBinding) ToCustomHostnameBindingOutput() CustomHostnameBindingOutput {
@@ -217,35 +217,6 @@ func (i *CustomHostnameBinding) ToCustomHostnameBindingOutput() CustomHostnameBi
 
 func (i *CustomHostnameBinding) ToCustomHostnameBindingOutputWithContext(ctx context.Context) CustomHostnameBindingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHostnameBindingOutput)
-}
-
-func (i *CustomHostnameBinding) ToCustomHostnameBindingPtrOutput() CustomHostnameBindingPtrOutput {
-	return i.ToCustomHostnameBindingPtrOutputWithContext(context.Background())
-}
-
-func (i *CustomHostnameBinding) ToCustomHostnameBindingPtrOutputWithContext(ctx context.Context) CustomHostnameBindingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomHostnameBindingPtrOutput)
-}
-
-type CustomHostnameBindingPtrInput interface {
-	pulumi.Input
-
-	ToCustomHostnameBindingPtrOutput() CustomHostnameBindingPtrOutput
-	ToCustomHostnameBindingPtrOutputWithContext(ctx context.Context) CustomHostnameBindingPtrOutput
-}
-
-type customHostnameBindingPtrType CustomHostnameBindingArgs
-
-func (*customHostnameBindingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomHostnameBinding)(nil))
-}
-
-func (i *customHostnameBindingPtrType) ToCustomHostnameBindingPtrOutput() CustomHostnameBindingPtrOutput {
-	return i.ToCustomHostnameBindingPtrOutputWithContext(context.Background())
-}
-
-func (i *customHostnameBindingPtrType) ToCustomHostnameBindingPtrOutputWithContext(ctx context.Context) CustomHostnameBindingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomHostnameBindingPtrOutput)
 }
 
 // CustomHostnameBindingArrayInput is an input type that accepts CustomHostnameBindingArray and CustomHostnameBindingArrayOutput values.
@@ -301,7 +272,7 @@ func (i CustomHostnameBindingMap) ToCustomHostnameBindingMapOutputWithContext(ct
 type CustomHostnameBindingOutput struct{ *pulumi.OutputState }
 
 func (CustomHostnameBindingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomHostnameBinding)(nil))
+	return reflect.TypeOf((**CustomHostnameBinding)(nil)).Elem()
 }
 
 func (o CustomHostnameBindingOutput) ToCustomHostnameBindingOutput() CustomHostnameBindingOutput {
@@ -312,44 +283,10 @@ func (o CustomHostnameBindingOutput) ToCustomHostnameBindingOutputWithContext(ct
 	return o
 }
 
-func (o CustomHostnameBindingOutput) ToCustomHostnameBindingPtrOutput() CustomHostnameBindingPtrOutput {
-	return o.ToCustomHostnameBindingPtrOutputWithContext(context.Background())
-}
-
-func (o CustomHostnameBindingOutput) ToCustomHostnameBindingPtrOutputWithContext(ctx context.Context) CustomHostnameBindingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomHostnameBinding) *CustomHostnameBinding {
-		return &v
-	}).(CustomHostnameBindingPtrOutput)
-}
-
-type CustomHostnameBindingPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomHostnameBindingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomHostnameBinding)(nil))
-}
-
-func (o CustomHostnameBindingPtrOutput) ToCustomHostnameBindingPtrOutput() CustomHostnameBindingPtrOutput {
-	return o
-}
-
-func (o CustomHostnameBindingPtrOutput) ToCustomHostnameBindingPtrOutputWithContext(ctx context.Context) CustomHostnameBindingPtrOutput {
-	return o
-}
-
-func (o CustomHostnameBindingPtrOutput) Elem() CustomHostnameBindingOutput {
-	return o.ApplyT(func(v *CustomHostnameBinding) CustomHostnameBinding {
-		if v != nil {
-			return *v
-		}
-		var ret CustomHostnameBinding
-		return ret
-	}).(CustomHostnameBindingOutput)
-}
-
 type CustomHostnameBindingArrayOutput struct{ *pulumi.OutputState }
 
 func (CustomHostnameBindingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomHostnameBinding)(nil))
+	return reflect.TypeOf((*[]*CustomHostnameBinding)(nil)).Elem()
 }
 
 func (o CustomHostnameBindingArrayOutput) ToCustomHostnameBindingArrayOutput() CustomHostnameBindingArrayOutput {
@@ -361,15 +298,15 @@ func (o CustomHostnameBindingArrayOutput) ToCustomHostnameBindingArrayOutputWith
 }
 
 func (o CustomHostnameBindingArrayOutput) Index(i pulumi.IntInput) CustomHostnameBindingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomHostnameBinding {
-		return vs[0].([]CustomHostnameBinding)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomHostnameBinding {
+		return vs[0].([]*CustomHostnameBinding)[vs[1].(int)]
 	}).(CustomHostnameBindingOutput)
 }
 
 type CustomHostnameBindingMapOutput struct{ *pulumi.OutputState }
 
 func (CustomHostnameBindingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CustomHostnameBinding)(nil))
+	return reflect.TypeOf((*map[string]*CustomHostnameBinding)(nil)).Elem()
 }
 
 func (o CustomHostnameBindingMapOutput) ToCustomHostnameBindingMapOutput() CustomHostnameBindingMapOutput {
@@ -381,18 +318,16 @@ func (o CustomHostnameBindingMapOutput) ToCustomHostnameBindingMapOutputWithCont
 }
 
 func (o CustomHostnameBindingMapOutput) MapIndex(k pulumi.StringInput) CustomHostnameBindingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CustomHostnameBinding {
-		return vs[0].(map[string]CustomHostnameBinding)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CustomHostnameBinding {
+		return vs[0].(map[string]*CustomHostnameBinding)[vs[1].(string)]
 	}).(CustomHostnameBindingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomHostnameBindingInput)(nil)).Elem(), &CustomHostnameBinding{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomHostnameBindingPtrInput)(nil)).Elem(), &CustomHostnameBinding{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomHostnameBindingArrayInput)(nil)).Elem(), CustomHostnameBindingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomHostnameBindingMapInput)(nil)).Elem(), CustomHostnameBindingMap{})
 	pulumi.RegisterOutputType(CustomHostnameBindingOutput{})
-	pulumi.RegisterOutputType(CustomHostnameBindingPtrOutput{})
 	pulumi.RegisterOutputType(CustomHostnameBindingArrayOutput{})
 	pulumi.RegisterOutputType(CustomHostnameBindingMapOutput{})
 }

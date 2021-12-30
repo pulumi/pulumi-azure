@@ -268,47 +268,6 @@ func (i ProfileDnsConfigArgs) ToProfileDnsConfigOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileDnsConfigOutput)
 }
 
-func (i ProfileDnsConfigArgs) ToProfileDnsConfigPtrOutput() ProfileDnsConfigPtrOutput {
-	return i.ToProfileDnsConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ProfileDnsConfigArgs) ToProfileDnsConfigPtrOutputWithContext(ctx context.Context) ProfileDnsConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileDnsConfigOutput).ToProfileDnsConfigPtrOutputWithContext(ctx)
-}
-
-// ProfileDnsConfigPtrInput is an input type that accepts ProfileDnsConfigArgs, ProfileDnsConfigPtr and ProfileDnsConfigPtrOutput values.
-// You can construct a concrete instance of `ProfileDnsConfigPtrInput` via:
-//
-//          ProfileDnsConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ProfileDnsConfigPtrInput interface {
-	pulumi.Input
-
-	ToProfileDnsConfigPtrOutput() ProfileDnsConfigPtrOutput
-	ToProfileDnsConfigPtrOutputWithContext(context.Context) ProfileDnsConfigPtrOutput
-}
-
-type profileDnsConfigPtrType ProfileDnsConfigArgs
-
-func ProfileDnsConfigPtr(v *ProfileDnsConfigArgs) ProfileDnsConfigPtrInput {
-	return (*profileDnsConfigPtrType)(v)
-}
-
-func (*profileDnsConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileDnsConfig)(nil)).Elem()
-}
-
-func (i *profileDnsConfigPtrType) ToProfileDnsConfigPtrOutput() ProfileDnsConfigPtrOutput {
-	return i.ToProfileDnsConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *profileDnsConfigPtrType) ToProfileDnsConfigPtrOutputWithContext(ctx context.Context) ProfileDnsConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileDnsConfigPtrOutput)
-}
-
 type ProfileDnsConfigOutput struct{ *pulumi.OutputState }
 
 func (ProfileDnsConfigOutput) ElementType() reflect.Type {
@@ -323,16 +282,6 @@ func (o ProfileDnsConfigOutput) ToProfileDnsConfigOutputWithContext(ctx context.
 	return o
 }
 
-func (o ProfileDnsConfigOutput) ToProfileDnsConfigPtrOutput() ProfileDnsConfigPtrOutput {
-	return o.ToProfileDnsConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ProfileDnsConfigOutput) ToProfileDnsConfigPtrOutputWithContext(ctx context.Context) ProfileDnsConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileDnsConfig) *ProfileDnsConfig {
-		return &v
-	}).(ProfileDnsConfigPtrOutput)
-}
-
 // The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
 func (o ProfileDnsConfigOutput) RelativeName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
@@ -341,50 +290,6 @@ func (o ProfileDnsConfigOutput) RelativeName() pulumi.StringOutput {
 // The TTL value of the Profile used by Local DNS resolvers and clients.
 func (o ProfileDnsConfigOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v ProfileDnsConfig) int { return v.Ttl }).(pulumi.IntOutput)
-}
-
-type ProfileDnsConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ProfileDnsConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileDnsConfig)(nil)).Elem()
-}
-
-func (o ProfileDnsConfigPtrOutput) ToProfileDnsConfigPtrOutput() ProfileDnsConfigPtrOutput {
-	return o
-}
-
-func (o ProfileDnsConfigPtrOutput) ToProfileDnsConfigPtrOutputWithContext(ctx context.Context) ProfileDnsConfigPtrOutput {
-	return o
-}
-
-func (o ProfileDnsConfigPtrOutput) Elem() ProfileDnsConfigOutput {
-	return o.ApplyT(func(v *ProfileDnsConfig) ProfileDnsConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ProfileDnsConfig
-		return ret
-	}).(ProfileDnsConfigOutput)
-}
-
-// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
-func (o ProfileDnsConfigPtrOutput) RelativeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProfileDnsConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RelativeName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The TTL value of the Profile used by Local DNS resolvers and clients.
-func (o ProfileDnsConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ProfileDnsConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Ttl
-	}).(pulumi.IntPtrOutput)
 }
 
 type ProfileMonitorConfig struct {
@@ -448,47 +353,6 @@ func (i ProfileMonitorConfigArgs) ToProfileMonitorConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileMonitorConfigOutput)
 }
 
-func (i ProfileMonitorConfigArgs) ToProfileMonitorConfigPtrOutput() ProfileMonitorConfigPtrOutput {
-	return i.ToProfileMonitorConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ProfileMonitorConfigArgs) ToProfileMonitorConfigPtrOutputWithContext(ctx context.Context) ProfileMonitorConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileMonitorConfigOutput).ToProfileMonitorConfigPtrOutputWithContext(ctx)
-}
-
-// ProfileMonitorConfigPtrInput is an input type that accepts ProfileMonitorConfigArgs, ProfileMonitorConfigPtr and ProfileMonitorConfigPtrOutput values.
-// You can construct a concrete instance of `ProfileMonitorConfigPtrInput` via:
-//
-//          ProfileMonitorConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ProfileMonitorConfigPtrInput interface {
-	pulumi.Input
-
-	ToProfileMonitorConfigPtrOutput() ProfileMonitorConfigPtrOutput
-	ToProfileMonitorConfigPtrOutputWithContext(context.Context) ProfileMonitorConfigPtrOutput
-}
-
-type profileMonitorConfigPtrType ProfileMonitorConfigArgs
-
-func ProfileMonitorConfigPtr(v *ProfileMonitorConfigArgs) ProfileMonitorConfigPtrInput {
-	return (*profileMonitorConfigPtrType)(v)
-}
-
-func (*profileMonitorConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileMonitorConfig)(nil)).Elem()
-}
-
-func (i *profileMonitorConfigPtrType) ToProfileMonitorConfigPtrOutput() ProfileMonitorConfigPtrOutput {
-	return i.ToProfileMonitorConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *profileMonitorConfigPtrType) ToProfileMonitorConfigPtrOutputWithContext(ctx context.Context) ProfileMonitorConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileMonitorConfigPtrOutput)
-}
-
 type ProfileMonitorConfigOutput struct{ *pulumi.OutputState }
 
 func (ProfileMonitorConfigOutput) ElementType() reflect.Type {
@@ -501,16 +365,6 @@ func (o ProfileMonitorConfigOutput) ToProfileMonitorConfigOutput() ProfileMonito
 
 func (o ProfileMonitorConfigOutput) ToProfileMonitorConfigOutputWithContext(ctx context.Context) ProfileMonitorConfigOutput {
 	return o
-}
-
-func (o ProfileMonitorConfigOutput) ToProfileMonitorConfigPtrOutput() ProfileMonitorConfigPtrOutput {
-	return o.ToProfileMonitorConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ProfileMonitorConfigOutput) ToProfileMonitorConfigPtrOutputWithContext(ctx context.Context) ProfileMonitorConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileMonitorConfig) *ProfileMonitorConfig {
-		return &v
-	}).(ProfileMonitorConfigPtrOutput)
 }
 
 // One or more `customHeader` blocks as defined below.
@@ -551,110 +405,6 @@ func (o ProfileMonitorConfigOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 // The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
 func (o ProfileMonitorConfigOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
-}
-
-type ProfileMonitorConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ProfileMonitorConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileMonitorConfig)(nil)).Elem()
-}
-
-func (o ProfileMonitorConfigPtrOutput) ToProfileMonitorConfigPtrOutput() ProfileMonitorConfigPtrOutput {
-	return o
-}
-
-func (o ProfileMonitorConfigPtrOutput) ToProfileMonitorConfigPtrOutputWithContext(ctx context.Context) ProfileMonitorConfigPtrOutput {
-	return o
-}
-
-func (o ProfileMonitorConfigPtrOutput) Elem() ProfileMonitorConfigOutput {
-	return o.ApplyT(func(v *ProfileMonitorConfig) ProfileMonitorConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ProfileMonitorConfig
-		return ret
-	}).(ProfileMonitorConfigOutput)
-}
-
-// One or more `customHeader` blocks as defined below.
-func (o ProfileMonitorConfigPtrOutput) CustomHeaders() ProfileMonitorConfigCustomHeaderArrayOutput {
-	return o.ApplyT(func(v *ProfileMonitorConfig) []ProfileMonitorConfigCustomHeader {
-		if v == nil {
-			return nil
-		}
-		return v.CustomHeaders
-	}).(ProfileMonitorConfigCustomHeaderArrayOutput)
-}
-
-// A list of status code ranges in the format of `100-101`.
-func (o ProfileMonitorConfigPtrOutput) ExpectedStatusCodeRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ProfileMonitorConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ExpectedStatusCodeRanges
-	}).(pulumi.StringArrayOutput)
-}
-
-// The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
-func (o ProfileMonitorConfigPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ProfileMonitorConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.IntervalInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
-func (o ProfileMonitorConfigPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProfileMonitorConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-// The port number used by the monitoring checks.
-func (o ProfileMonitorConfigPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ProfileMonitorConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-// The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
-func (o ProfileMonitorConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProfileMonitorConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Protocol
-	}).(pulumi.StringPtrOutput)
-}
-
-// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
-func (o ProfileMonitorConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ProfileMonitorConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TimeoutInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
-func (o ProfileMonitorConfigPtrOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ProfileMonitorConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ToleratedNumberOfFailures
-	}).(pulumi.IntPtrOutput)
 }
 
 type ProfileMonitorConfigCustomHeader struct {
@@ -769,9 +519,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointSubnetInput)(nil)).Elem(), EndpointSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointSubnetArrayInput)(nil)).Elem(), EndpointSubnetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileDnsConfigInput)(nil)).Elem(), ProfileDnsConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileDnsConfigPtrInput)(nil)).Elem(), ProfileDnsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileMonitorConfigInput)(nil)).Elem(), ProfileMonitorConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileMonitorConfigPtrInput)(nil)).Elem(), ProfileMonitorConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileMonitorConfigCustomHeaderInput)(nil)).Elem(), ProfileMonitorConfigCustomHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileMonitorConfigCustomHeaderArrayInput)(nil)).Elem(), ProfileMonitorConfigCustomHeaderArray{})
 	pulumi.RegisterOutputType(EndpointCustomHeaderOutput{})
@@ -779,9 +527,7 @@ func init() {
 	pulumi.RegisterOutputType(EndpointSubnetOutput{})
 	pulumi.RegisterOutputType(EndpointSubnetArrayOutput{})
 	pulumi.RegisterOutputType(ProfileDnsConfigOutput{})
-	pulumi.RegisterOutputType(ProfileDnsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProfileMonitorConfigOutput{})
-	pulumi.RegisterOutputType(ProfileMonitorConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProfileMonitorConfigCustomHeaderOutput{})
 	pulumi.RegisterOutputType(ProfileMonitorConfigCustomHeaderArrayOutput{})
 }

@@ -81,19 +81,19 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScheduledQueryRulesLogArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduledQueryRulesLogArgs | ScheduledQueryRulesLogState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledQueryRulesLogState | undefined;
-            inputs["authorizedResourceIds"] = state ? state.authorizedResourceIds : undefined;
-            inputs["criteria"] = state ? state.criteria : undefined;
-            inputs["dataSourceId"] = state ? state.dataSourceId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["authorizedResourceIds"] = state ? state.authorizedResourceIds : undefined;
+            resourceInputs["criteria"] = state ? state.criteria : undefined;
+            resourceInputs["dataSourceId"] = state ? state.dataSourceId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ScheduledQueryRulesLogArgs | undefined;
             if ((!args || args.criteria === undefined) && !opts.urn) {
@@ -105,20 +105,20 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authorizedResourceIds"] = args ? args.authorizedResourceIds : undefined;
-            inputs["criteria"] = args ? args.criteria : undefined;
-            inputs["dataSourceId"] = args ? args.dataSourceId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authorizedResourceIds"] = args ? args.authorizedResourceIds : undefined;
+            resourceInputs["criteria"] = args ? args.criteria : undefined;
+            resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ScheduledQueryRulesLog.__pulumiType, name, inputs, opts);
+        super(ScheduledQueryRulesLog.__pulumiType, name, resourceInputs, opts);
     }
 }
 

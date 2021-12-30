@@ -191,25 +191,25 @@ export class ActionGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ActionGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActionGroupArgs | ActionGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionGroupState | undefined;
-            inputs["armRoleReceivers"] = state ? state.armRoleReceivers : undefined;
-            inputs["automationRunbookReceivers"] = state ? state.automationRunbookReceivers : undefined;
-            inputs["azureAppPushReceivers"] = state ? state.azureAppPushReceivers : undefined;
-            inputs["azureFunctionReceivers"] = state ? state.azureFunctionReceivers : undefined;
-            inputs["emailReceivers"] = state ? state.emailReceivers : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["itsmReceivers"] = state ? state.itsmReceivers : undefined;
-            inputs["logicAppReceivers"] = state ? state.logicAppReceivers : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["shortName"] = state ? state.shortName : undefined;
-            inputs["smsReceivers"] = state ? state.smsReceivers : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["voiceReceivers"] = state ? state.voiceReceivers : undefined;
-            inputs["webhookReceivers"] = state ? state.webhookReceivers : undefined;
+            resourceInputs["armRoleReceivers"] = state ? state.armRoleReceivers : undefined;
+            resourceInputs["automationRunbookReceivers"] = state ? state.automationRunbookReceivers : undefined;
+            resourceInputs["azureAppPushReceivers"] = state ? state.azureAppPushReceivers : undefined;
+            resourceInputs["azureFunctionReceivers"] = state ? state.azureFunctionReceivers : undefined;
+            resourceInputs["emailReceivers"] = state ? state.emailReceivers : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["itsmReceivers"] = state ? state.itsmReceivers : undefined;
+            resourceInputs["logicAppReceivers"] = state ? state.logicAppReceivers : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["shortName"] = state ? state.shortName : undefined;
+            resourceInputs["smsReceivers"] = state ? state.smsReceivers : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["voiceReceivers"] = state ? state.voiceReceivers : undefined;
+            resourceInputs["webhookReceivers"] = state ? state.webhookReceivers : undefined;
         } else {
             const args = argsOrState as ActionGroupArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -218,26 +218,26 @@ export class ActionGroup extends pulumi.CustomResource {
             if ((!args || args.shortName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shortName'");
             }
-            inputs["armRoleReceivers"] = args ? args.armRoleReceivers : undefined;
-            inputs["automationRunbookReceivers"] = args ? args.automationRunbookReceivers : undefined;
-            inputs["azureAppPushReceivers"] = args ? args.azureAppPushReceivers : undefined;
-            inputs["azureFunctionReceivers"] = args ? args.azureFunctionReceivers : undefined;
-            inputs["emailReceivers"] = args ? args.emailReceivers : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
-            inputs["logicAppReceivers"] = args ? args.logicAppReceivers : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shortName"] = args ? args.shortName : undefined;
-            inputs["smsReceivers"] = args ? args.smsReceivers : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
-            inputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
+            resourceInputs["armRoleReceivers"] = args ? args.armRoleReceivers : undefined;
+            resourceInputs["automationRunbookReceivers"] = args ? args.automationRunbookReceivers : undefined;
+            resourceInputs["azureAppPushReceivers"] = args ? args.azureAppPushReceivers : undefined;
+            resourceInputs["azureFunctionReceivers"] = args ? args.azureFunctionReceivers : undefined;
+            resourceInputs["emailReceivers"] = args ? args.emailReceivers : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
+            resourceInputs["logicAppReceivers"] = args ? args.logicAppReceivers : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shortName"] = args ? args.shortName : undefined;
+            resourceInputs["smsReceivers"] = args ? args.smsReceivers : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
+            resourceInputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ActionGroup.__pulumiType, name, inputs, opts);
+        super(ActionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -97,15 +97,15 @@ export class ApiPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiPolicyArgs | ApiPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiPolicyState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["apiName"] = state ? state.apiName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["xmlContent"] = state ? state.xmlContent : undefined;
-            inputs["xmlLink"] = state ? state.xmlLink : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["apiName"] = state ? state.apiName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["xmlContent"] = state ? state.xmlContent : undefined;
+            resourceInputs["xmlLink"] = state ? state.xmlLink : undefined;
         } else {
             const args = argsOrState as ApiPolicyArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -117,16 +117,16 @@ export class ApiPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["apiName"] = args ? args.apiName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["xmlContent"] = args ? args.xmlContent : undefined;
-            inputs["xmlLink"] = args ? args.xmlLink : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["apiName"] = args ? args.apiName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["xmlContent"] = args ? args.xmlContent : undefined;
+            resourceInputs["xmlLink"] = args ? args.xmlLink : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ApiPolicy.__pulumiType, name, inputs, opts);
+        super(ApiPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

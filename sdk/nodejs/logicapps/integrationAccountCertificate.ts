@@ -97,16 +97,16 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationAccountCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationAccountCertificateArgs | IntegrationAccountCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountCertificateState | undefined;
-            inputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
-            inputs["keyVaultKey"] = state ? state.keyVaultKey : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publicCertificate"] = state ? state.publicCertificate : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
+            resourceInputs["keyVaultKey"] = state ? state.keyVaultKey : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicCertificate"] = state ? state.publicCertificate : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IntegrationAccountCertificateArgs | undefined;
             if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
@@ -115,17 +115,17 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            inputs["keyVaultKey"] = args ? args.keyVaultKey : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicCertificate"] = args ? args.publicCertificate : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
+            resourceInputs["keyVaultKey"] = args ? args.keyVaultKey : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicCertificate"] = args ? args.publicCertificate : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IntegrationAccountCertificate.__pulumiType, name, inputs, opts);
+        super(IntegrationAccountCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

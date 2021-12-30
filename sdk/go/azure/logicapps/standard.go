@@ -447,7 +447,7 @@ type StandardInput interface {
 }
 
 func (*Standard) ElementType() reflect.Type {
-	return reflect.TypeOf((*Standard)(nil))
+	return reflect.TypeOf((**Standard)(nil)).Elem()
 }
 
 func (i *Standard) ToStandardOutput() StandardOutput {
@@ -456,35 +456,6 @@ func (i *Standard) ToStandardOutput() StandardOutput {
 
 func (i *Standard) ToStandardOutputWithContext(ctx context.Context) StandardOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StandardOutput)
-}
-
-func (i *Standard) ToStandardPtrOutput() StandardPtrOutput {
-	return i.ToStandardPtrOutputWithContext(context.Background())
-}
-
-func (i *Standard) ToStandardPtrOutputWithContext(ctx context.Context) StandardPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StandardPtrOutput)
-}
-
-type StandardPtrInput interface {
-	pulumi.Input
-
-	ToStandardPtrOutput() StandardPtrOutput
-	ToStandardPtrOutputWithContext(ctx context.Context) StandardPtrOutput
-}
-
-type standardPtrType StandardArgs
-
-func (*standardPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Standard)(nil))
-}
-
-func (i *standardPtrType) ToStandardPtrOutput() StandardPtrOutput {
-	return i.ToStandardPtrOutputWithContext(context.Background())
-}
-
-func (i *standardPtrType) ToStandardPtrOutputWithContext(ctx context.Context) StandardPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StandardPtrOutput)
 }
 
 // StandardArrayInput is an input type that accepts StandardArray and StandardArrayOutput values.
@@ -540,7 +511,7 @@ func (i StandardMap) ToStandardMapOutputWithContext(ctx context.Context) Standar
 type StandardOutput struct{ *pulumi.OutputState }
 
 func (StandardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Standard)(nil))
+	return reflect.TypeOf((**Standard)(nil)).Elem()
 }
 
 func (o StandardOutput) ToStandardOutput() StandardOutput {
@@ -551,44 +522,10 @@ func (o StandardOutput) ToStandardOutputWithContext(ctx context.Context) Standar
 	return o
 }
 
-func (o StandardOutput) ToStandardPtrOutput() StandardPtrOutput {
-	return o.ToStandardPtrOutputWithContext(context.Background())
-}
-
-func (o StandardOutput) ToStandardPtrOutputWithContext(ctx context.Context) StandardPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Standard) *Standard {
-		return &v
-	}).(StandardPtrOutput)
-}
-
-type StandardPtrOutput struct{ *pulumi.OutputState }
-
-func (StandardPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Standard)(nil))
-}
-
-func (o StandardPtrOutput) ToStandardPtrOutput() StandardPtrOutput {
-	return o
-}
-
-func (o StandardPtrOutput) ToStandardPtrOutputWithContext(ctx context.Context) StandardPtrOutput {
-	return o
-}
-
-func (o StandardPtrOutput) Elem() StandardOutput {
-	return o.ApplyT(func(v *Standard) Standard {
-		if v != nil {
-			return *v
-		}
-		var ret Standard
-		return ret
-	}).(StandardOutput)
-}
-
 type StandardArrayOutput struct{ *pulumi.OutputState }
 
 func (StandardArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Standard)(nil))
+	return reflect.TypeOf((*[]*Standard)(nil)).Elem()
 }
 
 func (o StandardArrayOutput) ToStandardArrayOutput() StandardArrayOutput {
@@ -600,15 +537,15 @@ func (o StandardArrayOutput) ToStandardArrayOutputWithContext(ctx context.Contex
 }
 
 func (o StandardArrayOutput) Index(i pulumi.IntInput) StandardOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Standard {
-		return vs[0].([]Standard)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Standard {
+		return vs[0].([]*Standard)[vs[1].(int)]
 	}).(StandardOutput)
 }
 
 type StandardMapOutput struct{ *pulumi.OutputState }
 
 func (StandardMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Standard)(nil))
+	return reflect.TypeOf((*map[string]*Standard)(nil)).Elem()
 }
 
 func (o StandardMapOutput) ToStandardMapOutput() StandardMapOutput {
@@ -620,18 +557,16 @@ func (o StandardMapOutput) ToStandardMapOutputWithContext(ctx context.Context) S
 }
 
 func (o StandardMapOutput) MapIndex(k pulumi.StringInput) StandardOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Standard {
-		return vs[0].(map[string]Standard)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Standard {
+		return vs[0].(map[string]*Standard)[vs[1].(string)]
 	}).(StandardOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardInput)(nil)).Elem(), &Standard{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StandardPtrInput)(nil)).Elem(), &Standard{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardArrayInput)(nil)).Elem(), StandardArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardMapInput)(nil)).Elem(), StandardMap{})
 	pulumi.RegisterOutputType(StandardOutput{})
-	pulumi.RegisterOutputType(StandardPtrOutput{})
 	pulumi.RegisterOutputType(StandardArrayOutput{})
 	pulumi.RegisterOutputType(StandardMapOutput{})
 }

@@ -110,18 +110,18 @@ export class EventHub extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventHubArgs | EventHubState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventHubState | undefined;
-            inputs["captureDescription"] = state ? state.captureDescription : undefined;
-            inputs["messageRetention"] = state ? state.messageRetention : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespaceName"] = state ? state.namespaceName : undefined;
-            inputs["partitionCount"] = state ? state.partitionCount : undefined;
-            inputs["partitionIds"] = state ? state.partitionIds : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["captureDescription"] = state ? state.captureDescription : undefined;
+            resourceInputs["messageRetention"] = state ? state.messageRetention : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["partitionCount"] = state ? state.partitionCount : undefined;
+            resourceInputs["partitionIds"] = state ? state.partitionIds : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as EventHubArgs | undefined;
             if ((!args || args.messageRetention === undefined) && !opts.urn) {
@@ -136,19 +136,19 @@ export class EventHub extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["captureDescription"] = args ? args.captureDescription : undefined;
-            inputs["messageRetention"] = args ? args.messageRetention : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["partitionCount"] = args ? args.partitionCount : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["partitionIds"] = undefined /*out*/;
+            resourceInputs["captureDescription"] = args ? args.captureDescription : undefined;
+            resourceInputs["messageRetention"] = args ? args.messageRetention : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["partitionIds"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EventHub.__pulumiType, name, inputs, opts);
+        super(EventHub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

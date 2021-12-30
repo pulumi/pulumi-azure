@@ -110,16 +110,16 @@ export class RedisCache extends pulumi.CustomResource {
      */
     constructor(name: string, args: RedisCacheArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RedisCacheArgs | RedisCacheState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RedisCacheState | undefined;
-            inputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            inputs["cacheLocation"] = state ? state.cacheLocation : undefined;
-            inputs["connectionString"] = state ? state.connectionString : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["redisCacheId"] = state ? state.redisCacheId : undefined;
+            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
+            resourceInputs["cacheLocation"] = state ? state.cacheLocation : undefined;
+            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["redisCacheId"] = state ? state.redisCacheId : undefined;
         } else {
             const args = argsOrState as RedisCacheArgs | undefined;
             if ((!args || args.apiManagementId === undefined) && !opts.urn) {
@@ -128,17 +128,17 @@ export class RedisCache extends pulumi.CustomResource {
             if ((!args || args.connectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            inputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            inputs["cacheLocation"] = args ? args.cacheLocation : undefined;
-            inputs["connectionString"] = args ? args.connectionString : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["redisCacheId"] = args ? args.redisCacheId : undefined;
+            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
+            resourceInputs["cacheLocation"] = args ? args.cacheLocation : undefined;
+            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["redisCacheId"] = args ? args.redisCacheId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RedisCache.__pulumiType, name, inputs, opts);
+        super(RedisCache.__pulumiType, name, resourceInputs, opts);
     }
 }
 

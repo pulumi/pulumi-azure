@@ -261,7 +261,7 @@ type VirtualMachineConfigurationAssignmentInput interface {
 }
 
 func (*VirtualMachineConfigurationAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineConfigurationAssignment)(nil))
+	return reflect.TypeOf((**VirtualMachineConfigurationAssignment)(nil)).Elem()
 }
 
 func (i *VirtualMachineConfigurationAssignment) ToVirtualMachineConfigurationAssignmentOutput() VirtualMachineConfigurationAssignmentOutput {
@@ -270,35 +270,6 @@ func (i *VirtualMachineConfigurationAssignment) ToVirtualMachineConfigurationAss
 
 func (i *VirtualMachineConfigurationAssignment) ToVirtualMachineConfigurationAssignmentOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentOutput)
-}
-
-func (i *VirtualMachineConfigurationAssignment) ToVirtualMachineConfigurationAssignmentPtrOutput() VirtualMachineConfigurationAssignmentPtrOutput {
-	return i.ToVirtualMachineConfigurationAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *VirtualMachineConfigurationAssignment) ToVirtualMachineConfigurationAssignmentPtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentPtrOutput)
-}
-
-type VirtualMachineConfigurationAssignmentPtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachineConfigurationAssignmentPtrOutput() VirtualMachineConfigurationAssignmentPtrOutput
-	ToVirtualMachineConfigurationAssignmentPtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentPtrOutput
-}
-
-type virtualMachineConfigurationAssignmentPtrType VirtualMachineConfigurationAssignmentArgs
-
-func (*virtualMachineConfigurationAssignmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineConfigurationAssignment)(nil))
-}
-
-func (i *virtualMachineConfigurationAssignmentPtrType) ToVirtualMachineConfigurationAssignmentPtrOutput() VirtualMachineConfigurationAssignmentPtrOutput {
-	return i.ToVirtualMachineConfigurationAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachineConfigurationAssignmentPtrType) ToVirtualMachineConfigurationAssignmentPtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentPtrOutput)
 }
 
 // VirtualMachineConfigurationAssignmentArrayInput is an input type that accepts VirtualMachineConfigurationAssignmentArray and VirtualMachineConfigurationAssignmentArrayOutput values.
@@ -354,7 +325,7 @@ func (i VirtualMachineConfigurationAssignmentMap) ToVirtualMachineConfigurationA
 type VirtualMachineConfigurationAssignmentOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineConfigurationAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineConfigurationAssignment)(nil))
+	return reflect.TypeOf((**VirtualMachineConfigurationAssignment)(nil)).Elem()
 }
 
 func (o VirtualMachineConfigurationAssignmentOutput) ToVirtualMachineConfigurationAssignmentOutput() VirtualMachineConfigurationAssignmentOutput {
@@ -365,44 +336,10 @@ func (o VirtualMachineConfigurationAssignmentOutput) ToVirtualMachineConfigurati
 	return o
 }
 
-func (o VirtualMachineConfigurationAssignmentOutput) ToVirtualMachineConfigurationAssignmentPtrOutput() VirtualMachineConfigurationAssignmentPtrOutput {
-	return o.ToVirtualMachineConfigurationAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachineConfigurationAssignmentOutput) ToVirtualMachineConfigurationAssignmentPtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineConfigurationAssignment) *VirtualMachineConfigurationAssignment {
-		return &v
-	}).(VirtualMachineConfigurationAssignmentPtrOutput)
-}
-
-type VirtualMachineConfigurationAssignmentPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineConfigurationAssignmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineConfigurationAssignment)(nil))
-}
-
-func (o VirtualMachineConfigurationAssignmentPtrOutput) ToVirtualMachineConfigurationAssignmentPtrOutput() VirtualMachineConfigurationAssignmentPtrOutput {
-	return o
-}
-
-func (o VirtualMachineConfigurationAssignmentPtrOutput) ToVirtualMachineConfigurationAssignmentPtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentPtrOutput {
-	return o
-}
-
-func (o VirtualMachineConfigurationAssignmentPtrOutput) Elem() VirtualMachineConfigurationAssignmentOutput {
-	return o.ApplyT(func(v *VirtualMachineConfigurationAssignment) VirtualMachineConfigurationAssignment {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineConfigurationAssignment
-		return ret
-	}).(VirtualMachineConfigurationAssignmentOutput)
-}
-
 type VirtualMachineConfigurationAssignmentArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineConfigurationAssignmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualMachineConfigurationAssignment)(nil))
+	return reflect.TypeOf((*[]*VirtualMachineConfigurationAssignment)(nil)).Elem()
 }
 
 func (o VirtualMachineConfigurationAssignmentArrayOutput) ToVirtualMachineConfigurationAssignmentArrayOutput() VirtualMachineConfigurationAssignmentArrayOutput {
@@ -414,15 +351,15 @@ func (o VirtualMachineConfigurationAssignmentArrayOutput) ToVirtualMachineConfig
 }
 
 func (o VirtualMachineConfigurationAssignmentArrayOutput) Index(i pulumi.IntInput) VirtualMachineConfigurationAssignmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineConfigurationAssignment {
-		return vs[0].([]VirtualMachineConfigurationAssignment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualMachineConfigurationAssignment {
+		return vs[0].([]*VirtualMachineConfigurationAssignment)[vs[1].(int)]
 	}).(VirtualMachineConfigurationAssignmentOutput)
 }
 
 type VirtualMachineConfigurationAssignmentMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineConfigurationAssignmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VirtualMachineConfigurationAssignment)(nil))
+	return reflect.TypeOf((*map[string]*VirtualMachineConfigurationAssignment)(nil)).Elem()
 }
 
 func (o VirtualMachineConfigurationAssignmentMapOutput) ToVirtualMachineConfigurationAssignmentMapOutput() VirtualMachineConfigurationAssignmentMapOutput {
@@ -434,18 +371,16 @@ func (o VirtualMachineConfigurationAssignmentMapOutput) ToVirtualMachineConfigur
 }
 
 func (o VirtualMachineConfigurationAssignmentMapOutput) MapIndex(k pulumi.StringInput) VirtualMachineConfigurationAssignmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualMachineConfigurationAssignment {
-		return vs[0].(map[string]VirtualMachineConfigurationAssignment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualMachineConfigurationAssignment {
+		return vs[0].(map[string]*VirtualMachineConfigurationAssignment)[vs[1].(string)]
 	}).(VirtualMachineConfigurationAssignmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentInput)(nil)).Elem(), &VirtualMachineConfigurationAssignment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentPtrInput)(nil)).Elem(), &VirtualMachineConfigurationAssignment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentArrayInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentMapInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentMap{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentOutput{})
-	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentMapOutput{})
 }

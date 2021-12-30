@@ -175,34 +175,34 @@ export class Server extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
-            inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
-            inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
-            inputs["autoGrowEnabled"] = state ? state.autoGrowEnabled : undefined;
-            inputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
-            inputs["createMode"] = state ? state.createMode : undefined;
-            inputs["creationSourceServerId"] = state ? state.creationSourceServerId : undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["geoRedundantBackupEnabled"] = state ? state.geoRedundantBackupEnabled : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["sslEnforcement"] = state ? state.sslEnforcement : undefined;
-            inputs["sslEnforcementEnabled"] = state ? state.sslEnforcementEnabled : undefined;
-            inputs["sslMinimalTlsVersionEnforced"] = state ? state.sslMinimalTlsVersionEnforced : undefined;
-            inputs["storageMb"] = state ? state.storageMb : undefined;
-            inputs["storageProfile"] = state ? state.storageProfile : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
+            resourceInputs["autoGrowEnabled"] = state ? state.autoGrowEnabled : undefined;
+            resourceInputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
+            resourceInputs["createMode"] = state ? state.createMode : undefined;
+            resourceInputs["creationSourceServerId"] = state ? state.creationSourceServerId : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["geoRedundantBackupEnabled"] = state ? state.geoRedundantBackupEnabled : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["sslEnforcement"] = state ? state.sslEnforcement : undefined;
+            resourceInputs["sslEnforcementEnabled"] = state ? state.sslEnforcementEnabled : undefined;
+            resourceInputs["sslMinimalTlsVersionEnforced"] = state ? state.sslMinimalTlsVersionEnforced : undefined;
+            resourceInputs["storageMb"] = state ? state.storageMb : undefined;
+            resourceInputs["storageProfile"] = state ? state.storageProfile : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -214,35 +214,35 @@ export class Server extends pulumi.CustomResource {
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            inputs["autoGrowEnabled"] = args ? args.autoGrowEnabled : undefined;
-            inputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
-            inputs["createMode"] = args ? args.createMode : undefined;
-            inputs["creationSourceServerId"] = args ? args.creationSourceServerId : undefined;
-            inputs["geoRedundantBackupEnabled"] = args ? args.geoRedundantBackupEnabled : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["sslEnforcement"] = args ? args.sslEnforcement : undefined;
-            inputs["sslEnforcementEnabled"] = args ? args.sslEnforcementEnabled : undefined;
-            inputs["sslMinimalTlsVersionEnforced"] = args ? args.sslMinimalTlsVersionEnforced : undefined;
-            inputs["storageMb"] = args ? args.storageMb : undefined;
-            inputs["storageProfile"] = args ? args.storageProfile : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["fqdn"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["autoGrowEnabled"] = args ? args.autoGrowEnabled : undefined;
+            resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["creationSourceServerId"] = args ? args.creationSourceServerId : undefined;
+            resourceInputs["geoRedundantBackupEnabled"] = args ? args.geoRedundantBackupEnabled : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["sslEnforcement"] = args ? args.sslEnforcement : undefined;
+            resourceInputs["sslEnforcementEnabled"] = args ? args.sslEnforcementEnabled : undefined;
+            resourceInputs["sslMinimalTlsVersionEnforced"] = args ? args.sslMinimalTlsVersionEnforced : undefined;
+            resourceInputs["storageMb"] = args ? args.storageMb : undefined;
+            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["fqdn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Server.__pulumiType, name, inputs, opts);
+        super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -134,16 +134,16 @@ export class VirtualHubRouteTableRoute extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualHubRouteTableRouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualHubRouteTableRouteArgs | VirtualHubRouteTableRouteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualHubRouteTableRouteState | undefined;
-            inputs["destinations"] = state ? state.destinations : undefined;
-            inputs["destinationsType"] = state ? state.destinationsType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nextHop"] = state ? state.nextHop : undefined;
-            inputs["nextHopType"] = state ? state.nextHopType : undefined;
-            inputs["routeTableId"] = state ? state.routeTableId : undefined;
+            resourceInputs["destinations"] = state ? state.destinations : undefined;
+            resourceInputs["destinationsType"] = state ? state.destinationsType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nextHop"] = state ? state.nextHop : undefined;
+            resourceInputs["nextHopType"] = state ? state.nextHopType : undefined;
+            resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
         } else {
             const args = argsOrState as VirtualHubRouteTableRouteArgs | undefined;
             if ((!args || args.destinations === undefined) && !opts.urn) {
@@ -158,17 +158,17 @@ export class VirtualHubRouteTableRoute extends pulumi.CustomResource {
             if ((!args || args.routeTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            inputs["destinations"] = args ? args.destinations : undefined;
-            inputs["destinationsType"] = args ? args.destinationsType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nextHop"] = args ? args.nextHop : undefined;
-            inputs["nextHopType"] = args ? args.nextHopType : undefined;
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["destinations"] = args ? args.destinations : undefined;
+            resourceInputs["destinationsType"] = args ? args.destinationsType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nextHop"] = args ? args.nextHop : undefined;
+            resourceInputs["nextHopType"] = args ? args.nextHopType : undefined;
+            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VirtualHubRouteTableRoute.__pulumiType, name, inputs, opts);
+        super(VirtualHubRouteTableRoute.__pulumiType, name, resourceInputs, opts);
     }
 }
 

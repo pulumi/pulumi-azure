@@ -128,40 +128,40 @@ export class NatGateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: NatGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NatGatewayArgs | NatGatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NatGatewayState | undefined;
-            inputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publicIpAddressIds"] = state ? state.publicIpAddressIds : undefined;
-            inputs["publicIpPrefixIds"] = state ? state.publicIpPrefixIds : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["resourceGuid"] = state ? state.resourceGuid : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicIpAddressIds"] = state ? state.publicIpAddressIds : undefined;
+            resourceInputs["publicIpPrefixIds"] = state ? state.publicIpPrefixIds : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["resourceGuid"] = state ? state.resourceGuid : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as NatGatewayArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicIpAddressIds"] = args ? args.publicIpAddressIds : undefined;
-            inputs["publicIpPrefixIds"] = args ? args.publicIpPrefixIds : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicIpAddressIds"] = args ? args.publicIpAddressIds : undefined;
+            resourceInputs["publicIpPrefixIds"] = args ? args.publicIpPrefixIds : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NatGateway.__pulumiType, name, inputs, opts);
+        super(NatGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

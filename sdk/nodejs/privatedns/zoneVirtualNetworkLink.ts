@@ -92,16 +92,16 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
      */
     constructor(name: string, args: ZoneVirtualNetworkLinkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ZoneVirtualNetworkLinkArgs | ZoneVirtualNetworkLinkState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneVirtualNetworkLinkState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["privateDnsZoneName"] = state ? state.privateDnsZoneName : undefined;
-            inputs["registrationEnabled"] = state ? state.registrationEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateDnsZoneName"] = state ? state.privateDnsZoneName : undefined;
+            resourceInputs["registrationEnabled"] = state ? state.registrationEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
         } else {
             const args = argsOrState as ZoneVirtualNetworkLinkArgs | undefined;
             if ((!args || args.privateDnsZoneName === undefined) && !opts.urn) {
@@ -113,17 +113,17 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateDnsZoneName"] = args ? args.privateDnsZoneName : undefined;
-            inputs["registrationEnabled"] = args ? args.registrationEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateDnsZoneName"] = args ? args.privateDnsZoneName : undefined;
+            resourceInputs["registrationEnabled"] = args ? args.registrationEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ZoneVirtualNetworkLink.__pulumiType, name, inputs, opts);
+        super(ZoneVirtualNetworkLink.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -51,47 +51,6 @@ func (i ClusterIdentityArgs) ToClusterIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOutput)
 }
 
-func (i ClusterIdentityArgs) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
-	return i.ToClusterIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterIdentityArgs) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOutput).ToClusterIdentityPtrOutputWithContext(ctx)
-}
-
-// ClusterIdentityPtrInput is an input type that accepts ClusterIdentityArgs, ClusterIdentityPtr and ClusterIdentityPtrOutput values.
-// You can construct a concrete instance of `ClusterIdentityPtrInput` via:
-//
-//          ClusterIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterIdentityPtrInput interface {
-	pulumi.Input
-
-	ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput
-	ToClusterIdentityPtrOutputWithContext(context.Context) ClusterIdentityPtrOutput
-}
-
-type clusterIdentityPtrType ClusterIdentityArgs
-
-func ClusterIdentityPtr(v *ClusterIdentityArgs) ClusterIdentityPtrInput {
-	return (*clusterIdentityPtrType)(v)
-}
-
-func (*clusterIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterIdentity)(nil)).Elem()
-}
-
-func (i *clusterIdentityPtrType) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
-	return i.ToClusterIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterIdentityPtrType) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityPtrOutput)
-}
-
 type ClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (ClusterIdentityOutput) ElementType() reflect.Type {
@@ -104,16 +63,6 @@ func (o ClusterIdentityOutput) ToClusterIdentityOutput() ClusterIdentityOutput {
 
 func (o ClusterIdentityOutput) ToClusterIdentityOutputWithContext(ctx context.Context) ClusterIdentityOutput {
 	return o
-}
-
-func (o ClusterIdentityOutput) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
-	return o.ToClusterIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterIdentity) *ClusterIdentity {
-		return &v
-	}).(ClusterIdentityPtrOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
@@ -131,63 +80,7 @@ func (o ClusterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type ClusterIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterIdentity)(nil)).Elem()
-}
-
-func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
-	return o
-}
-
-func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
-	return o
-}
-
-func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {
-	return o.ApplyT(func(v *ClusterIdentity) ClusterIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterIdentity
-		return ret
-	}).(ClusterIdentityOutput)
-}
-
-// The Principal ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
-func (o ClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Tenant ID for the Service Principal associated with the Identity of this Log Analytics Cluster.
-func (o ClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the identity type of the Log Analytics Cluster. At this time the only allowed value is `SystemAssigned`.
-func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityInput)(nil)).Elem(), ClusterIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityPtrInput)(nil)).Elem(), ClusterIdentityArgs{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
-	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
 }

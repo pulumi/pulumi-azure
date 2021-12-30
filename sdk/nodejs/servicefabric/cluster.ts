@@ -175,34 +175,34 @@ export class Cluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            inputs["addOnFeatures"] = state ? state.addOnFeatures : undefined;
-            inputs["azureActiveDirectory"] = state ? state.azureActiveDirectory : undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["certificateCommonNames"] = state ? state.certificateCommonNames : undefined;
-            inputs["clientCertificateCommonNames"] = state ? state.clientCertificateCommonNames : undefined;
-            inputs["clientCertificateThumbprints"] = state ? state.clientCertificateThumbprints : undefined;
-            inputs["clusterCodeVersion"] = state ? state.clusterCodeVersion : undefined;
-            inputs["clusterEndpoint"] = state ? state.clusterEndpoint : undefined;
-            inputs["diagnosticsConfig"] = state ? state.diagnosticsConfig : undefined;
-            inputs["fabricSettings"] = state ? state.fabricSettings : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managementEndpoint"] = state ? state.managementEndpoint : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nodeTypes"] = state ? state.nodeTypes : undefined;
-            inputs["reliabilityLevel"] = state ? state.reliabilityLevel : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["reverseProxyCertificate"] = state ? state.reverseProxyCertificate : undefined;
-            inputs["reverseProxyCertificateCommonNames"] = state ? state.reverseProxyCertificateCommonNames : undefined;
-            inputs["serviceFabricZonalUpgradeMode"] = state ? state.serviceFabricZonalUpgradeMode : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["upgradeMode"] = state ? state.upgradeMode : undefined;
-            inputs["upgradePolicy"] = state ? state.upgradePolicy : undefined;
-            inputs["vmImage"] = state ? state.vmImage : undefined;
-            inputs["vmssZonalUpgradeMode"] = state ? state.vmssZonalUpgradeMode : undefined;
+            resourceInputs["addOnFeatures"] = state ? state.addOnFeatures : undefined;
+            resourceInputs["azureActiveDirectory"] = state ? state.azureActiveDirectory : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["certificateCommonNames"] = state ? state.certificateCommonNames : undefined;
+            resourceInputs["clientCertificateCommonNames"] = state ? state.clientCertificateCommonNames : undefined;
+            resourceInputs["clientCertificateThumbprints"] = state ? state.clientCertificateThumbprints : undefined;
+            resourceInputs["clusterCodeVersion"] = state ? state.clusterCodeVersion : undefined;
+            resourceInputs["clusterEndpoint"] = state ? state.clusterEndpoint : undefined;
+            resourceInputs["diagnosticsConfig"] = state ? state.diagnosticsConfig : undefined;
+            resourceInputs["fabricSettings"] = state ? state.fabricSettings : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managementEndpoint"] = state ? state.managementEndpoint : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nodeTypes"] = state ? state.nodeTypes : undefined;
+            resourceInputs["reliabilityLevel"] = state ? state.reliabilityLevel : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["reverseProxyCertificate"] = state ? state.reverseProxyCertificate : undefined;
+            resourceInputs["reverseProxyCertificateCommonNames"] = state ? state.reverseProxyCertificateCommonNames : undefined;
+            resourceInputs["serviceFabricZonalUpgradeMode"] = state ? state.serviceFabricZonalUpgradeMode : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["upgradeMode"] = state ? state.upgradeMode : undefined;
+            resourceInputs["upgradePolicy"] = state ? state.upgradePolicy : undefined;
+            resourceInputs["vmImage"] = state ? state.vmImage : undefined;
+            resourceInputs["vmssZonalUpgradeMode"] = state ? state.vmssZonalUpgradeMode : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if ((!args || args.managementEndpoint === undefined) && !opts.urn) {
@@ -223,35 +223,35 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.vmImage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmImage'");
             }
-            inputs["addOnFeatures"] = args ? args.addOnFeatures : undefined;
-            inputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["certificateCommonNames"] = args ? args.certificateCommonNames : undefined;
-            inputs["clientCertificateCommonNames"] = args ? args.clientCertificateCommonNames : undefined;
-            inputs["clientCertificateThumbprints"] = args ? args.clientCertificateThumbprints : undefined;
-            inputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
-            inputs["diagnosticsConfig"] = args ? args.diagnosticsConfig : undefined;
-            inputs["fabricSettings"] = args ? args.fabricSettings : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managementEndpoint"] = args ? args.managementEndpoint : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nodeTypes"] = args ? args.nodeTypes : undefined;
-            inputs["reliabilityLevel"] = args ? args.reliabilityLevel : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["reverseProxyCertificate"] = args ? args.reverseProxyCertificate : undefined;
-            inputs["reverseProxyCertificateCommonNames"] = args ? args.reverseProxyCertificateCommonNames : undefined;
-            inputs["serviceFabricZonalUpgradeMode"] = args ? args.serviceFabricZonalUpgradeMode : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
-            inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
-            inputs["vmImage"] = args ? args.vmImage : undefined;
-            inputs["vmssZonalUpgradeMode"] = args ? args.vmssZonalUpgradeMode : undefined;
-            inputs["clusterEndpoint"] = undefined /*out*/;
+            resourceInputs["addOnFeatures"] = args ? args.addOnFeatures : undefined;
+            resourceInputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["certificateCommonNames"] = args ? args.certificateCommonNames : undefined;
+            resourceInputs["clientCertificateCommonNames"] = args ? args.clientCertificateCommonNames : undefined;
+            resourceInputs["clientCertificateThumbprints"] = args ? args.clientCertificateThumbprints : undefined;
+            resourceInputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
+            resourceInputs["diagnosticsConfig"] = args ? args.diagnosticsConfig : undefined;
+            resourceInputs["fabricSettings"] = args ? args.fabricSettings : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managementEndpoint"] = args ? args.managementEndpoint : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nodeTypes"] = args ? args.nodeTypes : undefined;
+            resourceInputs["reliabilityLevel"] = args ? args.reliabilityLevel : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["reverseProxyCertificate"] = args ? args.reverseProxyCertificate : undefined;
+            resourceInputs["reverseProxyCertificateCommonNames"] = args ? args.reverseProxyCertificateCommonNames : undefined;
+            resourceInputs["serviceFabricZonalUpgradeMode"] = args ? args.serviceFabricZonalUpgradeMode : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upgradeMode"] = args ? args.upgradeMode : undefined;
+            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
+            resourceInputs["vmImage"] = args ? args.vmImage : undefined;
+            resourceInputs["vmssZonalUpgradeMode"] = args ? args.vmssZonalUpgradeMode : undefined;
+            resourceInputs["clusterEndpoint"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -105,16 +105,16 @@ export class Connection extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionState | undefined;
-            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["values"] = state ? state.values : undefined;
+            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["values"] = state ? state.values : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -129,17 +129,17 @@ export class Connection extends pulumi.CustomResource {
             if ((!args || args.values === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'values'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["values"] = args ? args.values : undefined;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["values"] = args ? args.values : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Connection.__pulumiType, name, inputs, opts);
+        super(Connection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

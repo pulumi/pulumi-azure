@@ -83,12 +83,12 @@ export class AdvancedThreatProtection extends pulumi.CustomResource {
      */
     constructor(name: string, args: AdvancedThreatProtectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AdvancedThreatProtectionArgs | AdvancedThreatProtectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdvancedThreatProtectionState | undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as AdvancedThreatProtectionArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -97,13 +97,13 @@ export class AdvancedThreatProtection extends pulumi.CustomResource {
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AdvancedThreatProtection.__pulumiType, name, inputs, opts);
+        super(AdvancedThreatProtection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

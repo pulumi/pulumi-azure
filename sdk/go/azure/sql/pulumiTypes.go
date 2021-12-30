@@ -892,47 +892,6 @@ func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToFailoverGroupReadWri
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointFailoverPolicyOutput)
 }
 
-func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return i.ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointFailoverPolicyOutput).ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx)
-}
-
-// FailoverGroupReadWriteEndpointFailoverPolicyPtrInput is an input type that accepts FailoverGroupReadWriteEndpointFailoverPolicyArgs, FailoverGroupReadWriteEndpointFailoverPolicyPtr and FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput values.
-// You can construct a concrete instance of `FailoverGroupReadWriteEndpointFailoverPolicyPtrInput` via:
-//
-//          FailoverGroupReadWriteEndpointFailoverPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type FailoverGroupReadWriteEndpointFailoverPolicyPtrInput interface {
-	pulumi.Input
-
-	ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput
-	ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput
-}
-
-type failoverGroupReadWriteEndpointFailoverPolicyPtrType FailoverGroupReadWriteEndpointFailoverPolicyArgs
-
-func FailoverGroupReadWriteEndpointFailoverPolicyPtr(v *FailoverGroupReadWriteEndpointFailoverPolicyArgs) FailoverGroupReadWriteEndpointFailoverPolicyPtrInput {
-	return (*failoverGroupReadWriteEndpointFailoverPolicyPtrType)(v)
-}
-
-func (*failoverGroupReadWriteEndpointFailoverPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
-}
-
-func (i *failoverGroupReadWriteEndpointFailoverPolicyPtrType) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return i.ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *failoverGroupReadWriteEndpointFailoverPolicyPtrType) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
-}
-
 type FailoverGroupReadWriteEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupReadWriteEndpointFailoverPolicyOutput) ElementType() reflect.Type {
@@ -947,16 +906,6 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToFailoverGroupReadW
 	return o
 }
 
-func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o.ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReadWriteEndpointFailoverPolicy) *FailoverGroupReadWriteEndpointFailoverPolicy {
-		return &v
-	}).(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
-}
-
 // Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
 func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) GraceMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
@@ -965,50 +914,6 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) GraceMinutes() pulum
 // the failover mode. Possible values are `Manual`, `Automatic`
 func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
-}
-
-type FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
-}
-
-func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o
-}
-
-func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o
-}
-
-func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Elem() FailoverGroupReadWriteEndpointFailoverPolicyOutput {
-	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointFailoverPolicy) FailoverGroupReadWriteEndpointFailoverPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret FailoverGroupReadWriteEndpointFailoverPolicy
-		return ret
-	}).(FailoverGroupReadWriteEndpointFailoverPolicyOutput)
-}
-
-// Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
-func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) GraceMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointFailoverPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.GraceMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// the failover mode. Possible values are `Manual`, `Automatic`
-func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointFailoverPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Mode
-	}).(pulumi.StringPtrOutput)
 }
 
 type FailoverGroupReadonlyEndpointFailoverPolicy struct {
@@ -1291,47 +1196,6 @@ func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToManag
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput)
 }
 
-func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return i.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput).ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx)
-}
-
-// ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput is an input type that accepts ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs, ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtr and ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput values.
-// You can construct a concrete instance of `ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput` via:
-//
-//          ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput interface {
-	pulumi.Input
-
-	ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput
-	ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput
-}
-
-type managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs
-
-func ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtr(v *ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput {
-	return (*managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType)(v)
-}
-
-func (*managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
-}
-
-func (i *managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return i.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
-}
-
 type ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ElementType() reflect.Type {
@@ -1346,16 +1210,6 @@ func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToMan
 	return o
 }
 
-func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) *ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy {
-		return &v
-	}).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
-}
-
 // Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
 func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) GraceMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
@@ -1364,50 +1218,6 @@ func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) Grace
 // The failover mode. Possible values are `Manual`, `Automatic`
 func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
-}
-
-type ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
-}
-
-func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o
-}
-
-func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
-	return o
-}
-
-func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Elem() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput {
-	return o.ApplyT(func(v *ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy
-		return ret
-	}).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput)
-}
-
-// Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
-func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) GraceMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.GraceMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The failover mode. Possible values are `Manual`, `Automatic`
-func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Mode
-	}).(pulumi.StringPtrOutput)
 }
 
 type ManagedInstanceIdentity struct {
@@ -2337,13 +2147,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupPartnerServerInput)(nil)).Elem(), FailoverGroupPartnerServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupPartnerServerArrayInput)(nil)).Elem(), FailoverGroupPartnerServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadonlyEndpointFailoverPolicyInput)(nil)).Elem(), FailoverGroupReadonlyEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadonlyEndpointFailoverPolicyPtrInput)(nil)).Elem(), FailoverGroupReadonlyEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupPartnerRegionInput)(nil)).Elem(), ManagedInstanceFailoverGroupPartnerRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupPartnerRegionArrayInput)(nil)).Elem(), ManagedInstanceFailoverGroupPartnerRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceIdentityInput)(nil)).Elem(), ManagedInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceIdentityPtrInput)(nil)).Elem(), ManagedInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerExtendedAuditingPolicyInput)(nil)).Elem(), SqlServerExtendedAuditingPolicyArgs{})
@@ -2363,13 +2171,11 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupPartnerServerOutput{})
 	pulumi.RegisterOutputType(FailoverGroupPartnerServerArrayOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyOutput{})
-	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadonlyEndpointFailoverPolicyOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupPartnerRegionOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupPartnerRegionArrayOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput{})
-	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SqlServerExtendedAuditingPolicyOutput{})

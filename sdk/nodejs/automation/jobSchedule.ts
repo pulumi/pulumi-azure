@@ -98,17 +98,17 @@ export class JobSchedule extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobScheduleArgs | JobScheduleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobScheduleState | undefined;
-            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            inputs["jobScheduleId"] = state ? state.jobScheduleId : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["runOn"] = state ? state.runOn : undefined;
-            inputs["runbookName"] = state ? state.runbookName : undefined;
-            inputs["scheduleName"] = state ? state.scheduleName : undefined;
+            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
+            resourceInputs["jobScheduleId"] = state ? state.jobScheduleId : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["runOn"] = state ? state.runOn : undefined;
+            resourceInputs["runbookName"] = state ? state.runbookName : undefined;
+            resourceInputs["scheduleName"] = state ? state.scheduleName : undefined;
         } else {
             const args = argsOrState as JobScheduleArgs | undefined;
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -123,18 +123,18 @@ export class JobSchedule extends pulumi.CustomResource {
             if ((!args || args.scheduleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["jobScheduleId"] = args ? args.jobScheduleId : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["runOn"] = args ? args.runOn : undefined;
-            inputs["runbookName"] = args ? args.runbookName : undefined;
-            inputs["scheduleName"] = args ? args.scheduleName : undefined;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["jobScheduleId"] = args ? args.jobScheduleId : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["runOn"] = args ? args.runOn : undefined;
+            resourceInputs["runbookName"] = args ? args.runbookName : undefined;
+            resourceInputs["scheduleName"] = args ? args.scheduleName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(JobSchedule.__pulumiType, name, inputs, opts);
+        super(JobSchedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

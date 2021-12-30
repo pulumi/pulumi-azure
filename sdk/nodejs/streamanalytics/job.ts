@@ -141,25 +141,25 @@ export class Job extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobState | undefined;
-            inputs["compatibilityLevel"] = state ? state.compatibilityLevel : undefined;
-            inputs["dataLocale"] = state ? state.dataLocale : undefined;
-            inputs["eventsLateArrivalMaxDelayInSeconds"] = state ? state.eventsLateArrivalMaxDelayInSeconds : undefined;
-            inputs["eventsOutOfOrderMaxDelayInSeconds"] = state ? state.eventsOutOfOrderMaxDelayInSeconds : undefined;
-            inputs["eventsOutOfOrderPolicy"] = state ? state.eventsOutOfOrderPolicy : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["jobId"] = state ? state.jobId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outputErrorPolicy"] = state ? state.outputErrorPolicy : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["streamAnalyticsClusterId"] = state ? state.streamAnalyticsClusterId : undefined;
-            inputs["streamingUnits"] = state ? state.streamingUnits : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["transformationQuery"] = state ? state.transformationQuery : undefined;
+            resourceInputs["compatibilityLevel"] = state ? state.compatibilityLevel : undefined;
+            resourceInputs["dataLocale"] = state ? state.dataLocale : undefined;
+            resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = state ? state.eventsLateArrivalMaxDelayInSeconds : undefined;
+            resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = state ? state.eventsOutOfOrderMaxDelayInSeconds : undefined;
+            resourceInputs["eventsOutOfOrderPolicy"] = state ? state.eventsOutOfOrderPolicy : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["jobId"] = state ? state.jobId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputErrorPolicy"] = state ? state.outputErrorPolicy : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["streamAnalyticsClusterId"] = state ? state.streamAnalyticsClusterId : undefined;
+            resourceInputs["streamingUnits"] = state ? state.streamingUnits : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["transformationQuery"] = state ? state.transformationQuery : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -171,26 +171,26 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.transformationQuery === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transformationQuery'");
             }
-            inputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
-            inputs["dataLocale"] = args ? args.dataLocale : undefined;
-            inputs["eventsLateArrivalMaxDelayInSeconds"] = args ? args.eventsLateArrivalMaxDelayInSeconds : undefined;
-            inputs["eventsOutOfOrderMaxDelayInSeconds"] = args ? args.eventsOutOfOrderMaxDelayInSeconds : undefined;
-            inputs["eventsOutOfOrderPolicy"] = args ? args.eventsOutOfOrderPolicy : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["streamAnalyticsClusterId"] = args ? args.streamAnalyticsClusterId : undefined;
-            inputs["streamingUnits"] = args ? args.streamingUnits : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transformationQuery"] = args ? args.transformationQuery : undefined;
-            inputs["jobId"] = undefined /*out*/;
+            resourceInputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
+            resourceInputs["dataLocale"] = args ? args.dataLocale : undefined;
+            resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = args ? args.eventsLateArrivalMaxDelayInSeconds : undefined;
+            resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = args ? args.eventsOutOfOrderMaxDelayInSeconds : undefined;
+            resourceInputs["eventsOutOfOrderPolicy"] = args ? args.eventsOutOfOrderPolicy : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["streamAnalyticsClusterId"] = args ? args.streamAnalyticsClusterId : undefined;
+            resourceInputs["streamingUnits"] = args ? args.streamingUnits : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transformationQuery"] = args ? args.transformationQuery : undefined;
+            resourceInputs["jobId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Job.__pulumiType, name, inputs, opts);
+        super(Job.__pulumiType, name, resourceInputs, opts);
     }
 }
 

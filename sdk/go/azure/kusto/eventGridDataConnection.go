@@ -365,7 +365,7 @@ type EventGridDataConnectionInput interface {
 }
 
 func (*EventGridDataConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventGridDataConnection)(nil))
+	return reflect.TypeOf((**EventGridDataConnection)(nil)).Elem()
 }
 
 func (i *EventGridDataConnection) ToEventGridDataConnectionOutput() EventGridDataConnectionOutput {
@@ -374,35 +374,6 @@ func (i *EventGridDataConnection) ToEventGridDataConnectionOutput() EventGridDat
 
 func (i *EventGridDataConnection) ToEventGridDataConnectionOutputWithContext(ctx context.Context) EventGridDataConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridDataConnectionOutput)
-}
-
-func (i *EventGridDataConnection) ToEventGridDataConnectionPtrOutput() EventGridDataConnectionPtrOutput {
-	return i.ToEventGridDataConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *EventGridDataConnection) ToEventGridDataConnectionPtrOutputWithContext(ctx context.Context) EventGridDataConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventGridDataConnectionPtrOutput)
-}
-
-type EventGridDataConnectionPtrInput interface {
-	pulumi.Input
-
-	ToEventGridDataConnectionPtrOutput() EventGridDataConnectionPtrOutput
-	ToEventGridDataConnectionPtrOutputWithContext(ctx context.Context) EventGridDataConnectionPtrOutput
-}
-
-type eventGridDataConnectionPtrType EventGridDataConnectionArgs
-
-func (*eventGridDataConnectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventGridDataConnection)(nil))
-}
-
-func (i *eventGridDataConnectionPtrType) ToEventGridDataConnectionPtrOutput() EventGridDataConnectionPtrOutput {
-	return i.ToEventGridDataConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *eventGridDataConnectionPtrType) ToEventGridDataConnectionPtrOutputWithContext(ctx context.Context) EventGridDataConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventGridDataConnectionPtrOutput)
 }
 
 // EventGridDataConnectionArrayInput is an input type that accepts EventGridDataConnectionArray and EventGridDataConnectionArrayOutput values.
@@ -458,7 +429,7 @@ func (i EventGridDataConnectionMap) ToEventGridDataConnectionMapOutputWithContex
 type EventGridDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventGridDataConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventGridDataConnection)(nil))
+	return reflect.TypeOf((**EventGridDataConnection)(nil)).Elem()
 }
 
 func (o EventGridDataConnectionOutput) ToEventGridDataConnectionOutput() EventGridDataConnectionOutput {
@@ -469,44 +440,10 @@ func (o EventGridDataConnectionOutput) ToEventGridDataConnectionOutputWithContex
 	return o
 }
 
-func (o EventGridDataConnectionOutput) ToEventGridDataConnectionPtrOutput() EventGridDataConnectionPtrOutput {
-	return o.ToEventGridDataConnectionPtrOutputWithContext(context.Background())
-}
-
-func (o EventGridDataConnectionOutput) ToEventGridDataConnectionPtrOutputWithContext(ctx context.Context) EventGridDataConnectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventGridDataConnection) *EventGridDataConnection {
-		return &v
-	}).(EventGridDataConnectionPtrOutput)
-}
-
-type EventGridDataConnectionPtrOutput struct{ *pulumi.OutputState }
-
-func (EventGridDataConnectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventGridDataConnection)(nil))
-}
-
-func (o EventGridDataConnectionPtrOutput) ToEventGridDataConnectionPtrOutput() EventGridDataConnectionPtrOutput {
-	return o
-}
-
-func (o EventGridDataConnectionPtrOutput) ToEventGridDataConnectionPtrOutputWithContext(ctx context.Context) EventGridDataConnectionPtrOutput {
-	return o
-}
-
-func (o EventGridDataConnectionPtrOutput) Elem() EventGridDataConnectionOutput {
-	return o.ApplyT(func(v *EventGridDataConnection) EventGridDataConnection {
-		if v != nil {
-			return *v
-		}
-		var ret EventGridDataConnection
-		return ret
-	}).(EventGridDataConnectionOutput)
-}
-
 type EventGridDataConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (EventGridDataConnectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventGridDataConnection)(nil))
+	return reflect.TypeOf((*[]*EventGridDataConnection)(nil)).Elem()
 }
 
 func (o EventGridDataConnectionArrayOutput) ToEventGridDataConnectionArrayOutput() EventGridDataConnectionArrayOutput {
@@ -518,15 +455,15 @@ func (o EventGridDataConnectionArrayOutput) ToEventGridDataConnectionArrayOutput
 }
 
 func (o EventGridDataConnectionArrayOutput) Index(i pulumi.IntInput) EventGridDataConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventGridDataConnection {
-		return vs[0].([]EventGridDataConnection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventGridDataConnection {
+		return vs[0].([]*EventGridDataConnection)[vs[1].(int)]
 	}).(EventGridDataConnectionOutput)
 }
 
 type EventGridDataConnectionMapOutput struct{ *pulumi.OutputState }
 
 func (EventGridDataConnectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventGridDataConnection)(nil))
+	return reflect.TypeOf((*map[string]*EventGridDataConnection)(nil)).Elem()
 }
 
 func (o EventGridDataConnectionMapOutput) ToEventGridDataConnectionMapOutput() EventGridDataConnectionMapOutput {
@@ -538,18 +475,16 @@ func (o EventGridDataConnectionMapOutput) ToEventGridDataConnectionMapOutputWith
 }
 
 func (o EventGridDataConnectionMapOutput) MapIndex(k pulumi.StringInput) EventGridDataConnectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventGridDataConnection {
-		return vs[0].(map[string]EventGridDataConnection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EventGridDataConnection {
+		return vs[0].(map[string]*EventGridDataConnection)[vs[1].(string)]
 	}).(EventGridDataConnectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventGridDataConnectionInput)(nil)).Elem(), &EventGridDataConnection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventGridDataConnectionPtrInput)(nil)).Elem(), &EventGridDataConnection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventGridDataConnectionArrayInput)(nil)).Elem(), EventGridDataConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventGridDataConnectionMapInput)(nil)).Elem(), EventGridDataConnectionMap{})
 	pulumi.RegisterOutputType(EventGridDataConnectionOutput{})
-	pulumi.RegisterOutputType(EventGridDataConnectionPtrOutput{})
 	pulumi.RegisterOutputType(EventGridDataConnectionArrayOutput{})
 	pulumi.RegisterOutputType(EventGridDataConnectionMapOutput{})
 }

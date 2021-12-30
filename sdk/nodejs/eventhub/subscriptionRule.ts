@@ -174,19 +174,19 @@ export class SubscriptionRule extends pulumi.CustomResource {
     /** @deprecated azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule */
     constructor(name: string, argsOrState?: SubscriptionRuleArgs | SubscriptionRuleState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SubscriptionRule is deprecated: azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionRuleState | undefined;
-            inputs["action"] = state ? state.action : undefined;
-            inputs["correlationFilter"] = state ? state.correlationFilter : undefined;
-            inputs["filterType"] = state ? state.filterType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespaceName"] = state ? state.namespaceName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sqlFilter"] = state ? state.sqlFilter : undefined;
-            inputs["subscriptionName"] = state ? state.subscriptionName : undefined;
-            inputs["topicName"] = state ? state.topicName : undefined;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["correlationFilter"] = state ? state.correlationFilter : undefined;
+            resourceInputs["filterType"] = state ? state.filterType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sqlFilter"] = state ? state.sqlFilter : undefined;
+            resourceInputs["subscriptionName"] = state ? state.subscriptionName : undefined;
+            resourceInputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as SubscriptionRuleArgs | undefined;
             if ((!args || args.filterType === undefined) && !opts.urn) {
@@ -204,20 +204,20 @@ export class SubscriptionRule extends pulumi.CustomResource {
             if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["correlationFilter"] = args ? args.correlationFilter : undefined;
-            inputs["filterType"] = args ? args.filterType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sqlFilter"] = args ? args.sqlFilter : undefined;
-            inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            inputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["correlationFilter"] = args ? args.correlationFilter : undefined;
+            resourceInputs["filterType"] = args ? args.filterType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sqlFilter"] = args ? args.sqlFilter : undefined;
+            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
+            resourceInputs["topicName"] = args ? args.topicName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SubscriptionRule.__pulumiType, name, inputs, opts);
+        super(SubscriptionRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -29,8 +29,8 @@ import * as utilities from "../utilities";
  *         environment: "staging",
  *     },
  * });
- * const exampleAccountSAS = exampleAccount.primaryConnectionString.apply(primaryConnectionString => azure.storage.getAccountSAS({
- *     connectionString: primaryConnectionString,
+ * const exampleAccountSAS = azure.storage.getAccountSASOutput({
+ *     connectionString: exampleAccount.primaryConnectionString,
  *     httpsOnly: true,
  *     signedVersion: "2017-07-29",
  *     resourceTypes: {
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *         update: false,
  *         process: false,
  *     },
- * }));
+ * });
  * export const sasUrlQueryString = exampleAccountSAS.apply(exampleAccountSAS => exampleAccountSAS.sas);
  * ```
  */

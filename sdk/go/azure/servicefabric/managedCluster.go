@@ -314,7 +314,7 @@ type ManagedClusterInput interface {
 }
 
 func (*ManagedCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedCluster)(nil))
+	return reflect.TypeOf((**ManagedCluster)(nil)).Elem()
 }
 
 func (i *ManagedCluster) ToManagedClusterOutput() ManagedClusterOutput {
@@ -323,35 +323,6 @@ func (i *ManagedCluster) ToManagedClusterOutput() ManagedClusterOutput {
 
 func (i *ManagedCluster) ToManagedClusterOutputWithContext(ctx context.Context) ManagedClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterOutput)
-}
-
-func (i *ManagedCluster) ToManagedClusterPtrOutput() ManagedClusterPtrOutput {
-	return i.ToManagedClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *ManagedCluster) ToManagedClusterPtrOutputWithContext(ctx context.Context) ManagedClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPtrOutput)
-}
-
-type ManagedClusterPtrInput interface {
-	pulumi.Input
-
-	ToManagedClusterPtrOutput() ManagedClusterPtrOutput
-	ToManagedClusterPtrOutputWithContext(ctx context.Context) ManagedClusterPtrOutput
-}
-
-type managedClusterPtrType ManagedClusterArgs
-
-func (*managedClusterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedCluster)(nil))
-}
-
-func (i *managedClusterPtrType) ToManagedClusterPtrOutput() ManagedClusterPtrOutput {
-	return i.ToManagedClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *managedClusterPtrType) ToManagedClusterPtrOutputWithContext(ctx context.Context) ManagedClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPtrOutput)
 }
 
 // ManagedClusterArrayInput is an input type that accepts ManagedClusterArray and ManagedClusterArrayOutput values.
@@ -407,7 +378,7 @@ func (i ManagedClusterMap) ToManagedClusterMapOutputWithContext(ctx context.Cont
 type ManagedClusterOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedCluster)(nil))
+	return reflect.TypeOf((**ManagedCluster)(nil)).Elem()
 }
 
 func (o ManagedClusterOutput) ToManagedClusterOutput() ManagedClusterOutput {
@@ -418,44 +389,10 @@ func (o ManagedClusterOutput) ToManagedClusterOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ManagedClusterOutput) ToManagedClusterPtrOutput() ManagedClusterPtrOutput {
-	return o.ToManagedClusterPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedClusterOutput) ToManagedClusterPtrOutputWithContext(ctx context.Context) ManagedClusterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedCluster) *ManagedCluster {
-		return &v
-	}).(ManagedClusterPtrOutput)
-}
-
-type ManagedClusterPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedClusterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedCluster)(nil))
-}
-
-func (o ManagedClusterPtrOutput) ToManagedClusterPtrOutput() ManagedClusterPtrOutput {
-	return o
-}
-
-func (o ManagedClusterPtrOutput) ToManagedClusterPtrOutputWithContext(ctx context.Context) ManagedClusterPtrOutput {
-	return o
-}
-
-func (o ManagedClusterPtrOutput) Elem() ManagedClusterOutput {
-	return o.ApplyT(func(v *ManagedCluster) ManagedCluster {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedCluster
-		return ret
-	}).(ManagedClusterOutput)
-}
-
 type ManagedClusterArrayOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedCluster)(nil))
+	return reflect.TypeOf((*[]*ManagedCluster)(nil)).Elem()
 }
 
 func (o ManagedClusterArrayOutput) ToManagedClusterArrayOutput() ManagedClusterArrayOutput {
@@ -467,15 +404,15 @@ func (o ManagedClusterArrayOutput) ToManagedClusterArrayOutputWithContext(ctx co
 }
 
 func (o ManagedClusterArrayOutput) Index(i pulumi.IntInput) ManagedClusterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedCluster {
-		return vs[0].([]ManagedCluster)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedCluster {
+		return vs[0].([]*ManagedCluster)[vs[1].(int)]
 	}).(ManagedClusterOutput)
 }
 
 type ManagedClusterMapOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedCluster)(nil))
+	return reflect.TypeOf((*map[string]*ManagedCluster)(nil)).Elem()
 }
 
 func (o ManagedClusterMapOutput) ToManagedClusterMapOutput() ManagedClusterMapOutput {
@@ -487,18 +424,16 @@ func (o ManagedClusterMapOutput) ToManagedClusterMapOutputWithContext(ctx contex
 }
 
 func (o ManagedClusterMapOutput) MapIndex(k pulumi.StringInput) ManagedClusterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedCluster {
-		return vs[0].(map[string]ManagedCluster)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ManagedCluster {
+		return vs[0].(map[string]*ManagedCluster)[vs[1].(string)]
 	}).(ManagedClusterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterInput)(nil)).Elem(), &ManagedCluster{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterPtrInput)(nil)).Elem(), &ManagedCluster{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterArrayInput)(nil)).Elem(), ManagedClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedClusterMapInput)(nil)).Elem(), ManagedClusterMap{})
 	pulumi.RegisterOutputType(ManagedClusterOutput{})
-	pulumi.RegisterOutputType(ManagedClusterPtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterMapOutput{})
 }

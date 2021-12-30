@@ -138,17 +138,17 @@ export class Snapshot extends pulumi.CustomResource {
      */
     constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotArgs | SnapshotState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["poolName"] = state ? state.poolName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["volumeName"] = state ? state.volumeName : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["poolName"] = state ? state.poolName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["volumeName"] = state ? state.volumeName : undefined;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -163,18 +163,18 @@ export class Snapshot extends pulumi.CustomResource {
             if ((!args || args.volumeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["poolName"] = args ? args.poolName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["volumeName"] = args ? args.volumeName : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Snapshot.__pulumiType, name, inputs, opts);
+        super(Snapshot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

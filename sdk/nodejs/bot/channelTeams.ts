@@ -96,15 +96,15 @@ export class ChannelTeams extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelTeamsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelTeamsArgs | ChannelTeamsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelTeamsState | undefined;
-            inputs["botName"] = state ? state.botName : undefined;
-            inputs["callingWebHook"] = state ? state.callingWebHook : undefined;
-            inputs["enableCalling"] = state ? state.enableCalling : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["botName"] = state ? state.botName : undefined;
+            resourceInputs["callingWebHook"] = state ? state.callingWebHook : undefined;
+            resourceInputs["enableCalling"] = state ? state.enableCalling : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ChannelTeamsArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -113,16 +113,16 @@ export class ChannelTeams extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["botName"] = args ? args.botName : undefined;
-            inputs["callingWebHook"] = args ? args.callingWebHook : undefined;
-            inputs["enableCalling"] = args ? args.enableCalling : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["callingWebHook"] = args ? args.callingWebHook : undefined;
+            resourceInputs["enableCalling"] = args ? args.enableCalling : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ChannelTeams.__pulumiType, name, inputs, opts);
+        super(ChannelTeams.__pulumiType, name, resourceInputs, opts);
     }
 }
 

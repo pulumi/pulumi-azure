@@ -117,27 +117,27 @@ export class Workspace extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceArgs | WorkspaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            inputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
-            inputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["discoveryUrl"] = state ? state.discoveryUrl : undefined;
-            inputs["encryption"] = state ? state.encryption : undefined;
-            inputs["friendlyName"] = state ? state.friendlyName : undefined;
-            inputs["highBusinessImpact"] = state ? state.highBusinessImpact : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["imageBuildComputeName"] = state ? state.imageBuildComputeName : undefined;
-            inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
+            resourceInputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["discoveryUrl"] = state ? state.discoveryUrl : undefined;
+            resourceInputs["encryption"] = state ? state.encryption : undefined;
+            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
+            resourceInputs["highBusinessImpact"] = state ? state.highBusinessImpact : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["imageBuildComputeName"] = state ? state.imageBuildComputeName : undefined;
+            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
             if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
@@ -155,28 +155,28 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            inputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
-            inputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["highBusinessImpact"] = args ? args.highBusinessImpact : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["imageBuildComputeName"] = args ? args.imageBuildComputeName : undefined;
-            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["discoveryUrl"] = undefined /*out*/;
+            resourceInputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
+            resourceInputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["highBusinessImpact"] = args ? args.highBusinessImpact : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["imageBuildComputeName"] = args ? args.imageBuildComputeName : undefined;
+            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["discoveryUrl"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Workspace.__pulumiType, name, inputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

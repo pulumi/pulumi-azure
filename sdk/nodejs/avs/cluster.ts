@@ -103,16 +103,16 @@ export class Cluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            inputs["clusterNodeCount"] = state ? state.clusterNodeCount : undefined;
-            inputs["clusterNumber"] = state ? state.clusterNumber : undefined;
-            inputs["hosts"] = state ? state.hosts : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["vmwareCloudId"] = state ? state.vmwareCloudId : undefined;
+            resourceInputs["clusterNodeCount"] = state ? state.clusterNodeCount : undefined;
+            resourceInputs["clusterNumber"] = state ? state.clusterNumber : undefined;
+            resourceInputs["hosts"] = state ? state.hosts : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["vmwareCloudId"] = state ? state.vmwareCloudId : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if ((!args || args.clusterNodeCount === undefined) && !opts.urn) {
@@ -124,17 +124,17 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.vmwareCloudId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmwareCloudId'");
             }
-            inputs["clusterNodeCount"] = args ? args.clusterNodeCount : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["vmwareCloudId"] = args ? args.vmwareCloudId : undefined;
-            inputs["clusterNumber"] = undefined /*out*/;
-            inputs["hosts"] = undefined /*out*/;
+            resourceInputs["clusterNodeCount"] = args ? args.clusterNodeCount : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["vmwareCloudId"] = args ? args.vmwareCloudId : undefined;
+            resourceInputs["clusterNumber"] = undefined /*out*/;
+            resourceInputs["hosts"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

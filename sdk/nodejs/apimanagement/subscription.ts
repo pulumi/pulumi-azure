@@ -126,21 +126,21 @@ export class Subscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubscriptionArgs | SubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
-            inputs["allowTracing"] = state ? state.allowTracing : undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["primaryKey"] = state ? state.primaryKey : undefined;
-            inputs["productId"] = state ? state.productId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["subscriptionId"] = state ? state.subscriptionId : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["allowTracing"] = state ? state.allowTracing : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
+            resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as SubscriptionArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -152,22 +152,22 @@ export class Subscription extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allowTracing"] = args ? args.allowTracing : undefined;
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["primaryKey"] = args ? args.primaryKey : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["secondaryKey"] = args ? args.secondaryKey : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["allowTracing"] = args ? args.allowTracing : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["secondaryKey"] = args ? args.secondaryKey : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Subscription.__pulumiType, name, inputs, opts);
+        super(Subscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

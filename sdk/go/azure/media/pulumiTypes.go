@@ -1991,47 +1991,6 @@ func (i JobInputAssetArgs) ToJobInputAssetOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetOutput)
 }
 
-func (i JobInputAssetArgs) ToJobInputAssetPtrOutput() JobInputAssetPtrOutput {
-	return i.ToJobInputAssetPtrOutputWithContext(context.Background())
-}
-
-func (i JobInputAssetArgs) ToJobInputAssetPtrOutputWithContext(ctx context.Context) JobInputAssetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetOutput).ToJobInputAssetPtrOutputWithContext(ctx)
-}
-
-// JobInputAssetPtrInput is an input type that accepts JobInputAssetArgs, JobInputAssetPtr and JobInputAssetPtrOutput values.
-// You can construct a concrete instance of `JobInputAssetPtrInput` via:
-//
-//          JobInputAssetArgs{...}
-//
-//  or:
-//
-//          nil
-type JobInputAssetPtrInput interface {
-	pulumi.Input
-
-	ToJobInputAssetPtrOutput() JobInputAssetPtrOutput
-	ToJobInputAssetPtrOutputWithContext(context.Context) JobInputAssetPtrOutput
-}
-
-type jobInputAssetPtrType JobInputAssetArgs
-
-func JobInputAssetPtr(v *JobInputAssetArgs) JobInputAssetPtrInput {
-	return (*jobInputAssetPtrType)(v)
-}
-
-func (*jobInputAssetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobInputAsset)(nil)).Elem()
-}
-
-func (i *jobInputAssetPtrType) ToJobInputAssetPtrOutput() JobInputAssetPtrOutput {
-	return i.ToJobInputAssetPtrOutputWithContext(context.Background())
-}
-
-func (i *jobInputAssetPtrType) ToJobInputAssetPtrOutputWithContext(ctx context.Context) JobInputAssetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetPtrOutput)
-}
-
 type JobInputAssetOutput struct{ *pulumi.OutputState }
 
 func (JobInputAssetOutput) ElementType() reflect.Type {
@@ -2046,16 +2005,6 @@ func (o JobInputAssetOutput) ToJobInputAssetOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o JobInputAssetOutput) ToJobInputAssetPtrOutput() JobInputAssetPtrOutput {
-	return o.ToJobInputAssetPtrOutputWithContext(context.Background())
-}
-
-func (o JobInputAssetOutput) ToJobInputAssetPtrOutputWithContext(ctx context.Context) JobInputAssetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobInputAsset) *JobInputAsset {
-		return &v
-	}).(JobInputAssetPtrOutput)
-}
-
 // A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
 func (o JobInputAssetOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputAsset) *string { return v.Label }).(pulumi.StringPtrOutput)
@@ -2064,50 +2013,6 @@ func (o JobInputAssetOutput) Label() pulumi.StringPtrOutput {
 // The name of the input Asset. Changing this forces a new Media Job to be created.
 func (o JobInputAssetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputAsset) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type JobInputAssetPtrOutput struct{ *pulumi.OutputState }
-
-func (JobInputAssetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobInputAsset)(nil)).Elem()
-}
-
-func (o JobInputAssetPtrOutput) ToJobInputAssetPtrOutput() JobInputAssetPtrOutput {
-	return o
-}
-
-func (o JobInputAssetPtrOutput) ToJobInputAssetPtrOutputWithContext(ctx context.Context) JobInputAssetPtrOutput {
-	return o
-}
-
-func (o JobInputAssetPtrOutput) Elem() JobInputAssetOutput {
-	return o.ApplyT(func(v *JobInputAsset) JobInputAsset {
-		if v != nil {
-			return *v
-		}
-		var ret JobInputAsset
-		return ret
-	}).(JobInputAssetOutput)
-}
-
-// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
-func (o JobInputAssetPtrOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobInputAsset) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Label
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the input Asset. Changing this forces a new Media Job to be created.
-func (o JobInputAssetPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobInputAsset) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type JobOutputAsset struct {
@@ -2613,47 +2518,6 @@ func (i LiveEventInputTypeArgs) ToLiveEventInputTypeOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypeOutput)
 }
 
-func (i LiveEventInputTypeArgs) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
-	return i.ToLiveEventInputTypePtrOutputWithContext(context.Background())
-}
-
-func (i LiveEventInputTypeArgs) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypeOutput).ToLiveEventInputTypePtrOutputWithContext(ctx)
-}
-
-// LiveEventInputTypePtrInput is an input type that accepts LiveEventInputTypeArgs, LiveEventInputTypePtr and LiveEventInputTypePtrOutput values.
-// You can construct a concrete instance of `LiveEventInputTypePtrInput` via:
-//
-//          LiveEventInputTypeArgs{...}
-//
-//  or:
-//
-//          nil
-type LiveEventInputTypePtrInput interface {
-	pulumi.Input
-
-	ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput
-	ToLiveEventInputTypePtrOutputWithContext(context.Context) LiveEventInputTypePtrOutput
-}
-
-type liveEventInputTypePtrType LiveEventInputTypeArgs
-
-func LiveEventInputTypePtr(v *LiveEventInputTypeArgs) LiveEventInputTypePtrInput {
-	return (*liveEventInputTypePtrType)(v)
-}
-
-func (*liveEventInputTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventInputType)(nil)).Elem()
-}
-
-func (i *liveEventInputTypePtrType) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
-	return i.ToLiveEventInputTypePtrOutputWithContext(context.Background())
-}
-
-func (i *liveEventInputTypePtrType) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypePtrOutput)
-}
-
 type LiveEventInputTypeOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputTypeOutput) ElementType() reflect.Type {
@@ -2666,16 +2530,6 @@ func (o LiveEventInputTypeOutput) ToLiveEventInputTypeOutput() LiveEventInputTyp
 
 func (o LiveEventInputTypeOutput) ToLiveEventInputTypeOutputWithContext(ctx context.Context) LiveEventInputTypeOutput {
 	return o
-}
-
-func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
-	return o.ToLiveEventInputTypePtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputType) *LiveEventInputType {
-		return &v
-	}).(LiveEventInputTypePtrOutput)
 }
 
 // A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
@@ -2700,79 +2554,6 @@ func (o LiveEventInputTypeOutput) KeyFrameIntervalDuration() pulumi.StringPtrOut
 // The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
 func (o LiveEventInputTypeOutput) StreamingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventInputType) *string { return v.StreamingProtocol }).(pulumi.StringPtrOutput)
-}
-
-type LiveEventInputTypePtrOutput struct{ *pulumi.OutputState }
-
-func (LiveEventInputTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventInputType)(nil)).Elem()
-}
-
-func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
-	return o
-}
-
-func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return o
-}
-
-func (o LiveEventInputTypePtrOutput) Elem() LiveEventInputTypeOutput {
-	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventInputType
-		return ret
-	}).(LiveEventInputTypeOutput)
-}
-
-// A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
-func (o LiveEventInputTypePtrOutput) AccessToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInputType) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccessToken
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LiveEventInputTypePtrOutput) Endpoints() LiveEventInputEndpointArrayOutput {
-	return o.ApplyT(func(v *LiveEventInputType) []LiveEventInputEndpoint {
-		if v == nil {
-			return nil
-		}
-		return v.Endpoints
-	}).(LiveEventInputEndpointArrayOutput)
-}
-
-// One or more `ipAccessControlAllow` blocks as defined below.
-func (o LiveEventInputTypePtrOutput) IpAccessControlAllows() LiveEventInputIpAccessControlAllowArrayOutput {
-	return o.ApplyT(func(v *LiveEventInputType) []LiveEventInputIpAccessControlAllow {
-		if v == nil {
-			return nil
-		}
-		return v.IpAccessControlAllows
-	}).(LiveEventInputIpAccessControlAllowArrayOutput)
-}
-
-// ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
-func (o LiveEventInputTypePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInputType) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyFrameIntervalDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-// The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
-func (o LiveEventInputTypePtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInputType) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StreamingProtocol
-	}).(pulumi.StringPtrOutput)
 }
 
 type LiveEventInputEndpoint struct {
@@ -6896,7 +6677,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimInput)(nil)).Elem(), ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayInput)(nil)).Elem(), ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobInputAssetInput)(nil)).Elem(), JobInputAssetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobInputAssetPtrInput)(nil)).Elem(), JobInputAssetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobOutputAssetInput)(nil)).Elem(), JobOutputAssetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobOutputAssetArrayInput)(nil)).Elem(), JobOutputAssetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventCrossSiteAccessPolicyInput)(nil)).Elem(), LiveEventCrossSiteAccessPolicyArgs{})
@@ -6904,7 +6684,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventEncodingInput)(nil)).Elem(), LiveEventEncodingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventEncodingPtrInput)(nil)).Elem(), LiveEventEncodingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventInputTypeInput)(nil)).Elem(), LiveEventInputTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventInputTypePtrInput)(nil)).Elem(), LiveEventInputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventInputEndpointInput)(nil)).Elem(), LiveEventInputEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventInputEndpointArrayInput)(nil)).Elem(), LiveEventInputEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveEventInputIpAccessControlAllowInput)(nil)).Elem(), LiveEventInputIpAccessControlAllowArgs{})
@@ -6980,7 +6759,6 @@ func init() {
 	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput{})
 	pulumi.RegisterOutputType(JobInputAssetOutput{})
-	pulumi.RegisterOutputType(JobInputAssetPtrOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventCrossSiteAccessPolicyOutput{})
@@ -6988,7 +6766,6 @@ func init() {
 	pulumi.RegisterOutputType(LiveEventEncodingOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputTypeOutput{})
-	pulumi.RegisterOutputType(LiveEventInputTypePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputEndpointOutput{})
 	pulumi.RegisterOutputType(LiveEventInputEndpointArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventInputIpAccessControlAllowOutput{})

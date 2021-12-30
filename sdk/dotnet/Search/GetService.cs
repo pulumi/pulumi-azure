@@ -31,11 +31,11 @@ namespace Pulumi.Azure.Search
         ///         {
         ///             Location = "West Europe",
         ///         });
-        ///         var exampleService = exampleResourceGroup.Name.Apply(name =&gt; Azure.Search.GetService.InvokeAsync(new Azure.Search.GetServiceArgs
+        ///         var exampleService = Azure.Search.GetService.Invoke(new Azure.Search.GetServiceInvokeArgs
         ///         {
         ///             Name = "example-search-service",
-        ///             ResourceGroupName = name,
-        ///         }));
+        ///             ResourceGroupName = exampleResourceGroup.Name,
+        ///         });
         ///     }
         /// 
         /// }
@@ -65,11 +65,11 @@ namespace Pulumi.Azure.Search
         ///         {
         ///             Location = "West Europe",
         ///         });
-        ///         var exampleService = exampleResourceGroup.Name.Apply(name =&gt; Azure.Search.GetService.InvokeAsync(new Azure.Search.GetServiceArgs
+        ///         var exampleService = Azure.Search.GetService.Invoke(new Azure.Search.GetServiceInvokeArgs
         ///         {
         ///             Name = "example-search-service",
-        ///             ResourceGroupName = name,
-        ///         }));
+        ///             ResourceGroupName = exampleResourceGroup.Name,
+        ///         });
         ///     }
         /// 
         /// }

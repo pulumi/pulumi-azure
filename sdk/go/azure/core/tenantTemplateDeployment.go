@@ -155,7 +155,7 @@ type TenantTemplateDeploymentInput interface {
 }
 
 func (*TenantTemplateDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*TenantTemplateDeployment)(nil))
+	return reflect.TypeOf((**TenantTemplateDeployment)(nil)).Elem()
 }
 
 func (i *TenantTemplateDeployment) ToTenantTemplateDeploymentOutput() TenantTemplateDeploymentOutput {
@@ -164,35 +164,6 @@ func (i *TenantTemplateDeployment) ToTenantTemplateDeploymentOutput() TenantTemp
 
 func (i *TenantTemplateDeployment) ToTenantTemplateDeploymentOutputWithContext(ctx context.Context) TenantTemplateDeploymentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TenantTemplateDeploymentOutput)
-}
-
-func (i *TenantTemplateDeployment) ToTenantTemplateDeploymentPtrOutput() TenantTemplateDeploymentPtrOutput {
-	return i.ToTenantTemplateDeploymentPtrOutputWithContext(context.Background())
-}
-
-func (i *TenantTemplateDeployment) ToTenantTemplateDeploymentPtrOutputWithContext(ctx context.Context) TenantTemplateDeploymentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TenantTemplateDeploymentPtrOutput)
-}
-
-type TenantTemplateDeploymentPtrInput interface {
-	pulumi.Input
-
-	ToTenantTemplateDeploymentPtrOutput() TenantTemplateDeploymentPtrOutput
-	ToTenantTemplateDeploymentPtrOutputWithContext(ctx context.Context) TenantTemplateDeploymentPtrOutput
-}
-
-type tenantTemplateDeploymentPtrType TenantTemplateDeploymentArgs
-
-func (*tenantTemplateDeploymentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TenantTemplateDeployment)(nil))
-}
-
-func (i *tenantTemplateDeploymentPtrType) ToTenantTemplateDeploymentPtrOutput() TenantTemplateDeploymentPtrOutput {
-	return i.ToTenantTemplateDeploymentPtrOutputWithContext(context.Background())
-}
-
-func (i *tenantTemplateDeploymentPtrType) ToTenantTemplateDeploymentPtrOutputWithContext(ctx context.Context) TenantTemplateDeploymentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TenantTemplateDeploymentPtrOutput)
 }
 
 // TenantTemplateDeploymentArrayInput is an input type that accepts TenantTemplateDeploymentArray and TenantTemplateDeploymentArrayOutput values.
@@ -248,7 +219,7 @@ func (i TenantTemplateDeploymentMap) ToTenantTemplateDeploymentMapOutputWithCont
 type TenantTemplateDeploymentOutput struct{ *pulumi.OutputState }
 
 func (TenantTemplateDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TenantTemplateDeployment)(nil))
+	return reflect.TypeOf((**TenantTemplateDeployment)(nil)).Elem()
 }
 
 func (o TenantTemplateDeploymentOutput) ToTenantTemplateDeploymentOutput() TenantTemplateDeploymentOutput {
@@ -259,44 +230,10 @@ func (o TenantTemplateDeploymentOutput) ToTenantTemplateDeploymentOutputWithCont
 	return o
 }
 
-func (o TenantTemplateDeploymentOutput) ToTenantTemplateDeploymentPtrOutput() TenantTemplateDeploymentPtrOutput {
-	return o.ToTenantTemplateDeploymentPtrOutputWithContext(context.Background())
-}
-
-func (o TenantTemplateDeploymentOutput) ToTenantTemplateDeploymentPtrOutputWithContext(ctx context.Context) TenantTemplateDeploymentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TenantTemplateDeployment) *TenantTemplateDeployment {
-		return &v
-	}).(TenantTemplateDeploymentPtrOutput)
-}
-
-type TenantTemplateDeploymentPtrOutput struct{ *pulumi.OutputState }
-
-func (TenantTemplateDeploymentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TenantTemplateDeployment)(nil))
-}
-
-func (o TenantTemplateDeploymentPtrOutput) ToTenantTemplateDeploymentPtrOutput() TenantTemplateDeploymentPtrOutput {
-	return o
-}
-
-func (o TenantTemplateDeploymentPtrOutput) ToTenantTemplateDeploymentPtrOutputWithContext(ctx context.Context) TenantTemplateDeploymentPtrOutput {
-	return o
-}
-
-func (o TenantTemplateDeploymentPtrOutput) Elem() TenantTemplateDeploymentOutput {
-	return o.ApplyT(func(v *TenantTemplateDeployment) TenantTemplateDeployment {
-		if v != nil {
-			return *v
-		}
-		var ret TenantTemplateDeployment
-		return ret
-	}).(TenantTemplateDeploymentOutput)
-}
-
 type TenantTemplateDeploymentArrayOutput struct{ *pulumi.OutputState }
 
 func (TenantTemplateDeploymentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TenantTemplateDeployment)(nil))
+	return reflect.TypeOf((*[]*TenantTemplateDeployment)(nil)).Elem()
 }
 
 func (o TenantTemplateDeploymentArrayOutput) ToTenantTemplateDeploymentArrayOutput() TenantTemplateDeploymentArrayOutput {
@@ -308,15 +245,15 @@ func (o TenantTemplateDeploymentArrayOutput) ToTenantTemplateDeploymentArrayOutp
 }
 
 func (o TenantTemplateDeploymentArrayOutput) Index(i pulumi.IntInput) TenantTemplateDeploymentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TenantTemplateDeployment {
-		return vs[0].([]TenantTemplateDeployment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TenantTemplateDeployment {
+		return vs[0].([]*TenantTemplateDeployment)[vs[1].(int)]
 	}).(TenantTemplateDeploymentOutput)
 }
 
 type TenantTemplateDeploymentMapOutput struct{ *pulumi.OutputState }
 
 func (TenantTemplateDeploymentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TenantTemplateDeployment)(nil))
+	return reflect.TypeOf((*map[string]*TenantTemplateDeployment)(nil)).Elem()
 }
 
 func (o TenantTemplateDeploymentMapOutput) ToTenantTemplateDeploymentMapOutput() TenantTemplateDeploymentMapOutput {
@@ -328,18 +265,16 @@ func (o TenantTemplateDeploymentMapOutput) ToTenantTemplateDeploymentMapOutputWi
 }
 
 func (o TenantTemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput) TenantTemplateDeploymentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TenantTemplateDeployment {
-		return vs[0].(map[string]TenantTemplateDeployment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TenantTemplateDeployment {
+		return vs[0].(map[string]*TenantTemplateDeployment)[vs[1].(string)]
 	}).(TenantTemplateDeploymentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TenantTemplateDeploymentInput)(nil)).Elem(), &TenantTemplateDeployment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TenantTemplateDeploymentPtrInput)(nil)).Elem(), &TenantTemplateDeployment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TenantTemplateDeploymentArrayInput)(nil)).Elem(), TenantTemplateDeploymentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TenantTemplateDeploymentMapInput)(nil)).Elem(), TenantTemplateDeploymentMap{})
 	pulumi.RegisterOutputType(TenantTemplateDeploymentOutput{})
-	pulumi.RegisterOutputType(TenantTemplateDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(TenantTemplateDeploymentArrayOutput{})
 	pulumi.RegisterOutputType(TenantTemplateDeploymentMapOutput{})
 }

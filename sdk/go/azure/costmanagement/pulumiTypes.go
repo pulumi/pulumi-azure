@@ -51,47 +51,6 @@ func (i ResourceGroupExportDeliveryInfoArgs) ToResourceGroupExportDeliveryInfoOu
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupExportDeliveryInfoOutput)
 }
 
-func (i ResourceGroupExportDeliveryInfoArgs) ToResourceGroupExportDeliveryInfoPtrOutput() ResourceGroupExportDeliveryInfoPtrOutput {
-	return i.ToResourceGroupExportDeliveryInfoPtrOutputWithContext(context.Background())
-}
-
-func (i ResourceGroupExportDeliveryInfoArgs) ToResourceGroupExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ResourceGroupExportDeliveryInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupExportDeliveryInfoOutput).ToResourceGroupExportDeliveryInfoPtrOutputWithContext(ctx)
-}
-
-// ResourceGroupExportDeliveryInfoPtrInput is an input type that accepts ResourceGroupExportDeliveryInfoArgs, ResourceGroupExportDeliveryInfoPtr and ResourceGroupExportDeliveryInfoPtrOutput values.
-// You can construct a concrete instance of `ResourceGroupExportDeliveryInfoPtrInput` via:
-//
-//          ResourceGroupExportDeliveryInfoArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourceGroupExportDeliveryInfoPtrInput interface {
-	pulumi.Input
-
-	ToResourceGroupExportDeliveryInfoPtrOutput() ResourceGroupExportDeliveryInfoPtrOutput
-	ToResourceGroupExportDeliveryInfoPtrOutputWithContext(context.Context) ResourceGroupExportDeliveryInfoPtrOutput
-}
-
-type resourceGroupExportDeliveryInfoPtrType ResourceGroupExportDeliveryInfoArgs
-
-func ResourceGroupExportDeliveryInfoPtr(v *ResourceGroupExportDeliveryInfoArgs) ResourceGroupExportDeliveryInfoPtrInput {
-	return (*resourceGroupExportDeliveryInfoPtrType)(v)
-}
-
-func (*resourceGroupExportDeliveryInfoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceGroupExportDeliveryInfo)(nil)).Elem()
-}
-
-func (i *resourceGroupExportDeliveryInfoPtrType) ToResourceGroupExportDeliveryInfoPtrOutput() ResourceGroupExportDeliveryInfoPtrOutput {
-	return i.ToResourceGroupExportDeliveryInfoPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceGroupExportDeliveryInfoPtrType) ToResourceGroupExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ResourceGroupExportDeliveryInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupExportDeliveryInfoPtrOutput)
-}
-
 type ResourceGroupExportDeliveryInfoOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupExportDeliveryInfoOutput) ElementType() reflect.Type {
@@ -104,16 +63,6 @@ func (o ResourceGroupExportDeliveryInfoOutput) ToResourceGroupExportDeliveryInfo
 
 func (o ResourceGroupExportDeliveryInfoOutput) ToResourceGroupExportDeliveryInfoOutputWithContext(ctx context.Context) ResourceGroupExportDeliveryInfoOutput {
 	return o
-}
-
-func (o ResourceGroupExportDeliveryInfoOutput) ToResourceGroupExportDeliveryInfoPtrOutput() ResourceGroupExportDeliveryInfoPtrOutput {
-	return o.ToResourceGroupExportDeliveryInfoPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceGroupExportDeliveryInfoOutput) ToResourceGroupExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ResourceGroupExportDeliveryInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupExportDeliveryInfo) *ResourceGroupExportDeliveryInfo {
-		return &v
-	}).(ResourceGroupExportDeliveryInfoPtrOutput)
 }
 
 // The name of the container where exports will be uploaded.
@@ -129,60 +78,6 @@ func (o ResourceGroupExportDeliveryInfoOutput) RootFolderPath() pulumi.StringOut
 // The storage account id where exports will be delivered.
 func (o ResourceGroupExportDeliveryInfoOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupExportDeliveryInfo) string { return v.StorageAccountId }).(pulumi.StringOutput)
-}
-
-type ResourceGroupExportDeliveryInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceGroupExportDeliveryInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceGroupExportDeliveryInfo)(nil)).Elem()
-}
-
-func (o ResourceGroupExportDeliveryInfoPtrOutput) ToResourceGroupExportDeliveryInfoPtrOutput() ResourceGroupExportDeliveryInfoPtrOutput {
-	return o
-}
-
-func (o ResourceGroupExportDeliveryInfoPtrOutput) ToResourceGroupExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ResourceGroupExportDeliveryInfoPtrOutput {
-	return o
-}
-
-func (o ResourceGroupExportDeliveryInfoPtrOutput) Elem() ResourceGroupExportDeliveryInfoOutput {
-	return o.ApplyT(func(v *ResourceGroupExportDeliveryInfo) ResourceGroupExportDeliveryInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceGroupExportDeliveryInfo
-		return ret
-	}).(ResourceGroupExportDeliveryInfoOutput)
-}
-
-// The name of the container where exports will be uploaded.
-func (o ResourceGroupExportDeliveryInfoPtrOutput) ContainerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceGroupExportDeliveryInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ContainerName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The path of the directory where exports will be uploaded.
-func (o ResourceGroupExportDeliveryInfoPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceGroupExportDeliveryInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RootFolderPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// The storage account id where exports will be delivered.
-func (o ResourceGroupExportDeliveryInfoPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceGroupExportDeliveryInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageAccountId
-	}).(pulumi.StringPtrOutput)
 }
 
 type ResourceGroupExportQuery struct {
@@ -222,47 +117,6 @@ func (i ResourceGroupExportQueryArgs) ToResourceGroupExportQueryOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupExportQueryOutput)
 }
 
-func (i ResourceGroupExportQueryArgs) ToResourceGroupExportQueryPtrOutput() ResourceGroupExportQueryPtrOutput {
-	return i.ToResourceGroupExportQueryPtrOutputWithContext(context.Background())
-}
-
-func (i ResourceGroupExportQueryArgs) ToResourceGroupExportQueryPtrOutputWithContext(ctx context.Context) ResourceGroupExportQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupExportQueryOutput).ToResourceGroupExportQueryPtrOutputWithContext(ctx)
-}
-
-// ResourceGroupExportQueryPtrInput is an input type that accepts ResourceGroupExportQueryArgs, ResourceGroupExportQueryPtr and ResourceGroupExportQueryPtrOutput values.
-// You can construct a concrete instance of `ResourceGroupExportQueryPtrInput` via:
-//
-//          ResourceGroupExportQueryArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourceGroupExportQueryPtrInput interface {
-	pulumi.Input
-
-	ToResourceGroupExportQueryPtrOutput() ResourceGroupExportQueryPtrOutput
-	ToResourceGroupExportQueryPtrOutputWithContext(context.Context) ResourceGroupExportQueryPtrOutput
-}
-
-type resourceGroupExportQueryPtrType ResourceGroupExportQueryArgs
-
-func ResourceGroupExportQueryPtr(v *ResourceGroupExportQueryArgs) ResourceGroupExportQueryPtrInput {
-	return (*resourceGroupExportQueryPtrType)(v)
-}
-
-func (*resourceGroupExportQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceGroupExportQuery)(nil)).Elem()
-}
-
-func (i *resourceGroupExportQueryPtrType) ToResourceGroupExportQueryPtrOutput() ResourceGroupExportQueryPtrOutput {
-	return i.ToResourceGroupExportQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceGroupExportQueryPtrType) ToResourceGroupExportQueryPtrOutputWithContext(ctx context.Context) ResourceGroupExportQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupExportQueryPtrOutput)
-}
-
 type ResourceGroupExportQueryOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupExportQueryOutput) ElementType() reflect.Type {
@@ -277,16 +131,6 @@ func (o ResourceGroupExportQueryOutput) ToResourceGroupExportQueryOutputWithCont
 	return o
 }
 
-func (o ResourceGroupExportQueryOutput) ToResourceGroupExportQueryPtrOutput() ResourceGroupExportQueryPtrOutput {
-	return o.ToResourceGroupExportQueryPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceGroupExportQueryOutput) ToResourceGroupExportQueryPtrOutputWithContext(ctx context.Context) ResourceGroupExportQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupExportQuery) *ResourceGroupExportQuery {
-		return &v
-	}).(ResourceGroupExportQueryPtrOutput)
-}
-
 // The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 func (o ResourceGroupExportQueryOutput) TimeFrame() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupExportQuery) string { return v.TimeFrame }).(pulumi.StringOutput)
@@ -297,57 +141,9 @@ func (o ResourceGroupExportQueryOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupExportQuery) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type ResourceGroupExportQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceGroupExportQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceGroupExportQuery)(nil)).Elem()
-}
-
-func (o ResourceGroupExportQueryPtrOutput) ToResourceGroupExportQueryPtrOutput() ResourceGroupExportQueryPtrOutput {
-	return o
-}
-
-func (o ResourceGroupExportQueryPtrOutput) ToResourceGroupExportQueryPtrOutputWithContext(ctx context.Context) ResourceGroupExportQueryPtrOutput {
-	return o
-}
-
-func (o ResourceGroupExportQueryPtrOutput) Elem() ResourceGroupExportQueryOutput {
-	return o.ApplyT(func(v *ResourceGroupExportQuery) ResourceGroupExportQuery {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceGroupExportQuery
-		return ret
-	}).(ResourceGroupExportQueryOutput)
-}
-
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
-func (o ResourceGroupExportQueryPtrOutput) TimeFrame() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceGroupExportQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TimeFrame
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of the query.
-func (o ResourceGroupExportQueryPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceGroupExportQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupExportDeliveryInfoInput)(nil)).Elem(), ResourceGroupExportDeliveryInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupExportDeliveryInfoPtrInput)(nil)).Elem(), ResourceGroupExportDeliveryInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupExportQueryInput)(nil)).Elem(), ResourceGroupExportQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupExportQueryPtrInput)(nil)).Elem(), ResourceGroupExportQueryArgs{})
 	pulumi.RegisterOutputType(ResourceGroupExportDeliveryInfoOutput{})
-	pulumi.RegisterOutputType(ResourceGroupExportDeliveryInfoPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupExportQueryOutput{})
-	pulumi.RegisterOutputType(ResourceGroupExportQueryPtrOutput{})
 }

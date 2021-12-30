@@ -87,13 +87,13 @@ export class FlexibleServerConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: FlexibleServerConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FlexibleServerConfigurationArgs | FlexibleServerConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleServerConfigurationState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
-            inputs["value"] = state ? state.value : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as FlexibleServerConfigurationArgs | undefined;
             if ((!args || args.serverId === undefined) && !opts.urn) {
@@ -102,14 +102,14 @@ export class FlexibleServerConfiguration extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["value"] = args ? args.value : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FlexibleServerConfiguration.__pulumiType, name, inputs, opts);
+        super(FlexibleServerConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

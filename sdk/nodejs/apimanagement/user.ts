@@ -118,20 +118,20 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["confirmation"] = state ? state.confirmation : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["firstName"] = state ? state.firstName : undefined;
-            inputs["lastName"] = state ? state.lastName : undefined;
-            inputs["note"] = state ? state.note : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["confirmation"] = state ? state.confirmation : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["firstName"] = state ? state.firstName : undefined;
+            resourceInputs["lastName"] = state ? state.lastName : undefined;
+            resourceInputs["note"] = state ? state.note : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -152,21 +152,21 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["confirmation"] = args ? args.confirmation : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["firstName"] = args ? args.firstName : undefined;
-            inputs["lastName"] = args ? args.lastName : undefined;
-            inputs["note"] = args ? args.note : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["confirmation"] = args ? args.confirmation : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["firstName"] = args ? args.firstName : undefined;
+            resourceInputs["lastName"] = args ? args.lastName : undefined;
+            resourceInputs["note"] = args ? args.note : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(User.__pulumiType, name, inputs, opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

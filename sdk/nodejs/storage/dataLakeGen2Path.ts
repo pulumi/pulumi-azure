@@ -108,17 +108,17 @@ export class DataLakeGen2Path extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataLakeGen2PathArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataLakeGen2PathArgs | DataLakeGen2PathState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataLakeGen2PathState | undefined;
-            inputs["aces"] = state ? state.aces : undefined;
-            inputs["filesystemName"] = state ? state.filesystemName : undefined;
-            inputs["group"] = state ? state.group : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["resource"] = state ? state.resource : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["aces"] = state ? state.aces : undefined;
+            resourceInputs["filesystemName"] = state ? state.filesystemName : undefined;
+            resourceInputs["group"] = state ? state.group : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["resource"] = state ? state.resource : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as DataLakeGen2PathArgs | undefined;
             if ((!args || args.filesystemName === undefined) && !opts.urn) {
@@ -133,18 +133,18 @@ export class DataLakeGen2Path extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            inputs["aces"] = args ? args.aces : undefined;
-            inputs["filesystemName"] = args ? args.filesystemName : undefined;
-            inputs["group"] = args ? args.group : undefined;
-            inputs["owner"] = args ? args.owner : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["aces"] = args ? args.aces : undefined;
+            resourceInputs["filesystemName"] = args ? args.filesystemName : undefined;
+            resourceInputs["group"] = args ? args.group : undefined;
+            resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DataLakeGen2Path.__pulumiType, name, inputs, opts);
+        super(DataLakeGen2Path.__pulumiType, name, resourceInputs, opts);
     }
 }
 

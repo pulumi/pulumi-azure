@@ -248,7 +248,7 @@ type CNameRecordInput interface {
 }
 
 func (*CNameRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*CNameRecord)(nil))
+	return reflect.TypeOf((**CNameRecord)(nil)).Elem()
 }
 
 func (i *CNameRecord) ToCNameRecordOutput() CNameRecordOutput {
@@ -257,35 +257,6 @@ func (i *CNameRecord) ToCNameRecordOutput() CNameRecordOutput {
 
 func (i *CNameRecord) ToCNameRecordOutputWithContext(ctx context.Context) CNameRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CNameRecordOutput)
-}
-
-func (i *CNameRecord) ToCNameRecordPtrOutput() CNameRecordPtrOutput {
-	return i.ToCNameRecordPtrOutputWithContext(context.Background())
-}
-
-func (i *CNameRecord) ToCNameRecordPtrOutputWithContext(ctx context.Context) CNameRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CNameRecordPtrOutput)
-}
-
-type CNameRecordPtrInput interface {
-	pulumi.Input
-
-	ToCNameRecordPtrOutput() CNameRecordPtrOutput
-	ToCNameRecordPtrOutputWithContext(ctx context.Context) CNameRecordPtrOutput
-}
-
-type cnameRecordPtrType CNameRecordArgs
-
-func (*cnameRecordPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CNameRecord)(nil))
-}
-
-func (i *cnameRecordPtrType) ToCNameRecordPtrOutput() CNameRecordPtrOutput {
-	return i.ToCNameRecordPtrOutputWithContext(context.Background())
-}
-
-func (i *cnameRecordPtrType) ToCNameRecordPtrOutputWithContext(ctx context.Context) CNameRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CNameRecordPtrOutput)
 }
 
 // CNameRecordArrayInput is an input type that accepts CNameRecordArray and CNameRecordArrayOutput values.
@@ -341,7 +312,7 @@ func (i CNameRecordMap) ToCNameRecordMapOutputWithContext(ctx context.Context) C
 type CNameRecordOutput struct{ *pulumi.OutputState }
 
 func (CNameRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CNameRecord)(nil))
+	return reflect.TypeOf((**CNameRecord)(nil)).Elem()
 }
 
 func (o CNameRecordOutput) ToCNameRecordOutput() CNameRecordOutput {
@@ -352,44 +323,10 @@ func (o CNameRecordOutput) ToCNameRecordOutputWithContext(ctx context.Context) C
 	return o
 }
 
-func (o CNameRecordOutput) ToCNameRecordPtrOutput() CNameRecordPtrOutput {
-	return o.ToCNameRecordPtrOutputWithContext(context.Background())
-}
-
-func (o CNameRecordOutput) ToCNameRecordPtrOutputWithContext(ctx context.Context) CNameRecordPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CNameRecord) *CNameRecord {
-		return &v
-	}).(CNameRecordPtrOutput)
-}
-
-type CNameRecordPtrOutput struct{ *pulumi.OutputState }
-
-func (CNameRecordPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CNameRecord)(nil))
-}
-
-func (o CNameRecordPtrOutput) ToCNameRecordPtrOutput() CNameRecordPtrOutput {
-	return o
-}
-
-func (o CNameRecordPtrOutput) ToCNameRecordPtrOutputWithContext(ctx context.Context) CNameRecordPtrOutput {
-	return o
-}
-
-func (o CNameRecordPtrOutput) Elem() CNameRecordOutput {
-	return o.ApplyT(func(v *CNameRecord) CNameRecord {
-		if v != nil {
-			return *v
-		}
-		var ret CNameRecord
-		return ret
-	}).(CNameRecordOutput)
-}
-
 type CNameRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (CNameRecordArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CNameRecord)(nil))
+	return reflect.TypeOf((*[]*CNameRecord)(nil)).Elem()
 }
 
 func (o CNameRecordArrayOutput) ToCNameRecordArrayOutput() CNameRecordArrayOutput {
@@ -401,15 +338,15 @@ func (o CNameRecordArrayOutput) ToCNameRecordArrayOutputWithContext(ctx context.
 }
 
 func (o CNameRecordArrayOutput) Index(i pulumi.IntInput) CNameRecordOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CNameRecord {
-		return vs[0].([]CNameRecord)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CNameRecord {
+		return vs[0].([]*CNameRecord)[vs[1].(int)]
 	}).(CNameRecordOutput)
 }
 
 type CNameRecordMapOutput struct{ *pulumi.OutputState }
 
 func (CNameRecordMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CNameRecord)(nil))
+	return reflect.TypeOf((*map[string]*CNameRecord)(nil)).Elem()
 }
 
 func (o CNameRecordMapOutput) ToCNameRecordMapOutput() CNameRecordMapOutput {
@@ -421,18 +358,16 @@ func (o CNameRecordMapOutput) ToCNameRecordMapOutputWithContext(ctx context.Cont
 }
 
 func (o CNameRecordMapOutput) MapIndex(k pulumi.StringInput) CNameRecordOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CNameRecord {
-		return vs[0].(map[string]CNameRecord)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CNameRecord {
+		return vs[0].(map[string]*CNameRecord)[vs[1].(string)]
 	}).(CNameRecordOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CNameRecordInput)(nil)).Elem(), &CNameRecord{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CNameRecordPtrInput)(nil)).Elem(), &CNameRecord{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CNameRecordArrayInput)(nil)).Elem(), CNameRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CNameRecordMapInput)(nil)).Elem(), CNameRecordMap{})
 	pulumi.RegisterOutputType(CNameRecordOutput{})
-	pulumi.RegisterOutputType(CNameRecordPtrOutput{})
 	pulumi.RegisterOutputType(CNameRecordArrayOutput{})
 	pulumi.RegisterOutputType(CNameRecordMapOutput{})
 }

@@ -92,14 +92,14 @@ export class IotHubCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: IotHubCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IotHubCertificateArgs | IotHubCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IotHubCertificateState | undefined;
-            inputs["certificateContent"] = state ? state.certificateContent : undefined;
-            inputs["iotDpsName"] = state ? state.iotDpsName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["certificateContent"] = state ? state.certificateContent : undefined;
+            resourceInputs["iotDpsName"] = state ? state.iotDpsName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IotHubCertificateArgs | undefined;
             if ((!args || args.certificateContent === undefined) && !opts.urn) {
@@ -111,15 +111,15 @@ export class IotHubCertificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["certificateContent"] = args ? args.certificateContent : undefined;
-            inputs["iotDpsName"] = args ? args.iotDpsName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["certificateContent"] = args ? args.certificateContent : undefined;
+            resourceInputs["iotDpsName"] = args ? args.iotDpsName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IotHubCertificate.__pulumiType, name, inputs, opts);
+        super(IotHubCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -265,7 +265,7 @@ type DatasetMysqlInput interface {
 }
 
 func (*DatasetMysql) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetMysql)(nil))
+	return reflect.TypeOf((**DatasetMysql)(nil)).Elem()
 }
 
 func (i *DatasetMysql) ToDatasetMysqlOutput() DatasetMysqlOutput {
@@ -274,35 +274,6 @@ func (i *DatasetMysql) ToDatasetMysqlOutput() DatasetMysqlOutput {
 
 func (i *DatasetMysql) ToDatasetMysqlOutputWithContext(ctx context.Context) DatasetMysqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetMysqlOutput)
-}
-
-func (i *DatasetMysql) ToDatasetMysqlPtrOutput() DatasetMysqlPtrOutput {
-	return i.ToDatasetMysqlPtrOutputWithContext(context.Background())
-}
-
-func (i *DatasetMysql) ToDatasetMysqlPtrOutputWithContext(ctx context.Context) DatasetMysqlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetMysqlPtrOutput)
-}
-
-type DatasetMysqlPtrInput interface {
-	pulumi.Input
-
-	ToDatasetMysqlPtrOutput() DatasetMysqlPtrOutput
-	ToDatasetMysqlPtrOutputWithContext(ctx context.Context) DatasetMysqlPtrOutput
-}
-
-type datasetMysqlPtrType DatasetMysqlArgs
-
-func (*datasetMysqlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetMysql)(nil))
-}
-
-func (i *datasetMysqlPtrType) ToDatasetMysqlPtrOutput() DatasetMysqlPtrOutput {
-	return i.ToDatasetMysqlPtrOutputWithContext(context.Background())
-}
-
-func (i *datasetMysqlPtrType) ToDatasetMysqlPtrOutputWithContext(ctx context.Context) DatasetMysqlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetMysqlPtrOutput)
 }
 
 // DatasetMysqlArrayInput is an input type that accepts DatasetMysqlArray and DatasetMysqlArrayOutput values.
@@ -358,7 +329,7 @@ func (i DatasetMysqlMap) ToDatasetMysqlMapOutputWithContext(ctx context.Context)
 type DatasetMysqlOutput struct{ *pulumi.OutputState }
 
 func (DatasetMysqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetMysql)(nil))
+	return reflect.TypeOf((**DatasetMysql)(nil)).Elem()
 }
 
 func (o DatasetMysqlOutput) ToDatasetMysqlOutput() DatasetMysqlOutput {
@@ -369,44 +340,10 @@ func (o DatasetMysqlOutput) ToDatasetMysqlOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o DatasetMysqlOutput) ToDatasetMysqlPtrOutput() DatasetMysqlPtrOutput {
-	return o.ToDatasetMysqlPtrOutputWithContext(context.Background())
-}
-
-func (o DatasetMysqlOutput) ToDatasetMysqlPtrOutputWithContext(ctx context.Context) DatasetMysqlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetMysql) *DatasetMysql {
-		return &v
-	}).(DatasetMysqlPtrOutput)
-}
-
-type DatasetMysqlPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetMysqlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetMysql)(nil))
-}
-
-func (o DatasetMysqlPtrOutput) ToDatasetMysqlPtrOutput() DatasetMysqlPtrOutput {
-	return o
-}
-
-func (o DatasetMysqlPtrOutput) ToDatasetMysqlPtrOutputWithContext(ctx context.Context) DatasetMysqlPtrOutput {
-	return o
-}
-
-func (o DatasetMysqlPtrOutput) Elem() DatasetMysqlOutput {
-	return o.ApplyT(func(v *DatasetMysql) DatasetMysql {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetMysql
-		return ret
-	}).(DatasetMysqlOutput)
-}
-
 type DatasetMysqlArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetMysqlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetMysql)(nil))
+	return reflect.TypeOf((*[]*DatasetMysql)(nil)).Elem()
 }
 
 func (o DatasetMysqlArrayOutput) ToDatasetMysqlArrayOutput() DatasetMysqlArrayOutput {
@@ -418,15 +355,15 @@ func (o DatasetMysqlArrayOutput) ToDatasetMysqlArrayOutputWithContext(ctx contex
 }
 
 func (o DatasetMysqlArrayOutput) Index(i pulumi.IntInput) DatasetMysqlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetMysql {
-		return vs[0].([]DatasetMysql)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetMysql {
+		return vs[0].([]*DatasetMysql)[vs[1].(int)]
 	}).(DatasetMysqlOutput)
 }
 
 type DatasetMysqlMapOutput struct{ *pulumi.OutputState }
 
 func (DatasetMysqlMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatasetMysql)(nil))
+	return reflect.TypeOf((*map[string]*DatasetMysql)(nil)).Elem()
 }
 
 func (o DatasetMysqlMapOutput) ToDatasetMysqlMapOutput() DatasetMysqlMapOutput {
@@ -438,18 +375,16 @@ func (o DatasetMysqlMapOutput) ToDatasetMysqlMapOutputWithContext(ctx context.Co
 }
 
 func (o DatasetMysqlMapOutput) MapIndex(k pulumi.StringInput) DatasetMysqlOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetMysql {
-		return vs[0].(map[string]DatasetMysql)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatasetMysql {
+		return vs[0].(map[string]*DatasetMysql)[vs[1].(string)]
 	}).(DatasetMysqlOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetMysqlInput)(nil)).Elem(), &DatasetMysql{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetMysqlPtrInput)(nil)).Elem(), &DatasetMysql{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetMysqlArrayInput)(nil)).Elem(), DatasetMysqlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetMysqlMapInput)(nil)).Elem(), DatasetMysqlMap{})
 	pulumi.RegisterOutputType(DatasetMysqlOutput{})
-	pulumi.RegisterOutputType(DatasetMysqlPtrOutput{})
 	pulumi.RegisterOutputType(DatasetMysqlArrayOutput{})
 	pulumi.RegisterOutputType(DatasetMysqlMapOutput{})
 }

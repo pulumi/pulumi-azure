@@ -69,28 +69,28 @@ export class SpringCloudCustomDomain extends pulumi.CustomResource {
      */
     constructor(name: string, args: SpringCloudCustomDomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpringCloudCustomDomainArgs | SpringCloudCustomDomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudCustomDomainState | undefined;
-            inputs["certificateName"] = state ? state.certificateName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
-            inputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["certificateName"] = state ? state.certificateName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
+            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as SpringCloudCustomDomainArgs | undefined;
             if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            inputs["certificateName"] = args ? args.certificateName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
-            inputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
+            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SpringCloudCustomDomain.__pulumiType, name, inputs, opts);
+        super(SpringCloudCustomDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

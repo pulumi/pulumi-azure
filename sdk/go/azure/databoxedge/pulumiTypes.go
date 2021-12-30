@@ -242,47 +242,6 @@ func (i OrderContactArgs) ToOrderContactOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, i).(OrderContactOutput)
 }
 
-func (i OrderContactArgs) ToOrderContactPtrOutput() OrderContactPtrOutput {
-	return i.ToOrderContactPtrOutputWithContext(context.Background())
-}
-
-func (i OrderContactArgs) ToOrderContactPtrOutputWithContext(ctx context.Context) OrderContactPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderContactOutput).ToOrderContactPtrOutputWithContext(ctx)
-}
-
-// OrderContactPtrInput is an input type that accepts OrderContactArgs, OrderContactPtr and OrderContactPtrOutput values.
-// You can construct a concrete instance of `OrderContactPtrInput` via:
-//
-//          OrderContactArgs{...}
-//
-//  or:
-//
-//          nil
-type OrderContactPtrInput interface {
-	pulumi.Input
-
-	ToOrderContactPtrOutput() OrderContactPtrOutput
-	ToOrderContactPtrOutputWithContext(context.Context) OrderContactPtrOutput
-}
-
-type orderContactPtrType OrderContactArgs
-
-func OrderContactPtr(v *OrderContactArgs) OrderContactPtrInput {
-	return (*orderContactPtrType)(v)
-}
-
-func (*orderContactPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrderContact)(nil)).Elem()
-}
-
-func (i *orderContactPtrType) ToOrderContactPtrOutput() OrderContactPtrOutput {
-	return i.ToOrderContactPtrOutputWithContext(context.Background())
-}
-
-func (i *orderContactPtrType) ToOrderContactPtrOutputWithContext(ctx context.Context) OrderContactPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderContactPtrOutput)
-}
-
 type OrderContactOutput struct{ *pulumi.OutputState }
 
 func (OrderContactOutput) ElementType() reflect.Type {
@@ -295,16 +254,6 @@ func (o OrderContactOutput) ToOrderContactOutput() OrderContactOutput {
 
 func (o OrderContactOutput) ToOrderContactOutputWithContext(ctx context.Context) OrderContactOutput {
 	return o
-}
-
-func (o OrderContactOutput) ToOrderContactPtrOutput() OrderContactPtrOutput {
-	return o.ToOrderContactPtrOutputWithContext(context.Background())
-}
-
-func (o OrderContactOutput) ToOrderContactPtrOutputWithContext(ctx context.Context) OrderContactPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrderContact) *OrderContact {
-		return &v
-	}).(OrderContactPtrOutput)
 }
 
 // The name of the company. Changing this forces a new Databox Edge Order to be created.
@@ -325,70 +274,6 @@ func (o OrderContactOutput) Name() pulumi.StringOutput {
 // The phone number. Changing this forces a new Databox Edge Order to be created.
 func (o OrderContactOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v OrderContact) string { return v.PhoneNumber }).(pulumi.StringOutput)
-}
-
-type OrderContactPtrOutput struct{ *pulumi.OutputState }
-
-func (OrderContactPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrderContact)(nil)).Elem()
-}
-
-func (o OrderContactPtrOutput) ToOrderContactPtrOutput() OrderContactPtrOutput {
-	return o
-}
-
-func (o OrderContactPtrOutput) ToOrderContactPtrOutputWithContext(ctx context.Context) OrderContactPtrOutput {
-	return o
-}
-
-func (o OrderContactPtrOutput) Elem() OrderContactOutput {
-	return o.ApplyT(func(v *OrderContact) OrderContact {
-		if v != nil {
-			return *v
-		}
-		var ret OrderContact
-		return ret
-	}).(OrderContactOutput)
-}
-
-// The name of the company. Changing this forces a new Databox Edge Order to be created.
-func (o OrderContactPtrOutput) CompanyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderContact) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CompanyName
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of email address to send order notification to. Changing this forces a new Databox Edge Order to be created.
-func (o OrderContactPtrOutput) Emails() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OrderContact) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Emails
-	}).(pulumi.StringArrayOutput)
-}
-
-// The contact person name. Changing this forces a new Databox Edge Order to be created.
-func (o OrderContactPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderContact) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The phone number. Changing this forces a new Databox Edge Order to be created.
-func (o OrderContactPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderContact) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PhoneNumber
-	}).(pulumi.StringPtrOutput)
 }
 
 type OrderReturnTracking struct {
@@ -564,47 +449,6 @@ func (i OrderShipmentAddressArgs) ToOrderShipmentAddressOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OrderShipmentAddressOutput)
 }
 
-func (i OrderShipmentAddressArgs) ToOrderShipmentAddressPtrOutput() OrderShipmentAddressPtrOutput {
-	return i.ToOrderShipmentAddressPtrOutputWithContext(context.Background())
-}
-
-func (i OrderShipmentAddressArgs) ToOrderShipmentAddressPtrOutputWithContext(ctx context.Context) OrderShipmentAddressPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderShipmentAddressOutput).ToOrderShipmentAddressPtrOutputWithContext(ctx)
-}
-
-// OrderShipmentAddressPtrInput is an input type that accepts OrderShipmentAddressArgs, OrderShipmentAddressPtr and OrderShipmentAddressPtrOutput values.
-// You can construct a concrete instance of `OrderShipmentAddressPtrInput` via:
-//
-//          OrderShipmentAddressArgs{...}
-//
-//  or:
-//
-//          nil
-type OrderShipmentAddressPtrInput interface {
-	pulumi.Input
-
-	ToOrderShipmentAddressPtrOutput() OrderShipmentAddressPtrOutput
-	ToOrderShipmentAddressPtrOutputWithContext(context.Context) OrderShipmentAddressPtrOutput
-}
-
-type orderShipmentAddressPtrType OrderShipmentAddressArgs
-
-func OrderShipmentAddressPtr(v *OrderShipmentAddressArgs) OrderShipmentAddressPtrInput {
-	return (*orderShipmentAddressPtrType)(v)
-}
-
-func (*orderShipmentAddressPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrderShipmentAddress)(nil)).Elem()
-}
-
-func (i *orderShipmentAddressPtrType) ToOrderShipmentAddressPtrOutput() OrderShipmentAddressPtrOutput {
-	return i.ToOrderShipmentAddressPtrOutputWithContext(context.Background())
-}
-
-func (i *orderShipmentAddressPtrType) ToOrderShipmentAddressPtrOutputWithContext(ctx context.Context) OrderShipmentAddressPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrderShipmentAddressPtrOutput)
-}
-
 type OrderShipmentAddressOutput struct{ *pulumi.OutputState }
 
 func (OrderShipmentAddressOutput) ElementType() reflect.Type {
@@ -617,16 +461,6 @@ func (o OrderShipmentAddressOutput) ToOrderShipmentAddressOutput() OrderShipment
 
 func (o OrderShipmentAddressOutput) ToOrderShipmentAddressOutputWithContext(ctx context.Context) OrderShipmentAddressOutput {
 	return o
-}
-
-func (o OrderShipmentAddressOutput) ToOrderShipmentAddressPtrOutput() OrderShipmentAddressPtrOutput {
-	return o.ToOrderShipmentAddressPtrOutputWithContext(context.Background())
-}
-
-func (o OrderShipmentAddressOutput) ToOrderShipmentAddressPtrOutputWithContext(ctx context.Context) OrderShipmentAddressPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrderShipmentAddress) *OrderShipmentAddress {
-		return &v
-	}).(OrderShipmentAddressPtrOutput)
 }
 
 // The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
@@ -652,80 +486,6 @@ func (o OrderShipmentAddressOutput) PostalCode() pulumi.StringOutput {
 // The name of the state to ship the Databox Edge Device to. Changing this forces a new Databox Edge Order to be created.
 func (o OrderShipmentAddressOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v OrderShipmentAddress) string { return v.State }).(pulumi.StringOutput)
-}
-
-type OrderShipmentAddressPtrOutput struct{ *pulumi.OutputState }
-
-func (OrderShipmentAddressPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrderShipmentAddress)(nil)).Elem()
-}
-
-func (o OrderShipmentAddressPtrOutput) ToOrderShipmentAddressPtrOutput() OrderShipmentAddressPtrOutput {
-	return o
-}
-
-func (o OrderShipmentAddressPtrOutput) ToOrderShipmentAddressPtrOutputWithContext(ctx context.Context) OrderShipmentAddressPtrOutput {
-	return o
-}
-
-func (o OrderShipmentAddressPtrOutput) Elem() OrderShipmentAddressOutput {
-	return o.ApplyT(func(v *OrderShipmentAddress) OrderShipmentAddress {
-		if v != nil {
-			return *v
-		}
-		var ret OrderShipmentAddress
-		return ret
-	}).(OrderShipmentAddressOutput)
-}
-
-// The list of upto 3 lines for address information. Changing this forces a new Databox Edge Order to be created.
-func (o OrderShipmentAddressPtrOutput) Addresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OrderShipmentAddress) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Addresses
-	}).(pulumi.StringArrayOutput)
-}
-
-// The city name. Changing this forces a new Databox Edge Order to be created.
-func (o OrderShipmentAddressPtrOutput) City() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderShipmentAddress) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.City
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the country to ship the Databox Edge Device to. Valid values are "Algeria", "Argentina", "Australia", "Austria", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belgium", "Bermuda", "Bolivia", "Bosnia and Herzegovina", "Brazil", "Bulgaria", "Canada", "Cayman Islands", "Chile", "Colombia", "Costa Rica", "Croatia", "Cyprus", "Czechia", "CÃ´te D'ivoire", "Denmark", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Estonia", "Ethiopia", "Finland", "France", "Georgia", "Germany", "Ghana", "Greece", "Guatemala", "Honduras", "Hong Kong SAR", "Hungary", "Iceland", "India", "Indonesia", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Kyrgyzstan", "Latvia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macao SAR", "Malaysia", "Malta", "Mauritius", "Mexico", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Namibia", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Nigeria", "Norway", "Oman", "Pakistan", "Palestinian Authority", "Panama", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Republic of Korea", "Romania", "Russia", "Rwanda", "Saint Kitts And Nevis", "Saudi Arabia", "Senegal", "Serbia", "Singapore", "Slovakia", "Slovenia", "South Africa", "Spain", "Sri Lanka", "Sweden", "Switzerland", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Trinidad And Tobago", "Tunisia", "Turkey", "Turkmenistan", "U.S. Virgin Islands", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Yemen", "Zambia" or "Zimbabwe". Changing this forces a new Databox Edge Order to be created.
-func (o OrderShipmentAddressPtrOutput) Country() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderShipmentAddress) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Country
-	}).(pulumi.StringPtrOutput)
-}
-
-// The postal code. Changing this forces a new Databox Edge Order to be created.
-func (o OrderShipmentAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderShipmentAddress) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PostalCode
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the state to ship the Databox Edge Device to. Changing this forces a new Databox Edge Order to be created.
-func (o OrderShipmentAddressPtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrderShipmentAddress) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.State
-	}).(pulumi.StringPtrOutput)
 }
 
 type OrderShipmentHistory struct {
@@ -1095,11 +855,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceDevicePropertyInput)(nil)).Elem(), DeviceDevicePropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceDevicePropertyArrayInput)(nil)).Elem(), DeviceDevicePropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrderContactInput)(nil)).Elem(), OrderContactArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrderContactPtrInput)(nil)).Elem(), OrderContactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrderReturnTrackingInput)(nil)).Elem(), OrderReturnTrackingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrderReturnTrackingArrayInput)(nil)).Elem(), OrderReturnTrackingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrderShipmentAddressInput)(nil)).Elem(), OrderShipmentAddressArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrderShipmentAddressPtrInput)(nil)).Elem(), OrderShipmentAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrderShipmentHistoryInput)(nil)).Elem(), OrderShipmentHistoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrderShipmentHistoryArrayInput)(nil)).Elem(), OrderShipmentHistoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrderShipmentTrackingInput)(nil)).Elem(), OrderShipmentTrackingArgs{})
@@ -1109,11 +867,9 @@ func init() {
 	pulumi.RegisterOutputType(DeviceDevicePropertyOutput{})
 	pulumi.RegisterOutputType(DeviceDevicePropertyArrayOutput{})
 	pulumi.RegisterOutputType(OrderContactOutput{})
-	pulumi.RegisterOutputType(OrderContactPtrOutput{})
 	pulumi.RegisterOutputType(OrderReturnTrackingOutput{})
 	pulumi.RegisterOutputType(OrderReturnTrackingArrayOutput{})
 	pulumi.RegisterOutputType(OrderShipmentAddressOutput{})
-	pulumi.RegisterOutputType(OrderShipmentAddressPtrOutput{})
 	pulumi.RegisterOutputType(OrderShipmentHistoryOutput{})
 	pulumi.RegisterOutputType(OrderShipmentHistoryArrayOutput{})
 	pulumi.RegisterOutputType(OrderShipmentTrackingOutput{})

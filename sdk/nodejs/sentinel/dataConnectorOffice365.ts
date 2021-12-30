@@ -103,32 +103,32 @@ export class DataConnectorOffice365 extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataConnectorOffice365Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataConnectorOffice365Args | DataConnectorOffice365State, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorOffice365State | undefined;
-            inputs["exchangeEnabled"] = state ? state.exchangeEnabled : undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["sharepointEnabled"] = state ? state.sharepointEnabled : undefined;
-            inputs["teamsEnabled"] = state ? state.teamsEnabled : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["exchangeEnabled"] = state ? state.exchangeEnabled : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["sharepointEnabled"] = state ? state.sharepointEnabled : undefined;
+            resourceInputs["teamsEnabled"] = state ? state.teamsEnabled : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as DataConnectorOffice365Args | undefined;
             if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            inputs["exchangeEnabled"] = args ? args.exchangeEnabled : undefined;
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["sharepointEnabled"] = args ? args.sharepointEnabled : undefined;
-            inputs["teamsEnabled"] = args ? args.teamsEnabled : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["exchangeEnabled"] = args ? args.exchangeEnabled : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["sharepointEnabled"] = args ? args.sharepointEnabled : undefined;
+            resourceInputs["teamsEnabled"] = args ? args.teamsEnabled : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DataConnectorOffice365.__pulumiType, name, inputs, opts);
+        super(DataConnectorOffice365.__pulumiType, name, resourceInputs, opts);
     }
 }
 

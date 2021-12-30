@@ -138,25 +138,25 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkedServiceDataLakeStorageGen2Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServiceDataLakeStorageGen2Args | LinkedServiceDataLakeStorageGen2State, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceDataLakeStorageGen2State | undefined;
-            inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
-            inputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
-            inputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
-            inputs["tenant"] = state ? state.tenant : undefined;
-            inputs["url"] = state ? state.url : undefined;
-            inputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
+            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
+            resourceInputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
+            resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
+            resourceInputs["tenant"] = state ? state.tenant : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
         } else {
             const args = argsOrState as LinkedServiceDataLakeStorageGen2Args | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -165,26 +165,26 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
-            inputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
-            inputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
-            inputs["tenant"] = args ? args.tenant : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
+            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
+            resourceInputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
+            resourceInputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
+            resourceInputs["tenant"] = args ? args.tenant : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LinkedServiceDataLakeStorageGen2.__pulumiType, name, inputs, opts);
+        super(LinkedServiceDataLakeStorageGen2.__pulumiType, name, resourceInputs, opts);
     }
 }
 

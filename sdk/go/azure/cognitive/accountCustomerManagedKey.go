@@ -273,7 +273,7 @@ type AccountCustomerManagedKeyInput interface {
 }
 
 func (*AccountCustomerManagedKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountCustomerManagedKey)(nil))
+	return reflect.TypeOf((**AccountCustomerManagedKey)(nil)).Elem()
 }
 
 func (i *AccountCustomerManagedKey) ToAccountCustomerManagedKeyOutput() AccountCustomerManagedKeyOutput {
@@ -282,35 +282,6 @@ func (i *AccountCustomerManagedKey) ToAccountCustomerManagedKeyOutput() AccountC
 
 func (i *AccountCustomerManagedKey) ToAccountCustomerManagedKeyOutputWithContext(ctx context.Context) AccountCustomerManagedKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyOutput)
-}
-
-func (i *AccountCustomerManagedKey) ToAccountCustomerManagedKeyPtrOutput() AccountCustomerManagedKeyPtrOutput {
-	return i.ToAccountCustomerManagedKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *AccountCustomerManagedKey) ToAccountCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyPtrOutput)
-}
-
-type AccountCustomerManagedKeyPtrInput interface {
-	pulumi.Input
-
-	ToAccountCustomerManagedKeyPtrOutput() AccountCustomerManagedKeyPtrOutput
-	ToAccountCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyPtrOutput
-}
-
-type accountCustomerManagedKeyPtrType AccountCustomerManagedKeyArgs
-
-func (*accountCustomerManagedKeyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountCustomerManagedKey)(nil))
-}
-
-func (i *accountCustomerManagedKeyPtrType) ToAccountCustomerManagedKeyPtrOutput() AccountCustomerManagedKeyPtrOutput {
-	return i.ToAccountCustomerManagedKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *accountCustomerManagedKeyPtrType) ToAccountCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyPtrOutput)
 }
 
 // AccountCustomerManagedKeyArrayInput is an input type that accepts AccountCustomerManagedKeyArray and AccountCustomerManagedKeyArrayOutput values.
@@ -366,7 +337,7 @@ func (i AccountCustomerManagedKeyMap) ToAccountCustomerManagedKeyMapOutputWithCo
 type AccountCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (AccountCustomerManagedKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountCustomerManagedKey)(nil))
+	return reflect.TypeOf((**AccountCustomerManagedKey)(nil)).Elem()
 }
 
 func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyOutput() AccountCustomerManagedKeyOutput {
@@ -377,44 +348,10 @@ func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyOutputWithCo
 	return o
 }
 
-func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyPtrOutput() AccountCustomerManagedKeyPtrOutput {
-	return o.ToAccountCustomerManagedKeyPtrOutputWithContext(context.Background())
-}
-
-func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountCustomerManagedKey) *AccountCustomerManagedKey {
-		return &v
-	}).(AccountCustomerManagedKeyPtrOutput)
-}
-
-type AccountCustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
-
-func (AccountCustomerManagedKeyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountCustomerManagedKey)(nil))
-}
-
-func (o AccountCustomerManagedKeyPtrOutput) ToAccountCustomerManagedKeyPtrOutput() AccountCustomerManagedKeyPtrOutput {
-	return o
-}
-
-func (o AccountCustomerManagedKeyPtrOutput) ToAccountCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyPtrOutput {
-	return o
-}
-
-func (o AccountCustomerManagedKeyPtrOutput) Elem() AccountCustomerManagedKeyOutput {
-	return o.ApplyT(func(v *AccountCustomerManagedKey) AccountCustomerManagedKey {
-		if v != nil {
-			return *v
-		}
-		var ret AccountCustomerManagedKey
-		return ret
-	}).(AccountCustomerManagedKeyOutput)
-}
-
 type AccountCustomerManagedKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (AccountCustomerManagedKeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccountCustomerManagedKey)(nil))
+	return reflect.TypeOf((*[]*AccountCustomerManagedKey)(nil)).Elem()
 }
 
 func (o AccountCustomerManagedKeyArrayOutput) ToAccountCustomerManagedKeyArrayOutput() AccountCustomerManagedKeyArrayOutput {
@@ -426,15 +363,15 @@ func (o AccountCustomerManagedKeyArrayOutput) ToAccountCustomerManagedKeyArrayOu
 }
 
 func (o AccountCustomerManagedKeyArrayOutput) Index(i pulumi.IntInput) AccountCustomerManagedKeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountCustomerManagedKey {
-		return vs[0].([]AccountCustomerManagedKey)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountCustomerManagedKey {
+		return vs[0].([]*AccountCustomerManagedKey)[vs[1].(int)]
 	}).(AccountCustomerManagedKeyOutput)
 }
 
 type AccountCustomerManagedKeyMapOutput struct{ *pulumi.OutputState }
 
 func (AccountCustomerManagedKeyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AccountCustomerManagedKey)(nil))
+	return reflect.TypeOf((*map[string]*AccountCustomerManagedKey)(nil)).Elem()
 }
 
 func (o AccountCustomerManagedKeyMapOutput) ToAccountCustomerManagedKeyMapOutput() AccountCustomerManagedKeyMapOutput {
@@ -446,18 +383,16 @@ func (o AccountCustomerManagedKeyMapOutput) ToAccountCustomerManagedKeyMapOutput
 }
 
 func (o AccountCustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) AccountCustomerManagedKeyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AccountCustomerManagedKey {
-		return vs[0].(map[string]AccountCustomerManagedKey)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AccountCustomerManagedKey {
+		return vs[0].(map[string]*AccountCustomerManagedKey)[vs[1].(string)]
 	}).(AccountCustomerManagedKeyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyInput)(nil)).Elem(), &AccountCustomerManagedKey{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyPtrInput)(nil)).Elem(), &AccountCustomerManagedKey{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyArrayInput)(nil)).Elem(), AccountCustomerManagedKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyMapInput)(nil)).Elem(), AccountCustomerManagedKeyMap{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyOutput{})
-	pulumi.RegisterOutputType(AccountCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyArrayOutput{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyMapOutput{})
 }

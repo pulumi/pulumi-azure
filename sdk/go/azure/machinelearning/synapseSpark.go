@@ -89,7 +89,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = synapse.NewWorkspace(ctx, "exampleSynapse_workspaceWorkspace", &synapse.WorkspaceArgs{
+// 		_, err = synapse.NewWorkspace(ctx, "exampleSynapse/workspaceWorkspace", &synapse.WorkspaceArgs{
 // 			ResourceGroupName:               exampleResourceGroup.Name,
 // 			Location:                        exampleResourceGroup.Location,
 // 			StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
@@ -279,7 +279,7 @@ type SynapseSparkInput interface {
 }
 
 func (*SynapseSpark) ElementType() reflect.Type {
-	return reflect.TypeOf((*SynapseSpark)(nil))
+	return reflect.TypeOf((**SynapseSpark)(nil)).Elem()
 }
 
 func (i *SynapseSpark) ToSynapseSparkOutput() SynapseSparkOutput {
@@ -288,35 +288,6 @@ func (i *SynapseSpark) ToSynapseSparkOutput() SynapseSparkOutput {
 
 func (i *SynapseSpark) ToSynapseSparkOutputWithContext(ctx context.Context) SynapseSparkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SynapseSparkOutput)
-}
-
-func (i *SynapseSpark) ToSynapseSparkPtrOutput() SynapseSparkPtrOutput {
-	return i.ToSynapseSparkPtrOutputWithContext(context.Background())
-}
-
-func (i *SynapseSpark) ToSynapseSparkPtrOutputWithContext(ctx context.Context) SynapseSparkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SynapseSparkPtrOutput)
-}
-
-type SynapseSparkPtrInput interface {
-	pulumi.Input
-
-	ToSynapseSparkPtrOutput() SynapseSparkPtrOutput
-	ToSynapseSparkPtrOutputWithContext(ctx context.Context) SynapseSparkPtrOutput
-}
-
-type synapseSparkPtrType SynapseSparkArgs
-
-func (*synapseSparkPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SynapseSpark)(nil))
-}
-
-func (i *synapseSparkPtrType) ToSynapseSparkPtrOutput() SynapseSparkPtrOutput {
-	return i.ToSynapseSparkPtrOutputWithContext(context.Background())
-}
-
-func (i *synapseSparkPtrType) ToSynapseSparkPtrOutputWithContext(ctx context.Context) SynapseSparkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SynapseSparkPtrOutput)
 }
 
 // SynapseSparkArrayInput is an input type that accepts SynapseSparkArray and SynapseSparkArrayOutput values.
@@ -372,7 +343,7 @@ func (i SynapseSparkMap) ToSynapseSparkMapOutputWithContext(ctx context.Context)
 type SynapseSparkOutput struct{ *pulumi.OutputState }
 
 func (SynapseSparkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SynapseSpark)(nil))
+	return reflect.TypeOf((**SynapseSpark)(nil)).Elem()
 }
 
 func (o SynapseSparkOutput) ToSynapseSparkOutput() SynapseSparkOutput {
@@ -383,44 +354,10 @@ func (o SynapseSparkOutput) ToSynapseSparkOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o SynapseSparkOutput) ToSynapseSparkPtrOutput() SynapseSparkPtrOutput {
-	return o.ToSynapseSparkPtrOutputWithContext(context.Background())
-}
-
-func (o SynapseSparkOutput) ToSynapseSparkPtrOutputWithContext(ctx context.Context) SynapseSparkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SynapseSpark) *SynapseSpark {
-		return &v
-	}).(SynapseSparkPtrOutput)
-}
-
-type SynapseSparkPtrOutput struct{ *pulumi.OutputState }
-
-func (SynapseSparkPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SynapseSpark)(nil))
-}
-
-func (o SynapseSparkPtrOutput) ToSynapseSparkPtrOutput() SynapseSparkPtrOutput {
-	return o
-}
-
-func (o SynapseSparkPtrOutput) ToSynapseSparkPtrOutputWithContext(ctx context.Context) SynapseSparkPtrOutput {
-	return o
-}
-
-func (o SynapseSparkPtrOutput) Elem() SynapseSparkOutput {
-	return o.ApplyT(func(v *SynapseSpark) SynapseSpark {
-		if v != nil {
-			return *v
-		}
-		var ret SynapseSpark
-		return ret
-	}).(SynapseSparkOutput)
-}
-
 type SynapseSparkArrayOutput struct{ *pulumi.OutputState }
 
 func (SynapseSparkArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SynapseSpark)(nil))
+	return reflect.TypeOf((*[]*SynapseSpark)(nil)).Elem()
 }
 
 func (o SynapseSparkArrayOutput) ToSynapseSparkArrayOutput() SynapseSparkArrayOutput {
@@ -432,15 +369,15 @@ func (o SynapseSparkArrayOutput) ToSynapseSparkArrayOutputWithContext(ctx contex
 }
 
 func (o SynapseSparkArrayOutput) Index(i pulumi.IntInput) SynapseSparkOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SynapseSpark {
-		return vs[0].([]SynapseSpark)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SynapseSpark {
+		return vs[0].([]*SynapseSpark)[vs[1].(int)]
 	}).(SynapseSparkOutput)
 }
 
 type SynapseSparkMapOutput struct{ *pulumi.OutputState }
 
 func (SynapseSparkMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SynapseSpark)(nil))
+	return reflect.TypeOf((*map[string]*SynapseSpark)(nil)).Elem()
 }
 
 func (o SynapseSparkMapOutput) ToSynapseSparkMapOutput() SynapseSparkMapOutput {
@@ -452,18 +389,16 @@ func (o SynapseSparkMapOutput) ToSynapseSparkMapOutputWithContext(ctx context.Co
 }
 
 func (o SynapseSparkMapOutput) MapIndex(k pulumi.StringInput) SynapseSparkOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SynapseSpark {
-		return vs[0].(map[string]SynapseSpark)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SynapseSpark {
+		return vs[0].(map[string]*SynapseSpark)[vs[1].(string)]
 	}).(SynapseSparkOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SynapseSparkInput)(nil)).Elem(), &SynapseSpark{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SynapseSparkPtrInput)(nil)).Elem(), &SynapseSpark{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SynapseSparkArrayInput)(nil)).Elem(), SynapseSparkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SynapseSparkMapInput)(nil)).Elem(), SynapseSparkMap{})
 	pulumi.RegisterOutputType(SynapseSparkOutput{})
-	pulumi.RegisterOutputType(SynapseSparkPtrOutput{})
 	pulumi.RegisterOutputType(SynapseSparkArrayOutput{})
 	pulumi.RegisterOutputType(SynapseSparkMapOutput{})
 }

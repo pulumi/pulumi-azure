@@ -228,7 +228,7 @@ type IntegrationRuntimeAzureInput interface {
 }
 
 func (*IntegrationRuntimeAzure) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeAzure)(nil))
+	return reflect.TypeOf((**IntegrationRuntimeAzure)(nil)).Elem()
 }
 
 func (i *IntegrationRuntimeAzure) ToIntegrationRuntimeAzureOutput() IntegrationRuntimeAzureOutput {
@@ -237,35 +237,6 @@ func (i *IntegrationRuntimeAzure) ToIntegrationRuntimeAzureOutput() IntegrationR
 
 func (i *IntegrationRuntimeAzure) ToIntegrationRuntimeAzureOutputWithContext(ctx context.Context) IntegrationRuntimeAzureOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeAzureOutput)
-}
-
-func (i *IntegrationRuntimeAzure) ToIntegrationRuntimeAzurePtrOutput() IntegrationRuntimeAzurePtrOutput {
-	return i.ToIntegrationRuntimeAzurePtrOutputWithContext(context.Background())
-}
-
-func (i *IntegrationRuntimeAzure) ToIntegrationRuntimeAzurePtrOutputWithContext(ctx context.Context) IntegrationRuntimeAzurePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeAzurePtrOutput)
-}
-
-type IntegrationRuntimeAzurePtrInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeAzurePtrOutput() IntegrationRuntimeAzurePtrOutput
-	ToIntegrationRuntimeAzurePtrOutputWithContext(ctx context.Context) IntegrationRuntimeAzurePtrOutput
-}
-
-type integrationRuntimeAzurePtrType IntegrationRuntimeAzureArgs
-
-func (*integrationRuntimeAzurePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeAzure)(nil))
-}
-
-func (i *integrationRuntimeAzurePtrType) ToIntegrationRuntimeAzurePtrOutput() IntegrationRuntimeAzurePtrOutput {
-	return i.ToIntegrationRuntimeAzurePtrOutputWithContext(context.Background())
-}
-
-func (i *integrationRuntimeAzurePtrType) ToIntegrationRuntimeAzurePtrOutputWithContext(ctx context.Context) IntegrationRuntimeAzurePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeAzurePtrOutput)
 }
 
 // IntegrationRuntimeAzureArrayInput is an input type that accepts IntegrationRuntimeAzureArray and IntegrationRuntimeAzureArrayOutput values.
@@ -321,7 +292,7 @@ func (i IntegrationRuntimeAzureMap) ToIntegrationRuntimeAzureMapOutputWithContex
 type IntegrationRuntimeAzureOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeAzureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeAzure)(nil))
+	return reflect.TypeOf((**IntegrationRuntimeAzure)(nil)).Elem()
 }
 
 func (o IntegrationRuntimeAzureOutput) ToIntegrationRuntimeAzureOutput() IntegrationRuntimeAzureOutput {
@@ -332,44 +303,10 @@ func (o IntegrationRuntimeAzureOutput) ToIntegrationRuntimeAzureOutputWithContex
 	return o
 }
 
-func (o IntegrationRuntimeAzureOutput) ToIntegrationRuntimeAzurePtrOutput() IntegrationRuntimeAzurePtrOutput {
-	return o.ToIntegrationRuntimeAzurePtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationRuntimeAzureOutput) ToIntegrationRuntimeAzurePtrOutputWithContext(ctx context.Context) IntegrationRuntimeAzurePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeAzure) *IntegrationRuntimeAzure {
-		return &v
-	}).(IntegrationRuntimeAzurePtrOutput)
-}
-
-type IntegrationRuntimeAzurePtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeAzurePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeAzure)(nil))
-}
-
-func (o IntegrationRuntimeAzurePtrOutput) ToIntegrationRuntimeAzurePtrOutput() IntegrationRuntimeAzurePtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeAzurePtrOutput) ToIntegrationRuntimeAzurePtrOutputWithContext(ctx context.Context) IntegrationRuntimeAzurePtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeAzurePtrOutput) Elem() IntegrationRuntimeAzureOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeAzure) IntegrationRuntimeAzure {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationRuntimeAzure
-		return ret
-	}).(IntegrationRuntimeAzureOutput)
-}
-
 type IntegrationRuntimeAzureArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeAzureArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IntegrationRuntimeAzure)(nil))
+	return reflect.TypeOf((*[]*IntegrationRuntimeAzure)(nil)).Elem()
 }
 
 func (o IntegrationRuntimeAzureArrayOutput) ToIntegrationRuntimeAzureArrayOutput() IntegrationRuntimeAzureArrayOutput {
@@ -381,15 +318,15 @@ func (o IntegrationRuntimeAzureArrayOutput) ToIntegrationRuntimeAzureArrayOutput
 }
 
 func (o IntegrationRuntimeAzureArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeAzureOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationRuntimeAzure {
-		return vs[0].([]IntegrationRuntimeAzure)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationRuntimeAzure {
+		return vs[0].([]*IntegrationRuntimeAzure)[vs[1].(int)]
 	}).(IntegrationRuntimeAzureOutput)
 }
 
 type IntegrationRuntimeAzureMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeAzureMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IntegrationRuntimeAzure)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationRuntimeAzure)(nil)).Elem()
 }
 
 func (o IntegrationRuntimeAzureMapOutput) ToIntegrationRuntimeAzureMapOutput() IntegrationRuntimeAzureMapOutput {
@@ -401,18 +338,16 @@ func (o IntegrationRuntimeAzureMapOutput) ToIntegrationRuntimeAzureMapOutputWith
 }
 
 func (o IntegrationRuntimeAzureMapOutput) MapIndex(k pulumi.StringInput) IntegrationRuntimeAzureOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationRuntimeAzure {
-		return vs[0].(map[string]IntegrationRuntimeAzure)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IntegrationRuntimeAzure {
+		return vs[0].(map[string]*IntegrationRuntimeAzure)[vs[1].(string)]
 	}).(IntegrationRuntimeAzureOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeAzureInput)(nil)).Elem(), &IntegrationRuntimeAzure{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeAzurePtrInput)(nil)).Elem(), &IntegrationRuntimeAzure{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeAzureArrayInput)(nil)).Elem(), IntegrationRuntimeAzureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeAzureMapInput)(nil)).Elem(), IntegrationRuntimeAzureMap{})
 	pulumi.RegisterOutputType(IntegrationRuntimeAzureOutput{})
-	pulumi.RegisterOutputType(IntegrationRuntimeAzurePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeAzureArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeAzureMapOutput{})
 }

@@ -124,18 +124,18 @@ export class CassandraDatacenter extends pulumi.CustomResource {
      */
     constructor(name: string, args: CassandraDatacenterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CassandraDatacenterArgs | CassandraDatacenterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CassandraDatacenterState | undefined;
-            inputs["availabilityZonesEnabled"] = state ? state.availabilityZonesEnabled : undefined;
-            inputs["cassandraClusterId"] = state ? state.cassandraClusterId : undefined;
-            inputs["delegatedManagementSubnetId"] = state ? state.delegatedManagementSubnetId : undefined;
-            inputs["diskCount"] = state ? state.diskCount : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nodeCount"] = state ? state.nodeCount : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["availabilityZonesEnabled"] = state ? state.availabilityZonesEnabled : undefined;
+            resourceInputs["cassandraClusterId"] = state ? state.cassandraClusterId : undefined;
+            resourceInputs["delegatedManagementSubnetId"] = state ? state.delegatedManagementSubnetId : undefined;
+            resourceInputs["diskCount"] = state ? state.diskCount : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nodeCount"] = state ? state.nodeCount : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
         } else {
             const args = argsOrState as CassandraDatacenterArgs | undefined;
             if ((!args || args.cassandraClusterId === undefined) && !opts.urn) {
@@ -144,19 +144,19 @@ export class CassandraDatacenter extends pulumi.CustomResource {
             if ((!args || args.delegatedManagementSubnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'delegatedManagementSubnetId'");
             }
-            inputs["availabilityZonesEnabled"] = args ? args.availabilityZonesEnabled : undefined;
-            inputs["cassandraClusterId"] = args ? args.cassandraClusterId : undefined;
-            inputs["delegatedManagementSubnetId"] = args ? args.delegatedManagementSubnetId : undefined;
-            inputs["diskCount"] = args ? args.diskCount : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nodeCount"] = args ? args.nodeCount : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["availabilityZonesEnabled"] = args ? args.availabilityZonesEnabled : undefined;
+            resourceInputs["cassandraClusterId"] = args ? args.cassandraClusterId : undefined;
+            resourceInputs["delegatedManagementSubnetId"] = args ? args.delegatedManagementSubnetId : undefined;
+            resourceInputs["diskCount"] = args ? args.diskCount : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CassandraDatacenter.__pulumiType, name, inputs, opts);
+        super(CassandraDatacenter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

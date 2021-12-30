@@ -79,13 +79,13 @@ export class SourceCodeToken extends pulumi.CustomResource {
      */
     constructor(name: string, args: SourceCodeTokenArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SourceCodeTokenArgs | SourceCodeTokenState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SourceCodeTokenState | undefined;
-            inputs["token"] = state ? state.token : undefined;
-            inputs["tokenSecret"] = state ? state.tokenSecret : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["token"] = state ? state.token : undefined;
+            resourceInputs["tokenSecret"] = state ? state.tokenSecret : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SourceCodeTokenArgs | undefined;
             if ((!args || args.token === undefined) && !opts.urn) {
@@ -94,14 +94,14 @@ export class SourceCodeToken extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["token"] = args ? args.token : undefined;
-            inputs["tokenSecret"] = args ? args.tokenSecret : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["tokenSecret"] = args ? args.tokenSecret : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SourceCodeToken.__pulumiType, name, inputs, opts);
+        super(SourceCodeToken.__pulumiType, name, resourceInputs, opts);
     }
 }
 

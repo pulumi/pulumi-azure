@@ -95,13 +95,13 @@ export class AssignmentDedicatedHost extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssignmentDedicatedHostArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssignmentDedicatedHostArgs | AssignmentDedicatedHostState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssignmentDedicatedHostState | undefined;
-            inputs["dedicatedHostId"] = state ? state.dedicatedHostId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["maintenanceConfigurationId"] = state ? state.maintenanceConfigurationId : undefined;
+            resourceInputs["dedicatedHostId"] = state ? state.dedicatedHostId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["maintenanceConfigurationId"] = state ? state.maintenanceConfigurationId : undefined;
         } else {
             const args = argsOrState as AssignmentDedicatedHostArgs | undefined;
             if ((!args || args.dedicatedHostId === undefined) && !opts.urn) {
@@ -110,14 +110,14 @@ export class AssignmentDedicatedHost extends pulumi.CustomResource {
             if ((!args || args.maintenanceConfigurationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maintenanceConfigurationId'");
             }
-            inputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
+            resourceInputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AssignmentDedicatedHost.__pulumiType, name, inputs, opts);
+        super(AssignmentDedicatedHost.__pulumiType, name, resourceInputs, opts);
     }
 }
 

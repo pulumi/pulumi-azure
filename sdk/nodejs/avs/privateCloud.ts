@@ -130,29 +130,29 @@ export class PrivateCloud extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrivateCloudArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PrivateCloudArgs | PrivateCloudState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrivateCloudState | undefined;
-            inputs["circuits"] = state ? state.circuits : undefined;
-            inputs["hcxCloudManagerEndpoint"] = state ? state.hcxCloudManagerEndpoint : undefined;
-            inputs["internetConnectionEnabled"] = state ? state.internetConnectionEnabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managementCluster"] = state ? state.managementCluster : undefined;
-            inputs["managementSubnetCidr"] = state ? state.managementSubnetCidr : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkSubnetCidr"] = state ? state.networkSubnetCidr : undefined;
-            inputs["nsxtCertificateThumbprint"] = state ? state.nsxtCertificateThumbprint : undefined;
-            inputs["nsxtManagerEndpoint"] = state ? state.nsxtManagerEndpoint : undefined;
-            inputs["nsxtPassword"] = state ? state.nsxtPassword : undefined;
-            inputs["provisioningSubnetCidr"] = state ? state.provisioningSubnetCidr : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["vcenterCertificateThumbprint"] = state ? state.vcenterCertificateThumbprint : undefined;
-            inputs["vcenterPassword"] = state ? state.vcenterPassword : undefined;
-            inputs["vcsaEndpoint"] = state ? state.vcsaEndpoint : undefined;
-            inputs["vmotionSubnetCidr"] = state ? state.vmotionSubnetCidr : undefined;
+            resourceInputs["circuits"] = state ? state.circuits : undefined;
+            resourceInputs["hcxCloudManagerEndpoint"] = state ? state.hcxCloudManagerEndpoint : undefined;
+            resourceInputs["internetConnectionEnabled"] = state ? state.internetConnectionEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managementCluster"] = state ? state.managementCluster : undefined;
+            resourceInputs["managementSubnetCidr"] = state ? state.managementSubnetCidr : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkSubnetCidr"] = state ? state.networkSubnetCidr : undefined;
+            resourceInputs["nsxtCertificateThumbprint"] = state ? state.nsxtCertificateThumbprint : undefined;
+            resourceInputs["nsxtManagerEndpoint"] = state ? state.nsxtManagerEndpoint : undefined;
+            resourceInputs["nsxtPassword"] = state ? state.nsxtPassword : undefined;
+            resourceInputs["provisioningSubnetCidr"] = state ? state.provisioningSubnetCidr : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["vcenterCertificateThumbprint"] = state ? state.vcenterCertificateThumbprint : undefined;
+            resourceInputs["vcenterPassword"] = state ? state.vcenterPassword : undefined;
+            resourceInputs["vcsaEndpoint"] = state ? state.vcsaEndpoint : undefined;
+            resourceInputs["vmotionSubnetCidr"] = state ? state.vmotionSubnetCidr : undefined;
         } else {
             const args = argsOrState as PrivateCloudArgs | undefined;
             if ((!args || args.managementCluster === undefined) && !opts.urn) {
@@ -167,30 +167,30 @@ export class PrivateCloud extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            inputs["internetConnectionEnabled"] = args ? args.internetConnectionEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managementCluster"] = args ? args.managementCluster : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkSubnetCidr"] = args ? args.networkSubnetCidr : undefined;
-            inputs["nsxtPassword"] = args ? args.nsxtPassword : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vcenterPassword"] = args ? args.vcenterPassword : undefined;
-            inputs["circuits"] = undefined /*out*/;
-            inputs["hcxCloudManagerEndpoint"] = undefined /*out*/;
-            inputs["managementSubnetCidr"] = undefined /*out*/;
-            inputs["nsxtCertificateThumbprint"] = undefined /*out*/;
-            inputs["nsxtManagerEndpoint"] = undefined /*out*/;
-            inputs["provisioningSubnetCidr"] = undefined /*out*/;
-            inputs["vcenterCertificateThumbprint"] = undefined /*out*/;
-            inputs["vcsaEndpoint"] = undefined /*out*/;
-            inputs["vmotionSubnetCidr"] = undefined /*out*/;
+            resourceInputs["internetConnectionEnabled"] = args ? args.internetConnectionEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managementCluster"] = args ? args.managementCluster : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkSubnetCidr"] = args ? args.networkSubnetCidr : undefined;
+            resourceInputs["nsxtPassword"] = args ? args.nsxtPassword : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vcenterPassword"] = args ? args.vcenterPassword : undefined;
+            resourceInputs["circuits"] = undefined /*out*/;
+            resourceInputs["hcxCloudManagerEndpoint"] = undefined /*out*/;
+            resourceInputs["managementSubnetCidr"] = undefined /*out*/;
+            resourceInputs["nsxtCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["nsxtManagerEndpoint"] = undefined /*out*/;
+            resourceInputs["provisioningSubnetCidr"] = undefined /*out*/;
+            resourceInputs["vcenterCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["vcsaEndpoint"] = undefined /*out*/;
+            resourceInputs["vmotionSubnetCidr"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PrivateCloud.__pulumiType, name, inputs, opts);
+        super(PrivateCloud.__pulumiType, name, resourceInputs, opts);
     }
 }
 

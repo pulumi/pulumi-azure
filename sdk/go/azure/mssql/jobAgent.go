@@ -174,7 +174,7 @@ type JobAgentInput interface {
 }
 
 func (*JobAgent) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobAgent)(nil))
+	return reflect.TypeOf((**JobAgent)(nil)).Elem()
 }
 
 func (i *JobAgent) ToJobAgentOutput() JobAgentOutput {
@@ -183,35 +183,6 @@ func (i *JobAgent) ToJobAgentOutput() JobAgentOutput {
 
 func (i *JobAgent) ToJobAgentOutputWithContext(ctx context.Context) JobAgentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobAgentOutput)
-}
-
-func (i *JobAgent) ToJobAgentPtrOutput() JobAgentPtrOutput {
-	return i.ToJobAgentPtrOutputWithContext(context.Background())
-}
-
-func (i *JobAgent) ToJobAgentPtrOutputWithContext(ctx context.Context) JobAgentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobAgentPtrOutput)
-}
-
-type JobAgentPtrInput interface {
-	pulumi.Input
-
-	ToJobAgentPtrOutput() JobAgentPtrOutput
-	ToJobAgentPtrOutputWithContext(ctx context.Context) JobAgentPtrOutput
-}
-
-type jobAgentPtrType JobAgentArgs
-
-func (*jobAgentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobAgent)(nil))
-}
-
-func (i *jobAgentPtrType) ToJobAgentPtrOutput() JobAgentPtrOutput {
-	return i.ToJobAgentPtrOutputWithContext(context.Background())
-}
-
-func (i *jobAgentPtrType) ToJobAgentPtrOutputWithContext(ctx context.Context) JobAgentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobAgentPtrOutput)
 }
 
 // JobAgentArrayInput is an input type that accepts JobAgentArray and JobAgentArrayOutput values.
@@ -267,7 +238,7 @@ func (i JobAgentMap) ToJobAgentMapOutputWithContext(ctx context.Context) JobAgen
 type JobAgentOutput struct{ *pulumi.OutputState }
 
 func (JobAgentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobAgent)(nil))
+	return reflect.TypeOf((**JobAgent)(nil)).Elem()
 }
 
 func (o JobAgentOutput) ToJobAgentOutput() JobAgentOutput {
@@ -278,44 +249,10 @@ func (o JobAgentOutput) ToJobAgentOutputWithContext(ctx context.Context) JobAgen
 	return o
 }
 
-func (o JobAgentOutput) ToJobAgentPtrOutput() JobAgentPtrOutput {
-	return o.ToJobAgentPtrOutputWithContext(context.Background())
-}
-
-func (o JobAgentOutput) ToJobAgentPtrOutputWithContext(ctx context.Context) JobAgentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobAgent) *JobAgent {
-		return &v
-	}).(JobAgentPtrOutput)
-}
-
-type JobAgentPtrOutput struct{ *pulumi.OutputState }
-
-func (JobAgentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobAgent)(nil))
-}
-
-func (o JobAgentPtrOutput) ToJobAgentPtrOutput() JobAgentPtrOutput {
-	return o
-}
-
-func (o JobAgentPtrOutput) ToJobAgentPtrOutputWithContext(ctx context.Context) JobAgentPtrOutput {
-	return o
-}
-
-func (o JobAgentPtrOutput) Elem() JobAgentOutput {
-	return o.ApplyT(func(v *JobAgent) JobAgent {
-		if v != nil {
-			return *v
-		}
-		var ret JobAgent
-		return ret
-	}).(JobAgentOutput)
-}
-
 type JobAgentArrayOutput struct{ *pulumi.OutputState }
 
 func (JobAgentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobAgent)(nil))
+	return reflect.TypeOf((*[]*JobAgent)(nil)).Elem()
 }
 
 func (o JobAgentArrayOutput) ToJobAgentArrayOutput() JobAgentArrayOutput {
@@ -327,15 +264,15 @@ func (o JobAgentArrayOutput) ToJobAgentArrayOutputWithContext(ctx context.Contex
 }
 
 func (o JobAgentArrayOutput) Index(i pulumi.IntInput) JobAgentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobAgent {
-		return vs[0].([]JobAgent)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JobAgent {
+		return vs[0].([]*JobAgent)[vs[1].(int)]
 	}).(JobAgentOutput)
 }
 
 type JobAgentMapOutput struct{ *pulumi.OutputState }
 
 func (JobAgentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]JobAgent)(nil))
+	return reflect.TypeOf((*map[string]*JobAgent)(nil)).Elem()
 }
 
 func (o JobAgentMapOutput) ToJobAgentMapOutput() JobAgentMapOutput {
@@ -347,18 +284,16 @@ func (o JobAgentMapOutput) ToJobAgentMapOutputWithContext(ctx context.Context) J
 }
 
 func (o JobAgentMapOutput) MapIndex(k pulumi.StringInput) JobAgentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) JobAgent {
-		return vs[0].(map[string]JobAgent)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *JobAgent {
+		return vs[0].(map[string]*JobAgent)[vs[1].(string)]
 	}).(JobAgentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobAgentInput)(nil)).Elem(), &JobAgent{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobAgentPtrInput)(nil)).Elem(), &JobAgent{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobAgentArrayInput)(nil)).Elem(), JobAgentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobAgentMapInput)(nil)).Elem(), JobAgentMap{})
 	pulumi.RegisterOutputType(JobAgentOutput{})
-	pulumi.RegisterOutputType(JobAgentPtrOutput{})
 	pulumi.RegisterOutputType(JobAgentArrayOutput{})
 	pulumi.RegisterOutputType(JobAgentMapOutput{})
 }

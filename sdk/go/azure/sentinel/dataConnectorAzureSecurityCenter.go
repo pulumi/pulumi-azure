@@ -168,7 +168,7 @@ type DataConnectorAzureSecurityCenterInput interface {
 }
 
 func (*DataConnectorAzureSecurityCenter) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorAzureSecurityCenter)(nil))
+	return reflect.TypeOf((**DataConnectorAzureSecurityCenter)(nil)).Elem()
 }
 
 func (i *DataConnectorAzureSecurityCenter) ToDataConnectorAzureSecurityCenterOutput() DataConnectorAzureSecurityCenterOutput {
@@ -177,35 +177,6 @@ func (i *DataConnectorAzureSecurityCenter) ToDataConnectorAzureSecurityCenterOut
 
 func (i *DataConnectorAzureSecurityCenter) ToDataConnectorAzureSecurityCenterOutputWithContext(ctx context.Context) DataConnectorAzureSecurityCenterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureSecurityCenterOutput)
-}
-
-func (i *DataConnectorAzureSecurityCenter) ToDataConnectorAzureSecurityCenterPtrOutput() DataConnectorAzureSecurityCenterPtrOutput {
-	return i.ToDataConnectorAzureSecurityCenterPtrOutputWithContext(context.Background())
-}
-
-func (i *DataConnectorAzureSecurityCenter) ToDataConnectorAzureSecurityCenterPtrOutputWithContext(ctx context.Context) DataConnectorAzureSecurityCenterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureSecurityCenterPtrOutput)
-}
-
-type DataConnectorAzureSecurityCenterPtrInput interface {
-	pulumi.Input
-
-	ToDataConnectorAzureSecurityCenterPtrOutput() DataConnectorAzureSecurityCenterPtrOutput
-	ToDataConnectorAzureSecurityCenterPtrOutputWithContext(ctx context.Context) DataConnectorAzureSecurityCenterPtrOutput
-}
-
-type dataConnectorAzureSecurityCenterPtrType DataConnectorAzureSecurityCenterArgs
-
-func (*dataConnectorAzureSecurityCenterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorAzureSecurityCenter)(nil))
-}
-
-func (i *dataConnectorAzureSecurityCenterPtrType) ToDataConnectorAzureSecurityCenterPtrOutput() DataConnectorAzureSecurityCenterPtrOutput {
-	return i.ToDataConnectorAzureSecurityCenterPtrOutputWithContext(context.Background())
-}
-
-func (i *dataConnectorAzureSecurityCenterPtrType) ToDataConnectorAzureSecurityCenterPtrOutputWithContext(ctx context.Context) DataConnectorAzureSecurityCenterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAzureSecurityCenterPtrOutput)
 }
 
 // DataConnectorAzureSecurityCenterArrayInput is an input type that accepts DataConnectorAzureSecurityCenterArray and DataConnectorAzureSecurityCenterArrayOutput values.
@@ -261,7 +232,7 @@ func (i DataConnectorAzureSecurityCenterMap) ToDataConnectorAzureSecurityCenterM
 type DataConnectorAzureSecurityCenterOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAzureSecurityCenterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorAzureSecurityCenter)(nil))
+	return reflect.TypeOf((**DataConnectorAzureSecurityCenter)(nil)).Elem()
 }
 
 func (o DataConnectorAzureSecurityCenterOutput) ToDataConnectorAzureSecurityCenterOutput() DataConnectorAzureSecurityCenterOutput {
@@ -272,44 +243,10 @@ func (o DataConnectorAzureSecurityCenterOutput) ToDataConnectorAzureSecurityCent
 	return o
 }
 
-func (o DataConnectorAzureSecurityCenterOutput) ToDataConnectorAzureSecurityCenterPtrOutput() DataConnectorAzureSecurityCenterPtrOutput {
-	return o.ToDataConnectorAzureSecurityCenterPtrOutputWithContext(context.Background())
-}
-
-func (o DataConnectorAzureSecurityCenterOutput) ToDataConnectorAzureSecurityCenterPtrOutputWithContext(ctx context.Context) DataConnectorAzureSecurityCenterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorAzureSecurityCenter) *DataConnectorAzureSecurityCenter {
-		return &v
-	}).(DataConnectorAzureSecurityCenterPtrOutput)
-}
-
-type DataConnectorAzureSecurityCenterPtrOutput struct{ *pulumi.OutputState }
-
-func (DataConnectorAzureSecurityCenterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorAzureSecurityCenter)(nil))
-}
-
-func (o DataConnectorAzureSecurityCenterPtrOutput) ToDataConnectorAzureSecurityCenterPtrOutput() DataConnectorAzureSecurityCenterPtrOutput {
-	return o
-}
-
-func (o DataConnectorAzureSecurityCenterPtrOutput) ToDataConnectorAzureSecurityCenterPtrOutputWithContext(ctx context.Context) DataConnectorAzureSecurityCenterPtrOutput {
-	return o
-}
-
-func (o DataConnectorAzureSecurityCenterPtrOutput) Elem() DataConnectorAzureSecurityCenterOutput {
-	return o.ApplyT(func(v *DataConnectorAzureSecurityCenter) DataConnectorAzureSecurityCenter {
-		if v != nil {
-			return *v
-		}
-		var ret DataConnectorAzureSecurityCenter
-		return ret
-	}).(DataConnectorAzureSecurityCenterOutput)
-}
-
 type DataConnectorAzureSecurityCenterArrayOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAzureSecurityCenterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataConnectorAzureSecurityCenter)(nil))
+	return reflect.TypeOf((*[]*DataConnectorAzureSecurityCenter)(nil)).Elem()
 }
 
 func (o DataConnectorAzureSecurityCenterArrayOutput) ToDataConnectorAzureSecurityCenterArrayOutput() DataConnectorAzureSecurityCenterArrayOutput {
@@ -321,15 +258,15 @@ func (o DataConnectorAzureSecurityCenterArrayOutput) ToDataConnectorAzureSecurit
 }
 
 func (o DataConnectorAzureSecurityCenterArrayOutput) Index(i pulumi.IntInput) DataConnectorAzureSecurityCenterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataConnectorAzureSecurityCenter {
-		return vs[0].([]DataConnectorAzureSecurityCenter)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorAzureSecurityCenter {
+		return vs[0].([]*DataConnectorAzureSecurityCenter)[vs[1].(int)]
 	}).(DataConnectorAzureSecurityCenterOutput)
 }
 
 type DataConnectorAzureSecurityCenterMapOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAzureSecurityCenterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataConnectorAzureSecurityCenter)(nil))
+	return reflect.TypeOf((*map[string]*DataConnectorAzureSecurityCenter)(nil)).Elem()
 }
 
 func (o DataConnectorAzureSecurityCenterMapOutput) ToDataConnectorAzureSecurityCenterMapOutput() DataConnectorAzureSecurityCenterMapOutput {
@@ -341,18 +278,16 @@ func (o DataConnectorAzureSecurityCenterMapOutput) ToDataConnectorAzureSecurityC
 }
 
 func (o DataConnectorAzureSecurityCenterMapOutput) MapIndex(k pulumi.StringInput) DataConnectorAzureSecurityCenterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataConnectorAzureSecurityCenter {
-		return vs[0].(map[string]DataConnectorAzureSecurityCenter)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataConnectorAzureSecurityCenter {
+		return vs[0].(map[string]*DataConnectorAzureSecurityCenter)[vs[1].(string)]
 	}).(DataConnectorAzureSecurityCenterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureSecurityCenterInput)(nil)).Elem(), &DataConnectorAzureSecurityCenter{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureSecurityCenterPtrInput)(nil)).Elem(), &DataConnectorAzureSecurityCenter{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureSecurityCenterArrayInput)(nil)).Elem(), DataConnectorAzureSecurityCenterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAzureSecurityCenterMapInput)(nil)).Elem(), DataConnectorAzureSecurityCenterMap{})
 	pulumi.RegisterOutputType(DataConnectorAzureSecurityCenterOutput{})
-	pulumi.RegisterOutputType(DataConnectorAzureSecurityCenterPtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorAzureSecurityCenterArrayOutput{})
 	pulumi.RegisterOutputType(DataConnectorAzureSecurityCenterMapOutput{})
 }

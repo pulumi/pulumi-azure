@@ -11690,47 +11690,6 @@ func (i PlanSkuArgs) ToPlanSkuOutputWithContext(ctx context.Context) PlanSkuOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PlanSkuOutput)
 }
 
-func (i PlanSkuArgs) ToPlanSkuPtrOutput() PlanSkuPtrOutput {
-	return i.ToPlanSkuPtrOutputWithContext(context.Background())
-}
-
-func (i PlanSkuArgs) ToPlanSkuPtrOutputWithContext(ctx context.Context) PlanSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlanSkuOutput).ToPlanSkuPtrOutputWithContext(ctx)
-}
-
-// PlanSkuPtrInput is an input type that accepts PlanSkuArgs, PlanSkuPtr and PlanSkuPtrOutput values.
-// You can construct a concrete instance of `PlanSkuPtrInput` via:
-//
-//          PlanSkuArgs{...}
-//
-//  or:
-//
-//          nil
-type PlanSkuPtrInput interface {
-	pulumi.Input
-
-	ToPlanSkuPtrOutput() PlanSkuPtrOutput
-	ToPlanSkuPtrOutputWithContext(context.Context) PlanSkuPtrOutput
-}
-
-type planSkuPtrType PlanSkuArgs
-
-func PlanSkuPtr(v *PlanSkuArgs) PlanSkuPtrInput {
-	return (*planSkuPtrType)(v)
-}
-
-func (*planSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PlanSku)(nil)).Elem()
-}
-
-func (i *planSkuPtrType) ToPlanSkuPtrOutput() PlanSkuPtrOutput {
-	return i.ToPlanSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *planSkuPtrType) ToPlanSkuPtrOutputWithContext(ctx context.Context) PlanSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlanSkuPtrOutput)
-}
-
 type PlanSkuOutput struct{ *pulumi.OutputState }
 
 func (PlanSkuOutput) ElementType() reflect.Type {
@@ -11743,16 +11702,6 @@ func (o PlanSkuOutput) ToPlanSkuOutput() PlanSkuOutput {
 
 func (o PlanSkuOutput) ToPlanSkuOutputWithContext(ctx context.Context) PlanSkuOutput {
 	return o
-}
-
-func (o PlanSkuOutput) ToPlanSkuPtrOutput() PlanSkuPtrOutput {
-	return o.ToPlanSkuPtrOutputWithContext(context.Background())
-}
-
-func (o PlanSkuOutput) ToPlanSkuPtrOutputWithContext(ctx context.Context) PlanSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanSku) *PlanSku {
-		return &v
-	}).(PlanSkuPtrOutput)
 }
 
 // Specifies the number of workers associated with this App Service Plan.
@@ -11768,60 +11717,6 @@ func (o PlanSkuOutput) Size() pulumi.StringOutput {
 // Specifies the plan's pricing tier.
 func (o PlanSkuOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanSku) string { return v.Tier }).(pulumi.StringOutput)
-}
-
-type PlanSkuPtrOutput struct{ *pulumi.OutputState }
-
-func (PlanSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PlanSku)(nil)).Elem()
-}
-
-func (o PlanSkuPtrOutput) ToPlanSkuPtrOutput() PlanSkuPtrOutput {
-	return o
-}
-
-func (o PlanSkuPtrOutput) ToPlanSkuPtrOutputWithContext(ctx context.Context) PlanSkuPtrOutput {
-	return o
-}
-
-func (o PlanSkuPtrOutput) Elem() PlanSkuOutput {
-	return o.ApplyT(func(v *PlanSku) PlanSku {
-		if v != nil {
-			return *v
-		}
-		var ret PlanSku
-		return ret
-	}).(PlanSkuOutput)
-}
-
-// Specifies the number of workers associated with this App Service Plan.
-func (o PlanSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PlanSku) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the plan's instance size.
-func (o PlanSkuPtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PlanSku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the plan's pricing tier.
-func (o PlanSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PlanSku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Tier
-	}).(pulumi.StringPtrOutput)
 }
 
 type SlotAuthSettings struct {
@@ -19133,7 +19028,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAppSourceControlInput)(nil)).Elem(), FunctionAppSourceControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAppSourceControlPtrInput)(nil)).Elem(), FunctionAppSourceControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanSkuInput)(nil)).Elem(), PlanSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PlanSkuPtrInput)(nil)).Elem(), PlanSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotAuthSettingsInput)(nil)).Elem(), SlotAuthSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotAuthSettingsPtrInput)(nil)).Elem(), SlotAuthSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotAuthSettingsActiveDirectoryInput)(nil)).Elem(), SlotAuthSettingsActiveDirectoryArgs{})
@@ -19339,7 +19233,6 @@ func init() {
 	pulumi.RegisterOutputType(FunctionAppSourceControlOutput{})
 	pulumi.RegisterOutputType(FunctionAppSourceControlPtrOutput{})
 	pulumi.RegisterOutputType(PlanSkuOutput{})
-	pulumi.RegisterOutputType(PlanSkuPtrOutput{})
 	pulumi.RegisterOutputType(SlotAuthSettingsOutput{})
 	pulumi.RegisterOutputType(SlotAuthSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SlotAuthSettingsActiveDirectoryOutput{})

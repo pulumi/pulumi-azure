@@ -421,47 +421,6 @@ func (i PolicyManagedRulesArgs) ToPolicyManagedRulesOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesOutput)
 }
 
-func (i PolicyManagedRulesArgs) ToPolicyManagedRulesPtrOutput() PolicyManagedRulesPtrOutput {
-	return i.ToPolicyManagedRulesPtrOutputWithContext(context.Background())
-}
-
-func (i PolicyManagedRulesArgs) ToPolicyManagedRulesPtrOutputWithContext(ctx context.Context) PolicyManagedRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesOutput).ToPolicyManagedRulesPtrOutputWithContext(ctx)
-}
-
-// PolicyManagedRulesPtrInput is an input type that accepts PolicyManagedRulesArgs, PolicyManagedRulesPtr and PolicyManagedRulesPtrOutput values.
-// You can construct a concrete instance of `PolicyManagedRulesPtrInput` via:
-//
-//          PolicyManagedRulesArgs{...}
-//
-//  or:
-//
-//          nil
-type PolicyManagedRulesPtrInput interface {
-	pulumi.Input
-
-	ToPolicyManagedRulesPtrOutput() PolicyManagedRulesPtrOutput
-	ToPolicyManagedRulesPtrOutputWithContext(context.Context) PolicyManagedRulesPtrOutput
-}
-
-type policyManagedRulesPtrType PolicyManagedRulesArgs
-
-func PolicyManagedRulesPtr(v *PolicyManagedRulesArgs) PolicyManagedRulesPtrInput {
-	return (*policyManagedRulesPtrType)(v)
-}
-
-func (*policyManagedRulesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyManagedRules)(nil)).Elem()
-}
-
-func (i *policyManagedRulesPtrType) ToPolicyManagedRulesPtrOutput() PolicyManagedRulesPtrOutput {
-	return i.ToPolicyManagedRulesPtrOutputWithContext(context.Background())
-}
-
-func (i *policyManagedRulesPtrType) ToPolicyManagedRulesPtrOutputWithContext(ctx context.Context) PolicyManagedRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesPtrOutput)
-}
-
 type PolicyManagedRulesOutput struct{ *pulumi.OutputState }
 
 func (PolicyManagedRulesOutput) ElementType() reflect.Type {
@@ -476,16 +435,6 @@ func (o PolicyManagedRulesOutput) ToPolicyManagedRulesOutputWithContext(ctx cont
 	return o
 }
 
-func (o PolicyManagedRulesOutput) ToPolicyManagedRulesPtrOutput() PolicyManagedRulesPtrOutput {
-	return o.ToPolicyManagedRulesPtrOutputWithContext(context.Background())
-}
-
-func (o PolicyManagedRulesOutput) ToPolicyManagedRulesPtrOutputWithContext(ctx context.Context) PolicyManagedRulesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyManagedRules) *PolicyManagedRules {
-		return &v
-	}).(PolicyManagedRulesPtrOutput)
-}
-
 // One or more `exclusion` block defined below.
 func (o PolicyManagedRulesOutput) Exclusions() PolicyManagedRulesExclusionArrayOutput {
 	return o.ApplyT(func(v PolicyManagedRules) []PolicyManagedRulesExclusion { return v.Exclusions }).(PolicyManagedRulesExclusionArrayOutput)
@@ -494,50 +443,6 @@ func (o PolicyManagedRulesOutput) Exclusions() PolicyManagedRulesExclusionArrayO
 // One or more `managedRuleSet` block defined below.
 func (o PolicyManagedRulesOutput) ManagedRuleSets() PolicyManagedRulesManagedRuleSetArrayOutput {
 	return o.ApplyT(func(v PolicyManagedRules) []PolicyManagedRulesManagedRuleSet { return v.ManagedRuleSets }).(PolicyManagedRulesManagedRuleSetArrayOutput)
-}
-
-type PolicyManagedRulesPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyManagedRulesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyManagedRules)(nil)).Elem()
-}
-
-func (o PolicyManagedRulesPtrOutput) ToPolicyManagedRulesPtrOutput() PolicyManagedRulesPtrOutput {
-	return o
-}
-
-func (o PolicyManagedRulesPtrOutput) ToPolicyManagedRulesPtrOutputWithContext(ctx context.Context) PolicyManagedRulesPtrOutput {
-	return o
-}
-
-func (o PolicyManagedRulesPtrOutput) Elem() PolicyManagedRulesOutput {
-	return o.ApplyT(func(v *PolicyManagedRules) PolicyManagedRules {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyManagedRules
-		return ret
-	}).(PolicyManagedRulesOutput)
-}
-
-// One or more `exclusion` block defined below.
-func (o PolicyManagedRulesPtrOutput) Exclusions() PolicyManagedRulesExclusionArrayOutput {
-	return o.ApplyT(func(v *PolicyManagedRules) []PolicyManagedRulesExclusion {
-		if v == nil {
-			return nil
-		}
-		return v.Exclusions
-	}).(PolicyManagedRulesExclusionArrayOutput)
-}
-
-// One or more `managedRuleSet` block defined below.
-func (o PolicyManagedRulesPtrOutput) ManagedRuleSets() PolicyManagedRulesManagedRuleSetArrayOutput {
-	return o.ApplyT(func(v *PolicyManagedRules) []PolicyManagedRulesManagedRuleSet {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedRuleSets
-	}).(PolicyManagedRulesManagedRuleSetArrayOutput)
 }
 
 type PolicyManagedRulesExclusion struct {
@@ -1099,7 +1004,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCustomRuleMatchConditionMatchVariableInput)(nil)).Elem(), PolicyCustomRuleMatchConditionMatchVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyCustomRuleMatchConditionMatchVariableArrayInput)(nil)).Elem(), PolicyCustomRuleMatchConditionMatchVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesInput)(nil)).Elem(), PolicyManagedRulesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesPtrInput)(nil)).Elem(), PolicyManagedRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionInput)(nil)).Elem(), PolicyManagedRulesExclusionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionArrayInput)(nil)).Elem(), PolicyManagedRulesExclusionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetArgs{})
@@ -1115,7 +1019,6 @@ func init() {
 	pulumi.RegisterOutputType(PolicyCustomRuleMatchConditionMatchVariableOutput{})
 	pulumi.RegisterOutputType(PolicyCustomRuleMatchConditionMatchVariableArrayOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesOutput{})
-	pulumi.RegisterOutputType(PolicyManagedRulesPtrOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesExclusionOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesExclusionArrayOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetOutput{})

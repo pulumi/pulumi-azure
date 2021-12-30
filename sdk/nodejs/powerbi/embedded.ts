@@ -96,17 +96,17 @@ export class Embedded extends pulumi.CustomResource {
      */
     constructor(name: string, args: EmbeddedArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EmbeddedArgs | EmbeddedState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmbeddedState | undefined;
-            inputs["administrators"] = state ? state.administrators : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["mode"] = state ? state.mode : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["administrators"] = state ? state.administrators : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EmbeddedArgs | undefined;
             if ((!args || args.administrators === undefined) && !opts.urn) {
@@ -118,18 +118,18 @@ export class Embedded extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            inputs["administrators"] = args ? args.administrators : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["administrators"] = args ? args.administrators : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Embedded.__pulumiType, name, inputs, opts);
+        super(Embedded.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -142,25 +142,25 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkInterfaceArgs | NetworkInterfaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceState | undefined;
-            inputs["appliedDnsServers"] = state ? state.appliedDnsServers : undefined;
-            inputs["dnsServers"] = state ? state.dnsServers : undefined;
-            inputs["enableAcceleratedNetworking"] = state ? state.enableAcceleratedNetworking : undefined;
-            inputs["enableIpForwarding"] = state ? state.enableIpForwarding : undefined;
-            inputs["internalDnsNameLabel"] = state ? state.internalDnsNameLabel : undefined;
-            inputs["internalDomainNameSuffix"] = state ? state.internalDomainNameSuffix : undefined;
-            inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["macAddress"] = state ? state.macAddress : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
-            inputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["appliedDnsServers"] = state ? state.appliedDnsServers : undefined;
+            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
+            resourceInputs["enableAcceleratedNetworking"] = state ? state.enableAcceleratedNetworking : undefined;
+            resourceInputs["enableIpForwarding"] = state ? state.enableIpForwarding : undefined;
+            resourceInputs["internalDnsNameLabel"] = state ? state.internalDnsNameLabel : undefined;
+            resourceInputs["internalDomainNameSuffix"] = state ? state.internalDomainNameSuffix : undefined;
+            resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["macAddress"] = state ? state.macAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
+            resourceInputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceArgs | undefined;
             if ((!args || args.ipConfigurations === undefined) && !opts.urn) {
@@ -169,26 +169,26 @@ export class NetworkInterface extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dnsServers"] = args ? args.dnsServers : undefined;
-            inputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
-            inputs["enableIpForwarding"] = args ? args.enableIpForwarding : undefined;
-            inputs["internalDnsNameLabel"] = args ? args.internalDnsNameLabel : undefined;
-            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["appliedDnsServers"] = undefined /*out*/;
-            inputs["internalDomainNameSuffix"] = undefined /*out*/;
-            inputs["macAddress"] = undefined /*out*/;
-            inputs["privateIpAddress"] = undefined /*out*/;
-            inputs["privateIpAddresses"] = undefined /*out*/;
-            inputs["virtualMachineId"] = undefined /*out*/;
+            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
+            resourceInputs["enableIpForwarding"] = args ? args.enableIpForwarding : undefined;
+            resourceInputs["internalDnsNameLabel"] = args ? args.internalDnsNameLabel : undefined;
+            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appliedDnsServers"] = undefined /*out*/;
+            resourceInputs["internalDomainNameSuffix"] = undefined /*out*/;
+            resourceInputs["macAddress"] = undefined /*out*/;
+            resourceInputs["privateIpAddress"] = undefined /*out*/;
+            resourceInputs["privateIpAddresses"] = undefined /*out*/;
+            resourceInputs["virtualMachineId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NetworkInterface.__pulumiType, name, inputs, opts);
+        super(NetworkInterface.__pulumiType, name, resourceInputs, opts);
     }
 }
 

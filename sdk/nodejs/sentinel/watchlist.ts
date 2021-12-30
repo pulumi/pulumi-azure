@@ -106,16 +106,16 @@ export class Watchlist extends pulumi.CustomResource {
      */
     constructor(name: string, args: WatchlistArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WatchlistArgs | WatchlistState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WatchlistState | undefined;
-            inputs["defaultDuration"] = state ? state.defaultDuration : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["labels"] = state ? state.labels : undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["defaultDuration"] = state ? state.defaultDuration : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as WatchlistArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -124,17 +124,17 @@ export class Watchlist extends pulumi.CustomResource {
             if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            inputs["defaultDuration"] = args ? args.defaultDuration : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["defaultDuration"] = args ? args.defaultDuration : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Watchlist.__pulumiType, name, inputs, opts);
+        super(Watchlist.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -289,7 +289,7 @@ type DatasetHttpInput interface {
 }
 
 func (*DatasetHttp) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetHttp)(nil))
+	return reflect.TypeOf((**DatasetHttp)(nil)).Elem()
 }
 
 func (i *DatasetHttp) ToDatasetHttpOutput() DatasetHttpOutput {
@@ -298,35 +298,6 @@ func (i *DatasetHttp) ToDatasetHttpOutput() DatasetHttpOutput {
 
 func (i *DatasetHttp) ToDatasetHttpOutputWithContext(ctx context.Context) DatasetHttpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpOutput)
-}
-
-func (i *DatasetHttp) ToDatasetHttpPtrOutput() DatasetHttpPtrOutput {
-	return i.ToDatasetHttpPtrOutputWithContext(context.Background())
-}
-
-func (i *DatasetHttp) ToDatasetHttpPtrOutputWithContext(ctx context.Context) DatasetHttpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpPtrOutput)
-}
-
-type DatasetHttpPtrInput interface {
-	pulumi.Input
-
-	ToDatasetHttpPtrOutput() DatasetHttpPtrOutput
-	ToDatasetHttpPtrOutputWithContext(ctx context.Context) DatasetHttpPtrOutput
-}
-
-type datasetHttpPtrType DatasetHttpArgs
-
-func (*datasetHttpPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetHttp)(nil))
-}
-
-func (i *datasetHttpPtrType) ToDatasetHttpPtrOutput() DatasetHttpPtrOutput {
-	return i.ToDatasetHttpPtrOutputWithContext(context.Background())
-}
-
-func (i *datasetHttpPtrType) ToDatasetHttpPtrOutputWithContext(ctx context.Context) DatasetHttpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetHttpPtrOutput)
 }
 
 // DatasetHttpArrayInput is an input type that accepts DatasetHttpArray and DatasetHttpArrayOutput values.
@@ -382,7 +353,7 @@ func (i DatasetHttpMap) ToDatasetHttpMapOutputWithContext(ctx context.Context) D
 type DatasetHttpOutput struct{ *pulumi.OutputState }
 
 func (DatasetHttpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetHttp)(nil))
+	return reflect.TypeOf((**DatasetHttp)(nil)).Elem()
 }
 
 func (o DatasetHttpOutput) ToDatasetHttpOutput() DatasetHttpOutput {
@@ -393,44 +364,10 @@ func (o DatasetHttpOutput) ToDatasetHttpOutputWithContext(ctx context.Context) D
 	return o
 }
 
-func (o DatasetHttpOutput) ToDatasetHttpPtrOutput() DatasetHttpPtrOutput {
-	return o.ToDatasetHttpPtrOutputWithContext(context.Background())
-}
-
-func (o DatasetHttpOutput) ToDatasetHttpPtrOutputWithContext(ctx context.Context) DatasetHttpPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetHttp) *DatasetHttp {
-		return &v
-	}).(DatasetHttpPtrOutput)
-}
-
-type DatasetHttpPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetHttpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetHttp)(nil))
-}
-
-func (o DatasetHttpPtrOutput) ToDatasetHttpPtrOutput() DatasetHttpPtrOutput {
-	return o
-}
-
-func (o DatasetHttpPtrOutput) ToDatasetHttpPtrOutputWithContext(ctx context.Context) DatasetHttpPtrOutput {
-	return o
-}
-
-func (o DatasetHttpPtrOutput) Elem() DatasetHttpOutput {
-	return o.ApplyT(func(v *DatasetHttp) DatasetHttp {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetHttp
-		return ret
-	}).(DatasetHttpOutput)
-}
-
 type DatasetHttpArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetHttpArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetHttp)(nil))
+	return reflect.TypeOf((*[]*DatasetHttp)(nil)).Elem()
 }
 
 func (o DatasetHttpArrayOutput) ToDatasetHttpArrayOutput() DatasetHttpArrayOutput {
@@ -442,15 +379,15 @@ func (o DatasetHttpArrayOutput) ToDatasetHttpArrayOutputWithContext(ctx context.
 }
 
 func (o DatasetHttpArrayOutput) Index(i pulumi.IntInput) DatasetHttpOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetHttp {
-		return vs[0].([]DatasetHttp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetHttp {
+		return vs[0].([]*DatasetHttp)[vs[1].(int)]
 	}).(DatasetHttpOutput)
 }
 
 type DatasetHttpMapOutput struct{ *pulumi.OutputState }
 
 func (DatasetHttpMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatasetHttp)(nil))
+	return reflect.TypeOf((*map[string]*DatasetHttp)(nil)).Elem()
 }
 
 func (o DatasetHttpMapOutput) ToDatasetHttpMapOutput() DatasetHttpMapOutput {
@@ -462,18 +399,16 @@ func (o DatasetHttpMapOutput) ToDatasetHttpMapOutputWithContext(ctx context.Cont
 }
 
 func (o DatasetHttpMapOutput) MapIndex(k pulumi.StringInput) DatasetHttpOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetHttp {
-		return vs[0].(map[string]DatasetHttp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatasetHttp {
+		return vs[0].(map[string]*DatasetHttp)[vs[1].(string)]
 	}).(DatasetHttpOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetHttpInput)(nil)).Elem(), &DatasetHttp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetHttpPtrInput)(nil)).Elem(), &DatasetHttp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetHttpArrayInput)(nil)).Elem(), DatasetHttpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetHttpMapInput)(nil)).Elem(), DatasetHttpMap{})
 	pulumi.RegisterOutputType(DatasetHttpOutput{})
-	pulumi.RegisterOutputType(DatasetHttpPtrOutput{})
 	pulumi.RegisterOutputType(DatasetHttpArrayOutput{})
 	pulumi.RegisterOutputType(DatasetHttpMapOutput{})
 }

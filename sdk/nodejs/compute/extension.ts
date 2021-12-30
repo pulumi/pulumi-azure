@@ -187,20 +187,20 @@ export class Extension extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExtensionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExtensionArgs | ExtensionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExtensionState | undefined;
-            inputs["autoUpgradeMinorVersion"] = state ? state.autoUpgradeMinorVersion : undefined;
-            inputs["automaticUpgradeEnabled"] = state ? state.automaticUpgradeEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["protectedSettings"] = state ? state.protectedSettings : undefined;
-            inputs["publisher"] = state ? state.publisher : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["typeHandlerVersion"] = state ? state.typeHandlerVersion : undefined;
-            inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["autoUpgradeMinorVersion"] = state ? state.autoUpgradeMinorVersion : undefined;
+            resourceInputs["automaticUpgradeEnabled"] = state ? state.automaticUpgradeEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["protectedSettings"] = state ? state.protectedSettings : undefined;
+            resourceInputs["publisher"] = state ? state.publisher : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["typeHandlerVersion"] = state ? state.typeHandlerVersion : undefined;
+            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
             if ((!args || args.publisher === undefined) && !opts.urn) {
@@ -215,21 +215,21 @@ export class Extension extends pulumi.CustomResource {
             if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
-            inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
-            inputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
-            inputs["publisher"] = args ? args.publisher : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
-            inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
+            resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            resourceInputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            resourceInputs["publisher"] = args ? args.publisher : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Extension.__pulumiType, name, inputs, opts);
+        super(Extension.__pulumiType, name, resourceInputs, opts);
     }
 }
 

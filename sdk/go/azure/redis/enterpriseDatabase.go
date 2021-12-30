@@ -219,7 +219,7 @@ type EnterpriseDatabaseInput interface {
 }
 
 func (*EnterpriseDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseDatabase)(nil))
+	return reflect.TypeOf((**EnterpriseDatabase)(nil)).Elem()
 }
 
 func (i *EnterpriseDatabase) ToEnterpriseDatabaseOutput() EnterpriseDatabaseOutput {
@@ -228,35 +228,6 @@ func (i *EnterpriseDatabase) ToEnterpriseDatabaseOutput() EnterpriseDatabaseOutp
 
 func (i *EnterpriseDatabase) ToEnterpriseDatabaseOutputWithContext(ctx context.Context) EnterpriseDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseDatabaseOutput)
-}
-
-func (i *EnterpriseDatabase) ToEnterpriseDatabasePtrOutput() EnterpriseDatabasePtrOutput {
-	return i.ToEnterpriseDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *EnterpriseDatabase) ToEnterpriseDatabasePtrOutputWithContext(ctx context.Context) EnterpriseDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseDatabasePtrOutput)
-}
-
-type EnterpriseDatabasePtrInput interface {
-	pulumi.Input
-
-	ToEnterpriseDatabasePtrOutput() EnterpriseDatabasePtrOutput
-	ToEnterpriseDatabasePtrOutputWithContext(ctx context.Context) EnterpriseDatabasePtrOutput
-}
-
-type enterpriseDatabasePtrType EnterpriseDatabaseArgs
-
-func (*enterpriseDatabasePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterpriseDatabase)(nil))
-}
-
-func (i *enterpriseDatabasePtrType) ToEnterpriseDatabasePtrOutput() EnterpriseDatabasePtrOutput {
-	return i.ToEnterpriseDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *enterpriseDatabasePtrType) ToEnterpriseDatabasePtrOutputWithContext(ctx context.Context) EnterpriseDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseDatabasePtrOutput)
 }
 
 // EnterpriseDatabaseArrayInput is an input type that accepts EnterpriseDatabaseArray and EnterpriseDatabaseArrayOutput values.
@@ -312,7 +283,7 @@ func (i EnterpriseDatabaseMap) ToEnterpriseDatabaseMapOutputWithContext(ctx cont
 type EnterpriseDatabaseOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseDatabase)(nil))
+	return reflect.TypeOf((**EnterpriseDatabase)(nil)).Elem()
 }
 
 func (o EnterpriseDatabaseOutput) ToEnterpriseDatabaseOutput() EnterpriseDatabaseOutput {
@@ -323,44 +294,10 @@ func (o EnterpriseDatabaseOutput) ToEnterpriseDatabaseOutputWithContext(ctx cont
 	return o
 }
 
-func (o EnterpriseDatabaseOutput) ToEnterpriseDatabasePtrOutput() EnterpriseDatabasePtrOutput {
-	return o.ToEnterpriseDatabasePtrOutputWithContext(context.Background())
-}
-
-func (o EnterpriseDatabaseOutput) ToEnterpriseDatabasePtrOutputWithContext(ctx context.Context) EnterpriseDatabasePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterpriseDatabase) *EnterpriseDatabase {
-		return &v
-	}).(EnterpriseDatabasePtrOutput)
-}
-
-type EnterpriseDatabasePtrOutput struct{ *pulumi.OutputState }
-
-func (EnterpriseDatabasePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterpriseDatabase)(nil))
-}
-
-func (o EnterpriseDatabasePtrOutput) ToEnterpriseDatabasePtrOutput() EnterpriseDatabasePtrOutput {
-	return o
-}
-
-func (o EnterpriseDatabasePtrOutput) ToEnterpriseDatabasePtrOutputWithContext(ctx context.Context) EnterpriseDatabasePtrOutput {
-	return o
-}
-
-func (o EnterpriseDatabasePtrOutput) Elem() EnterpriseDatabaseOutput {
-	return o.ApplyT(func(v *EnterpriseDatabase) EnterpriseDatabase {
-		if v != nil {
-			return *v
-		}
-		var ret EnterpriseDatabase
-		return ret
-	}).(EnterpriseDatabaseOutput)
-}
-
 type EnterpriseDatabaseArrayOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseDatabaseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnterpriseDatabase)(nil))
+	return reflect.TypeOf((*[]*EnterpriseDatabase)(nil)).Elem()
 }
 
 func (o EnterpriseDatabaseArrayOutput) ToEnterpriseDatabaseArrayOutput() EnterpriseDatabaseArrayOutput {
@@ -372,15 +309,15 @@ func (o EnterpriseDatabaseArrayOutput) ToEnterpriseDatabaseArrayOutputWithContex
 }
 
 func (o EnterpriseDatabaseArrayOutput) Index(i pulumi.IntInput) EnterpriseDatabaseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnterpriseDatabase {
-		return vs[0].([]EnterpriseDatabase)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EnterpriseDatabase {
+		return vs[0].([]*EnterpriseDatabase)[vs[1].(int)]
 	}).(EnterpriseDatabaseOutput)
 }
 
 type EnterpriseDatabaseMapOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseDatabaseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EnterpriseDatabase)(nil))
+	return reflect.TypeOf((*map[string]*EnterpriseDatabase)(nil)).Elem()
 }
 
 func (o EnterpriseDatabaseMapOutput) ToEnterpriseDatabaseMapOutput() EnterpriseDatabaseMapOutput {
@@ -392,18 +329,16 @@ func (o EnterpriseDatabaseMapOutput) ToEnterpriseDatabaseMapOutputWithContext(ct
 }
 
 func (o EnterpriseDatabaseMapOutput) MapIndex(k pulumi.StringInput) EnterpriseDatabaseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EnterpriseDatabase {
-		return vs[0].(map[string]EnterpriseDatabase)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EnterpriseDatabase {
+		return vs[0].(map[string]*EnterpriseDatabase)[vs[1].(string)]
 	}).(EnterpriseDatabaseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseDatabaseInput)(nil)).Elem(), &EnterpriseDatabase{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseDatabasePtrInput)(nil)).Elem(), &EnterpriseDatabase{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseDatabaseArrayInput)(nil)).Elem(), EnterpriseDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseDatabaseMapInput)(nil)).Elem(), EnterpriseDatabaseMap{})
 	pulumi.RegisterOutputType(EnterpriseDatabaseOutput{})
-	pulumi.RegisterOutputType(EnterpriseDatabasePtrOutput{})
 	pulumi.RegisterOutputType(EnterpriseDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(EnterpriseDatabaseMapOutput{})
 }

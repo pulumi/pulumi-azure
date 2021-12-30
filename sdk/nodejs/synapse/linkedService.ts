@@ -130,19 +130,19 @@ export class LinkedService extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkedServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServiceArgs | LinkedServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceState | undefined;
-            inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["integrationRuntime"] = state ? state.integrationRuntime : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["typePropertiesJson"] = state ? state.typePropertiesJson : undefined;
+            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["integrationRuntime"] = state ? state.integrationRuntime : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["typePropertiesJson"] = state ? state.typePropertiesJson : undefined;
         } else {
             const args = argsOrState as LinkedServiceArgs | undefined;
             if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
@@ -154,20 +154,20 @@ export class LinkedService extends pulumi.CustomResource {
             if ((!args || args.typePropertiesJson === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'typePropertiesJson'");
             }
-            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["integrationRuntime"] = args ? args.integrationRuntime : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["typePropertiesJson"] = args ? args.typePropertiesJson : undefined;
+            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["integrationRuntime"] = args ? args.integrationRuntime : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["typePropertiesJson"] = args ? args.typePropertiesJson : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LinkedService.__pulumiType, name, inputs, opts);
+        super(LinkedService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

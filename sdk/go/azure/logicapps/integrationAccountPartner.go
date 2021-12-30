@@ -186,7 +186,7 @@ type IntegrationAccountPartnerInput interface {
 }
 
 func (*IntegrationAccountPartner) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountPartner)(nil))
+	return reflect.TypeOf((**IntegrationAccountPartner)(nil)).Elem()
 }
 
 func (i *IntegrationAccountPartner) ToIntegrationAccountPartnerOutput() IntegrationAccountPartnerOutput {
@@ -195,35 +195,6 @@ func (i *IntegrationAccountPartner) ToIntegrationAccountPartnerOutput() Integrat
 
 func (i *IntegrationAccountPartner) ToIntegrationAccountPartnerOutputWithContext(ctx context.Context) IntegrationAccountPartnerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerOutput)
-}
-
-func (i *IntegrationAccountPartner) ToIntegrationAccountPartnerPtrOutput() IntegrationAccountPartnerPtrOutput {
-	return i.ToIntegrationAccountPartnerPtrOutputWithContext(context.Background())
-}
-
-func (i *IntegrationAccountPartner) ToIntegrationAccountPartnerPtrOutputWithContext(ctx context.Context) IntegrationAccountPartnerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerPtrOutput)
-}
-
-type IntegrationAccountPartnerPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountPartnerPtrOutput() IntegrationAccountPartnerPtrOutput
-	ToIntegrationAccountPartnerPtrOutputWithContext(ctx context.Context) IntegrationAccountPartnerPtrOutput
-}
-
-type integrationAccountPartnerPtrType IntegrationAccountPartnerArgs
-
-func (*integrationAccountPartnerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountPartner)(nil))
-}
-
-func (i *integrationAccountPartnerPtrType) ToIntegrationAccountPartnerPtrOutput() IntegrationAccountPartnerPtrOutput {
-	return i.ToIntegrationAccountPartnerPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationAccountPartnerPtrType) ToIntegrationAccountPartnerPtrOutputWithContext(ctx context.Context) IntegrationAccountPartnerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerPtrOutput)
 }
 
 // IntegrationAccountPartnerArrayInput is an input type that accepts IntegrationAccountPartnerArray and IntegrationAccountPartnerArrayOutput values.
@@ -279,7 +250,7 @@ func (i IntegrationAccountPartnerMap) ToIntegrationAccountPartnerMapOutputWithCo
 type IntegrationAccountPartnerOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountPartnerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountPartner)(nil))
+	return reflect.TypeOf((**IntegrationAccountPartner)(nil)).Elem()
 }
 
 func (o IntegrationAccountPartnerOutput) ToIntegrationAccountPartnerOutput() IntegrationAccountPartnerOutput {
@@ -290,44 +261,10 @@ func (o IntegrationAccountPartnerOutput) ToIntegrationAccountPartnerOutputWithCo
 	return o
 }
 
-func (o IntegrationAccountPartnerOutput) ToIntegrationAccountPartnerPtrOutput() IntegrationAccountPartnerPtrOutput {
-	return o.ToIntegrationAccountPartnerPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationAccountPartnerOutput) ToIntegrationAccountPartnerPtrOutputWithContext(ctx context.Context) IntegrationAccountPartnerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountPartner) *IntegrationAccountPartner {
-		return &v
-	}).(IntegrationAccountPartnerPtrOutput)
-}
-
-type IntegrationAccountPartnerPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountPartnerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountPartner)(nil))
-}
-
-func (o IntegrationAccountPartnerPtrOutput) ToIntegrationAccountPartnerPtrOutput() IntegrationAccountPartnerPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountPartnerPtrOutput) ToIntegrationAccountPartnerPtrOutputWithContext(ctx context.Context) IntegrationAccountPartnerPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountPartnerPtrOutput) Elem() IntegrationAccountPartnerOutput {
-	return o.ApplyT(func(v *IntegrationAccountPartner) IntegrationAccountPartner {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationAccountPartner
-		return ret
-	}).(IntegrationAccountPartnerOutput)
-}
-
 type IntegrationAccountPartnerArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountPartnerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IntegrationAccountPartner)(nil))
+	return reflect.TypeOf((*[]*IntegrationAccountPartner)(nil)).Elem()
 }
 
 func (o IntegrationAccountPartnerArrayOutput) ToIntegrationAccountPartnerArrayOutput() IntegrationAccountPartnerArrayOutput {
@@ -339,15 +276,15 @@ func (o IntegrationAccountPartnerArrayOutput) ToIntegrationAccountPartnerArrayOu
 }
 
 func (o IntegrationAccountPartnerArrayOutput) Index(i pulumi.IntInput) IntegrationAccountPartnerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAccountPartner {
-		return vs[0].([]IntegrationAccountPartner)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountPartner {
+		return vs[0].([]*IntegrationAccountPartner)[vs[1].(int)]
 	}).(IntegrationAccountPartnerOutput)
 }
 
 type IntegrationAccountPartnerMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountPartnerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IntegrationAccountPartner)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationAccountPartner)(nil)).Elem()
 }
 
 func (o IntegrationAccountPartnerMapOutput) ToIntegrationAccountPartnerMapOutput() IntegrationAccountPartnerMapOutput {
@@ -359,18 +296,16 @@ func (o IntegrationAccountPartnerMapOutput) ToIntegrationAccountPartnerMapOutput
 }
 
 func (o IntegrationAccountPartnerMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountPartnerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationAccountPartner {
-		return vs[0].(map[string]IntegrationAccountPartner)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IntegrationAccountPartner {
+		return vs[0].(map[string]*IntegrationAccountPartner)[vs[1].(string)]
 	}).(IntegrationAccountPartnerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountPartnerInput)(nil)).Elem(), &IntegrationAccountPartner{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountPartnerPtrInput)(nil)).Elem(), &IntegrationAccountPartner{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountPartnerArrayInput)(nil)).Elem(), IntegrationAccountPartnerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountPartnerMapInput)(nil)).Elem(), IntegrationAccountPartnerMap{})
 	pulumi.RegisterOutputType(IntegrationAccountPartnerOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountPartnerPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountPartnerArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountPartnerMapOutput{})
 }

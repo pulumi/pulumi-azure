@@ -191,31 +191,31 @@ export class Frontdoor extends pulumi.CustomResource {
      */
     constructor(name: string, args: FrontdoorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FrontdoorArgs | FrontdoorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorState | undefined;
-            inputs["backendPoolHealthProbes"] = state ? state.backendPoolHealthProbes : undefined;
-            inputs["backendPoolHealthProbesMap"] = state ? state.backendPoolHealthProbesMap : undefined;
-            inputs["backendPoolLoadBalancingSettingsMap"] = state ? state.backendPoolLoadBalancingSettingsMap : undefined;
-            inputs["backendPoolLoadBalancings"] = state ? state.backendPoolLoadBalancings : undefined;
-            inputs["backendPools"] = state ? state.backendPools : undefined;
-            inputs["backendPoolsMap"] = state ? state.backendPoolsMap : undefined;
-            inputs["backendPoolsSendReceiveTimeoutSeconds"] = state ? state.backendPoolsSendReceiveTimeoutSeconds : undefined;
-            inputs["cname"] = state ? state.cname : undefined;
-            inputs["enforceBackendPoolsCertificateNameCheck"] = state ? state.enforceBackendPoolsCertificateNameCheck : undefined;
-            inputs["explicitResourceOrders"] = state ? state.explicitResourceOrders : undefined;
-            inputs["friendlyName"] = state ? state.friendlyName : undefined;
-            inputs["frontendEndpoints"] = state ? state.frontendEndpoints : undefined;
-            inputs["frontendEndpointsMap"] = state ? state.frontendEndpointsMap : undefined;
-            inputs["headerFrontdoorId"] = state ? state.headerFrontdoorId : undefined;
-            inputs["loadBalancerEnabled"] = state ? state.loadBalancerEnabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["routingRules"] = state ? state.routingRules : undefined;
-            inputs["routingRulesMap"] = state ? state.routingRulesMap : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["backendPoolHealthProbes"] = state ? state.backendPoolHealthProbes : undefined;
+            resourceInputs["backendPoolHealthProbesMap"] = state ? state.backendPoolHealthProbesMap : undefined;
+            resourceInputs["backendPoolLoadBalancingSettingsMap"] = state ? state.backendPoolLoadBalancingSettingsMap : undefined;
+            resourceInputs["backendPoolLoadBalancings"] = state ? state.backendPoolLoadBalancings : undefined;
+            resourceInputs["backendPools"] = state ? state.backendPools : undefined;
+            resourceInputs["backendPoolsMap"] = state ? state.backendPoolsMap : undefined;
+            resourceInputs["backendPoolsSendReceiveTimeoutSeconds"] = state ? state.backendPoolsSendReceiveTimeoutSeconds : undefined;
+            resourceInputs["cname"] = state ? state.cname : undefined;
+            resourceInputs["enforceBackendPoolsCertificateNameCheck"] = state ? state.enforceBackendPoolsCertificateNameCheck : undefined;
+            resourceInputs["explicitResourceOrders"] = state ? state.explicitResourceOrders : undefined;
+            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
+            resourceInputs["frontendEndpoints"] = state ? state.frontendEndpoints : undefined;
+            resourceInputs["frontendEndpointsMap"] = state ? state.frontendEndpointsMap : undefined;
+            resourceInputs["headerFrontdoorId"] = state ? state.headerFrontdoorId : undefined;
+            resourceInputs["loadBalancerEnabled"] = state ? state.loadBalancerEnabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["routingRules"] = state ? state.routingRules : undefined;
+            resourceInputs["routingRulesMap"] = state ? state.routingRulesMap : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FrontdoorArgs | undefined;
             if ((!args || args.backendPoolHealthProbes === undefined) && !opts.urn) {
@@ -239,32 +239,32 @@ export class Frontdoor extends pulumi.CustomResource {
             if ((!args || args.routingRules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routingRules'");
             }
-            inputs["backendPoolHealthProbes"] = args ? args.backendPoolHealthProbes : undefined;
-            inputs["backendPoolLoadBalancings"] = args ? args.backendPoolLoadBalancings : undefined;
-            inputs["backendPools"] = args ? args.backendPools : undefined;
-            inputs["backendPoolsSendReceiveTimeoutSeconds"] = args ? args.backendPoolsSendReceiveTimeoutSeconds : undefined;
-            inputs["enforceBackendPoolsCertificateNameCheck"] = args ? args.enforceBackendPoolsCertificateNameCheck : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["frontendEndpoints"] = args ? args.frontendEndpoints : undefined;
-            inputs["loadBalancerEnabled"] = args ? args.loadBalancerEnabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routingRules"] = args ? args.routingRules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["backendPoolHealthProbesMap"] = undefined /*out*/;
-            inputs["backendPoolLoadBalancingSettingsMap"] = undefined /*out*/;
-            inputs["backendPoolsMap"] = undefined /*out*/;
-            inputs["cname"] = undefined /*out*/;
-            inputs["explicitResourceOrders"] = undefined /*out*/;
-            inputs["frontendEndpointsMap"] = undefined /*out*/;
-            inputs["headerFrontdoorId"] = undefined /*out*/;
-            inputs["routingRulesMap"] = undefined /*out*/;
+            resourceInputs["backendPoolHealthProbes"] = args ? args.backendPoolHealthProbes : undefined;
+            resourceInputs["backendPoolLoadBalancings"] = args ? args.backendPoolLoadBalancings : undefined;
+            resourceInputs["backendPools"] = args ? args.backendPools : undefined;
+            resourceInputs["backendPoolsSendReceiveTimeoutSeconds"] = args ? args.backendPoolsSendReceiveTimeoutSeconds : undefined;
+            resourceInputs["enforceBackendPoolsCertificateNameCheck"] = args ? args.enforceBackendPoolsCertificateNameCheck : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["frontendEndpoints"] = args ? args.frontendEndpoints : undefined;
+            resourceInputs["loadBalancerEnabled"] = args ? args.loadBalancerEnabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routingRules"] = args ? args.routingRules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["backendPoolHealthProbesMap"] = undefined /*out*/;
+            resourceInputs["backendPoolLoadBalancingSettingsMap"] = undefined /*out*/;
+            resourceInputs["backendPoolsMap"] = undefined /*out*/;
+            resourceInputs["cname"] = undefined /*out*/;
+            resourceInputs["explicitResourceOrders"] = undefined /*out*/;
+            resourceInputs["frontendEndpointsMap"] = undefined /*out*/;
+            resourceInputs["headerFrontdoorId"] = undefined /*out*/;
+            resourceInputs["routingRulesMap"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Frontdoor.__pulumiType, name, inputs, opts);
+        super(Frontdoor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

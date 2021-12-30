@@ -95,14 +95,14 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkedStorageAccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedStorageAccountArgs | LinkedStorageAccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedStorageAccountState | undefined;
-            inputs["dataSourceType"] = state ? state.dataSourceType : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["storageAccountIds"] = state ? state.storageAccountIds : undefined;
-            inputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
+            resourceInputs["dataSourceType"] = state ? state.dataSourceType : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["storageAccountIds"] = state ? state.storageAccountIds : undefined;
+            resourceInputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
         } else {
             const args = argsOrState as LinkedStorageAccountArgs | undefined;
             if ((!args || args.dataSourceType === undefined) && !opts.urn) {
@@ -117,15 +117,15 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
             if ((!args || args.workspaceResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceResourceId'");
             }
-            inputs["dataSourceType"] = args ? args.dataSourceType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountIds"] = args ? args.storageAccountIds : undefined;
-            inputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
+            resourceInputs["dataSourceType"] = args ? args.dataSourceType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountIds"] = args ? args.storageAccountIds : undefined;
+            resourceInputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LinkedStorageAccount.__pulumiType, name, inputs, opts);
+        super(LinkedStorageAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

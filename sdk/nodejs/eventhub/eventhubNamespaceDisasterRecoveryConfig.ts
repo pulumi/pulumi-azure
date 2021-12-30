@@ -97,15 +97,15 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
      */
     constructor(name: string, args: EventhubNamespaceDisasterRecoveryConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventhubNamespaceDisasterRecoveryConfigArgs | EventhubNamespaceDisasterRecoveryConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventhubNamespaceDisasterRecoveryConfigState | undefined;
-            inputs["alternateName"] = state ? state.alternateName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespaceName"] = state ? state.namespaceName : undefined;
-            inputs["partnerNamespaceId"] = state ? state.partnerNamespaceId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["alternateName"] = state ? state.alternateName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["partnerNamespaceId"] = state ? state.partnerNamespaceId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as EventhubNamespaceDisasterRecoveryConfigArgs | undefined;
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -117,16 +117,16 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["alternateName"] = args ? args.alternateName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["partnerNamespaceId"] = args ? args.partnerNamespaceId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["alternateName"] = args ? args.alternateName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["partnerNamespaceId"] = args ? args.partnerNamespaceId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EventhubNamespaceDisasterRecoveryConfig.__pulumiType, name, inputs, opts);
+        super(EventhubNamespaceDisasterRecoveryConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

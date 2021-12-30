@@ -45,47 +45,6 @@ func (i ModuleModuleLinkArgs) ToModuleModuleLinkOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleModuleLinkOutput)
 }
 
-func (i ModuleModuleLinkArgs) ToModuleModuleLinkPtrOutput() ModuleModuleLinkPtrOutput {
-	return i.ToModuleModuleLinkPtrOutputWithContext(context.Background())
-}
-
-func (i ModuleModuleLinkArgs) ToModuleModuleLinkPtrOutputWithContext(ctx context.Context) ModuleModuleLinkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModuleModuleLinkOutput).ToModuleModuleLinkPtrOutputWithContext(ctx)
-}
-
-// ModuleModuleLinkPtrInput is an input type that accepts ModuleModuleLinkArgs, ModuleModuleLinkPtr and ModuleModuleLinkPtrOutput values.
-// You can construct a concrete instance of `ModuleModuleLinkPtrInput` via:
-//
-//          ModuleModuleLinkArgs{...}
-//
-//  or:
-//
-//          nil
-type ModuleModuleLinkPtrInput interface {
-	pulumi.Input
-
-	ToModuleModuleLinkPtrOutput() ModuleModuleLinkPtrOutput
-	ToModuleModuleLinkPtrOutputWithContext(context.Context) ModuleModuleLinkPtrOutput
-}
-
-type moduleModuleLinkPtrType ModuleModuleLinkArgs
-
-func ModuleModuleLinkPtr(v *ModuleModuleLinkArgs) ModuleModuleLinkPtrInput {
-	return (*moduleModuleLinkPtrType)(v)
-}
-
-func (*moduleModuleLinkPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModuleModuleLink)(nil)).Elem()
-}
-
-func (i *moduleModuleLinkPtrType) ToModuleModuleLinkPtrOutput() ModuleModuleLinkPtrOutput {
-	return i.ToModuleModuleLinkPtrOutputWithContext(context.Background())
-}
-
-func (i *moduleModuleLinkPtrType) ToModuleModuleLinkPtrOutputWithContext(ctx context.Context) ModuleModuleLinkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModuleModuleLinkPtrOutput)
-}
-
 type ModuleModuleLinkOutput struct{ *pulumi.OutputState }
 
 func (ModuleModuleLinkOutput) ElementType() reflect.Type {
@@ -100,16 +59,6 @@ func (o ModuleModuleLinkOutput) ToModuleModuleLinkOutputWithContext(ctx context.
 	return o
 }
 
-func (o ModuleModuleLinkOutput) ToModuleModuleLinkPtrOutput() ModuleModuleLinkPtrOutput {
-	return o.ToModuleModuleLinkPtrOutputWithContext(context.Background())
-}
-
-func (o ModuleModuleLinkOutput) ToModuleModuleLinkPtrOutputWithContext(ctx context.Context) ModuleModuleLinkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModuleModuleLink) *ModuleModuleLink {
-		return &v
-	}).(ModuleModuleLinkPtrOutput)
-}
-
 func (o ModuleModuleLinkOutput) Hash() ModuleModuleLinkHashPtrOutput {
 	return o.ApplyT(func(v ModuleModuleLink) *ModuleModuleLinkHash { return v.Hash }).(ModuleModuleLinkHashPtrOutput)
 }
@@ -117,49 +66,6 @@ func (o ModuleModuleLinkOutput) Hash() ModuleModuleLinkHashPtrOutput {
 // The uri of the module content (zip or nupkg).
 func (o ModuleModuleLinkOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModuleModuleLink) string { return v.Uri }).(pulumi.StringOutput)
-}
-
-type ModuleModuleLinkPtrOutput struct{ *pulumi.OutputState }
-
-func (ModuleModuleLinkPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModuleModuleLink)(nil)).Elem()
-}
-
-func (o ModuleModuleLinkPtrOutput) ToModuleModuleLinkPtrOutput() ModuleModuleLinkPtrOutput {
-	return o
-}
-
-func (o ModuleModuleLinkPtrOutput) ToModuleModuleLinkPtrOutputWithContext(ctx context.Context) ModuleModuleLinkPtrOutput {
-	return o
-}
-
-func (o ModuleModuleLinkPtrOutput) Elem() ModuleModuleLinkOutput {
-	return o.ApplyT(func(v *ModuleModuleLink) ModuleModuleLink {
-		if v != nil {
-			return *v
-		}
-		var ret ModuleModuleLink
-		return ret
-	}).(ModuleModuleLinkOutput)
-}
-
-func (o ModuleModuleLinkPtrOutput) Hash() ModuleModuleLinkHashPtrOutput {
-	return o.ApplyT(func(v *ModuleModuleLink) *ModuleModuleLinkHash {
-		if v == nil {
-			return nil
-		}
-		return v.Hash
-	}).(ModuleModuleLinkHashPtrOutput)
-}
-
-// The uri of the module content (zip or nupkg).
-func (o ModuleModuleLinkPtrOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModuleModuleLink) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Uri
-	}).(pulumi.StringPtrOutput)
 }
 
 type ModuleModuleLinkHash struct {
@@ -845,7 +751,6 @@ func (o ScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) ScheduleM
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkInput)(nil)).Elem(), ModuleModuleLinkArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkPtrInput)(nil)).Elem(), ModuleModuleLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkHashInput)(nil)).Elem(), ModuleModuleLinkHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkHashPtrInput)(nil)).Elem(), ModuleModuleLinkHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RunBookJobScheduleInput)(nil)).Elem(), RunBookJobScheduleArgs{})
@@ -857,7 +762,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMonthlyOccurrenceInput)(nil)).Elem(), ScheduleMonthlyOccurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMonthlyOccurrenceArrayInput)(nil)).Elem(), ScheduleMonthlyOccurrenceArray{})
 	pulumi.RegisterOutputType(ModuleModuleLinkOutput{})
-	pulumi.RegisterOutputType(ModuleModuleLinkPtrOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkHashOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkHashPtrOutput{})
 	pulumi.RegisterOutputType(RunBookJobScheduleOutput{})

@@ -152,21 +152,21 @@ export class InterationServiceEnvironment extends pulumi.CustomResource {
      */
     constructor(name: string, args: InterationServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InterationServiceEnvironmentArgs | InterationServiceEnvironmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InterationServiceEnvironmentState | undefined;
-            inputs["accessEndpointType"] = state ? state.accessEndpointType : undefined;
-            inputs["connectorEndpointIpAddresses"] = state ? state.connectorEndpointIpAddresses : undefined;
-            inputs["connectorOutboundIpAddresses"] = state ? state.connectorOutboundIpAddresses : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualNetworkSubnetIds"] = state ? state.virtualNetworkSubnetIds : undefined;
-            inputs["workflowEndpointIpAddresses"] = state ? state.workflowEndpointIpAddresses : undefined;
-            inputs["workflowOutboundIpAddresses"] = state ? state.workflowOutboundIpAddresses : undefined;
+            resourceInputs["accessEndpointType"] = state ? state.accessEndpointType : undefined;
+            resourceInputs["connectorEndpointIpAddresses"] = state ? state.connectorEndpointIpAddresses : undefined;
+            resourceInputs["connectorOutboundIpAddresses"] = state ? state.connectorOutboundIpAddresses : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualNetworkSubnetIds"] = state ? state.virtualNetworkSubnetIds : undefined;
+            resourceInputs["workflowEndpointIpAddresses"] = state ? state.workflowEndpointIpAddresses : undefined;
+            resourceInputs["workflowOutboundIpAddresses"] = state ? state.workflowOutboundIpAddresses : undefined;
         } else {
             const args = argsOrState as InterationServiceEnvironmentArgs | undefined;
             if ((!args || args.accessEndpointType === undefined) && !opts.urn) {
@@ -178,22 +178,22 @@ export class InterationServiceEnvironment extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkSubnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkSubnetIds'");
             }
-            inputs["accessEndpointType"] = args ? args.accessEndpointType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualNetworkSubnetIds"] = args ? args.virtualNetworkSubnetIds : undefined;
-            inputs["connectorEndpointIpAddresses"] = undefined /*out*/;
-            inputs["connectorOutboundIpAddresses"] = undefined /*out*/;
-            inputs["workflowEndpointIpAddresses"] = undefined /*out*/;
-            inputs["workflowOutboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["accessEndpointType"] = args ? args.accessEndpointType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkSubnetIds"] = args ? args.virtualNetworkSubnetIds : undefined;
+            resourceInputs["connectorEndpointIpAddresses"] = undefined /*out*/;
+            resourceInputs["connectorOutboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["workflowEndpointIpAddresses"] = undefined /*out*/;
+            resourceInputs["workflowOutboundIpAddresses"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(InterationServiceEnvironment.__pulumiType, name, inputs, opts);
+        super(InterationServiceEnvironment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

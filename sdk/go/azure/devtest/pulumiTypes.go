@@ -55,47 +55,6 @@ func (i GlobalVMShutdownScheduleNotificationSettingsArgs) ToGlobalVMShutdownSche
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalVMShutdownScheduleNotificationSettingsOutput)
 }
 
-func (i GlobalVMShutdownScheduleNotificationSettingsArgs) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutput() GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
-	return i.ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i GlobalVMShutdownScheduleNotificationSettingsArgs) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalVMShutdownScheduleNotificationSettingsOutput).ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx)
-}
-
-// GlobalVMShutdownScheduleNotificationSettingsPtrInput is an input type that accepts GlobalVMShutdownScheduleNotificationSettingsArgs, GlobalVMShutdownScheduleNotificationSettingsPtr and GlobalVMShutdownScheduleNotificationSettingsPtrOutput values.
-// You can construct a concrete instance of `GlobalVMShutdownScheduleNotificationSettingsPtrInput` via:
-//
-//          GlobalVMShutdownScheduleNotificationSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type GlobalVMShutdownScheduleNotificationSettingsPtrInput interface {
-	pulumi.Input
-
-	ToGlobalVMShutdownScheduleNotificationSettingsPtrOutput() GlobalVMShutdownScheduleNotificationSettingsPtrOutput
-	ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(context.Context) GlobalVMShutdownScheduleNotificationSettingsPtrOutput
-}
-
-type globalVMShutdownScheduleNotificationSettingsPtrType GlobalVMShutdownScheduleNotificationSettingsArgs
-
-func GlobalVMShutdownScheduleNotificationSettingsPtr(v *GlobalVMShutdownScheduleNotificationSettingsArgs) GlobalVMShutdownScheduleNotificationSettingsPtrInput {
-	return (*globalVMShutdownScheduleNotificationSettingsPtrType)(v)
-}
-
-func (*globalVMShutdownScheduleNotificationSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalVMShutdownScheduleNotificationSettings)(nil)).Elem()
-}
-
-func (i *globalVMShutdownScheduleNotificationSettingsPtrType) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutput() GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
-	return i.ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *globalVMShutdownScheduleNotificationSettingsPtrType) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalVMShutdownScheduleNotificationSettingsPtrOutput)
-}
-
 type GlobalVMShutdownScheduleNotificationSettingsOutput struct{ *pulumi.OutputState }
 
 func (GlobalVMShutdownScheduleNotificationSettingsOutput) ElementType() reflect.Type {
@@ -108,16 +67,6 @@ func (o GlobalVMShutdownScheduleNotificationSettingsOutput) ToGlobalVMShutdownSc
 
 func (o GlobalVMShutdownScheduleNotificationSettingsOutput) ToGlobalVMShutdownScheduleNotificationSettingsOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsOutput {
 	return o
-}
-
-func (o GlobalVMShutdownScheduleNotificationSettingsOutput) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutput() GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
-	return o.ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o GlobalVMShutdownScheduleNotificationSettingsOutput) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalVMShutdownScheduleNotificationSettings) *GlobalVMShutdownScheduleNotificationSettings {
-		return &v
-	}).(GlobalVMShutdownScheduleNotificationSettingsPtrOutput)
 }
 
 // E-mail address to which the notification will be sent.
@@ -138,70 +87,6 @@ func (o GlobalVMShutdownScheduleNotificationSettingsOutput) TimeInMinutes() pulu
 // The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
 func (o GlobalVMShutdownScheduleNotificationSettingsOutput) WebhookUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalVMShutdownScheduleNotificationSettings) *string { return v.WebhookUrl }).(pulumi.StringPtrOutput)
-}
-
-type GlobalVMShutdownScheduleNotificationSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (GlobalVMShutdownScheduleNotificationSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalVMShutdownScheduleNotificationSettings)(nil)).Elem()
-}
-
-func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutput() GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
-	return o
-}
-
-func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
-	return o
-}
-
-func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) Elem() GlobalVMShutdownScheduleNotificationSettingsOutput {
-	return o.ApplyT(func(v *GlobalVMShutdownScheduleNotificationSettings) GlobalVMShutdownScheduleNotificationSettings {
-		if v != nil {
-			return *v
-		}
-		var ret GlobalVMShutdownScheduleNotificationSettings
-		return ret
-	}).(GlobalVMShutdownScheduleNotificationSettingsOutput)
-}
-
-// E-mail address to which the notification will be sent.
-func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) Email() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GlobalVMShutdownScheduleNotificationSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Email
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
-func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GlobalVMShutdownScheduleNotificationSettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
-func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) TimeInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GlobalVMShutdownScheduleNotificationSettings) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TimeInMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
-func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) WebhookUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GlobalVMShutdownScheduleNotificationSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WebhookUrl
-	}).(pulumi.StringPtrOutput)
 }
 
 type LinuxVirtualMachineGalleryImageReference struct {
@@ -249,47 +134,6 @@ func (i LinuxVirtualMachineGalleryImageReferenceArgs) ToLinuxVirtualMachineGalle
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineGalleryImageReferenceOutput)
 }
 
-func (i LinuxVirtualMachineGalleryImageReferenceArgs) ToLinuxVirtualMachineGalleryImageReferencePtrOutput() LinuxVirtualMachineGalleryImageReferencePtrOutput {
-	return i.ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(context.Background())
-}
-
-func (i LinuxVirtualMachineGalleryImageReferenceArgs) ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryImageReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineGalleryImageReferenceOutput).ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx)
-}
-
-// LinuxVirtualMachineGalleryImageReferencePtrInput is an input type that accepts LinuxVirtualMachineGalleryImageReferenceArgs, LinuxVirtualMachineGalleryImageReferencePtr and LinuxVirtualMachineGalleryImageReferencePtrOutput values.
-// You can construct a concrete instance of `LinuxVirtualMachineGalleryImageReferencePtrInput` via:
-//
-//          LinuxVirtualMachineGalleryImageReferenceArgs{...}
-//
-//  or:
-//
-//          nil
-type LinuxVirtualMachineGalleryImageReferencePtrInput interface {
-	pulumi.Input
-
-	ToLinuxVirtualMachineGalleryImageReferencePtrOutput() LinuxVirtualMachineGalleryImageReferencePtrOutput
-	ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(context.Context) LinuxVirtualMachineGalleryImageReferencePtrOutput
-}
-
-type linuxVirtualMachineGalleryImageReferencePtrType LinuxVirtualMachineGalleryImageReferenceArgs
-
-func LinuxVirtualMachineGalleryImageReferencePtr(v *LinuxVirtualMachineGalleryImageReferenceArgs) LinuxVirtualMachineGalleryImageReferencePtrInput {
-	return (*linuxVirtualMachineGalleryImageReferencePtrType)(v)
-}
-
-func (*linuxVirtualMachineGalleryImageReferencePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinuxVirtualMachineGalleryImageReference)(nil)).Elem()
-}
-
-func (i *linuxVirtualMachineGalleryImageReferencePtrType) ToLinuxVirtualMachineGalleryImageReferencePtrOutput() LinuxVirtualMachineGalleryImageReferencePtrOutput {
-	return i.ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(context.Background())
-}
-
-func (i *linuxVirtualMachineGalleryImageReferencePtrType) ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryImageReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineGalleryImageReferencePtrOutput)
-}
-
 type LinuxVirtualMachineGalleryImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineGalleryImageReferenceOutput) ElementType() reflect.Type {
@@ -302,16 +146,6 @@ func (o LinuxVirtualMachineGalleryImageReferenceOutput) ToLinuxVirtualMachineGal
 
 func (o LinuxVirtualMachineGalleryImageReferenceOutput) ToLinuxVirtualMachineGalleryImageReferenceOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryImageReferenceOutput {
 	return o
-}
-
-func (o LinuxVirtualMachineGalleryImageReferenceOutput) ToLinuxVirtualMachineGalleryImageReferencePtrOutput() LinuxVirtualMachineGalleryImageReferencePtrOutput {
-	return o.ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(context.Background())
-}
-
-func (o LinuxVirtualMachineGalleryImageReferenceOutput) ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryImageReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineGalleryImageReference) *LinuxVirtualMachineGalleryImageReference {
-		return &v
-	}).(LinuxVirtualMachineGalleryImageReferencePtrOutput)
 }
 
 // The Offer of the Gallery Image. Changing this forces a new resource to be created.
@@ -332,70 +166,6 @@ func (o LinuxVirtualMachineGalleryImageReferenceOutput) Sku() pulumi.StringOutpu
 // The Version of the Gallery Image. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineGalleryImageReferenceOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Version }).(pulumi.StringOutput)
-}
-
-type LinuxVirtualMachineGalleryImageReferencePtrOutput struct{ *pulumi.OutputState }
-
-func (LinuxVirtualMachineGalleryImageReferencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinuxVirtualMachineGalleryImageReference)(nil)).Elem()
-}
-
-func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) ToLinuxVirtualMachineGalleryImageReferencePtrOutput() LinuxVirtualMachineGalleryImageReferencePtrOutput {
-	return o
-}
-
-func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) ToLinuxVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryImageReferencePtrOutput {
-	return o
-}
-
-func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Elem() LinuxVirtualMachineGalleryImageReferenceOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineGalleryImageReference) LinuxVirtualMachineGalleryImageReference {
-		if v != nil {
-			return *v
-		}
-		var ret LinuxVirtualMachineGalleryImageReference
-		return ret
-	}).(LinuxVirtualMachineGalleryImageReferenceOutput)
-}
-
-// The Offer of the Gallery Image. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineGalleryImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Offer
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineGalleryImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Publisher
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SKU of the Gallery Image. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineGalleryImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Sku
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Version of the Gallery Image. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineGalleryImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Version
-	}).(pulumi.StringPtrOutput)
 }
 
 type LinuxVirtualMachineInboundNatRule struct {
@@ -824,47 +594,6 @@ func (i ScheduleNotificationSettingsArgs) ToScheduleNotificationSettingsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleNotificationSettingsOutput)
 }
 
-func (i ScheduleNotificationSettingsArgs) ToScheduleNotificationSettingsPtrOutput() ScheduleNotificationSettingsPtrOutput {
-	return i.ToScheduleNotificationSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i ScheduleNotificationSettingsArgs) ToScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) ScheduleNotificationSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleNotificationSettingsOutput).ToScheduleNotificationSettingsPtrOutputWithContext(ctx)
-}
-
-// ScheduleNotificationSettingsPtrInput is an input type that accepts ScheduleNotificationSettingsArgs, ScheduleNotificationSettingsPtr and ScheduleNotificationSettingsPtrOutput values.
-// You can construct a concrete instance of `ScheduleNotificationSettingsPtrInput` via:
-//
-//          ScheduleNotificationSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type ScheduleNotificationSettingsPtrInput interface {
-	pulumi.Input
-
-	ToScheduleNotificationSettingsPtrOutput() ScheduleNotificationSettingsPtrOutput
-	ToScheduleNotificationSettingsPtrOutputWithContext(context.Context) ScheduleNotificationSettingsPtrOutput
-}
-
-type scheduleNotificationSettingsPtrType ScheduleNotificationSettingsArgs
-
-func ScheduleNotificationSettingsPtr(v *ScheduleNotificationSettingsArgs) ScheduleNotificationSettingsPtrInput {
-	return (*scheduleNotificationSettingsPtrType)(v)
-}
-
-func (*scheduleNotificationSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduleNotificationSettings)(nil)).Elem()
-}
-
-func (i *scheduleNotificationSettingsPtrType) ToScheduleNotificationSettingsPtrOutput() ScheduleNotificationSettingsPtrOutput {
-	return i.ToScheduleNotificationSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *scheduleNotificationSettingsPtrType) ToScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) ScheduleNotificationSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleNotificationSettingsPtrOutput)
-}
-
 type ScheduleNotificationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ScheduleNotificationSettingsOutput) ElementType() reflect.Type {
@@ -877,16 +606,6 @@ func (o ScheduleNotificationSettingsOutput) ToScheduleNotificationSettingsOutput
 
 func (o ScheduleNotificationSettingsOutput) ToScheduleNotificationSettingsOutputWithContext(ctx context.Context) ScheduleNotificationSettingsOutput {
 	return o
-}
-
-func (o ScheduleNotificationSettingsOutput) ToScheduleNotificationSettingsPtrOutput() ScheduleNotificationSettingsPtrOutput {
-	return o.ToScheduleNotificationSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o ScheduleNotificationSettingsOutput) ToScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) ScheduleNotificationSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleNotificationSettings) *ScheduleNotificationSettings {
-		return &v
-	}).(ScheduleNotificationSettingsPtrOutput)
 }
 
 // The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
@@ -902,60 +621,6 @@ func (o ScheduleNotificationSettingsOutput) TimeInMinutes() pulumi.IntPtrOutput 
 // The webhook URL to which the notification will be sent.
 func (o ScheduleNotificationSettingsOutput) WebhookUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleNotificationSettings) *string { return v.WebhookUrl }).(pulumi.StringPtrOutput)
-}
-
-type ScheduleNotificationSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (ScheduleNotificationSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduleNotificationSettings)(nil)).Elem()
-}
-
-func (o ScheduleNotificationSettingsPtrOutput) ToScheduleNotificationSettingsPtrOutput() ScheduleNotificationSettingsPtrOutput {
-	return o
-}
-
-func (o ScheduleNotificationSettingsPtrOutput) ToScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) ScheduleNotificationSettingsPtrOutput {
-	return o
-}
-
-func (o ScheduleNotificationSettingsPtrOutput) Elem() ScheduleNotificationSettingsOutput {
-	return o.ApplyT(func(v *ScheduleNotificationSettings) ScheduleNotificationSettings {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduleNotificationSettings
-		return ret
-	}).(ScheduleNotificationSettingsOutput)
-}
-
-// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
-func (o ScheduleNotificationSettingsPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleNotificationSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// Time in minutes before event at which notification will be sent.
-func (o ScheduleNotificationSettingsPtrOutput) TimeInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ScheduleNotificationSettings) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TimeInMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The webhook URL to which the notification will be sent.
-func (o ScheduleNotificationSettingsPtrOutput) WebhookUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleNotificationSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WebhookUrl
-	}).(pulumi.StringPtrOutput)
 }
 
 type ScheduleWeeklyRecurrence struct {
@@ -1334,47 +999,6 @@ func (i WindowsVirtualMachineGalleryImageReferenceArgs) ToWindowsVirtualMachineG
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineGalleryImageReferenceOutput)
 }
 
-func (i WindowsVirtualMachineGalleryImageReferenceArgs) ToWindowsVirtualMachineGalleryImageReferencePtrOutput() WindowsVirtualMachineGalleryImageReferencePtrOutput {
-	return i.ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(context.Background())
-}
-
-func (i WindowsVirtualMachineGalleryImageReferenceArgs) ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryImageReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineGalleryImageReferenceOutput).ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx)
-}
-
-// WindowsVirtualMachineGalleryImageReferencePtrInput is an input type that accepts WindowsVirtualMachineGalleryImageReferenceArgs, WindowsVirtualMachineGalleryImageReferencePtr and WindowsVirtualMachineGalleryImageReferencePtrOutput values.
-// You can construct a concrete instance of `WindowsVirtualMachineGalleryImageReferencePtrInput` via:
-//
-//          WindowsVirtualMachineGalleryImageReferenceArgs{...}
-//
-//  or:
-//
-//          nil
-type WindowsVirtualMachineGalleryImageReferencePtrInput interface {
-	pulumi.Input
-
-	ToWindowsVirtualMachineGalleryImageReferencePtrOutput() WindowsVirtualMachineGalleryImageReferencePtrOutput
-	ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(context.Context) WindowsVirtualMachineGalleryImageReferencePtrOutput
-}
-
-type windowsVirtualMachineGalleryImageReferencePtrType WindowsVirtualMachineGalleryImageReferenceArgs
-
-func WindowsVirtualMachineGalleryImageReferencePtr(v *WindowsVirtualMachineGalleryImageReferenceArgs) WindowsVirtualMachineGalleryImageReferencePtrInput {
-	return (*windowsVirtualMachineGalleryImageReferencePtrType)(v)
-}
-
-func (*windowsVirtualMachineGalleryImageReferencePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsVirtualMachineGalleryImageReference)(nil)).Elem()
-}
-
-func (i *windowsVirtualMachineGalleryImageReferencePtrType) ToWindowsVirtualMachineGalleryImageReferencePtrOutput() WindowsVirtualMachineGalleryImageReferencePtrOutput {
-	return i.ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(context.Background())
-}
-
-func (i *windowsVirtualMachineGalleryImageReferencePtrType) ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryImageReferencePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineGalleryImageReferencePtrOutput)
-}
-
 type WindowsVirtualMachineGalleryImageReferenceOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineGalleryImageReferenceOutput) ElementType() reflect.Type {
@@ -1387,16 +1011,6 @@ func (o WindowsVirtualMachineGalleryImageReferenceOutput) ToWindowsVirtualMachin
 
 func (o WindowsVirtualMachineGalleryImageReferenceOutput) ToWindowsVirtualMachineGalleryImageReferenceOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryImageReferenceOutput {
 	return o
-}
-
-func (o WindowsVirtualMachineGalleryImageReferenceOutput) ToWindowsVirtualMachineGalleryImageReferencePtrOutput() WindowsVirtualMachineGalleryImageReferencePtrOutput {
-	return o.ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(context.Background())
-}
-
-func (o WindowsVirtualMachineGalleryImageReferenceOutput) ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryImageReferencePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineGalleryImageReference) *WindowsVirtualMachineGalleryImageReference {
-		return &v
-	}).(WindowsVirtualMachineGalleryImageReferencePtrOutput)
 }
 
 // The Offer of the Gallery Image. Changing this forces a new resource to be created.
@@ -1417,70 +1031,6 @@ func (o WindowsVirtualMachineGalleryImageReferenceOutput) Sku() pulumi.StringOut
 // The Version of the Gallery Image. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineGalleryImageReferenceOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Version }).(pulumi.StringOutput)
-}
-
-type WindowsVirtualMachineGalleryImageReferencePtrOutput struct{ *pulumi.OutputState }
-
-func (WindowsVirtualMachineGalleryImageReferencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsVirtualMachineGalleryImageReference)(nil)).Elem()
-}
-
-func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) ToWindowsVirtualMachineGalleryImageReferencePtrOutput() WindowsVirtualMachineGalleryImageReferencePtrOutput {
-	return o
-}
-
-func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) ToWindowsVirtualMachineGalleryImageReferencePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryImageReferencePtrOutput {
-	return o
-}
-
-func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Elem() WindowsVirtualMachineGalleryImageReferenceOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineGalleryImageReference) WindowsVirtualMachineGalleryImageReference {
-		if v != nil {
-			return *v
-		}
-		var ret WindowsVirtualMachineGalleryImageReference
-		return ret
-	}).(WindowsVirtualMachineGalleryImageReferenceOutput)
-}
-
-// The Offer of the Gallery Image. Changing this forces a new resource to be created.
-func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineGalleryImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Offer
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineGalleryImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Publisher
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SKU of the Gallery Image. Changing this forces a new resource to be created.
-func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineGalleryImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Sku
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Version of the Gallery Image. Changing this forces a new resource to be created.
-func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineGalleryImageReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Version
-	}).(pulumi.StringPtrOutput)
 }
 
 type WindowsVirtualMachineInboundNatRule struct {
@@ -1845,9 +1395,7 @@ func (o GetVirtualNetworkSubnetOverrideArrayOutput) Index(i pulumi.IntInput) Get
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalVMShutdownScheduleNotificationSettingsInput)(nil)).Elem(), GlobalVMShutdownScheduleNotificationSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GlobalVMShutdownScheduleNotificationSettingsPtrInput)(nil)).Elem(), GlobalVMShutdownScheduleNotificationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineGalleryImageReferenceInput)(nil)).Elem(), LinuxVirtualMachineGalleryImageReferenceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineGalleryImageReferencePtrInput)(nil)).Elem(), LinuxVirtualMachineGalleryImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineInboundNatRuleInput)(nil)).Elem(), LinuxVirtualMachineInboundNatRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineInboundNatRuleArrayInput)(nil)).Elem(), LinuxVirtualMachineInboundNatRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleDailyRecurrenceInput)(nil)).Elem(), ScheduleDailyRecurrenceArgs{})
@@ -1855,13 +1403,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleHourlyRecurrenceInput)(nil)).Elem(), ScheduleHourlyRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleHourlyRecurrencePtrInput)(nil)).Elem(), ScheduleHourlyRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleNotificationSettingsInput)(nil)).Elem(), ScheduleNotificationSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleNotificationSettingsPtrInput)(nil)).Elem(), ScheduleNotificationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleWeeklyRecurrenceInput)(nil)).Elem(), ScheduleWeeklyRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleWeeklyRecurrencePtrInput)(nil)).Elem(), ScheduleWeeklyRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetInput)(nil)).Elem(), VirtualNetworkSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetPtrInput)(nil)).Elem(), VirtualNetworkSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineGalleryImageReferenceInput)(nil)).Elem(), WindowsVirtualMachineGalleryImageReferenceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineGalleryImageReferencePtrInput)(nil)).Elem(), WindowsVirtualMachineGalleryImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineInboundNatRuleInput)(nil)).Elem(), WindowsVirtualMachineInboundNatRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineInboundNatRuleArrayInput)(nil)).Elem(), WindowsVirtualMachineInboundNatRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualNetworkAllowedSubnetInput)(nil)).Elem(), GetVirtualNetworkAllowedSubnetArgs{})
@@ -1869,9 +1415,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualNetworkSubnetOverrideInput)(nil)).Elem(), GetVirtualNetworkSubnetOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualNetworkSubnetOverrideArrayInput)(nil)).Elem(), GetVirtualNetworkSubnetOverrideArray{})
 	pulumi.RegisterOutputType(GlobalVMShutdownScheduleNotificationSettingsOutput{})
-	pulumi.RegisterOutputType(GlobalVMShutdownScheduleNotificationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineGalleryImageReferenceOutput{})
-	pulumi.RegisterOutputType(LinuxVirtualMachineGalleryImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineInboundNatRuleOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineInboundNatRuleArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleDailyRecurrenceOutput{})
@@ -1879,13 +1423,11 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleHourlyRecurrenceOutput{})
 	pulumi.RegisterOutputType(ScheduleHourlyRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleNotificationSettingsOutput{})
-	pulumi.RegisterOutputType(ScheduleNotificationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleWeeklyRecurrenceOutput{})
 	pulumi.RegisterOutputType(ScheduleWeeklyRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineGalleryImageReferenceOutput{})
-	pulumi.RegisterOutputType(WindowsVirtualMachineGalleryImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineInboundNatRuleOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineInboundNatRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkAllowedSubnetOutput{})

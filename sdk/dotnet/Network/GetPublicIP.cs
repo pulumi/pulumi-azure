@@ -115,15 +115,10 @@ namespace Pulumi.Azure.Network
         ///             },
         ///         });
         ///         // ...
-        ///         var examplePublicIP = Output.Tuple(examplePublicIp.Name, exampleVirtualMachine.ResourceGroupName).Apply(values =&gt;
+        ///         var examplePublicIP = Azure.Network.GetPublicIP.Invoke(new Azure.Network.GetPublicIPInvokeArgs
         ///         {
-        ///             var name = values.Item1;
-        ///             var resourceGroupName = values.Item2;
-        ///             return Azure.Network.GetPublicIP.InvokeAsync(new Azure.Network.GetPublicIPArgs
-        ///             {
-        ///                 Name = name,
-        ///                 ResourceGroupName = resourceGroupName,
-        ///             });
+        ///             Name = examplePublicIp.Name,
+        ///             ResourceGroupName = exampleVirtualMachine.ResourceGroupName,
         ///         });
         ///         this.PublicIpAddress = examplePublicIp.IpAddress;
         ///     }
@@ -241,15 +236,10 @@ namespace Pulumi.Azure.Network
         ///             },
         ///         });
         ///         // ...
-        ///         var examplePublicIP = Output.Tuple(examplePublicIp.Name, exampleVirtualMachine.ResourceGroupName).Apply(values =&gt;
+        ///         var examplePublicIP = Azure.Network.GetPublicIP.Invoke(new Azure.Network.GetPublicIPInvokeArgs
         ///         {
-        ///             var name = values.Item1;
-        ///             var resourceGroupName = values.Item2;
-        ///             return Azure.Network.GetPublicIP.InvokeAsync(new Azure.Network.GetPublicIPArgs
-        ///             {
-        ///                 Name = name,
-        ///                 ResourceGroupName = resourceGroupName,
-        ///             });
+        ///             Name = examplePublicIp.Name,
+        ///             ResourceGroupName = exampleVirtualMachine.ResourceGroupName,
         ///         });
         ///         this.PublicIpAddress = examplePublicIp.IpAddress;
         ///     }

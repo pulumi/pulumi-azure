@@ -147,44 +147,44 @@ export class Pipeline extends pulumi.CustomResource {
      */
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipelineState | undefined;
-            inputs["activitiesJson"] = state ? state.activitiesJson : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["concurrency"] = state ? state.concurrency : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["folder"] = state ? state.folder : undefined;
-            inputs["moniterMetricsAfterDuration"] = state ? state.moniterMetricsAfterDuration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["activitiesJson"] = state ? state.activitiesJson : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["concurrency"] = state ? state.concurrency : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["folder"] = state ? state.folder : undefined;
+            resourceInputs["moniterMetricsAfterDuration"] = state ? state.moniterMetricsAfterDuration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["activitiesJson"] = args ? args.activitiesJson : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["concurrency"] = args ? args.concurrency : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["folder"] = args ? args.folder : undefined;
-            inputs["moniterMetricsAfterDuration"] = args ? args.moniterMetricsAfterDuration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["activitiesJson"] = args ? args.activitiesJson : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["concurrency"] = args ? args.concurrency : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["folder"] = args ? args.folder : undefined;
+            resourceInputs["moniterMetricsAfterDuration"] = args ? args.moniterMetricsAfterDuration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Pipeline.__pulumiType, name, inputs, opts);
+        super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

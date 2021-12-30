@@ -53,47 +53,6 @@ func (i AnalyticsSolutionPlanArgs) ToAnalyticsSolutionPlanOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionPlanOutput)
 }
 
-func (i AnalyticsSolutionPlanArgs) ToAnalyticsSolutionPlanPtrOutput() AnalyticsSolutionPlanPtrOutput {
-	return i.ToAnalyticsSolutionPlanPtrOutputWithContext(context.Background())
-}
-
-func (i AnalyticsSolutionPlanArgs) ToAnalyticsSolutionPlanPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPlanPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionPlanOutput).ToAnalyticsSolutionPlanPtrOutputWithContext(ctx)
-}
-
-// AnalyticsSolutionPlanPtrInput is an input type that accepts AnalyticsSolutionPlanArgs, AnalyticsSolutionPlanPtr and AnalyticsSolutionPlanPtrOutput values.
-// You can construct a concrete instance of `AnalyticsSolutionPlanPtrInput` via:
-//
-//          AnalyticsSolutionPlanArgs{...}
-//
-//  or:
-//
-//          nil
-type AnalyticsSolutionPlanPtrInput interface {
-	pulumi.Input
-
-	ToAnalyticsSolutionPlanPtrOutput() AnalyticsSolutionPlanPtrOutput
-	ToAnalyticsSolutionPlanPtrOutputWithContext(context.Context) AnalyticsSolutionPlanPtrOutput
-}
-
-type analyticsSolutionPlanPtrType AnalyticsSolutionPlanArgs
-
-func AnalyticsSolutionPlanPtr(v *AnalyticsSolutionPlanArgs) AnalyticsSolutionPlanPtrInput {
-	return (*analyticsSolutionPlanPtrType)(v)
-}
-
-func (*analyticsSolutionPlanPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyticsSolutionPlan)(nil)).Elem()
-}
-
-func (i *analyticsSolutionPlanPtrType) ToAnalyticsSolutionPlanPtrOutput() AnalyticsSolutionPlanPtrOutput {
-	return i.ToAnalyticsSolutionPlanPtrOutputWithContext(context.Background())
-}
-
-func (i *analyticsSolutionPlanPtrType) ToAnalyticsSolutionPlanPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPlanPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionPlanPtrOutput)
-}
-
 type AnalyticsSolutionPlanOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionPlanOutput) ElementType() reflect.Type {
@@ -106,16 +65,6 @@ func (o AnalyticsSolutionPlanOutput) ToAnalyticsSolutionPlanOutput() AnalyticsSo
 
 func (o AnalyticsSolutionPlanOutput) ToAnalyticsSolutionPlanOutputWithContext(ctx context.Context) AnalyticsSolutionPlanOutput {
 	return o
-}
-
-func (o AnalyticsSolutionPlanOutput) ToAnalyticsSolutionPlanPtrOutput() AnalyticsSolutionPlanPtrOutput {
-	return o.ToAnalyticsSolutionPlanPtrOutputWithContext(context.Background())
-}
-
-func (o AnalyticsSolutionPlanOutput) ToAnalyticsSolutionPlanPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsSolutionPlan) *AnalyticsSolutionPlan {
-		return &v
-	}).(AnalyticsSolutionPlanPtrOutput)
 }
 
 func (o AnalyticsSolutionPlanOutput) Name() pulumi.StringPtrOutput {
@@ -137,72 +86,7 @@ func (o AnalyticsSolutionPlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-type AnalyticsSolutionPlanPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalyticsSolutionPlanPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalyticsSolutionPlan)(nil)).Elem()
-}
-
-func (o AnalyticsSolutionPlanPtrOutput) ToAnalyticsSolutionPlanPtrOutput() AnalyticsSolutionPlanPtrOutput {
-	return o
-}
-
-func (o AnalyticsSolutionPlanPtrOutput) ToAnalyticsSolutionPlanPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPlanPtrOutput {
-	return o
-}
-
-func (o AnalyticsSolutionPlanPtrOutput) Elem() AnalyticsSolutionPlanOutput {
-	return o.ApplyT(func(v *AnalyticsSolutionPlan) AnalyticsSolutionPlan {
-		if v != nil {
-			return *v
-		}
-		var ret AnalyticsSolutionPlan
-		return ret
-	}).(AnalyticsSolutionPlanOutput)
-}
-
-func (o AnalyticsSolutionPlanPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalyticsSolutionPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
-func (o AnalyticsSolutionPlanPtrOutput) Product() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalyticsSolutionPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Product
-	}).(pulumi.StringPtrOutput)
-}
-
-// A promotion code to be used with the solution.
-func (o AnalyticsSolutionPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalyticsSolutionPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PromotionCode
-	}).(pulumi.StringPtrOutput)
-}
-
-// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
-func (o AnalyticsSolutionPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalyticsSolutionPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Publisher
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsSolutionPlanInput)(nil)).Elem(), AnalyticsSolutionPlanArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsSolutionPlanPtrInput)(nil)).Elem(), AnalyticsSolutionPlanArgs{})
 	pulumi.RegisterOutputType(AnalyticsSolutionPlanOutput{})
-	pulumi.RegisterOutputType(AnalyticsSolutionPlanPtrOutput{})
 }

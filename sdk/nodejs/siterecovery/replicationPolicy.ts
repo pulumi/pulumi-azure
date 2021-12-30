@@ -93,15 +93,15 @@ export class ReplicationPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicationPolicyArgs | ReplicationPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationPolicyState | undefined;
-            inputs["applicationConsistentSnapshotFrequencyInMinutes"] = state ? state.applicationConsistentSnapshotFrequencyInMinutes : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["recoveryPointRetentionInMinutes"] = state ? state.recoveryPointRetentionInMinutes : undefined;
-            inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["applicationConsistentSnapshotFrequencyInMinutes"] = state ? state.applicationConsistentSnapshotFrequencyInMinutes : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["recoveryPointRetentionInMinutes"] = state ? state.recoveryPointRetentionInMinutes : undefined;
+            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ReplicationPolicyArgs | undefined;
             if ((!args || args.applicationConsistentSnapshotFrequencyInMinutes === undefined) && !opts.urn) {
@@ -116,16 +116,16 @@ export class ReplicationPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationConsistentSnapshotFrequencyInMinutes"] = args ? args.applicationConsistentSnapshotFrequencyInMinutes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recoveryPointRetentionInMinutes"] = args ? args.recoveryPointRetentionInMinutes : undefined;
-            inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["applicationConsistentSnapshotFrequencyInMinutes"] = args ? args.applicationConsistentSnapshotFrequencyInMinutes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recoveryPointRetentionInMinutes"] = args ? args.recoveryPointRetentionInMinutes : undefined;
+            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ReplicationPolicy.__pulumiType, name, inputs, opts);
+        super(ReplicationPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

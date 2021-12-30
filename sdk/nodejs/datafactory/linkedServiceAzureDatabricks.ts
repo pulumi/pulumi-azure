@@ -202,26 +202,26 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkedServiceAzureDatabricksArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServiceAzureDatabricksArgs | LinkedServiceAzureDatabricksState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceAzureDatabricksState | undefined;
-            inputs["accessToken"] = state ? state.accessToken : undefined;
-            inputs["adbDomain"] = state ? state.adbDomain : undefined;
-            inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["existingClusterId"] = state ? state.existingClusterId : undefined;
-            inputs["instancePool"] = state ? state.instancePool : undefined;
-            inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            inputs["keyVaultPassword"] = state ? state.keyVaultPassword : undefined;
-            inputs["msiWorkSpaceResourceId"] = state ? state.msiWorkSpaceResourceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["newClusterConfig"] = state ? state.newClusterConfig : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["accessToken"] = state ? state.accessToken : undefined;
+            resourceInputs["adbDomain"] = state ? state.adbDomain : undefined;
+            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["existingClusterId"] = state ? state.existingClusterId : undefined;
+            resourceInputs["instancePool"] = state ? state.instancePool : undefined;
+            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
+            resourceInputs["keyVaultPassword"] = state ? state.keyVaultPassword : undefined;
+            resourceInputs["msiWorkSpaceResourceId"] = state ? state.msiWorkSpaceResourceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["newClusterConfig"] = state ? state.newClusterConfig : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as LinkedServiceAzureDatabricksArgs | undefined;
             if ((!args || args.adbDomain === undefined) && !opts.urn) {
@@ -230,27 +230,27 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accessToken"] = args ? args.accessToken : undefined;
-            inputs["adbDomain"] = args ? args.adbDomain : undefined;
-            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["existingClusterId"] = args ? args.existingClusterId : undefined;
-            inputs["instancePool"] = args ? args.instancePool : undefined;
-            inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            inputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
-            inputs["msiWorkSpaceResourceId"] = args ? args.msiWorkSpaceResourceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["newClusterConfig"] = args ? args.newClusterConfig : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
+            resourceInputs["adbDomain"] = args ? args.adbDomain : undefined;
+            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["existingClusterId"] = args ? args.existingClusterId : undefined;
+            resourceInputs["instancePool"] = args ? args.instancePool : undefined;
+            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
+            resourceInputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
+            resourceInputs["msiWorkSpaceResourceId"] = args ? args.msiWorkSpaceResourceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["newClusterConfig"] = args ? args.newClusterConfig : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LinkedServiceAzureDatabricks.__pulumiType, name, inputs, opts);
+        super(LinkedServiceAzureDatabricks.__pulumiType, name, resourceInputs, opts);
     }
 }
 

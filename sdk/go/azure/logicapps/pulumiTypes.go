@@ -153,47 +153,6 @@ func (i IntegrationAccountAgreementGuestIdentityArgs) ToIntegrationAccountAgreem
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementGuestIdentityOutput)
 }
 
-func (i IntegrationAccountAgreementGuestIdentityArgs) ToIntegrationAccountAgreementGuestIdentityPtrOutput() IntegrationAccountAgreementGuestIdentityPtrOutput {
-	return i.ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationAccountAgreementGuestIdentityArgs) ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementGuestIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementGuestIdentityOutput).ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx)
-}
-
-// IntegrationAccountAgreementGuestIdentityPtrInput is an input type that accepts IntegrationAccountAgreementGuestIdentityArgs, IntegrationAccountAgreementGuestIdentityPtr and IntegrationAccountAgreementGuestIdentityPtrOutput values.
-// You can construct a concrete instance of `IntegrationAccountAgreementGuestIdentityPtrInput` via:
-//
-//          IntegrationAccountAgreementGuestIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type IntegrationAccountAgreementGuestIdentityPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountAgreementGuestIdentityPtrOutput() IntegrationAccountAgreementGuestIdentityPtrOutput
-	ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(context.Context) IntegrationAccountAgreementGuestIdentityPtrOutput
-}
-
-type integrationAccountAgreementGuestIdentityPtrType IntegrationAccountAgreementGuestIdentityArgs
-
-func IntegrationAccountAgreementGuestIdentityPtr(v *IntegrationAccountAgreementGuestIdentityArgs) IntegrationAccountAgreementGuestIdentityPtrInput {
-	return (*integrationAccountAgreementGuestIdentityPtrType)(v)
-}
-
-func (*integrationAccountAgreementGuestIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountAgreementGuestIdentity)(nil)).Elem()
-}
-
-func (i *integrationAccountAgreementGuestIdentityPtrType) ToIntegrationAccountAgreementGuestIdentityPtrOutput() IntegrationAccountAgreementGuestIdentityPtrOutput {
-	return i.ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationAccountAgreementGuestIdentityPtrType) ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementGuestIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementGuestIdentityPtrOutput)
-}
-
 type IntegrationAccountAgreementGuestIdentityOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAgreementGuestIdentityOutput) ElementType() reflect.Type {
@@ -208,16 +167,6 @@ func (o IntegrationAccountAgreementGuestIdentityOutput) ToIntegrationAccountAgre
 	return o
 }
 
-func (o IntegrationAccountAgreementGuestIdentityOutput) ToIntegrationAccountAgreementGuestIdentityPtrOutput() IntegrationAccountAgreementGuestIdentityPtrOutput {
-	return o.ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationAccountAgreementGuestIdentityOutput) ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementGuestIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountAgreementGuestIdentity) *IntegrationAccountAgreementGuestIdentity {
-		return &v
-	}).(IntegrationAccountAgreementGuestIdentityPtrOutput)
-}
-
 // The authenticating body that provides unique guest identities to organizations.
 func (o IntegrationAccountAgreementGuestIdentityOutput) Qualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationAccountAgreementGuestIdentity) string { return v.Qualifier }).(pulumi.StringOutput)
@@ -226,50 +175,6 @@ func (o IntegrationAccountAgreementGuestIdentityOutput) Qualifier() pulumi.Strin
 // The value that identifies the documents that your logic apps receive.
 func (o IntegrationAccountAgreementGuestIdentityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationAccountAgreementGuestIdentity) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type IntegrationAccountAgreementGuestIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountAgreementGuestIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountAgreementGuestIdentity)(nil)).Elem()
-}
-
-func (o IntegrationAccountAgreementGuestIdentityPtrOutput) ToIntegrationAccountAgreementGuestIdentityPtrOutput() IntegrationAccountAgreementGuestIdentityPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountAgreementGuestIdentityPtrOutput) ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementGuestIdentityPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountAgreementGuestIdentityPtrOutput) Elem() IntegrationAccountAgreementGuestIdentityOutput {
-	return o.ApplyT(func(v *IntegrationAccountAgreementGuestIdentity) IntegrationAccountAgreementGuestIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationAccountAgreementGuestIdentity
-		return ret
-	}).(IntegrationAccountAgreementGuestIdentityOutput)
-}
-
-// The authenticating body that provides unique guest identities to organizations.
-func (o IntegrationAccountAgreementGuestIdentityPtrOutput) Qualifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationAccountAgreementGuestIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Qualifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value that identifies the documents that your logic apps receive.
-func (o IntegrationAccountAgreementGuestIdentityPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationAccountAgreementGuestIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.StringPtrOutput)
 }
 
 type IntegrationAccountAgreementHostIdentity struct {
@@ -309,47 +214,6 @@ func (i IntegrationAccountAgreementHostIdentityArgs) ToIntegrationAccountAgreeme
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementHostIdentityOutput)
 }
 
-func (i IntegrationAccountAgreementHostIdentityArgs) ToIntegrationAccountAgreementHostIdentityPtrOutput() IntegrationAccountAgreementHostIdentityPtrOutput {
-	return i.ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationAccountAgreementHostIdentityArgs) ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementHostIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementHostIdentityOutput).ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx)
-}
-
-// IntegrationAccountAgreementHostIdentityPtrInput is an input type that accepts IntegrationAccountAgreementHostIdentityArgs, IntegrationAccountAgreementHostIdentityPtr and IntegrationAccountAgreementHostIdentityPtrOutput values.
-// You can construct a concrete instance of `IntegrationAccountAgreementHostIdentityPtrInput` via:
-//
-//          IntegrationAccountAgreementHostIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type IntegrationAccountAgreementHostIdentityPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountAgreementHostIdentityPtrOutput() IntegrationAccountAgreementHostIdentityPtrOutput
-	ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(context.Context) IntegrationAccountAgreementHostIdentityPtrOutput
-}
-
-type integrationAccountAgreementHostIdentityPtrType IntegrationAccountAgreementHostIdentityArgs
-
-func IntegrationAccountAgreementHostIdentityPtr(v *IntegrationAccountAgreementHostIdentityArgs) IntegrationAccountAgreementHostIdentityPtrInput {
-	return (*integrationAccountAgreementHostIdentityPtrType)(v)
-}
-
-func (*integrationAccountAgreementHostIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountAgreementHostIdentity)(nil)).Elem()
-}
-
-func (i *integrationAccountAgreementHostIdentityPtrType) ToIntegrationAccountAgreementHostIdentityPtrOutput() IntegrationAccountAgreementHostIdentityPtrOutput {
-	return i.ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationAccountAgreementHostIdentityPtrType) ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementHostIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementHostIdentityPtrOutput)
-}
-
 type IntegrationAccountAgreementHostIdentityOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAgreementHostIdentityOutput) ElementType() reflect.Type {
@@ -364,16 +228,6 @@ func (o IntegrationAccountAgreementHostIdentityOutput) ToIntegrationAccountAgree
 	return o
 }
 
-func (o IntegrationAccountAgreementHostIdentityOutput) ToIntegrationAccountAgreementHostIdentityPtrOutput() IntegrationAccountAgreementHostIdentityPtrOutput {
-	return o.ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationAccountAgreementHostIdentityOutput) ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementHostIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountAgreementHostIdentity) *IntegrationAccountAgreementHostIdentity {
-		return &v
-	}).(IntegrationAccountAgreementHostIdentityPtrOutput)
-}
-
 // The authenticating body that provides unique host identities to organizations.
 func (o IntegrationAccountAgreementHostIdentityOutput) Qualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationAccountAgreementHostIdentity) string { return v.Qualifier }).(pulumi.StringOutput)
@@ -382,50 +236,6 @@ func (o IntegrationAccountAgreementHostIdentityOutput) Qualifier() pulumi.String
 // The value that identifies the documents that your logic apps receive.
 func (o IntegrationAccountAgreementHostIdentityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationAccountAgreementHostIdentity) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type IntegrationAccountAgreementHostIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountAgreementHostIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountAgreementHostIdentity)(nil)).Elem()
-}
-
-func (o IntegrationAccountAgreementHostIdentityPtrOutput) ToIntegrationAccountAgreementHostIdentityPtrOutput() IntegrationAccountAgreementHostIdentityPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountAgreementHostIdentityPtrOutput) ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementHostIdentityPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountAgreementHostIdentityPtrOutput) Elem() IntegrationAccountAgreementHostIdentityOutput {
-	return o.ApplyT(func(v *IntegrationAccountAgreementHostIdentity) IntegrationAccountAgreementHostIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationAccountAgreementHostIdentity
-		return ret
-	}).(IntegrationAccountAgreementHostIdentityOutput)
-}
-
-// The authenticating body that provides unique host identities to organizations.
-func (o IntegrationAccountAgreementHostIdentityPtrOutput) Qualifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationAccountAgreementHostIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Qualifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value that identifies the documents that your logic apps receive.
-func (o IntegrationAccountAgreementHostIdentityPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationAccountAgreementHostIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.StringPtrOutput)
 }
 
 type IntegrationAccountBatchConfigurationReleaseCriteria struct {
@@ -469,47 +279,6 @@ func (i IntegrationAccountBatchConfigurationReleaseCriteriaArgs) ToIntegrationAc
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaOutput)
 }
 
-func (i IntegrationAccountBatchConfigurationReleaseCriteriaArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
-	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationAccountBatchConfigurationReleaseCriteriaArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaOutput).ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx)
-}
-
-// IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaArgs, IntegrationAccountBatchConfigurationReleaseCriteriaPtr and IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput values.
-// You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput` via:
-//
-//          IntegrationAccountBatchConfigurationReleaseCriteriaArgs{...}
-//
-//  or:
-//
-//          nil
-type IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput
-	ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput
-}
-
-type integrationAccountBatchConfigurationReleaseCriteriaPtrType IntegrationAccountBatchConfigurationReleaseCriteriaArgs
-
-func IntegrationAccountBatchConfigurationReleaseCriteriaPtr(v *IntegrationAccountBatchConfigurationReleaseCriteriaArgs) IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput {
-	return (*integrationAccountBatchConfigurationReleaseCriteriaPtrType)(v)
-}
-
-func (*integrationAccountBatchConfigurationReleaseCriteriaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountBatchConfigurationReleaseCriteria)(nil)).Elem()
-}
-
-func (i *integrationAccountBatchConfigurationReleaseCriteriaPtrType) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
-	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationAccountBatchConfigurationReleaseCriteriaPtrType) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput)
-}
-
 type IntegrationAccountBatchConfigurationReleaseCriteriaOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ElementType() reflect.Type {
@@ -522,16 +291,6 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ToIntegration
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaOutput {
 	return o
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
-	return o.ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountBatchConfigurationReleaseCriteria) *IntegrationAccountBatchConfigurationReleaseCriteria {
-		return &v
-	}).(IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput)
 }
 
 // The batch size in bytes for the Logic App Integration Batch Configuration.
@@ -547,60 +306,6 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) MessageCount(
 // A `recurrence` block as documented below.
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) Recurrence() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
 	return o.ApplyT(func(v IntegrationAccountBatchConfigurationReleaseCriteria) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
-		return v.Recurrence
-	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput)
-}
-
-type IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountBatchConfigurationReleaseCriteria)(nil)).Elem()
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) Elem() IntegrationAccountBatchConfigurationReleaseCriteriaOutput {
-	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteria) IntegrationAccountBatchConfigurationReleaseCriteria {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationAccountBatchConfigurationReleaseCriteria
-		return ret
-	}).(IntegrationAccountBatchConfigurationReleaseCriteriaOutput)
-}
-
-// The batch size in bytes for the Logic App Integration Batch Configuration.
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) BatchSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteria) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BatchSize
-	}).(pulumi.IntPtrOutput)
-}
-
-// The message count for the Logic App Integration Batch Configuration.
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) MessageCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteria) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MessageCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// A `recurrence` block as documented below.
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) Recurrence() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
-	return o.ApplyT(func(v *IntegrationAccountBatchConfigurationReleaseCriteria) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
-		if v == nil {
-			return nil
-		}
 		return v.Recurrence
 	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput)
 }
@@ -4118,11 +3823,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpRunAfterInput)(nil)).Elem(), ActionHttpRunAfterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpRunAfterArrayInput)(nil)).Elem(), ActionHttpRunAfterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAgreementGuestIdentityInput)(nil)).Elem(), IntegrationAccountAgreementGuestIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAgreementGuestIdentityPtrInput)(nil)).Elem(), IntegrationAccountAgreementGuestIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAgreementHostIdentityInput)(nil)).Elem(), IntegrationAccountAgreementHostIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAgreementHostIdentityPtrInput)(nil)).Elem(), IntegrationAccountAgreementHostIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteriaInput)(nil)).Elem(), IntegrationAccountBatchConfigurationReleaseCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput)(nil)).Elem(), IntegrationAccountBatchConfigurationReleaseCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceInput)(nil)).Elem(), IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrInput)(nil)).Elem(), IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleInput)(nil)).Elem(), IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs{})
@@ -4168,11 +3870,8 @@ func init() {
 	pulumi.RegisterOutputType(ActionHttpRunAfterOutput{})
 	pulumi.RegisterOutputType(ActionHttpRunAfterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountAgreementGuestIdentityOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountAgreementGuestIdentityPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountAgreementHostIdentityOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountAgreementHostIdentityPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput{})

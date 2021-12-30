@@ -210,7 +210,7 @@ type SRVRecordInput interface {
 }
 
 func (*SRVRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*SRVRecord)(nil))
+	return reflect.TypeOf((**SRVRecord)(nil)).Elem()
 }
 
 func (i *SRVRecord) ToSRVRecordOutput() SRVRecordOutput {
@@ -219,35 +219,6 @@ func (i *SRVRecord) ToSRVRecordOutput() SRVRecordOutput {
 
 func (i *SRVRecord) ToSRVRecordOutputWithContext(ctx context.Context) SRVRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SRVRecordOutput)
-}
-
-func (i *SRVRecord) ToSRVRecordPtrOutput() SRVRecordPtrOutput {
-	return i.ToSRVRecordPtrOutputWithContext(context.Background())
-}
-
-func (i *SRVRecord) ToSRVRecordPtrOutputWithContext(ctx context.Context) SRVRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SRVRecordPtrOutput)
-}
-
-type SRVRecordPtrInput interface {
-	pulumi.Input
-
-	ToSRVRecordPtrOutput() SRVRecordPtrOutput
-	ToSRVRecordPtrOutputWithContext(ctx context.Context) SRVRecordPtrOutput
-}
-
-type srvrecordPtrType SRVRecordArgs
-
-func (*srvrecordPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SRVRecord)(nil))
-}
-
-func (i *srvrecordPtrType) ToSRVRecordPtrOutput() SRVRecordPtrOutput {
-	return i.ToSRVRecordPtrOutputWithContext(context.Background())
-}
-
-func (i *srvrecordPtrType) ToSRVRecordPtrOutputWithContext(ctx context.Context) SRVRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SRVRecordPtrOutput)
 }
 
 // SRVRecordArrayInput is an input type that accepts SRVRecordArray and SRVRecordArrayOutput values.
@@ -303,7 +274,7 @@ func (i SRVRecordMap) ToSRVRecordMapOutputWithContext(ctx context.Context) SRVRe
 type SRVRecordOutput struct{ *pulumi.OutputState }
 
 func (SRVRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SRVRecord)(nil))
+	return reflect.TypeOf((**SRVRecord)(nil)).Elem()
 }
 
 func (o SRVRecordOutput) ToSRVRecordOutput() SRVRecordOutput {
@@ -314,44 +285,10 @@ func (o SRVRecordOutput) ToSRVRecordOutputWithContext(ctx context.Context) SRVRe
 	return o
 }
 
-func (o SRVRecordOutput) ToSRVRecordPtrOutput() SRVRecordPtrOutput {
-	return o.ToSRVRecordPtrOutputWithContext(context.Background())
-}
-
-func (o SRVRecordOutput) ToSRVRecordPtrOutputWithContext(ctx context.Context) SRVRecordPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SRVRecord) *SRVRecord {
-		return &v
-	}).(SRVRecordPtrOutput)
-}
-
-type SRVRecordPtrOutput struct{ *pulumi.OutputState }
-
-func (SRVRecordPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SRVRecord)(nil))
-}
-
-func (o SRVRecordPtrOutput) ToSRVRecordPtrOutput() SRVRecordPtrOutput {
-	return o
-}
-
-func (o SRVRecordPtrOutput) ToSRVRecordPtrOutputWithContext(ctx context.Context) SRVRecordPtrOutput {
-	return o
-}
-
-func (o SRVRecordPtrOutput) Elem() SRVRecordOutput {
-	return o.ApplyT(func(v *SRVRecord) SRVRecord {
-		if v != nil {
-			return *v
-		}
-		var ret SRVRecord
-		return ret
-	}).(SRVRecordOutput)
-}
-
 type SRVRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (SRVRecordArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SRVRecord)(nil))
+	return reflect.TypeOf((*[]*SRVRecord)(nil)).Elem()
 }
 
 func (o SRVRecordArrayOutput) ToSRVRecordArrayOutput() SRVRecordArrayOutput {
@@ -363,15 +300,15 @@ func (o SRVRecordArrayOutput) ToSRVRecordArrayOutputWithContext(ctx context.Cont
 }
 
 func (o SRVRecordArrayOutput) Index(i pulumi.IntInput) SRVRecordOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SRVRecord {
-		return vs[0].([]SRVRecord)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SRVRecord {
+		return vs[0].([]*SRVRecord)[vs[1].(int)]
 	}).(SRVRecordOutput)
 }
 
 type SRVRecordMapOutput struct{ *pulumi.OutputState }
 
 func (SRVRecordMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SRVRecord)(nil))
+	return reflect.TypeOf((*map[string]*SRVRecord)(nil)).Elem()
 }
 
 func (o SRVRecordMapOutput) ToSRVRecordMapOutput() SRVRecordMapOutput {
@@ -383,18 +320,16 @@ func (o SRVRecordMapOutput) ToSRVRecordMapOutputWithContext(ctx context.Context)
 }
 
 func (o SRVRecordMapOutput) MapIndex(k pulumi.StringInput) SRVRecordOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SRVRecord {
-		return vs[0].(map[string]SRVRecord)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SRVRecord {
+		return vs[0].(map[string]*SRVRecord)[vs[1].(string)]
 	}).(SRVRecordOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SRVRecordInput)(nil)).Elem(), &SRVRecord{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SRVRecordPtrInput)(nil)).Elem(), &SRVRecord{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SRVRecordArrayInput)(nil)).Elem(), SRVRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SRVRecordMapInput)(nil)).Elem(), SRVRecordMap{})
 	pulumi.RegisterOutputType(SRVRecordOutput{})
-	pulumi.RegisterOutputType(SRVRecordPtrOutput{})
 	pulumi.RegisterOutputType(SRVRecordArrayOutput{})
 	pulumi.RegisterOutputType(SRVRecordMapOutput{})
 }

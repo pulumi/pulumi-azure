@@ -340,10 +340,10 @@ class DiagnosticSetting(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = example_resource_group.name.apply(lambda name: azure.storage.get_account(name="examplestoracc",
-            resource_group_name=name))
-        example_key_vault = example_resource_group.name.apply(lambda name: azure.keyvault.get_key_vault(name="example-vault",
-            resource_group_name=name))
+        example_account = azure.storage.get_account_output(name="examplestoracc",
+            resource_group_name=example_resource_group.name)
+        example_key_vault = azure.keyvault.get_key_vault_output(name="example-vault",
+            resource_group_name=example_resource_group.name)
         example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
             target_resource_id=example_key_vault.id,
             storage_account_id=example_account.id,
@@ -398,10 +398,10 @@ class DiagnosticSetting(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = example_resource_group.name.apply(lambda name: azure.storage.get_account(name="examplestoracc",
-            resource_group_name=name))
-        example_key_vault = example_resource_group.name.apply(lambda name: azure.keyvault.get_key_vault(name="example-vault",
-            resource_group_name=name))
+        example_account = azure.storage.get_account_output(name="examplestoracc",
+            resource_group_name=example_resource_group.name)
+        example_key_vault = azure.keyvault.get_key_vault_output(name="example-vault",
+            resource_group_name=example_resource_group.name)
         example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
             target_resource_id=example_key_vault.id,
             storage_account_id=example_account.id,

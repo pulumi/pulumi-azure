@@ -184,7 +184,7 @@ type TimeSeriesInsightsAccessPolicyInput interface {
 }
 
 func (*TimeSeriesInsightsAccessPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesInsightsAccessPolicy)(nil))
+	return reflect.TypeOf((**TimeSeriesInsightsAccessPolicy)(nil)).Elem()
 }
 
 func (i *TimeSeriesInsightsAccessPolicy) ToTimeSeriesInsightsAccessPolicyOutput() TimeSeriesInsightsAccessPolicyOutput {
@@ -193,35 +193,6 @@ func (i *TimeSeriesInsightsAccessPolicy) ToTimeSeriesInsightsAccessPolicyOutput(
 
 func (i *TimeSeriesInsightsAccessPolicy) ToTimeSeriesInsightsAccessPolicyOutputWithContext(ctx context.Context) TimeSeriesInsightsAccessPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsAccessPolicyOutput)
-}
-
-func (i *TimeSeriesInsightsAccessPolicy) ToTimeSeriesInsightsAccessPolicyPtrOutput() TimeSeriesInsightsAccessPolicyPtrOutput {
-	return i.ToTimeSeriesInsightsAccessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *TimeSeriesInsightsAccessPolicy) ToTimeSeriesInsightsAccessPolicyPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsAccessPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsAccessPolicyPtrOutput)
-}
-
-type TimeSeriesInsightsAccessPolicyPtrInput interface {
-	pulumi.Input
-
-	ToTimeSeriesInsightsAccessPolicyPtrOutput() TimeSeriesInsightsAccessPolicyPtrOutput
-	ToTimeSeriesInsightsAccessPolicyPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsAccessPolicyPtrOutput
-}
-
-type timeSeriesInsightsAccessPolicyPtrType TimeSeriesInsightsAccessPolicyArgs
-
-func (*timeSeriesInsightsAccessPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeSeriesInsightsAccessPolicy)(nil))
-}
-
-func (i *timeSeriesInsightsAccessPolicyPtrType) ToTimeSeriesInsightsAccessPolicyPtrOutput() TimeSeriesInsightsAccessPolicyPtrOutput {
-	return i.ToTimeSeriesInsightsAccessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *timeSeriesInsightsAccessPolicyPtrType) ToTimeSeriesInsightsAccessPolicyPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsAccessPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsAccessPolicyPtrOutput)
 }
 
 // TimeSeriesInsightsAccessPolicyArrayInput is an input type that accepts TimeSeriesInsightsAccessPolicyArray and TimeSeriesInsightsAccessPolicyArrayOutput values.
@@ -277,7 +248,7 @@ func (i TimeSeriesInsightsAccessPolicyMap) ToTimeSeriesInsightsAccessPolicyMapOu
 type TimeSeriesInsightsAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsAccessPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeSeriesInsightsAccessPolicy)(nil))
+	return reflect.TypeOf((**TimeSeriesInsightsAccessPolicy)(nil)).Elem()
 }
 
 func (o TimeSeriesInsightsAccessPolicyOutput) ToTimeSeriesInsightsAccessPolicyOutput() TimeSeriesInsightsAccessPolicyOutput {
@@ -288,44 +259,10 @@ func (o TimeSeriesInsightsAccessPolicyOutput) ToTimeSeriesInsightsAccessPolicyOu
 	return o
 }
 
-func (o TimeSeriesInsightsAccessPolicyOutput) ToTimeSeriesInsightsAccessPolicyPtrOutput() TimeSeriesInsightsAccessPolicyPtrOutput {
-	return o.ToTimeSeriesInsightsAccessPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o TimeSeriesInsightsAccessPolicyOutput) ToTimeSeriesInsightsAccessPolicyPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsAccessPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeSeriesInsightsAccessPolicy) *TimeSeriesInsightsAccessPolicy {
-		return &v
-	}).(TimeSeriesInsightsAccessPolicyPtrOutput)
-}
-
-type TimeSeriesInsightsAccessPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (TimeSeriesInsightsAccessPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeSeriesInsightsAccessPolicy)(nil))
-}
-
-func (o TimeSeriesInsightsAccessPolicyPtrOutput) ToTimeSeriesInsightsAccessPolicyPtrOutput() TimeSeriesInsightsAccessPolicyPtrOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsAccessPolicyPtrOutput) ToTimeSeriesInsightsAccessPolicyPtrOutputWithContext(ctx context.Context) TimeSeriesInsightsAccessPolicyPtrOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsAccessPolicyPtrOutput) Elem() TimeSeriesInsightsAccessPolicyOutput {
-	return o.ApplyT(func(v *TimeSeriesInsightsAccessPolicy) TimeSeriesInsightsAccessPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret TimeSeriesInsightsAccessPolicy
-		return ret
-	}).(TimeSeriesInsightsAccessPolicyOutput)
-}
-
 type TimeSeriesInsightsAccessPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsAccessPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TimeSeriesInsightsAccessPolicy)(nil))
+	return reflect.TypeOf((*[]*TimeSeriesInsightsAccessPolicy)(nil)).Elem()
 }
 
 func (o TimeSeriesInsightsAccessPolicyArrayOutput) ToTimeSeriesInsightsAccessPolicyArrayOutput() TimeSeriesInsightsAccessPolicyArrayOutput {
@@ -337,15 +274,15 @@ func (o TimeSeriesInsightsAccessPolicyArrayOutput) ToTimeSeriesInsightsAccessPol
 }
 
 func (o TimeSeriesInsightsAccessPolicyArrayOutput) Index(i pulumi.IntInput) TimeSeriesInsightsAccessPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeSeriesInsightsAccessPolicy {
-		return vs[0].([]TimeSeriesInsightsAccessPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TimeSeriesInsightsAccessPolicy {
+		return vs[0].([]*TimeSeriesInsightsAccessPolicy)[vs[1].(int)]
 	}).(TimeSeriesInsightsAccessPolicyOutput)
 }
 
 type TimeSeriesInsightsAccessPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsAccessPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TimeSeriesInsightsAccessPolicy)(nil))
+	return reflect.TypeOf((*map[string]*TimeSeriesInsightsAccessPolicy)(nil)).Elem()
 }
 
 func (o TimeSeriesInsightsAccessPolicyMapOutput) ToTimeSeriesInsightsAccessPolicyMapOutput() TimeSeriesInsightsAccessPolicyMapOutput {
@@ -357,18 +294,16 @@ func (o TimeSeriesInsightsAccessPolicyMapOutput) ToTimeSeriesInsightsAccessPolic
 }
 
 func (o TimeSeriesInsightsAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) TimeSeriesInsightsAccessPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TimeSeriesInsightsAccessPolicy {
-		return vs[0].(map[string]TimeSeriesInsightsAccessPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TimeSeriesInsightsAccessPolicy {
+		return vs[0].(map[string]*TimeSeriesInsightsAccessPolicy)[vs[1].(string)]
 	}).(TimeSeriesInsightsAccessPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsAccessPolicyInput)(nil)).Elem(), &TimeSeriesInsightsAccessPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsAccessPolicyPtrInput)(nil)).Elem(), &TimeSeriesInsightsAccessPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsAccessPolicyArrayInput)(nil)).Elem(), TimeSeriesInsightsAccessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsAccessPolicyMapInput)(nil)).Elem(), TimeSeriesInsightsAccessPolicyMap{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsAccessPolicyOutput{})
-	pulumi.RegisterOutputType(TimeSeriesInsightsAccessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsAccessPolicyMapOutput{})
 }

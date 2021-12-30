@@ -267,7 +267,7 @@ type NatRuleInput interface {
 }
 
 func (*NatRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatRule)(nil))
+	return reflect.TypeOf((**NatRule)(nil)).Elem()
 }
 
 func (i *NatRule) ToNatRuleOutput() NatRuleOutput {
@@ -276,35 +276,6 @@ func (i *NatRule) ToNatRuleOutput() NatRuleOutput {
 
 func (i *NatRule) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NatRuleOutput)
-}
-
-func (i *NatRule) ToNatRulePtrOutput() NatRulePtrOutput {
-	return i.ToNatRulePtrOutputWithContext(context.Background())
-}
-
-func (i *NatRule) ToNatRulePtrOutputWithContext(ctx context.Context) NatRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NatRulePtrOutput)
-}
-
-type NatRulePtrInput interface {
-	pulumi.Input
-
-	ToNatRulePtrOutput() NatRulePtrOutput
-	ToNatRulePtrOutputWithContext(ctx context.Context) NatRulePtrOutput
-}
-
-type natRulePtrType NatRuleArgs
-
-func (*natRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NatRule)(nil))
-}
-
-func (i *natRulePtrType) ToNatRulePtrOutput() NatRulePtrOutput {
-	return i.ToNatRulePtrOutputWithContext(context.Background())
-}
-
-func (i *natRulePtrType) ToNatRulePtrOutputWithContext(ctx context.Context) NatRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NatRulePtrOutput)
 }
 
 // NatRuleArrayInput is an input type that accepts NatRuleArray and NatRuleArrayOutput values.
@@ -360,7 +331,7 @@ func (i NatRuleMap) ToNatRuleMapOutputWithContext(ctx context.Context) NatRuleMa
 type NatRuleOutput struct{ *pulumi.OutputState }
 
 func (NatRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatRule)(nil))
+	return reflect.TypeOf((**NatRule)(nil)).Elem()
 }
 
 func (o NatRuleOutput) ToNatRuleOutput() NatRuleOutput {
@@ -371,44 +342,10 @@ func (o NatRuleOutput) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOu
 	return o
 }
 
-func (o NatRuleOutput) ToNatRulePtrOutput() NatRulePtrOutput {
-	return o.ToNatRulePtrOutputWithContext(context.Background())
-}
-
-func (o NatRuleOutput) ToNatRulePtrOutputWithContext(ctx context.Context) NatRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NatRule) *NatRule {
-		return &v
-	}).(NatRulePtrOutput)
-}
-
-type NatRulePtrOutput struct{ *pulumi.OutputState }
-
-func (NatRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NatRule)(nil))
-}
-
-func (o NatRulePtrOutput) ToNatRulePtrOutput() NatRulePtrOutput {
-	return o
-}
-
-func (o NatRulePtrOutput) ToNatRulePtrOutputWithContext(ctx context.Context) NatRulePtrOutput {
-	return o
-}
-
-func (o NatRulePtrOutput) Elem() NatRuleOutput {
-	return o.ApplyT(func(v *NatRule) NatRule {
-		if v != nil {
-			return *v
-		}
-		var ret NatRule
-		return ret
-	}).(NatRuleOutput)
-}
-
 type NatRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (NatRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NatRule)(nil))
+	return reflect.TypeOf((*[]*NatRule)(nil)).Elem()
 }
 
 func (o NatRuleArrayOutput) ToNatRuleArrayOutput() NatRuleArrayOutput {
@@ -420,15 +357,15 @@ func (o NatRuleArrayOutput) ToNatRuleArrayOutputWithContext(ctx context.Context)
 }
 
 func (o NatRuleArrayOutput) Index(i pulumi.IntInput) NatRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NatRule {
-		return vs[0].([]NatRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NatRule {
+		return vs[0].([]*NatRule)[vs[1].(int)]
 	}).(NatRuleOutput)
 }
 
 type NatRuleMapOutput struct{ *pulumi.OutputState }
 
 func (NatRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NatRule)(nil))
+	return reflect.TypeOf((*map[string]*NatRule)(nil)).Elem()
 }
 
 func (o NatRuleMapOutput) ToNatRuleMapOutput() NatRuleMapOutput {
@@ -440,18 +377,16 @@ func (o NatRuleMapOutput) ToNatRuleMapOutputWithContext(ctx context.Context) Nat
 }
 
 func (o NatRuleMapOutput) MapIndex(k pulumi.StringInput) NatRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NatRule {
-		return vs[0].(map[string]NatRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NatRule {
+		return vs[0].(map[string]*NatRule)[vs[1].(string)]
 	}).(NatRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NatRuleInput)(nil)).Elem(), &NatRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NatRulePtrInput)(nil)).Elem(), &NatRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatRuleArrayInput)(nil)).Elem(), NatRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NatRuleMapInput)(nil)).Elem(), NatRuleMap{})
 	pulumi.RegisterOutputType(NatRuleOutput{})
-	pulumi.RegisterOutputType(NatRulePtrOutput{})
 	pulumi.RegisterOutputType(NatRuleArrayOutput{})
 	pulumi.RegisterOutputType(NatRuleMapOutput{})
 }

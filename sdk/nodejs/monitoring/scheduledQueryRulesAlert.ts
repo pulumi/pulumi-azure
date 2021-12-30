@@ -114,27 +114,27 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScheduledQueryRulesAlertArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduledQueryRulesAlertArgs | ScheduledQueryRulesAlertState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledQueryRulesAlertState | undefined;
-            inputs["action"] = state ? state.action : undefined;
-            inputs["authorizedResourceIds"] = state ? state.authorizedResourceIds : undefined;
-            inputs["autoMitigationEnabled"] = state ? state.autoMitigationEnabled : undefined;
-            inputs["dataSourceId"] = state ? state.dataSourceId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["frequency"] = state ? state.frequency : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["query"] = state ? state.query : undefined;
-            inputs["queryType"] = state ? state.queryType : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["severity"] = state ? state.severity : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["throttling"] = state ? state.throttling : undefined;
-            inputs["timeWindow"] = state ? state.timeWindow : undefined;
-            inputs["trigger"] = state ? state.trigger : undefined;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["authorizedResourceIds"] = state ? state.authorizedResourceIds : undefined;
+            resourceInputs["autoMitigationEnabled"] = state ? state.autoMitigationEnabled : undefined;
+            resourceInputs["dataSourceId"] = state ? state.dataSourceId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["query"] = state ? state.query : undefined;
+            resourceInputs["queryType"] = state ? state.queryType : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["severity"] = state ? state.severity : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["throttling"] = state ? state.throttling : undefined;
+            resourceInputs["timeWindow"] = state ? state.timeWindow : undefined;
+            resourceInputs["trigger"] = state ? state.trigger : undefined;
         } else {
             const args = argsOrState as ScheduledQueryRulesAlertArgs | undefined;
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -158,28 +158,28 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
             if ((!args || args.trigger === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trigger'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["authorizedResourceIds"] = args ? args.authorizedResourceIds : undefined;
-            inputs["autoMitigationEnabled"] = args ? args.autoMitigationEnabled : undefined;
-            inputs["dataSourceId"] = args ? args.dataSourceId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["query"] = args ? args.query : undefined;
-            inputs["queryType"] = args ? args.queryType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["throttling"] = args ? args.throttling : undefined;
-            inputs["timeWindow"] = args ? args.timeWindow : undefined;
-            inputs["trigger"] = args ? args.trigger : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["authorizedResourceIds"] = args ? args.authorizedResourceIds : undefined;
+            resourceInputs["autoMitigationEnabled"] = args ? args.autoMitigationEnabled : undefined;
+            resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["queryType"] = args ? args.queryType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throttling"] = args ? args.throttling : undefined;
+            resourceInputs["timeWindow"] = args ? args.timeWindow : undefined;
+            resourceInputs["trigger"] = args ? args.trigger : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ScheduledQueryRulesAlert.__pulumiType, name, inputs, opts);
+        super(ScheduledQueryRulesAlert.__pulumiType, name, resourceInputs, opts);
     }
 }
 

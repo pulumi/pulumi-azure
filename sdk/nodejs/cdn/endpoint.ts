@@ -128,29 +128,29 @@ export class Endpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            inputs["contentTypesToCompresses"] = state ? state.contentTypesToCompresses : undefined;
-            inputs["deliveryRules"] = state ? state.deliveryRules : undefined;
-            inputs["geoFilters"] = state ? state.geoFilters : undefined;
-            inputs["globalDeliveryRule"] = state ? state.globalDeliveryRule : undefined;
-            inputs["hostName"] = state ? state.hostName : undefined;
-            inputs["isCompressionEnabled"] = state ? state.isCompressionEnabled : undefined;
-            inputs["isHttpAllowed"] = state ? state.isHttpAllowed : undefined;
-            inputs["isHttpsAllowed"] = state ? state.isHttpsAllowed : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["optimizationType"] = state ? state.optimizationType : undefined;
-            inputs["originHostHeader"] = state ? state.originHostHeader : undefined;
-            inputs["originPath"] = state ? state.originPath : undefined;
-            inputs["origins"] = state ? state.origins : undefined;
-            inputs["probePath"] = state ? state.probePath : undefined;
-            inputs["profileName"] = state ? state.profileName : undefined;
-            inputs["querystringCachingBehaviour"] = state ? state.querystringCachingBehaviour : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["contentTypesToCompresses"] = state ? state.contentTypesToCompresses : undefined;
+            resourceInputs["deliveryRules"] = state ? state.deliveryRules : undefined;
+            resourceInputs["geoFilters"] = state ? state.geoFilters : undefined;
+            resourceInputs["globalDeliveryRule"] = state ? state.globalDeliveryRule : undefined;
+            resourceInputs["hostName"] = state ? state.hostName : undefined;
+            resourceInputs["isCompressionEnabled"] = state ? state.isCompressionEnabled : undefined;
+            resourceInputs["isHttpAllowed"] = state ? state.isHttpAllowed : undefined;
+            resourceInputs["isHttpsAllowed"] = state ? state.isHttpsAllowed : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["optimizationType"] = state ? state.optimizationType : undefined;
+            resourceInputs["originHostHeader"] = state ? state.originHostHeader : undefined;
+            resourceInputs["originPath"] = state ? state.originPath : undefined;
+            resourceInputs["origins"] = state ? state.origins : undefined;
+            resourceInputs["probePath"] = state ? state.probePath : undefined;
+            resourceInputs["profileName"] = state ? state.profileName : undefined;
+            resourceInputs["querystringCachingBehaviour"] = state ? state.querystringCachingBehaviour : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
             if ((!args || args.origins === undefined) && !opts.urn) {
@@ -162,30 +162,30 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["contentTypesToCompresses"] = args ? args.contentTypesToCompresses : undefined;
-            inputs["deliveryRules"] = args ? args.deliveryRules : undefined;
-            inputs["geoFilters"] = args ? args.geoFilters : undefined;
-            inputs["globalDeliveryRule"] = args ? args.globalDeliveryRule : undefined;
-            inputs["isCompressionEnabled"] = args ? args.isCompressionEnabled : undefined;
-            inputs["isHttpAllowed"] = args ? args.isHttpAllowed : undefined;
-            inputs["isHttpsAllowed"] = args ? args.isHttpsAllowed : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["optimizationType"] = args ? args.optimizationType : undefined;
-            inputs["originHostHeader"] = args ? args.originHostHeader : undefined;
-            inputs["originPath"] = args ? args.originPath : undefined;
-            inputs["origins"] = args ? args.origins : undefined;
-            inputs["probePath"] = args ? args.probePath : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["querystringCachingBehaviour"] = args ? args.querystringCachingBehaviour : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["hostName"] = undefined /*out*/;
+            resourceInputs["contentTypesToCompresses"] = args ? args.contentTypesToCompresses : undefined;
+            resourceInputs["deliveryRules"] = args ? args.deliveryRules : undefined;
+            resourceInputs["geoFilters"] = args ? args.geoFilters : undefined;
+            resourceInputs["globalDeliveryRule"] = args ? args.globalDeliveryRule : undefined;
+            resourceInputs["isCompressionEnabled"] = args ? args.isCompressionEnabled : undefined;
+            resourceInputs["isHttpAllowed"] = args ? args.isHttpAllowed : undefined;
+            resourceInputs["isHttpsAllowed"] = args ? args.isHttpsAllowed : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["optimizationType"] = args ? args.optimizationType : undefined;
+            resourceInputs["originHostHeader"] = args ? args.originHostHeader : undefined;
+            resourceInputs["originPath"] = args ? args.originPath : undefined;
+            resourceInputs["origins"] = args ? args.origins : undefined;
+            resourceInputs["probePath"] = args ? args.probePath : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["querystringCachingBehaviour"] = args ? args.querystringCachingBehaviour : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["hostName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Endpoint.__pulumiType, name, inputs, opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

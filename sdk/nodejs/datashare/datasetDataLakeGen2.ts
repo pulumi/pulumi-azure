@@ -34,9 +34,9 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleStorage / accountAccount.id});
- * const exampleServicePrincipal = exampleAccount.name.apply(name => azuread.getServicePrincipal({
- *     displayName: name,
- * }));
+ * const exampleServicePrincipal = azuread.getServicePrincipalOutput({
+ *     displayName: exampleAccount.name,
+ * });
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
  *     scope: exampleStorage / accountAccount.id,
  *     roleDefinitionName: "Storage Blob Data Reader",
@@ -126,17 +126,17 @@ export class DatasetDataLakeGen2 extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatasetDataLakeGen2Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatasetDataLakeGen2Args | DatasetDataLakeGen2State, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetDataLakeGen2State | undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["filePath"] = state ? state.filePath : undefined;
-            inputs["fileSystemName"] = state ? state.fileSystemName : undefined;
-            inputs["folderPath"] = state ? state.folderPath : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["shareId"] = state ? state.shareId : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["filePath"] = state ? state.filePath : undefined;
+            resourceInputs["fileSystemName"] = state ? state.fileSystemName : undefined;
+            resourceInputs["folderPath"] = state ? state.folderPath : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["shareId"] = state ? state.shareId : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as DatasetDataLakeGen2Args | undefined;
             if ((!args || args.fileSystemName === undefined) && !opts.urn) {
@@ -148,18 +148,18 @@ export class DatasetDataLakeGen2 extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            inputs["filePath"] = args ? args.filePath : undefined;
-            inputs["fileSystemName"] = args ? args.fileSystemName : undefined;
-            inputs["folderPath"] = args ? args.folderPath : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["shareId"] = args ? args.shareId : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["displayName"] = undefined /*out*/;
+            resourceInputs["filePath"] = args ? args.filePath : undefined;
+            resourceInputs["fileSystemName"] = args ? args.fileSystemName : undefined;
+            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["shareId"] = args ? args.shareId : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["displayName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DatasetDataLakeGen2.__pulumiType, name, inputs, opts);
+        super(DatasetDataLakeGen2.__pulumiType, name, resourceInputs, opts);
     }
 }
 

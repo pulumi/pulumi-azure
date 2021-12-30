@@ -188,62 +188,62 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     constructor(name: string, args: FlexibleServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FlexibleServerArgs | FlexibleServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleServerState | undefined;
-            inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
-            inputs["administratorPassword"] = state ? state.administratorPassword : undefined;
-            inputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
-            inputs["cmkEnabled"] = state ? state.cmkEnabled : undefined;
-            inputs["createMode"] = state ? state.createMode : undefined;
-            inputs["delegatedSubnetId"] = state ? state.delegatedSubnetId : undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["highAvailability"] = state ? state.highAvailability : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pointInTimeRestoreTimeInUtc"] = state ? state.pointInTimeRestoreTimeInUtc : undefined;
-            inputs["privateDnsZoneId"] = state ? state.privateDnsZoneId : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["sourceServerId"] = state ? state.sourceServerId : undefined;
-            inputs["storageMb"] = state ? state.storageMb : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
+            resourceInputs["administratorPassword"] = state ? state.administratorPassword : undefined;
+            resourceInputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
+            resourceInputs["cmkEnabled"] = state ? state.cmkEnabled : undefined;
+            resourceInputs["createMode"] = state ? state.createMode : undefined;
+            resourceInputs["delegatedSubnetId"] = state ? state.delegatedSubnetId : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["highAvailability"] = state ? state.highAvailability : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pointInTimeRestoreTimeInUtc"] = state ? state.pointInTimeRestoreTimeInUtc : undefined;
+            resourceInputs["privateDnsZoneId"] = state ? state.privateDnsZoneId : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["sourceServerId"] = state ? state.sourceServerId : undefined;
+            resourceInputs["storageMb"] = state ? state.storageMb : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as FlexibleServerArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            inputs["administratorPassword"] = args ? args.administratorPassword : undefined;
-            inputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
-            inputs["createMode"] = args ? args.createMode : undefined;
-            inputs["delegatedSubnetId"] = args ? args.delegatedSubnetId : undefined;
-            inputs["highAvailability"] = args ? args.highAvailability : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pointInTimeRestoreTimeInUtc"] = args ? args.pointInTimeRestoreTimeInUtc : undefined;
-            inputs["privateDnsZoneId"] = args ? args.privateDnsZoneId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["sourceServerId"] = args ? args.sourceServerId : undefined;
-            inputs["storageMb"] = args ? args.storageMb : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["zone"] = args ? args.zone : undefined;
-            inputs["cmkEnabled"] = undefined /*out*/;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["publicNetworkAccessEnabled"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorPassword"] = args ? args.administratorPassword : undefined;
+            resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["delegatedSubnetId"] = args ? args.delegatedSubnetId : undefined;
+            resourceInputs["highAvailability"] = args ? args.highAvailability : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pointInTimeRestoreTimeInUtc"] = args ? args.pointInTimeRestoreTimeInUtc : undefined;
+            resourceInputs["privateDnsZoneId"] = args ? args.privateDnsZoneId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["sourceServerId"] = args ? args.sourceServerId : undefined;
+            resourceInputs["storageMb"] = args ? args.storageMb : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["cmkEnabled"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccessEnabled"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FlexibleServer.__pulumiType, name, inputs, opts);
+        super(FlexibleServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

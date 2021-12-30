@@ -116,7 +116,7 @@ type CustomHttpsConfigurationInput interface {
 }
 
 func (*CustomHttpsConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomHttpsConfiguration)(nil))
+	return reflect.TypeOf((**CustomHttpsConfiguration)(nil)).Elem()
 }
 
 func (i *CustomHttpsConfiguration) ToCustomHttpsConfigurationOutput() CustomHttpsConfigurationOutput {
@@ -125,35 +125,6 @@ func (i *CustomHttpsConfiguration) ToCustomHttpsConfigurationOutput() CustomHttp
 
 func (i *CustomHttpsConfiguration) ToCustomHttpsConfigurationOutputWithContext(ctx context.Context) CustomHttpsConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationOutput)
-}
-
-func (i *CustomHttpsConfiguration) ToCustomHttpsConfigurationPtrOutput() CustomHttpsConfigurationPtrOutput {
-	return i.ToCustomHttpsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *CustomHttpsConfiguration) ToCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationPtrOutput)
-}
-
-type CustomHttpsConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToCustomHttpsConfigurationPtrOutput() CustomHttpsConfigurationPtrOutput
-	ToCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationPtrOutput
-}
-
-type customHttpsConfigurationPtrType CustomHttpsConfigurationArgs
-
-func (*customHttpsConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomHttpsConfiguration)(nil))
-}
-
-func (i *customHttpsConfigurationPtrType) ToCustomHttpsConfigurationPtrOutput() CustomHttpsConfigurationPtrOutput {
-	return i.ToCustomHttpsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *customHttpsConfigurationPtrType) ToCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationPtrOutput)
 }
 
 // CustomHttpsConfigurationArrayInput is an input type that accepts CustomHttpsConfigurationArray and CustomHttpsConfigurationArrayOutput values.
@@ -209,7 +180,7 @@ func (i CustomHttpsConfigurationMap) ToCustomHttpsConfigurationMapOutputWithCont
 type CustomHttpsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CustomHttpsConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomHttpsConfiguration)(nil))
+	return reflect.TypeOf((**CustomHttpsConfiguration)(nil)).Elem()
 }
 
 func (o CustomHttpsConfigurationOutput) ToCustomHttpsConfigurationOutput() CustomHttpsConfigurationOutput {
@@ -220,44 +191,10 @@ func (o CustomHttpsConfigurationOutput) ToCustomHttpsConfigurationOutputWithCont
 	return o
 }
 
-func (o CustomHttpsConfigurationOutput) ToCustomHttpsConfigurationPtrOutput() CustomHttpsConfigurationPtrOutput {
-	return o.ToCustomHttpsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o CustomHttpsConfigurationOutput) ToCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomHttpsConfiguration) *CustomHttpsConfiguration {
-		return &v
-	}).(CustomHttpsConfigurationPtrOutput)
-}
-
-type CustomHttpsConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomHttpsConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomHttpsConfiguration)(nil))
-}
-
-func (o CustomHttpsConfigurationPtrOutput) ToCustomHttpsConfigurationPtrOutput() CustomHttpsConfigurationPtrOutput {
-	return o
-}
-
-func (o CustomHttpsConfigurationPtrOutput) ToCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationPtrOutput {
-	return o
-}
-
-func (o CustomHttpsConfigurationPtrOutput) Elem() CustomHttpsConfigurationOutput {
-	return o.ApplyT(func(v *CustomHttpsConfiguration) CustomHttpsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret CustomHttpsConfiguration
-		return ret
-	}).(CustomHttpsConfigurationOutput)
-}
-
 type CustomHttpsConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (CustomHttpsConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomHttpsConfiguration)(nil))
+	return reflect.TypeOf((*[]*CustomHttpsConfiguration)(nil)).Elem()
 }
 
 func (o CustomHttpsConfigurationArrayOutput) ToCustomHttpsConfigurationArrayOutput() CustomHttpsConfigurationArrayOutput {
@@ -269,15 +206,15 @@ func (o CustomHttpsConfigurationArrayOutput) ToCustomHttpsConfigurationArrayOutp
 }
 
 func (o CustomHttpsConfigurationArrayOutput) Index(i pulumi.IntInput) CustomHttpsConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomHttpsConfiguration {
-		return vs[0].([]CustomHttpsConfiguration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomHttpsConfiguration {
+		return vs[0].([]*CustomHttpsConfiguration)[vs[1].(int)]
 	}).(CustomHttpsConfigurationOutput)
 }
 
 type CustomHttpsConfigurationMapOutput struct{ *pulumi.OutputState }
 
 func (CustomHttpsConfigurationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CustomHttpsConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*CustomHttpsConfiguration)(nil)).Elem()
 }
 
 func (o CustomHttpsConfigurationMapOutput) ToCustomHttpsConfigurationMapOutput() CustomHttpsConfigurationMapOutput {
@@ -289,18 +226,16 @@ func (o CustomHttpsConfigurationMapOutput) ToCustomHttpsConfigurationMapOutputWi
 }
 
 func (o CustomHttpsConfigurationMapOutput) MapIndex(k pulumi.StringInput) CustomHttpsConfigurationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CustomHttpsConfiguration {
-		return vs[0].(map[string]CustomHttpsConfiguration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CustomHttpsConfiguration {
+		return vs[0].(map[string]*CustomHttpsConfiguration)[vs[1].(string)]
 	}).(CustomHttpsConfigurationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomHttpsConfigurationInput)(nil)).Elem(), &CustomHttpsConfiguration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomHttpsConfigurationPtrInput)(nil)).Elem(), &CustomHttpsConfiguration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomHttpsConfigurationArrayInput)(nil)).Elem(), CustomHttpsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomHttpsConfigurationMapInput)(nil)).Elem(), CustomHttpsConfigurationMap{})
 	pulumi.RegisterOutputType(CustomHttpsConfigurationOutput{})
-	pulumi.RegisterOutputType(CustomHttpsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CustomHttpsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(CustomHttpsConfigurationMapOutput{})
 }

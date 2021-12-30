@@ -193,7 +193,7 @@ type DefinitionInput interface {
 }
 
 func (*Definition) ElementType() reflect.Type {
-	return reflect.TypeOf((*Definition)(nil))
+	return reflect.TypeOf((**Definition)(nil)).Elem()
 }
 
 func (i *Definition) ToDefinitionOutput() DefinitionOutput {
@@ -202,35 +202,6 @@ func (i *Definition) ToDefinitionOutput() DefinitionOutput {
 
 func (i *Definition) ToDefinitionOutputWithContext(ctx context.Context) DefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionOutput)
-}
-
-func (i *Definition) ToDefinitionPtrOutput() DefinitionPtrOutput {
-	return i.ToDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *Definition) ToDefinitionPtrOutputWithContext(ctx context.Context) DefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPtrOutput)
-}
-
-type DefinitionPtrInput interface {
-	pulumi.Input
-
-	ToDefinitionPtrOutput() DefinitionPtrOutput
-	ToDefinitionPtrOutputWithContext(ctx context.Context) DefinitionPtrOutput
-}
-
-type definitionPtrType DefinitionArgs
-
-func (*definitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Definition)(nil))
-}
-
-func (i *definitionPtrType) ToDefinitionPtrOutput() DefinitionPtrOutput {
-	return i.ToDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *definitionPtrType) ToDefinitionPtrOutputWithContext(ctx context.Context) DefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPtrOutput)
 }
 
 // DefinitionArrayInput is an input type that accepts DefinitionArray and DefinitionArrayOutput values.
@@ -286,7 +257,7 @@ func (i DefinitionMap) ToDefinitionMapOutputWithContext(ctx context.Context) Def
 type DefinitionOutput struct{ *pulumi.OutputState }
 
 func (DefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Definition)(nil))
+	return reflect.TypeOf((**Definition)(nil)).Elem()
 }
 
 func (o DefinitionOutput) ToDefinitionOutput() DefinitionOutput {
@@ -297,44 +268,10 @@ func (o DefinitionOutput) ToDefinitionOutputWithContext(ctx context.Context) Def
 	return o
 }
 
-func (o DefinitionOutput) ToDefinitionPtrOutput() DefinitionPtrOutput {
-	return o.ToDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o DefinitionOutput) ToDefinitionPtrOutputWithContext(ctx context.Context) DefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Definition) *Definition {
-		return &v
-	}).(DefinitionPtrOutput)
-}
-
-type DefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (DefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Definition)(nil))
-}
-
-func (o DefinitionPtrOutput) ToDefinitionPtrOutput() DefinitionPtrOutput {
-	return o
-}
-
-func (o DefinitionPtrOutput) ToDefinitionPtrOutputWithContext(ctx context.Context) DefinitionPtrOutput {
-	return o
-}
-
-func (o DefinitionPtrOutput) Elem() DefinitionOutput {
-	return o.ApplyT(func(v *Definition) Definition {
-		if v != nil {
-			return *v
-		}
-		var ret Definition
-		return ret
-	}).(DefinitionOutput)
-}
-
 type DefinitionArrayOutput struct{ *pulumi.OutputState }
 
 func (DefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Definition)(nil))
+	return reflect.TypeOf((*[]*Definition)(nil)).Elem()
 }
 
 func (o DefinitionArrayOutput) ToDefinitionArrayOutput() DefinitionArrayOutput {
@@ -346,15 +283,15 @@ func (o DefinitionArrayOutput) ToDefinitionArrayOutputWithContext(ctx context.Co
 }
 
 func (o DefinitionArrayOutput) Index(i pulumi.IntInput) DefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Definition {
-		return vs[0].([]Definition)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Definition {
+		return vs[0].([]*Definition)[vs[1].(int)]
 	}).(DefinitionOutput)
 }
 
 type DefinitionMapOutput struct{ *pulumi.OutputState }
 
 func (DefinitionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Definition)(nil))
+	return reflect.TypeOf((*map[string]*Definition)(nil)).Elem()
 }
 
 func (o DefinitionMapOutput) ToDefinitionMapOutput() DefinitionMapOutput {
@@ -366,18 +303,16 @@ func (o DefinitionMapOutput) ToDefinitionMapOutputWithContext(ctx context.Contex
 }
 
 func (o DefinitionMapOutput) MapIndex(k pulumi.StringInput) DefinitionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Definition {
-		return vs[0].(map[string]Definition)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Definition {
+		return vs[0].(map[string]*Definition)[vs[1].(string)]
 	}).(DefinitionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionInput)(nil)).Elem(), &Definition{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionPtrInput)(nil)).Elem(), &Definition{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionArrayInput)(nil)).Elem(), DefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionMapInput)(nil)).Elem(), DefinitionMap{})
 	pulumi.RegisterOutputType(DefinitionOutput{})
-	pulumi.RegisterOutputType(DefinitionPtrOutput{})
 	pulumi.RegisterOutputType(DefinitionArrayOutput{})
 	pulumi.RegisterOutputType(DefinitionMapOutput{})
 }

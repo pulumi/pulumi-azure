@@ -179,7 +179,7 @@ type ChannelWebChatInput interface {
 }
 
 func (*ChannelWebChat) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelWebChat)(nil))
+	return reflect.TypeOf((**ChannelWebChat)(nil)).Elem()
 }
 
 func (i *ChannelWebChat) ToChannelWebChatOutput() ChannelWebChatOutput {
@@ -188,35 +188,6 @@ func (i *ChannelWebChat) ToChannelWebChatOutput() ChannelWebChatOutput {
 
 func (i *ChannelWebChat) ToChannelWebChatOutputWithContext(ctx context.Context) ChannelWebChatOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelWebChatOutput)
-}
-
-func (i *ChannelWebChat) ToChannelWebChatPtrOutput() ChannelWebChatPtrOutput {
-	return i.ToChannelWebChatPtrOutputWithContext(context.Background())
-}
-
-func (i *ChannelWebChat) ToChannelWebChatPtrOutputWithContext(ctx context.Context) ChannelWebChatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelWebChatPtrOutput)
-}
-
-type ChannelWebChatPtrInput interface {
-	pulumi.Input
-
-	ToChannelWebChatPtrOutput() ChannelWebChatPtrOutput
-	ToChannelWebChatPtrOutputWithContext(ctx context.Context) ChannelWebChatPtrOutput
-}
-
-type channelWebChatPtrType ChannelWebChatArgs
-
-func (*channelWebChatPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelWebChat)(nil))
-}
-
-func (i *channelWebChatPtrType) ToChannelWebChatPtrOutput() ChannelWebChatPtrOutput {
-	return i.ToChannelWebChatPtrOutputWithContext(context.Background())
-}
-
-func (i *channelWebChatPtrType) ToChannelWebChatPtrOutputWithContext(ctx context.Context) ChannelWebChatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelWebChatPtrOutput)
 }
 
 // ChannelWebChatArrayInput is an input type that accepts ChannelWebChatArray and ChannelWebChatArrayOutput values.
@@ -272,7 +243,7 @@ func (i ChannelWebChatMap) ToChannelWebChatMapOutputWithContext(ctx context.Cont
 type ChannelWebChatOutput struct{ *pulumi.OutputState }
 
 func (ChannelWebChatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelWebChat)(nil))
+	return reflect.TypeOf((**ChannelWebChat)(nil)).Elem()
 }
 
 func (o ChannelWebChatOutput) ToChannelWebChatOutput() ChannelWebChatOutput {
@@ -283,44 +254,10 @@ func (o ChannelWebChatOutput) ToChannelWebChatOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ChannelWebChatOutput) ToChannelWebChatPtrOutput() ChannelWebChatPtrOutput {
-	return o.ToChannelWebChatPtrOutputWithContext(context.Background())
-}
-
-func (o ChannelWebChatOutput) ToChannelWebChatPtrOutputWithContext(ctx context.Context) ChannelWebChatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelWebChat) *ChannelWebChat {
-		return &v
-	}).(ChannelWebChatPtrOutput)
-}
-
-type ChannelWebChatPtrOutput struct{ *pulumi.OutputState }
-
-func (ChannelWebChatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelWebChat)(nil))
-}
-
-func (o ChannelWebChatPtrOutput) ToChannelWebChatPtrOutput() ChannelWebChatPtrOutput {
-	return o
-}
-
-func (o ChannelWebChatPtrOutput) ToChannelWebChatPtrOutputWithContext(ctx context.Context) ChannelWebChatPtrOutput {
-	return o
-}
-
-func (o ChannelWebChatPtrOutput) Elem() ChannelWebChatOutput {
-	return o.ApplyT(func(v *ChannelWebChat) ChannelWebChat {
-		if v != nil {
-			return *v
-		}
-		var ret ChannelWebChat
-		return ret
-	}).(ChannelWebChatOutput)
-}
-
 type ChannelWebChatArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelWebChatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelWebChat)(nil))
+	return reflect.TypeOf((*[]*ChannelWebChat)(nil)).Elem()
 }
 
 func (o ChannelWebChatArrayOutput) ToChannelWebChatArrayOutput() ChannelWebChatArrayOutput {
@@ -332,15 +269,15 @@ func (o ChannelWebChatArrayOutput) ToChannelWebChatArrayOutputWithContext(ctx co
 }
 
 func (o ChannelWebChatArrayOutput) Index(i pulumi.IntInput) ChannelWebChatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelWebChat {
-		return vs[0].([]ChannelWebChat)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelWebChat {
+		return vs[0].([]*ChannelWebChat)[vs[1].(int)]
 	}).(ChannelWebChatOutput)
 }
 
 type ChannelWebChatMapOutput struct{ *pulumi.OutputState }
 
 func (ChannelWebChatMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ChannelWebChat)(nil))
+	return reflect.TypeOf((*map[string]*ChannelWebChat)(nil)).Elem()
 }
 
 func (o ChannelWebChatMapOutput) ToChannelWebChatMapOutput() ChannelWebChatMapOutput {
@@ -352,18 +289,16 @@ func (o ChannelWebChatMapOutput) ToChannelWebChatMapOutputWithContext(ctx contex
 }
 
 func (o ChannelWebChatMapOutput) MapIndex(k pulumi.StringInput) ChannelWebChatOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ChannelWebChat {
-		return vs[0].(map[string]ChannelWebChat)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ChannelWebChat {
+		return vs[0].(map[string]*ChannelWebChat)[vs[1].(string)]
 	}).(ChannelWebChatOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelWebChatInput)(nil)).Elem(), &ChannelWebChat{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelWebChatPtrInput)(nil)).Elem(), &ChannelWebChat{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelWebChatArrayInput)(nil)).Elem(), ChannelWebChatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelWebChatMapInput)(nil)).Elem(), ChannelWebChatMap{})
 	pulumi.RegisterOutputType(ChannelWebChatOutput{})
-	pulumi.RegisterOutputType(ChannelWebChatPtrOutput{})
 	pulumi.RegisterOutputType(ChannelWebChatArrayOutput{})
 	pulumi.RegisterOutputType(ChannelWebChatMapOutput{})
 }

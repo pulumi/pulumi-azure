@@ -200,7 +200,7 @@ type SpringCloudAppRedisAssociationInput interface {
 }
 
 func (*SpringCloudAppRedisAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudAppRedisAssociation)(nil))
+	return reflect.TypeOf((**SpringCloudAppRedisAssociation)(nil)).Elem()
 }
 
 func (i *SpringCloudAppRedisAssociation) ToSpringCloudAppRedisAssociationOutput() SpringCloudAppRedisAssociationOutput {
@@ -209,35 +209,6 @@ func (i *SpringCloudAppRedisAssociation) ToSpringCloudAppRedisAssociationOutput(
 
 func (i *SpringCloudAppRedisAssociation) ToSpringCloudAppRedisAssociationOutputWithContext(ctx context.Context) SpringCloudAppRedisAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppRedisAssociationOutput)
-}
-
-func (i *SpringCloudAppRedisAssociation) ToSpringCloudAppRedisAssociationPtrOutput() SpringCloudAppRedisAssociationPtrOutput {
-	return i.ToSpringCloudAppRedisAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *SpringCloudAppRedisAssociation) ToSpringCloudAppRedisAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppRedisAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppRedisAssociationPtrOutput)
-}
-
-type SpringCloudAppRedisAssociationPtrInput interface {
-	pulumi.Input
-
-	ToSpringCloudAppRedisAssociationPtrOutput() SpringCloudAppRedisAssociationPtrOutput
-	ToSpringCloudAppRedisAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppRedisAssociationPtrOutput
-}
-
-type springCloudAppRedisAssociationPtrType SpringCloudAppRedisAssociationArgs
-
-func (*springCloudAppRedisAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudAppRedisAssociation)(nil))
-}
-
-func (i *springCloudAppRedisAssociationPtrType) ToSpringCloudAppRedisAssociationPtrOutput() SpringCloudAppRedisAssociationPtrOutput {
-	return i.ToSpringCloudAppRedisAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *springCloudAppRedisAssociationPtrType) ToSpringCloudAppRedisAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppRedisAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppRedisAssociationPtrOutput)
 }
 
 // SpringCloudAppRedisAssociationArrayInput is an input type that accepts SpringCloudAppRedisAssociationArray and SpringCloudAppRedisAssociationArrayOutput values.
@@ -293,7 +264,7 @@ func (i SpringCloudAppRedisAssociationMap) ToSpringCloudAppRedisAssociationMapOu
 type SpringCloudAppRedisAssociationOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppRedisAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudAppRedisAssociation)(nil))
+	return reflect.TypeOf((**SpringCloudAppRedisAssociation)(nil)).Elem()
 }
 
 func (o SpringCloudAppRedisAssociationOutput) ToSpringCloudAppRedisAssociationOutput() SpringCloudAppRedisAssociationOutput {
@@ -304,44 +275,10 @@ func (o SpringCloudAppRedisAssociationOutput) ToSpringCloudAppRedisAssociationOu
 	return o
 }
 
-func (o SpringCloudAppRedisAssociationOutput) ToSpringCloudAppRedisAssociationPtrOutput() SpringCloudAppRedisAssociationPtrOutput {
-	return o.ToSpringCloudAppRedisAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o SpringCloudAppRedisAssociationOutput) ToSpringCloudAppRedisAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppRedisAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudAppRedisAssociation) *SpringCloudAppRedisAssociation {
-		return &v
-	}).(SpringCloudAppRedisAssociationPtrOutput)
-}
-
-type SpringCloudAppRedisAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (SpringCloudAppRedisAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudAppRedisAssociation)(nil))
-}
-
-func (o SpringCloudAppRedisAssociationPtrOutput) ToSpringCloudAppRedisAssociationPtrOutput() SpringCloudAppRedisAssociationPtrOutput {
-	return o
-}
-
-func (o SpringCloudAppRedisAssociationPtrOutput) ToSpringCloudAppRedisAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppRedisAssociationPtrOutput {
-	return o
-}
-
-func (o SpringCloudAppRedisAssociationPtrOutput) Elem() SpringCloudAppRedisAssociationOutput {
-	return o.ApplyT(func(v *SpringCloudAppRedisAssociation) SpringCloudAppRedisAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret SpringCloudAppRedisAssociation
-		return ret
-	}).(SpringCloudAppRedisAssociationOutput)
-}
-
 type SpringCloudAppRedisAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppRedisAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpringCloudAppRedisAssociation)(nil))
+	return reflect.TypeOf((*[]*SpringCloudAppRedisAssociation)(nil)).Elem()
 }
 
 func (o SpringCloudAppRedisAssociationArrayOutput) ToSpringCloudAppRedisAssociationArrayOutput() SpringCloudAppRedisAssociationArrayOutput {
@@ -353,15 +290,15 @@ func (o SpringCloudAppRedisAssociationArrayOutput) ToSpringCloudAppRedisAssociat
 }
 
 func (o SpringCloudAppRedisAssociationArrayOutput) Index(i pulumi.IntInput) SpringCloudAppRedisAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudAppRedisAssociation {
-		return vs[0].([]SpringCloudAppRedisAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudAppRedisAssociation {
+		return vs[0].([]*SpringCloudAppRedisAssociation)[vs[1].(int)]
 	}).(SpringCloudAppRedisAssociationOutput)
 }
 
 type SpringCloudAppRedisAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppRedisAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SpringCloudAppRedisAssociation)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudAppRedisAssociation)(nil)).Elem()
 }
 
 func (o SpringCloudAppRedisAssociationMapOutput) ToSpringCloudAppRedisAssociationMapOutput() SpringCloudAppRedisAssociationMapOutput {
@@ -373,18 +310,16 @@ func (o SpringCloudAppRedisAssociationMapOutput) ToSpringCloudAppRedisAssociatio
 }
 
 func (o SpringCloudAppRedisAssociationMapOutput) MapIndex(k pulumi.StringInput) SpringCloudAppRedisAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpringCloudAppRedisAssociation {
-		return vs[0].(map[string]SpringCloudAppRedisAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SpringCloudAppRedisAssociation {
+		return vs[0].(map[string]*SpringCloudAppRedisAssociation)[vs[1].(string)]
 	}).(SpringCloudAppRedisAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppRedisAssociationInput)(nil)).Elem(), &SpringCloudAppRedisAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppRedisAssociationPtrInput)(nil)).Elem(), &SpringCloudAppRedisAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppRedisAssociationArrayInput)(nil)).Elem(), SpringCloudAppRedisAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppRedisAssociationMapInput)(nil)).Elem(), SpringCloudAppRedisAssociationMap{})
 	pulumi.RegisterOutputType(SpringCloudAppRedisAssociationOutput{})
-	pulumi.RegisterOutputType(SpringCloudAppRedisAssociationPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppRedisAssociationArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppRedisAssociationMapOutput{})
 }

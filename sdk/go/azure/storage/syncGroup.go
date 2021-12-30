@@ -142,7 +142,7 @@ type SyncGroupInput interface {
 }
 
 func (*SyncGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncGroup)(nil))
+	return reflect.TypeOf((**SyncGroup)(nil)).Elem()
 }
 
 func (i *SyncGroup) ToSyncGroupOutput() SyncGroupOutput {
@@ -151,35 +151,6 @@ func (i *SyncGroup) ToSyncGroupOutput() SyncGroupOutput {
 
 func (i *SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupOutput)
-}
-
-func (i *SyncGroup) ToSyncGroupPtrOutput() SyncGroupPtrOutput {
-	return i.ToSyncGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *SyncGroup) ToSyncGroupPtrOutputWithContext(ctx context.Context) SyncGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupPtrOutput)
-}
-
-type SyncGroupPtrInput interface {
-	pulumi.Input
-
-	ToSyncGroupPtrOutput() SyncGroupPtrOutput
-	ToSyncGroupPtrOutputWithContext(ctx context.Context) SyncGroupPtrOutput
-}
-
-type syncGroupPtrType SyncGroupArgs
-
-func (*syncGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SyncGroup)(nil))
-}
-
-func (i *syncGroupPtrType) ToSyncGroupPtrOutput() SyncGroupPtrOutput {
-	return i.ToSyncGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *syncGroupPtrType) ToSyncGroupPtrOutputWithContext(ctx context.Context) SyncGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupPtrOutput)
 }
 
 // SyncGroupArrayInput is an input type that accepts SyncGroupArray and SyncGroupArrayOutput values.
@@ -235,7 +206,7 @@ func (i SyncGroupMap) ToSyncGroupMapOutputWithContext(ctx context.Context) SyncG
 type SyncGroupOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncGroup)(nil))
+	return reflect.TypeOf((**SyncGroup)(nil)).Elem()
 }
 
 func (o SyncGroupOutput) ToSyncGroupOutput() SyncGroupOutput {
@@ -246,44 +217,10 @@ func (o SyncGroupOutput) ToSyncGroupOutputWithContext(ctx context.Context) SyncG
 	return o
 }
 
-func (o SyncGroupOutput) ToSyncGroupPtrOutput() SyncGroupPtrOutput {
-	return o.ToSyncGroupPtrOutputWithContext(context.Background())
-}
-
-func (o SyncGroupOutput) ToSyncGroupPtrOutputWithContext(ctx context.Context) SyncGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncGroup) *SyncGroup {
-		return &v
-	}).(SyncGroupPtrOutput)
-}
-
-type SyncGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (SyncGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SyncGroup)(nil))
-}
-
-func (o SyncGroupPtrOutput) ToSyncGroupPtrOutput() SyncGroupPtrOutput {
-	return o
-}
-
-func (o SyncGroupPtrOutput) ToSyncGroupPtrOutputWithContext(ctx context.Context) SyncGroupPtrOutput {
-	return o
-}
-
-func (o SyncGroupPtrOutput) Elem() SyncGroupOutput {
-	return o.ApplyT(func(v *SyncGroup) SyncGroup {
-		if v != nil {
-			return *v
-		}
-		var ret SyncGroup
-		return ret
-	}).(SyncGroupOutput)
-}
-
 type SyncGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SyncGroup)(nil))
+	return reflect.TypeOf((*[]*SyncGroup)(nil)).Elem()
 }
 
 func (o SyncGroupArrayOutput) ToSyncGroupArrayOutput() SyncGroupArrayOutput {
@@ -295,15 +232,15 @@ func (o SyncGroupArrayOutput) ToSyncGroupArrayOutputWithContext(ctx context.Cont
 }
 
 func (o SyncGroupArrayOutput) Index(i pulumi.IntInput) SyncGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyncGroup {
-		return vs[0].([]SyncGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SyncGroup {
+		return vs[0].([]*SyncGroup)[vs[1].(int)]
 	}).(SyncGroupOutput)
 }
 
 type SyncGroupMapOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SyncGroup)(nil))
+	return reflect.TypeOf((*map[string]*SyncGroup)(nil)).Elem()
 }
 
 func (o SyncGroupMapOutput) ToSyncGroupMapOutput() SyncGroupMapOutput {
@@ -315,18 +252,16 @@ func (o SyncGroupMapOutput) ToSyncGroupMapOutputWithContext(ctx context.Context)
 }
 
 func (o SyncGroupMapOutput) MapIndex(k pulumi.StringInput) SyncGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SyncGroup {
-		return vs[0].(map[string]SyncGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SyncGroup {
+		return vs[0].(map[string]*SyncGroup)[vs[1].(string)]
 	}).(SyncGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SyncGroupInput)(nil)).Elem(), &SyncGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SyncGroupPtrInput)(nil)).Elem(), &SyncGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyncGroupArrayInput)(nil)).Elem(), SyncGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyncGroupMapInput)(nil)).Elem(), SyncGroupMap{})
 	pulumi.RegisterOutputType(SyncGroupOutput{})
-	pulumi.RegisterOutputType(SyncGroupPtrOutput{})
 	pulumi.RegisterOutputType(SyncGroupArrayOutput{})
 	pulumi.RegisterOutputType(SyncGroupMapOutput{})
 }

@@ -245,47 +245,6 @@ func (i ComputeClusterScaleSettingsArgs) ToComputeClusterScaleSettingsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterScaleSettingsOutput)
 }
 
-func (i ComputeClusterScaleSettingsArgs) ToComputeClusterScaleSettingsPtrOutput() ComputeClusterScaleSettingsPtrOutput {
-	return i.ToComputeClusterScaleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i ComputeClusterScaleSettingsArgs) ToComputeClusterScaleSettingsPtrOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterScaleSettingsOutput).ToComputeClusterScaleSettingsPtrOutputWithContext(ctx)
-}
-
-// ComputeClusterScaleSettingsPtrInput is an input type that accepts ComputeClusterScaleSettingsArgs, ComputeClusterScaleSettingsPtr and ComputeClusterScaleSettingsPtrOutput values.
-// You can construct a concrete instance of `ComputeClusterScaleSettingsPtrInput` via:
-//
-//          ComputeClusterScaleSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type ComputeClusterScaleSettingsPtrInput interface {
-	pulumi.Input
-
-	ToComputeClusterScaleSettingsPtrOutput() ComputeClusterScaleSettingsPtrOutput
-	ToComputeClusterScaleSettingsPtrOutputWithContext(context.Context) ComputeClusterScaleSettingsPtrOutput
-}
-
-type computeClusterScaleSettingsPtrType ComputeClusterScaleSettingsArgs
-
-func ComputeClusterScaleSettingsPtr(v *ComputeClusterScaleSettingsArgs) ComputeClusterScaleSettingsPtrInput {
-	return (*computeClusterScaleSettingsPtrType)(v)
-}
-
-func (*computeClusterScaleSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeClusterScaleSettings)(nil)).Elem()
-}
-
-func (i *computeClusterScaleSettingsPtrType) ToComputeClusterScaleSettingsPtrOutput() ComputeClusterScaleSettingsPtrOutput {
-	return i.ToComputeClusterScaleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *computeClusterScaleSettingsPtrType) ToComputeClusterScaleSettingsPtrOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputeClusterScaleSettingsPtrOutput)
-}
-
 type ComputeClusterScaleSettingsOutput struct{ *pulumi.OutputState }
 
 func (ComputeClusterScaleSettingsOutput) ElementType() reflect.Type {
@@ -298,16 +257,6 @@ func (o ComputeClusterScaleSettingsOutput) ToComputeClusterScaleSettingsOutput()
 
 func (o ComputeClusterScaleSettingsOutput) ToComputeClusterScaleSettingsOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsOutput {
 	return o
-}
-
-func (o ComputeClusterScaleSettingsOutput) ToComputeClusterScaleSettingsPtrOutput() ComputeClusterScaleSettingsPtrOutput {
-	return o.ToComputeClusterScaleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o ComputeClusterScaleSettingsOutput) ToComputeClusterScaleSettingsPtrOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeClusterScaleSettings) *ComputeClusterScaleSettings {
-		return &v
-	}).(ComputeClusterScaleSettingsPtrOutput)
 }
 
 // Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -323,60 +272,6 @@ func (o ComputeClusterScaleSettingsOutput) MinNodeCount() pulumi.IntOutput {
 // Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
 func (o ComputeClusterScaleSettingsOutput) ScaleDownNodesAfterIdleDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeClusterScaleSettings) string { return v.ScaleDownNodesAfterIdleDuration }).(pulumi.StringOutput)
-}
-
-type ComputeClusterScaleSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (ComputeClusterScaleSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComputeClusterScaleSettings)(nil)).Elem()
-}
-
-func (o ComputeClusterScaleSettingsPtrOutput) ToComputeClusterScaleSettingsPtrOutput() ComputeClusterScaleSettingsPtrOutput {
-	return o
-}
-
-func (o ComputeClusterScaleSettingsPtrOutput) ToComputeClusterScaleSettingsPtrOutputWithContext(ctx context.Context) ComputeClusterScaleSettingsPtrOutput {
-	return o
-}
-
-func (o ComputeClusterScaleSettingsPtrOutput) Elem() ComputeClusterScaleSettingsOutput {
-	return o.ApplyT(func(v *ComputeClusterScaleSettings) ComputeClusterScaleSettings {
-		if v != nil {
-			return *v
-		}
-		var ret ComputeClusterScaleSettings
-		return ret
-	}).(ComputeClusterScaleSettingsOutput)
-}
-
-// Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
-func (o ComputeClusterScaleSettingsPtrOutput) MaxNodeCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ComputeClusterScaleSettings) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxNodeCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
-func (o ComputeClusterScaleSettingsPtrOutput) MinNodeCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ComputeClusterScaleSettings) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MinNodeCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
-func (o ComputeClusterScaleSettingsPtrOutput) ScaleDownNodesAfterIdleDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComputeClusterScaleSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ScaleDownNodesAfterIdleDuration
-	}).(pulumi.StringPtrOutput)
 }
 
 type ComputeClusterSsh struct {
@@ -1877,47 +1772,6 @@ func (i WorkspaceIdentityArgs) ToWorkspaceIdentityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdentityOutput)
 }
 
-func (i WorkspaceIdentityArgs) ToWorkspaceIdentityPtrOutput() WorkspaceIdentityPtrOutput {
-	return i.ToWorkspaceIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i WorkspaceIdentityArgs) ToWorkspaceIdentityPtrOutputWithContext(ctx context.Context) WorkspaceIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdentityOutput).ToWorkspaceIdentityPtrOutputWithContext(ctx)
-}
-
-// WorkspaceIdentityPtrInput is an input type that accepts WorkspaceIdentityArgs, WorkspaceIdentityPtr and WorkspaceIdentityPtrOutput values.
-// You can construct a concrete instance of `WorkspaceIdentityPtrInput` via:
-//
-//          WorkspaceIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type WorkspaceIdentityPtrInput interface {
-	pulumi.Input
-
-	ToWorkspaceIdentityPtrOutput() WorkspaceIdentityPtrOutput
-	ToWorkspaceIdentityPtrOutputWithContext(context.Context) WorkspaceIdentityPtrOutput
-}
-
-type workspaceIdentityPtrType WorkspaceIdentityArgs
-
-func WorkspaceIdentityPtr(v *WorkspaceIdentityArgs) WorkspaceIdentityPtrInput {
-	return (*workspaceIdentityPtrType)(v)
-}
-
-func (*workspaceIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceIdentity)(nil)).Elem()
-}
-
-func (i *workspaceIdentityPtrType) ToWorkspaceIdentityPtrOutput() WorkspaceIdentityPtrOutput {
-	return i.ToWorkspaceIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *workspaceIdentityPtrType) ToWorkspaceIdentityPtrOutputWithContext(ctx context.Context) WorkspaceIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdentityPtrOutput)
-}
-
 type WorkspaceIdentityOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceIdentityOutput) ElementType() reflect.Type {
@@ -1930,16 +1784,6 @@ func (o WorkspaceIdentityOutput) ToWorkspaceIdentityOutput() WorkspaceIdentityOu
 
 func (o WorkspaceIdentityOutput) ToWorkspaceIdentityOutputWithContext(ctx context.Context) WorkspaceIdentityOutput {
 	return o
-}
-
-func (o WorkspaceIdentityOutput) ToWorkspaceIdentityPtrOutput() WorkspaceIdentityPtrOutput {
-	return o.ToWorkspaceIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o WorkspaceIdentityOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx context.Context) WorkspaceIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceIdentity) *WorkspaceIdentity {
-		return &v
-	}).(WorkspaceIdentityPtrOutput)
 }
 
 // The (Client) ID of the Service Principal.
@@ -1955,60 +1799,6 @@ func (o WorkspaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 // The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
 func (o WorkspaceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceIdentity) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type WorkspaceIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceIdentity)(nil)).Elem()
-}
-
-func (o WorkspaceIdentityPtrOutput) ToWorkspaceIdentityPtrOutput() WorkspaceIdentityPtrOutput {
-	return o
-}
-
-func (o WorkspaceIdentityPtrOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx context.Context) WorkspaceIdentityPtrOutput {
-	return o
-}
-
-func (o WorkspaceIdentityPtrOutput) Elem() WorkspaceIdentityOutput {
-	return o.ApplyT(func(v *WorkspaceIdentity) WorkspaceIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceIdentity
-		return ret
-	}).(WorkspaceIdentityOutput)
-}
-
-// The (Client) ID of the Service Principal.
-func (o WorkspaceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Tenant the Service Principal is assigned in.
-func (o WorkspaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Type of Identity which should be used for this Azure Machine Learning workspace. At this time the only possible value is `SystemAssigned`.
-func (o WorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetWorkspaceIdentity struct {
@@ -2121,7 +1911,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterIdentityInput)(nil)).Elem(), ComputeClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterIdentityPtrInput)(nil)).Elem(), ComputeClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterScaleSettingsInput)(nil)).Elem(), ComputeClusterScaleSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterScaleSettingsPtrInput)(nil)).Elem(), ComputeClusterScaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterSshInput)(nil)).Elem(), ComputeClusterSshArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeClusterSshPtrInput)(nil)).Elem(), ComputeClusterSshArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeInstanceAssignToUserInput)(nil)).Elem(), ComputeInstanceAssignToUserArgs{})
@@ -2139,13 +1928,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceEncryptionInput)(nil)).Elem(), WorkspaceEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceEncryptionPtrInput)(nil)).Elem(), WorkspaceEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityInput)(nil)).Elem(), WorkspaceIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityPtrInput)(nil)).Elem(), WorkspaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceIdentityInput)(nil)).Elem(), GetWorkspaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceIdentityArrayInput)(nil)).Elem(), GetWorkspaceIdentityArray{})
 	pulumi.RegisterOutputType(ComputeClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ComputeClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ComputeClusterScaleSettingsOutput{})
-	pulumi.RegisterOutputType(ComputeClusterScaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ComputeClusterSshOutput{})
 	pulumi.RegisterOutputType(ComputeClusterSshPtrOutput{})
 	pulumi.RegisterOutputType(ComputeInstanceAssignToUserOutput{})
@@ -2163,7 +1950,6 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceEncryptionOutput{})
 	pulumi.RegisterOutputType(WorkspaceEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})
-	pulumi.RegisterOutputType(WorkspaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityArrayOutput{})
 }

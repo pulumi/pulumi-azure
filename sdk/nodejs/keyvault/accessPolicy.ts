@@ -126,18 +126,18 @@ export class AccessPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccessPolicyArgs | AccessPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessPolicyState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["certificatePermissions"] = state ? state.certificatePermissions : undefined;
-            inputs["keyPermissions"] = state ? state.keyPermissions : undefined;
-            inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            inputs["objectId"] = state ? state.objectId : undefined;
-            inputs["secretPermissions"] = state ? state.secretPermissions : undefined;
-            inputs["storagePermissions"] = state ? state.storagePermissions : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["certificatePermissions"] = state ? state.certificatePermissions : undefined;
+            resourceInputs["keyPermissions"] = state ? state.keyPermissions : undefined;
+            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["objectId"] = state ? state.objectId : undefined;
+            resourceInputs["secretPermissions"] = state ? state.secretPermissions : undefined;
+            resourceInputs["storagePermissions"] = state ? state.storagePermissions : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as AccessPolicyArgs | undefined;
             if ((!args || args.keyVaultId === undefined) && !opts.urn) {
@@ -149,19 +149,19 @@ export class AccessPolicy extends pulumi.CustomResource {
             if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["certificatePermissions"] = args ? args.certificatePermissions : undefined;
-            inputs["keyPermissions"] = args ? args.keyPermissions : undefined;
-            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            inputs["objectId"] = args ? args.objectId : undefined;
-            inputs["secretPermissions"] = args ? args.secretPermissions : undefined;
-            inputs["storagePermissions"] = args ? args.storagePermissions : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["certificatePermissions"] = args ? args.certificatePermissions : undefined;
+            resourceInputs["keyPermissions"] = args ? args.keyPermissions : undefined;
+            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["objectId"] = args ? args.objectId : undefined;
+            resourceInputs["secretPermissions"] = args ? args.secretPermissions : undefined;
+            resourceInputs["storagePermissions"] = args ? args.storagePermissions : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AccessPolicy.__pulumiType, name, inputs, opts);
+        super(AccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

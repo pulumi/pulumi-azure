@@ -97,15 +97,15 @@ export class Creator extends pulumi.CustomResource {
      */
     constructor(name: string, args: CreatorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CreatorArgs | CreatorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CreatorState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["mapsAccountId"] = state ? state.mapsAccountId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["storageUnits"] = state ? state.storageUnits : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["mapsAccountId"] = state ? state.mapsAccountId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["storageUnits"] = state ? state.storageUnits : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as CreatorArgs | undefined;
             if ((!args || args.mapsAccountId === undefined) && !opts.urn) {
@@ -114,16 +114,16 @@ export class Creator extends pulumi.CustomResource {
             if ((!args || args.storageUnits === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageUnits'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["mapsAccountId"] = args ? args.mapsAccountId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["storageUnits"] = args ? args.storageUnits : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["mapsAccountId"] = args ? args.mapsAccountId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageUnits"] = args ? args.storageUnits : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Creator.__pulumiType, name, inputs, opts);
+        super(Creator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

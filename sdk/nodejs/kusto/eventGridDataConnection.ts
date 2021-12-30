@@ -182,23 +182,23 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventGridDataConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventGridDataConnectionArgs | EventGridDataConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventGridDataConnectionState | undefined;
-            inputs["blobStorageEventType"] = state ? state.blobStorageEventType : undefined;
-            inputs["clusterName"] = state ? state.clusterName : undefined;
-            inputs["dataFormat"] = state ? state.dataFormat : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
-            inputs["eventhubId"] = state ? state.eventhubId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skipFirstRecord"] = state ? state.skipFirstRecord : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["blobStorageEventType"] = state ? state.blobStorageEventType : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
+            resourceInputs["eventhubId"] = state ? state.eventhubId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skipFirstRecord"] = state ? state.skipFirstRecord : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as EventGridDataConnectionArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -219,24 +219,24 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            inputs["blobStorageEventType"] = args ? args.blobStorageEventType : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["dataFormat"] = args ? args.dataFormat : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
-            inputs["eventhubId"] = args ? args.eventhubId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skipFirstRecord"] = args ? args.skipFirstRecord : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["blobStorageEventType"] = args ? args.blobStorageEventType : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
+            resourceInputs["eventhubId"] = args ? args.eventhubId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skipFirstRecord"] = args ? args.skipFirstRecord : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EventGridDataConnection.__pulumiType, name, inputs, opts);
+        super(EventGridDataConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

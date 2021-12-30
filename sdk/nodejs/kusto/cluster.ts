@@ -146,28 +146,28 @@ export class Cluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            inputs["dataIngestionUri"] = state ? state.dataIngestionUri : undefined;
-            inputs["doubleEncryptionEnabled"] = state ? state.doubleEncryptionEnabled : undefined;
-            inputs["enableDiskEncryption"] = state ? state.enableDiskEncryption : undefined;
-            inputs["enablePurge"] = state ? state.enablePurge : undefined;
-            inputs["enableStreamingIngest"] = state ? state.enableStreamingIngest : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["languageExtensions"] = state ? state.languageExtensions : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["optimizedAutoScale"] = state ? state.optimizedAutoScale : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["trustedExternalTenants"] = state ? state.trustedExternalTenants : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
-            inputs["virtualNetworkConfiguration"] = state ? state.virtualNetworkConfiguration : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["dataIngestionUri"] = state ? state.dataIngestionUri : undefined;
+            resourceInputs["doubleEncryptionEnabled"] = state ? state.doubleEncryptionEnabled : undefined;
+            resourceInputs["enableDiskEncryption"] = state ? state.enableDiskEncryption : undefined;
+            resourceInputs["enablePurge"] = state ? state.enablePurge : undefined;
+            resourceInputs["enableStreamingIngest"] = state ? state.enableStreamingIngest : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["languageExtensions"] = state ? state.languageExtensions : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["optimizedAutoScale"] = state ? state.optimizedAutoScale : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["trustedExternalTenants"] = state ? state.trustedExternalTenants : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["virtualNetworkConfiguration"] = state ? state.virtualNetworkConfiguration : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -176,29 +176,29 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["doubleEncryptionEnabled"] = args ? args.doubleEncryptionEnabled : undefined;
-            inputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
-            inputs["enablePurge"] = args ? args.enablePurge : undefined;
-            inputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
-            inputs["engine"] = args ? args.engine : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["languageExtensions"] = args ? args.languageExtensions : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["optimizedAutoScale"] = args ? args.optimizedAutoScale : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
-            inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["dataIngestionUri"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
+            resourceInputs["doubleEncryptionEnabled"] = args ? args.doubleEncryptionEnabled : undefined;
+            resourceInputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
+            resourceInputs["enablePurge"] = args ? args.enablePurge : undefined;
+            resourceInputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["languageExtensions"] = args ? args.languageExtensions : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["optimizedAutoScale"] = args ? args.optimizedAutoScale : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
+            resourceInputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["dataIngestionUri"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -174,7 +174,7 @@ type ManagedInstanceFailoverGroupInput interface {
 }
 
 func (*ManagedInstanceFailoverGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceFailoverGroup)(nil))
+	return reflect.TypeOf((**ManagedInstanceFailoverGroup)(nil)).Elem()
 }
 
 func (i *ManagedInstanceFailoverGroup) ToManagedInstanceFailoverGroupOutput() ManagedInstanceFailoverGroupOutput {
@@ -183,35 +183,6 @@ func (i *ManagedInstanceFailoverGroup) ToManagedInstanceFailoverGroupOutput() Ma
 
 func (i *ManagedInstanceFailoverGroup) ToManagedInstanceFailoverGroupOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupOutput)
-}
-
-func (i *ManagedInstanceFailoverGroup) ToManagedInstanceFailoverGroupPtrOutput() ManagedInstanceFailoverGroupPtrOutput {
-	return i.ToManagedInstanceFailoverGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ManagedInstanceFailoverGroup) ToManagedInstanceFailoverGroupPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupPtrOutput)
-}
-
-type ManagedInstanceFailoverGroupPtrInput interface {
-	pulumi.Input
-
-	ToManagedInstanceFailoverGroupPtrOutput() ManagedInstanceFailoverGroupPtrOutput
-	ToManagedInstanceFailoverGroupPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPtrOutput
-}
-
-type managedInstanceFailoverGroupPtrType ManagedInstanceFailoverGroupArgs
-
-func (*managedInstanceFailoverGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedInstanceFailoverGroup)(nil))
-}
-
-func (i *managedInstanceFailoverGroupPtrType) ToManagedInstanceFailoverGroupPtrOutput() ManagedInstanceFailoverGroupPtrOutput {
-	return i.ToManagedInstanceFailoverGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *managedInstanceFailoverGroupPtrType) ToManagedInstanceFailoverGroupPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupPtrOutput)
 }
 
 // ManagedInstanceFailoverGroupArrayInput is an input type that accepts ManagedInstanceFailoverGroupArray and ManagedInstanceFailoverGroupArrayOutput values.
@@ -267,7 +238,7 @@ func (i ManagedInstanceFailoverGroupMap) ToManagedInstanceFailoverGroupMapOutput
 type ManagedInstanceFailoverGroupOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceFailoverGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceFailoverGroup)(nil))
+	return reflect.TypeOf((**ManagedInstanceFailoverGroup)(nil)).Elem()
 }
 
 func (o ManagedInstanceFailoverGroupOutput) ToManagedInstanceFailoverGroupOutput() ManagedInstanceFailoverGroupOutput {
@@ -278,44 +249,10 @@ func (o ManagedInstanceFailoverGroupOutput) ToManagedInstanceFailoverGroupOutput
 	return o
 }
 
-func (o ManagedInstanceFailoverGroupOutput) ToManagedInstanceFailoverGroupPtrOutput() ManagedInstanceFailoverGroupPtrOutput {
-	return o.ToManagedInstanceFailoverGroupPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedInstanceFailoverGroupOutput) ToManagedInstanceFailoverGroupPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceFailoverGroup) *ManagedInstanceFailoverGroup {
-		return &v
-	}).(ManagedInstanceFailoverGroupPtrOutput)
-}
-
-type ManagedInstanceFailoverGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedInstanceFailoverGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedInstanceFailoverGroup)(nil))
-}
-
-func (o ManagedInstanceFailoverGroupPtrOutput) ToManagedInstanceFailoverGroupPtrOutput() ManagedInstanceFailoverGroupPtrOutput {
-	return o
-}
-
-func (o ManagedInstanceFailoverGroupPtrOutput) ToManagedInstanceFailoverGroupPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPtrOutput {
-	return o
-}
-
-func (o ManagedInstanceFailoverGroupPtrOutput) Elem() ManagedInstanceFailoverGroupOutput {
-	return o.ApplyT(func(v *ManagedInstanceFailoverGroup) ManagedInstanceFailoverGroup {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedInstanceFailoverGroup
-		return ret
-	}).(ManagedInstanceFailoverGroupOutput)
-}
-
 type ManagedInstanceFailoverGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceFailoverGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedInstanceFailoverGroup)(nil))
+	return reflect.TypeOf((*[]*ManagedInstanceFailoverGroup)(nil)).Elem()
 }
 
 func (o ManagedInstanceFailoverGroupArrayOutput) ToManagedInstanceFailoverGroupArrayOutput() ManagedInstanceFailoverGroupArrayOutput {
@@ -327,15 +264,15 @@ func (o ManagedInstanceFailoverGroupArrayOutput) ToManagedInstanceFailoverGroupA
 }
 
 func (o ManagedInstanceFailoverGroupArrayOutput) Index(i pulumi.IntInput) ManagedInstanceFailoverGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedInstanceFailoverGroup {
-		return vs[0].([]ManagedInstanceFailoverGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedInstanceFailoverGroup {
+		return vs[0].([]*ManagedInstanceFailoverGroup)[vs[1].(int)]
 	}).(ManagedInstanceFailoverGroupOutput)
 }
 
 type ManagedInstanceFailoverGroupMapOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceFailoverGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedInstanceFailoverGroup)(nil))
+	return reflect.TypeOf((*map[string]*ManagedInstanceFailoverGroup)(nil)).Elem()
 }
 
 func (o ManagedInstanceFailoverGroupMapOutput) ToManagedInstanceFailoverGroupMapOutput() ManagedInstanceFailoverGroupMapOutput {
@@ -347,18 +284,16 @@ func (o ManagedInstanceFailoverGroupMapOutput) ToManagedInstanceFailoverGroupMap
 }
 
 func (o ManagedInstanceFailoverGroupMapOutput) MapIndex(k pulumi.StringInput) ManagedInstanceFailoverGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedInstanceFailoverGroup {
-		return vs[0].(map[string]ManagedInstanceFailoverGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ManagedInstanceFailoverGroup {
+		return vs[0].(map[string]*ManagedInstanceFailoverGroup)[vs[1].(string)]
 	}).(ManagedInstanceFailoverGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupInput)(nil)).Elem(), &ManagedInstanceFailoverGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupPtrInput)(nil)).Elem(), &ManagedInstanceFailoverGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupArrayInput)(nil)).Elem(), ManagedInstanceFailoverGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupMapInput)(nil)).Elem(), ManagedInstanceFailoverGroupMap{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupOutput{})
-	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupPtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupArrayOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupMapOutput{})
 }

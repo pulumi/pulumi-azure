@@ -140,25 +140,25 @@ export class Blob extends pulumi.CustomResource {
      */
     constructor(name: string, args: BlobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BlobArgs | BlobState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BlobState | undefined;
-            inputs["accessTier"] = state ? state.accessTier : undefined;
-            inputs["cacheControl"] = state ? state.cacheControl : undefined;
-            inputs["contentMd5"] = state ? state.contentMd5 : undefined;
-            inputs["contentType"] = state ? state.contentType : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parallelism"] = state ? state.parallelism : undefined;
-            inputs["size"] = state ? state.size : undefined;
-            inputs["source"] = state ? state.source : undefined;
-            inputs["sourceContent"] = state ? state.sourceContent : undefined;
-            inputs["sourceUri"] = state ? state.sourceUri : undefined;
-            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            inputs["storageContainerName"] = state ? state.storageContainerName : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["accessTier"] = state ? state.accessTier : undefined;
+            resourceInputs["cacheControl"] = state ? state.cacheControl : undefined;
+            resourceInputs["contentMd5"] = state ? state.contentMd5 : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parallelism"] = state ? state.parallelism : undefined;
+            resourceInputs["size"] = state ? state.size : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["sourceContent"] = state ? state.sourceContent : undefined;
+            resourceInputs["sourceUri"] = state ? state.sourceUri : undefined;
+            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["storageContainerName"] = state ? state.storageContainerName : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as BlobArgs | undefined;
             if ((!args || args.storageAccountName === undefined) && !opts.urn) {
@@ -170,26 +170,26 @@ export class Blob extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["accessTier"] = args ? args.accessTier : undefined;
-            inputs["cacheControl"] = args ? args.cacheControl : undefined;
-            inputs["contentMd5"] = args ? args.contentMd5 : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parallelism"] = args ? args.parallelism : undefined;
-            inputs["size"] = args ? args.size : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["sourceContent"] = args ? args.sourceContent : undefined;
-            inputs["sourceUri"] = args ? args.sourceUri : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["storageContainerName"] = args ? args.storageContainerName : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
+            resourceInputs["cacheControl"] = args ? args.cacheControl : undefined;
+            resourceInputs["contentMd5"] = args ? args.contentMd5 : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parallelism"] = args ? args.parallelism : undefined;
+            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["sourceContent"] = args ? args.sourceContent : undefined;
+            resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["storageContainerName"] = args ? args.storageContainerName : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Blob.__pulumiType, name, inputs, opts);
+        super(Blob.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -152,32 +152,32 @@ export class CustomDomain extends pulumi.CustomResource {
      */
     constructor(name: string, args: CustomDomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CustomDomainArgs | CustomDomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomDomainState | undefined;
-            inputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            inputs["developerPortals"] = state ? state.developerPortals : undefined;
-            inputs["managements"] = state ? state.managements : undefined;
-            inputs["portals"] = state ? state.portals : undefined;
-            inputs["proxies"] = state ? state.proxies : undefined;
-            inputs["scms"] = state ? state.scms : undefined;
+            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
+            resourceInputs["developerPortals"] = state ? state.developerPortals : undefined;
+            resourceInputs["managements"] = state ? state.managements : undefined;
+            resourceInputs["portals"] = state ? state.portals : undefined;
+            resourceInputs["proxies"] = state ? state.proxies : undefined;
+            resourceInputs["scms"] = state ? state.scms : undefined;
         } else {
             const args = argsOrState as CustomDomainArgs | undefined;
             if ((!args || args.apiManagementId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
-            inputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            inputs["developerPortals"] = args ? args.developerPortals : undefined;
-            inputs["managements"] = args ? args.managements : undefined;
-            inputs["portals"] = args ? args.portals : undefined;
-            inputs["proxies"] = args ? args.proxies : undefined;
-            inputs["scms"] = args ? args.scms : undefined;
+            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
+            resourceInputs["developerPortals"] = args ? args.developerPortals : undefined;
+            resourceInputs["managements"] = args ? args.managements : undefined;
+            resourceInputs["portals"] = args ? args.portals : undefined;
+            resourceInputs["proxies"] = args ? args.proxies : undefined;
+            resourceInputs["scms"] = args ? args.scms : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CustomDomain.__pulumiType, name, inputs, opts);
+        super(CustomDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

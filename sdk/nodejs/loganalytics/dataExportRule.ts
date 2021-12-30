@@ -109,17 +109,17 @@ export class DataExportRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataExportRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataExportRuleArgs | DataExportRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataExportRuleState | undefined;
-            inputs["destinationResourceId"] = state ? state.destinationResourceId : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["exportRuleId"] = state ? state.exportRuleId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tableNames"] = state ? state.tableNames : undefined;
-            inputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
+            resourceInputs["destinationResourceId"] = state ? state.destinationResourceId : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["exportRuleId"] = state ? state.exportRuleId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tableNames"] = state ? state.tableNames : undefined;
+            resourceInputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
         } else {
             const args = argsOrState as DataExportRuleArgs | undefined;
             if ((!args || args.destinationResourceId === undefined) && !opts.urn) {
@@ -134,18 +134,18 @@ export class DataExportRule extends pulumi.CustomResource {
             if ((!args || args.workspaceResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceResourceId'");
             }
-            inputs["destinationResourceId"] = args ? args.destinationResourceId : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tableNames"] = args ? args.tableNames : undefined;
-            inputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
-            inputs["exportRuleId"] = undefined /*out*/;
+            resourceInputs["destinationResourceId"] = args ? args.destinationResourceId : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tableNames"] = args ? args.tableNames : undefined;
+            resourceInputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
+            resourceInputs["exportRuleId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DataExportRule.__pulumiType, name, inputs, opts);
+        super(DataExportRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -184,7 +184,7 @@ type ProductApiInput interface {
 }
 
 func (*ProductApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductApi)(nil))
+	return reflect.TypeOf((**ProductApi)(nil)).Elem()
 }
 
 func (i *ProductApi) ToProductApiOutput() ProductApiOutput {
@@ -193,35 +193,6 @@ func (i *ProductApi) ToProductApiOutput() ProductApiOutput {
 
 func (i *ProductApi) ToProductApiOutputWithContext(ctx context.Context) ProductApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductApiOutput)
-}
-
-func (i *ProductApi) ToProductApiPtrOutput() ProductApiPtrOutput {
-	return i.ToProductApiPtrOutputWithContext(context.Background())
-}
-
-func (i *ProductApi) ToProductApiPtrOutputWithContext(ctx context.Context) ProductApiPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductApiPtrOutput)
-}
-
-type ProductApiPtrInput interface {
-	pulumi.Input
-
-	ToProductApiPtrOutput() ProductApiPtrOutput
-	ToProductApiPtrOutputWithContext(ctx context.Context) ProductApiPtrOutput
-}
-
-type productApiPtrType ProductApiArgs
-
-func (*productApiPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProductApi)(nil))
-}
-
-func (i *productApiPtrType) ToProductApiPtrOutput() ProductApiPtrOutput {
-	return i.ToProductApiPtrOutputWithContext(context.Background())
-}
-
-func (i *productApiPtrType) ToProductApiPtrOutputWithContext(ctx context.Context) ProductApiPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductApiPtrOutput)
 }
 
 // ProductApiArrayInput is an input type that accepts ProductApiArray and ProductApiArrayOutput values.
@@ -277,7 +248,7 @@ func (i ProductApiMap) ToProductApiMapOutputWithContext(ctx context.Context) Pro
 type ProductApiOutput struct{ *pulumi.OutputState }
 
 func (ProductApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductApi)(nil))
+	return reflect.TypeOf((**ProductApi)(nil)).Elem()
 }
 
 func (o ProductApiOutput) ToProductApiOutput() ProductApiOutput {
@@ -288,44 +259,10 @@ func (o ProductApiOutput) ToProductApiOutputWithContext(ctx context.Context) Pro
 	return o
 }
 
-func (o ProductApiOutput) ToProductApiPtrOutput() ProductApiPtrOutput {
-	return o.ToProductApiPtrOutputWithContext(context.Background())
-}
-
-func (o ProductApiOutput) ToProductApiPtrOutputWithContext(ctx context.Context) ProductApiPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductApi) *ProductApi {
-		return &v
-	}).(ProductApiPtrOutput)
-}
-
-type ProductApiPtrOutput struct{ *pulumi.OutputState }
-
-func (ProductApiPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProductApi)(nil))
-}
-
-func (o ProductApiPtrOutput) ToProductApiPtrOutput() ProductApiPtrOutput {
-	return o
-}
-
-func (o ProductApiPtrOutput) ToProductApiPtrOutputWithContext(ctx context.Context) ProductApiPtrOutput {
-	return o
-}
-
-func (o ProductApiPtrOutput) Elem() ProductApiOutput {
-	return o.ApplyT(func(v *ProductApi) ProductApi {
-		if v != nil {
-			return *v
-		}
-		var ret ProductApi
-		return ret
-	}).(ProductApiOutput)
-}
-
 type ProductApiArrayOutput struct{ *pulumi.OutputState }
 
 func (ProductApiArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProductApi)(nil))
+	return reflect.TypeOf((*[]*ProductApi)(nil)).Elem()
 }
 
 func (o ProductApiArrayOutput) ToProductApiArrayOutput() ProductApiArrayOutput {
@@ -337,15 +274,15 @@ func (o ProductApiArrayOutput) ToProductApiArrayOutputWithContext(ctx context.Co
 }
 
 func (o ProductApiArrayOutput) Index(i pulumi.IntInput) ProductApiOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductApi {
-		return vs[0].([]ProductApi)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProductApi {
+		return vs[0].([]*ProductApi)[vs[1].(int)]
 	}).(ProductApiOutput)
 }
 
 type ProductApiMapOutput struct{ *pulumi.OutputState }
 
 func (ProductApiMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProductApi)(nil))
+	return reflect.TypeOf((*map[string]*ProductApi)(nil)).Elem()
 }
 
 func (o ProductApiMapOutput) ToProductApiMapOutput() ProductApiMapOutput {
@@ -357,18 +294,16 @@ func (o ProductApiMapOutput) ToProductApiMapOutputWithContext(ctx context.Contex
 }
 
 func (o ProductApiMapOutput) MapIndex(k pulumi.StringInput) ProductApiOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProductApi {
-		return vs[0].(map[string]ProductApi)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProductApi {
+		return vs[0].(map[string]*ProductApi)[vs[1].(string)]
 	}).(ProductApiOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductApiInput)(nil)).Elem(), &ProductApi{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProductApiPtrInput)(nil)).Elem(), &ProductApi{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductApiArrayInput)(nil)).Elem(), ProductApiArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductApiMapInput)(nil)).Elem(), ProductApiMap{})
 	pulumi.RegisterOutputType(ProductApiOutput{})
-	pulumi.RegisterOutputType(ProductApiPtrOutput{})
 	pulumi.RegisterOutputType(ProductApiArrayOutput{})
 	pulumi.RegisterOutputType(ProductApiMapOutput{})
 }

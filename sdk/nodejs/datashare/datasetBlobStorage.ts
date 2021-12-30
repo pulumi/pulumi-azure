@@ -37,9 +37,9 @@ import * as utilities from "../utilities";
  *     storageAccountName: exampleStorage / accountAccount.name,
  *     containerAccessType: "container",
  * });
- * const exampleServicePrincipal = exampleAccount.name.apply(name => azuread.getServicePrincipal({
- *     displayName: name,
- * }));
+ * const exampleServicePrincipal = azuread.getServicePrincipalOutput({
+ *     displayName: exampleAccount.name,
+ * });
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
  *     scope: exampleStorage / accountAccount.id,
  *     roleDefinitionName: "Storage Blob Data Reader",
@@ -133,17 +133,17 @@ export class DatasetBlobStorage extends pulumi.CustomResource {
      */
     constructor(name: string, args: DatasetBlobStorageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatasetBlobStorageArgs | DatasetBlobStorageState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetBlobStorageState | undefined;
-            inputs["containerName"] = state ? state.containerName : undefined;
-            inputs["dataShareId"] = state ? state.dataShareId : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["filePath"] = state ? state.filePath : undefined;
-            inputs["folderPath"] = state ? state.folderPath : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["storageAccount"] = state ? state.storageAccount : undefined;
+            resourceInputs["containerName"] = state ? state.containerName : undefined;
+            resourceInputs["dataShareId"] = state ? state.dataShareId : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["filePath"] = state ? state.filePath : undefined;
+            resourceInputs["folderPath"] = state ? state.folderPath : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["storageAccount"] = state ? state.storageAccount : undefined;
         } else {
             const args = argsOrState as DatasetBlobStorageArgs | undefined;
             if ((!args || args.containerName === undefined) && !opts.urn) {
@@ -155,18 +155,18 @@ export class DatasetBlobStorage extends pulumi.CustomResource {
             if ((!args || args.storageAccount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccount'");
             }
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["dataShareId"] = args ? args.dataShareId : undefined;
-            inputs["filePath"] = args ? args.filePath : undefined;
-            inputs["folderPath"] = args ? args.folderPath : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["storageAccount"] = args ? args.storageAccount : undefined;
-            inputs["displayName"] = undefined /*out*/;
+            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["dataShareId"] = args ? args.dataShareId : undefined;
+            resourceInputs["filePath"] = args ? args.filePath : undefined;
+            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
+            resourceInputs["displayName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DatasetBlobStorage.__pulumiType, name, inputs, opts);
+        super(DatasetBlobStorage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

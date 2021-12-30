@@ -154,27 +154,27 @@ export class KeyVault extends pulumi.CustomResource {
      */
     constructor(name: string, args: KeyVaultArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeyVaultArgs | KeyVaultState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyVaultState | undefined;
-            inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
-            inputs["contacts"] = state ? state.contacts : undefined;
-            inputs["enableRbacAuthorization"] = state ? state.enableRbacAuthorization : undefined;
-            inputs["enabledForDeployment"] = state ? state.enabledForDeployment : undefined;
-            inputs["enabledForDiskEncryption"] = state ? state.enabledForDiskEncryption : undefined;
-            inputs["enabledForTemplateDeployment"] = state ? state.enabledForTemplateDeployment : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkAcls"] = state ? state.networkAcls : undefined;
-            inputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["softDeleteEnabled"] = state ? state.softDeleteEnabled : undefined;
-            inputs["softDeleteRetentionDays"] = state ? state.softDeleteRetentionDays : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
-            inputs["vaultUri"] = state ? state.vaultUri : undefined;
+            resourceInputs["accessPolicies"] = state ? state.accessPolicies : undefined;
+            resourceInputs["contacts"] = state ? state.contacts : undefined;
+            resourceInputs["enableRbacAuthorization"] = state ? state.enableRbacAuthorization : undefined;
+            resourceInputs["enabledForDeployment"] = state ? state.enabledForDeployment : undefined;
+            resourceInputs["enabledForDiskEncryption"] = state ? state.enabledForDiskEncryption : undefined;
+            resourceInputs["enabledForTemplateDeployment"] = state ? state.enabledForTemplateDeployment : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkAcls"] = state ? state.networkAcls : undefined;
+            resourceInputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["softDeleteEnabled"] = state ? state.softDeleteEnabled : undefined;
+            resourceInputs["softDeleteRetentionDays"] = state ? state.softDeleteRetentionDays : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["vaultUri"] = state ? state.vaultUri : undefined;
         } else {
             const args = argsOrState as KeyVaultArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -186,28 +186,28 @@ export class KeyVault extends pulumi.CustomResource {
             if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
-            inputs["contacts"] = args ? args.contacts : undefined;
-            inputs["enableRbacAuthorization"] = args ? args.enableRbacAuthorization : undefined;
-            inputs["enabledForDeployment"] = args ? args.enabledForDeployment : undefined;
-            inputs["enabledForDiskEncryption"] = args ? args.enabledForDiskEncryption : undefined;
-            inputs["enabledForTemplateDeployment"] = args ? args.enabledForTemplateDeployment : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkAcls"] = args ? args.networkAcls : undefined;
-            inputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["softDeleteEnabled"] = args ? args.softDeleteEnabled : undefined;
-            inputs["softDeleteRetentionDays"] = args ? args.softDeleteRetentionDays : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["vaultUri"] = undefined /*out*/;
+            resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
+            resourceInputs["contacts"] = args ? args.contacts : undefined;
+            resourceInputs["enableRbacAuthorization"] = args ? args.enableRbacAuthorization : undefined;
+            resourceInputs["enabledForDeployment"] = args ? args.enabledForDeployment : undefined;
+            resourceInputs["enabledForDiskEncryption"] = args ? args.enabledForDiskEncryption : undefined;
+            resourceInputs["enabledForTemplateDeployment"] = args ? args.enabledForTemplateDeployment : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
+            resourceInputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["softDeleteEnabled"] = args ? args.softDeleteEnabled : undefined;
+            resourceInputs["softDeleteRetentionDays"] = args ? args.softDeleteRetentionDays : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["vaultUri"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(KeyVault.__pulumiType, name, inputs, opts);
+        super(KeyVault.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -158,7 +158,7 @@ type ActionCustomInput interface {
 }
 
 func (*ActionCustom) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionCustom)(nil))
+	return reflect.TypeOf((**ActionCustom)(nil)).Elem()
 }
 
 func (i *ActionCustom) ToActionCustomOutput() ActionCustomOutput {
@@ -167,35 +167,6 @@ func (i *ActionCustom) ToActionCustomOutput() ActionCustomOutput {
 
 func (i *ActionCustom) ToActionCustomOutputWithContext(ctx context.Context) ActionCustomOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionCustomOutput)
-}
-
-func (i *ActionCustom) ToActionCustomPtrOutput() ActionCustomPtrOutput {
-	return i.ToActionCustomPtrOutputWithContext(context.Background())
-}
-
-func (i *ActionCustom) ToActionCustomPtrOutputWithContext(ctx context.Context) ActionCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionCustomPtrOutput)
-}
-
-type ActionCustomPtrInput interface {
-	pulumi.Input
-
-	ToActionCustomPtrOutput() ActionCustomPtrOutput
-	ToActionCustomPtrOutputWithContext(ctx context.Context) ActionCustomPtrOutput
-}
-
-type actionCustomPtrType ActionCustomArgs
-
-func (*actionCustomPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionCustom)(nil))
-}
-
-func (i *actionCustomPtrType) ToActionCustomPtrOutput() ActionCustomPtrOutput {
-	return i.ToActionCustomPtrOutputWithContext(context.Background())
-}
-
-func (i *actionCustomPtrType) ToActionCustomPtrOutputWithContext(ctx context.Context) ActionCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionCustomPtrOutput)
 }
 
 // ActionCustomArrayInput is an input type that accepts ActionCustomArray and ActionCustomArrayOutput values.
@@ -251,7 +222,7 @@ func (i ActionCustomMap) ToActionCustomMapOutputWithContext(ctx context.Context)
 type ActionCustomOutput struct{ *pulumi.OutputState }
 
 func (ActionCustomOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionCustom)(nil))
+	return reflect.TypeOf((**ActionCustom)(nil)).Elem()
 }
 
 func (o ActionCustomOutput) ToActionCustomOutput() ActionCustomOutput {
@@ -262,44 +233,10 @@ func (o ActionCustomOutput) ToActionCustomOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ActionCustomOutput) ToActionCustomPtrOutput() ActionCustomPtrOutput {
-	return o.ToActionCustomPtrOutputWithContext(context.Background())
-}
-
-func (o ActionCustomOutput) ToActionCustomPtrOutputWithContext(ctx context.Context) ActionCustomPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionCustom) *ActionCustom {
-		return &v
-	}).(ActionCustomPtrOutput)
-}
-
-type ActionCustomPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionCustomPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionCustom)(nil))
-}
-
-func (o ActionCustomPtrOutput) ToActionCustomPtrOutput() ActionCustomPtrOutput {
-	return o
-}
-
-func (o ActionCustomPtrOutput) ToActionCustomPtrOutputWithContext(ctx context.Context) ActionCustomPtrOutput {
-	return o
-}
-
-func (o ActionCustomPtrOutput) Elem() ActionCustomOutput {
-	return o.ApplyT(func(v *ActionCustom) ActionCustom {
-		if v != nil {
-			return *v
-		}
-		var ret ActionCustom
-		return ret
-	}).(ActionCustomOutput)
-}
-
 type ActionCustomArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionCustomArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionCustom)(nil))
+	return reflect.TypeOf((*[]*ActionCustom)(nil)).Elem()
 }
 
 func (o ActionCustomArrayOutput) ToActionCustomArrayOutput() ActionCustomArrayOutput {
@@ -311,15 +248,15 @@ func (o ActionCustomArrayOutput) ToActionCustomArrayOutputWithContext(ctx contex
 }
 
 func (o ActionCustomArrayOutput) Index(i pulumi.IntInput) ActionCustomOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionCustom {
-		return vs[0].([]ActionCustom)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionCustom {
+		return vs[0].([]*ActionCustom)[vs[1].(int)]
 	}).(ActionCustomOutput)
 }
 
 type ActionCustomMapOutput struct{ *pulumi.OutputState }
 
 func (ActionCustomMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ActionCustom)(nil))
+	return reflect.TypeOf((*map[string]*ActionCustom)(nil)).Elem()
 }
 
 func (o ActionCustomMapOutput) ToActionCustomMapOutput() ActionCustomMapOutput {
@@ -331,18 +268,16 @@ func (o ActionCustomMapOutput) ToActionCustomMapOutputWithContext(ctx context.Co
 }
 
 func (o ActionCustomMapOutput) MapIndex(k pulumi.StringInput) ActionCustomOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionCustom {
-		return vs[0].(map[string]ActionCustom)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ActionCustom {
+		return vs[0].(map[string]*ActionCustom)[vs[1].(string)]
 	}).(ActionCustomOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionCustomInput)(nil)).Elem(), &ActionCustom{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionCustomPtrInput)(nil)).Elem(), &ActionCustom{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionCustomArrayInput)(nil)).Elem(), ActionCustomArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionCustomMapInput)(nil)).Elem(), ActionCustomMap{})
 	pulumi.RegisterOutputType(ActionCustomOutput{})
-	pulumi.RegisterOutputType(ActionCustomPtrOutput{})
 	pulumi.RegisterOutputType(ActionCustomArrayOutput{})
 	pulumi.RegisterOutputType(ActionCustomMapOutput{})
 }

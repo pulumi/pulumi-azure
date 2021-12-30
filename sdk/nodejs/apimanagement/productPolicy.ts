@@ -97,15 +97,15 @@ export class ProductPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProductPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProductPolicyArgs | ProductPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProductPolicyState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["productId"] = state ? state.productId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["xmlContent"] = state ? state.xmlContent : undefined;
-            inputs["xmlLink"] = state ? state.xmlLink : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["xmlContent"] = state ? state.xmlContent : undefined;
+            resourceInputs["xmlLink"] = state ? state.xmlLink : undefined;
         } else {
             const args = argsOrState as ProductPolicyArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -117,16 +117,16 @@ export class ProductPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["xmlContent"] = args ? args.xmlContent : undefined;
-            inputs["xmlLink"] = args ? args.xmlLink : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["xmlContent"] = args ? args.xmlContent : undefined;
+            resourceInputs["xmlLink"] = args ? args.xmlLink : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ProductPolicy.__pulumiType, name, inputs, opts);
+        super(ProductPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

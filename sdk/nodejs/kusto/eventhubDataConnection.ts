@@ -157,23 +157,23 @@ export class EventhubDataConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventhubDataConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventhubDataConnectionArgs | EventhubDataConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventhubDataConnectionState | undefined;
-            inputs["clusterName"] = state ? state.clusterName : undefined;
-            inputs["compression"] = state ? state.compression : undefined;
-            inputs["consumerGroup"] = state ? state.consumerGroup : undefined;
-            inputs["dataFormat"] = state ? state.dataFormat : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["eventSystemProperties"] = state ? state.eventSystemProperties : undefined;
-            inputs["eventhubId"] = state ? state.eventhubId : undefined;
-            inputs["identityId"] = state ? state.identityId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["compression"] = state ? state.compression : undefined;
+            resourceInputs["consumerGroup"] = state ? state.consumerGroup : undefined;
+            resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["eventSystemProperties"] = state ? state.eventSystemProperties : undefined;
+            resourceInputs["eventhubId"] = state ? state.eventhubId : undefined;
+            resourceInputs["identityId"] = state ? state.identityId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as EventhubDataConnectionArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -191,24 +191,24 @@ export class EventhubDataConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["compression"] = args ? args.compression : undefined;
-            inputs["consumerGroup"] = args ? args.consumerGroup : undefined;
-            inputs["dataFormat"] = args ? args.dataFormat : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
-            inputs["eventhubId"] = args ? args.eventhubId : undefined;
-            inputs["identityId"] = args ? args.identityId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["compression"] = args ? args.compression : undefined;
+            resourceInputs["consumerGroup"] = args ? args.consumerGroup : undefined;
+            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
+            resourceInputs["eventhubId"] = args ? args.eventhubId : undefined;
+            resourceInputs["identityId"] = args ? args.identityId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EventhubDataConnection.__pulumiType, name, inputs, opts);
+        super(EventhubDataConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

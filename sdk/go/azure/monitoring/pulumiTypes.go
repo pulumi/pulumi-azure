@@ -4647,47 +4647,6 @@ func (i ActionRuleSuppressionSuppressionArgs) ToActionRuleSuppressionSuppression
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionOutput)
 }
 
-func (i ActionRuleSuppressionSuppressionArgs) ToActionRuleSuppressionSuppressionPtrOutput() ActionRuleSuppressionSuppressionPtrOutput {
-	return i.ToActionRuleSuppressionSuppressionPtrOutputWithContext(context.Background())
-}
-
-func (i ActionRuleSuppressionSuppressionArgs) ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionOutput).ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx)
-}
-
-// ActionRuleSuppressionSuppressionPtrInput is an input type that accepts ActionRuleSuppressionSuppressionArgs, ActionRuleSuppressionSuppressionPtr and ActionRuleSuppressionSuppressionPtrOutput values.
-// You can construct a concrete instance of `ActionRuleSuppressionSuppressionPtrInput` via:
-//
-//          ActionRuleSuppressionSuppressionArgs{...}
-//
-//  or:
-//
-//          nil
-type ActionRuleSuppressionSuppressionPtrInput interface {
-	pulumi.Input
-
-	ToActionRuleSuppressionSuppressionPtrOutput() ActionRuleSuppressionSuppressionPtrOutput
-	ToActionRuleSuppressionSuppressionPtrOutputWithContext(context.Context) ActionRuleSuppressionSuppressionPtrOutput
-}
-
-type actionRuleSuppressionSuppressionPtrType ActionRuleSuppressionSuppressionArgs
-
-func ActionRuleSuppressionSuppressionPtr(v *ActionRuleSuppressionSuppressionArgs) ActionRuleSuppressionSuppressionPtrInput {
-	return (*actionRuleSuppressionSuppressionPtrType)(v)
-}
-
-func (*actionRuleSuppressionSuppressionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionRuleSuppressionSuppression)(nil)).Elem()
-}
-
-func (i *actionRuleSuppressionSuppressionPtrType) ToActionRuleSuppressionSuppressionPtrOutput() ActionRuleSuppressionSuppressionPtrOutput {
-	return i.ToActionRuleSuppressionSuppressionPtrOutputWithContext(context.Background())
-}
-
-func (i *actionRuleSuppressionSuppressionPtrType) ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionPtrOutput)
-}
-
 type ActionRuleSuppressionSuppressionOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionSuppressionOutput) ElementType() reflect.Type {
@@ -4702,16 +4661,6 @@ func (o ActionRuleSuppressionSuppressionOutput) ToActionRuleSuppressionSuppressi
 	return o
 }
 
-func (o ActionRuleSuppressionSuppressionOutput) ToActionRuleSuppressionSuppressionPtrOutput() ActionRuleSuppressionSuppressionPtrOutput {
-	return o.ToActionRuleSuppressionSuppressionPtrOutputWithContext(context.Background())
-}
-
-func (o ActionRuleSuppressionSuppressionOutput) ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionSuppression) *ActionRuleSuppressionSuppression {
-		return &v
-	}).(ActionRuleSuppressionSuppressionPtrOutput)
-}
-
 // Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
 func (o ActionRuleSuppressionSuppressionOutput) RecurrenceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionSuppression) string { return v.RecurrenceType }).(pulumi.StringOutput)
@@ -4720,50 +4669,6 @@ func (o ActionRuleSuppressionSuppressionOutput) RecurrenceType() pulumi.StringOu
 // A `schedule` block as defined below. Required if `recurrenceType` is `Daily`, `Monthly`, `Once` or `Weekly`.
 func (o ActionRuleSuppressionSuppressionOutput) Schedule() ActionRuleSuppressionSuppressionSchedulePtrOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionSuppression) *ActionRuleSuppressionSuppressionSchedule { return v.Schedule }).(ActionRuleSuppressionSuppressionSchedulePtrOutput)
-}
-
-type ActionRuleSuppressionSuppressionPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionRuleSuppressionSuppressionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionRuleSuppressionSuppression)(nil)).Elem()
-}
-
-func (o ActionRuleSuppressionSuppressionPtrOutput) ToActionRuleSuppressionSuppressionPtrOutput() ActionRuleSuppressionSuppressionPtrOutput {
-	return o
-}
-
-func (o ActionRuleSuppressionSuppressionPtrOutput) ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionPtrOutput {
-	return o
-}
-
-func (o ActionRuleSuppressionSuppressionPtrOutput) Elem() ActionRuleSuppressionSuppressionOutput {
-	return o.ApplyT(func(v *ActionRuleSuppressionSuppression) ActionRuleSuppressionSuppression {
-		if v != nil {
-			return *v
-		}
-		var ret ActionRuleSuppressionSuppression
-		return ret
-	}).(ActionRuleSuppressionSuppressionOutput)
-}
-
-// Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
-func (o ActionRuleSuppressionSuppressionPtrOutput) RecurrenceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionRuleSuppressionSuppression) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RecurrenceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// A `schedule` block as defined below. Required if `recurrenceType` is `Daily`, `Monthly`, `Once` or `Weekly`.
-func (o ActionRuleSuppressionSuppressionPtrOutput) Schedule() ActionRuleSuppressionSuppressionSchedulePtrOutput {
-	return o.ApplyT(func(v *ActionRuleSuppressionSuppression) *ActionRuleSuppressionSuppressionSchedule {
-		if v == nil {
-			return nil
-		}
-		return v.Schedule
-	}).(ActionRuleSuppressionSuppressionSchedulePtrOutput)
 }
 
 type ActionRuleSuppressionSuppressionSchedule struct {
@@ -5151,47 +5056,6 @@ func (i ActivityLogAlertCriteriaArgs) ToActivityLogAlertCriteriaOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaOutput)
 }
 
-func (i ActivityLogAlertCriteriaArgs) ToActivityLogAlertCriteriaPtrOutput() ActivityLogAlertCriteriaPtrOutput {
-	return i.ToActivityLogAlertCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertCriteriaArgs) ToActivityLogAlertCriteriaPtrOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaOutput).ToActivityLogAlertCriteriaPtrOutputWithContext(ctx)
-}
-
-// ActivityLogAlertCriteriaPtrInput is an input type that accepts ActivityLogAlertCriteriaArgs, ActivityLogAlertCriteriaPtr and ActivityLogAlertCriteriaPtrOutput values.
-// You can construct a concrete instance of `ActivityLogAlertCriteriaPtrInput` via:
-//
-//          ActivityLogAlertCriteriaArgs{...}
-//
-//  or:
-//
-//          nil
-type ActivityLogAlertCriteriaPtrInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertCriteriaPtrOutput() ActivityLogAlertCriteriaPtrOutput
-	ToActivityLogAlertCriteriaPtrOutputWithContext(context.Context) ActivityLogAlertCriteriaPtrOutput
-}
-
-type activityLogAlertCriteriaPtrType ActivityLogAlertCriteriaArgs
-
-func ActivityLogAlertCriteriaPtr(v *ActivityLogAlertCriteriaArgs) ActivityLogAlertCriteriaPtrInput {
-	return (*activityLogAlertCriteriaPtrType)(v)
-}
-
-func (*activityLogAlertCriteriaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertCriteria)(nil)).Elem()
-}
-
-func (i *activityLogAlertCriteriaPtrType) ToActivityLogAlertCriteriaPtrOutput() ActivityLogAlertCriteriaPtrOutput {
-	return i.ToActivityLogAlertCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i *activityLogAlertCriteriaPtrType) ToActivityLogAlertCriteriaPtrOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaPtrOutput)
-}
-
 type ActivityLogAlertCriteriaOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertCriteriaOutput) ElementType() reflect.Type {
@@ -5204,16 +5068,6 @@ func (o ActivityLogAlertCriteriaOutput) ToActivityLogAlertCriteriaOutput() Activ
 
 func (o ActivityLogAlertCriteriaOutput) ToActivityLogAlertCriteriaOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaOutput {
 	return o
-}
-
-func (o ActivityLogAlertCriteriaOutput) ToActivityLogAlertCriteriaPtrOutput() ActivityLogAlertCriteriaPtrOutput {
-	return o.ToActivityLogAlertCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (o ActivityLogAlertCriteriaOutput) ToActivityLogAlertCriteriaPtrOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertCriteria) *ActivityLogAlertCriteria {
-		return &v
-	}).(ActivityLogAlertCriteriaPtrOutput)
 }
 
 // The email address or Azure Active Directory identifier of the user who performed the operation.
@@ -5284,170 +5138,6 @@ func (o ActivityLogAlertCriteriaOutput) Status() pulumi.StringPtrOutput {
 // The sub status of the event.
 func (o ActivityLogAlertCriteriaOutput) SubStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
-}
-
-type ActivityLogAlertCriteriaPtrOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertCriteriaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertCriteria)(nil)).Elem()
-}
-
-func (o ActivityLogAlertCriteriaPtrOutput) ToActivityLogAlertCriteriaPtrOutput() ActivityLogAlertCriteriaPtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertCriteriaPtrOutput) ToActivityLogAlertCriteriaPtrOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaPtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertCriteriaPtrOutput) Elem() ActivityLogAlertCriteriaOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) ActivityLogAlertCriteria {
-		if v != nil {
-			return *v
-		}
-		var ret ActivityLogAlertCriteria
-		return ret
-	}).(ActivityLogAlertCriteriaOutput)
-}
-
-// The email address or Azure Active Directory identifier of the user who performed the operation.
-func (o ActivityLogAlertCriteriaPtrOutput) Caller() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Caller
-	}).(pulumi.StringPtrOutput)
-}
-
-// The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
-func (o ActivityLogAlertCriteriaPtrOutput) Category() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Category
-	}).(pulumi.StringPtrOutput)
-}
-
-// The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
-func (o ActivityLogAlertCriteriaPtrOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Level
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
-func (o ActivityLogAlertCriteriaPtrOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OperationName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
-func (o ActivityLogAlertCriteriaPtrOutput) RecommendationCategory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RecommendationCategory
-	}).(pulumi.StringPtrOutput)
-}
-
-// The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
-func (o ActivityLogAlertCriteriaPtrOutput) RecommendationImpact() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RecommendationImpact
-	}).(pulumi.StringPtrOutput)
-}
-
-// The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
-func (o ActivityLogAlertCriteriaPtrOutput) RecommendationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RecommendationType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of resource group monitored by the activity log alert.
-func (o ActivityLogAlertCriteriaPtrOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
-func (o ActivityLogAlertCriteriaPtrOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource provider monitored by the activity log alert.
-func (o ActivityLogAlertCriteriaPtrOutput) ResourceProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceProvider
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource type monitored by the activity log alert.
-func (o ActivityLogAlertCriteriaPtrOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// A block to define fine grain service health settings.
-func (o ActivityLogAlertCriteriaPtrOutput) ServiceHealths() ActivityLogAlertCriteriaServiceHealthArrayOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) []ActivityLogAlertCriteriaServiceHealth {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceHealths
-	}).(ActivityLogAlertCriteriaServiceHealthArrayOutput)
-}
-
-// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
-func (o ActivityLogAlertCriteriaPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// The sub status of the event.
-func (o ActivityLogAlertCriteriaPtrOutput) SubStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubStatus
-	}).(pulumi.StringPtrOutput)
 }
 
 type ActivityLogAlertCriteriaServiceHealth struct {
@@ -7597,47 +7287,6 @@ func (i LogProfileRetentionPolicyArgs) ToLogProfileRetentionPolicyOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileRetentionPolicyOutput)
 }
 
-func (i LogProfileRetentionPolicyArgs) ToLogProfileRetentionPolicyPtrOutput() LogProfileRetentionPolicyPtrOutput {
-	return i.ToLogProfileRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i LogProfileRetentionPolicyArgs) ToLogProfileRetentionPolicyPtrOutputWithContext(ctx context.Context) LogProfileRetentionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogProfileRetentionPolicyOutput).ToLogProfileRetentionPolicyPtrOutputWithContext(ctx)
-}
-
-// LogProfileRetentionPolicyPtrInput is an input type that accepts LogProfileRetentionPolicyArgs, LogProfileRetentionPolicyPtr and LogProfileRetentionPolicyPtrOutput values.
-// You can construct a concrete instance of `LogProfileRetentionPolicyPtrInput` via:
-//
-//          LogProfileRetentionPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type LogProfileRetentionPolicyPtrInput interface {
-	pulumi.Input
-
-	ToLogProfileRetentionPolicyPtrOutput() LogProfileRetentionPolicyPtrOutput
-	ToLogProfileRetentionPolicyPtrOutputWithContext(context.Context) LogProfileRetentionPolicyPtrOutput
-}
-
-type logProfileRetentionPolicyPtrType LogProfileRetentionPolicyArgs
-
-func LogProfileRetentionPolicyPtr(v *LogProfileRetentionPolicyArgs) LogProfileRetentionPolicyPtrInput {
-	return (*logProfileRetentionPolicyPtrType)(v)
-}
-
-func (*logProfileRetentionPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogProfileRetentionPolicy)(nil)).Elem()
-}
-
-func (i *logProfileRetentionPolicyPtrType) ToLogProfileRetentionPolicyPtrOutput() LogProfileRetentionPolicyPtrOutput {
-	return i.ToLogProfileRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *logProfileRetentionPolicyPtrType) ToLogProfileRetentionPolicyPtrOutputWithContext(ctx context.Context) LogProfileRetentionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogProfileRetentionPolicyPtrOutput)
-}
-
 type LogProfileRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (LogProfileRetentionPolicyOutput) ElementType() reflect.Type {
@@ -7652,16 +7301,6 @@ func (o LogProfileRetentionPolicyOutput) ToLogProfileRetentionPolicyOutputWithCo
 	return o
 }
 
-func (o LogProfileRetentionPolicyOutput) ToLogProfileRetentionPolicyPtrOutput() LogProfileRetentionPolicyPtrOutput {
-	return o.ToLogProfileRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o LogProfileRetentionPolicyOutput) ToLogProfileRetentionPolicyPtrOutputWithContext(ctx context.Context) LogProfileRetentionPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogProfileRetentionPolicy) *LogProfileRetentionPolicy {
-		return &v
-	}).(LogProfileRetentionPolicyPtrOutput)
-}
-
 // The number of days for the retention policy. Defaults to 0.
 func (o LogProfileRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LogProfileRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
@@ -7670,50 +7309,6 @@ func (o LogProfileRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 // A boolean value to indicate whether the retention policy is enabled.
 func (o LogProfileRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LogProfileRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type LogProfileRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (LogProfileRetentionPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogProfileRetentionPolicy)(nil)).Elem()
-}
-
-func (o LogProfileRetentionPolicyPtrOutput) ToLogProfileRetentionPolicyPtrOutput() LogProfileRetentionPolicyPtrOutput {
-	return o
-}
-
-func (o LogProfileRetentionPolicyPtrOutput) ToLogProfileRetentionPolicyPtrOutputWithContext(ctx context.Context) LogProfileRetentionPolicyPtrOutput {
-	return o
-}
-
-func (o LogProfileRetentionPolicyPtrOutput) Elem() LogProfileRetentionPolicyOutput {
-	return o.ApplyT(func(v *LogProfileRetentionPolicy) LogProfileRetentionPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret LogProfileRetentionPolicy
-		return ret
-	}).(LogProfileRetentionPolicyOutput)
-}
-
-// The number of days for the retention policy. Defaults to 0.
-func (o LogProfileRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LogProfileRetentionPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Days
-	}).(pulumi.IntPtrOutput)
-}
-
-// A boolean value to indicate whether the retention policy is enabled.
-func (o LogProfileRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LogProfileRetentionPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type LogzMonitorPlan struct {
@@ -7761,47 +7356,6 @@ func (i LogzMonitorPlanArgs) ToLogzMonitorPlanOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorPlanOutput)
 }
 
-func (i LogzMonitorPlanArgs) ToLogzMonitorPlanPtrOutput() LogzMonitorPlanPtrOutput {
-	return i.ToLogzMonitorPlanPtrOutputWithContext(context.Background())
-}
-
-func (i LogzMonitorPlanArgs) ToLogzMonitorPlanPtrOutputWithContext(ctx context.Context) LogzMonitorPlanPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorPlanOutput).ToLogzMonitorPlanPtrOutputWithContext(ctx)
-}
-
-// LogzMonitorPlanPtrInput is an input type that accepts LogzMonitorPlanArgs, LogzMonitorPlanPtr and LogzMonitorPlanPtrOutput values.
-// You can construct a concrete instance of `LogzMonitorPlanPtrInput` via:
-//
-//          LogzMonitorPlanArgs{...}
-//
-//  or:
-//
-//          nil
-type LogzMonitorPlanPtrInput interface {
-	pulumi.Input
-
-	ToLogzMonitorPlanPtrOutput() LogzMonitorPlanPtrOutput
-	ToLogzMonitorPlanPtrOutputWithContext(context.Context) LogzMonitorPlanPtrOutput
-}
-
-type logzMonitorPlanPtrType LogzMonitorPlanArgs
-
-func LogzMonitorPlanPtr(v *LogzMonitorPlanArgs) LogzMonitorPlanPtrInput {
-	return (*logzMonitorPlanPtrType)(v)
-}
-
-func (*logzMonitorPlanPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogzMonitorPlan)(nil)).Elem()
-}
-
-func (i *logzMonitorPlanPtrType) ToLogzMonitorPlanPtrOutput() LogzMonitorPlanPtrOutput {
-	return i.ToLogzMonitorPlanPtrOutputWithContext(context.Background())
-}
-
-func (i *logzMonitorPlanPtrType) ToLogzMonitorPlanPtrOutputWithContext(ctx context.Context) LogzMonitorPlanPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorPlanPtrOutput)
-}
-
 type LogzMonitorPlanOutput struct{ *pulumi.OutputState }
 
 func (LogzMonitorPlanOutput) ElementType() reflect.Type {
@@ -7814,16 +7368,6 @@ func (o LogzMonitorPlanOutput) ToLogzMonitorPlanOutput() LogzMonitorPlanOutput {
 
 func (o LogzMonitorPlanOutput) ToLogzMonitorPlanOutputWithContext(ctx context.Context) LogzMonitorPlanOutput {
 	return o
-}
-
-func (o LogzMonitorPlanOutput) ToLogzMonitorPlanPtrOutput() LogzMonitorPlanPtrOutput {
-	return o.ToLogzMonitorPlanPtrOutputWithContext(context.Background())
-}
-
-func (o LogzMonitorPlanOutput) ToLogzMonitorPlanPtrOutputWithContext(ctx context.Context) LogzMonitorPlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogzMonitorPlan) *LogzMonitorPlan {
-		return &v
-	}).(LogzMonitorPlanPtrOutput)
 }
 
 // Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
@@ -7844,70 +7388,6 @@ func (o LogzMonitorPlanOutput) PlanId() pulumi.StringOutput {
 // Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
 func (o LogzMonitorPlanOutput) UsageType() pulumi.StringOutput {
 	return o.ApplyT(func(v LogzMonitorPlan) string { return v.UsageType }).(pulumi.StringOutput)
-}
-
-type LogzMonitorPlanPtrOutput struct{ *pulumi.OutputState }
-
-func (LogzMonitorPlanPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogzMonitorPlan)(nil)).Elem()
-}
-
-func (o LogzMonitorPlanPtrOutput) ToLogzMonitorPlanPtrOutput() LogzMonitorPlanPtrOutput {
-	return o
-}
-
-func (o LogzMonitorPlanPtrOutput) ToLogzMonitorPlanPtrOutputWithContext(ctx context.Context) LogzMonitorPlanPtrOutput {
-	return o
-}
-
-func (o LogzMonitorPlanPtrOutput) Elem() LogzMonitorPlanOutput {
-	return o.ApplyT(func(v *LogzMonitorPlan) LogzMonitorPlan {
-		if v != nil {
-			return *v
-		}
-		var ret LogzMonitorPlan
-		return ret
-	}).(LogzMonitorPlanOutput)
-}
-
-// Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
-func (o LogzMonitorPlanPtrOutput) BillingCycle() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogzMonitorPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BillingCycle
-	}).(pulumi.StringPtrOutput)
-}
-
-// Date when plan was applied. Changing this forces a new logz Monitor to be created.
-func (o LogzMonitorPlanPtrOutput) EffectiveDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogzMonitorPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EffectiveDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
-func (o LogzMonitorPlanPtrOutput) PlanId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogzMonitorPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PlanId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
-func (o LogzMonitorPlanPtrOutput) UsageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogzMonitorPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UsageType
-	}).(pulumi.StringPtrOutput)
 }
 
 type LogzMonitorUser struct {
@@ -7955,47 +7435,6 @@ func (i LogzMonitorUserArgs) ToLogzMonitorUserOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorUserOutput)
 }
 
-func (i LogzMonitorUserArgs) ToLogzMonitorUserPtrOutput() LogzMonitorUserPtrOutput {
-	return i.ToLogzMonitorUserPtrOutputWithContext(context.Background())
-}
-
-func (i LogzMonitorUserArgs) ToLogzMonitorUserPtrOutputWithContext(ctx context.Context) LogzMonitorUserPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorUserOutput).ToLogzMonitorUserPtrOutputWithContext(ctx)
-}
-
-// LogzMonitorUserPtrInput is an input type that accepts LogzMonitorUserArgs, LogzMonitorUserPtr and LogzMonitorUserPtrOutput values.
-// You can construct a concrete instance of `LogzMonitorUserPtrInput` via:
-//
-//          LogzMonitorUserArgs{...}
-//
-//  or:
-//
-//          nil
-type LogzMonitorUserPtrInput interface {
-	pulumi.Input
-
-	ToLogzMonitorUserPtrOutput() LogzMonitorUserPtrOutput
-	ToLogzMonitorUserPtrOutputWithContext(context.Context) LogzMonitorUserPtrOutput
-}
-
-type logzMonitorUserPtrType LogzMonitorUserArgs
-
-func LogzMonitorUserPtr(v *LogzMonitorUserArgs) LogzMonitorUserPtrInput {
-	return (*logzMonitorUserPtrType)(v)
-}
-
-func (*logzMonitorUserPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogzMonitorUser)(nil)).Elem()
-}
-
-func (i *logzMonitorUserPtrType) ToLogzMonitorUserPtrOutput() LogzMonitorUserPtrOutput {
-	return i.ToLogzMonitorUserPtrOutputWithContext(context.Background())
-}
-
-func (i *logzMonitorUserPtrType) ToLogzMonitorUserPtrOutputWithContext(ctx context.Context) LogzMonitorUserPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorUserPtrOutput)
-}
-
 type LogzMonitorUserOutput struct{ *pulumi.OutputState }
 
 func (LogzMonitorUserOutput) ElementType() reflect.Type {
@@ -8008,16 +7447,6 @@ func (o LogzMonitorUserOutput) ToLogzMonitorUserOutput() LogzMonitorUserOutput {
 
 func (o LogzMonitorUserOutput) ToLogzMonitorUserOutputWithContext(ctx context.Context) LogzMonitorUserOutput {
 	return o
-}
-
-func (o LogzMonitorUserOutput) ToLogzMonitorUserPtrOutput() LogzMonitorUserPtrOutput {
-	return o.ToLogzMonitorUserPtrOutputWithContext(context.Background())
-}
-
-func (o LogzMonitorUserOutput) ToLogzMonitorUserPtrOutputWithContext(ctx context.Context) LogzMonitorUserPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogzMonitorUser) *LogzMonitorUser {
-		return &v
-	}).(LogzMonitorUserPtrOutput)
 }
 
 // Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
@@ -8038,70 +7467,6 @@ func (o LogzMonitorUserOutput) LastName() pulumi.StringOutput {
 // Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
 func (o LogzMonitorUserOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v LogzMonitorUser) string { return v.PhoneNumber }).(pulumi.StringOutput)
-}
-
-type LogzMonitorUserPtrOutput struct{ *pulumi.OutputState }
-
-func (LogzMonitorUserPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogzMonitorUser)(nil)).Elem()
-}
-
-func (o LogzMonitorUserPtrOutput) ToLogzMonitorUserPtrOutput() LogzMonitorUserPtrOutput {
-	return o
-}
-
-func (o LogzMonitorUserPtrOutput) ToLogzMonitorUserPtrOutputWithContext(ctx context.Context) LogzMonitorUserPtrOutput {
-	return o
-}
-
-func (o LogzMonitorUserPtrOutput) Elem() LogzMonitorUserOutput {
-	return o.ApplyT(func(v *LogzMonitorUser) LogzMonitorUser {
-		if v != nil {
-			return *v
-		}
-		var ret LogzMonitorUser
-		return ret
-	}).(LogzMonitorUserOutput)
-}
-
-// Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-func (o LogzMonitorUserPtrOutput) Email() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogzMonitorUser) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Email
-	}).(pulumi.StringPtrOutput)
-}
-
-// First Name of the user. Changing this forces a new logz Monitor to be created.
-func (o LogzMonitorUserPtrOutput) FirstName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogzMonitorUser) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FirstName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Last Name of the user. Changing this forces a new logz Monitor to be created.
-func (o LogzMonitorUserPtrOutput) LastName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogzMonitorUser) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
-func (o LogzMonitorUserPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogzMonitorUser) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PhoneNumber
-	}).(pulumi.StringPtrOutput)
 }
 
 type LogzTagRuleTagFilter struct {
@@ -9232,47 +8597,6 @@ func (i ScheduledQueryRulesAlertActionArgs) ToScheduledQueryRulesAlertActionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertActionOutput)
 }
 
-func (i ScheduledQueryRulesAlertActionArgs) ToScheduledQueryRulesAlertActionPtrOutput() ScheduledQueryRulesAlertActionPtrOutput {
-	return i.ToScheduledQueryRulesAlertActionPtrOutputWithContext(context.Background())
-}
-
-func (i ScheduledQueryRulesAlertActionArgs) ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertActionOutput).ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx)
-}
-
-// ScheduledQueryRulesAlertActionPtrInput is an input type that accepts ScheduledQueryRulesAlertActionArgs, ScheduledQueryRulesAlertActionPtr and ScheduledQueryRulesAlertActionPtrOutput values.
-// You can construct a concrete instance of `ScheduledQueryRulesAlertActionPtrInput` via:
-//
-//          ScheduledQueryRulesAlertActionArgs{...}
-//
-//  or:
-//
-//          nil
-type ScheduledQueryRulesAlertActionPtrInput interface {
-	pulumi.Input
-
-	ToScheduledQueryRulesAlertActionPtrOutput() ScheduledQueryRulesAlertActionPtrOutput
-	ToScheduledQueryRulesAlertActionPtrOutputWithContext(context.Context) ScheduledQueryRulesAlertActionPtrOutput
-}
-
-type scheduledQueryRulesAlertActionPtrType ScheduledQueryRulesAlertActionArgs
-
-func ScheduledQueryRulesAlertActionPtr(v *ScheduledQueryRulesAlertActionArgs) ScheduledQueryRulesAlertActionPtrInput {
-	return (*scheduledQueryRulesAlertActionPtrType)(v)
-}
-
-func (*scheduledQueryRulesAlertActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledQueryRulesAlertAction)(nil)).Elem()
-}
-
-func (i *scheduledQueryRulesAlertActionPtrType) ToScheduledQueryRulesAlertActionPtrOutput() ScheduledQueryRulesAlertActionPtrOutput {
-	return i.ToScheduledQueryRulesAlertActionPtrOutputWithContext(context.Background())
-}
-
-func (i *scheduledQueryRulesAlertActionPtrType) ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertActionPtrOutput)
-}
-
 type ScheduledQueryRulesAlertActionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesAlertActionOutput) ElementType() reflect.Type {
@@ -9285,16 +8609,6 @@ func (o ScheduledQueryRulesAlertActionOutput) ToScheduledQueryRulesAlertActionOu
 
 func (o ScheduledQueryRulesAlertActionOutput) ToScheduledQueryRulesAlertActionOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesAlertActionOutput) ToScheduledQueryRulesAlertActionPtrOutput() ScheduledQueryRulesAlertActionPtrOutput {
-	return o.ToScheduledQueryRulesAlertActionPtrOutputWithContext(context.Background())
-}
-
-func (o ScheduledQueryRulesAlertActionOutput) ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesAlertAction) *ScheduledQueryRulesAlertAction {
-		return &v
-	}).(ScheduledQueryRulesAlertActionPtrOutput)
 }
 
 // List of action group reference resource IDs.
@@ -9310,60 +8624,6 @@ func (o ScheduledQueryRulesAlertActionOutput) CustomWebhookPayload() pulumi.Stri
 // Custom subject override for all email ids in Azure action group.
 func (o ScheduledQueryRulesAlertActionOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertAction) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
-}
-
-type ScheduledQueryRulesAlertActionPtrOutput struct{ *pulumi.OutputState }
-
-func (ScheduledQueryRulesAlertActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledQueryRulesAlertAction)(nil)).Elem()
-}
-
-func (o ScheduledQueryRulesAlertActionPtrOutput) ToScheduledQueryRulesAlertActionPtrOutput() ScheduledQueryRulesAlertActionPtrOutput {
-	return o
-}
-
-func (o ScheduledQueryRulesAlertActionPtrOutput) ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionPtrOutput {
-	return o
-}
-
-func (o ScheduledQueryRulesAlertActionPtrOutput) Elem() ScheduledQueryRulesAlertActionOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesAlertAction) ScheduledQueryRulesAlertAction {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduledQueryRulesAlertAction
-		return ret
-	}).(ScheduledQueryRulesAlertActionOutput)
-}
-
-// List of action group reference resource IDs.
-func (o ScheduledQueryRulesAlertActionPtrOutput) ActionGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesAlertAction) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ActionGroups
-	}).(pulumi.StringArrayOutput)
-}
-
-// Custom payload to be sent for all webhook payloads in alerting action.
-func (o ScheduledQueryRulesAlertActionPtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesAlertAction) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomWebhookPayload
-	}).(pulumi.StringPtrOutput)
-}
-
-// Custom subject override for all email ids in Azure action group.
-func (o ScheduledQueryRulesAlertActionPtrOutput) EmailSubject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesAlertAction) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EmailSubject
-	}).(pulumi.StringPtrOutput)
 }
 
 type ScheduledQueryRulesAlertTrigger struct {
@@ -9407,47 +8667,6 @@ func (i ScheduledQueryRulesAlertTriggerArgs) ToScheduledQueryRulesAlertTriggerOu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerOutput)
 }
 
-func (i ScheduledQueryRulesAlertTriggerArgs) ToScheduledQueryRulesAlertTriggerPtrOutput() ScheduledQueryRulesAlertTriggerPtrOutput {
-	return i.ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(context.Background())
-}
-
-func (i ScheduledQueryRulesAlertTriggerArgs) ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerOutput).ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx)
-}
-
-// ScheduledQueryRulesAlertTriggerPtrInput is an input type that accepts ScheduledQueryRulesAlertTriggerArgs, ScheduledQueryRulesAlertTriggerPtr and ScheduledQueryRulesAlertTriggerPtrOutput values.
-// You can construct a concrete instance of `ScheduledQueryRulesAlertTriggerPtrInput` via:
-//
-//          ScheduledQueryRulesAlertTriggerArgs{...}
-//
-//  or:
-//
-//          nil
-type ScheduledQueryRulesAlertTriggerPtrInput interface {
-	pulumi.Input
-
-	ToScheduledQueryRulesAlertTriggerPtrOutput() ScheduledQueryRulesAlertTriggerPtrOutput
-	ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(context.Context) ScheduledQueryRulesAlertTriggerPtrOutput
-}
-
-type scheduledQueryRulesAlertTriggerPtrType ScheduledQueryRulesAlertTriggerArgs
-
-func ScheduledQueryRulesAlertTriggerPtr(v *ScheduledQueryRulesAlertTriggerArgs) ScheduledQueryRulesAlertTriggerPtrInput {
-	return (*scheduledQueryRulesAlertTriggerPtrType)(v)
-}
-
-func (*scheduledQueryRulesAlertTriggerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledQueryRulesAlertTrigger)(nil)).Elem()
-}
-
-func (i *scheduledQueryRulesAlertTriggerPtrType) ToScheduledQueryRulesAlertTriggerPtrOutput() ScheduledQueryRulesAlertTriggerPtrOutput {
-	return i.ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(context.Background())
-}
-
-func (i *scheduledQueryRulesAlertTriggerPtrType) ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerPtrOutput)
-}
-
 type ScheduledQueryRulesAlertTriggerOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesAlertTriggerOutput) ElementType() reflect.Type {
@@ -9460,16 +8679,6 @@ func (o ScheduledQueryRulesAlertTriggerOutput) ToScheduledQueryRulesAlertTrigger
 
 func (o ScheduledQueryRulesAlertTriggerOutput) ToScheduledQueryRulesAlertTriggerOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesAlertTriggerOutput) ToScheduledQueryRulesAlertTriggerPtrOutput() ScheduledQueryRulesAlertTriggerPtrOutput {
-	return o.ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(context.Background())
-}
-
-func (o ScheduledQueryRulesAlertTriggerOutput) ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesAlertTrigger) *ScheduledQueryRulesAlertTrigger {
-		return &v
-	}).(ScheduledQueryRulesAlertTriggerPtrOutput)
 }
 
 // A `metricTrigger` block as defined above. Trigger condition for metric query rule.
@@ -9487,60 +8696,6 @@ func (o ScheduledQueryRulesAlertTriggerOutput) Operator() pulumi.StringOutput {
 // Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
 func (o ScheduledQueryRulesAlertTriggerOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
-}
-
-type ScheduledQueryRulesAlertTriggerPtrOutput struct{ *pulumi.OutputState }
-
-func (ScheduledQueryRulesAlertTriggerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledQueryRulesAlertTrigger)(nil)).Elem()
-}
-
-func (o ScheduledQueryRulesAlertTriggerPtrOutput) ToScheduledQueryRulesAlertTriggerPtrOutput() ScheduledQueryRulesAlertTriggerPtrOutput {
-	return o
-}
-
-func (o ScheduledQueryRulesAlertTriggerPtrOutput) ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerPtrOutput {
-	return o
-}
-
-func (o ScheduledQueryRulesAlertTriggerPtrOutput) Elem() ScheduledQueryRulesAlertTriggerOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesAlertTrigger) ScheduledQueryRulesAlertTrigger {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduledQueryRulesAlertTrigger
-		return ret
-	}).(ScheduledQueryRulesAlertTriggerOutput)
-}
-
-// A `metricTrigger` block as defined above. Trigger condition for metric query rule.
-func (o ScheduledQueryRulesAlertTriggerPtrOutput) MetricTrigger() ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesAlertTrigger) *ScheduledQueryRulesAlertTriggerMetricTrigger {
-		if v == nil {
-			return nil
-		}
-		return v.MetricTrigger
-	}).(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput)
-}
-
-// Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
-func (o ScheduledQueryRulesAlertTriggerPtrOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesAlertTrigger) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Operator
-	}).(pulumi.StringPtrOutput)
-}
-
-// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
-func (o ScheduledQueryRulesAlertTriggerPtrOutput) Threshold() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesAlertTrigger) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.Threshold
-	}).(pulumi.Float64PtrOutput)
 }
 
 type ScheduledQueryRulesAlertTriggerMetricTrigger struct {
@@ -9774,47 +8929,6 @@ func (i ScheduledQueryRulesLogCriteriaArgs) ToScheduledQueryRulesLogCriteriaOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogCriteriaOutput)
 }
 
-func (i ScheduledQueryRulesLogCriteriaArgs) ToScheduledQueryRulesLogCriteriaPtrOutput() ScheduledQueryRulesLogCriteriaPtrOutput {
-	return i.ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i ScheduledQueryRulesLogCriteriaArgs) ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogCriteriaOutput).ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx)
-}
-
-// ScheduledQueryRulesLogCriteriaPtrInput is an input type that accepts ScheduledQueryRulesLogCriteriaArgs, ScheduledQueryRulesLogCriteriaPtr and ScheduledQueryRulesLogCriteriaPtrOutput values.
-// You can construct a concrete instance of `ScheduledQueryRulesLogCriteriaPtrInput` via:
-//
-//          ScheduledQueryRulesLogCriteriaArgs{...}
-//
-//  or:
-//
-//          nil
-type ScheduledQueryRulesLogCriteriaPtrInput interface {
-	pulumi.Input
-
-	ToScheduledQueryRulesLogCriteriaPtrOutput() ScheduledQueryRulesLogCriteriaPtrOutput
-	ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(context.Context) ScheduledQueryRulesLogCriteriaPtrOutput
-}
-
-type scheduledQueryRulesLogCriteriaPtrType ScheduledQueryRulesLogCriteriaArgs
-
-func ScheduledQueryRulesLogCriteriaPtr(v *ScheduledQueryRulesLogCriteriaArgs) ScheduledQueryRulesLogCriteriaPtrInput {
-	return (*scheduledQueryRulesLogCriteriaPtrType)(v)
-}
-
-func (*scheduledQueryRulesLogCriteriaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledQueryRulesLogCriteria)(nil)).Elem()
-}
-
-func (i *scheduledQueryRulesLogCriteriaPtrType) ToScheduledQueryRulesLogCriteriaPtrOutput() ScheduledQueryRulesLogCriteriaPtrOutput {
-	return i.ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i *scheduledQueryRulesLogCriteriaPtrType) ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogCriteriaPtrOutput)
-}
-
 type ScheduledQueryRulesLogCriteriaOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesLogCriteriaOutput) ElementType() reflect.Type {
@@ -9829,16 +8943,6 @@ func (o ScheduledQueryRulesLogCriteriaOutput) ToScheduledQueryRulesLogCriteriaOu
 	return o
 }
 
-func (o ScheduledQueryRulesLogCriteriaOutput) ToScheduledQueryRulesLogCriteriaPtrOutput() ScheduledQueryRulesLogCriteriaPtrOutput {
-	return o.ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (o ScheduledQueryRulesLogCriteriaOutput) ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesLogCriteria) *ScheduledQueryRulesLogCriteria {
-		return &v
-	}).(ScheduledQueryRulesLogCriteriaPtrOutput)
-}
-
 // A `dimension` block as defined below.
 func (o ScheduledQueryRulesLogCriteriaOutput) Dimensions() ScheduledQueryRulesLogCriteriaDimensionArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) []ScheduledQueryRulesLogCriteriaDimension { return v.Dimensions }).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
@@ -9847,50 +8951,6 @@ func (o ScheduledQueryRulesLogCriteriaOutput) Dimensions() ScheduledQueryRulesLo
 // Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
 func (o ScheduledQueryRulesLogCriteriaOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) string { return v.MetricName }).(pulumi.StringOutput)
-}
-
-type ScheduledQueryRulesLogCriteriaPtrOutput struct{ *pulumi.OutputState }
-
-func (ScheduledQueryRulesLogCriteriaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledQueryRulesLogCriteria)(nil)).Elem()
-}
-
-func (o ScheduledQueryRulesLogCriteriaPtrOutput) ToScheduledQueryRulesLogCriteriaPtrOutput() ScheduledQueryRulesLogCriteriaPtrOutput {
-	return o
-}
-
-func (o ScheduledQueryRulesLogCriteriaPtrOutput) ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaPtrOutput {
-	return o
-}
-
-func (o ScheduledQueryRulesLogCriteriaPtrOutput) Elem() ScheduledQueryRulesLogCriteriaOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesLogCriteria) ScheduledQueryRulesLogCriteria {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduledQueryRulesLogCriteria
-		return ret
-	}).(ScheduledQueryRulesLogCriteriaOutput)
-}
-
-// A `dimension` block as defined below.
-func (o ScheduledQueryRulesLogCriteriaPtrOutput) Dimensions() ScheduledQueryRulesLogCriteriaDimensionArrayOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesLogCriteria) []ScheduledQueryRulesLogCriteriaDimension {
-		if v == nil {
-			return nil
-		}
-		return v.Dimensions
-	}).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
-}
-
-// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
-func (o ScheduledQueryRulesLogCriteriaPtrOutput) MetricName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduledQueryRulesLogCriteria) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MetricName
-	}).(pulumi.StringPtrOutput)
 }
 
 type ScheduledQueryRulesLogCriteriaDimension struct {
@@ -10049,47 +9109,6 @@ func (i SmartDetectorAlertRuleActionGroupArgs) ToSmartDetectorAlertRuleActionGro
 	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleActionGroupOutput)
 }
 
-func (i SmartDetectorAlertRuleActionGroupArgs) ToSmartDetectorAlertRuleActionGroupPtrOutput() SmartDetectorAlertRuleActionGroupPtrOutput {
-	return i.ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(context.Background())
-}
-
-func (i SmartDetectorAlertRuleActionGroupArgs) ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleActionGroupOutput).ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx)
-}
-
-// SmartDetectorAlertRuleActionGroupPtrInput is an input type that accepts SmartDetectorAlertRuleActionGroupArgs, SmartDetectorAlertRuleActionGroupPtr and SmartDetectorAlertRuleActionGroupPtrOutput values.
-// You can construct a concrete instance of `SmartDetectorAlertRuleActionGroupPtrInput` via:
-//
-//          SmartDetectorAlertRuleActionGroupArgs{...}
-//
-//  or:
-//
-//          nil
-type SmartDetectorAlertRuleActionGroupPtrInput interface {
-	pulumi.Input
-
-	ToSmartDetectorAlertRuleActionGroupPtrOutput() SmartDetectorAlertRuleActionGroupPtrOutput
-	ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(context.Context) SmartDetectorAlertRuleActionGroupPtrOutput
-}
-
-type smartDetectorAlertRuleActionGroupPtrType SmartDetectorAlertRuleActionGroupArgs
-
-func SmartDetectorAlertRuleActionGroupPtr(v *SmartDetectorAlertRuleActionGroupArgs) SmartDetectorAlertRuleActionGroupPtrInput {
-	return (*smartDetectorAlertRuleActionGroupPtrType)(v)
-}
-
-func (*smartDetectorAlertRuleActionGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SmartDetectorAlertRuleActionGroup)(nil)).Elem()
-}
-
-func (i *smartDetectorAlertRuleActionGroupPtrType) ToSmartDetectorAlertRuleActionGroupPtrOutput() SmartDetectorAlertRuleActionGroupPtrOutput {
-	return i.ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *smartDetectorAlertRuleActionGroupPtrType) ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleActionGroupPtrOutput)
-}
-
 type SmartDetectorAlertRuleActionGroupOutput struct{ *pulumi.OutputState }
 
 func (SmartDetectorAlertRuleActionGroupOutput) ElementType() reflect.Type {
@@ -10102,16 +9121,6 @@ func (o SmartDetectorAlertRuleActionGroupOutput) ToSmartDetectorAlertRuleActionG
 
 func (o SmartDetectorAlertRuleActionGroupOutput) ToSmartDetectorAlertRuleActionGroupOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupOutput {
 	return o
-}
-
-func (o SmartDetectorAlertRuleActionGroupOutput) ToSmartDetectorAlertRuleActionGroupPtrOutput() SmartDetectorAlertRuleActionGroupPtrOutput {
-	return o.ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(context.Background())
-}
-
-func (o SmartDetectorAlertRuleActionGroupOutput) ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmartDetectorAlertRuleActionGroup) *SmartDetectorAlertRuleActionGroup {
-		return &v
-	}).(SmartDetectorAlertRuleActionGroupPtrOutput)
 }
 
 // Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
@@ -10127,60 +9136,6 @@ func (o SmartDetectorAlertRuleActionGroupOutput) Ids() pulumi.StringArrayOutput 
 // A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
 func (o SmartDetectorAlertRuleActionGroupOutput) WebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SmartDetectorAlertRuleActionGroup) *string { return v.WebhookPayload }).(pulumi.StringPtrOutput)
-}
-
-type SmartDetectorAlertRuleActionGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (SmartDetectorAlertRuleActionGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SmartDetectorAlertRuleActionGroup)(nil)).Elem()
-}
-
-func (o SmartDetectorAlertRuleActionGroupPtrOutput) ToSmartDetectorAlertRuleActionGroupPtrOutput() SmartDetectorAlertRuleActionGroupPtrOutput {
-	return o
-}
-
-func (o SmartDetectorAlertRuleActionGroupPtrOutput) ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupPtrOutput {
-	return o
-}
-
-func (o SmartDetectorAlertRuleActionGroupPtrOutput) Elem() SmartDetectorAlertRuleActionGroupOutput {
-	return o.ApplyT(func(v *SmartDetectorAlertRuleActionGroup) SmartDetectorAlertRuleActionGroup {
-		if v != nil {
-			return *v
-		}
-		var ret SmartDetectorAlertRuleActionGroup
-		return ret
-	}).(SmartDetectorAlertRuleActionGroupOutput)
-}
-
-// Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
-func (o SmartDetectorAlertRuleActionGroupPtrOutput) EmailSubject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SmartDetectorAlertRuleActionGroup) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EmailSubject
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the action group ids.
-func (o SmartDetectorAlertRuleActionGroupPtrOutput) Ids() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SmartDetectorAlertRuleActionGroup) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Ids
-	}).(pulumi.StringArrayOutput)
-}
-
-// A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
-func (o SmartDetectorAlertRuleActionGroupPtrOutput) WebhookPayload() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SmartDetectorAlertRuleActionGroup) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WebhookPayload
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetActionGroupArmRoleReceiver struct {
@@ -12256,13 +11211,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleSuppressionScopeInput)(nil)).Elem(), ActionRuleSuppressionScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleSuppressionScopePtrInput)(nil)).Elem(), ActionRuleSuppressionScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleSuppressionSuppressionInput)(nil)).Elem(), ActionRuleSuppressionSuppressionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleSuppressionSuppressionPtrInput)(nil)).Elem(), ActionRuleSuppressionSuppressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleSuppressionSuppressionScheduleInput)(nil)).Elem(), ActionRuleSuppressionSuppressionScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleSuppressionSuppressionSchedulePtrInput)(nil)).Elem(), ActionRuleSuppressionSuppressionScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertActionInput)(nil)).Elem(), ActivityLogAlertActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertActionArrayInput)(nil)).Elem(), ActivityLogAlertActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaInput)(nil)).Elem(), ActivityLogAlertCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaPtrInput)(nil)).Elem(), ActivityLogAlertCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaServiceHealthInput)(nil)).Elem(), ActivityLogAlertCriteriaServiceHealthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaServiceHealthArrayInput)(nil)).Elem(), ActivityLogAlertCriteriaServiceHealthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingNotificationInput)(nil)).Elem(), AutoscaleSettingNotificationArgs{})
@@ -12293,11 +11246,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingMetricRetentionPolicyInput)(nil)).Elem(), DiagnosticSettingMetricRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingMetricRetentionPolicyPtrInput)(nil)).Elem(), DiagnosticSettingMetricRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogProfileRetentionPolicyInput)(nil)).Elem(), LogProfileRetentionPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogProfileRetentionPolicyPtrInput)(nil)).Elem(), LogProfileRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorPlanInput)(nil)).Elem(), LogzMonitorPlanArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorPlanPtrInput)(nil)).Elem(), LogzMonitorPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorUserInput)(nil)).Elem(), LogzMonitorUserArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorUserPtrInput)(nil)).Elem(), LogzMonitorUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRuleTagFilterInput)(nil)).Elem(), LogzTagRuleTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzTagRuleTagFilterArrayInput)(nil)).Elem(), LogzTagRuleTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertActionInput)(nil)).Elem(), MetricAlertActionArgs{})
@@ -12313,17 +11263,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertDynamicCriteriaDimensionInput)(nil)).Elem(), MetricAlertDynamicCriteriaDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlertDynamicCriteriaDimensionArrayInput)(nil)).Elem(), MetricAlertDynamicCriteriaDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertActionInput)(nil)).Elem(), ScheduledQueryRulesAlertActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertActionPtrInput)(nil)).Elem(), ScheduledQueryRulesAlertActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertTriggerInput)(nil)).Elem(), ScheduledQueryRulesAlertTriggerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertTriggerPtrInput)(nil)).Elem(), ScheduledQueryRulesAlertTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertTriggerMetricTriggerInput)(nil)).Elem(), ScheduledQueryRulesAlertTriggerMetricTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertTriggerMetricTriggerPtrInput)(nil)).Elem(), ScheduledQueryRulesAlertTriggerMetricTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogCriteriaInput)(nil)).Elem(), ScheduledQueryRulesLogCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogCriteriaPtrInput)(nil)).Elem(), ScheduledQueryRulesLogCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogCriteriaDimensionInput)(nil)).Elem(), ScheduledQueryRulesLogCriteriaDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogCriteriaDimensionArrayInput)(nil)).Elem(), ScheduledQueryRulesLogCriteriaDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SmartDetectorAlertRuleActionGroupInput)(nil)).Elem(), SmartDetectorAlertRuleActionGroupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SmartDetectorAlertRuleActionGroupPtrInput)(nil)).Elem(), SmartDetectorAlertRuleActionGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupArmRoleReceiverInput)(nil)).Elem(), GetActionGroupArmRoleReceiverArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupArmRoleReceiverArrayInput)(nil)).Elem(), GetActionGroupArmRoleReceiverArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupAutomationRunbookReceiverInput)(nil)).Elem(), GetActionGroupAutomationRunbookReceiverArgs{})
@@ -12420,13 +11366,11 @@ func init() {
 	pulumi.RegisterOutputType(ActionRuleSuppressionScopeOutput{})
 	pulumi.RegisterOutputType(ActionRuleSuppressionScopePtrOutput{})
 	pulumi.RegisterOutputType(ActionRuleSuppressionSuppressionOutput{})
-	pulumi.RegisterOutputType(ActionRuleSuppressionSuppressionPtrOutput{})
 	pulumi.RegisterOutputType(ActionRuleSuppressionSuppressionScheduleOutput{})
 	pulumi.RegisterOutputType(ActionRuleSuppressionSuppressionSchedulePtrOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertActionOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertActionArrayOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaServiceHealthOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaServiceHealthArrayOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationOutput{})
@@ -12457,11 +11401,8 @@ func init() {
 	pulumi.RegisterOutputType(DiagnosticSettingMetricRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingMetricRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(LogProfileRetentionPolicyOutput{})
-	pulumi.RegisterOutputType(LogProfileRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(LogzMonitorPlanOutput{})
-	pulumi.RegisterOutputType(LogzMonitorPlanPtrOutput{})
 	pulumi.RegisterOutputType(LogzMonitorUserOutput{})
-	pulumi.RegisterOutputType(LogzMonitorUserPtrOutput{})
 	pulumi.RegisterOutputType(LogzTagRuleTagFilterOutput{})
 	pulumi.RegisterOutputType(LogzTagRuleTagFilterArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionOutput{})
@@ -12477,17 +11418,13 @@ func init() {
 	pulumi.RegisterOutputType(MetricAlertDynamicCriteriaDimensionOutput{})
 	pulumi.RegisterOutputType(MetricAlertDynamicCriteriaDimensionArrayOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertActionOutput{})
-	pulumi.RegisterOutputType(ScheduledQueryRulesAlertActionPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertTriggerOutput{})
-	pulumi.RegisterOutputType(ScheduledQueryRulesAlertTriggerPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertTriggerMetricTriggerOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaOutput{})
-	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaDimensionOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaDimensionArrayOutput{})
 	pulumi.RegisterOutputType(SmartDetectorAlertRuleActionGroupOutput{})
-	pulumi.RegisterOutputType(SmartDetectorAlertRuleActionGroupPtrOutput{})
 	pulumi.RegisterOutputType(GetActionGroupArmRoleReceiverOutput{})
 	pulumi.RegisterOutputType(GetActionGroupArmRoleReceiverArrayOutput{})
 	pulumi.RegisterOutputType(GetActionGroupAutomationRunbookReceiverOutput{})

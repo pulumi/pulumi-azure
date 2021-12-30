@@ -107,18 +107,18 @@ export class ApiVersionSet extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiVersionSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiVersionSetArgs | ApiVersionSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiVersionSetState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["versionHeaderName"] = state ? state.versionHeaderName : undefined;
-            inputs["versionQueryName"] = state ? state.versionQueryName : undefined;
-            inputs["versioningScheme"] = state ? state.versioningScheme : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["versionHeaderName"] = state ? state.versionHeaderName : undefined;
+            resourceInputs["versionQueryName"] = state ? state.versionQueryName : undefined;
+            resourceInputs["versioningScheme"] = state ? state.versioningScheme : undefined;
         } else {
             const args = argsOrState as ApiVersionSetArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -133,19 +133,19 @@ export class ApiVersionSet extends pulumi.CustomResource {
             if ((!args || args.versioningScheme === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'versioningScheme'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["versionHeaderName"] = args ? args.versionHeaderName : undefined;
-            inputs["versionQueryName"] = args ? args.versionQueryName : undefined;
-            inputs["versioningScheme"] = args ? args.versioningScheme : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["versionHeaderName"] = args ? args.versionHeaderName : undefined;
+            resourceInputs["versionQueryName"] = args ? args.versionQueryName : undefined;
+            resourceInputs["versioningScheme"] = args ? args.versioningScheme : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ApiVersionSet.__pulumiType, name, inputs, opts);
+        super(ApiVersionSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

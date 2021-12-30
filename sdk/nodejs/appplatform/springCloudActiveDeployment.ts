@@ -96,12 +96,12 @@ export class SpringCloudActiveDeployment extends pulumi.CustomResource {
      */
     constructor(name: string, args: SpringCloudActiveDeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpringCloudActiveDeploymentArgs | SpringCloudActiveDeploymentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudActiveDeploymentState | undefined;
-            inputs["deploymentName"] = state ? state.deploymentName : undefined;
-            inputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
+            resourceInputs["deploymentName"] = state ? state.deploymentName : undefined;
+            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
         } else {
             const args = argsOrState as SpringCloudActiveDeploymentArgs | undefined;
             if ((!args || args.deploymentName === undefined) && !opts.urn) {
@@ -110,13 +110,13 @@ export class SpringCloudActiveDeployment extends pulumi.CustomResource {
             if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            inputs["deploymentName"] = args ? args.deploymentName : undefined;
-            inputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
+            resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
+            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SpringCloudActiveDeployment.__pulumiType, name, inputs, opts);
+        super(SpringCloudActiveDeployment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

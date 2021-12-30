@@ -136,21 +136,21 @@ export class HybridConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: HybridConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HybridConnectionArgs | HybridConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HybridConnectionState | undefined;
-            inputs["appServiceName"] = state ? state.appServiceName : undefined;
-            inputs["hostname"] = state ? state.hostname : undefined;
-            inputs["namespaceName"] = state ? state.namespaceName : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["relayId"] = state ? state.relayId : undefined;
-            inputs["relayName"] = state ? state.relayName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sendKeyName"] = state ? state.sendKeyName : undefined;
-            inputs["sendKeyValue"] = state ? state.sendKeyValue : undefined;
-            inputs["serviceBusNamespace"] = state ? state.serviceBusNamespace : undefined;
-            inputs["serviceBusSuffix"] = state ? state.serviceBusSuffix : undefined;
+            resourceInputs["appServiceName"] = state ? state.appServiceName : undefined;
+            resourceInputs["hostname"] = state ? state.hostname : undefined;
+            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["relayId"] = state ? state.relayId : undefined;
+            resourceInputs["relayName"] = state ? state.relayName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sendKeyName"] = state ? state.sendKeyName : undefined;
+            resourceInputs["sendKeyValue"] = state ? state.sendKeyValue : undefined;
+            resourceInputs["serviceBusNamespace"] = state ? state.serviceBusNamespace : undefined;
+            resourceInputs["serviceBusSuffix"] = state ? state.serviceBusSuffix : undefined;
         } else {
             const args = argsOrState as HybridConnectionArgs | undefined;
             if ((!args || args.appServiceName === undefined) && !opts.urn) {
@@ -168,22 +168,22 @@ export class HybridConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["appServiceName"] = args ? args.appServiceName : undefined;
-            inputs["hostname"] = args ? args.hostname : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["relayId"] = args ? args.relayId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sendKeyName"] = args ? args.sendKeyName : undefined;
-            inputs["namespaceName"] = undefined /*out*/;
-            inputs["relayName"] = undefined /*out*/;
-            inputs["sendKeyValue"] = undefined /*out*/;
-            inputs["serviceBusNamespace"] = undefined /*out*/;
-            inputs["serviceBusSuffix"] = undefined /*out*/;
+            resourceInputs["appServiceName"] = args ? args.appServiceName : undefined;
+            resourceInputs["hostname"] = args ? args.hostname : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["relayId"] = args ? args.relayId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sendKeyName"] = args ? args.sendKeyName : undefined;
+            resourceInputs["namespaceName"] = undefined /*out*/;
+            resourceInputs["relayName"] = undefined /*out*/;
+            resourceInputs["sendKeyValue"] = undefined /*out*/;
+            resourceInputs["serviceBusNamespace"] = undefined /*out*/;
+            resourceInputs["serviceBusSuffix"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(HybridConnection.__pulumiType, name, inputs, opts);
+        super(HybridConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

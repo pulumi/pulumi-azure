@@ -251,7 +251,7 @@ type WorkspaceSecurityAlertPolicyInput interface {
 }
 
 func (*WorkspaceSecurityAlertPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((**WorkspaceSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (i *WorkspaceSecurityAlertPolicy) ToWorkspaceSecurityAlertPolicyOutput() WorkspaceSecurityAlertPolicyOutput {
@@ -260,35 +260,6 @@ func (i *WorkspaceSecurityAlertPolicy) ToWorkspaceSecurityAlertPolicyOutput() Wo
 
 func (i *WorkspaceSecurityAlertPolicy) ToWorkspaceSecurityAlertPolicyOutputWithContext(ctx context.Context) WorkspaceSecurityAlertPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSecurityAlertPolicyOutput)
-}
-
-func (i *WorkspaceSecurityAlertPolicy) ToWorkspaceSecurityAlertPolicyPtrOutput() WorkspaceSecurityAlertPolicyPtrOutput {
-	return i.ToWorkspaceSecurityAlertPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *WorkspaceSecurityAlertPolicy) ToWorkspaceSecurityAlertPolicyPtrOutputWithContext(ctx context.Context) WorkspaceSecurityAlertPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSecurityAlertPolicyPtrOutput)
-}
-
-type WorkspaceSecurityAlertPolicyPtrInput interface {
-	pulumi.Input
-
-	ToWorkspaceSecurityAlertPolicyPtrOutput() WorkspaceSecurityAlertPolicyPtrOutput
-	ToWorkspaceSecurityAlertPolicyPtrOutputWithContext(ctx context.Context) WorkspaceSecurityAlertPolicyPtrOutput
-}
-
-type workspaceSecurityAlertPolicyPtrType WorkspaceSecurityAlertPolicyArgs
-
-func (*workspaceSecurityAlertPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceSecurityAlertPolicy)(nil))
-}
-
-func (i *workspaceSecurityAlertPolicyPtrType) ToWorkspaceSecurityAlertPolicyPtrOutput() WorkspaceSecurityAlertPolicyPtrOutput {
-	return i.ToWorkspaceSecurityAlertPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *workspaceSecurityAlertPolicyPtrType) ToWorkspaceSecurityAlertPolicyPtrOutputWithContext(ctx context.Context) WorkspaceSecurityAlertPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSecurityAlertPolicyPtrOutput)
 }
 
 // WorkspaceSecurityAlertPolicyArrayInput is an input type that accepts WorkspaceSecurityAlertPolicyArray and WorkspaceSecurityAlertPolicyArrayOutput values.
@@ -344,7 +315,7 @@ func (i WorkspaceSecurityAlertPolicyMap) ToWorkspaceSecurityAlertPolicyMapOutput
 type WorkspaceSecurityAlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSecurityAlertPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((**WorkspaceSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (o WorkspaceSecurityAlertPolicyOutput) ToWorkspaceSecurityAlertPolicyOutput() WorkspaceSecurityAlertPolicyOutput {
@@ -355,44 +326,10 @@ func (o WorkspaceSecurityAlertPolicyOutput) ToWorkspaceSecurityAlertPolicyOutput
 	return o
 }
 
-func (o WorkspaceSecurityAlertPolicyOutput) ToWorkspaceSecurityAlertPolicyPtrOutput() WorkspaceSecurityAlertPolicyPtrOutput {
-	return o.ToWorkspaceSecurityAlertPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o WorkspaceSecurityAlertPolicyOutput) ToWorkspaceSecurityAlertPolicyPtrOutputWithContext(ctx context.Context) WorkspaceSecurityAlertPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceSecurityAlertPolicy) *WorkspaceSecurityAlertPolicy {
-		return &v
-	}).(WorkspaceSecurityAlertPolicyPtrOutput)
-}
-
-type WorkspaceSecurityAlertPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceSecurityAlertPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceSecurityAlertPolicy)(nil))
-}
-
-func (o WorkspaceSecurityAlertPolicyPtrOutput) ToWorkspaceSecurityAlertPolicyPtrOutput() WorkspaceSecurityAlertPolicyPtrOutput {
-	return o
-}
-
-func (o WorkspaceSecurityAlertPolicyPtrOutput) ToWorkspaceSecurityAlertPolicyPtrOutputWithContext(ctx context.Context) WorkspaceSecurityAlertPolicyPtrOutput {
-	return o
-}
-
-func (o WorkspaceSecurityAlertPolicyPtrOutput) Elem() WorkspaceSecurityAlertPolicyOutput {
-	return o.ApplyT(func(v *WorkspaceSecurityAlertPolicy) WorkspaceSecurityAlertPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceSecurityAlertPolicy
-		return ret
-	}).(WorkspaceSecurityAlertPolicyOutput)
-}
-
 type WorkspaceSecurityAlertPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSecurityAlertPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkspaceSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((*[]*WorkspaceSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (o WorkspaceSecurityAlertPolicyArrayOutput) ToWorkspaceSecurityAlertPolicyArrayOutput() WorkspaceSecurityAlertPolicyArrayOutput {
@@ -404,15 +341,15 @@ func (o WorkspaceSecurityAlertPolicyArrayOutput) ToWorkspaceSecurityAlertPolicyA
 }
 
 func (o WorkspaceSecurityAlertPolicyArrayOutput) Index(i pulumi.IntInput) WorkspaceSecurityAlertPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceSecurityAlertPolicy {
-		return vs[0].([]WorkspaceSecurityAlertPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceSecurityAlertPolicy {
+		return vs[0].([]*WorkspaceSecurityAlertPolicy)[vs[1].(int)]
 	}).(WorkspaceSecurityAlertPolicyOutput)
 }
 
 type WorkspaceSecurityAlertPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSecurityAlertPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkspaceSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((*map[string]*WorkspaceSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (o WorkspaceSecurityAlertPolicyMapOutput) ToWorkspaceSecurityAlertPolicyMapOutput() WorkspaceSecurityAlertPolicyMapOutput {
@@ -424,18 +361,16 @@ func (o WorkspaceSecurityAlertPolicyMapOutput) ToWorkspaceSecurityAlertPolicyMap
 }
 
 func (o WorkspaceSecurityAlertPolicyMapOutput) MapIndex(k pulumi.StringInput) WorkspaceSecurityAlertPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkspaceSecurityAlertPolicy {
-		return vs[0].(map[string]WorkspaceSecurityAlertPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *WorkspaceSecurityAlertPolicy {
+		return vs[0].(map[string]*WorkspaceSecurityAlertPolicy)[vs[1].(string)]
 	}).(WorkspaceSecurityAlertPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSecurityAlertPolicyInput)(nil)).Elem(), &WorkspaceSecurityAlertPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSecurityAlertPolicyPtrInput)(nil)).Elem(), &WorkspaceSecurityAlertPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSecurityAlertPolicyArrayInput)(nil)).Elem(), WorkspaceSecurityAlertPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceSecurityAlertPolicyMapInput)(nil)).Elem(), WorkspaceSecurityAlertPolicyMap{})
 	pulumi.RegisterOutputType(WorkspaceSecurityAlertPolicyOutput{})
-	pulumi.RegisterOutputType(WorkspaceSecurityAlertPolicyPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceSecurityAlertPolicyArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceSecurityAlertPolicyMapOutput{})
 }

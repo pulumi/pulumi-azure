@@ -114,14 +114,14 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedPrivateEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedPrivateEndpointArgs | ManagedPrivateEndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedPrivateEndpointState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["subresourceName"] = state ? state.subresourceName : undefined;
-            inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
-            inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["subresourceName"] = state ? state.subresourceName : undefined;
+            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as ManagedPrivateEndpointArgs | undefined;
             if ((!args || args.subresourceName === undefined) && !opts.urn) {
@@ -133,15 +133,15 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["subresourceName"] = args ? args.subresourceName : undefined;
-            inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["subresourceName"] = args ? args.subresourceName : undefined;
+            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ManagedPrivateEndpoint.__pulumiType, name, inputs, opts);
+        super(ManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

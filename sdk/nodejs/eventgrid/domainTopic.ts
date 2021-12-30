@@ -85,13 +85,13 @@ export class DomainTopic extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainTopicArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainTopicArgs | DomainTopicState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainTopicState | undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as DomainTopicArgs | undefined;
             if ((!args || args.domainName === undefined) && !opts.urn) {
@@ -100,14 +100,14 @@ export class DomainTopic extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DomainTopic.__pulumiType, name, inputs, opts);
+        super(DomainTopic.__pulumiType, name, resourceInputs, opts);
     }
 }
 

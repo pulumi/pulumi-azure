@@ -181,24 +181,24 @@ export class Assignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssignmentState | undefined;
-            inputs["blueprintName"] = state ? state.blueprintName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["lockExcludeActions"] = state ? state.lockExcludeActions : undefined;
-            inputs["lockExcludePrincipals"] = state ? state.lockExcludePrincipals : undefined;
-            inputs["lockMode"] = state ? state.lockMode : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameterValues"] = state ? state.parameterValues : undefined;
-            inputs["resourceGroups"] = state ? state.resourceGroups : undefined;
-            inputs["targetSubscriptionId"] = state ? state.targetSubscriptionId : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["versionId"] = state ? state.versionId : undefined;
+            resourceInputs["blueprintName"] = state ? state.blueprintName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["lockExcludeActions"] = state ? state.lockExcludeActions : undefined;
+            resourceInputs["lockExcludePrincipals"] = state ? state.lockExcludePrincipals : undefined;
+            resourceInputs["lockMode"] = state ? state.lockMode : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameterValues"] = state ? state.parameterValues : undefined;
+            resourceInputs["resourceGroups"] = state ? state.resourceGroups : undefined;
+            resourceInputs["targetSubscriptionId"] = state ? state.targetSubscriptionId : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
             if ((!args || args.targetSubscriptionId === undefined) && !opts.urn) {
@@ -207,25 +207,25 @@ export class Assignment extends pulumi.CustomResource {
             if ((!args || args.versionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'versionId'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["lockExcludeActions"] = args ? args.lockExcludeActions : undefined;
-            inputs["lockExcludePrincipals"] = args ? args.lockExcludePrincipals : undefined;
-            inputs["lockMode"] = args ? args.lockMode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameterValues"] = args ? args.parameterValues : undefined;
-            inputs["resourceGroups"] = args ? args.resourceGroups : undefined;
-            inputs["targetSubscriptionId"] = args ? args.targetSubscriptionId : undefined;
-            inputs["versionId"] = args ? args.versionId : undefined;
-            inputs["blueprintName"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["lockExcludeActions"] = args ? args.lockExcludeActions : undefined;
+            resourceInputs["lockExcludePrincipals"] = args ? args.lockExcludePrincipals : undefined;
+            resourceInputs["lockMode"] = args ? args.lockMode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
+            resourceInputs["resourceGroups"] = args ? args.resourceGroups : undefined;
+            resourceInputs["targetSubscriptionId"] = args ? args.targetSubscriptionId : undefined;
+            resourceInputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["blueprintName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Assignment.__pulumiType, name, inputs, opts);
+        super(Assignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

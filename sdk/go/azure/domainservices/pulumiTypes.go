@@ -63,47 +63,6 @@ func (i ServiceInitialReplicaSetArgs) ToServiceInitialReplicaSetOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceInitialReplicaSetOutput)
 }
 
-func (i ServiceInitialReplicaSetArgs) ToServiceInitialReplicaSetPtrOutput() ServiceInitialReplicaSetPtrOutput {
-	return i.ToServiceInitialReplicaSetPtrOutputWithContext(context.Background())
-}
-
-func (i ServiceInitialReplicaSetArgs) ToServiceInitialReplicaSetPtrOutputWithContext(ctx context.Context) ServiceInitialReplicaSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceInitialReplicaSetOutput).ToServiceInitialReplicaSetPtrOutputWithContext(ctx)
-}
-
-// ServiceInitialReplicaSetPtrInput is an input type that accepts ServiceInitialReplicaSetArgs, ServiceInitialReplicaSetPtr and ServiceInitialReplicaSetPtrOutput values.
-// You can construct a concrete instance of `ServiceInitialReplicaSetPtrInput` via:
-//
-//          ServiceInitialReplicaSetArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceInitialReplicaSetPtrInput interface {
-	pulumi.Input
-
-	ToServiceInitialReplicaSetPtrOutput() ServiceInitialReplicaSetPtrOutput
-	ToServiceInitialReplicaSetPtrOutputWithContext(context.Context) ServiceInitialReplicaSetPtrOutput
-}
-
-type serviceInitialReplicaSetPtrType ServiceInitialReplicaSetArgs
-
-func ServiceInitialReplicaSetPtr(v *ServiceInitialReplicaSetArgs) ServiceInitialReplicaSetPtrInput {
-	return (*serviceInitialReplicaSetPtrType)(v)
-}
-
-func (*serviceInitialReplicaSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceInitialReplicaSet)(nil)).Elem()
-}
-
-func (i *serviceInitialReplicaSetPtrType) ToServiceInitialReplicaSetPtrOutput() ServiceInitialReplicaSetPtrOutput {
-	return i.ToServiceInitialReplicaSetPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceInitialReplicaSetPtrType) ToServiceInitialReplicaSetPtrOutputWithContext(ctx context.Context) ServiceInitialReplicaSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceInitialReplicaSetPtrOutput)
-}
-
 type ServiceInitialReplicaSetOutput struct{ *pulumi.OutputState }
 
 func (ServiceInitialReplicaSetOutput) ElementType() reflect.Type {
@@ -116,16 +75,6 @@ func (o ServiceInitialReplicaSetOutput) ToServiceInitialReplicaSetOutput() Servi
 
 func (o ServiceInitialReplicaSetOutput) ToServiceInitialReplicaSetOutputWithContext(ctx context.Context) ServiceInitialReplicaSetOutput {
 	return o
-}
-
-func (o ServiceInitialReplicaSetOutput) ToServiceInitialReplicaSetPtrOutput() ServiceInitialReplicaSetPtrOutput {
-	return o.ToServiceInitialReplicaSetPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceInitialReplicaSetOutput) ToServiceInitialReplicaSetPtrOutputWithContext(ctx context.Context) ServiceInitialReplicaSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceInitialReplicaSet) *ServiceInitialReplicaSet {
-		return &v
-	}).(ServiceInitialReplicaSetPtrOutput)
 }
 
 // A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
@@ -156,90 +105,6 @@ func (o ServiceInitialReplicaSetOutput) ServiceStatus() pulumi.StringPtrOutput {
 // The ID of the subnet in which to place the initial replica set.
 func (o ServiceInitialReplicaSetOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceInitialReplicaSet) string { return v.SubnetId }).(pulumi.StringOutput)
-}
-
-type ServiceInitialReplicaSetPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceInitialReplicaSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceInitialReplicaSet)(nil)).Elem()
-}
-
-func (o ServiceInitialReplicaSetPtrOutput) ToServiceInitialReplicaSetPtrOutput() ServiceInitialReplicaSetPtrOutput {
-	return o
-}
-
-func (o ServiceInitialReplicaSetPtrOutput) ToServiceInitialReplicaSetPtrOutputWithContext(ctx context.Context) ServiceInitialReplicaSetPtrOutput {
-	return o
-}
-
-func (o ServiceInitialReplicaSetPtrOutput) Elem() ServiceInitialReplicaSetOutput {
-	return o.ApplyT(func(v *ServiceInitialReplicaSet) ServiceInitialReplicaSet {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceInitialReplicaSet
-		return ret
-	}).(ServiceInitialReplicaSetOutput)
-}
-
-// A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
-func (o ServiceInitialReplicaSetPtrOutput) DomainControllerIpAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ServiceInitialReplicaSet) []string {
-		if v == nil {
-			return nil
-		}
-		return v.DomainControllerIpAddresses
-	}).(pulumi.StringArrayOutput)
-}
-
-// The publicly routable IP address for the domain controllers in the initial replica set.
-func (o ServiceInitialReplicaSetPtrOutput) ExternalAccessIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceInitialReplicaSet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExternalAccessIpAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Domain Service.
-func (o ServiceInitialReplicaSetPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceInitialReplicaSet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
-func (o ServiceInitialReplicaSetPtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceInitialReplicaSet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-// The current service status for the initial replica set.
-func (o ServiceInitialReplicaSetPtrOutput) ServiceStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceInitialReplicaSet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the subnet in which to place the initial replica set.
-func (o ServiceInitialReplicaSetPtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceInitialReplicaSet) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SubnetId
-	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceNotifications struct {
@@ -1385,7 +1250,6 @@ func (o GetServiceSecurityArrayOutput) Index(i pulumi.IntInput) GetServiceSecuri
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInitialReplicaSetInput)(nil)).Elem(), ServiceInitialReplicaSetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInitialReplicaSetPtrInput)(nil)).Elem(), ServiceInitialReplicaSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNotificationsInput)(nil)).Elem(), ServiceNotificationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNotificationsPtrInput)(nil)).Elem(), ServiceNotificationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSecureLdapInput)(nil)).Elem(), ServiceSecureLdapArgs{})
@@ -1401,7 +1265,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceSecurityInput)(nil)).Elem(), GetServiceSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceSecurityArrayInput)(nil)).Elem(), GetServiceSecurityArray{})
 	pulumi.RegisterOutputType(ServiceInitialReplicaSetOutput{})
-	pulumi.RegisterOutputType(ServiceInitialReplicaSetPtrOutput{})
 	pulumi.RegisterOutputType(ServiceNotificationsOutput{})
 	pulumi.RegisterOutputType(ServiceNotificationsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSecureLdapOutput{})

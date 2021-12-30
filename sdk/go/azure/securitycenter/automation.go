@@ -278,7 +278,7 @@ type AutomationInput interface {
 }
 
 func (*Automation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Automation)(nil))
+	return reflect.TypeOf((**Automation)(nil)).Elem()
 }
 
 func (i *Automation) ToAutomationOutput() AutomationOutput {
@@ -287,35 +287,6 @@ func (i *Automation) ToAutomationOutput() AutomationOutput {
 
 func (i *Automation) ToAutomationOutputWithContext(ctx context.Context) AutomationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationOutput)
-}
-
-func (i *Automation) ToAutomationPtrOutput() AutomationPtrOutput {
-	return i.ToAutomationPtrOutputWithContext(context.Background())
-}
-
-func (i *Automation) ToAutomationPtrOutputWithContext(ctx context.Context) AutomationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationPtrOutput)
-}
-
-type AutomationPtrInput interface {
-	pulumi.Input
-
-	ToAutomationPtrOutput() AutomationPtrOutput
-	ToAutomationPtrOutputWithContext(ctx context.Context) AutomationPtrOutput
-}
-
-type automationPtrType AutomationArgs
-
-func (*automationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Automation)(nil))
-}
-
-func (i *automationPtrType) ToAutomationPtrOutput() AutomationPtrOutput {
-	return i.ToAutomationPtrOutputWithContext(context.Background())
-}
-
-func (i *automationPtrType) ToAutomationPtrOutputWithContext(ctx context.Context) AutomationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationPtrOutput)
 }
 
 // AutomationArrayInput is an input type that accepts AutomationArray and AutomationArrayOutput values.
@@ -371,7 +342,7 @@ func (i AutomationMap) ToAutomationMapOutputWithContext(ctx context.Context) Aut
 type AutomationOutput struct{ *pulumi.OutputState }
 
 func (AutomationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Automation)(nil))
+	return reflect.TypeOf((**Automation)(nil)).Elem()
 }
 
 func (o AutomationOutput) ToAutomationOutput() AutomationOutput {
@@ -382,44 +353,10 @@ func (o AutomationOutput) ToAutomationOutputWithContext(ctx context.Context) Aut
 	return o
 }
 
-func (o AutomationOutput) ToAutomationPtrOutput() AutomationPtrOutput {
-	return o.ToAutomationPtrOutputWithContext(context.Background())
-}
-
-func (o AutomationOutput) ToAutomationPtrOutputWithContext(ctx context.Context) AutomationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Automation) *Automation {
-		return &v
-	}).(AutomationPtrOutput)
-}
-
-type AutomationPtrOutput struct{ *pulumi.OutputState }
-
-func (AutomationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Automation)(nil))
-}
-
-func (o AutomationPtrOutput) ToAutomationPtrOutput() AutomationPtrOutput {
-	return o
-}
-
-func (o AutomationPtrOutput) ToAutomationPtrOutputWithContext(ctx context.Context) AutomationPtrOutput {
-	return o
-}
-
-func (o AutomationPtrOutput) Elem() AutomationOutput {
-	return o.ApplyT(func(v *Automation) Automation {
-		if v != nil {
-			return *v
-		}
-		var ret Automation
-		return ret
-	}).(AutomationOutput)
-}
-
 type AutomationArrayOutput struct{ *pulumi.OutputState }
 
 func (AutomationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Automation)(nil))
+	return reflect.TypeOf((*[]*Automation)(nil)).Elem()
 }
 
 func (o AutomationArrayOutput) ToAutomationArrayOutput() AutomationArrayOutput {
@@ -431,15 +368,15 @@ func (o AutomationArrayOutput) ToAutomationArrayOutputWithContext(ctx context.Co
 }
 
 func (o AutomationArrayOutput) Index(i pulumi.IntInput) AutomationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Automation {
-		return vs[0].([]Automation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Automation {
+		return vs[0].([]*Automation)[vs[1].(int)]
 	}).(AutomationOutput)
 }
 
 type AutomationMapOutput struct{ *pulumi.OutputState }
 
 func (AutomationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Automation)(nil))
+	return reflect.TypeOf((*map[string]*Automation)(nil)).Elem()
 }
 
 func (o AutomationMapOutput) ToAutomationMapOutput() AutomationMapOutput {
@@ -451,18 +388,16 @@ func (o AutomationMapOutput) ToAutomationMapOutputWithContext(ctx context.Contex
 }
 
 func (o AutomationMapOutput) MapIndex(k pulumi.StringInput) AutomationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Automation {
-		return vs[0].(map[string]Automation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Automation {
+		return vs[0].(map[string]*Automation)[vs[1].(string)]
 	}).(AutomationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationInput)(nil)).Elem(), &Automation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationPtrInput)(nil)).Elem(), &Automation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationArrayInput)(nil)).Elem(), AutomationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationMapInput)(nil)).Elem(), AutomationMap{})
 	pulumi.RegisterOutputType(AutomationOutput{})
-	pulumi.RegisterOutputType(AutomationPtrOutput{})
 	pulumi.RegisterOutputType(AutomationArrayOutput{})
 	pulumi.RegisterOutputType(AutomationMapOutput{})
 }

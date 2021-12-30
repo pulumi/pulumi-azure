@@ -117,20 +117,20 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: NamespaceAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamespaceAuthorizationRuleArgs | NamespaceAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceAuthorizationRuleState | undefined;
-            inputs["listen"] = state ? state.listen : undefined;
-            inputs["manage"] = state ? state.manage : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespaceName"] = state ? state.namespaceName : undefined;
-            inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            inputs["primaryKey"] = state ? state.primaryKey : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            inputs["send"] = state ? state.send : undefined;
+            resourceInputs["listen"] = state ? state.listen : undefined;
+            resourceInputs["manage"] = state ? state.manage : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
+            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
+            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
+            resourceInputs["send"] = state ? state.send : undefined;
         } else {
             const args = argsOrState as NamespaceAuthorizationRuleArgs | undefined;
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -139,21 +139,21 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["listen"] = args ? args.listen : undefined;
-            inputs["manage"] = args ? args.manage : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["send"] = args ? args.send : undefined;
-            inputs["primaryConnectionString"] = undefined /*out*/;
-            inputs["primaryKey"] = undefined /*out*/;
-            inputs["secondaryConnectionString"] = undefined /*out*/;
-            inputs["secondaryKey"] = undefined /*out*/;
+            resourceInputs["listen"] = args ? args.listen : undefined;
+            resourceInputs["manage"] = args ? args.manage : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["send"] = args ? args.send : undefined;
+            resourceInputs["primaryConnectionString"] = undefined /*out*/;
+            resourceInputs["primaryKey"] = undefined /*out*/;
+            resourceInputs["secondaryConnectionString"] = undefined /*out*/;
+            resourceInputs["secondaryKey"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NamespaceAuthorizationRule.__pulumiType, name, inputs, opts);
+        super(NamespaceAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -158,27 +158,27 @@ export class Insights extends pulumi.CustomResource {
      */
     constructor(name: string, args: InsightsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InsightsArgs | InsightsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InsightsState | undefined;
-            inputs["appId"] = state ? state.appId : undefined;
-            inputs["applicationType"] = state ? state.applicationType : undefined;
-            inputs["connectionString"] = state ? state.connectionString : undefined;
-            inputs["dailyDataCapInGb"] = state ? state.dailyDataCapInGb : undefined;
-            inputs["dailyDataCapNotificationsDisabled"] = state ? state.dailyDataCapNotificationsDisabled : undefined;
-            inputs["disableIpMasking"] = state ? state.disableIpMasking : undefined;
-            inputs["instrumentationKey"] = state ? state.instrumentationKey : undefined;
-            inputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
-            inputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
-            inputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["retentionInDays"] = state ? state.retentionInDays : undefined;
-            inputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["applicationType"] = state ? state.applicationType : undefined;
+            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
+            resourceInputs["dailyDataCapInGb"] = state ? state.dailyDataCapInGb : undefined;
+            resourceInputs["dailyDataCapNotificationsDisabled"] = state ? state.dailyDataCapNotificationsDisabled : undefined;
+            resourceInputs["disableIpMasking"] = state ? state.disableIpMasking : undefined;
+            resourceInputs["instrumentationKey"] = state ? state.instrumentationKey : undefined;
+            resourceInputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
+            resourceInputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
+            resourceInputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
+            resourceInputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as InsightsArgs | undefined;
             if ((!args || args.applicationType === undefined) && !opts.urn) {
@@ -187,28 +187,28 @@ export class Insights extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationType"] = args ? args.applicationType : undefined;
-            inputs["dailyDataCapInGb"] = args ? args.dailyDataCapInGb : undefined;
-            inputs["dailyDataCapNotificationsDisabled"] = args ? args.dailyDataCapNotificationsDisabled : undefined;
-            inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
-            inputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
-            inputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
-            inputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceId"] = args ? args.workspaceId : undefined;
-            inputs["appId"] = undefined /*out*/;
-            inputs["connectionString"] = undefined /*out*/;
-            inputs["instrumentationKey"] = undefined /*out*/;
+            resourceInputs["applicationType"] = args ? args.applicationType : undefined;
+            resourceInputs["dailyDataCapInGb"] = args ? args.dailyDataCapInGb : undefined;
+            resourceInputs["dailyDataCapNotificationsDisabled"] = args ? args.dailyDataCapNotificationsDisabled : undefined;
+            resourceInputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
+            resourceInputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
+            resourceInputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
+            resourceInputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            resourceInputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["connectionString"] = undefined /*out*/;
+            resourceInputs["instrumentationKey"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Insights.__pulumiType, name, inputs, opts);
+        super(Insights.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -93,13 +93,13 @@ export class ApiOperationTag extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiOperationTagArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiOperationTagArgs | ApiOperationTagState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiOperationTagState | undefined;
-            inputs["apiOperationId"] = state ? state.apiOperationId : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["apiOperationId"] = state ? state.apiOperationId : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ApiOperationTagArgs | undefined;
             if ((!args || args.apiOperationId === undefined) && !opts.urn) {
@@ -108,14 +108,14 @@ export class ApiOperationTag extends pulumi.CustomResource {
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            inputs["apiOperationId"] = args ? args.apiOperationId : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiOperationId"] = args ? args.apiOperationId : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ApiOperationTag.__pulumiType, name, inputs, opts);
+        super(ApiOperationTag.__pulumiType, name, resourceInputs, opts);
     }
 }
 

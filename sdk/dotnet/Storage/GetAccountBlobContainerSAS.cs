@@ -45,33 +45,28 @@ namespace Pulumi.Azure.Storage
         ///             StorageAccountName = storage.Name,
         ///             ContainerAccessType = "private",
         ///         });
-        ///         var example = Output.Tuple(storage.PrimaryConnectionString, container.Name).Apply(values =&gt;
+        ///         var example = Azure.Storage.GetAccountBlobContainerSAS.Invoke(new Azure.Storage.GetAccountBlobContainerSASInvokeArgs
         ///         {
-        ///             var primaryConnectionString = values.Item1;
-        ///             var name = values.Item2;
-        ///             return Azure.Storage.GetAccountBlobContainerSAS.InvokeAsync(new Azure.Storage.GetAccountBlobContainerSASArgs
+        ///             ConnectionString = storage.PrimaryConnectionString,
+        ///             ContainerName = container.Name,
+        ///             HttpsOnly = true,
+        ///             IpAddress = "168.1.5.65",
+        ///             Start = "2018-03-21",
+        ///             Expiry = "2018-03-21",
+        ///             Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsInputArgs
         ///             {
-        ///                 ConnectionString = primaryConnectionString,
-        ///                 ContainerName = name,
-        ///                 HttpsOnly = true,
-        ///                 IpAddress = "168.1.5.65",
-        ///                 Start = "2018-03-21",
-        ///                 Expiry = "2018-03-21",
-        ///                 Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsArgs
-        ///                 {
-        ///                     Read = true,
-        ///                     Add = true,
-        ///                     Create = false,
-        ///                     Write = false,
-        ///                     Delete = true,
-        ///                     List = true,
-        ///                 },
-        ///                 CacheControl = "max-age=5",
-        ///                 ContentDisposition = "inline",
-        ///                 ContentEncoding = "deflate",
-        ///                 ContentLanguage = "en-US",
-        ///                 ContentType = "application/json",
-        ///             });
+        ///                 Read = true,
+        ///                 Add = true,
+        ///                 Create = false,
+        ///                 Write = false,
+        ///                 Delete = true,
+        ///                 List = true,
+        ///             },
+        ///             CacheControl = "max-age=5",
+        ///             ContentDisposition = "inline",
+        ///             ContentEncoding = "deflate",
+        ///             ContentLanguage = "en-US",
+        ///             ContentType = "application/json",
         ///         });
         ///         this.SasUrlQueryString = example.Apply(example =&gt; example.Sas);
         ///     }
@@ -119,33 +114,28 @@ namespace Pulumi.Azure.Storage
         ///             StorageAccountName = storage.Name,
         ///             ContainerAccessType = "private",
         ///         });
-        ///         var example = Output.Tuple(storage.PrimaryConnectionString, container.Name).Apply(values =&gt;
+        ///         var example = Azure.Storage.GetAccountBlobContainerSAS.Invoke(new Azure.Storage.GetAccountBlobContainerSASInvokeArgs
         ///         {
-        ///             var primaryConnectionString = values.Item1;
-        ///             var name = values.Item2;
-        ///             return Azure.Storage.GetAccountBlobContainerSAS.InvokeAsync(new Azure.Storage.GetAccountBlobContainerSASArgs
+        ///             ConnectionString = storage.PrimaryConnectionString,
+        ///             ContainerName = container.Name,
+        ///             HttpsOnly = true,
+        ///             IpAddress = "168.1.5.65",
+        ///             Start = "2018-03-21",
+        ///             Expiry = "2018-03-21",
+        ///             Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsInputArgs
         ///             {
-        ///                 ConnectionString = primaryConnectionString,
-        ///                 ContainerName = name,
-        ///                 HttpsOnly = true,
-        ///                 IpAddress = "168.1.5.65",
-        ///                 Start = "2018-03-21",
-        ///                 Expiry = "2018-03-21",
-        ///                 Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsArgs
-        ///                 {
-        ///                     Read = true,
-        ///                     Add = true,
-        ///                     Create = false,
-        ///                     Write = false,
-        ///                     Delete = true,
-        ///                     List = true,
-        ///                 },
-        ///                 CacheControl = "max-age=5",
-        ///                 ContentDisposition = "inline",
-        ///                 ContentEncoding = "deflate",
-        ///                 ContentLanguage = "en-US",
-        ///                 ContentType = "application/json",
-        ///             });
+        ///                 Read = true,
+        ///                 Add = true,
+        ///                 Create = false,
+        ///                 Write = false,
+        ///                 Delete = true,
+        ///                 List = true,
+        ///             },
+        ///             CacheControl = "max-age=5",
+        ///             ContentDisposition = "inline",
+        ///             ContentEncoding = "deflate",
+        ///             ContentLanguage = "en-US",
+        ///             ContentType = "application/json",
         ///         });
         ///         this.SasUrlQueryString = example.Apply(example =&gt; example.Sas);
         ///     }

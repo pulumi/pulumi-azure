@@ -136,22 +136,22 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResourcePolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourcePolicyAssignmentArgs | ResourcePolicyAssignmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourcePolicyAssignmentState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["enforce"] = state ? state.enforce : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nonComplianceMessages"] = state ? state.nonComplianceMessages : undefined;
-            inputs["notScopes"] = state ? state.notScopes : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["enforce"] = state ? state.enforce : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nonComplianceMessages"] = state ? state.nonComplianceMessages : undefined;
+            resourceInputs["notScopes"] = state ? state.notScopes : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
             const args = argsOrState as ResourcePolicyAssignmentArgs | undefined;
             if ((!args || args.policyDefinitionId === undefined) && !opts.urn) {
@@ -160,23 +160,23 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["enforce"] = args ? args.enforce : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nonComplianceMessages"] = args ? args.nonComplianceMessages : undefined;
-            inputs["notScopes"] = args ? args.notScopes : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["enforce"] = args ? args.enforce : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nonComplianceMessages"] = args ? args.nonComplianceMessages : undefined;
+            resourceInputs["notScopes"] = args ? args.notScopes : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ResourcePolicyAssignment.__pulumiType, name, inputs, opts);
+        super(ResourcePolicyAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

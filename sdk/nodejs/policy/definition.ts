@@ -151,20 +151,20 @@ export class Definition extends pulumi.CustomResource {
      */
     constructor(name: string, args: DefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DefinitionArgs | DefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefinitionState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["managementGroupId"] = state ? state.managementGroupId : undefined;
-            inputs["managementGroupName"] = state ? state.managementGroupName : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["mode"] = state ? state.mode : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["policyRule"] = state ? state.policyRule : undefined;
-            inputs["policyType"] = state ? state.policyType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["managementGroupId"] = state ? state.managementGroupId : undefined;
+            resourceInputs["managementGroupName"] = state ? state.managementGroupName : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["policyRule"] = state ? state.policyRule : undefined;
+            resourceInputs["policyType"] = state ? state.policyType : undefined;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -176,21 +176,21 @@ export class Definition extends pulumi.CustomResource {
             if ((!args || args.policyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            inputs["managementGroupName"] = args ? args.managementGroupName : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["policyRule"] = args ? args.policyRule : undefined;
-            inputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
+            resourceInputs["managementGroupName"] = args ? args.managementGroupName : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["policyRule"] = args ? args.policyRule : undefined;
+            resourceInputs["policyType"] = args ? args.policyType : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Definition.__pulumiType, name, inputs, opts);
+        super(Definition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -151,19 +151,19 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: PointToPointVpnGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PointToPointVpnGatewayArgs | PointToPointVpnGatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PointToPointVpnGatewayState | undefined;
-            inputs["connectionConfiguration"] = state ? state.connectionConfiguration : undefined;
-            inputs["dnsServers"] = state ? state.dnsServers : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scaleUnit"] = state ? state.scaleUnit : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
-            inputs["vpnServerConfigurationId"] = state ? state.vpnServerConfigurationId : undefined;
+            resourceInputs["connectionConfiguration"] = state ? state.connectionConfiguration : undefined;
+            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scaleUnit"] = state ? state.scaleUnit : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["vpnServerConfigurationId"] = state ? state.vpnServerConfigurationId : undefined;
         } else {
             const args = argsOrState as PointToPointVpnGatewayArgs | undefined;
             if ((!args || args.connectionConfiguration === undefined) && !opts.urn) {
@@ -181,20 +181,20 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
             if ((!args || args.vpnServerConfigurationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnServerConfigurationId'");
             }
-            inputs["connectionConfiguration"] = args ? args.connectionConfiguration : undefined;
-            inputs["dnsServers"] = args ? args.dnsServers : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scaleUnit"] = args ? args.scaleUnit : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualHubId"] = args ? args.virtualHubId : undefined;
-            inputs["vpnServerConfigurationId"] = args ? args.vpnServerConfigurationId : undefined;
+            resourceInputs["connectionConfiguration"] = args ? args.connectionConfiguration : undefined;
+            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scaleUnit"] = args ? args.scaleUnit : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["vpnServerConfigurationId"] = args ? args.vpnServerConfigurationId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PointToPointVpnGateway.__pulumiType, name, inputs, opts);
+        super(PointToPointVpnGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

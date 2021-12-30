@@ -154,20 +154,20 @@ export class LinkService extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkServiceArgs | LinkServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkServiceState | undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["autoApprovalSubscriptionIds"] = state ? state.autoApprovalSubscriptionIds : undefined;
-            inputs["enableProxyProtocol"] = state ? state.enableProxyProtocol : undefined;
-            inputs["loadBalancerFrontendIpConfigurationIds"] = state ? state.loadBalancerFrontendIpConfigurationIds : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["natIpConfigurations"] = state ? state.natIpConfigurations : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["visibilitySubscriptionIds"] = state ? state.visibilitySubscriptionIds : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["autoApprovalSubscriptionIds"] = state ? state.autoApprovalSubscriptionIds : undefined;
+            resourceInputs["enableProxyProtocol"] = state ? state.enableProxyProtocol : undefined;
+            resourceInputs["loadBalancerFrontendIpConfigurationIds"] = state ? state.loadBalancerFrontendIpConfigurationIds : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["natIpConfigurations"] = state ? state.natIpConfigurations : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["visibilitySubscriptionIds"] = state ? state.visibilitySubscriptionIds : undefined;
         } else {
             const args = argsOrState as LinkServiceArgs | undefined;
             if ((!args || args.loadBalancerFrontendIpConfigurationIds === undefined) && !opts.urn) {
@@ -179,21 +179,21 @@ export class LinkService extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoApprovalSubscriptionIds"] = args ? args.autoApprovalSubscriptionIds : undefined;
-            inputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
-            inputs["loadBalancerFrontendIpConfigurationIds"] = args ? args.loadBalancerFrontendIpConfigurationIds : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["natIpConfigurations"] = args ? args.natIpConfigurations : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["visibilitySubscriptionIds"] = args ? args.visibilitySubscriptionIds : undefined;
-            inputs["alias"] = undefined /*out*/;
+            resourceInputs["autoApprovalSubscriptionIds"] = args ? args.autoApprovalSubscriptionIds : undefined;
+            resourceInputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
+            resourceInputs["loadBalancerFrontendIpConfigurationIds"] = args ? args.loadBalancerFrontendIpConfigurationIds : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["natIpConfigurations"] = args ? args.natIpConfigurations : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["visibilitySubscriptionIds"] = args ? args.visibilitySubscriptionIds : undefined;
+            resourceInputs["alias"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LinkService.__pulumiType, name, inputs, opts);
+        super(LinkService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

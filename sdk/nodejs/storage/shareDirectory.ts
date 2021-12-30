@@ -92,14 +92,14 @@ export class ShareDirectory extends pulumi.CustomResource {
      */
     constructor(name: string, args: ShareDirectoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ShareDirectoryArgs | ShareDirectoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ShareDirectoryState | undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["shareName"] = state ? state.shareName : undefined;
-            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["shareName"] = state ? state.shareName : undefined;
+            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as ShareDirectoryArgs | undefined;
             if ((!args || args.shareName === undefined) && !opts.urn) {
@@ -108,15 +108,15 @@ export class ShareDirectory extends pulumi.CustomResource {
             if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ShareDirectory.__pulumiType, name, inputs, opts);
+        super(ShareDirectory.__pulumiType, name, resourceInputs, opts);
     }
 }
 

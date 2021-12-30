@@ -260,7 +260,7 @@ type SpringCloudAppCosmosDBAssociationInput interface {
 }
 
 func (*SpringCloudAppCosmosDBAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudAppCosmosDBAssociation)(nil))
+	return reflect.TypeOf((**SpringCloudAppCosmosDBAssociation)(nil)).Elem()
 }
 
 func (i *SpringCloudAppCosmosDBAssociation) ToSpringCloudAppCosmosDBAssociationOutput() SpringCloudAppCosmosDBAssociationOutput {
@@ -269,35 +269,6 @@ func (i *SpringCloudAppCosmosDBAssociation) ToSpringCloudAppCosmosDBAssociationO
 
 func (i *SpringCloudAppCosmosDBAssociation) ToSpringCloudAppCosmosDBAssociationOutputWithContext(ctx context.Context) SpringCloudAppCosmosDBAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppCosmosDBAssociationOutput)
-}
-
-func (i *SpringCloudAppCosmosDBAssociation) ToSpringCloudAppCosmosDBAssociationPtrOutput() SpringCloudAppCosmosDBAssociationPtrOutput {
-	return i.ToSpringCloudAppCosmosDBAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *SpringCloudAppCosmosDBAssociation) ToSpringCloudAppCosmosDBAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppCosmosDBAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppCosmosDBAssociationPtrOutput)
-}
-
-type SpringCloudAppCosmosDBAssociationPtrInput interface {
-	pulumi.Input
-
-	ToSpringCloudAppCosmosDBAssociationPtrOutput() SpringCloudAppCosmosDBAssociationPtrOutput
-	ToSpringCloudAppCosmosDBAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppCosmosDBAssociationPtrOutput
-}
-
-type springCloudAppCosmosDBAssociationPtrType SpringCloudAppCosmosDBAssociationArgs
-
-func (*springCloudAppCosmosDBAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudAppCosmosDBAssociation)(nil))
-}
-
-func (i *springCloudAppCosmosDBAssociationPtrType) ToSpringCloudAppCosmosDBAssociationPtrOutput() SpringCloudAppCosmosDBAssociationPtrOutput {
-	return i.ToSpringCloudAppCosmosDBAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *springCloudAppCosmosDBAssociationPtrType) ToSpringCloudAppCosmosDBAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppCosmosDBAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppCosmosDBAssociationPtrOutput)
 }
 
 // SpringCloudAppCosmosDBAssociationArrayInput is an input type that accepts SpringCloudAppCosmosDBAssociationArray and SpringCloudAppCosmosDBAssociationArrayOutput values.
@@ -353,7 +324,7 @@ func (i SpringCloudAppCosmosDBAssociationMap) ToSpringCloudAppCosmosDBAssociatio
 type SpringCloudAppCosmosDBAssociationOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppCosmosDBAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudAppCosmosDBAssociation)(nil))
+	return reflect.TypeOf((**SpringCloudAppCosmosDBAssociation)(nil)).Elem()
 }
 
 func (o SpringCloudAppCosmosDBAssociationOutput) ToSpringCloudAppCosmosDBAssociationOutput() SpringCloudAppCosmosDBAssociationOutput {
@@ -364,44 +335,10 @@ func (o SpringCloudAppCosmosDBAssociationOutput) ToSpringCloudAppCosmosDBAssocia
 	return o
 }
 
-func (o SpringCloudAppCosmosDBAssociationOutput) ToSpringCloudAppCosmosDBAssociationPtrOutput() SpringCloudAppCosmosDBAssociationPtrOutput {
-	return o.ToSpringCloudAppCosmosDBAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o SpringCloudAppCosmosDBAssociationOutput) ToSpringCloudAppCosmosDBAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppCosmosDBAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudAppCosmosDBAssociation) *SpringCloudAppCosmosDBAssociation {
-		return &v
-	}).(SpringCloudAppCosmosDBAssociationPtrOutput)
-}
-
-type SpringCloudAppCosmosDBAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (SpringCloudAppCosmosDBAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudAppCosmosDBAssociation)(nil))
-}
-
-func (o SpringCloudAppCosmosDBAssociationPtrOutput) ToSpringCloudAppCosmosDBAssociationPtrOutput() SpringCloudAppCosmosDBAssociationPtrOutput {
-	return o
-}
-
-func (o SpringCloudAppCosmosDBAssociationPtrOutput) ToSpringCloudAppCosmosDBAssociationPtrOutputWithContext(ctx context.Context) SpringCloudAppCosmosDBAssociationPtrOutput {
-	return o
-}
-
-func (o SpringCloudAppCosmosDBAssociationPtrOutput) Elem() SpringCloudAppCosmosDBAssociationOutput {
-	return o.ApplyT(func(v *SpringCloudAppCosmosDBAssociation) SpringCloudAppCosmosDBAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret SpringCloudAppCosmosDBAssociation
-		return ret
-	}).(SpringCloudAppCosmosDBAssociationOutput)
-}
-
 type SpringCloudAppCosmosDBAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppCosmosDBAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpringCloudAppCosmosDBAssociation)(nil))
+	return reflect.TypeOf((*[]*SpringCloudAppCosmosDBAssociation)(nil)).Elem()
 }
 
 func (o SpringCloudAppCosmosDBAssociationArrayOutput) ToSpringCloudAppCosmosDBAssociationArrayOutput() SpringCloudAppCosmosDBAssociationArrayOutput {
@@ -413,15 +350,15 @@ func (o SpringCloudAppCosmosDBAssociationArrayOutput) ToSpringCloudAppCosmosDBAs
 }
 
 func (o SpringCloudAppCosmosDBAssociationArrayOutput) Index(i pulumi.IntInput) SpringCloudAppCosmosDBAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudAppCosmosDBAssociation {
-		return vs[0].([]SpringCloudAppCosmosDBAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudAppCosmosDBAssociation {
+		return vs[0].([]*SpringCloudAppCosmosDBAssociation)[vs[1].(int)]
 	}).(SpringCloudAppCosmosDBAssociationOutput)
 }
 
 type SpringCloudAppCosmosDBAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppCosmosDBAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SpringCloudAppCosmosDBAssociation)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudAppCosmosDBAssociation)(nil)).Elem()
 }
 
 func (o SpringCloudAppCosmosDBAssociationMapOutput) ToSpringCloudAppCosmosDBAssociationMapOutput() SpringCloudAppCosmosDBAssociationMapOutput {
@@ -433,18 +370,16 @@ func (o SpringCloudAppCosmosDBAssociationMapOutput) ToSpringCloudAppCosmosDBAsso
 }
 
 func (o SpringCloudAppCosmosDBAssociationMapOutput) MapIndex(k pulumi.StringInput) SpringCloudAppCosmosDBAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpringCloudAppCosmosDBAssociation {
-		return vs[0].(map[string]SpringCloudAppCosmosDBAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SpringCloudAppCosmosDBAssociation {
+		return vs[0].(map[string]*SpringCloudAppCosmosDBAssociation)[vs[1].(string)]
 	}).(SpringCloudAppCosmosDBAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCosmosDBAssociationInput)(nil)).Elem(), &SpringCloudAppCosmosDBAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCosmosDBAssociationPtrInput)(nil)).Elem(), &SpringCloudAppCosmosDBAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCosmosDBAssociationArrayInput)(nil)).Elem(), SpringCloudAppCosmosDBAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudAppCosmosDBAssociationMapInput)(nil)).Elem(), SpringCloudAppCosmosDBAssociationMap{})
 	pulumi.RegisterOutputType(SpringCloudAppCosmosDBAssociationOutput{})
-	pulumi.RegisterOutputType(SpringCloudAppCosmosDBAssociationPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppCosmosDBAssociationArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppCosmosDBAssociationMapOutput{})
 }

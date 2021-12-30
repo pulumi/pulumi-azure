@@ -85,12 +85,12 @@ export class NatGatewayPublicIpPrefixAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: NatGatewayPublicIpPrefixAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NatGatewayPublicIpPrefixAssociationArgs | NatGatewayPublicIpPrefixAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NatGatewayPublicIpPrefixAssociationState | undefined;
-            inputs["natGatewayId"] = state ? state.natGatewayId : undefined;
-            inputs["publicIpPrefixId"] = state ? state.publicIpPrefixId : undefined;
+            resourceInputs["natGatewayId"] = state ? state.natGatewayId : undefined;
+            resourceInputs["publicIpPrefixId"] = state ? state.publicIpPrefixId : undefined;
         } else {
             const args = argsOrState as NatGatewayPublicIpPrefixAssociationArgs | undefined;
             if ((!args || args.natGatewayId === undefined) && !opts.urn) {
@@ -99,13 +99,13 @@ export class NatGatewayPublicIpPrefixAssociation extends pulumi.CustomResource {
             if ((!args || args.publicIpPrefixId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicIpPrefixId'");
             }
-            inputs["natGatewayId"] = args ? args.natGatewayId : undefined;
-            inputs["publicIpPrefixId"] = args ? args.publicIpPrefixId : undefined;
+            resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
+            resourceInputs["publicIpPrefixId"] = args ? args.publicIpPrefixId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NatGatewayPublicIpPrefixAssociation.__pulumiType, name, inputs, opts);
+        super(NatGatewayPublicIpPrefixAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

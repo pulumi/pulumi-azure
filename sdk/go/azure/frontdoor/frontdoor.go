@@ -376,7 +376,7 @@ type FrontdoorInput interface {
 }
 
 func (*Frontdoor) ElementType() reflect.Type {
-	return reflect.TypeOf((*Frontdoor)(nil))
+	return reflect.TypeOf((**Frontdoor)(nil)).Elem()
 }
 
 func (i *Frontdoor) ToFrontdoorOutput() FrontdoorOutput {
@@ -385,35 +385,6 @@ func (i *Frontdoor) ToFrontdoorOutput() FrontdoorOutput {
 
 func (i *Frontdoor) ToFrontdoorOutputWithContext(ctx context.Context) FrontdoorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOutput)
-}
-
-func (i *Frontdoor) ToFrontdoorPtrOutput() FrontdoorPtrOutput {
-	return i.ToFrontdoorPtrOutputWithContext(context.Background())
-}
-
-func (i *Frontdoor) ToFrontdoorPtrOutputWithContext(ctx context.Context) FrontdoorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorPtrOutput)
-}
-
-type FrontdoorPtrInput interface {
-	pulumi.Input
-
-	ToFrontdoorPtrOutput() FrontdoorPtrOutput
-	ToFrontdoorPtrOutputWithContext(ctx context.Context) FrontdoorPtrOutput
-}
-
-type frontdoorPtrType FrontdoorArgs
-
-func (*frontdoorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Frontdoor)(nil))
-}
-
-func (i *frontdoorPtrType) ToFrontdoorPtrOutput() FrontdoorPtrOutput {
-	return i.ToFrontdoorPtrOutputWithContext(context.Background())
-}
-
-func (i *frontdoorPtrType) ToFrontdoorPtrOutputWithContext(ctx context.Context) FrontdoorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorPtrOutput)
 }
 
 // FrontdoorArrayInput is an input type that accepts FrontdoorArray and FrontdoorArrayOutput values.
@@ -469,7 +440,7 @@ func (i FrontdoorMap) ToFrontdoorMapOutputWithContext(ctx context.Context) Front
 type FrontdoorOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Frontdoor)(nil))
+	return reflect.TypeOf((**Frontdoor)(nil)).Elem()
 }
 
 func (o FrontdoorOutput) ToFrontdoorOutput() FrontdoorOutput {
@@ -480,44 +451,10 @@ func (o FrontdoorOutput) ToFrontdoorOutputWithContext(ctx context.Context) Front
 	return o
 }
 
-func (o FrontdoorOutput) ToFrontdoorPtrOutput() FrontdoorPtrOutput {
-	return o.ToFrontdoorPtrOutputWithContext(context.Background())
-}
-
-func (o FrontdoorOutput) ToFrontdoorPtrOutputWithContext(ctx context.Context) FrontdoorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Frontdoor) *Frontdoor {
-		return &v
-	}).(FrontdoorPtrOutput)
-}
-
-type FrontdoorPtrOutput struct{ *pulumi.OutputState }
-
-func (FrontdoorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Frontdoor)(nil))
-}
-
-func (o FrontdoorPtrOutput) ToFrontdoorPtrOutput() FrontdoorPtrOutput {
-	return o
-}
-
-func (o FrontdoorPtrOutput) ToFrontdoorPtrOutputWithContext(ctx context.Context) FrontdoorPtrOutput {
-	return o
-}
-
-func (o FrontdoorPtrOutput) Elem() FrontdoorOutput {
-	return o.ApplyT(func(v *Frontdoor) Frontdoor {
-		if v != nil {
-			return *v
-		}
-		var ret Frontdoor
-		return ret
-	}).(FrontdoorOutput)
-}
-
 type FrontdoorArrayOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Frontdoor)(nil))
+	return reflect.TypeOf((*[]*Frontdoor)(nil)).Elem()
 }
 
 func (o FrontdoorArrayOutput) ToFrontdoorArrayOutput() FrontdoorArrayOutput {
@@ -529,15 +466,15 @@ func (o FrontdoorArrayOutput) ToFrontdoorArrayOutputWithContext(ctx context.Cont
 }
 
 func (o FrontdoorArrayOutput) Index(i pulumi.IntInput) FrontdoorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Frontdoor {
-		return vs[0].([]Frontdoor)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Frontdoor {
+		return vs[0].([]*Frontdoor)[vs[1].(int)]
 	}).(FrontdoorOutput)
 }
 
 type FrontdoorMapOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Frontdoor)(nil))
+	return reflect.TypeOf((*map[string]*Frontdoor)(nil)).Elem()
 }
 
 func (o FrontdoorMapOutput) ToFrontdoorMapOutput() FrontdoorMapOutput {
@@ -549,18 +486,16 @@ func (o FrontdoorMapOutput) ToFrontdoorMapOutputWithContext(ctx context.Context)
 }
 
 func (o FrontdoorMapOutput) MapIndex(k pulumi.StringInput) FrontdoorOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Frontdoor {
-		return vs[0].(map[string]Frontdoor)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Frontdoor {
+		return vs[0].(map[string]*Frontdoor)[vs[1].(string)]
 	}).(FrontdoorOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorInput)(nil)).Elem(), &Frontdoor{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorPtrInput)(nil)).Elem(), &Frontdoor{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorArrayInput)(nil)).Elem(), FrontdoorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorMapInput)(nil)).Elem(), FrontdoorMap{})
 	pulumi.RegisterOutputType(FrontdoorOutput{})
-	pulumi.RegisterOutputType(FrontdoorPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorMapOutput{})
 }

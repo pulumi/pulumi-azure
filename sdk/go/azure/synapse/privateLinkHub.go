@@ -149,7 +149,7 @@ type PrivateLinkHubInput interface {
 }
 
 func (*PrivateLinkHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkHub)(nil))
+	return reflect.TypeOf((**PrivateLinkHub)(nil)).Elem()
 }
 
 func (i *PrivateLinkHub) ToPrivateLinkHubOutput() PrivateLinkHubOutput {
@@ -158,35 +158,6 @@ func (i *PrivateLinkHub) ToPrivateLinkHubOutput() PrivateLinkHubOutput {
 
 func (i *PrivateLinkHub) ToPrivateLinkHubOutputWithContext(ctx context.Context) PrivateLinkHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkHubOutput)
-}
-
-func (i *PrivateLinkHub) ToPrivateLinkHubPtrOutput() PrivateLinkHubPtrOutput {
-	return i.ToPrivateLinkHubPtrOutputWithContext(context.Background())
-}
-
-func (i *PrivateLinkHub) ToPrivateLinkHubPtrOutputWithContext(ctx context.Context) PrivateLinkHubPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkHubPtrOutput)
-}
-
-type PrivateLinkHubPtrInput interface {
-	pulumi.Input
-
-	ToPrivateLinkHubPtrOutput() PrivateLinkHubPtrOutput
-	ToPrivateLinkHubPtrOutputWithContext(ctx context.Context) PrivateLinkHubPtrOutput
-}
-
-type privateLinkHubPtrType PrivateLinkHubArgs
-
-func (*privateLinkHubPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkHub)(nil))
-}
-
-func (i *privateLinkHubPtrType) ToPrivateLinkHubPtrOutput() PrivateLinkHubPtrOutput {
-	return i.ToPrivateLinkHubPtrOutputWithContext(context.Background())
-}
-
-func (i *privateLinkHubPtrType) ToPrivateLinkHubPtrOutputWithContext(ctx context.Context) PrivateLinkHubPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkHubPtrOutput)
 }
 
 // PrivateLinkHubArrayInput is an input type that accepts PrivateLinkHubArray and PrivateLinkHubArrayOutput values.
@@ -242,7 +213,7 @@ func (i PrivateLinkHubMap) ToPrivateLinkHubMapOutputWithContext(ctx context.Cont
 type PrivateLinkHubOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkHub)(nil))
+	return reflect.TypeOf((**PrivateLinkHub)(nil)).Elem()
 }
 
 func (o PrivateLinkHubOutput) ToPrivateLinkHubOutput() PrivateLinkHubOutput {
@@ -253,44 +224,10 @@ func (o PrivateLinkHubOutput) ToPrivateLinkHubOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o PrivateLinkHubOutput) ToPrivateLinkHubPtrOutput() PrivateLinkHubPtrOutput {
-	return o.ToPrivateLinkHubPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkHubOutput) ToPrivateLinkHubPtrOutputWithContext(ctx context.Context) PrivateLinkHubPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkHub) *PrivateLinkHub {
-		return &v
-	}).(PrivateLinkHubPtrOutput)
-}
-
-type PrivateLinkHubPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkHubPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkHub)(nil))
-}
-
-func (o PrivateLinkHubPtrOutput) ToPrivateLinkHubPtrOutput() PrivateLinkHubPtrOutput {
-	return o
-}
-
-func (o PrivateLinkHubPtrOutput) ToPrivateLinkHubPtrOutputWithContext(ctx context.Context) PrivateLinkHubPtrOutput {
-	return o
-}
-
-func (o PrivateLinkHubPtrOutput) Elem() PrivateLinkHubOutput {
-	return o.ApplyT(func(v *PrivateLinkHub) PrivateLinkHub {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkHub
-		return ret
-	}).(PrivateLinkHubOutput)
-}
-
 type PrivateLinkHubArrayOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkHubArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateLinkHub)(nil))
+	return reflect.TypeOf((*[]*PrivateLinkHub)(nil)).Elem()
 }
 
 func (o PrivateLinkHubArrayOutput) ToPrivateLinkHubArrayOutput() PrivateLinkHubArrayOutput {
@@ -302,15 +239,15 @@ func (o PrivateLinkHubArrayOutput) ToPrivateLinkHubArrayOutputWithContext(ctx co
 }
 
 func (o PrivateLinkHubArrayOutput) Index(i pulumi.IntInput) PrivateLinkHubOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkHub {
-		return vs[0].([]PrivateLinkHub)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateLinkHub {
+		return vs[0].([]*PrivateLinkHub)[vs[1].(int)]
 	}).(PrivateLinkHubOutput)
 }
 
 type PrivateLinkHubMapOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkHubMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PrivateLinkHub)(nil))
+	return reflect.TypeOf((*map[string]*PrivateLinkHub)(nil)).Elem()
 }
 
 func (o PrivateLinkHubMapOutput) ToPrivateLinkHubMapOutput() PrivateLinkHubMapOutput {
@@ -322,18 +259,16 @@ func (o PrivateLinkHubMapOutput) ToPrivateLinkHubMapOutputWithContext(ctx contex
 }
 
 func (o PrivateLinkHubMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkHubOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PrivateLinkHub {
-		return vs[0].(map[string]PrivateLinkHub)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PrivateLinkHub {
+		return vs[0].(map[string]*PrivateLinkHub)[vs[1].(string)]
 	}).(PrivateLinkHubOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkHubInput)(nil)).Elem(), &PrivateLinkHub{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkHubPtrInput)(nil)).Elem(), &PrivateLinkHub{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkHubArrayInput)(nil)).Elem(), PrivateLinkHubArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateLinkHubMapInput)(nil)).Elem(), PrivateLinkHubMap{})
 	pulumi.RegisterOutputType(PrivateLinkHubOutput{})
-	pulumi.RegisterOutputType(PrivateLinkHubPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkHubArrayOutput{})
 	pulumi.RegisterOutputType(PrivateLinkHubMapOutput{})
 }

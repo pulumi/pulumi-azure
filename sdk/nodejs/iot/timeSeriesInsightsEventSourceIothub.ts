@@ -140,20 +140,20 @@ export class TimeSeriesInsightsEventSourceIothub extends pulumi.CustomResource {
      */
     constructor(name: string, args: TimeSeriesInsightsEventSourceIothubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TimeSeriesInsightsEventSourceIothubArgs | TimeSeriesInsightsEventSourceIothubState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TimeSeriesInsightsEventSourceIothubState | undefined;
-            inputs["consumerGroupName"] = state ? state.consumerGroupName : undefined;
-            inputs["environmentId"] = state ? state.environmentId : undefined;
-            inputs["eventSourceResourceId"] = state ? state.eventSourceResourceId : undefined;
-            inputs["iothubName"] = state ? state.iothubName : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["sharedAccessKey"] = state ? state.sharedAccessKey : undefined;
-            inputs["sharedAccessKeyName"] = state ? state.sharedAccessKeyName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["timestampPropertyName"] = state ? state.timestampPropertyName : undefined;
+            resourceInputs["consumerGroupName"] = state ? state.consumerGroupName : undefined;
+            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
+            resourceInputs["eventSourceResourceId"] = state ? state.eventSourceResourceId : undefined;
+            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["sharedAccessKey"] = state ? state.sharedAccessKey : undefined;
+            resourceInputs["sharedAccessKeyName"] = state ? state.sharedAccessKeyName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["timestampPropertyName"] = state ? state.timestampPropertyName : undefined;
         } else {
             const args = argsOrState as TimeSeriesInsightsEventSourceIothubArgs | undefined;
             if ((!args || args.consumerGroupName === undefined) && !opts.urn) {
@@ -174,21 +174,21 @@ export class TimeSeriesInsightsEventSourceIothub extends pulumi.CustomResource {
             if ((!args || args.sharedAccessKeyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessKeyName'");
             }
-            inputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
-            inputs["environmentId"] = args ? args.environmentId : undefined;
-            inputs["eventSourceResourceId"] = args ? args.eventSourceResourceId : undefined;
-            inputs["iothubName"] = args ? args.iothubName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["sharedAccessKey"] = args ? args.sharedAccessKey : undefined;
-            inputs["sharedAccessKeyName"] = args ? args.sharedAccessKeyName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timestampPropertyName"] = args ? args.timestampPropertyName : undefined;
+            resourceInputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["eventSourceResourceId"] = args ? args.eventSourceResourceId : undefined;
+            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["sharedAccessKey"] = args ? args.sharedAccessKey : undefined;
+            resourceInputs["sharedAccessKeyName"] = args ? args.sharedAccessKeyName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timestampPropertyName"] = args ? args.timestampPropertyName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TimeSeriesInsightsEventSourceIothub.__pulumiType, name, inputs, opts);
+        super(TimeSeriesInsightsEventSourceIothub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

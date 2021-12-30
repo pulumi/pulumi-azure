@@ -97,14 +97,14 @@ export class ChannelLine extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelLineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelLineArgs | ChannelLineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelLineState | undefined;
-            inputs["botName"] = state ? state.botName : undefined;
-            inputs["lineChannels"] = state ? state.lineChannels : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["botName"] = state ? state.botName : undefined;
+            resourceInputs["lineChannels"] = state ? state.lineChannels : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ChannelLineArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -116,15 +116,15 @@ export class ChannelLine extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["botName"] = args ? args.botName : undefined;
-            inputs["lineChannels"] = args ? args.lineChannels : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["lineChannels"] = args ? args.lineChannels : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ChannelLine.__pulumiType, name, inputs, opts);
+        super(ChannelLine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

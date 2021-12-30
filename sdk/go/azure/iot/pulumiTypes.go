@@ -1438,47 +1438,6 @@ func (i IoTHubSkuArgs) ToIoTHubSkuOutputWithContext(ctx context.Context) IoTHubS
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubSkuOutput)
 }
 
-func (i IoTHubSkuArgs) ToIoTHubSkuPtrOutput() IoTHubSkuPtrOutput {
-	return i.ToIoTHubSkuPtrOutputWithContext(context.Background())
-}
-
-func (i IoTHubSkuArgs) ToIoTHubSkuPtrOutputWithContext(ctx context.Context) IoTHubSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IoTHubSkuOutput).ToIoTHubSkuPtrOutputWithContext(ctx)
-}
-
-// IoTHubSkuPtrInput is an input type that accepts IoTHubSkuArgs, IoTHubSkuPtr and IoTHubSkuPtrOutput values.
-// You can construct a concrete instance of `IoTHubSkuPtrInput` via:
-//
-//          IoTHubSkuArgs{...}
-//
-//  or:
-//
-//          nil
-type IoTHubSkuPtrInput interface {
-	pulumi.Input
-
-	ToIoTHubSkuPtrOutput() IoTHubSkuPtrOutput
-	ToIoTHubSkuPtrOutputWithContext(context.Context) IoTHubSkuPtrOutput
-}
-
-type ioTHubSkuPtrType IoTHubSkuArgs
-
-func IoTHubSkuPtr(v *IoTHubSkuArgs) IoTHubSkuPtrInput {
-	return (*ioTHubSkuPtrType)(v)
-}
-
-func (*ioTHubSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IoTHubSku)(nil)).Elem()
-}
-
-func (i *ioTHubSkuPtrType) ToIoTHubSkuPtrOutput() IoTHubSkuPtrOutput {
-	return i.ToIoTHubSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *ioTHubSkuPtrType) ToIoTHubSkuPtrOutputWithContext(ctx context.Context) IoTHubSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IoTHubSkuPtrOutput)
-}
-
 type IoTHubSkuOutput struct{ *pulumi.OutputState }
 
 func (IoTHubSkuOutput) ElementType() reflect.Type {
@@ -1493,16 +1452,6 @@ func (o IoTHubSkuOutput) ToIoTHubSkuOutputWithContext(ctx context.Context) IoTHu
 	return o
 }
 
-func (o IoTHubSkuOutput) ToIoTHubSkuPtrOutput() IoTHubSkuPtrOutput {
-	return o.ToIoTHubSkuPtrOutputWithContext(context.Background())
-}
-
-func (o IoTHubSkuOutput) ToIoTHubSkuPtrOutputWithContext(ctx context.Context) IoTHubSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTHubSku) *IoTHubSku {
-		return &v
-	}).(IoTHubSkuPtrOutput)
-}
-
 // The number of provisioned IoT Hub units.
 func (o IoTHubSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v IoTHubSku) int { return v.Capacity }).(pulumi.IntOutput)
@@ -1511,50 +1460,6 @@ func (o IoTHubSkuOutput) Capacity() pulumi.IntOutput {
 // The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 func (o IoTHubSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type IoTHubSkuPtrOutput struct{ *pulumi.OutputState }
-
-func (IoTHubSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IoTHubSku)(nil)).Elem()
-}
-
-func (o IoTHubSkuPtrOutput) ToIoTHubSkuPtrOutput() IoTHubSkuPtrOutput {
-	return o
-}
-
-func (o IoTHubSkuPtrOutput) ToIoTHubSkuPtrOutputWithContext(ctx context.Context) IoTHubSkuPtrOutput {
-	return o
-}
-
-func (o IoTHubSkuPtrOutput) Elem() IoTHubSkuOutput {
-	return o.ApplyT(func(v *IoTHubSku) IoTHubSku {
-		if v != nil {
-			return *v
-		}
-		var ret IoTHubSku
-		return ret
-	}).(IoTHubSkuOutput)
-}
-
-// The number of provisioned IoT Hub units.
-func (o IoTHubSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IoTHubSku) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
-func (o IoTHubSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IoTHubSku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type IotHubDpsLinkedHub struct {
@@ -1727,47 +1632,6 @@ func (i IotHubDpsSkuArgs) ToIotHubDpsSkuOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsSkuOutput)
 }
 
-func (i IotHubDpsSkuArgs) ToIotHubDpsSkuPtrOutput() IotHubDpsSkuPtrOutput {
-	return i.ToIotHubDpsSkuPtrOutputWithContext(context.Background())
-}
-
-func (i IotHubDpsSkuArgs) ToIotHubDpsSkuPtrOutputWithContext(ctx context.Context) IotHubDpsSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsSkuOutput).ToIotHubDpsSkuPtrOutputWithContext(ctx)
-}
-
-// IotHubDpsSkuPtrInput is an input type that accepts IotHubDpsSkuArgs, IotHubDpsSkuPtr and IotHubDpsSkuPtrOutput values.
-// You can construct a concrete instance of `IotHubDpsSkuPtrInput` via:
-//
-//          IotHubDpsSkuArgs{...}
-//
-//  or:
-//
-//          nil
-type IotHubDpsSkuPtrInput interface {
-	pulumi.Input
-
-	ToIotHubDpsSkuPtrOutput() IotHubDpsSkuPtrOutput
-	ToIotHubDpsSkuPtrOutputWithContext(context.Context) IotHubDpsSkuPtrOutput
-}
-
-type iotHubDpsSkuPtrType IotHubDpsSkuArgs
-
-func IotHubDpsSkuPtr(v *IotHubDpsSkuArgs) IotHubDpsSkuPtrInput {
-	return (*iotHubDpsSkuPtrType)(v)
-}
-
-func (*iotHubDpsSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IotHubDpsSku)(nil)).Elem()
-}
-
-func (i *iotHubDpsSkuPtrType) ToIotHubDpsSkuPtrOutput() IotHubDpsSkuPtrOutput {
-	return i.ToIotHubDpsSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *iotHubDpsSkuPtrType) ToIotHubDpsSkuPtrOutputWithContext(ctx context.Context) IotHubDpsSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsSkuPtrOutput)
-}
-
 type IotHubDpsSkuOutput struct{ *pulumi.OutputState }
 
 func (IotHubDpsSkuOutput) ElementType() reflect.Type {
@@ -1782,16 +1646,6 @@ func (o IotHubDpsSkuOutput) ToIotHubDpsSkuOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o IotHubDpsSkuOutput) ToIotHubDpsSkuPtrOutput() IotHubDpsSkuPtrOutput {
-	return o.ToIotHubDpsSkuPtrOutputWithContext(context.Background())
-}
-
-func (o IotHubDpsSkuOutput) ToIotHubDpsSkuPtrOutputWithContext(ctx context.Context) IotHubDpsSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubDpsSku) *IotHubDpsSku {
-		return &v
-	}).(IotHubDpsSkuPtrOutput)
-}
-
 // The number of provisioned IoT Device Provisioning Service units.
 func (o IotHubDpsSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v IotHubDpsSku) int { return v.Capacity }).(pulumi.IntOutput)
@@ -1800,50 +1654,6 @@ func (o IotHubDpsSkuOutput) Capacity() pulumi.IntOutput {
 // The name of the sku. Currently can only be set to `S1`.
 func (o IotHubDpsSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDpsSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type IotHubDpsSkuPtrOutput struct{ *pulumi.OutputState }
-
-func (IotHubDpsSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IotHubDpsSku)(nil)).Elem()
-}
-
-func (o IotHubDpsSkuPtrOutput) ToIotHubDpsSkuPtrOutput() IotHubDpsSkuPtrOutput {
-	return o
-}
-
-func (o IotHubDpsSkuPtrOutput) ToIotHubDpsSkuPtrOutputWithContext(ctx context.Context) IotHubDpsSkuPtrOutput {
-	return o
-}
-
-func (o IotHubDpsSkuPtrOutput) Elem() IotHubDpsSkuOutput {
-	return o.ApplyT(func(v *IotHubDpsSku) IotHubDpsSku {
-		if v != nil {
-			return *v
-		}
-		var ret IotHubDpsSku
-		return ret
-	}).(IotHubDpsSkuOutput)
-}
-
-// The number of provisioned IoT Device Provisioning Service units.
-func (o IotHubDpsSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IotHubDpsSku) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// The name of the sku. Currently can only be set to `S1`.
-func (o IotHubDpsSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IotHubDpsSku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type SecurityDeviceGroupAllowRule struct {
@@ -2786,47 +2596,6 @@ func (i TimeSeriesInsightsGen2EnvironmentStorageArgs) ToTimeSeriesInsightsGen2En
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsGen2EnvironmentStorageOutput)
 }
 
-func (i TimeSeriesInsightsGen2EnvironmentStorageArgs) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutput() TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return i.ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(context.Background())
-}
-
-func (i TimeSeriesInsightsGen2EnvironmentStorageArgs) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsGen2EnvironmentStorageOutput).ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx)
-}
-
-// TimeSeriesInsightsGen2EnvironmentStoragePtrInput is an input type that accepts TimeSeriesInsightsGen2EnvironmentStorageArgs, TimeSeriesInsightsGen2EnvironmentStoragePtr and TimeSeriesInsightsGen2EnvironmentStoragePtrOutput values.
-// You can construct a concrete instance of `TimeSeriesInsightsGen2EnvironmentStoragePtrInput` via:
-//
-//          TimeSeriesInsightsGen2EnvironmentStorageArgs{...}
-//
-//  or:
-//
-//          nil
-type TimeSeriesInsightsGen2EnvironmentStoragePtrInput interface {
-	pulumi.Input
-
-	ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutput() TimeSeriesInsightsGen2EnvironmentStoragePtrOutput
-	ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(context.Context) TimeSeriesInsightsGen2EnvironmentStoragePtrOutput
-}
-
-type timeSeriesInsightsGen2EnvironmentStoragePtrType TimeSeriesInsightsGen2EnvironmentStorageArgs
-
-func TimeSeriesInsightsGen2EnvironmentStoragePtr(v *TimeSeriesInsightsGen2EnvironmentStorageArgs) TimeSeriesInsightsGen2EnvironmentStoragePtrInput {
-	return (*timeSeriesInsightsGen2EnvironmentStoragePtrType)(v)
-}
-
-func (*timeSeriesInsightsGen2EnvironmentStoragePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeSeriesInsightsGen2EnvironmentStorage)(nil)).Elem()
-}
-
-func (i *timeSeriesInsightsGen2EnvironmentStoragePtrType) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutput() TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return i.ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(context.Background())
-}
-
-func (i *timeSeriesInsightsGen2EnvironmentStoragePtrType) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsGen2EnvironmentStoragePtrOutput)
-}
-
 type TimeSeriesInsightsGen2EnvironmentStorageOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsGen2EnvironmentStorageOutput) ElementType() reflect.Type {
@@ -2841,16 +2610,6 @@ func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) ToTimeSeriesInsightsGen2
 	return o
 }
 
-func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutput() TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return o.ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(context.Background())
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeSeriesInsightsGen2EnvironmentStorage) *TimeSeriesInsightsGen2EnvironmentStorage {
-		return &v
-	}).(TimeSeriesInsightsGen2EnvironmentStoragePtrOutput)
-}
-
 // Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
 func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeSeriesInsightsGen2EnvironmentStorage) string { return v.Key }).(pulumi.StringOutput)
@@ -2859,50 +2618,6 @@ func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) Key() pulumi.StringOutpu
 // Name of storage account for Azure IoT Time Series Insights Gen2 Environment
 func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeSeriesInsightsGen2EnvironmentStorage) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type TimeSeriesInsightsGen2EnvironmentStoragePtrOutput struct{ *pulumi.OutputState }
-
-func (TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeSeriesInsightsGen2EnvironmentStorage)(nil)).Elem()
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutput() TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
-	return o
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) Elem() TimeSeriesInsightsGen2EnvironmentStorageOutput {
-	return o.ApplyT(func(v *TimeSeriesInsightsGen2EnvironmentStorage) TimeSeriesInsightsGen2EnvironmentStorage {
-		if v != nil {
-			return *v
-		}
-		var ret TimeSeriesInsightsGen2EnvironmentStorage
-		return ret
-	}).(TimeSeriesInsightsGen2EnvironmentStorageOutput)
-}
-
-// Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
-func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TimeSeriesInsightsGen2EnvironmentStorage) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Key
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of storage account for Azure IoT Time Series Insights Gen2 Environment
-func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TimeSeriesInsightsGen2EnvironmentStorage) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type TimeSeriesInsightsReferenceDataSetKeyProperty struct {
@@ -3031,11 +2746,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubSharedAccessPolicyInput)(nil)).Elem(), IoTHubSharedAccessPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubSharedAccessPolicyArrayInput)(nil)).Elem(), IoTHubSharedAccessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubSkuInput)(nil)).Elem(), IoTHubSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubSkuPtrInput)(nil)).Elem(), IoTHubSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsLinkedHubInput)(nil)).Elem(), IotHubDpsLinkedHubArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsLinkedHubArrayInput)(nil)).Elem(), IotHubDpsLinkedHubArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsSkuInput)(nil)).Elem(), IotHubDpsSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IotHubDpsSkuPtrInput)(nil)).Elem(), IotHubDpsSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityDeviceGroupAllowRuleInput)(nil)).Elem(), SecurityDeviceGroupAllowRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityDeviceGroupAllowRulePtrInput)(nil)).Elem(), SecurityDeviceGroupAllowRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityDeviceGroupRangeRuleInput)(nil)).Elem(), SecurityDeviceGroupRangeRuleArgs{})
@@ -3045,7 +2758,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionRecommendationsEnabledInput)(nil)).Elem(), SecuritySolutionRecommendationsEnabledArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionRecommendationsEnabledPtrInput)(nil)).Elem(), SecuritySolutionRecommendationsEnabledArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentStorageInput)(nil)).Elem(), TimeSeriesInsightsGen2EnvironmentStorageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentStoragePtrInput)(nil)).Elem(), TimeSeriesInsightsGen2EnvironmentStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetKeyPropertyInput)(nil)).Elem(), TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput)(nil)).Elem(), TimeSeriesInsightsReferenceDataSetKeyPropertyArray{})
 	pulumi.RegisterOutputType(IoTHubCloudToDeviceOutput{})
@@ -3067,11 +2779,9 @@ func init() {
 	pulumi.RegisterOutputType(IoTHubSharedAccessPolicyOutput{})
 	pulumi.RegisterOutputType(IoTHubSharedAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(IoTHubSkuOutput{})
-	pulumi.RegisterOutputType(IoTHubSkuPtrOutput{})
 	pulumi.RegisterOutputType(IotHubDpsLinkedHubOutput{})
 	pulumi.RegisterOutputType(IotHubDpsLinkedHubArrayOutput{})
 	pulumi.RegisterOutputType(IotHubDpsSkuOutput{})
-	pulumi.RegisterOutputType(IotHubDpsSkuPtrOutput{})
 	pulumi.RegisterOutputType(SecurityDeviceGroupAllowRuleOutput{})
 	pulumi.RegisterOutputType(SecurityDeviceGroupAllowRulePtrOutput{})
 	pulumi.RegisterOutputType(SecurityDeviceGroupRangeRuleOutput{})
@@ -3081,7 +2791,6 @@ func init() {
 	pulumi.RegisterOutputType(SecuritySolutionRecommendationsEnabledOutput{})
 	pulumi.RegisterOutputType(SecuritySolutionRecommendationsEnabledPtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsGen2EnvironmentStorageOutput{})
-	pulumi.RegisterOutputType(TimeSeriesInsightsGen2EnvironmentStoragePtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsReferenceDataSetKeyPropertyOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput{})
 }

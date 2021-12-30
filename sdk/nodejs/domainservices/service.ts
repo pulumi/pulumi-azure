@@ -107,26 +107,26 @@ export class Service extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            inputs["deploymentId"] = state ? state.deploymentId : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["filteredSyncEnabled"] = state ? state.filteredSyncEnabled : undefined;
-            inputs["initialReplicaSet"] = state ? state.initialReplicaSet : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notifications"] = state ? state.notifications : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["secureLdap"] = state ? state.secureLdap : undefined;
-            inputs["security"] = state ? state.security : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["syncOwner"] = state ? state.syncOwner : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["deploymentId"] = state ? state.deploymentId : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["filteredSyncEnabled"] = state ? state.filteredSyncEnabled : undefined;
+            resourceInputs["initialReplicaSet"] = state ? state.initialReplicaSet : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notifications"] = state ? state.notifications : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["secureLdap"] = state ? state.secureLdap : undefined;
+            resourceInputs["security"] = state ? state.security : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["syncOwner"] = state ? state.syncOwner : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             if ((!args || args.domainName === undefined) && !opts.urn) {
@@ -141,27 +141,27 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["filteredSyncEnabled"] = args ? args.filteredSyncEnabled : undefined;
-            inputs["initialReplicaSet"] = args ? args.initialReplicaSet : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notifications"] = args ? args.notifications : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["secureLdap"] = args ? args.secureLdap : undefined;
-            inputs["security"] = args ? args.security : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["deploymentId"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["syncOwner"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["filteredSyncEnabled"] = args ? args.filteredSyncEnabled : undefined;
+            resourceInputs["initialReplicaSet"] = args ? args.initialReplicaSet : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["secureLdap"] = args ? args.secureLdap : undefined;
+            resourceInputs["security"] = args ? args.security : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deploymentId"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["syncOwner"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Service.__pulumiType, name, inputs, opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

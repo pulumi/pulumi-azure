@@ -316,7 +316,7 @@ type LinkedServiceSynapseInput interface {
 }
 
 func (*LinkedServiceSynapse) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceSynapse)(nil))
+	return reflect.TypeOf((**LinkedServiceSynapse)(nil)).Elem()
 }
 
 func (i *LinkedServiceSynapse) ToLinkedServiceSynapseOutput() LinkedServiceSynapseOutput {
@@ -325,35 +325,6 @@ func (i *LinkedServiceSynapse) ToLinkedServiceSynapseOutput() LinkedServiceSynap
 
 func (i *LinkedServiceSynapse) ToLinkedServiceSynapseOutputWithContext(ctx context.Context) LinkedServiceSynapseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSynapseOutput)
-}
-
-func (i *LinkedServiceSynapse) ToLinkedServiceSynapsePtrOutput() LinkedServiceSynapsePtrOutput {
-	return i.ToLinkedServiceSynapsePtrOutputWithContext(context.Background())
-}
-
-func (i *LinkedServiceSynapse) ToLinkedServiceSynapsePtrOutputWithContext(ctx context.Context) LinkedServiceSynapsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSynapsePtrOutput)
-}
-
-type LinkedServiceSynapsePtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceSynapsePtrOutput() LinkedServiceSynapsePtrOutput
-	ToLinkedServiceSynapsePtrOutputWithContext(ctx context.Context) LinkedServiceSynapsePtrOutput
-}
-
-type linkedServiceSynapsePtrType LinkedServiceSynapseArgs
-
-func (*linkedServiceSynapsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceSynapse)(nil))
-}
-
-func (i *linkedServiceSynapsePtrType) ToLinkedServiceSynapsePtrOutput() LinkedServiceSynapsePtrOutput {
-	return i.ToLinkedServiceSynapsePtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServiceSynapsePtrType) ToLinkedServiceSynapsePtrOutputWithContext(ctx context.Context) LinkedServiceSynapsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSynapsePtrOutput)
 }
 
 // LinkedServiceSynapseArrayInput is an input type that accepts LinkedServiceSynapseArray and LinkedServiceSynapseArrayOutput values.
@@ -409,7 +380,7 @@ func (i LinkedServiceSynapseMap) ToLinkedServiceSynapseMapOutputWithContext(ctx 
 type LinkedServiceSynapseOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceSynapseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceSynapse)(nil))
+	return reflect.TypeOf((**LinkedServiceSynapse)(nil)).Elem()
 }
 
 func (o LinkedServiceSynapseOutput) ToLinkedServiceSynapseOutput() LinkedServiceSynapseOutput {
@@ -420,44 +391,10 @@ func (o LinkedServiceSynapseOutput) ToLinkedServiceSynapseOutputWithContext(ctx 
 	return o
 }
 
-func (o LinkedServiceSynapseOutput) ToLinkedServiceSynapsePtrOutput() LinkedServiceSynapsePtrOutput {
-	return o.ToLinkedServiceSynapsePtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceSynapseOutput) ToLinkedServiceSynapsePtrOutputWithContext(ctx context.Context) LinkedServiceSynapsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceSynapse) *LinkedServiceSynapse {
-		return &v
-	}).(LinkedServiceSynapsePtrOutput)
-}
-
-type LinkedServiceSynapsePtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceSynapsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceSynapse)(nil))
-}
-
-func (o LinkedServiceSynapsePtrOutput) ToLinkedServiceSynapsePtrOutput() LinkedServiceSynapsePtrOutput {
-	return o
-}
-
-func (o LinkedServiceSynapsePtrOutput) ToLinkedServiceSynapsePtrOutputWithContext(ctx context.Context) LinkedServiceSynapsePtrOutput {
-	return o
-}
-
-func (o LinkedServiceSynapsePtrOutput) Elem() LinkedServiceSynapseOutput {
-	return o.ApplyT(func(v *LinkedServiceSynapse) LinkedServiceSynapse {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceSynapse
-		return ret
-	}).(LinkedServiceSynapseOutput)
-}
-
 type LinkedServiceSynapseArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceSynapseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServiceSynapse)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceSynapse)(nil)).Elem()
 }
 
 func (o LinkedServiceSynapseArrayOutput) ToLinkedServiceSynapseArrayOutput() LinkedServiceSynapseArrayOutput {
@@ -469,15 +406,15 @@ func (o LinkedServiceSynapseArrayOutput) ToLinkedServiceSynapseArrayOutputWithCo
 }
 
 func (o LinkedServiceSynapseArrayOutput) Index(i pulumi.IntInput) LinkedServiceSynapseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceSynapse {
-		return vs[0].([]LinkedServiceSynapse)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceSynapse {
+		return vs[0].([]*LinkedServiceSynapse)[vs[1].(int)]
 	}).(LinkedServiceSynapseOutput)
 }
 
 type LinkedServiceSynapseMapOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceSynapseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkedServiceSynapse)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceSynapse)(nil)).Elem()
 }
 
 func (o LinkedServiceSynapseMapOutput) ToLinkedServiceSynapseMapOutput() LinkedServiceSynapseMapOutput {
@@ -489,18 +426,16 @@ func (o LinkedServiceSynapseMapOutput) ToLinkedServiceSynapseMapOutputWithContex
 }
 
 func (o LinkedServiceSynapseMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceSynapseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceSynapse {
-		return vs[0].(map[string]LinkedServiceSynapse)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkedServiceSynapse {
+		return vs[0].(map[string]*LinkedServiceSynapse)[vs[1].(string)]
 	}).(LinkedServiceSynapseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSynapseInput)(nil)).Elem(), &LinkedServiceSynapse{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSynapsePtrInput)(nil)).Elem(), &LinkedServiceSynapse{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSynapseArrayInput)(nil)).Elem(), LinkedServiceSynapseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSynapseMapInput)(nil)).Elem(), LinkedServiceSynapseMap{})
 	pulumi.RegisterOutputType(LinkedServiceSynapseOutput{})
-	pulumi.RegisterOutputType(LinkedServiceSynapsePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSynapseArrayOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSynapseMapOutput{})
 }

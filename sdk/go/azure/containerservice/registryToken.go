@@ -195,7 +195,7 @@ type RegistryTokenInput interface {
 }
 
 func (*RegistryToken) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryToken)(nil))
+	return reflect.TypeOf((**RegistryToken)(nil)).Elem()
 }
 
 func (i *RegistryToken) ToRegistryTokenOutput() RegistryTokenOutput {
@@ -204,35 +204,6 @@ func (i *RegistryToken) ToRegistryTokenOutput() RegistryTokenOutput {
 
 func (i *RegistryToken) ToRegistryTokenOutputWithContext(ctx context.Context) RegistryTokenOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTokenOutput)
-}
-
-func (i *RegistryToken) ToRegistryTokenPtrOutput() RegistryTokenPtrOutput {
-	return i.ToRegistryTokenPtrOutputWithContext(context.Background())
-}
-
-func (i *RegistryToken) ToRegistryTokenPtrOutputWithContext(ctx context.Context) RegistryTokenPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryTokenPtrOutput)
-}
-
-type RegistryTokenPtrInput interface {
-	pulumi.Input
-
-	ToRegistryTokenPtrOutput() RegistryTokenPtrOutput
-	ToRegistryTokenPtrOutputWithContext(ctx context.Context) RegistryTokenPtrOutput
-}
-
-type registryTokenPtrType RegistryTokenArgs
-
-func (*registryTokenPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryToken)(nil))
-}
-
-func (i *registryTokenPtrType) ToRegistryTokenPtrOutput() RegistryTokenPtrOutput {
-	return i.ToRegistryTokenPtrOutputWithContext(context.Background())
-}
-
-func (i *registryTokenPtrType) ToRegistryTokenPtrOutputWithContext(ctx context.Context) RegistryTokenPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryTokenPtrOutput)
 }
 
 // RegistryTokenArrayInput is an input type that accepts RegistryTokenArray and RegistryTokenArrayOutput values.
@@ -288,7 +259,7 @@ func (i RegistryTokenMap) ToRegistryTokenMapOutputWithContext(ctx context.Contex
 type RegistryTokenOutput struct{ *pulumi.OutputState }
 
 func (RegistryTokenOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryToken)(nil))
+	return reflect.TypeOf((**RegistryToken)(nil)).Elem()
 }
 
 func (o RegistryTokenOutput) ToRegistryTokenOutput() RegistryTokenOutput {
@@ -299,44 +270,10 @@ func (o RegistryTokenOutput) ToRegistryTokenOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o RegistryTokenOutput) ToRegistryTokenPtrOutput() RegistryTokenPtrOutput {
-	return o.ToRegistryTokenPtrOutputWithContext(context.Background())
-}
-
-func (o RegistryTokenOutput) ToRegistryTokenPtrOutputWithContext(ctx context.Context) RegistryTokenPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryToken) *RegistryToken {
-		return &v
-	}).(RegistryTokenPtrOutput)
-}
-
-type RegistryTokenPtrOutput struct{ *pulumi.OutputState }
-
-func (RegistryTokenPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryToken)(nil))
-}
-
-func (o RegistryTokenPtrOutput) ToRegistryTokenPtrOutput() RegistryTokenPtrOutput {
-	return o
-}
-
-func (o RegistryTokenPtrOutput) ToRegistryTokenPtrOutputWithContext(ctx context.Context) RegistryTokenPtrOutput {
-	return o
-}
-
-func (o RegistryTokenPtrOutput) Elem() RegistryTokenOutput {
-	return o.ApplyT(func(v *RegistryToken) RegistryToken {
-		if v != nil {
-			return *v
-		}
-		var ret RegistryToken
-		return ret
-	}).(RegistryTokenOutput)
-}
-
 type RegistryTokenArrayOutput struct{ *pulumi.OutputState }
 
 func (RegistryTokenArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryToken)(nil))
+	return reflect.TypeOf((*[]*RegistryToken)(nil)).Elem()
 }
 
 func (o RegistryTokenArrayOutput) ToRegistryTokenArrayOutput() RegistryTokenArrayOutput {
@@ -348,15 +285,15 @@ func (o RegistryTokenArrayOutput) ToRegistryTokenArrayOutputWithContext(ctx cont
 }
 
 func (o RegistryTokenArrayOutput) Index(i pulumi.IntInput) RegistryTokenOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryToken {
-		return vs[0].([]RegistryToken)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryToken {
+		return vs[0].([]*RegistryToken)[vs[1].(int)]
 	}).(RegistryTokenOutput)
 }
 
 type RegistryTokenMapOutput struct{ *pulumi.OutputState }
 
 func (RegistryTokenMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RegistryToken)(nil))
+	return reflect.TypeOf((*map[string]*RegistryToken)(nil)).Elem()
 }
 
 func (o RegistryTokenMapOutput) ToRegistryTokenMapOutput() RegistryTokenMapOutput {
@@ -368,18 +305,16 @@ func (o RegistryTokenMapOutput) ToRegistryTokenMapOutputWithContext(ctx context.
 }
 
 func (o RegistryTokenMapOutput) MapIndex(k pulumi.StringInput) RegistryTokenOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RegistryToken {
-		return vs[0].(map[string]RegistryToken)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RegistryToken {
+		return vs[0].(map[string]*RegistryToken)[vs[1].(string)]
 	}).(RegistryTokenOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTokenInput)(nil)).Elem(), &RegistryToken{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTokenPtrInput)(nil)).Elem(), &RegistryToken{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTokenArrayInput)(nil)).Elem(), RegistryTokenArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTokenMapInput)(nil)).Elem(), RegistryTokenMap{})
 	pulumi.RegisterOutputType(RegistryTokenOutput{})
-	pulumi.RegisterOutputType(RegistryTokenPtrOutput{})
 	pulumi.RegisterOutputType(RegistryTokenArrayOutput{})
 	pulumi.RegisterOutputType(RegistryTokenMapOutput{})
 }

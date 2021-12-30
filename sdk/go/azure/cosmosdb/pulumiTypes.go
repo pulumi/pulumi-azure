@@ -616,47 +616,6 @@ func (i AccountConsistencyPolicyArgs) ToAccountConsistencyPolicyOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AccountConsistencyPolicyOutput)
 }
 
-func (i AccountConsistencyPolicyArgs) ToAccountConsistencyPolicyPtrOutput() AccountConsistencyPolicyPtrOutput {
-	return i.ToAccountConsistencyPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i AccountConsistencyPolicyArgs) ToAccountConsistencyPolicyPtrOutputWithContext(ctx context.Context) AccountConsistencyPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountConsistencyPolicyOutput).ToAccountConsistencyPolicyPtrOutputWithContext(ctx)
-}
-
-// AccountConsistencyPolicyPtrInput is an input type that accepts AccountConsistencyPolicyArgs, AccountConsistencyPolicyPtr and AccountConsistencyPolicyPtrOutput values.
-// You can construct a concrete instance of `AccountConsistencyPolicyPtrInput` via:
-//
-//          AccountConsistencyPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type AccountConsistencyPolicyPtrInput interface {
-	pulumi.Input
-
-	ToAccountConsistencyPolicyPtrOutput() AccountConsistencyPolicyPtrOutput
-	ToAccountConsistencyPolicyPtrOutputWithContext(context.Context) AccountConsistencyPolicyPtrOutput
-}
-
-type accountConsistencyPolicyPtrType AccountConsistencyPolicyArgs
-
-func AccountConsistencyPolicyPtr(v *AccountConsistencyPolicyArgs) AccountConsistencyPolicyPtrInput {
-	return (*accountConsistencyPolicyPtrType)(v)
-}
-
-func (*accountConsistencyPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountConsistencyPolicy)(nil)).Elem()
-}
-
-func (i *accountConsistencyPolicyPtrType) ToAccountConsistencyPolicyPtrOutput() AccountConsistencyPolicyPtrOutput {
-	return i.ToAccountConsistencyPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *accountConsistencyPolicyPtrType) ToAccountConsistencyPolicyPtrOutputWithContext(ctx context.Context) AccountConsistencyPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountConsistencyPolicyPtrOutput)
-}
-
 type AccountConsistencyPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccountConsistencyPolicyOutput) ElementType() reflect.Type {
@@ -669,16 +628,6 @@ func (o AccountConsistencyPolicyOutput) ToAccountConsistencyPolicyOutput() Accou
 
 func (o AccountConsistencyPolicyOutput) ToAccountConsistencyPolicyOutputWithContext(ctx context.Context) AccountConsistencyPolicyOutput {
 	return o
-}
-
-func (o AccountConsistencyPolicyOutput) ToAccountConsistencyPolicyPtrOutput() AccountConsistencyPolicyPtrOutput {
-	return o.ToAccountConsistencyPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o AccountConsistencyPolicyOutput) ToAccountConsistencyPolicyPtrOutputWithContext(ctx context.Context) AccountConsistencyPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountConsistencyPolicy) *AccountConsistencyPolicy {
-		return &v
-	}).(AccountConsistencyPolicyPtrOutput)
 }
 
 // The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
@@ -694,60 +643,6 @@ func (o AccountConsistencyPolicyOutput) MaxIntervalInSeconds() pulumi.IntPtrOutp
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 func (o AccountConsistencyPolicyOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountConsistencyPolicy) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
-}
-
-type AccountConsistencyPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (AccountConsistencyPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountConsistencyPolicy)(nil)).Elem()
-}
-
-func (o AccountConsistencyPolicyPtrOutput) ToAccountConsistencyPolicyPtrOutput() AccountConsistencyPolicyPtrOutput {
-	return o
-}
-
-func (o AccountConsistencyPolicyPtrOutput) ToAccountConsistencyPolicyPtrOutputWithContext(ctx context.Context) AccountConsistencyPolicyPtrOutput {
-	return o
-}
-
-func (o AccountConsistencyPolicyPtrOutput) Elem() AccountConsistencyPolicyOutput {
-	return o.ApplyT(func(v *AccountConsistencyPolicy) AccountConsistencyPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret AccountConsistencyPolicy
-		return ret
-	}).(AccountConsistencyPolicyOutput)
-}
-
-// The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
-func (o AccountConsistencyPolicyPtrOutput) ConsistencyLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccountConsistencyPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ConsistencyLevel
-	}).(pulumi.StringPtrOutput)
-}
-
-// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistencyLevel` is set to `BoundedStaleness`.
-func (o AccountConsistencyPolicyPtrOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AccountConsistencyPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxIntervalInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
-func (o AccountConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AccountConsistencyPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxStalenessPrefix
-	}).(pulumi.IntPtrOutput)
 }
 
 type AccountCorsRule struct {
@@ -1979,47 +1874,6 @@ func (i CassandraTableSchemaArgs) ToCassandraTableSchemaOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableSchemaOutput)
 }
 
-func (i CassandraTableSchemaArgs) ToCassandraTableSchemaPtrOutput() CassandraTableSchemaPtrOutput {
-	return i.ToCassandraTableSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i CassandraTableSchemaArgs) ToCassandraTableSchemaPtrOutputWithContext(ctx context.Context) CassandraTableSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableSchemaOutput).ToCassandraTableSchemaPtrOutputWithContext(ctx)
-}
-
-// CassandraTableSchemaPtrInput is an input type that accepts CassandraTableSchemaArgs, CassandraTableSchemaPtr and CassandraTableSchemaPtrOutput values.
-// You can construct a concrete instance of `CassandraTableSchemaPtrInput` via:
-//
-//          CassandraTableSchemaArgs{...}
-//
-//  or:
-//
-//          nil
-type CassandraTableSchemaPtrInput interface {
-	pulumi.Input
-
-	ToCassandraTableSchemaPtrOutput() CassandraTableSchemaPtrOutput
-	ToCassandraTableSchemaPtrOutputWithContext(context.Context) CassandraTableSchemaPtrOutput
-}
-
-type cassandraTableSchemaPtrType CassandraTableSchemaArgs
-
-func CassandraTableSchemaPtr(v *CassandraTableSchemaArgs) CassandraTableSchemaPtrInput {
-	return (*cassandraTableSchemaPtrType)(v)
-}
-
-func (*cassandraTableSchemaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CassandraTableSchema)(nil)).Elem()
-}
-
-func (i *cassandraTableSchemaPtrType) ToCassandraTableSchemaPtrOutput() CassandraTableSchemaPtrOutput {
-	return i.ToCassandraTableSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i *cassandraTableSchemaPtrType) ToCassandraTableSchemaPtrOutputWithContext(ctx context.Context) CassandraTableSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableSchemaPtrOutput)
-}
-
 type CassandraTableSchemaOutput struct{ *pulumi.OutputState }
 
 func (CassandraTableSchemaOutput) ElementType() reflect.Type {
@@ -2032,16 +1886,6 @@ func (o CassandraTableSchemaOutput) ToCassandraTableSchemaOutput() CassandraTabl
 
 func (o CassandraTableSchemaOutput) ToCassandraTableSchemaOutputWithContext(ctx context.Context) CassandraTableSchemaOutput {
 	return o
-}
-
-func (o CassandraTableSchemaOutput) ToCassandraTableSchemaPtrOutput() CassandraTableSchemaPtrOutput {
-	return o.ToCassandraTableSchemaPtrOutputWithContext(context.Background())
-}
-
-func (o CassandraTableSchemaOutput) ToCassandraTableSchemaPtrOutputWithContext(ctx context.Context) CassandraTableSchemaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraTableSchema) *CassandraTableSchema {
-		return &v
-	}).(CassandraTableSchemaPtrOutput)
 }
 
 // One or more `clusterKey` blocks as defined below.
@@ -2057,60 +1901,6 @@ func (o CassandraTableSchemaOutput) Columns() CassandraTableSchemaColumnArrayOut
 // One or more `partitionKey` blocks as defined below.
 func (o CassandraTableSchemaOutput) PartitionKeys() CassandraTableSchemaPartitionKeyArrayOutput {
 	return o.ApplyT(func(v CassandraTableSchema) []CassandraTableSchemaPartitionKey { return v.PartitionKeys }).(CassandraTableSchemaPartitionKeyArrayOutput)
-}
-
-type CassandraTableSchemaPtrOutput struct{ *pulumi.OutputState }
-
-func (CassandraTableSchemaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CassandraTableSchema)(nil)).Elem()
-}
-
-func (o CassandraTableSchemaPtrOutput) ToCassandraTableSchemaPtrOutput() CassandraTableSchemaPtrOutput {
-	return o
-}
-
-func (o CassandraTableSchemaPtrOutput) ToCassandraTableSchemaPtrOutputWithContext(ctx context.Context) CassandraTableSchemaPtrOutput {
-	return o
-}
-
-func (o CassandraTableSchemaPtrOutput) Elem() CassandraTableSchemaOutput {
-	return o.ApplyT(func(v *CassandraTableSchema) CassandraTableSchema {
-		if v != nil {
-			return *v
-		}
-		var ret CassandraTableSchema
-		return ret
-	}).(CassandraTableSchemaOutput)
-}
-
-// One or more `clusterKey` blocks as defined below.
-func (o CassandraTableSchemaPtrOutput) ClusterKeys() CassandraTableSchemaClusterKeyArrayOutput {
-	return o.ApplyT(func(v *CassandraTableSchema) []CassandraTableSchemaClusterKey {
-		if v == nil {
-			return nil
-		}
-		return v.ClusterKeys
-	}).(CassandraTableSchemaClusterKeyArrayOutput)
-}
-
-// One or more `column` blocks as defined below.
-func (o CassandraTableSchemaPtrOutput) Columns() CassandraTableSchemaColumnArrayOutput {
-	return o.ApplyT(func(v *CassandraTableSchema) []CassandraTableSchemaColumn {
-		if v == nil {
-			return nil
-		}
-		return v.Columns
-	}).(CassandraTableSchemaColumnArrayOutput)
-}
-
-// One or more `partitionKey` blocks as defined below.
-func (o CassandraTableSchemaPtrOutput) PartitionKeys() CassandraTableSchemaPartitionKeyArrayOutput {
-	return o.ApplyT(func(v *CassandraTableSchema) []CassandraTableSchemaPartitionKey {
-		if v == nil {
-			return nil
-		}
-		return v.PartitionKeys
-	}).(CassandraTableSchemaPartitionKeyArrayOutput)
 }
 
 type CassandraTableSchemaClusterKey struct {
@@ -5939,7 +5729,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCapacityInput)(nil)).Elem(), AccountCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCapacityPtrInput)(nil)).Elem(), AccountCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountConsistencyPolicyInput)(nil)).Elem(), AccountConsistencyPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountConsistencyPolicyPtrInput)(nil)).Elem(), AccountConsistencyPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCorsRuleInput)(nil)).Elem(), AccountCorsRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCorsRulePtrInput)(nil)).Elem(), AccountCorsRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountGeoLocationInput)(nil)).Elem(), AccountGeoLocationArgs{})
@@ -5957,7 +5746,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraTableAutoscaleSettingsInput)(nil)).Elem(), CassandraTableAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraTableAutoscaleSettingsPtrInput)(nil)).Elem(), CassandraTableAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraTableSchemaInput)(nil)).Elem(), CassandraTableSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CassandraTableSchemaPtrInput)(nil)).Elem(), CassandraTableSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraTableSchemaClusterKeyInput)(nil)).Elem(), CassandraTableSchemaClusterKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraTableSchemaClusterKeyArrayInput)(nil)).Elem(), CassandraTableSchemaClusterKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraTableSchemaColumnInput)(nil)).Elem(), CassandraTableSchemaColumnArgs{})
@@ -6031,7 +5819,6 @@ func init() {
 	pulumi.RegisterOutputType(AccountCapacityOutput{})
 	pulumi.RegisterOutputType(AccountCapacityPtrOutput{})
 	pulumi.RegisterOutputType(AccountConsistencyPolicyOutput{})
-	pulumi.RegisterOutputType(AccountConsistencyPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AccountCorsRuleOutput{})
 	pulumi.RegisterOutputType(AccountCorsRulePtrOutput{})
 	pulumi.RegisterOutputType(AccountGeoLocationOutput{})
@@ -6049,7 +5836,6 @@ func init() {
 	pulumi.RegisterOutputType(CassandraTableAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(CassandraTableAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CassandraTableSchemaOutput{})
-	pulumi.RegisterOutputType(CassandraTableSchemaPtrOutput{})
 	pulumi.RegisterOutputType(CassandraTableSchemaClusterKeyOutput{})
 	pulumi.RegisterOutputType(CassandraTableSchemaClusterKeyArrayOutput{})
 	pulumi.RegisterOutputType(CassandraTableSchemaColumnOutput{})

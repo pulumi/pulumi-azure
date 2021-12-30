@@ -175,7 +175,7 @@ type ShareDirectoryInput interface {
 }
 
 func (*ShareDirectory) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareDirectory)(nil))
+	return reflect.TypeOf((**ShareDirectory)(nil)).Elem()
 }
 
 func (i *ShareDirectory) ToShareDirectoryOutput() ShareDirectoryOutput {
@@ -184,35 +184,6 @@ func (i *ShareDirectory) ToShareDirectoryOutput() ShareDirectoryOutput {
 
 func (i *ShareDirectory) ToShareDirectoryOutputWithContext(ctx context.Context) ShareDirectoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ShareDirectoryOutput)
-}
-
-func (i *ShareDirectory) ToShareDirectoryPtrOutput() ShareDirectoryPtrOutput {
-	return i.ToShareDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (i *ShareDirectory) ToShareDirectoryPtrOutputWithContext(ctx context.Context) ShareDirectoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShareDirectoryPtrOutput)
-}
-
-type ShareDirectoryPtrInput interface {
-	pulumi.Input
-
-	ToShareDirectoryPtrOutput() ShareDirectoryPtrOutput
-	ToShareDirectoryPtrOutputWithContext(ctx context.Context) ShareDirectoryPtrOutput
-}
-
-type shareDirectoryPtrType ShareDirectoryArgs
-
-func (*shareDirectoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ShareDirectory)(nil))
-}
-
-func (i *shareDirectoryPtrType) ToShareDirectoryPtrOutput() ShareDirectoryPtrOutput {
-	return i.ToShareDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (i *shareDirectoryPtrType) ToShareDirectoryPtrOutputWithContext(ctx context.Context) ShareDirectoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShareDirectoryPtrOutput)
 }
 
 // ShareDirectoryArrayInput is an input type that accepts ShareDirectoryArray and ShareDirectoryArrayOutput values.
@@ -268,7 +239,7 @@ func (i ShareDirectoryMap) ToShareDirectoryMapOutputWithContext(ctx context.Cont
 type ShareDirectoryOutput struct{ *pulumi.OutputState }
 
 func (ShareDirectoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareDirectory)(nil))
+	return reflect.TypeOf((**ShareDirectory)(nil)).Elem()
 }
 
 func (o ShareDirectoryOutput) ToShareDirectoryOutput() ShareDirectoryOutput {
@@ -279,44 +250,10 @@ func (o ShareDirectoryOutput) ToShareDirectoryOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ShareDirectoryOutput) ToShareDirectoryPtrOutput() ShareDirectoryPtrOutput {
-	return o.ToShareDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (o ShareDirectoryOutput) ToShareDirectoryPtrOutputWithContext(ctx context.Context) ShareDirectoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShareDirectory) *ShareDirectory {
-		return &v
-	}).(ShareDirectoryPtrOutput)
-}
-
-type ShareDirectoryPtrOutput struct{ *pulumi.OutputState }
-
-func (ShareDirectoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ShareDirectory)(nil))
-}
-
-func (o ShareDirectoryPtrOutput) ToShareDirectoryPtrOutput() ShareDirectoryPtrOutput {
-	return o
-}
-
-func (o ShareDirectoryPtrOutput) ToShareDirectoryPtrOutputWithContext(ctx context.Context) ShareDirectoryPtrOutput {
-	return o
-}
-
-func (o ShareDirectoryPtrOutput) Elem() ShareDirectoryOutput {
-	return o.ApplyT(func(v *ShareDirectory) ShareDirectory {
-		if v != nil {
-			return *v
-		}
-		var ret ShareDirectory
-		return ret
-	}).(ShareDirectoryOutput)
-}
-
 type ShareDirectoryArrayOutput struct{ *pulumi.OutputState }
 
 func (ShareDirectoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ShareDirectory)(nil))
+	return reflect.TypeOf((*[]*ShareDirectory)(nil)).Elem()
 }
 
 func (o ShareDirectoryArrayOutput) ToShareDirectoryArrayOutput() ShareDirectoryArrayOutput {
@@ -328,15 +265,15 @@ func (o ShareDirectoryArrayOutput) ToShareDirectoryArrayOutputWithContext(ctx co
 }
 
 func (o ShareDirectoryArrayOutput) Index(i pulumi.IntInput) ShareDirectoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareDirectory {
-		return vs[0].([]ShareDirectory)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ShareDirectory {
+		return vs[0].([]*ShareDirectory)[vs[1].(int)]
 	}).(ShareDirectoryOutput)
 }
 
 type ShareDirectoryMapOutput struct{ *pulumi.OutputState }
 
 func (ShareDirectoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ShareDirectory)(nil))
+	return reflect.TypeOf((*map[string]*ShareDirectory)(nil)).Elem()
 }
 
 func (o ShareDirectoryMapOutput) ToShareDirectoryMapOutput() ShareDirectoryMapOutput {
@@ -348,18 +285,16 @@ func (o ShareDirectoryMapOutput) ToShareDirectoryMapOutputWithContext(ctx contex
 }
 
 func (o ShareDirectoryMapOutput) MapIndex(k pulumi.StringInput) ShareDirectoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ShareDirectory {
-		return vs[0].(map[string]ShareDirectory)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ShareDirectory {
+		return vs[0].(map[string]*ShareDirectory)[vs[1].(string)]
 	}).(ShareDirectoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ShareDirectoryInput)(nil)).Elem(), &ShareDirectory{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ShareDirectoryPtrInput)(nil)).Elem(), &ShareDirectory{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ShareDirectoryArrayInput)(nil)).Elem(), ShareDirectoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ShareDirectoryMapInput)(nil)).Elem(), ShareDirectoryMap{})
 	pulumi.RegisterOutputType(ShareDirectoryOutput{})
-	pulumi.RegisterOutputType(ShareDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(ShareDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(ShareDirectoryMapOutput{})
 }

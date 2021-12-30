@@ -230,28 +230,28 @@ export class Slot extends pulumi.CustomResource {
      */
     constructor(name: string, args: SlotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SlotArgs | SlotState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SlotState | undefined;
-            inputs["appServiceName"] = state ? state.appServiceName : undefined;
-            inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
-            inputs["appSettings"] = state ? state.appSettings : undefined;
-            inputs["authSettings"] = state ? state.authSettings : undefined;
-            inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
-            inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
-            inputs["defaultSiteHostname"] = state ? state.defaultSiteHostname : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["logs"] = state ? state.logs : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["siteConfig"] = state ? state.siteConfig : undefined;
-            inputs["siteCredentials"] = state ? state.siteCredentials : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["appServiceName"] = state ? state.appServiceName : undefined;
+            resourceInputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
+            resourceInputs["appSettings"] = state ? state.appSettings : undefined;
+            resourceInputs["authSettings"] = state ? state.authSettings : undefined;
+            resourceInputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
+            resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
+            resourceInputs["defaultSiteHostname"] = state ? state.defaultSiteHostname : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["logs"] = state ? state.logs : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
+            resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SlotArgs | undefined;
             if ((!args || args.appServiceName === undefined) && !opts.urn) {
@@ -263,29 +263,29 @@ export class Slot extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["appServiceName"] = args ? args.appServiceName : undefined;
-            inputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
-            inputs["appSettings"] = args ? args.appSettings : undefined;
-            inputs["authSettings"] = args ? args.authSettings : undefined;
-            inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
-            inputs["connectionStrings"] = args ? args.connectionStrings : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["logs"] = args ? args.logs : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["siteConfig"] = args ? args.siteConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["defaultSiteHostname"] = undefined /*out*/;
-            inputs["siteCredentials"] = undefined /*out*/;
+            resourceInputs["appServiceName"] = args ? args.appServiceName : undefined;
+            resourceInputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
+            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
+            resourceInputs["authSettings"] = args ? args.authSettings : undefined;
+            resourceInputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
+            resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logs"] = args ? args.logs : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultSiteHostname"] = undefined /*out*/;
+            resourceInputs["siteCredentials"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Slot.__pulumiType, name, inputs, opts);
+        super(Slot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

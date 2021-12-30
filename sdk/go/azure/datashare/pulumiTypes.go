@@ -51,47 +51,6 @@ func (i AccountIdentityArgs) ToAccountIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput)
 }
 
-func (i AccountIdentityArgs) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
-	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i AccountIdentityArgs) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput).ToAccountIdentityPtrOutputWithContext(ctx)
-}
-
-// AccountIdentityPtrInput is an input type that accepts AccountIdentityArgs, AccountIdentityPtr and AccountIdentityPtrOutput values.
-// You can construct a concrete instance of `AccountIdentityPtrInput` via:
-//
-//          AccountIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type AccountIdentityPtrInput interface {
-	pulumi.Input
-
-	ToAccountIdentityPtrOutput() AccountIdentityPtrOutput
-	ToAccountIdentityPtrOutputWithContext(context.Context) AccountIdentityPtrOutput
-}
-
-type accountIdentityPtrType AccountIdentityArgs
-
-func AccountIdentityPtr(v *AccountIdentityArgs) AccountIdentityPtrInput {
-	return (*accountIdentityPtrType)(v)
-}
-
-func (*accountIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountIdentity)(nil)).Elem()
-}
-
-func (i *accountIdentityPtrType) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
-	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
-}
-
 type AccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityOutput) ElementType() reflect.Type {
@@ -104,16 +63,6 @@ func (o AccountIdentityOutput) ToAccountIdentityOutput() AccountIdentityOutput {
 
 func (o AccountIdentityOutput) ToAccountIdentityOutputWithContext(ctx context.Context) AccountIdentityOutput {
 	return o
-}
-
-func (o AccountIdentityOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
-	return o.ToAccountIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
-		return &v
-	}).(AccountIdentityPtrOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
@@ -129,60 +78,6 @@ func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
 // Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`.
 func (o AccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type AccountIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (AccountIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountIdentity)(nil)).Elem()
-}
-
-func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
-	return o
-}
-
-func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
-	return o
-}
-
-func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
-	return o.ApplyT(func(v *AccountIdentity) AccountIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret AccountIdentity
-		return ret
-	}).(AccountIdentityOutput)
-}
-
-// The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
-func (o AccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccountIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
-func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccountIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`.
-func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccountIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type DatasetBlobStorageStorageAccount struct {
@@ -226,47 +121,6 @@ func (i DatasetBlobStorageStorageAccountArgs) ToDatasetBlobStorageStorageAccount
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageStorageAccountOutput)
 }
 
-func (i DatasetBlobStorageStorageAccountArgs) ToDatasetBlobStorageStorageAccountPtrOutput() DatasetBlobStorageStorageAccountPtrOutput {
-	return i.ToDatasetBlobStorageStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (i DatasetBlobStorageStorageAccountArgs) ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageStorageAccountOutput).ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx)
-}
-
-// DatasetBlobStorageStorageAccountPtrInput is an input type that accepts DatasetBlobStorageStorageAccountArgs, DatasetBlobStorageStorageAccountPtr and DatasetBlobStorageStorageAccountPtrOutput values.
-// You can construct a concrete instance of `DatasetBlobStorageStorageAccountPtrInput` via:
-//
-//          DatasetBlobStorageStorageAccountArgs{...}
-//
-//  or:
-//
-//          nil
-type DatasetBlobStorageStorageAccountPtrInput interface {
-	pulumi.Input
-
-	ToDatasetBlobStorageStorageAccountPtrOutput() DatasetBlobStorageStorageAccountPtrOutput
-	ToDatasetBlobStorageStorageAccountPtrOutputWithContext(context.Context) DatasetBlobStorageStorageAccountPtrOutput
-}
-
-type datasetBlobStorageStorageAccountPtrType DatasetBlobStorageStorageAccountArgs
-
-func DatasetBlobStorageStorageAccountPtr(v *DatasetBlobStorageStorageAccountArgs) DatasetBlobStorageStorageAccountPtrInput {
-	return (*datasetBlobStorageStorageAccountPtrType)(v)
-}
-
-func (*datasetBlobStorageStorageAccountPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetBlobStorageStorageAccount)(nil)).Elem()
-}
-
-func (i *datasetBlobStorageStorageAccountPtrType) ToDatasetBlobStorageStorageAccountPtrOutput() DatasetBlobStorageStorageAccountPtrOutput {
-	return i.ToDatasetBlobStorageStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *datasetBlobStorageStorageAccountPtrType) ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageStorageAccountPtrOutput)
-}
-
 type DatasetBlobStorageStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (DatasetBlobStorageStorageAccountOutput) ElementType() reflect.Type {
@@ -279,16 +133,6 @@ func (o DatasetBlobStorageStorageAccountOutput) ToDatasetBlobStorageStorageAccou
 
 func (o DatasetBlobStorageStorageAccountOutput) ToDatasetBlobStorageStorageAccountOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountOutput {
 	return o
-}
-
-func (o DatasetBlobStorageStorageAccountOutput) ToDatasetBlobStorageStorageAccountPtrOutput() DatasetBlobStorageStorageAccountPtrOutput {
-	return o.ToDatasetBlobStorageStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (o DatasetBlobStorageStorageAccountOutput) ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetBlobStorageStorageAccount) *DatasetBlobStorageStorageAccount {
-		return &v
-	}).(DatasetBlobStorageStorageAccountPtrOutput)
 }
 
 // The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
@@ -304,60 +148,6 @@ func (o DatasetBlobStorageStorageAccountOutput) ResourceGroupName() pulumi.Strin
 // The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
 func (o DatasetBlobStorageStorageAccountOutput) SubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetBlobStorageStorageAccount) string { return v.SubscriptionId }).(pulumi.StringOutput)
-}
-
-type DatasetBlobStorageStorageAccountPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetBlobStorageStorageAccountPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetBlobStorageStorageAccount)(nil)).Elem()
-}
-
-func (o DatasetBlobStorageStorageAccountPtrOutput) ToDatasetBlobStorageStorageAccountPtrOutput() DatasetBlobStorageStorageAccountPtrOutput {
-	return o
-}
-
-func (o DatasetBlobStorageStorageAccountPtrOutput) ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountPtrOutput {
-	return o
-}
-
-func (o DatasetBlobStorageStorageAccountPtrOutput) Elem() DatasetBlobStorageStorageAccountOutput {
-	return o.ApplyT(func(v *DatasetBlobStorageStorageAccount) DatasetBlobStorageStorageAccount {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetBlobStorageStorageAccount
-		return ret
-	}).(DatasetBlobStorageStorageAccountOutput)
-}
-
-// The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
-func (o DatasetBlobStorageStorageAccountPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetBlobStorageStorageAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
-func (o DatasetBlobStorageStorageAccountPtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetBlobStorageStorageAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceGroupName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
-func (o DatasetBlobStorageStorageAccountPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetBlobStorageStorageAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
 }
 
 type ShareSnapshotSchedule struct {
@@ -882,9 +672,7 @@ func (o GetShareSnapshotScheduleArrayOutput) Index(i pulumi.IntInput) GetShareSn
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBlobStorageStorageAccountInput)(nil)).Elem(), DatasetBlobStorageStorageAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetBlobStorageStorageAccountPtrInput)(nil)).Elem(), DatasetBlobStorageStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ShareSnapshotScheduleInput)(nil)).Elem(), ShareSnapshotScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ShareSnapshotSchedulePtrInput)(nil)).Elem(), ShareSnapshotScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityInput)(nil)).Elem(), GetAccountIdentityArgs{})
@@ -894,9 +682,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetShareSnapshotScheduleInput)(nil)).Elem(), GetShareSnapshotScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetShareSnapshotScheduleArrayInput)(nil)).Elem(), GetShareSnapshotScheduleArray{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
-	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(DatasetBlobStorageStorageAccountOutput{})
-	pulumi.RegisterOutputType(DatasetBlobStorageStorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(ShareSnapshotScheduleOutput{})
 	pulumi.RegisterOutputType(ShareSnapshotSchedulePtrOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityOutput{})

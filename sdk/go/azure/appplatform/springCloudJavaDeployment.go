@@ -243,7 +243,7 @@ type SpringCloudJavaDeploymentInput interface {
 }
 
 func (*SpringCloudJavaDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudJavaDeployment)(nil))
+	return reflect.TypeOf((**SpringCloudJavaDeployment)(nil)).Elem()
 }
 
 func (i *SpringCloudJavaDeployment) ToSpringCloudJavaDeploymentOutput() SpringCloudJavaDeploymentOutput {
@@ -252,35 +252,6 @@ func (i *SpringCloudJavaDeployment) ToSpringCloudJavaDeploymentOutput() SpringCl
 
 func (i *SpringCloudJavaDeployment) ToSpringCloudJavaDeploymentOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentOutput)
-}
-
-func (i *SpringCloudJavaDeployment) ToSpringCloudJavaDeploymentPtrOutput() SpringCloudJavaDeploymentPtrOutput {
-	return i.ToSpringCloudJavaDeploymentPtrOutputWithContext(context.Background())
-}
-
-func (i *SpringCloudJavaDeployment) ToSpringCloudJavaDeploymentPtrOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentPtrOutput)
-}
-
-type SpringCloudJavaDeploymentPtrInput interface {
-	pulumi.Input
-
-	ToSpringCloudJavaDeploymentPtrOutput() SpringCloudJavaDeploymentPtrOutput
-	ToSpringCloudJavaDeploymentPtrOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentPtrOutput
-}
-
-type springCloudJavaDeploymentPtrType SpringCloudJavaDeploymentArgs
-
-func (*springCloudJavaDeploymentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudJavaDeployment)(nil))
-}
-
-func (i *springCloudJavaDeploymentPtrType) ToSpringCloudJavaDeploymentPtrOutput() SpringCloudJavaDeploymentPtrOutput {
-	return i.ToSpringCloudJavaDeploymentPtrOutputWithContext(context.Background())
-}
-
-func (i *springCloudJavaDeploymentPtrType) ToSpringCloudJavaDeploymentPtrOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentPtrOutput)
 }
 
 // SpringCloudJavaDeploymentArrayInput is an input type that accepts SpringCloudJavaDeploymentArray and SpringCloudJavaDeploymentArrayOutput values.
@@ -336,7 +307,7 @@ func (i SpringCloudJavaDeploymentMap) ToSpringCloudJavaDeploymentMapOutputWithCo
 type SpringCloudJavaDeploymentOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudJavaDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudJavaDeployment)(nil))
+	return reflect.TypeOf((**SpringCloudJavaDeployment)(nil)).Elem()
 }
 
 func (o SpringCloudJavaDeploymentOutput) ToSpringCloudJavaDeploymentOutput() SpringCloudJavaDeploymentOutput {
@@ -347,44 +318,10 @@ func (o SpringCloudJavaDeploymentOutput) ToSpringCloudJavaDeploymentOutputWithCo
 	return o
 }
 
-func (o SpringCloudJavaDeploymentOutput) ToSpringCloudJavaDeploymentPtrOutput() SpringCloudJavaDeploymentPtrOutput {
-	return o.ToSpringCloudJavaDeploymentPtrOutputWithContext(context.Background())
-}
-
-func (o SpringCloudJavaDeploymentOutput) ToSpringCloudJavaDeploymentPtrOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudJavaDeployment) *SpringCloudJavaDeployment {
-		return &v
-	}).(SpringCloudJavaDeploymentPtrOutput)
-}
-
-type SpringCloudJavaDeploymentPtrOutput struct{ *pulumi.OutputState }
-
-func (SpringCloudJavaDeploymentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudJavaDeployment)(nil))
-}
-
-func (o SpringCloudJavaDeploymentPtrOutput) ToSpringCloudJavaDeploymentPtrOutput() SpringCloudJavaDeploymentPtrOutput {
-	return o
-}
-
-func (o SpringCloudJavaDeploymentPtrOutput) ToSpringCloudJavaDeploymentPtrOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentPtrOutput {
-	return o
-}
-
-func (o SpringCloudJavaDeploymentPtrOutput) Elem() SpringCloudJavaDeploymentOutput {
-	return o.ApplyT(func(v *SpringCloudJavaDeployment) SpringCloudJavaDeployment {
-		if v != nil {
-			return *v
-		}
-		var ret SpringCloudJavaDeployment
-		return ret
-	}).(SpringCloudJavaDeploymentOutput)
-}
-
 type SpringCloudJavaDeploymentArrayOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudJavaDeploymentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpringCloudJavaDeployment)(nil))
+	return reflect.TypeOf((*[]*SpringCloudJavaDeployment)(nil)).Elem()
 }
 
 func (o SpringCloudJavaDeploymentArrayOutput) ToSpringCloudJavaDeploymentArrayOutput() SpringCloudJavaDeploymentArrayOutput {
@@ -396,15 +333,15 @@ func (o SpringCloudJavaDeploymentArrayOutput) ToSpringCloudJavaDeploymentArrayOu
 }
 
 func (o SpringCloudJavaDeploymentArrayOutput) Index(i pulumi.IntInput) SpringCloudJavaDeploymentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudJavaDeployment {
-		return vs[0].([]SpringCloudJavaDeployment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudJavaDeployment {
+		return vs[0].([]*SpringCloudJavaDeployment)[vs[1].(int)]
 	}).(SpringCloudJavaDeploymentOutput)
 }
 
 type SpringCloudJavaDeploymentMapOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudJavaDeploymentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SpringCloudJavaDeployment)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudJavaDeployment)(nil)).Elem()
 }
 
 func (o SpringCloudJavaDeploymentMapOutput) ToSpringCloudJavaDeploymentMapOutput() SpringCloudJavaDeploymentMapOutput {
@@ -416,18 +353,16 @@ func (o SpringCloudJavaDeploymentMapOutput) ToSpringCloudJavaDeploymentMapOutput
 }
 
 func (o SpringCloudJavaDeploymentMapOutput) MapIndex(k pulumi.StringInput) SpringCloudJavaDeploymentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpringCloudJavaDeployment {
-		return vs[0].(map[string]SpringCloudJavaDeployment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SpringCloudJavaDeployment {
+		return vs[0].(map[string]*SpringCloudJavaDeployment)[vs[1].(string)]
 	}).(SpringCloudJavaDeploymentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudJavaDeploymentInput)(nil)).Elem(), &SpringCloudJavaDeployment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudJavaDeploymentPtrInput)(nil)).Elem(), &SpringCloudJavaDeployment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudJavaDeploymentArrayInput)(nil)).Elem(), SpringCloudJavaDeploymentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudJavaDeploymentMapInput)(nil)).Elem(), SpringCloudJavaDeploymentMap{})
 	pulumi.RegisterOutputType(SpringCloudJavaDeploymentOutput{})
-	pulumi.RegisterOutputType(SpringCloudJavaDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudJavaDeploymentArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudJavaDeploymentMapOutput{})
 }

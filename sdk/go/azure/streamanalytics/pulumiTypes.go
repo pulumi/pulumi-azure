@@ -140,47 +140,6 @@ func (i FunctionJavaScriptUDFOutputTypeArgs) ToFunctionJavaScriptUDFOutputTypeOu
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutputTypeOutput)
 }
 
-func (i FunctionJavaScriptUDFOutputTypeArgs) ToFunctionJavaScriptUDFOutputTypePtrOutput() FunctionJavaScriptUDFOutputTypePtrOutput {
-	return i.ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(context.Background())
-}
-
-func (i FunctionJavaScriptUDFOutputTypeArgs) ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutputTypeOutput).ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx)
-}
-
-// FunctionJavaScriptUDFOutputTypePtrInput is an input type that accepts FunctionJavaScriptUDFOutputTypeArgs, FunctionJavaScriptUDFOutputTypePtr and FunctionJavaScriptUDFOutputTypePtrOutput values.
-// You can construct a concrete instance of `FunctionJavaScriptUDFOutputTypePtrInput` via:
-//
-//          FunctionJavaScriptUDFOutputTypeArgs{...}
-//
-//  or:
-//
-//          nil
-type FunctionJavaScriptUDFOutputTypePtrInput interface {
-	pulumi.Input
-
-	ToFunctionJavaScriptUDFOutputTypePtrOutput() FunctionJavaScriptUDFOutputTypePtrOutput
-	ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(context.Context) FunctionJavaScriptUDFOutputTypePtrOutput
-}
-
-type functionJavaScriptUDFOutputTypePtrType FunctionJavaScriptUDFOutputTypeArgs
-
-func FunctionJavaScriptUDFOutputTypePtr(v *FunctionJavaScriptUDFOutputTypeArgs) FunctionJavaScriptUDFOutputTypePtrInput {
-	return (*functionJavaScriptUDFOutputTypePtrType)(v)
-}
-
-func (*functionJavaScriptUDFOutputTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionJavaScriptUDFOutputType)(nil)).Elem()
-}
-
-func (i *functionJavaScriptUDFOutputTypePtrType) ToFunctionJavaScriptUDFOutputTypePtrOutput() FunctionJavaScriptUDFOutputTypePtrOutput {
-	return i.ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(context.Background())
-}
-
-func (i *functionJavaScriptUDFOutputTypePtrType) ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionJavaScriptUDFOutputTypePtrOutput)
-}
-
 type FunctionJavaScriptUDFOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (FunctionJavaScriptUDFOutputTypeOutput) ElementType() reflect.Type {
@@ -195,53 +154,9 @@ func (o FunctionJavaScriptUDFOutputTypeOutput) ToFunctionJavaScriptUDFOutputType
 	return o
 }
 
-func (o FunctionJavaScriptUDFOutputTypeOutput) ToFunctionJavaScriptUDFOutputTypePtrOutput() FunctionJavaScriptUDFOutputTypePtrOutput {
-	return o.ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(context.Background())
-}
-
-func (o FunctionJavaScriptUDFOutputTypeOutput) ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionJavaScriptUDFOutputType) *FunctionJavaScriptUDFOutputType {
-		return &v
-	}).(FunctionJavaScriptUDFOutputTypePtrOutput)
-}
-
 // The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
 func (o FunctionJavaScriptUDFOutputTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavaScriptUDFOutputType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type FunctionJavaScriptUDFOutputTypePtrOutput struct{ *pulumi.OutputState }
-
-func (FunctionJavaScriptUDFOutputTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionJavaScriptUDFOutputType)(nil)).Elem()
-}
-
-func (o FunctionJavaScriptUDFOutputTypePtrOutput) ToFunctionJavaScriptUDFOutputTypePtrOutput() FunctionJavaScriptUDFOutputTypePtrOutput {
-	return o
-}
-
-func (o FunctionJavaScriptUDFOutputTypePtrOutput) ToFunctionJavaScriptUDFOutputTypePtrOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputTypePtrOutput {
-	return o
-}
-
-func (o FunctionJavaScriptUDFOutputTypePtrOutput) Elem() FunctionJavaScriptUDFOutputTypeOutput {
-	return o.ApplyT(func(v *FunctionJavaScriptUDFOutputType) FunctionJavaScriptUDFOutputType {
-		if v != nil {
-			return *v
-		}
-		var ret FunctionJavaScriptUDFOutputType
-		return ret
-	}).(FunctionJavaScriptUDFOutputTypeOutput)
-}
-
-// The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
-func (o FunctionJavaScriptUDFOutputTypePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionJavaScriptUDFOutputType) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type JobIdentity struct {
@@ -464,47 +379,6 @@ func (i OutputBlobSerializationArgs) ToOutputBlobSerializationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobSerializationOutput)
 }
 
-func (i OutputBlobSerializationArgs) ToOutputBlobSerializationPtrOutput() OutputBlobSerializationPtrOutput {
-	return i.ToOutputBlobSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i OutputBlobSerializationArgs) ToOutputBlobSerializationPtrOutputWithContext(ctx context.Context) OutputBlobSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobSerializationOutput).ToOutputBlobSerializationPtrOutputWithContext(ctx)
-}
-
-// OutputBlobSerializationPtrInput is an input type that accepts OutputBlobSerializationArgs, OutputBlobSerializationPtr and OutputBlobSerializationPtrOutput values.
-// You can construct a concrete instance of `OutputBlobSerializationPtrInput` via:
-//
-//          OutputBlobSerializationArgs{...}
-//
-//  or:
-//
-//          nil
-type OutputBlobSerializationPtrInput interface {
-	pulumi.Input
-
-	ToOutputBlobSerializationPtrOutput() OutputBlobSerializationPtrOutput
-	ToOutputBlobSerializationPtrOutputWithContext(context.Context) OutputBlobSerializationPtrOutput
-}
-
-type outputBlobSerializationPtrType OutputBlobSerializationArgs
-
-func OutputBlobSerializationPtr(v *OutputBlobSerializationArgs) OutputBlobSerializationPtrInput {
-	return (*outputBlobSerializationPtrType)(v)
-}
-
-func (*outputBlobSerializationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputBlobSerialization)(nil)).Elem()
-}
-
-func (i *outputBlobSerializationPtrType) ToOutputBlobSerializationPtrOutput() OutputBlobSerializationPtrOutput {
-	return i.ToOutputBlobSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i *outputBlobSerializationPtrType) ToOutputBlobSerializationPtrOutputWithContext(ctx context.Context) OutputBlobSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputBlobSerializationPtrOutput)
-}
-
 type OutputBlobSerializationOutput struct{ *pulumi.OutputState }
 
 func (OutputBlobSerializationOutput) ElementType() reflect.Type {
@@ -517,16 +391,6 @@ func (o OutputBlobSerializationOutput) ToOutputBlobSerializationOutput() OutputB
 
 func (o OutputBlobSerializationOutput) ToOutputBlobSerializationOutputWithContext(ctx context.Context) OutputBlobSerializationOutput {
 	return o
-}
-
-func (o OutputBlobSerializationOutput) ToOutputBlobSerializationPtrOutput() OutputBlobSerializationPtrOutput {
-	return o.ToOutputBlobSerializationPtrOutputWithContext(context.Background())
-}
-
-func (o OutputBlobSerializationOutput) ToOutputBlobSerializationPtrOutputWithContext(ctx context.Context) OutputBlobSerializationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputBlobSerialization) *OutputBlobSerialization {
-		return &v
-	}).(OutputBlobSerializationPtrOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -547,70 +411,6 @@ func (o OutputBlobSerializationOutput) Format() pulumi.StringPtrOutput {
 // The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
 func (o OutputBlobSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OutputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type OutputBlobSerializationPtrOutput struct{ *pulumi.OutputState }
-
-func (OutputBlobSerializationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputBlobSerialization)(nil)).Elem()
-}
-
-func (o OutputBlobSerializationPtrOutput) ToOutputBlobSerializationPtrOutput() OutputBlobSerializationPtrOutput {
-	return o
-}
-
-func (o OutputBlobSerializationPtrOutput) ToOutputBlobSerializationPtrOutputWithContext(ctx context.Context) OutputBlobSerializationPtrOutput {
-	return o
-}
-
-func (o OutputBlobSerializationPtrOutput) Elem() OutputBlobSerializationOutput {
-	return o.ApplyT(func(v *OutputBlobSerialization) OutputBlobSerialization {
-		if v != nil {
-			return *v
-		}
-		var ret OutputBlobSerialization
-		return ret
-	}).(OutputBlobSerializationOutput)
-}
-
-// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-func (o OutputBlobSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputBlobSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Encoding
-	}).(pulumi.StringPtrOutput)
-}
-
-// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-func (o OutputBlobSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputBlobSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
-func (o OutputBlobSerializationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputBlobSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Format
-	}).(pulumi.StringPtrOutput)
-}
-
-// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
-func (o OutputBlobSerializationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputBlobSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type OutputEventHubSerialization struct {
@@ -658,47 +458,6 @@ func (i OutputEventHubSerializationArgs) ToOutputEventHubSerializationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OutputEventHubSerializationOutput)
 }
 
-func (i OutputEventHubSerializationArgs) ToOutputEventHubSerializationPtrOutput() OutputEventHubSerializationPtrOutput {
-	return i.ToOutputEventHubSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i OutputEventHubSerializationArgs) ToOutputEventHubSerializationPtrOutputWithContext(ctx context.Context) OutputEventHubSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputEventHubSerializationOutput).ToOutputEventHubSerializationPtrOutputWithContext(ctx)
-}
-
-// OutputEventHubSerializationPtrInput is an input type that accepts OutputEventHubSerializationArgs, OutputEventHubSerializationPtr and OutputEventHubSerializationPtrOutput values.
-// You can construct a concrete instance of `OutputEventHubSerializationPtrInput` via:
-//
-//          OutputEventHubSerializationArgs{...}
-//
-//  or:
-//
-//          nil
-type OutputEventHubSerializationPtrInput interface {
-	pulumi.Input
-
-	ToOutputEventHubSerializationPtrOutput() OutputEventHubSerializationPtrOutput
-	ToOutputEventHubSerializationPtrOutputWithContext(context.Context) OutputEventHubSerializationPtrOutput
-}
-
-type outputEventHubSerializationPtrType OutputEventHubSerializationArgs
-
-func OutputEventHubSerializationPtr(v *OutputEventHubSerializationArgs) OutputEventHubSerializationPtrInput {
-	return (*outputEventHubSerializationPtrType)(v)
-}
-
-func (*outputEventHubSerializationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputEventHubSerialization)(nil)).Elem()
-}
-
-func (i *outputEventHubSerializationPtrType) ToOutputEventHubSerializationPtrOutput() OutputEventHubSerializationPtrOutput {
-	return i.ToOutputEventHubSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i *outputEventHubSerializationPtrType) ToOutputEventHubSerializationPtrOutputWithContext(ctx context.Context) OutputEventHubSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputEventHubSerializationPtrOutput)
-}
-
 type OutputEventHubSerializationOutput struct{ *pulumi.OutputState }
 
 func (OutputEventHubSerializationOutput) ElementType() reflect.Type {
@@ -711,16 +470,6 @@ func (o OutputEventHubSerializationOutput) ToOutputEventHubSerializationOutput()
 
 func (o OutputEventHubSerializationOutput) ToOutputEventHubSerializationOutputWithContext(ctx context.Context) OutputEventHubSerializationOutput {
 	return o
-}
-
-func (o OutputEventHubSerializationOutput) ToOutputEventHubSerializationPtrOutput() OutputEventHubSerializationPtrOutput {
-	return o.ToOutputEventHubSerializationPtrOutputWithContext(context.Background())
-}
-
-func (o OutputEventHubSerializationOutput) ToOutputEventHubSerializationPtrOutputWithContext(ctx context.Context) OutputEventHubSerializationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputEventHubSerialization) *OutputEventHubSerialization {
-		return &v
-	}).(OutputEventHubSerializationPtrOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -741,70 +490,6 @@ func (o OutputEventHubSerializationOutput) Format() pulumi.StringPtrOutput {
 // The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
 func (o OutputEventHubSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OutputEventHubSerialization) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type OutputEventHubSerializationPtrOutput struct{ *pulumi.OutputState }
-
-func (OutputEventHubSerializationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputEventHubSerialization)(nil)).Elem()
-}
-
-func (o OutputEventHubSerializationPtrOutput) ToOutputEventHubSerializationPtrOutput() OutputEventHubSerializationPtrOutput {
-	return o
-}
-
-func (o OutputEventHubSerializationPtrOutput) ToOutputEventHubSerializationPtrOutputWithContext(ctx context.Context) OutputEventHubSerializationPtrOutput {
-	return o
-}
-
-func (o OutputEventHubSerializationPtrOutput) Elem() OutputEventHubSerializationOutput {
-	return o.ApplyT(func(v *OutputEventHubSerialization) OutputEventHubSerialization {
-		if v != nil {
-			return *v
-		}
-		var ret OutputEventHubSerialization
-		return ret
-	}).(OutputEventHubSerializationOutput)
-}
-
-// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-func (o OutputEventHubSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputEventHubSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Encoding
-	}).(pulumi.StringPtrOutput)
-}
-
-// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-func (o OutputEventHubSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputEventHubSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
-func (o OutputEventHubSerializationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputEventHubSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Format
-	}).(pulumi.StringPtrOutput)
-}
-
-// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o OutputEventHubSerializationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputEventHubSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type OutputServiceBusQueueSerialization struct {
@@ -852,47 +537,6 @@ func (i OutputServiceBusQueueSerializationArgs) ToOutputServiceBusQueueSerializa
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueSerializationOutput)
 }
 
-func (i OutputServiceBusQueueSerializationArgs) ToOutputServiceBusQueueSerializationPtrOutput() OutputServiceBusQueueSerializationPtrOutput {
-	return i.ToOutputServiceBusQueueSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i OutputServiceBusQueueSerializationArgs) ToOutputServiceBusQueueSerializationPtrOutputWithContext(ctx context.Context) OutputServiceBusQueueSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueSerializationOutput).ToOutputServiceBusQueueSerializationPtrOutputWithContext(ctx)
-}
-
-// OutputServiceBusQueueSerializationPtrInput is an input type that accepts OutputServiceBusQueueSerializationArgs, OutputServiceBusQueueSerializationPtr and OutputServiceBusQueueSerializationPtrOutput values.
-// You can construct a concrete instance of `OutputServiceBusQueueSerializationPtrInput` via:
-//
-//          OutputServiceBusQueueSerializationArgs{...}
-//
-//  or:
-//
-//          nil
-type OutputServiceBusQueueSerializationPtrInput interface {
-	pulumi.Input
-
-	ToOutputServiceBusQueueSerializationPtrOutput() OutputServiceBusQueueSerializationPtrOutput
-	ToOutputServiceBusQueueSerializationPtrOutputWithContext(context.Context) OutputServiceBusQueueSerializationPtrOutput
-}
-
-type outputServiceBusQueueSerializationPtrType OutputServiceBusQueueSerializationArgs
-
-func OutputServiceBusQueueSerializationPtr(v *OutputServiceBusQueueSerializationArgs) OutputServiceBusQueueSerializationPtrInput {
-	return (*outputServiceBusQueueSerializationPtrType)(v)
-}
-
-func (*outputServiceBusQueueSerializationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputServiceBusQueueSerialization)(nil)).Elem()
-}
-
-func (i *outputServiceBusQueueSerializationPtrType) ToOutputServiceBusQueueSerializationPtrOutput() OutputServiceBusQueueSerializationPtrOutput {
-	return i.ToOutputServiceBusQueueSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i *outputServiceBusQueueSerializationPtrType) ToOutputServiceBusQueueSerializationPtrOutputWithContext(ctx context.Context) OutputServiceBusQueueSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputServiceBusQueueSerializationPtrOutput)
-}
-
 type OutputServiceBusQueueSerializationOutput struct{ *pulumi.OutputState }
 
 func (OutputServiceBusQueueSerializationOutput) ElementType() reflect.Type {
@@ -905,16 +549,6 @@ func (o OutputServiceBusQueueSerializationOutput) ToOutputServiceBusQueueSeriali
 
 func (o OutputServiceBusQueueSerializationOutput) ToOutputServiceBusQueueSerializationOutputWithContext(ctx context.Context) OutputServiceBusQueueSerializationOutput {
 	return o
-}
-
-func (o OutputServiceBusQueueSerializationOutput) ToOutputServiceBusQueueSerializationPtrOutput() OutputServiceBusQueueSerializationPtrOutput {
-	return o.ToOutputServiceBusQueueSerializationPtrOutputWithContext(context.Background())
-}
-
-func (o OutputServiceBusQueueSerializationOutput) ToOutputServiceBusQueueSerializationPtrOutputWithContext(ctx context.Context) OutputServiceBusQueueSerializationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputServiceBusQueueSerialization) *OutputServiceBusQueueSerialization {
-		return &v
-	}).(OutputServiceBusQueueSerializationPtrOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -935,70 +569,6 @@ func (o OutputServiceBusQueueSerializationOutput) Format() pulumi.StringPtrOutpu
 // The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
 func (o OutputServiceBusQueueSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OutputServiceBusQueueSerialization) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type OutputServiceBusQueueSerializationPtrOutput struct{ *pulumi.OutputState }
-
-func (OutputServiceBusQueueSerializationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputServiceBusQueueSerialization)(nil)).Elem()
-}
-
-func (o OutputServiceBusQueueSerializationPtrOutput) ToOutputServiceBusQueueSerializationPtrOutput() OutputServiceBusQueueSerializationPtrOutput {
-	return o
-}
-
-func (o OutputServiceBusQueueSerializationPtrOutput) ToOutputServiceBusQueueSerializationPtrOutputWithContext(ctx context.Context) OutputServiceBusQueueSerializationPtrOutput {
-	return o
-}
-
-func (o OutputServiceBusQueueSerializationPtrOutput) Elem() OutputServiceBusQueueSerializationOutput {
-	return o.ApplyT(func(v *OutputServiceBusQueueSerialization) OutputServiceBusQueueSerialization {
-		if v != nil {
-			return *v
-		}
-		var ret OutputServiceBusQueueSerialization
-		return ret
-	}).(OutputServiceBusQueueSerializationOutput)
-}
-
-// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-func (o OutputServiceBusQueueSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputServiceBusQueueSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Encoding
-	}).(pulumi.StringPtrOutput)
-}
-
-// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-func (o OutputServiceBusQueueSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputServiceBusQueueSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
-func (o OutputServiceBusQueueSerializationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputServiceBusQueueSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Format
-	}).(pulumi.StringPtrOutput)
-}
-
-// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o OutputServiceBusQueueSerializationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputServiceBusQueueSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type OutputServicebusTopicSerialization struct {
@@ -1046,47 +616,6 @@ func (i OutputServicebusTopicSerializationArgs) ToOutputServicebusTopicSerializa
 	return pulumi.ToOutputWithContext(ctx, i).(OutputServicebusTopicSerializationOutput)
 }
 
-func (i OutputServicebusTopicSerializationArgs) ToOutputServicebusTopicSerializationPtrOutput() OutputServicebusTopicSerializationPtrOutput {
-	return i.ToOutputServicebusTopicSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i OutputServicebusTopicSerializationArgs) ToOutputServicebusTopicSerializationPtrOutputWithContext(ctx context.Context) OutputServicebusTopicSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputServicebusTopicSerializationOutput).ToOutputServicebusTopicSerializationPtrOutputWithContext(ctx)
-}
-
-// OutputServicebusTopicSerializationPtrInput is an input type that accepts OutputServicebusTopicSerializationArgs, OutputServicebusTopicSerializationPtr and OutputServicebusTopicSerializationPtrOutput values.
-// You can construct a concrete instance of `OutputServicebusTopicSerializationPtrInput` via:
-//
-//          OutputServicebusTopicSerializationArgs{...}
-//
-//  or:
-//
-//          nil
-type OutputServicebusTopicSerializationPtrInput interface {
-	pulumi.Input
-
-	ToOutputServicebusTopicSerializationPtrOutput() OutputServicebusTopicSerializationPtrOutput
-	ToOutputServicebusTopicSerializationPtrOutputWithContext(context.Context) OutputServicebusTopicSerializationPtrOutput
-}
-
-type outputServicebusTopicSerializationPtrType OutputServicebusTopicSerializationArgs
-
-func OutputServicebusTopicSerializationPtr(v *OutputServicebusTopicSerializationArgs) OutputServicebusTopicSerializationPtrInput {
-	return (*outputServicebusTopicSerializationPtrType)(v)
-}
-
-func (*outputServicebusTopicSerializationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputServicebusTopicSerialization)(nil)).Elem()
-}
-
-func (i *outputServicebusTopicSerializationPtrType) ToOutputServicebusTopicSerializationPtrOutput() OutputServicebusTopicSerializationPtrOutput {
-	return i.ToOutputServicebusTopicSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i *outputServicebusTopicSerializationPtrType) ToOutputServicebusTopicSerializationPtrOutputWithContext(ctx context.Context) OutputServicebusTopicSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputServicebusTopicSerializationPtrOutput)
-}
-
 type OutputServicebusTopicSerializationOutput struct{ *pulumi.OutputState }
 
 func (OutputServicebusTopicSerializationOutput) ElementType() reflect.Type {
@@ -1099,16 +628,6 @@ func (o OutputServicebusTopicSerializationOutput) ToOutputServicebusTopicSeriali
 
 func (o OutputServicebusTopicSerializationOutput) ToOutputServicebusTopicSerializationOutputWithContext(ctx context.Context) OutputServicebusTopicSerializationOutput {
 	return o
-}
-
-func (o OutputServicebusTopicSerializationOutput) ToOutputServicebusTopicSerializationPtrOutput() OutputServicebusTopicSerializationPtrOutput {
-	return o.ToOutputServicebusTopicSerializationPtrOutputWithContext(context.Background())
-}
-
-func (o OutputServicebusTopicSerializationOutput) ToOutputServicebusTopicSerializationPtrOutputWithContext(ctx context.Context) OutputServicebusTopicSerializationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputServicebusTopicSerialization) *OutputServicebusTopicSerialization {
-		return &v
-	}).(OutputServicebusTopicSerializationPtrOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1129,70 +648,6 @@ func (o OutputServicebusTopicSerializationOutput) Format() pulumi.StringPtrOutpu
 // The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
 func (o OutputServicebusTopicSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OutputServicebusTopicSerialization) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type OutputServicebusTopicSerializationPtrOutput struct{ *pulumi.OutputState }
-
-func (OutputServicebusTopicSerializationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputServicebusTopicSerialization)(nil)).Elem()
-}
-
-func (o OutputServicebusTopicSerializationPtrOutput) ToOutputServicebusTopicSerializationPtrOutput() OutputServicebusTopicSerializationPtrOutput {
-	return o
-}
-
-func (o OutputServicebusTopicSerializationPtrOutput) ToOutputServicebusTopicSerializationPtrOutputWithContext(ctx context.Context) OutputServicebusTopicSerializationPtrOutput {
-	return o
-}
-
-func (o OutputServicebusTopicSerializationPtrOutput) Elem() OutputServicebusTopicSerializationOutput {
-	return o.ApplyT(func(v *OutputServicebusTopicSerialization) OutputServicebusTopicSerialization {
-		if v != nil {
-			return *v
-		}
-		var ret OutputServicebusTopicSerialization
-		return ret
-	}).(OutputServicebusTopicSerializationOutput)
-}
-
-// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-func (o OutputServicebusTopicSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputServicebusTopicSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Encoding
-	}).(pulumi.StringPtrOutput)
-}
-
-// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-func (o OutputServicebusTopicSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputServicebusTopicSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
-func (o OutputServicebusTopicSerializationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputServicebusTopicSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Format
-	}).(pulumi.StringPtrOutput)
-}
-
-// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o OutputServicebusTopicSerializationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputServicebusTopicSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type ReferenceInputBlobSerialization struct {
@@ -1236,47 +691,6 @@ func (i ReferenceInputBlobSerializationArgs) ToReferenceInputBlobSerializationOu
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputBlobSerializationOutput)
 }
 
-func (i ReferenceInputBlobSerializationArgs) ToReferenceInputBlobSerializationPtrOutput() ReferenceInputBlobSerializationPtrOutput {
-	return i.ToReferenceInputBlobSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i ReferenceInputBlobSerializationArgs) ToReferenceInputBlobSerializationPtrOutputWithContext(ctx context.Context) ReferenceInputBlobSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputBlobSerializationOutput).ToReferenceInputBlobSerializationPtrOutputWithContext(ctx)
-}
-
-// ReferenceInputBlobSerializationPtrInput is an input type that accepts ReferenceInputBlobSerializationArgs, ReferenceInputBlobSerializationPtr and ReferenceInputBlobSerializationPtrOutput values.
-// You can construct a concrete instance of `ReferenceInputBlobSerializationPtrInput` via:
-//
-//          ReferenceInputBlobSerializationArgs{...}
-//
-//  or:
-//
-//          nil
-type ReferenceInputBlobSerializationPtrInput interface {
-	pulumi.Input
-
-	ToReferenceInputBlobSerializationPtrOutput() ReferenceInputBlobSerializationPtrOutput
-	ToReferenceInputBlobSerializationPtrOutputWithContext(context.Context) ReferenceInputBlobSerializationPtrOutput
-}
-
-type referenceInputBlobSerializationPtrType ReferenceInputBlobSerializationArgs
-
-func ReferenceInputBlobSerializationPtr(v *ReferenceInputBlobSerializationArgs) ReferenceInputBlobSerializationPtrInput {
-	return (*referenceInputBlobSerializationPtrType)(v)
-}
-
-func (*referenceInputBlobSerializationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReferenceInputBlobSerialization)(nil)).Elem()
-}
-
-func (i *referenceInputBlobSerializationPtrType) ToReferenceInputBlobSerializationPtrOutput() ReferenceInputBlobSerializationPtrOutput {
-	return i.ToReferenceInputBlobSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i *referenceInputBlobSerializationPtrType) ToReferenceInputBlobSerializationPtrOutputWithContext(ctx context.Context) ReferenceInputBlobSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputBlobSerializationPtrOutput)
-}
-
 type ReferenceInputBlobSerializationOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputBlobSerializationOutput) ElementType() reflect.Type {
@@ -1289,16 +703,6 @@ func (o ReferenceInputBlobSerializationOutput) ToReferenceInputBlobSerialization
 
 func (o ReferenceInputBlobSerializationOutput) ToReferenceInputBlobSerializationOutputWithContext(ctx context.Context) ReferenceInputBlobSerializationOutput {
 	return o
-}
-
-func (o ReferenceInputBlobSerializationOutput) ToReferenceInputBlobSerializationPtrOutput() ReferenceInputBlobSerializationPtrOutput {
-	return o.ToReferenceInputBlobSerializationPtrOutputWithContext(context.Background())
-}
-
-func (o ReferenceInputBlobSerializationOutput) ToReferenceInputBlobSerializationPtrOutputWithContext(ctx context.Context) ReferenceInputBlobSerializationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceInputBlobSerialization) *ReferenceInputBlobSerialization {
-		return &v
-	}).(ReferenceInputBlobSerializationPtrOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1314,60 +718,6 @@ func (o ReferenceInputBlobSerializationOutput) FieldDelimiter() pulumi.StringPtr
 // The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
 func (o ReferenceInputBlobSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReferenceInputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ReferenceInputBlobSerializationPtrOutput struct{ *pulumi.OutputState }
-
-func (ReferenceInputBlobSerializationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReferenceInputBlobSerialization)(nil)).Elem()
-}
-
-func (o ReferenceInputBlobSerializationPtrOutput) ToReferenceInputBlobSerializationPtrOutput() ReferenceInputBlobSerializationPtrOutput {
-	return o
-}
-
-func (o ReferenceInputBlobSerializationPtrOutput) ToReferenceInputBlobSerializationPtrOutputWithContext(ctx context.Context) ReferenceInputBlobSerializationPtrOutput {
-	return o
-}
-
-func (o ReferenceInputBlobSerializationPtrOutput) Elem() ReferenceInputBlobSerializationOutput {
-	return o.ApplyT(func(v *ReferenceInputBlobSerialization) ReferenceInputBlobSerialization {
-		if v != nil {
-			return *v
-		}
-		var ret ReferenceInputBlobSerialization
-		return ret
-	}).(ReferenceInputBlobSerializationOutput)
-}
-
-// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-func (o ReferenceInputBlobSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReferenceInputBlobSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Encoding
-	}).(pulumi.StringPtrOutput)
-}
-
-// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
-func (o ReferenceInputBlobSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReferenceInputBlobSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
-func (o ReferenceInputBlobSerializationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReferenceInputBlobSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type StreamInputBlobSerialization struct {
@@ -1411,47 +761,6 @@ func (i StreamInputBlobSerializationArgs) ToStreamInputBlobSerializationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobSerializationOutput)
 }
 
-func (i StreamInputBlobSerializationArgs) ToStreamInputBlobSerializationPtrOutput() StreamInputBlobSerializationPtrOutput {
-	return i.ToStreamInputBlobSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i StreamInputBlobSerializationArgs) ToStreamInputBlobSerializationPtrOutputWithContext(ctx context.Context) StreamInputBlobSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobSerializationOutput).ToStreamInputBlobSerializationPtrOutputWithContext(ctx)
-}
-
-// StreamInputBlobSerializationPtrInput is an input type that accepts StreamInputBlobSerializationArgs, StreamInputBlobSerializationPtr and StreamInputBlobSerializationPtrOutput values.
-// You can construct a concrete instance of `StreamInputBlobSerializationPtrInput` via:
-//
-//          StreamInputBlobSerializationArgs{...}
-//
-//  or:
-//
-//          nil
-type StreamInputBlobSerializationPtrInput interface {
-	pulumi.Input
-
-	ToStreamInputBlobSerializationPtrOutput() StreamInputBlobSerializationPtrOutput
-	ToStreamInputBlobSerializationPtrOutputWithContext(context.Context) StreamInputBlobSerializationPtrOutput
-}
-
-type streamInputBlobSerializationPtrType StreamInputBlobSerializationArgs
-
-func StreamInputBlobSerializationPtr(v *StreamInputBlobSerializationArgs) StreamInputBlobSerializationPtrInput {
-	return (*streamInputBlobSerializationPtrType)(v)
-}
-
-func (*streamInputBlobSerializationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamInputBlobSerialization)(nil)).Elem()
-}
-
-func (i *streamInputBlobSerializationPtrType) ToStreamInputBlobSerializationPtrOutput() StreamInputBlobSerializationPtrOutput {
-	return i.ToStreamInputBlobSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i *streamInputBlobSerializationPtrType) ToStreamInputBlobSerializationPtrOutputWithContext(ctx context.Context) StreamInputBlobSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobSerializationPtrOutput)
-}
-
 type StreamInputBlobSerializationOutput struct{ *pulumi.OutputState }
 
 func (StreamInputBlobSerializationOutput) ElementType() reflect.Type {
@@ -1464,16 +773,6 @@ func (o StreamInputBlobSerializationOutput) ToStreamInputBlobSerializationOutput
 
 func (o StreamInputBlobSerializationOutput) ToStreamInputBlobSerializationOutputWithContext(ctx context.Context) StreamInputBlobSerializationOutput {
 	return o
-}
-
-func (o StreamInputBlobSerializationOutput) ToStreamInputBlobSerializationPtrOutput() StreamInputBlobSerializationPtrOutput {
-	return o.ToStreamInputBlobSerializationPtrOutputWithContext(context.Background())
-}
-
-func (o StreamInputBlobSerializationOutput) ToStreamInputBlobSerializationPtrOutputWithContext(ctx context.Context) StreamInputBlobSerializationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamInputBlobSerialization) *StreamInputBlobSerialization {
-		return &v
-	}).(StreamInputBlobSerializationPtrOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1489,60 +788,6 @@ func (o StreamInputBlobSerializationOutput) FieldDelimiter() pulumi.StringPtrOut
 // The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
 func (o StreamInputBlobSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamInputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type StreamInputBlobSerializationPtrOutput struct{ *pulumi.OutputState }
-
-func (StreamInputBlobSerializationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamInputBlobSerialization)(nil)).Elem()
-}
-
-func (o StreamInputBlobSerializationPtrOutput) ToStreamInputBlobSerializationPtrOutput() StreamInputBlobSerializationPtrOutput {
-	return o
-}
-
-func (o StreamInputBlobSerializationPtrOutput) ToStreamInputBlobSerializationPtrOutputWithContext(ctx context.Context) StreamInputBlobSerializationPtrOutput {
-	return o
-}
-
-func (o StreamInputBlobSerializationPtrOutput) Elem() StreamInputBlobSerializationOutput {
-	return o.ApplyT(func(v *StreamInputBlobSerialization) StreamInputBlobSerialization {
-		if v != nil {
-			return *v
-		}
-		var ret StreamInputBlobSerialization
-		return ret
-	}).(StreamInputBlobSerializationOutput)
-}
-
-// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-func (o StreamInputBlobSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamInputBlobSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Encoding
-	}).(pulumi.StringPtrOutput)
-}
-
-// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-func (o StreamInputBlobSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamInputBlobSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o StreamInputBlobSerializationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamInputBlobSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type StreamInputEventHubSerialization struct {
@@ -1586,47 +831,6 @@ func (i StreamInputEventHubSerializationArgs) ToStreamInputEventHubSerialization
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubSerializationOutput)
 }
 
-func (i StreamInputEventHubSerializationArgs) ToStreamInputEventHubSerializationPtrOutput() StreamInputEventHubSerializationPtrOutput {
-	return i.ToStreamInputEventHubSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i StreamInputEventHubSerializationArgs) ToStreamInputEventHubSerializationPtrOutputWithContext(ctx context.Context) StreamInputEventHubSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubSerializationOutput).ToStreamInputEventHubSerializationPtrOutputWithContext(ctx)
-}
-
-// StreamInputEventHubSerializationPtrInput is an input type that accepts StreamInputEventHubSerializationArgs, StreamInputEventHubSerializationPtr and StreamInputEventHubSerializationPtrOutput values.
-// You can construct a concrete instance of `StreamInputEventHubSerializationPtrInput` via:
-//
-//          StreamInputEventHubSerializationArgs{...}
-//
-//  or:
-//
-//          nil
-type StreamInputEventHubSerializationPtrInput interface {
-	pulumi.Input
-
-	ToStreamInputEventHubSerializationPtrOutput() StreamInputEventHubSerializationPtrOutput
-	ToStreamInputEventHubSerializationPtrOutputWithContext(context.Context) StreamInputEventHubSerializationPtrOutput
-}
-
-type streamInputEventHubSerializationPtrType StreamInputEventHubSerializationArgs
-
-func StreamInputEventHubSerializationPtr(v *StreamInputEventHubSerializationArgs) StreamInputEventHubSerializationPtrInput {
-	return (*streamInputEventHubSerializationPtrType)(v)
-}
-
-func (*streamInputEventHubSerializationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamInputEventHubSerialization)(nil)).Elem()
-}
-
-func (i *streamInputEventHubSerializationPtrType) ToStreamInputEventHubSerializationPtrOutput() StreamInputEventHubSerializationPtrOutput {
-	return i.ToStreamInputEventHubSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i *streamInputEventHubSerializationPtrType) ToStreamInputEventHubSerializationPtrOutputWithContext(ctx context.Context) StreamInputEventHubSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubSerializationPtrOutput)
-}
-
 type StreamInputEventHubSerializationOutput struct{ *pulumi.OutputState }
 
 func (StreamInputEventHubSerializationOutput) ElementType() reflect.Type {
@@ -1639,16 +843,6 @@ func (o StreamInputEventHubSerializationOutput) ToStreamInputEventHubSerializati
 
 func (o StreamInputEventHubSerializationOutput) ToStreamInputEventHubSerializationOutputWithContext(ctx context.Context) StreamInputEventHubSerializationOutput {
 	return o
-}
-
-func (o StreamInputEventHubSerializationOutput) ToStreamInputEventHubSerializationPtrOutput() StreamInputEventHubSerializationPtrOutput {
-	return o.ToStreamInputEventHubSerializationPtrOutputWithContext(context.Background())
-}
-
-func (o StreamInputEventHubSerializationOutput) ToStreamInputEventHubSerializationPtrOutputWithContext(ctx context.Context) StreamInputEventHubSerializationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamInputEventHubSerialization) *StreamInputEventHubSerialization {
-		return &v
-	}).(StreamInputEventHubSerializationPtrOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1664,60 +858,6 @@ func (o StreamInputEventHubSerializationOutput) FieldDelimiter() pulumi.StringPt
 // The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
 func (o StreamInputEventHubSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamInputEventHubSerialization) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type StreamInputEventHubSerializationPtrOutput struct{ *pulumi.OutputState }
-
-func (StreamInputEventHubSerializationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamInputEventHubSerialization)(nil)).Elem()
-}
-
-func (o StreamInputEventHubSerializationPtrOutput) ToStreamInputEventHubSerializationPtrOutput() StreamInputEventHubSerializationPtrOutput {
-	return o
-}
-
-func (o StreamInputEventHubSerializationPtrOutput) ToStreamInputEventHubSerializationPtrOutputWithContext(ctx context.Context) StreamInputEventHubSerializationPtrOutput {
-	return o
-}
-
-func (o StreamInputEventHubSerializationPtrOutput) Elem() StreamInputEventHubSerializationOutput {
-	return o.ApplyT(func(v *StreamInputEventHubSerialization) StreamInputEventHubSerialization {
-		if v != nil {
-			return *v
-		}
-		var ret StreamInputEventHubSerialization
-		return ret
-	}).(StreamInputEventHubSerializationOutput)
-}
-
-// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-func (o StreamInputEventHubSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamInputEventHubSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Encoding
-	}).(pulumi.StringPtrOutput)
-}
-
-// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-func (o StreamInputEventHubSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamInputEventHubSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o StreamInputEventHubSerializationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamInputEventHubSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type StreamInputIotHubSerialization struct {
@@ -1761,47 +901,6 @@ func (i StreamInputIotHubSerializationArgs) ToStreamInputIotHubSerializationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubSerializationOutput)
 }
 
-func (i StreamInputIotHubSerializationArgs) ToStreamInputIotHubSerializationPtrOutput() StreamInputIotHubSerializationPtrOutput {
-	return i.ToStreamInputIotHubSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i StreamInputIotHubSerializationArgs) ToStreamInputIotHubSerializationPtrOutputWithContext(ctx context.Context) StreamInputIotHubSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubSerializationOutput).ToStreamInputIotHubSerializationPtrOutputWithContext(ctx)
-}
-
-// StreamInputIotHubSerializationPtrInput is an input type that accepts StreamInputIotHubSerializationArgs, StreamInputIotHubSerializationPtr and StreamInputIotHubSerializationPtrOutput values.
-// You can construct a concrete instance of `StreamInputIotHubSerializationPtrInput` via:
-//
-//          StreamInputIotHubSerializationArgs{...}
-//
-//  or:
-//
-//          nil
-type StreamInputIotHubSerializationPtrInput interface {
-	pulumi.Input
-
-	ToStreamInputIotHubSerializationPtrOutput() StreamInputIotHubSerializationPtrOutput
-	ToStreamInputIotHubSerializationPtrOutputWithContext(context.Context) StreamInputIotHubSerializationPtrOutput
-}
-
-type streamInputIotHubSerializationPtrType StreamInputIotHubSerializationArgs
-
-func StreamInputIotHubSerializationPtr(v *StreamInputIotHubSerializationArgs) StreamInputIotHubSerializationPtrInput {
-	return (*streamInputIotHubSerializationPtrType)(v)
-}
-
-func (*streamInputIotHubSerializationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamInputIotHubSerialization)(nil)).Elem()
-}
-
-func (i *streamInputIotHubSerializationPtrType) ToStreamInputIotHubSerializationPtrOutput() StreamInputIotHubSerializationPtrOutput {
-	return i.ToStreamInputIotHubSerializationPtrOutputWithContext(context.Background())
-}
-
-func (i *streamInputIotHubSerializationPtrType) ToStreamInputIotHubSerializationPtrOutputWithContext(ctx context.Context) StreamInputIotHubSerializationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubSerializationPtrOutput)
-}
-
 type StreamInputIotHubSerializationOutput struct{ *pulumi.OutputState }
 
 func (StreamInputIotHubSerializationOutput) ElementType() reflect.Type {
@@ -1814,16 +913,6 @@ func (o StreamInputIotHubSerializationOutput) ToStreamInputIotHubSerializationOu
 
 func (o StreamInputIotHubSerializationOutput) ToStreamInputIotHubSerializationOutputWithContext(ctx context.Context) StreamInputIotHubSerializationOutput {
 	return o
-}
-
-func (o StreamInputIotHubSerializationOutput) ToStreamInputIotHubSerializationPtrOutput() StreamInputIotHubSerializationPtrOutput {
-	return o.ToStreamInputIotHubSerializationPtrOutputWithContext(context.Background())
-}
-
-func (o StreamInputIotHubSerializationOutput) ToStreamInputIotHubSerializationPtrOutputWithContext(ctx context.Context) StreamInputIotHubSerializationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamInputIotHubSerialization) *StreamInputIotHubSerialization {
-		return &v
-	}).(StreamInputIotHubSerializationPtrOutput)
 }
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
@@ -1839,60 +928,6 @@ func (o StreamInputIotHubSerializationOutput) FieldDelimiter() pulumi.StringPtrO
 // The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
 func (o StreamInputIotHubSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamInputIotHubSerialization) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type StreamInputIotHubSerializationPtrOutput struct{ *pulumi.OutputState }
-
-func (StreamInputIotHubSerializationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamInputIotHubSerialization)(nil)).Elem()
-}
-
-func (o StreamInputIotHubSerializationPtrOutput) ToStreamInputIotHubSerializationPtrOutput() StreamInputIotHubSerializationPtrOutput {
-	return o
-}
-
-func (o StreamInputIotHubSerializationPtrOutput) ToStreamInputIotHubSerializationPtrOutputWithContext(ctx context.Context) StreamInputIotHubSerializationPtrOutput {
-	return o
-}
-
-func (o StreamInputIotHubSerializationPtrOutput) Elem() StreamInputIotHubSerializationOutput {
-	return o.ApplyT(func(v *StreamInputIotHubSerialization) StreamInputIotHubSerialization {
-		if v != nil {
-			return *v
-		}
-		var ret StreamInputIotHubSerialization
-		return ret
-	}).(StreamInputIotHubSerializationOutput)
-}
-
-// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-func (o StreamInputIotHubSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamInputIotHubSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Encoding
-	}).(pulumi.StringPtrOutput)
-}
-
-// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-func (o StreamInputIotHubSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamInputIotHubSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o StreamInputIotHubSerializationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamInputIotHubSerialization) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetJobIdentity struct {
@@ -2014,49 +1049,31 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavaScriptUDFInputTypeInput)(nil)).Elem(), FunctionJavaScriptUDFInputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavaScriptUDFInputTypeArrayInput)(nil)).Elem(), FunctionJavaScriptUDFInputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavaScriptUDFOutputTypeInput)(nil)).Elem(), FunctionJavaScriptUDFOutputTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FunctionJavaScriptUDFOutputTypePtrInput)(nil)).Elem(), FunctionJavaScriptUDFOutputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobIdentityInput)(nil)).Elem(), JobIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobIdentityPtrInput)(nil)).Elem(), JobIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputBlobSerializationInput)(nil)).Elem(), OutputBlobSerializationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OutputBlobSerializationPtrInput)(nil)).Elem(), OutputBlobSerializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputEventHubSerializationInput)(nil)).Elem(), OutputEventHubSerializationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OutputEventHubSerializationPtrInput)(nil)).Elem(), OutputEventHubSerializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputServiceBusQueueSerializationInput)(nil)).Elem(), OutputServiceBusQueueSerializationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OutputServiceBusQueueSerializationPtrInput)(nil)).Elem(), OutputServiceBusQueueSerializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputServicebusTopicSerializationInput)(nil)).Elem(), OutputServicebusTopicSerializationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OutputServicebusTopicSerializationPtrInput)(nil)).Elem(), OutputServicebusTopicSerializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceInputBlobSerializationInput)(nil)).Elem(), ReferenceInputBlobSerializationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceInputBlobSerializationPtrInput)(nil)).Elem(), ReferenceInputBlobSerializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamInputBlobSerializationInput)(nil)).Elem(), StreamInputBlobSerializationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamInputBlobSerializationPtrInput)(nil)).Elem(), StreamInputBlobSerializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamInputEventHubSerializationInput)(nil)).Elem(), StreamInputEventHubSerializationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamInputEventHubSerializationPtrInput)(nil)).Elem(), StreamInputEventHubSerializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamInputIotHubSerializationInput)(nil)).Elem(), StreamInputIotHubSerializationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StreamInputIotHubSerializationPtrInput)(nil)).Elem(), StreamInputIotHubSerializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobIdentityInput)(nil)).Elem(), GetJobIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobIdentityArrayInput)(nil)).Elem(), GetJobIdentityArray{})
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFInputTypeOutput{})
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(FunctionJavaScriptUDFOutputTypeOutput{})
-	pulumi.RegisterOutputType(FunctionJavaScriptUDFOutputTypePtrOutput{})
 	pulumi.RegisterOutputType(JobIdentityOutput{})
 	pulumi.RegisterOutputType(JobIdentityPtrOutput{})
 	pulumi.RegisterOutputType(OutputBlobSerializationOutput{})
-	pulumi.RegisterOutputType(OutputBlobSerializationPtrOutput{})
 	pulumi.RegisterOutputType(OutputEventHubSerializationOutput{})
-	pulumi.RegisterOutputType(OutputEventHubSerializationPtrOutput{})
 	pulumi.RegisterOutputType(OutputServiceBusQueueSerializationOutput{})
-	pulumi.RegisterOutputType(OutputServiceBusQueueSerializationPtrOutput{})
 	pulumi.RegisterOutputType(OutputServicebusTopicSerializationOutput{})
-	pulumi.RegisterOutputType(OutputServicebusTopicSerializationPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceInputBlobSerializationOutput{})
-	pulumi.RegisterOutputType(ReferenceInputBlobSerializationPtrOutput{})
 	pulumi.RegisterOutputType(StreamInputBlobSerializationOutput{})
-	pulumi.RegisterOutputType(StreamInputBlobSerializationPtrOutput{})
 	pulumi.RegisterOutputType(StreamInputEventHubSerializationOutput{})
-	pulumi.RegisterOutputType(StreamInputEventHubSerializationPtrOutput{})
 	pulumi.RegisterOutputType(StreamInputIotHubSerializationOutput{})
-	pulumi.RegisterOutputType(StreamInputIotHubSerializationPtrOutput{})
 	pulumi.RegisterOutputType(GetJobIdentityOutput{})
 	pulumi.RegisterOutputType(GetJobIdentityArrayOutput{})
 }

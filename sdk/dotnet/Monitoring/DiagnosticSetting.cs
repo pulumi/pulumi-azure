@@ -26,16 +26,16 @@ namespace Pulumi.Azure.Monitoring
     ///         {
     ///             Location = "West Europe",
     ///         });
-    ///         var exampleAccount = exampleResourceGroup.Name.Apply(name =&gt; Azure.Storage.GetAccount.InvokeAsync(new Azure.Storage.GetAccountArgs
+    ///         var exampleAccount = Azure.Storage.GetAccount.Invoke(new Azure.Storage.GetAccountInvokeArgs
     ///         {
     ///             Name = "examplestoracc",
-    ///             ResourceGroupName = name,
-    ///         }));
-    ///         var exampleKeyVault = exampleResourceGroup.Name.Apply(name =&gt; Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new Azure.KeyVault.GetKeyVaultInvokeArgs
     ///         {
     ///             Name = "example-vault",
-    ///             ResourceGroupName = name,
-    ///         }));
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
     ///         var exampleDiagnosticSetting = new Azure.Monitoring.DiagnosticSetting("exampleDiagnosticSetting", new Azure.Monitoring.DiagnosticSettingArgs
     ///         {
     ///             TargetResourceId = exampleKeyVault.Apply(exampleKeyVault =&gt; exampleKeyVault.Id),

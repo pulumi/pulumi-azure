@@ -215,7 +215,7 @@ type ActionRuleActionGroupInput interface {
 }
 
 func (*ActionRuleActionGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRuleActionGroup)(nil))
+	return reflect.TypeOf((**ActionRuleActionGroup)(nil)).Elem()
 }
 
 func (i *ActionRuleActionGroup) ToActionRuleActionGroupOutput() ActionRuleActionGroupOutput {
@@ -224,35 +224,6 @@ func (i *ActionRuleActionGroup) ToActionRuleActionGroupOutput() ActionRuleAction
 
 func (i *ActionRuleActionGroup) ToActionRuleActionGroupOutputWithContext(ctx context.Context) ActionRuleActionGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupOutput)
-}
-
-func (i *ActionRuleActionGroup) ToActionRuleActionGroupPtrOutput() ActionRuleActionGroupPtrOutput {
-	return i.ToActionRuleActionGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ActionRuleActionGroup) ToActionRuleActionGroupPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupPtrOutput)
-}
-
-type ActionRuleActionGroupPtrInput interface {
-	pulumi.Input
-
-	ToActionRuleActionGroupPtrOutput() ActionRuleActionGroupPtrOutput
-	ToActionRuleActionGroupPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupPtrOutput
-}
-
-type actionRuleActionGroupPtrType ActionRuleActionGroupArgs
-
-func (*actionRuleActionGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionRuleActionGroup)(nil))
-}
-
-func (i *actionRuleActionGroupPtrType) ToActionRuleActionGroupPtrOutput() ActionRuleActionGroupPtrOutput {
-	return i.ToActionRuleActionGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *actionRuleActionGroupPtrType) ToActionRuleActionGroupPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupPtrOutput)
 }
 
 // ActionRuleActionGroupArrayInput is an input type that accepts ActionRuleActionGroupArray and ActionRuleActionGroupArrayOutput values.
@@ -308,7 +279,7 @@ func (i ActionRuleActionGroupMap) ToActionRuleActionGroupMapOutputWithContext(ct
 type ActionRuleActionGroupOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRuleActionGroup)(nil))
+	return reflect.TypeOf((**ActionRuleActionGroup)(nil)).Elem()
 }
 
 func (o ActionRuleActionGroupOutput) ToActionRuleActionGroupOutput() ActionRuleActionGroupOutput {
@@ -319,44 +290,10 @@ func (o ActionRuleActionGroupOutput) ToActionRuleActionGroupOutputWithContext(ct
 	return o
 }
 
-func (o ActionRuleActionGroupOutput) ToActionRuleActionGroupPtrOutput() ActionRuleActionGroupPtrOutput {
-	return o.ToActionRuleActionGroupPtrOutputWithContext(context.Background())
-}
-
-func (o ActionRuleActionGroupOutput) ToActionRuleActionGroupPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleActionGroup) *ActionRuleActionGroup {
-		return &v
-	}).(ActionRuleActionGroupPtrOutput)
-}
-
-type ActionRuleActionGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionRuleActionGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionRuleActionGroup)(nil))
-}
-
-func (o ActionRuleActionGroupPtrOutput) ToActionRuleActionGroupPtrOutput() ActionRuleActionGroupPtrOutput {
-	return o
-}
-
-func (o ActionRuleActionGroupPtrOutput) ToActionRuleActionGroupPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupPtrOutput {
-	return o
-}
-
-func (o ActionRuleActionGroupPtrOutput) Elem() ActionRuleActionGroupOutput {
-	return o.ApplyT(func(v *ActionRuleActionGroup) ActionRuleActionGroup {
-		if v != nil {
-			return *v
-		}
-		var ret ActionRuleActionGroup
-		return ret
-	}).(ActionRuleActionGroupOutput)
-}
-
 type ActionRuleActionGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionRuleActionGroup)(nil))
+	return reflect.TypeOf((*[]*ActionRuleActionGroup)(nil)).Elem()
 }
 
 func (o ActionRuleActionGroupArrayOutput) ToActionRuleActionGroupArrayOutput() ActionRuleActionGroupArrayOutput {
@@ -368,15 +305,15 @@ func (o ActionRuleActionGroupArrayOutput) ToActionRuleActionGroupArrayOutputWith
 }
 
 func (o ActionRuleActionGroupArrayOutput) Index(i pulumi.IntInput) ActionRuleActionGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionRuleActionGroup {
-		return vs[0].([]ActionRuleActionGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionRuleActionGroup {
+		return vs[0].([]*ActionRuleActionGroup)[vs[1].(int)]
 	}).(ActionRuleActionGroupOutput)
 }
 
 type ActionRuleActionGroupMapOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ActionRuleActionGroup)(nil))
+	return reflect.TypeOf((*map[string]*ActionRuleActionGroup)(nil)).Elem()
 }
 
 func (o ActionRuleActionGroupMapOutput) ToActionRuleActionGroupMapOutput() ActionRuleActionGroupMapOutput {
@@ -388,18 +325,16 @@ func (o ActionRuleActionGroupMapOutput) ToActionRuleActionGroupMapOutputWithCont
 }
 
 func (o ActionRuleActionGroupMapOutput) MapIndex(k pulumi.StringInput) ActionRuleActionGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActionRuleActionGroup {
-		return vs[0].(map[string]ActionRuleActionGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ActionRuleActionGroup {
+		return vs[0].(map[string]*ActionRuleActionGroup)[vs[1].(string)]
 	}).(ActionRuleActionGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleActionGroupInput)(nil)).Elem(), &ActionRuleActionGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleActionGroupPtrInput)(nil)).Elem(), &ActionRuleActionGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleActionGroupArrayInput)(nil)).Elem(), ActionRuleActionGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionRuleActionGroupMapInput)(nil)).Elem(), ActionRuleActionGroupMap{})
 	pulumi.RegisterOutputType(ActionRuleActionGroupOutput{})
-	pulumi.RegisterOutputType(ActionRuleActionGroupPtrOutput{})
 	pulumi.RegisterOutputType(ActionRuleActionGroupArrayOutput{})
 	pulumi.RegisterOutputType(ActionRuleActionGroupMapOutput{})
 }

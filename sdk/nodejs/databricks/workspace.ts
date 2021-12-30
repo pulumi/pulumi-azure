@@ -120,27 +120,27 @@ export class Workspace extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceArgs | WorkspaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            inputs["customParameters"] = state ? state.customParameters : undefined;
-            inputs["customerManagedKeyEnabled"] = state ? state.customerManagedKeyEnabled : undefined;
-            inputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
-            inputs["loadBalancerBackendAddressPoolId"] = state ? state.loadBalancerBackendAddressPoolId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managedResourceGroupId"] = state ? state.managedResourceGroupId : undefined;
-            inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
-            inputs["managedServicesCmkKeyVaultKeyId"] = state ? state.managedServicesCmkKeyVaultKeyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkSecurityGroupRulesRequired"] = state ? state.networkSecurityGroupRulesRequired : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["storageAccountIdentities"] = state ? state.storageAccountIdentities : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["workspaceId"] = state ? state.workspaceId : undefined;
-            inputs["workspaceUrl"] = state ? state.workspaceUrl : undefined;
+            resourceInputs["customParameters"] = state ? state.customParameters : undefined;
+            resourceInputs["customerManagedKeyEnabled"] = state ? state.customerManagedKeyEnabled : undefined;
+            resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
+            resourceInputs["loadBalancerBackendAddressPoolId"] = state ? state.loadBalancerBackendAddressPoolId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedResourceGroupId"] = state ? state.managedResourceGroupId : undefined;
+            resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
+            resourceInputs["managedServicesCmkKeyVaultKeyId"] = state ? state.managedServicesCmkKeyVaultKeyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkSecurityGroupRulesRequired"] = state ? state.networkSecurityGroupRulesRequired : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["storageAccountIdentities"] = state ? state.storageAccountIdentities : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["workspaceUrl"] = state ? state.workspaceUrl : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -149,28 +149,28 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["customParameters"] = args ? args.customParameters : undefined;
-            inputs["customerManagedKeyEnabled"] = args ? args.customerManagedKeyEnabled : undefined;
-            inputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
-            inputs["loadBalancerBackendAddressPoolId"] = args ? args.loadBalancerBackendAddressPoolId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            inputs["managedServicesCmkKeyVaultKeyId"] = args ? args.managedServicesCmkKeyVaultKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkSecurityGroupRulesRequired"] = args ? args.networkSecurityGroupRulesRequired : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["managedResourceGroupId"] = undefined /*out*/;
-            inputs["storageAccountIdentities"] = undefined /*out*/;
-            inputs["workspaceId"] = undefined /*out*/;
-            inputs["workspaceUrl"] = undefined /*out*/;
+            resourceInputs["customParameters"] = args ? args.customParameters : undefined;
+            resourceInputs["customerManagedKeyEnabled"] = args ? args.customerManagedKeyEnabled : undefined;
+            resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
+            resourceInputs["loadBalancerBackendAddressPoolId"] = args ? args.loadBalancerBackendAddressPoolId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
+            resourceInputs["managedServicesCmkKeyVaultKeyId"] = args ? args.managedServicesCmkKeyVaultKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkSecurityGroupRulesRequired"] = args ? args.networkSecurityGroupRulesRequired : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["managedResourceGroupId"] = undefined /*out*/;
+            resourceInputs["storageAccountIdentities"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
+            resourceInputs["workspaceUrl"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Workspace.__pulumiType, name, inputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

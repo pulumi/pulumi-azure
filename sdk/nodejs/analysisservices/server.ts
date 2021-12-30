@@ -121,21 +121,21 @@ export class Server extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
-            inputs["adminUsers"] = state ? state.adminUsers : undefined;
-            inputs["backupBlobContainerUri"] = state ? state.backupBlobContainerUri : undefined;
-            inputs["enablePowerBiService"] = state ? state.enablePowerBiService : undefined;
-            inputs["ipv4FirewallRules"] = state ? state.ipv4FirewallRules : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["querypoolConnectionMode"] = state ? state.querypoolConnectionMode : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serverFullName"] = state ? state.serverFullName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["adminUsers"] = state ? state.adminUsers : undefined;
+            resourceInputs["backupBlobContainerUri"] = state ? state.backupBlobContainerUri : undefined;
+            resourceInputs["enablePowerBiService"] = state ? state.enablePowerBiService : undefined;
+            resourceInputs["ipv4FirewallRules"] = state ? state.ipv4FirewallRules : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["querypoolConnectionMode"] = state ? state.querypoolConnectionMode : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serverFullName"] = state ? state.serverFullName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -144,22 +144,22 @@ export class Server extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["adminUsers"] = args ? args.adminUsers : undefined;
-            inputs["backupBlobContainerUri"] = args ? args.backupBlobContainerUri : undefined;
-            inputs["enablePowerBiService"] = args ? args.enablePowerBiService : undefined;
-            inputs["ipv4FirewallRules"] = args ? args.ipv4FirewallRules : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["querypoolConnectionMode"] = args ? args.querypoolConnectionMode : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["serverFullName"] = undefined /*out*/;
+            resourceInputs["adminUsers"] = args ? args.adminUsers : undefined;
+            resourceInputs["backupBlobContainerUri"] = args ? args.backupBlobContainerUri : undefined;
+            resourceInputs["enablePowerBiService"] = args ? args.enablePowerBiService : undefined;
+            resourceInputs["ipv4FirewallRules"] = args ? args.ipv4FirewallRules : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["querypoolConnectionMode"] = args ? args.querypoolConnectionMode : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["serverFullName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Server.__pulumiType, name, inputs, opts);
+        super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }
 

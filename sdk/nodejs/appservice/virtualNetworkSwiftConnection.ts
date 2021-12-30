@@ -159,12 +159,12 @@ export class VirtualNetworkSwiftConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualNetworkSwiftConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualNetworkSwiftConnectionArgs | VirtualNetworkSwiftConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkSwiftConnectionState | undefined;
-            inputs["appServiceId"] = state ? state.appServiceId : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["appServiceId"] = state ? state.appServiceId : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as VirtualNetworkSwiftConnectionArgs | undefined;
             if ((!args || args.appServiceId === undefined) && !opts.urn) {
@@ -173,13 +173,13 @@ export class VirtualNetworkSwiftConnection extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["appServiceId"] = args ? args.appServiceId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["appServiceId"] = args ? args.appServiceId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VirtualNetworkSwiftConnection.__pulumiType, name, inputs, opts);
+        super(VirtualNetworkSwiftConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

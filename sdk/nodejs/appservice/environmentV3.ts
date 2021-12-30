@@ -171,28 +171,28 @@ export class EnvironmentV3 extends pulumi.CustomResource {
      */
     constructor(name: string, args: EnvironmentV3Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EnvironmentV3Args | EnvironmentV3State, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentV3State | undefined;
-            inputs["allowNewPrivateEndpointConnections"] = state ? state.allowNewPrivateEndpointConnections : undefined;
-            inputs["clusterSettings"] = state ? state.clusterSettings : undefined;
-            inputs["dedicatedHostCount"] = state ? state.dedicatedHostCount : undefined;
-            inputs["dnsSuffix"] = state ? state.dnsSuffix : undefined;
-            inputs["externalInboundIpAddresses"] = state ? state.externalInboundIpAddresses : undefined;
-            inputs["inboundNetworkDependencies"] = state ? state.inboundNetworkDependencies : undefined;
-            inputs["internalInboundIpAddresses"] = state ? state.internalInboundIpAddresses : undefined;
-            inputs["internalLoadBalancingMode"] = state ? state.internalLoadBalancingMode : undefined;
-            inputs["ipSslAddressCount"] = state ? state.ipSslAddressCount : undefined;
-            inputs["linuxOutboundIpAddresses"] = state ? state.linuxOutboundIpAddresses : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pricingTier"] = state ? state.pricingTier : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["windowsOutboundIpAddresses"] = state ? state.windowsOutboundIpAddresses : undefined;
-            inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
+            resourceInputs["allowNewPrivateEndpointConnections"] = state ? state.allowNewPrivateEndpointConnections : undefined;
+            resourceInputs["clusterSettings"] = state ? state.clusterSettings : undefined;
+            resourceInputs["dedicatedHostCount"] = state ? state.dedicatedHostCount : undefined;
+            resourceInputs["dnsSuffix"] = state ? state.dnsSuffix : undefined;
+            resourceInputs["externalInboundIpAddresses"] = state ? state.externalInboundIpAddresses : undefined;
+            resourceInputs["inboundNetworkDependencies"] = state ? state.inboundNetworkDependencies : undefined;
+            resourceInputs["internalInboundIpAddresses"] = state ? state.internalInboundIpAddresses : undefined;
+            resourceInputs["internalLoadBalancingMode"] = state ? state.internalLoadBalancingMode : undefined;
+            resourceInputs["ipSslAddressCount"] = state ? state.ipSslAddressCount : undefined;
+            resourceInputs["linuxOutboundIpAddresses"] = state ? state.linuxOutboundIpAddresses : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pricingTier"] = state ? state.pricingTier : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["windowsOutboundIpAddresses"] = state ? state.windowsOutboundIpAddresses : undefined;
+            resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as EnvironmentV3Args | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -201,29 +201,29 @@ export class EnvironmentV3 extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["allowNewPrivateEndpointConnections"] = args ? args.allowNewPrivateEndpointConnections : undefined;
-            inputs["clusterSettings"] = args ? args.clusterSettings : undefined;
-            inputs["dedicatedHostCount"] = args ? args.dedicatedHostCount : undefined;
-            inputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
-            inputs["dnsSuffix"] = undefined /*out*/;
-            inputs["externalInboundIpAddresses"] = undefined /*out*/;
-            inputs["inboundNetworkDependencies"] = undefined /*out*/;
-            inputs["internalInboundIpAddresses"] = undefined /*out*/;
-            inputs["ipSslAddressCount"] = undefined /*out*/;
-            inputs["linuxOutboundIpAddresses"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["pricingTier"] = undefined /*out*/;
-            inputs["windowsOutboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["allowNewPrivateEndpointConnections"] = args ? args.allowNewPrivateEndpointConnections : undefined;
+            resourceInputs["clusterSettings"] = args ? args.clusterSettings : undefined;
+            resourceInputs["dedicatedHostCount"] = args ? args.dedicatedHostCount : undefined;
+            resourceInputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["dnsSuffix"] = undefined /*out*/;
+            resourceInputs["externalInboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["inboundNetworkDependencies"] = undefined /*out*/;
+            resourceInputs["internalInboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["ipSslAddressCount"] = undefined /*out*/;
+            resourceInputs["linuxOutboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["pricingTier"] = undefined /*out*/;
+            resourceInputs["windowsOutboundIpAddresses"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EnvironmentV3.__pulumiType, name, inputs, opts);
+        super(EnvironmentV3.__pulumiType, name, resourceInputs, opts);
     }
 }
 

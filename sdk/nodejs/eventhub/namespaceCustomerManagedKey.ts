@@ -138,12 +138,12 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: NamespaceCustomerManagedKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamespaceCustomerManagedKeyArgs | NamespaceCustomerManagedKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceCustomerManagedKeyState | undefined;
-            inputs["eventhubNamespaceId"] = state ? state.eventhubNamespaceId : undefined;
-            inputs["keyVaultKeyIds"] = state ? state.keyVaultKeyIds : undefined;
+            resourceInputs["eventhubNamespaceId"] = state ? state.eventhubNamespaceId : undefined;
+            resourceInputs["keyVaultKeyIds"] = state ? state.keyVaultKeyIds : undefined;
         } else {
             const args = argsOrState as NamespaceCustomerManagedKeyArgs | undefined;
             if ((!args || args.eventhubNamespaceId === undefined) && !opts.urn) {
@@ -152,13 +152,13 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
             if ((!args || args.keyVaultKeyIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultKeyIds'");
             }
-            inputs["eventhubNamespaceId"] = args ? args.eventhubNamespaceId : undefined;
-            inputs["keyVaultKeyIds"] = args ? args.keyVaultKeyIds : undefined;
+            resourceInputs["eventhubNamespaceId"] = args ? args.eventhubNamespaceId : undefined;
+            resourceInputs["keyVaultKeyIds"] = args ? args.keyVaultKeyIds : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NamespaceCustomerManagedKey.__pulumiType, name, inputs, opts);
+        super(NamespaceCustomerManagedKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

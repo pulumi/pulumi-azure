@@ -119,16 +119,16 @@ export class LogProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogProfileArgs | LogProfileState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogProfileState | undefined;
-            inputs["categories"] = state ? state.categories : undefined;
-            inputs["locations"] = state ? state.locations : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
-            inputs["servicebusRuleId"] = state ? state.servicebusRuleId : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["categories"] = state ? state.categories : undefined;
+            resourceInputs["locations"] = state ? state.locations : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
+            resourceInputs["servicebusRuleId"] = state ? state.servicebusRuleId : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as LogProfileArgs | undefined;
             if ((!args || args.categories === undefined) && !opts.urn) {
@@ -140,17 +140,17 @@ export class LogProfile extends pulumi.CustomResource {
             if ((!args || args.retentionPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'retentionPolicy'");
             }
-            inputs["categories"] = args ? args.categories : undefined;
-            inputs["locations"] = args ? args.locations : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
-            inputs["servicebusRuleId"] = args ? args.servicebusRuleId : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["categories"] = args ? args.categories : undefined;
+            resourceInputs["locations"] = args ? args.locations : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
+            resourceInputs["servicebusRuleId"] = args ? args.servicebusRuleId : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LogProfile.__pulumiType, name, inputs, opts);
+        super(LogProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

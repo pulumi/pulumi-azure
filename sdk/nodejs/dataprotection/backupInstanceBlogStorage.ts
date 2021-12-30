@@ -108,15 +108,15 @@ export class BackupInstanceBlogStorage extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackupInstanceBlogStorageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BackupInstanceBlogStorageArgs | BackupInstanceBlogStorageState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupInstanceBlogStorageState | undefined;
-            inputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
         } else {
             const args = argsOrState as BackupInstanceBlogStorageArgs | undefined;
             if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
@@ -128,16 +128,16 @@ export class BackupInstanceBlogStorage extends pulumi.CustomResource {
             if ((!args || args.vaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            inputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BackupInstanceBlogStorage.__pulumiType, name, inputs, opts);
+        super(BackupInstanceBlogStorage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -153,29 +153,29 @@ export class Queue extends pulumi.CustomResource {
      */
     constructor(name: string, args: QueueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueueState | undefined;
-            inputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
-            inputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;
-            inputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
-            inputs["duplicateDetectionHistoryTimeWindow"] = state ? state.duplicateDetectionHistoryTimeWindow : undefined;
-            inputs["enableBatchedOperations"] = state ? state.enableBatchedOperations : undefined;
-            inputs["enableExpress"] = state ? state.enableExpress : undefined;
-            inputs["enablePartitioning"] = state ? state.enablePartitioning : undefined;
-            inputs["forwardDeadLetteredMessagesTo"] = state ? state.forwardDeadLetteredMessagesTo : undefined;
-            inputs["forwardTo"] = state ? state.forwardTo : undefined;
-            inputs["lockDuration"] = state ? state.lockDuration : undefined;
-            inputs["maxDeliveryCount"] = state ? state.maxDeliveryCount : undefined;
-            inputs["maxMessageSizeInKilobytes"] = state ? state.maxMessageSizeInKilobytes : undefined;
-            inputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespaceName"] = state ? state.namespaceName : undefined;
-            inputs["requiresDuplicateDetection"] = state ? state.requiresDuplicateDetection : undefined;
-            inputs["requiresSession"] = state ? state.requiresSession : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
+            resourceInputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;
+            resourceInputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = state ? state.duplicateDetectionHistoryTimeWindow : undefined;
+            resourceInputs["enableBatchedOperations"] = state ? state.enableBatchedOperations : undefined;
+            resourceInputs["enableExpress"] = state ? state.enableExpress : undefined;
+            resourceInputs["enablePartitioning"] = state ? state.enablePartitioning : undefined;
+            resourceInputs["forwardDeadLetteredMessagesTo"] = state ? state.forwardDeadLetteredMessagesTo : undefined;
+            resourceInputs["forwardTo"] = state ? state.forwardTo : undefined;
+            resourceInputs["lockDuration"] = state ? state.lockDuration : undefined;
+            resourceInputs["maxDeliveryCount"] = state ? state.maxDeliveryCount : undefined;
+            resourceInputs["maxMessageSizeInKilobytes"] = state ? state.maxMessageSizeInKilobytes : undefined;
+            resourceInputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["requiresDuplicateDetection"] = state ? state.requiresDuplicateDetection : undefined;
+            resourceInputs["requiresSession"] = state ? state.requiresSession : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -184,32 +184,32 @@ export class Queue extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            inputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
-            inputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
-            inputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
-            inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
-            inputs["enableExpress"] = args ? args.enableExpress : undefined;
-            inputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
-            inputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
-            inputs["forwardTo"] = args ? args.forwardTo : undefined;
-            inputs["lockDuration"] = args ? args.lockDuration : undefined;
-            inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
-            inputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
-            inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
-            inputs["requiresSession"] = args ? args.requiresSession : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["status"] = args ? args.status : undefined;
+            resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            resourceInputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
+            resourceInputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
+            resourceInputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
+            resourceInputs["enableExpress"] = args ? args.enableExpress : undefined;
+            resourceInputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
+            resourceInputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
+            resourceInputs["forwardTo"] = args ? args.forwardTo : undefined;
+            resourceInputs["lockDuration"] = args ? args.lockDuration : undefined;
+            resourceInputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
+            resourceInputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
+            resourceInputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
+            resourceInputs["requiresSession"] = args ? args.requiresSession : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:eventhub/queue:Queue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Queue.__pulumiType, name, inputs, opts);
+        super(Queue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

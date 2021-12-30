@@ -198,8 +198,8 @@ def get_account_blob_container_sas(cache_control: Optional[str] = None,
     container = azure.storage.Container("container",
         storage_account_name=storage.name,
         container_access_type="private")
-    example = pulumi.Output.all(storage.primary_connection_string, container.name).apply(lambda primary_connection_string, name: azure.storage.get_account_blob_container_sas(connection_string=primary_connection_string,
-        container_name=name,
+    example = azure.storage.get_account_blob_container_sas_output(connection_string=storage.primary_connection_string,
+        container_name=container.name,
         https_only=True,
         ip_address="168.1.5.65",
         start="2018-03-21",
@@ -216,7 +216,7 @@ def get_account_blob_container_sas(cache_control: Optional[str] = None,
         content_disposition="inline",
         content_encoding="deflate",
         content_language="en-US",
-        content_type="application/json"))
+        content_type="application/json")
     pulumi.export("sasUrlQueryString", example.sas)
     ```
 
@@ -304,8 +304,8 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
     container = azure.storage.Container("container",
         storage_account_name=storage.name,
         container_access_type="private")
-    example = pulumi.Output.all(storage.primary_connection_string, container.name).apply(lambda primary_connection_string, name: azure.storage.get_account_blob_container_sas(connection_string=primary_connection_string,
-        container_name=name,
+    example = azure.storage.get_account_blob_container_sas_output(connection_string=storage.primary_connection_string,
+        container_name=container.name,
         https_only=True,
         ip_address="168.1.5.65",
         start="2018-03-21",
@@ -322,7 +322,7 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
         content_disposition="inline",
         content_encoding="deflate",
         content_language="en-US",
-        content_type="application/json"))
+        content_type="application/json")
     pulumi.export("sasUrlQueryString", example.sas)
     ```
 

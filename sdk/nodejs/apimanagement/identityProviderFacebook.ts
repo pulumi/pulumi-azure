@@ -91,14 +91,14 @@ export class IdentityProviderFacebook extends pulumi.CustomResource {
      */
     constructor(name: string, args: IdentityProviderFacebookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityProviderFacebookArgs | IdentityProviderFacebookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderFacebookState | undefined;
-            inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["appId"] = state ? state.appId : undefined;
-            inputs["appSecret"] = state ? state.appSecret : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["appSecret"] = state ? state.appSecret : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IdentityProviderFacebookArgs | undefined;
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
@@ -113,15 +113,15 @@ export class IdentityProviderFacebook extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["appSecret"] = args ? args.appSecret : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["appSecret"] = args ? args.appSecret : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IdentityProviderFacebook.__pulumiType, name, inputs, opts);
+        super(IdentityProviderFacebook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -105,17 +105,17 @@ export class ConnectionClassicCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConnectionClassicCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionClassicCertificateArgs | ConnectionClassicCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionClassicCertificateState | undefined;
-            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            inputs["certificateAssetName"] = state ? state.certificateAssetName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["subscriptionId"] = state ? state.subscriptionId : undefined;
-            inputs["subscriptionName"] = state ? state.subscriptionName : undefined;
+            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
+            resourceInputs["certificateAssetName"] = state ? state.certificateAssetName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
+            resourceInputs["subscriptionName"] = state ? state.subscriptionName : undefined;
         } else {
             const args = argsOrState as ConnectionClassicCertificateArgs | undefined;
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -133,18 +133,18 @@ export class ConnectionClassicCertificate extends pulumi.CustomResource {
             if ((!args || args.subscriptionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["certificateAssetName"] = args ? args.certificateAssetName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["certificateAssetName"] = args ? args.certificateAssetName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ConnectionClassicCertificate.__pulumiType, name, inputs, opts);
+        super(ConnectionClassicCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

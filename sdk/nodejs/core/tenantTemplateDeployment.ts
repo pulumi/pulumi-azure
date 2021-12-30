@@ -83,33 +83,33 @@ export class TenantTemplateDeployment extends pulumi.CustomResource {
      */
     constructor(name: string, args?: TenantTemplateDeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TenantTemplateDeploymentArgs | TenantTemplateDeploymentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TenantTemplateDeploymentState | undefined;
-            inputs["debugLevel"] = state ? state.debugLevel : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outputContent"] = state ? state.outputContent : undefined;
-            inputs["parametersContent"] = state ? state.parametersContent : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["templateContent"] = state ? state.templateContent : undefined;
-            inputs["templateSpecVersionId"] = state ? state.templateSpecVersionId : undefined;
+            resourceInputs["debugLevel"] = state ? state.debugLevel : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputContent"] = state ? state.outputContent : undefined;
+            resourceInputs["parametersContent"] = state ? state.parametersContent : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["templateContent"] = state ? state.templateContent : undefined;
+            resourceInputs["templateSpecVersionId"] = state ? state.templateSpecVersionId : undefined;
         } else {
             const args = argsOrState as TenantTemplateDeploymentArgs | undefined;
-            inputs["debugLevel"] = args ? args.debugLevel : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parametersContent"] = args ? args.parametersContent : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateContent"] = args ? args.templateContent : undefined;
-            inputs["templateSpecVersionId"] = args ? args.templateSpecVersionId : undefined;
-            inputs["outputContent"] = undefined /*out*/;
+            resourceInputs["debugLevel"] = args ? args.debugLevel : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parametersContent"] = args ? args.parametersContent : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateContent"] = args ? args.templateContent : undefined;
+            resourceInputs["templateSpecVersionId"] = args ? args.templateSpecVersionId : undefined;
+            resourceInputs["outputContent"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TenantTemplateDeployment.__pulumiType, name, inputs, opts);
+        super(TenantTemplateDeployment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

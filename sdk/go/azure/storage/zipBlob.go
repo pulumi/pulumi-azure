@@ -156,7 +156,7 @@ type ZipBlobInput interface {
 }
 
 func (*ZipBlob) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZipBlob)(nil))
+	return reflect.TypeOf((**ZipBlob)(nil)).Elem()
 }
 
 func (i *ZipBlob) ToZipBlobOutput() ZipBlobOutput {
@@ -165,35 +165,6 @@ func (i *ZipBlob) ToZipBlobOutput() ZipBlobOutput {
 
 func (i *ZipBlob) ToZipBlobOutputWithContext(ctx context.Context) ZipBlobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobOutput)
-}
-
-func (i *ZipBlob) ToZipBlobPtrOutput() ZipBlobPtrOutput {
-	return i.ToZipBlobPtrOutputWithContext(context.Background())
-}
-
-func (i *ZipBlob) ToZipBlobPtrOutputWithContext(ctx context.Context) ZipBlobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobPtrOutput)
-}
-
-type ZipBlobPtrInput interface {
-	pulumi.Input
-
-	ToZipBlobPtrOutput() ZipBlobPtrOutput
-	ToZipBlobPtrOutputWithContext(ctx context.Context) ZipBlobPtrOutput
-}
-
-type zipBlobPtrType ZipBlobArgs
-
-func (*zipBlobPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ZipBlob)(nil))
-}
-
-func (i *zipBlobPtrType) ToZipBlobPtrOutput() ZipBlobPtrOutput {
-	return i.ToZipBlobPtrOutputWithContext(context.Background())
-}
-
-func (i *zipBlobPtrType) ToZipBlobPtrOutputWithContext(ctx context.Context) ZipBlobPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobPtrOutput)
 }
 
 // ZipBlobArrayInput is an input type that accepts ZipBlobArray and ZipBlobArrayOutput values.
@@ -249,7 +220,7 @@ func (i ZipBlobMap) ToZipBlobMapOutputWithContext(ctx context.Context) ZipBlobMa
 type ZipBlobOutput struct{ *pulumi.OutputState }
 
 func (ZipBlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZipBlob)(nil))
+	return reflect.TypeOf((**ZipBlob)(nil)).Elem()
 }
 
 func (o ZipBlobOutput) ToZipBlobOutput() ZipBlobOutput {
@@ -260,44 +231,10 @@ func (o ZipBlobOutput) ToZipBlobOutputWithContext(ctx context.Context) ZipBlobOu
 	return o
 }
 
-func (o ZipBlobOutput) ToZipBlobPtrOutput() ZipBlobPtrOutput {
-	return o.ToZipBlobPtrOutputWithContext(context.Background())
-}
-
-func (o ZipBlobOutput) ToZipBlobPtrOutputWithContext(ctx context.Context) ZipBlobPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ZipBlob) *ZipBlob {
-		return &v
-	}).(ZipBlobPtrOutput)
-}
-
-type ZipBlobPtrOutput struct{ *pulumi.OutputState }
-
-func (ZipBlobPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ZipBlob)(nil))
-}
-
-func (o ZipBlobPtrOutput) ToZipBlobPtrOutput() ZipBlobPtrOutput {
-	return o
-}
-
-func (o ZipBlobPtrOutput) ToZipBlobPtrOutputWithContext(ctx context.Context) ZipBlobPtrOutput {
-	return o
-}
-
-func (o ZipBlobPtrOutput) Elem() ZipBlobOutput {
-	return o.ApplyT(func(v *ZipBlob) ZipBlob {
-		if v != nil {
-			return *v
-		}
-		var ret ZipBlob
-		return ret
-	}).(ZipBlobOutput)
-}
-
 type ZipBlobArrayOutput struct{ *pulumi.OutputState }
 
 func (ZipBlobArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ZipBlob)(nil))
+	return reflect.TypeOf((*[]*ZipBlob)(nil)).Elem()
 }
 
 func (o ZipBlobArrayOutput) ToZipBlobArrayOutput() ZipBlobArrayOutput {
@@ -309,15 +246,15 @@ func (o ZipBlobArrayOutput) ToZipBlobArrayOutputWithContext(ctx context.Context)
 }
 
 func (o ZipBlobArrayOutput) Index(i pulumi.IntInput) ZipBlobOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ZipBlob {
-		return vs[0].([]ZipBlob)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ZipBlob {
+		return vs[0].([]*ZipBlob)[vs[1].(int)]
 	}).(ZipBlobOutput)
 }
 
 type ZipBlobMapOutput struct{ *pulumi.OutputState }
 
 func (ZipBlobMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ZipBlob)(nil))
+	return reflect.TypeOf((*map[string]*ZipBlob)(nil)).Elem()
 }
 
 func (o ZipBlobMapOutput) ToZipBlobMapOutput() ZipBlobMapOutput {
@@ -329,18 +266,16 @@ func (o ZipBlobMapOutput) ToZipBlobMapOutputWithContext(ctx context.Context) Zip
 }
 
 func (o ZipBlobMapOutput) MapIndex(k pulumi.StringInput) ZipBlobOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ZipBlob {
-		return vs[0].(map[string]ZipBlob)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ZipBlob {
+		return vs[0].(map[string]*ZipBlob)[vs[1].(string)]
 	}).(ZipBlobOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ZipBlobInput)(nil)).Elem(), &ZipBlob{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ZipBlobPtrInput)(nil)).Elem(), &ZipBlob{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZipBlobArrayInput)(nil)).Elem(), ZipBlobArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZipBlobMapInput)(nil)).Elem(), ZipBlobMap{})
 	pulumi.RegisterOutputType(ZipBlobOutput{})
-	pulumi.RegisterOutputType(ZipBlobPtrOutput{})
 	pulumi.RegisterOutputType(ZipBlobArrayOutput{})
 	pulumi.RegisterOutputType(ZipBlobMapOutput{})
 }

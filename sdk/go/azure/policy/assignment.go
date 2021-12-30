@@ -247,7 +247,7 @@ type AssignmentInput interface {
 }
 
 func (*Assignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Assignment)(nil))
+	return reflect.TypeOf((**Assignment)(nil)).Elem()
 }
 
 func (i *Assignment) ToAssignmentOutput() AssignmentOutput {
@@ -256,35 +256,6 @@ func (i *Assignment) ToAssignmentOutput() AssignmentOutput {
 
 func (i *Assignment) ToAssignmentOutputWithContext(ctx context.Context) AssignmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentOutput)
-}
-
-func (i *Assignment) ToAssignmentPtrOutput() AssignmentPtrOutput {
-	return i.ToAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *Assignment) ToAssignmentPtrOutputWithContext(ctx context.Context) AssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPtrOutput)
-}
-
-type AssignmentPtrInput interface {
-	pulumi.Input
-
-	ToAssignmentPtrOutput() AssignmentPtrOutput
-	ToAssignmentPtrOutputWithContext(ctx context.Context) AssignmentPtrOutput
-}
-
-type assignmentPtrType AssignmentArgs
-
-func (*assignmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Assignment)(nil))
-}
-
-func (i *assignmentPtrType) ToAssignmentPtrOutput() AssignmentPtrOutput {
-	return i.ToAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (i *assignmentPtrType) ToAssignmentPtrOutputWithContext(ctx context.Context) AssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPtrOutput)
 }
 
 // AssignmentArrayInput is an input type that accepts AssignmentArray and AssignmentArrayOutput values.
@@ -340,7 +311,7 @@ func (i AssignmentMap) ToAssignmentMapOutputWithContext(ctx context.Context) Ass
 type AssignmentOutput struct{ *pulumi.OutputState }
 
 func (AssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Assignment)(nil))
+	return reflect.TypeOf((**Assignment)(nil)).Elem()
 }
 
 func (o AssignmentOutput) ToAssignmentOutput() AssignmentOutput {
@@ -351,44 +322,10 @@ func (o AssignmentOutput) ToAssignmentOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
-func (o AssignmentOutput) ToAssignmentPtrOutput() AssignmentPtrOutput {
-	return o.ToAssignmentPtrOutputWithContext(context.Background())
-}
-
-func (o AssignmentOutput) ToAssignmentPtrOutputWithContext(ctx context.Context) AssignmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Assignment) *Assignment {
-		return &v
-	}).(AssignmentPtrOutput)
-}
-
-type AssignmentPtrOutput struct{ *pulumi.OutputState }
-
-func (AssignmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Assignment)(nil))
-}
-
-func (o AssignmentPtrOutput) ToAssignmentPtrOutput() AssignmentPtrOutput {
-	return o
-}
-
-func (o AssignmentPtrOutput) ToAssignmentPtrOutputWithContext(ctx context.Context) AssignmentPtrOutput {
-	return o
-}
-
-func (o AssignmentPtrOutput) Elem() AssignmentOutput {
-	return o.ApplyT(func(v *Assignment) Assignment {
-		if v != nil {
-			return *v
-		}
-		var ret Assignment
-		return ret
-	}).(AssignmentOutput)
-}
-
 type AssignmentArrayOutput struct{ *pulumi.OutputState }
 
 func (AssignmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Assignment)(nil))
+	return reflect.TypeOf((*[]*Assignment)(nil)).Elem()
 }
 
 func (o AssignmentArrayOutput) ToAssignmentArrayOutput() AssignmentArrayOutput {
@@ -400,15 +337,15 @@ func (o AssignmentArrayOutput) ToAssignmentArrayOutputWithContext(ctx context.Co
 }
 
 func (o AssignmentArrayOutput) Index(i pulumi.IntInput) AssignmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Assignment {
-		return vs[0].([]Assignment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Assignment {
+		return vs[0].([]*Assignment)[vs[1].(int)]
 	}).(AssignmentOutput)
 }
 
 type AssignmentMapOutput struct{ *pulumi.OutputState }
 
 func (AssignmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Assignment)(nil))
+	return reflect.TypeOf((*map[string]*Assignment)(nil)).Elem()
 }
 
 func (o AssignmentMapOutput) ToAssignmentMapOutput() AssignmentMapOutput {
@@ -420,18 +357,16 @@ func (o AssignmentMapOutput) ToAssignmentMapOutputWithContext(ctx context.Contex
 }
 
 func (o AssignmentMapOutput) MapIndex(k pulumi.StringInput) AssignmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Assignment {
-		return vs[0].(map[string]Assignment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Assignment {
+		return vs[0].(map[string]*Assignment)[vs[1].(string)]
 	}).(AssignmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentInput)(nil)).Elem(), &Assignment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentPtrInput)(nil)).Elem(), &Assignment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentArrayInput)(nil)).Elem(), AssignmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssignmentMapInput)(nil)).Elem(), AssignmentMap{})
 	pulumi.RegisterOutputType(AssignmentOutput{})
-	pulumi.RegisterOutputType(AssignmentPtrOutput{})
 	pulumi.RegisterOutputType(AssignmentArrayOutput{})
 	pulumi.RegisterOutputType(AssignmentMapOutput{})
 }

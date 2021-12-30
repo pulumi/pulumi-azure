@@ -129,23 +129,23 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRouteCircuitArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExpressRouteCircuitArgs | ExpressRouteCircuitState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRouteCircuitState | undefined;
-            inputs["allowClassicOperations"] = state ? state.allowClassicOperations : undefined;
-            inputs["bandwidthInGbps"] = state ? state.bandwidthInGbps : undefined;
-            inputs["bandwidthInMbps"] = state ? state.bandwidthInMbps : undefined;
-            inputs["expressRoutePortId"] = state ? state.expressRoutePortId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["peeringLocation"] = state ? state.peeringLocation : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serviceKey"] = state ? state.serviceKey : undefined;
-            inputs["serviceProviderName"] = state ? state.serviceProviderName : undefined;
-            inputs["serviceProviderProvisioningState"] = state ? state.serviceProviderProvisioningState : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["allowClassicOperations"] = state ? state.allowClassicOperations : undefined;
+            resourceInputs["bandwidthInGbps"] = state ? state.bandwidthInGbps : undefined;
+            resourceInputs["bandwidthInMbps"] = state ? state.bandwidthInMbps : undefined;
+            resourceInputs["expressRoutePortId"] = state ? state.expressRoutePortId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["peeringLocation"] = state ? state.peeringLocation : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serviceKey"] = state ? state.serviceKey : undefined;
+            resourceInputs["serviceProviderName"] = state ? state.serviceProviderName : undefined;
+            resourceInputs["serviceProviderProvisioningState"] = state ? state.serviceProviderProvisioningState : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ExpressRouteCircuitArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -154,24 +154,24 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
-            inputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
-            inputs["bandwidthInMbps"] = args ? args.bandwidthInMbps : undefined;
-            inputs["expressRoutePortId"] = args ? args.expressRoutePortId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["peeringLocation"] = args ? args.peeringLocation : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceProviderName"] = args ? args.serviceProviderName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["serviceKey"] = undefined /*out*/;
-            inputs["serviceProviderProvisioningState"] = undefined /*out*/;
+            resourceInputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
+            resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
+            resourceInputs["bandwidthInMbps"] = args ? args.bandwidthInMbps : undefined;
+            resourceInputs["expressRoutePortId"] = args ? args.expressRoutePortId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["peeringLocation"] = args ? args.peeringLocation : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceProviderName"] = args ? args.serviceProviderName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["serviceKey"] = undefined /*out*/;
+            resourceInputs["serviceProviderProvisioningState"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ExpressRouteCircuit.__pulumiType, name, inputs, opts);
+        super(ExpressRouteCircuit.__pulumiType, name, resourceInputs, opts);
     }
 }
 

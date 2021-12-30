@@ -311,7 +311,7 @@ type RServerClusterInput interface {
 }
 
 func (*RServerCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*RServerCluster)(nil))
+	return reflect.TypeOf((**RServerCluster)(nil)).Elem()
 }
 
 func (i *RServerCluster) ToRServerClusterOutput() RServerClusterOutput {
@@ -320,35 +320,6 @@ func (i *RServerCluster) ToRServerClusterOutput() RServerClusterOutput {
 
 func (i *RServerCluster) ToRServerClusterOutputWithContext(ctx context.Context) RServerClusterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterOutput)
-}
-
-func (i *RServerCluster) ToRServerClusterPtrOutput() RServerClusterPtrOutput {
-	return i.ToRServerClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *RServerCluster) ToRServerClusterPtrOutputWithContext(ctx context.Context) RServerClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterPtrOutput)
-}
-
-type RServerClusterPtrInput interface {
-	pulumi.Input
-
-	ToRServerClusterPtrOutput() RServerClusterPtrOutput
-	ToRServerClusterPtrOutputWithContext(ctx context.Context) RServerClusterPtrOutput
-}
-
-type rserverClusterPtrType RServerClusterArgs
-
-func (*rserverClusterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerCluster)(nil))
-}
-
-func (i *rserverClusterPtrType) ToRServerClusterPtrOutput() RServerClusterPtrOutput {
-	return i.ToRServerClusterPtrOutputWithContext(context.Background())
-}
-
-func (i *rserverClusterPtrType) ToRServerClusterPtrOutputWithContext(ctx context.Context) RServerClusterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterPtrOutput)
 }
 
 // RServerClusterArrayInput is an input type that accepts RServerClusterArray and RServerClusterArrayOutput values.
@@ -404,7 +375,7 @@ func (i RServerClusterMap) ToRServerClusterMapOutputWithContext(ctx context.Cont
 type RServerClusterOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RServerCluster)(nil))
+	return reflect.TypeOf((**RServerCluster)(nil)).Elem()
 }
 
 func (o RServerClusterOutput) ToRServerClusterOutput() RServerClusterOutput {
@@ -415,44 +386,10 @@ func (o RServerClusterOutput) ToRServerClusterOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o RServerClusterOutput) ToRServerClusterPtrOutput() RServerClusterPtrOutput {
-	return o.ToRServerClusterPtrOutputWithContext(context.Background())
-}
-
-func (o RServerClusterOutput) ToRServerClusterPtrOutputWithContext(ctx context.Context) RServerClusterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerCluster) *RServerCluster {
-		return &v
-	}).(RServerClusterPtrOutput)
-}
-
-type RServerClusterPtrOutput struct{ *pulumi.OutputState }
-
-func (RServerClusterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerCluster)(nil))
-}
-
-func (o RServerClusterPtrOutput) ToRServerClusterPtrOutput() RServerClusterPtrOutput {
-	return o
-}
-
-func (o RServerClusterPtrOutput) ToRServerClusterPtrOutputWithContext(ctx context.Context) RServerClusterPtrOutput {
-	return o
-}
-
-func (o RServerClusterPtrOutput) Elem() RServerClusterOutput {
-	return o.ApplyT(func(v *RServerCluster) RServerCluster {
-		if v != nil {
-			return *v
-		}
-		var ret RServerCluster
-		return ret
-	}).(RServerClusterOutput)
-}
-
 type RServerClusterArrayOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RServerCluster)(nil))
+	return reflect.TypeOf((*[]*RServerCluster)(nil)).Elem()
 }
 
 func (o RServerClusterArrayOutput) ToRServerClusterArrayOutput() RServerClusterArrayOutput {
@@ -464,15 +401,15 @@ func (o RServerClusterArrayOutput) ToRServerClusterArrayOutputWithContext(ctx co
 }
 
 func (o RServerClusterArrayOutput) Index(i pulumi.IntInput) RServerClusterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RServerCluster {
-		return vs[0].([]RServerCluster)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RServerCluster {
+		return vs[0].([]*RServerCluster)[vs[1].(int)]
 	}).(RServerClusterOutput)
 }
 
 type RServerClusterMapOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RServerCluster)(nil))
+	return reflect.TypeOf((*map[string]*RServerCluster)(nil)).Elem()
 }
 
 func (o RServerClusterMapOutput) ToRServerClusterMapOutput() RServerClusterMapOutput {
@@ -484,18 +421,16 @@ func (o RServerClusterMapOutput) ToRServerClusterMapOutputWithContext(ctx contex
 }
 
 func (o RServerClusterMapOutput) MapIndex(k pulumi.StringInput) RServerClusterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RServerCluster {
-		return vs[0].(map[string]RServerCluster)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RServerCluster {
+		return vs[0].(map[string]*RServerCluster)[vs[1].(string)]
 	}).(RServerClusterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterInput)(nil)).Elem(), &RServerCluster{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterPtrInput)(nil)).Elem(), &RServerCluster{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterArrayInput)(nil)).Elem(), RServerClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterMapInput)(nil)).Elem(), RServerClusterMap{})
 	pulumi.RegisterOutputType(RServerClusterOutput{})
-	pulumi.RegisterOutputType(RServerClusterPtrOutput{})
 	pulumi.RegisterOutputType(RServerClusterArrayOutput{})
 	pulumi.RegisterOutputType(RServerClusterMapOutput{})
 }

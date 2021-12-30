@@ -233,7 +233,7 @@ type SpringCloudServiceInput interface {
 }
 
 func (*SpringCloudService) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudService)(nil))
+	return reflect.TypeOf((**SpringCloudService)(nil)).Elem()
 }
 
 func (i *SpringCloudService) ToSpringCloudServiceOutput() SpringCloudServiceOutput {
@@ -242,35 +242,6 @@ func (i *SpringCloudService) ToSpringCloudServiceOutput() SpringCloudServiceOutp
 
 func (i *SpringCloudService) ToSpringCloudServiceOutputWithContext(ctx context.Context) SpringCloudServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceOutput)
-}
-
-func (i *SpringCloudService) ToSpringCloudServicePtrOutput() SpringCloudServicePtrOutput {
-	return i.ToSpringCloudServicePtrOutputWithContext(context.Background())
-}
-
-func (i *SpringCloudService) ToSpringCloudServicePtrOutputWithContext(ctx context.Context) SpringCloudServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServicePtrOutput)
-}
-
-type SpringCloudServicePtrInput interface {
-	pulumi.Input
-
-	ToSpringCloudServicePtrOutput() SpringCloudServicePtrOutput
-	ToSpringCloudServicePtrOutputWithContext(ctx context.Context) SpringCloudServicePtrOutput
-}
-
-type springCloudServicePtrType SpringCloudServiceArgs
-
-func (*springCloudServicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudService)(nil))
-}
-
-func (i *springCloudServicePtrType) ToSpringCloudServicePtrOutput() SpringCloudServicePtrOutput {
-	return i.ToSpringCloudServicePtrOutputWithContext(context.Background())
-}
-
-func (i *springCloudServicePtrType) ToSpringCloudServicePtrOutputWithContext(ctx context.Context) SpringCloudServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServicePtrOutput)
 }
 
 // SpringCloudServiceArrayInput is an input type that accepts SpringCloudServiceArray and SpringCloudServiceArrayOutput values.
@@ -326,7 +297,7 @@ func (i SpringCloudServiceMap) ToSpringCloudServiceMapOutputWithContext(ctx cont
 type SpringCloudServiceOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudService)(nil))
+	return reflect.TypeOf((**SpringCloudService)(nil)).Elem()
 }
 
 func (o SpringCloudServiceOutput) ToSpringCloudServiceOutput() SpringCloudServiceOutput {
@@ -337,44 +308,10 @@ func (o SpringCloudServiceOutput) ToSpringCloudServiceOutputWithContext(ctx cont
 	return o
 }
 
-func (o SpringCloudServiceOutput) ToSpringCloudServicePtrOutput() SpringCloudServicePtrOutput {
-	return o.ToSpringCloudServicePtrOutputWithContext(context.Background())
-}
-
-func (o SpringCloudServiceOutput) ToSpringCloudServicePtrOutputWithContext(ctx context.Context) SpringCloudServicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudService) *SpringCloudService {
-		return &v
-	}).(SpringCloudServicePtrOutput)
-}
-
-type SpringCloudServicePtrOutput struct{ *pulumi.OutputState }
-
-func (SpringCloudServicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudService)(nil))
-}
-
-func (o SpringCloudServicePtrOutput) ToSpringCloudServicePtrOutput() SpringCloudServicePtrOutput {
-	return o
-}
-
-func (o SpringCloudServicePtrOutput) ToSpringCloudServicePtrOutputWithContext(ctx context.Context) SpringCloudServicePtrOutput {
-	return o
-}
-
-func (o SpringCloudServicePtrOutput) Elem() SpringCloudServiceOutput {
-	return o.ApplyT(func(v *SpringCloudService) SpringCloudService {
-		if v != nil {
-			return *v
-		}
-		var ret SpringCloudService
-		return ret
-	}).(SpringCloudServiceOutput)
-}
-
 type SpringCloudServiceArrayOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpringCloudService)(nil))
+	return reflect.TypeOf((*[]*SpringCloudService)(nil)).Elem()
 }
 
 func (o SpringCloudServiceArrayOutput) ToSpringCloudServiceArrayOutput() SpringCloudServiceArrayOutput {
@@ -386,15 +323,15 @@ func (o SpringCloudServiceArrayOutput) ToSpringCloudServiceArrayOutputWithContex
 }
 
 func (o SpringCloudServiceArrayOutput) Index(i pulumi.IntInput) SpringCloudServiceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudService {
-		return vs[0].([]SpringCloudService)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudService {
+		return vs[0].([]*SpringCloudService)[vs[1].(int)]
 	}).(SpringCloudServiceOutput)
 }
 
 type SpringCloudServiceMapOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudServiceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SpringCloudService)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudService)(nil)).Elem()
 }
 
 func (o SpringCloudServiceMapOutput) ToSpringCloudServiceMapOutput() SpringCloudServiceMapOutput {
@@ -406,18 +343,16 @@ func (o SpringCloudServiceMapOutput) ToSpringCloudServiceMapOutputWithContext(ct
 }
 
 func (o SpringCloudServiceMapOutput) MapIndex(k pulumi.StringInput) SpringCloudServiceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpringCloudService {
-		return vs[0].(map[string]SpringCloudService)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SpringCloudService {
+		return vs[0].(map[string]*SpringCloudService)[vs[1].(string)]
 	}).(SpringCloudServiceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceInput)(nil)).Elem(), &SpringCloudService{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServicePtrInput)(nil)).Elem(), &SpringCloudService{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceArrayInput)(nil)).Elem(), SpringCloudServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudServiceMapInput)(nil)).Elem(), SpringCloudServiceMap{})
 	pulumi.RegisterOutputType(SpringCloudServiceOutput{})
-	pulumi.RegisterOutputType(SpringCloudServicePtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceMapOutput{})
 }

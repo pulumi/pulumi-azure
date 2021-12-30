@@ -179,20 +179,20 @@ export class Endpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            inputs["customDnsConfigs"] = state ? state.customDnsConfigs : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            inputs["privateDnsZoneConfigs"] = state ? state.privateDnsZoneConfigs : undefined;
-            inputs["privateDnsZoneGroup"] = state ? state.privateDnsZoneGroup : undefined;
-            inputs["privateServiceConnection"] = state ? state.privateServiceConnection : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["customDnsConfigs"] = state ? state.customDnsConfigs : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
+            resourceInputs["privateDnsZoneConfigs"] = state ? state.privateDnsZoneConfigs : undefined;
+            resourceInputs["privateDnsZoneGroup"] = state ? state.privateDnsZoneGroup : undefined;
+            resourceInputs["privateServiceConnection"] = state ? state.privateServiceConnection : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
             if ((!args || args.privateServiceConnection === undefined) && !opts.urn) {
@@ -204,21 +204,21 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateDnsZoneGroup"] = args ? args.privateDnsZoneGroup : undefined;
-            inputs["privateServiceConnection"] = args ? args.privateServiceConnection : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["customDnsConfigs"] = undefined /*out*/;
-            inputs["networkInterfaces"] = undefined /*out*/;
-            inputs["privateDnsZoneConfigs"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateDnsZoneGroup"] = args ? args.privateDnsZoneGroup : undefined;
+            resourceInputs["privateServiceConnection"] = args ? args.privateServiceConnection : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customDnsConfigs"] = undefined /*out*/;
+            resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["privateDnsZoneConfigs"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Endpoint.__pulumiType, name, inputs, opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

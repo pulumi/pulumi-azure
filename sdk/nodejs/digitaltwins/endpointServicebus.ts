@@ -108,15 +108,15 @@ export class EndpointServicebus extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointServicebusArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointServicebusArgs | EndpointServicebusState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointServicebusState | undefined;
-            inputs["deadLetterStorageSecret"] = state ? state.deadLetterStorageSecret : undefined;
-            inputs["digitalTwinsId"] = state ? state.digitalTwinsId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["servicebusPrimaryConnectionString"] = state ? state.servicebusPrimaryConnectionString : undefined;
-            inputs["servicebusSecondaryConnectionString"] = state ? state.servicebusSecondaryConnectionString : undefined;
+            resourceInputs["deadLetterStorageSecret"] = state ? state.deadLetterStorageSecret : undefined;
+            resourceInputs["digitalTwinsId"] = state ? state.digitalTwinsId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["servicebusPrimaryConnectionString"] = state ? state.servicebusPrimaryConnectionString : undefined;
+            resourceInputs["servicebusSecondaryConnectionString"] = state ? state.servicebusSecondaryConnectionString : undefined;
         } else {
             const args = argsOrState as EndpointServicebusArgs | undefined;
             if ((!args || args.digitalTwinsId === undefined) && !opts.urn) {
@@ -128,16 +128,16 @@ export class EndpointServicebus extends pulumi.CustomResource {
             if ((!args || args.servicebusSecondaryConnectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'servicebusSecondaryConnectionString'");
             }
-            inputs["deadLetterStorageSecret"] = args ? args.deadLetterStorageSecret : undefined;
-            inputs["digitalTwinsId"] = args ? args.digitalTwinsId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["servicebusPrimaryConnectionString"] = args ? args.servicebusPrimaryConnectionString : undefined;
-            inputs["servicebusSecondaryConnectionString"] = args ? args.servicebusSecondaryConnectionString : undefined;
+            resourceInputs["deadLetterStorageSecret"] = args ? args.deadLetterStorageSecret : undefined;
+            resourceInputs["digitalTwinsId"] = args ? args.digitalTwinsId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["servicebusPrimaryConnectionString"] = args ? args.servicebusPrimaryConnectionString : undefined;
+            resourceInputs["servicebusSecondaryConnectionString"] = args ? args.servicebusSecondaryConnectionString : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EndpointServicebus.__pulumiType, name, inputs, opts);
+        super(EndpointServicebus.__pulumiType, name, resourceInputs, opts);
     }
 }
 

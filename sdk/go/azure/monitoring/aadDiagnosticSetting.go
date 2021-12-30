@@ -237,7 +237,7 @@ type AadDiagnosticSettingInput interface {
 }
 
 func (*AadDiagnosticSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*AadDiagnosticSetting)(nil))
+	return reflect.TypeOf((**AadDiagnosticSetting)(nil)).Elem()
 }
 
 func (i *AadDiagnosticSetting) ToAadDiagnosticSettingOutput() AadDiagnosticSettingOutput {
@@ -246,35 +246,6 @@ func (i *AadDiagnosticSetting) ToAadDiagnosticSettingOutput() AadDiagnosticSetti
 
 func (i *AadDiagnosticSetting) ToAadDiagnosticSettingOutputWithContext(ctx context.Context) AadDiagnosticSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingOutput)
-}
-
-func (i *AadDiagnosticSetting) ToAadDiagnosticSettingPtrOutput() AadDiagnosticSettingPtrOutput {
-	return i.ToAadDiagnosticSettingPtrOutputWithContext(context.Background())
-}
-
-func (i *AadDiagnosticSetting) ToAadDiagnosticSettingPtrOutputWithContext(ctx context.Context) AadDiagnosticSettingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingPtrOutput)
-}
-
-type AadDiagnosticSettingPtrInput interface {
-	pulumi.Input
-
-	ToAadDiagnosticSettingPtrOutput() AadDiagnosticSettingPtrOutput
-	ToAadDiagnosticSettingPtrOutputWithContext(ctx context.Context) AadDiagnosticSettingPtrOutput
-}
-
-type aadDiagnosticSettingPtrType AadDiagnosticSettingArgs
-
-func (*aadDiagnosticSettingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AadDiagnosticSetting)(nil))
-}
-
-func (i *aadDiagnosticSettingPtrType) ToAadDiagnosticSettingPtrOutput() AadDiagnosticSettingPtrOutput {
-	return i.ToAadDiagnosticSettingPtrOutputWithContext(context.Background())
-}
-
-func (i *aadDiagnosticSettingPtrType) ToAadDiagnosticSettingPtrOutputWithContext(ctx context.Context) AadDiagnosticSettingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingPtrOutput)
 }
 
 // AadDiagnosticSettingArrayInput is an input type that accepts AadDiagnosticSettingArray and AadDiagnosticSettingArrayOutput values.
@@ -330,7 +301,7 @@ func (i AadDiagnosticSettingMap) ToAadDiagnosticSettingMapOutputWithContext(ctx 
 type AadDiagnosticSettingOutput struct{ *pulumi.OutputState }
 
 func (AadDiagnosticSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AadDiagnosticSetting)(nil))
+	return reflect.TypeOf((**AadDiagnosticSetting)(nil)).Elem()
 }
 
 func (o AadDiagnosticSettingOutput) ToAadDiagnosticSettingOutput() AadDiagnosticSettingOutput {
@@ -341,44 +312,10 @@ func (o AadDiagnosticSettingOutput) ToAadDiagnosticSettingOutputWithContext(ctx 
 	return o
 }
 
-func (o AadDiagnosticSettingOutput) ToAadDiagnosticSettingPtrOutput() AadDiagnosticSettingPtrOutput {
-	return o.ToAadDiagnosticSettingPtrOutputWithContext(context.Background())
-}
-
-func (o AadDiagnosticSettingOutput) ToAadDiagnosticSettingPtrOutputWithContext(ctx context.Context) AadDiagnosticSettingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AadDiagnosticSetting) *AadDiagnosticSetting {
-		return &v
-	}).(AadDiagnosticSettingPtrOutput)
-}
-
-type AadDiagnosticSettingPtrOutput struct{ *pulumi.OutputState }
-
-func (AadDiagnosticSettingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AadDiagnosticSetting)(nil))
-}
-
-func (o AadDiagnosticSettingPtrOutput) ToAadDiagnosticSettingPtrOutput() AadDiagnosticSettingPtrOutput {
-	return o
-}
-
-func (o AadDiagnosticSettingPtrOutput) ToAadDiagnosticSettingPtrOutputWithContext(ctx context.Context) AadDiagnosticSettingPtrOutput {
-	return o
-}
-
-func (o AadDiagnosticSettingPtrOutput) Elem() AadDiagnosticSettingOutput {
-	return o.ApplyT(func(v *AadDiagnosticSetting) AadDiagnosticSetting {
-		if v != nil {
-			return *v
-		}
-		var ret AadDiagnosticSetting
-		return ret
-	}).(AadDiagnosticSettingOutput)
-}
-
 type AadDiagnosticSettingArrayOutput struct{ *pulumi.OutputState }
 
 func (AadDiagnosticSettingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AadDiagnosticSetting)(nil))
+	return reflect.TypeOf((*[]*AadDiagnosticSetting)(nil)).Elem()
 }
 
 func (o AadDiagnosticSettingArrayOutput) ToAadDiagnosticSettingArrayOutput() AadDiagnosticSettingArrayOutput {
@@ -390,15 +327,15 @@ func (o AadDiagnosticSettingArrayOutput) ToAadDiagnosticSettingArrayOutputWithCo
 }
 
 func (o AadDiagnosticSettingArrayOutput) Index(i pulumi.IntInput) AadDiagnosticSettingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AadDiagnosticSetting {
-		return vs[0].([]AadDiagnosticSetting)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AadDiagnosticSetting {
+		return vs[0].([]*AadDiagnosticSetting)[vs[1].(int)]
 	}).(AadDiagnosticSettingOutput)
 }
 
 type AadDiagnosticSettingMapOutput struct{ *pulumi.OutputState }
 
 func (AadDiagnosticSettingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AadDiagnosticSetting)(nil))
+	return reflect.TypeOf((*map[string]*AadDiagnosticSetting)(nil)).Elem()
 }
 
 func (o AadDiagnosticSettingMapOutput) ToAadDiagnosticSettingMapOutput() AadDiagnosticSettingMapOutput {
@@ -410,18 +347,16 @@ func (o AadDiagnosticSettingMapOutput) ToAadDiagnosticSettingMapOutputWithContex
 }
 
 func (o AadDiagnosticSettingMapOutput) MapIndex(k pulumi.StringInput) AadDiagnosticSettingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AadDiagnosticSetting {
-		return vs[0].(map[string]AadDiagnosticSetting)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AadDiagnosticSetting {
+		return vs[0].(map[string]*AadDiagnosticSetting)[vs[1].(string)]
 	}).(AadDiagnosticSettingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingInput)(nil)).Elem(), &AadDiagnosticSetting{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingPtrInput)(nil)).Elem(), &AadDiagnosticSetting{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingArrayInput)(nil)).Elem(), AadDiagnosticSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AadDiagnosticSettingMapInput)(nil)).Elem(), AadDiagnosticSettingMap{})
 	pulumi.RegisterOutputType(AadDiagnosticSettingOutput{})
-	pulumi.RegisterOutputType(AadDiagnosticSettingPtrOutput{})
 	pulumi.RegisterOutputType(AadDiagnosticSettingArrayOutput{})
 	pulumi.RegisterOutputType(AadDiagnosticSettingMapOutput{})
 }

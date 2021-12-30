@@ -112,19 +112,19 @@ export class VpnSite extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpnSiteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpnSiteArgs | VpnSiteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnSiteState | undefined;
-            inputs["addressCidrs"] = state ? state.addressCidrs : undefined;
-            inputs["deviceModel"] = state ? state.deviceModel : undefined;
-            inputs["deviceVendor"] = state ? state.deviceVendor : undefined;
-            inputs["links"] = state ? state.links : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualWanId"] = state ? state.virtualWanId : undefined;
+            resourceInputs["addressCidrs"] = state ? state.addressCidrs : undefined;
+            resourceInputs["deviceModel"] = state ? state.deviceModel : undefined;
+            resourceInputs["deviceVendor"] = state ? state.deviceVendor : undefined;
+            resourceInputs["links"] = state ? state.links : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualWanId"] = state ? state.virtualWanId : undefined;
         } else {
             const args = argsOrState as VpnSiteArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -133,20 +133,20 @@ export class VpnSite extends pulumi.CustomResource {
             if ((!args || args.virtualWanId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualWanId'");
             }
-            inputs["addressCidrs"] = args ? args.addressCidrs : undefined;
-            inputs["deviceModel"] = args ? args.deviceModel : undefined;
-            inputs["deviceVendor"] = args ? args.deviceVendor : undefined;
-            inputs["links"] = args ? args.links : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualWanId"] = args ? args.virtualWanId : undefined;
+            resourceInputs["addressCidrs"] = args ? args.addressCidrs : undefined;
+            resourceInputs["deviceModel"] = args ? args.deviceModel : undefined;
+            resourceInputs["deviceVendor"] = args ? args.deviceVendor : undefined;
+            resourceInputs["links"] = args ? args.links : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualWanId"] = args ? args.virtualWanId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VpnSite.__pulumiType, name, inputs, opts);
+        super(VpnSite.__pulumiType, name, resourceInputs, opts);
     }
 }
 

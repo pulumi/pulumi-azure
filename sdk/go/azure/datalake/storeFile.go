@@ -126,7 +126,7 @@ type StoreFileInput interface {
 }
 
 func (*StoreFile) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoreFile)(nil))
+	return reflect.TypeOf((**StoreFile)(nil)).Elem()
 }
 
 func (i *StoreFile) ToStoreFileOutput() StoreFileOutput {
@@ -135,35 +135,6 @@ func (i *StoreFile) ToStoreFileOutput() StoreFileOutput {
 
 func (i *StoreFile) ToStoreFileOutputWithContext(ctx context.Context) StoreFileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StoreFileOutput)
-}
-
-func (i *StoreFile) ToStoreFilePtrOutput() StoreFilePtrOutput {
-	return i.ToStoreFilePtrOutputWithContext(context.Background())
-}
-
-func (i *StoreFile) ToStoreFilePtrOutputWithContext(ctx context.Context) StoreFilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StoreFilePtrOutput)
-}
-
-type StoreFilePtrInput interface {
-	pulumi.Input
-
-	ToStoreFilePtrOutput() StoreFilePtrOutput
-	ToStoreFilePtrOutputWithContext(ctx context.Context) StoreFilePtrOutput
-}
-
-type storeFilePtrType StoreFileArgs
-
-func (*storeFilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StoreFile)(nil))
-}
-
-func (i *storeFilePtrType) ToStoreFilePtrOutput() StoreFilePtrOutput {
-	return i.ToStoreFilePtrOutputWithContext(context.Background())
-}
-
-func (i *storeFilePtrType) ToStoreFilePtrOutputWithContext(ctx context.Context) StoreFilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StoreFilePtrOutput)
 }
 
 // StoreFileArrayInput is an input type that accepts StoreFileArray and StoreFileArrayOutput values.
@@ -219,7 +190,7 @@ func (i StoreFileMap) ToStoreFileMapOutputWithContext(ctx context.Context) Store
 type StoreFileOutput struct{ *pulumi.OutputState }
 
 func (StoreFileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StoreFile)(nil))
+	return reflect.TypeOf((**StoreFile)(nil)).Elem()
 }
 
 func (o StoreFileOutput) ToStoreFileOutput() StoreFileOutput {
@@ -230,44 +201,10 @@ func (o StoreFileOutput) ToStoreFileOutputWithContext(ctx context.Context) Store
 	return o
 }
 
-func (o StoreFileOutput) ToStoreFilePtrOutput() StoreFilePtrOutput {
-	return o.ToStoreFilePtrOutputWithContext(context.Background())
-}
-
-func (o StoreFileOutput) ToStoreFilePtrOutputWithContext(ctx context.Context) StoreFilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StoreFile) *StoreFile {
-		return &v
-	}).(StoreFilePtrOutput)
-}
-
-type StoreFilePtrOutput struct{ *pulumi.OutputState }
-
-func (StoreFilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StoreFile)(nil))
-}
-
-func (o StoreFilePtrOutput) ToStoreFilePtrOutput() StoreFilePtrOutput {
-	return o
-}
-
-func (o StoreFilePtrOutput) ToStoreFilePtrOutputWithContext(ctx context.Context) StoreFilePtrOutput {
-	return o
-}
-
-func (o StoreFilePtrOutput) Elem() StoreFileOutput {
-	return o.ApplyT(func(v *StoreFile) StoreFile {
-		if v != nil {
-			return *v
-		}
-		var ret StoreFile
-		return ret
-	}).(StoreFileOutput)
-}
-
 type StoreFileArrayOutput struct{ *pulumi.OutputState }
 
 func (StoreFileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StoreFile)(nil))
+	return reflect.TypeOf((*[]*StoreFile)(nil)).Elem()
 }
 
 func (o StoreFileArrayOutput) ToStoreFileArrayOutput() StoreFileArrayOutput {
@@ -279,15 +216,15 @@ func (o StoreFileArrayOutput) ToStoreFileArrayOutputWithContext(ctx context.Cont
 }
 
 func (o StoreFileArrayOutput) Index(i pulumi.IntInput) StoreFileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StoreFile {
-		return vs[0].([]StoreFile)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StoreFile {
+		return vs[0].([]*StoreFile)[vs[1].(int)]
 	}).(StoreFileOutput)
 }
 
 type StoreFileMapOutput struct{ *pulumi.OutputState }
 
 func (StoreFileMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StoreFile)(nil))
+	return reflect.TypeOf((*map[string]*StoreFile)(nil)).Elem()
 }
 
 func (o StoreFileMapOutput) ToStoreFileMapOutput() StoreFileMapOutput {
@@ -299,18 +236,16 @@ func (o StoreFileMapOutput) ToStoreFileMapOutputWithContext(ctx context.Context)
 }
 
 func (o StoreFileMapOutput) MapIndex(k pulumi.StringInput) StoreFileOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StoreFile {
-		return vs[0].(map[string]StoreFile)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StoreFile {
+		return vs[0].(map[string]*StoreFile)[vs[1].(string)]
 	}).(StoreFileOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StoreFileInput)(nil)).Elem(), &StoreFile{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StoreFilePtrInput)(nil)).Elem(), &StoreFile{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StoreFileArrayInput)(nil)).Elem(), StoreFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StoreFileMapInput)(nil)).Elem(), StoreFileMap{})
 	pulumi.RegisterOutputType(StoreFileOutput{})
-	pulumi.RegisterOutputType(StoreFilePtrOutput{})
 	pulumi.RegisterOutputType(StoreFileArrayOutput{})
 	pulumi.RegisterOutputType(StoreFileMapOutput{})
 }

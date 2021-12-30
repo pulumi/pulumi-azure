@@ -243,10 +243,11 @@ func Provider() tfbridge.ProviderInfo {
 		P:           p,
 		Name:        "azurerm",
 		Description: "A Pulumi package for creating and managing Microsoft Azure cloud resources, based on the Terraform azurerm provider. We recommend using the [Azure Native provider](https://github.com/pulumi/pulumi-azure-native) to provision Azure infrastructure. Azure Native provides complete coverage of Azure resources and same-day access to new resources and resource updates.",
-		Keywords:    []string{"pulumi", "azure"},
+		Keywords:    []string{"pulumi", "azure", "category/cloud"},
 		Homepage:    "https://pulumi.io",
 		License:     "Apache-2.0",
 		GitHubOrg:   "hashicorp",
+		Publisher:   "Pulumi",
 		Repository:  "https://github.com/pulumi/pulumi-azure",
 		Version:     version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{

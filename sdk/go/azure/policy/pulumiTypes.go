@@ -514,47 +514,6 @@ func (i VirtualMachineConfigurationAssignmentConfigurationArgs) ToVirtualMachine
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentConfigurationOutput)
 }
 
-func (i VirtualMachineConfigurationAssignmentConfigurationArgs) ToVirtualMachineConfigurationAssignmentConfigurationPtrOutput() VirtualMachineConfigurationAssignmentConfigurationPtrOutput {
-	return i.ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineConfigurationAssignmentConfigurationArgs) ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentConfigurationOutput).ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(ctx)
-}
-
-// VirtualMachineConfigurationAssignmentConfigurationPtrInput is an input type that accepts VirtualMachineConfigurationAssignmentConfigurationArgs, VirtualMachineConfigurationAssignmentConfigurationPtr and VirtualMachineConfigurationAssignmentConfigurationPtrOutput values.
-// You can construct a concrete instance of `VirtualMachineConfigurationAssignmentConfigurationPtrInput` via:
-//
-//          VirtualMachineConfigurationAssignmentConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualMachineConfigurationAssignmentConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachineConfigurationAssignmentConfigurationPtrOutput() VirtualMachineConfigurationAssignmentConfigurationPtrOutput
-	ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(context.Context) VirtualMachineConfigurationAssignmentConfigurationPtrOutput
-}
-
-type virtualMachineConfigurationAssignmentConfigurationPtrType VirtualMachineConfigurationAssignmentConfigurationArgs
-
-func VirtualMachineConfigurationAssignmentConfigurationPtr(v *VirtualMachineConfigurationAssignmentConfigurationArgs) VirtualMachineConfigurationAssignmentConfigurationPtrInput {
-	return (*virtualMachineConfigurationAssignmentConfigurationPtrType)(v)
-}
-
-func (*virtualMachineConfigurationAssignmentConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineConfigurationAssignmentConfiguration)(nil)).Elem()
-}
-
-func (i *virtualMachineConfigurationAssignmentConfigurationPtrType) ToVirtualMachineConfigurationAssignmentConfigurationPtrOutput() VirtualMachineConfigurationAssignmentConfigurationPtrOutput {
-	return i.ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachineConfigurationAssignmentConfigurationPtrType) ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentConfigurationPtrOutput)
-}
-
 type VirtualMachineConfigurationAssignmentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineConfigurationAssignmentConfigurationOutput) ElementType() reflect.Type {
@@ -567,16 +526,6 @@ func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ToVirtualMachi
 
 func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ToVirtualMachineConfigurationAssignmentConfigurationOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentConfigurationOutput {
 	return o
-}
-
-func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ToVirtualMachineConfigurationAssignmentConfigurationPtrOutput() VirtualMachineConfigurationAssignmentConfigurationPtrOutput {
-	return o.ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineConfigurationAssignmentConfiguration) *VirtualMachineConfigurationAssignmentConfiguration {
-		return &v
-	}).(VirtualMachineConfigurationAssignmentConfigurationPtrOutput)
 }
 
 // The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
@@ -611,92 +560,6 @@ func (o VirtualMachineConfigurationAssignmentConfigurationOutput) Parameters() V
 // The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
 func (o VirtualMachineConfigurationAssignmentConfigurationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type VirtualMachineConfigurationAssignmentConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineConfigurationAssignmentConfiguration)(nil)).Elem()
-}
-
-func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ToVirtualMachineConfigurationAssignmentConfigurationPtrOutput() VirtualMachineConfigurationAssignmentConfigurationPtrOutput {
-	return o
-}
-
-func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentConfigurationPtrOutput {
-	return o
-}
-
-func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) Elem() VirtualMachineConfigurationAssignmentConfigurationOutput {
-	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) VirtualMachineConfigurationAssignmentConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineConfigurationAssignmentConfiguration
-		return ret
-	}).(VirtualMachineConfigurationAssignmentConfigurationOutput)
-}
-
-// The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
-func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) AssignmentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AssignmentType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The content hash for the Guest Configuration package.
-func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ContentHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ContentHash
-	}).(pulumi.StringPtrOutput)
-}
-
-// The content URI where the Guest Configuration package is stored.
-func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ContentUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ContentUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// This field is no longer used and will be removed in the next major version of the Azure Provider.
-//
-// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// One or more `parameter` blocks which define what configuration parameters and values against.
-func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) Parameters() VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput {
-	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) []VirtualMachineConfigurationAssignmentConfigurationParameter {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput)
-}
-
-// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
 }
 
 type VirtualMachineConfigurationAssignmentConfigurationParameter struct {
@@ -1079,7 +942,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionPolicyDefinitionReferenceInput)(nil)).Elem(), PolicySetDefinitionPolicyDefinitionReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySetDefinitionPolicyDefinitionReferenceArrayInput)(nil)).Elem(), PolicySetDefinitionPolicyDefinitionReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentConfigurationInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentConfigurationPtrInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentConfigurationParameterInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentConfigurationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineConfigurationAssignmentConfigurationParameterArrayInput)(nil)).Elem(), VirtualMachineConfigurationAssignmentConfigurationParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionGroupInput)(nil)).Elem(), GetPolicySetDefinitionPolicyDefinitionGroupArgs{})
@@ -1093,7 +955,6 @@ func init() {
 	pulumi.RegisterOutputType(PolicySetDefinitionPolicyDefinitionReferenceOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPolicyDefinitionReferenceArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentConfigurationOutput{})
-	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentConfigurationParameterOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput{})
 	pulumi.RegisterOutputType(GetPolicySetDefinitionPolicyDefinitionGroupOutput{})

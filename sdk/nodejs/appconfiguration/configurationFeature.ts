@@ -120,42 +120,42 @@ export class ConfigurationFeature extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConfigurationFeatureArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationFeatureArgs | ConfigurationFeatureState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationFeatureState | undefined;
-            inputs["configurationStoreId"] = state ? state.configurationStoreId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["label"] = state ? state.label : undefined;
-            inputs["locked"] = state ? state.locked : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["percentageFilterValue"] = state ? state.percentageFilterValue : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["targetingFilters"] = state ? state.targetingFilters : undefined;
-            inputs["timewindowFilters"] = state ? state.timewindowFilters : undefined;
+            resourceInputs["configurationStoreId"] = state ? state.configurationStoreId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["label"] = state ? state.label : undefined;
+            resourceInputs["locked"] = state ? state.locked : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["percentageFilterValue"] = state ? state.percentageFilterValue : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["targetingFilters"] = state ? state.targetingFilters : undefined;
+            resourceInputs["timewindowFilters"] = state ? state.timewindowFilters : undefined;
         } else {
             const args = argsOrState as ConfigurationFeatureArgs | undefined;
             if ((!args || args.configurationStoreId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configurationStoreId'");
             }
-            inputs["configurationStoreId"] = args ? args.configurationStoreId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["label"] = args ? args.label : undefined;
-            inputs["locked"] = args ? args.locked : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["percentageFilterValue"] = args ? args.percentageFilterValue : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetingFilters"] = args ? args.targetingFilters : undefined;
-            inputs["timewindowFilters"] = args ? args.timewindowFilters : undefined;
+            resourceInputs["configurationStoreId"] = args ? args.configurationStoreId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["locked"] = args ? args.locked : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["percentageFilterValue"] = args ? args.percentageFilterValue : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetingFilters"] = args ? args.targetingFilters : undefined;
+            resourceInputs["timewindowFilters"] = args ? args.timewindowFilters : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ConfigurationFeature.__pulumiType, name, inputs, opts);
+        super(ConfigurationFeature.__pulumiType, name, resourceInputs, opts);
     }
 }
 

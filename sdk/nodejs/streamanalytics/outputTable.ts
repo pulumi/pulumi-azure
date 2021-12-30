@@ -121,19 +121,19 @@ export class OutputTable extends pulumi.CustomResource {
      */
     constructor(name: string, args: OutputTableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OutputTableArgs | OutputTableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputTableState | undefined;
-            inputs["batchSize"] = state ? state.batchSize : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partitionKey"] = state ? state.partitionKey : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["rowKey"] = state ? state.rowKey : undefined;
-            inputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
-            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
-            inputs["table"] = state ? state.table : undefined;
+            resourceInputs["batchSize"] = state ? state.batchSize : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partitionKey"] = state ? state.partitionKey : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["rowKey"] = state ? state.rowKey : undefined;
+            resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
+            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["table"] = state ? state.table : undefined;
         } else {
             const args = argsOrState as OutputTableArgs | undefined;
             if ((!args || args.batchSize === undefined) && !opts.urn) {
@@ -160,20 +160,20 @@ export class OutputTable extends pulumi.CustomResource {
             if ((!args || args.table === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'table'");
             }
-            inputs["batchSize"] = args ? args.batchSize : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partitionKey"] = args ? args.partitionKey : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rowKey"] = args ? args.rowKey : undefined;
-            inputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
-            inputs["table"] = args ? args.table : undefined;
+            resourceInputs["batchSize"] = args ? args.batchSize : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partitionKey"] = args ? args.partitionKey : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rowKey"] = args ? args.rowKey : undefined;
+            resourceInputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["table"] = args ? args.table : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OutputTable.__pulumiType, name, inputs, opts);
+        super(OutputTable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

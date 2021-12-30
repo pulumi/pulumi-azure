@@ -243,7 +243,7 @@ type CassandraDatacenterInput interface {
 }
 
 func (*CassandraDatacenter) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraDatacenter)(nil))
+	return reflect.TypeOf((**CassandraDatacenter)(nil)).Elem()
 }
 
 func (i *CassandraDatacenter) ToCassandraDatacenterOutput() CassandraDatacenterOutput {
@@ -252,35 +252,6 @@ func (i *CassandraDatacenter) ToCassandraDatacenterOutput() CassandraDatacenterO
 
 func (i *CassandraDatacenter) ToCassandraDatacenterOutputWithContext(ctx context.Context) CassandraDatacenterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraDatacenterOutput)
-}
-
-func (i *CassandraDatacenter) ToCassandraDatacenterPtrOutput() CassandraDatacenterPtrOutput {
-	return i.ToCassandraDatacenterPtrOutputWithContext(context.Background())
-}
-
-func (i *CassandraDatacenter) ToCassandraDatacenterPtrOutputWithContext(ctx context.Context) CassandraDatacenterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CassandraDatacenterPtrOutput)
-}
-
-type CassandraDatacenterPtrInput interface {
-	pulumi.Input
-
-	ToCassandraDatacenterPtrOutput() CassandraDatacenterPtrOutput
-	ToCassandraDatacenterPtrOutputWithContext(ctx context.Context) CassandraDatacenterPtrOutput
-}
-
-type cassandraDatacenterPtrType CassandraDatacenterArgs
-
-func (*cassandraDatacenterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CassandraDatacenter)(nil))
-}
-
-func (i *cassandraDatacenterPtrType) ToCassandraDatacenterPtrOutput() CassandraDatacenterPtrOutput {
-	return i.ToCassandraDatacenterPtrOutputWithContext(context.Background())
-}
-
-func (i *cassandraDatacenterPtrType) ToCassandraDatacenterPtrOutputWithContext(ctx context.Context) CassandraDatacenterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CassandraDatacenterPtrOutput)
 }
 
 // CassandraDatacenterArrayInput is an input type that accepts CassandraDatacenterArray and CassandraDatacenterArrayOutput values.
@@ -336,7 +307,7 @@ func (i CassandraDatacenterMap) ToCassandraDatacenterMapOutputWithContext(ctx co
 type CassandraDatacenterOutput struct{ *pulumi.OutputState }
 
 func (CassandraDatacenterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraDatacenter)(nil))
+	return reflect.TypeOf((**CassandraDatacenter)(nil)).Elem()
 }
 
 func (o CassandraDatacenterOutput) ToCassandraDatacenterOutput() CassandraDatacenterOutput {
@@ -347,44 +318,10 @@ func (o CassandraDatacenterOutput) ToCassandraDatacenterOutputWithContext(ctx co
 	return o
 }
 
-func (o CassandraDatacenterOutput) ToCassandraDatacenterPtrOutput() CassandraDatacenterPtrOutput {
-	return o.ToCassandraDatacenterPtrOutputWithContext(context.Background())
-}
-
-func (o CassandraDatacenterOutput) ToCassandraDatacenterPtrOutputWithContext(ctx context.Context) CassandraDatacenterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraDatacenter) *CassandraDatacenter {
-		return &v
-	}).(CassandraDatacenterPtrOutput)
-}
-
-type CassandraDatacenterPtrOutput struct{ *pulumi.OutputState }
-
-func (CassandraDatacenterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CassandraDatacenter)(nil))
-}
-
-func (o CassandraDatacenterPtrOutput) ToCassandraDatacenterPtrOutput() CassandraDatacenterPtrOutput {
-	return o
-}
-
-func (o CassandraDatacenterPtrOutput) ToCassandraDatacenterPtrOutputWithContext(ctx context.Context) CassandraDatacenterPtrOutput {
-	return o
-}
-
-func (o CassandraDatacenterPtrOutput) Elem() CassandraDatacenterOutput {
-	return o.ApplyT(func(v *CassandraDatacenter) CassandraDatacenter {
-		if v != nil {
-			return *v
-		}
-		var ret CassandraDatacenter
-		return ret
-	}).(CassandraDatacenterOutput)
-}
-
 type CassandraDatacenterArrayOutput struct{ *pulumi.OutputState }
 
 func (CassandraDatacenterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CassandraDatacenter)(nil))
+	return reflect.TypeOf((*[]*CassandraDatacenter)(nil)).Elem()
 }
 
 func (o CassandraDatacenterArrayOutput) ToCassandraDatacenterArrayOutput() CassandraDatacenterArrayOutput {
@@ -396,15 +333,15 @@ func (o CassandraDatacenterArrayOutput) ToCassandraDatacenterArrayOutputWithCont
 }
 
 func (o CassandraDatacenterArrayOutput) Index(i pulumi.IntInput) CassandraDatacenterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CassandraDatacenter {
-		return vs[0].([]CassandraDatacenter)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CassandraDatacenter {
+		return vs[0].([]*CassandraDatacenter)[vs[1].(int)]
 	}).(CassandraDatacenterOutput)
 }
 
 type CassandraDatacenterMapOutput struct{ *pulumi.OutputState }
 
 func (CassandraDatacenterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CassandraDatacenter)(nil))
+	return reflect.TypeOf((*map[string]*CassandraDatacenter)(nil)).Elem()
 }
 
 func (o CassandraDatacenterMapOutput) ToCassandraDatacenterMapOutput() CassandraDatacenterMapOutput {
@@ -416,18 +353,16 @@ func (o CassandraDatacenterMapOutput) ToCassandraDatacenterMapOutputWithContext(
 }
 
 func (o CassandraDatacenterMapOutput) MapIndex(k pulumi.StringInput) CassandraDatacenterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CassandraDatacenter {
-		return vs[0].(map[string]CassandraDatacenter)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CassandraDatacenter {
+		return vs[0].(map[string]*CassandraDatacenter)[vs[1].(string)]
 	}).(CassandraDatacenterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraDatacenterInput)(nil)).Elem(), &CassandraDatacenter{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CassandraDatacenterPtrInput)(nil)).Elem(), &CassandraDatacenter{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraDatacenterArrayInput)(nil)).Elem(), CassandraDatacenterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraDatacenterMapInput)(nil)).Elem(), CassandraDatacenterMap{})
 	pulumi.RegisterOutputType(CassandraDatacenterOutput{})
-	pulumi.RegisterOutputType(CassandraDatacenterPtrOutput{})
 	pulumi.RegisterOutputType(CassandraDatacenterArrayOutput{})
 	pulumi.RegisterOutputType(CassandraDatacenterMapOutput{})
 }

@@ -133,22 +133,22 @@ export class NatPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: NatPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NatPoolArgs | NatPoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NatPoolState | undefined;
-            inputs["backendPort"] = state ? state.backendPort : undefined;
-            inputs["floatingIpEnabled"] = state ? state.floatingIpEnabled : undefined;
-            inputs["frontendIpConfigurationId"] = state ? state.frontendIpConfigurationId : undefined;
-            inputs["frontendIpConfigurationName"] = state ? state.frontendIpConfigurationName : undefined;
-            inputs["frontendPortEnd"] = state ? state.frontendPortEnd : undefined;
-            inputs["frontendPortStart"] = state ? state.frontendPortStart : undefined;
-            inputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
-            inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tcpResetEnabled"] = state ? state.tcpResetEnabled : undefined;
+            resourceInputs["backendPort"] = state ? state.backendPort : undefined;
+            resourceInputs["floatingIpEnabled"] = state ? state.floatingIpEnabled : undefined;
+            resourceInputs["frontendIpConfigurationId"] = state ? state.frontendIpConfigurationId : undefined;
+            resourceInputs["frontendIpConfigurationName"] = state ? state.frontendIpConfigurationName : undefined;
+            resourceInputs["frontendPortEnd"] = state ? state.frontendPortEnd : undefined;
+            resourceInputs["frontendPortStart"] = state ? state.frontendPortStart : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
+            resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tcpResetEnabled"] = state ? state.tcpResetEnabled : undefined;
         } else {
             const args = argsOrState as NatPoolArgs | undefined;
             if ((!args || args.backendPort === undefined) && !opts.urn) {
@@ -172,23 +172,23 @@ export class NatPool extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["backendPort"] = args ? args.backendPort : undefined;
-            inputs["floatingIpEnabled"] = args ? args.floatingIpEnabled : undefined;
-            inputs["frontendIpConfigurationName"] = args ? args.frontendIpConfigurationName : undefined;
-            inputs["frontendPortEnd"] = args ? args.frontendPortEnd : undefined;
-            inputs["frontendPortStart"] = args ? args.frontendPortStart : undefined;
-            inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tcpResetEnabled"] = args ? args.tcpResetEnabled : undefined;
-            inputs["frontendIpConfigurationId"] = undefined /*out*/;
+            resourceInputs["backendPort"] = args ? args.backendPort : undefined;
+            resourceInputs["floatingIpEnabled"] = args ? args.floatingIpEnabled : undefined;
+            resourceInputs["frontendIpConfigurationName"] = args ? args.frontendIpConfigurationName : undefined;
+            resourceInputs["frontendPortEnd"] = args ? args.frontendPortEnd : undefined;
+            resourceInputs["frontendPortStart"] = args ? args.frontendPortStart : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
+            resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tcpResetEnabled"] = args ? args.tcpResetEnabled : undefined;
+            resourceInputs["frontendIpConfigurationId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NatPool.__pulumiType, name, inputs, opts);
+        super(NatPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

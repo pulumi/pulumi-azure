@@ -172,7 +172,7 @@ type DataConnectorAwsCloudTrailInput interface {
 }
 
 func (*DataConnectorAwsCloudTrail) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorAwsCloudTrail)(nil))
+	return reflect.TypeOf((**DataConnectorAwsCloudTrail)(nil)).Elem()
 }
 
 func (i *DataConnectorAwsCloudTrail) ToDataConnectorAwsCloudTrailOutput() DataConnectorAwsCloudTrailOutput {
@@ -181,35 +181,6 @@ func (i *DataConnectorAwsCloudTrail) ToDataConnectorAwsCloudTrailOutput() DataCo
 
 func (i *DataConnectorAwsCloudTrail) ToDataConnectorAwsCloudTrailOutputWithContext(ctx context.Context) DataConnectorAwsCloudTrailOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAwsCloudTrailOutput)
-}
-
-func (i *DataConnectorAwsCloudTrail) ToDataConnectorAwsCloudTrailPtrOutput() DataConnectorAwsCloudTrailPtrOutput {
-	return i.ToDataConnectorAwsCloudTrailPtrOutputWithContext(context.Background())
-}
-
-func (i *DataConnectorAwsCloudTrail) ToDataConnectorAwsCloudTrailPtrOutputWithContext(ctx context.Context) DataConnectorAwsCloudTrailPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAwsCloudTrailPtrOutput)
-}
-
-type DataConnectorAwsCloudTrailPtrInput interface {
-	pulumi.Input
-
-	ToDataConnectorAwsCloudTrailPtrOutput() DataConnectorAwsCloudTrailPtrOutput
-	ToDataConnectorAwsCloudTrailPtrOutputWithContext(ctx context.Context) DataConnectorAwsCloudTrailPtrOutput
-}
-
-type dataConnectorAwsCloudTrailPtrType DataConnectorAwsCloudTrailArgs
-
-func (*dataConnectorAwsCloudTrailPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorAwsCloudTrail)(nil))
-}
-
-func (i *dataConnectorAwsCloudTrailPtrType) ToDataConnectorAwsCloudTrailPtrOutput() DataConnectorAwsCloudTrailPtrOutput {
-	return i.ToDataConnectorAwsCloudTrailPtrOutputWithContext(context.Background())
-}
-
-func (i *dataConnectorAwsCloudTrailPtrType) ToDataConnectorAwsCloudTrailPtrOutputWithContext(ctx context.Context) DataConnectorAwsCloudTrailPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAwsCloudTrailPtrOutput)
 }
 
 // DataConnectorAwsCloudTrailArrayInput is an input type that accepts DataConnectorAwsCloudTrailArray and DataConnectorAwsCloudTrailArrayOutput values.
@@ -265,7 +236,7 @@ func (i DataConnectorAwsCloudTrailMap) ToDataConnectorAwsCloudTrailMapOutputWith
 type DataConnectorAwsCloudTrailOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAwsCloudTrailOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectorAwsCloudTrail)(nil))
+	return reflect.TypeOf((**DataConnectorAwsCloudTrail)(nil)).Elem()
 }
 
 func (o DataConnectorAwsCloudTrailOutput) ToDataConnectorAwsCloudTrailOutput() DataConnectorAwsCloudTrailOutput {
@@ -276,44 +247,10 @@ func (o DataConnectorAwsCloudTrailOutput) ToDataConnectorAwsCloudTrailOutputWith
 	return o
 }
 
-func (o DataConnectorAwsCloudTrailOutput) ToDataConnectorAwsCloudTrailPtrOutput() DataConnectorAwsCloudTrailPtrOutput {
-	return o.ToDataConnectorAwsCloudTrailPtrOutputWithContext(context.Background())
-}
-
-func (o DataConnectorAwsCloudTrailOutput) ToDataConnectorAwsCloudTrailPtrOutputWithContext(ctx context.Context) DataConnectorAwsCloudTrailPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorAwsCloudTrail) *DataConnectorAwsCloudTrail {
-		return &v
-	}).(DataConnectorAwsCloudTrailPtrOutput)
-}
-
-type DataConnectorAwsCloudTrailPtrOutput struct{ *pulumi.OutputState }
-
-func (DataConnectorAwsCloudTrailPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataConnectorAwsCloudTrail)(nil))
-}
-
-func (o DataConnectorAwsCloudTrailPtrOutput) ToDataConnectorAwsCloudTrailPtrOutput() DataConnectorAwsCloudTrailPtrOutput {
-	return o
-}
-
-func (o DataConnectorAwsCloudTrailPtrOutput) ToDataConnectorAwsCloudTrailPtrOutputWithContext(ctx context.Context) DataConnectorAwsCloudTrailPtrOutput {
-	return o
-}
-
-func (o DataConnectorAwsCloudTrailPtrOutput) Elem() DataConnectorAwsCloudTrailOutput {
-	return o.ApplyT(func(v *DataConnectorAwsCloudTrail) DataConnectorAwsCloudTrail {
-		if v != nil {
-			return *v
-		}
-		var ret DataConnectorAwsCloudTrail
-		return ret
-	}).(DataConnectorAwsCloudTrailOutput)
-}
-
 type DataConnectorAwsCloudTrailArrayOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAwsCloudTrailArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataConnectorAwsCloudTrail)(nil))
+	return reflect.TypeOf((*[]*DataConnectorAwsCloudTrail)(nil)).Elem()
 }
 
 func (o DataConnectorAwsCloudTrailArrayOutput) ToDataConnectorAwsCloudTrailArrayOutput() DataConnectorAwsCloudTrailArrayOutput {
@@ -325,15 +262,15 @@ func (o DataConnectorAwsCloudTrailArrayOutput) ToDataConnectorAwsCloudTrailArray
 }
 
 func (o DataConnectorAwsCloudTrailArrayOutput) Index(i pulumi.IntInput) DataConnectorAwsCloudTrailOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataConnectorAwsCloudTrail {
-		return vs[0].([]DataConnectorAwsCloudTrail)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorAwsCloudTrail {
+		return vs[0].([]*DataConnectorAwsCloudTrail)[vs[1].(int)]
 	}).(DataConnectorAwsCloudTrailOutput)
 }
 
 type DataConnectorAwsCloudTrailMapOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAwsCloudTrailMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataConnectorAwsCloudTrail)(nil))
+	return reflect.TypeOf((*map[string]*DataConnectorAwsCloudTrail)(nil)).Elem()
 }
 
 func (o DataConnectorAwsCloudTrailMapOutput) ToDataConnectorAwsCloudTrailMapOutput() DataConnectorAwsCloudTrailMapOutput {
@@ -345,18 +282,16 @@ func (o DataConnectorAwsCloudTrailMapOutput) ToDataConnectorAwsCloudTrailMapOutp
 }
 
 func (o DataConnectorAwsCloudTrailMapOutput) MapIndex(k pulumi.StringInput) DataConnectorAwsCloudTrailOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataConnectorAwsCloudTrail {
-		return vs[0].(map[string]DataConnectorAwsCloudTrail)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DataConnectorAwsCloudTrail {
+		return vs[0].(map[string]*DataConnectorAwsCloudTrail)[vs[1].(string)]
 	}).(DataConnectorAwsCloudTrailOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAwsCloudTrailInput)(nil)).Elem(), &DataConnectorAwsCloudTrail{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAwsCloudTrailPtrInput)(nil)).Elem(), &DataConnectorAwsCloudTrail{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAwsCloudTrailArrayInput)(nil)).Elem(), DataConnectorAwsCloudTrailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataConnectorAwsCloudTrailMapInput)(nil)).Elem(), DataConnectorAwsCloudTrailMap{})
 	pulumi.RegisterOutputType(DataConnectorAwsCloudTrailOutput{})
-	pulumi.RegisterOutputType(DataConnectorAwsCloudTrailPtrOutput{})
 	pulumi.RegisterOutputType(DataConnectorAwsCloudTrailArrayOutput{})
 	pulumi.RegisterOutputType(DataConnectorAwsCloudTrailMapOutput{})
 }

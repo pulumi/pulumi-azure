@@ -205,66 +205,66 @@ export class Registry extends pulumi.CustomResource {
      */
     constructor(name: string, args: RegistryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegistryArgs | RegistryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryState | undefined;
-            inputs["adminEnabled"] = state ? state.adminEnabled : undefined;
-            inputs["adminPassword"] = state ? state.adminPassword : undefined;
-            inputs["adminUsername"] = state ? state.adminUsername : undefined;
-            inputs["anonymousPullEnabled"] = state ? state.anonymousPullEnabled : undefined;
-            inputs["dataEndpointEnabled"] = state ? state.dataEndpointEnabled : undefined;
-            inputs["encryption"] = state ? state.encryption : undefined;
-            inputs["georeplicationLocations"] = state ? state.georeplicationLocations : undefined;
-            inputs["georeplications"] = state ? state.georeplications : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["loginServer"] = state ? state.loginServer : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkRuleBypassOption"] = state ? state.networkRuleBypassOption : undefined;
-            inputs["networkRuleSet"] = state ? state.networkRuleSet : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["quarantinePolicyEnabled"] = state ? state.quarantinePolicyEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["trustPolicy"] = state ? state.trustPolicy : undefined;
-            inputs["zoneRedundancyEnabled"] = state ? state.zoneRedundancyEnabled : undefined;
+            resourceInputs["adminEnabled"] = state ? state.adminEnabled : undefined;
+            resourceInputs["adminPassword"] = state ? state.adminPassword : undefined;
+            resourceInputs["adminUsername"] = state ? state.adminUsername : undefined;
+            resourceInputs["anonymousPullEnabled"] = state ? state.anonymousPullEnabled : undefined;
+            resourceInputs["dataEndpointEnabled"] = state ? state.dataEndpointEnabled : undefined;
+            resourceInputs["encryption"] = state ? state.encryption : undefined;
+            resourceInputs["georeplicationLocations"] = state ? state.georeplicationLocations : undefined;
+            resourceInputs["georeplications"] = state ? state.georeplications : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["loginServer"] = state ? state.loginServer : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkRuleBypassOption"] = state ? state.networkRuleBypassOption : undefined;
+            resourceInputs["networkRuleSet"] = state ? state.networkRuleSet : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["quarantinePolicyEnabled"] = state ? state.quarantinePolicyEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["trustPolicy"] = state ? state.trustPolicy : undefined;
+            resourceInputs["zoneRedundancyEnabled"] = state ? state.zoneRedundancyEnabled : undefined;
         } else {
             const args = argsOrState as RegistryArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["adminEnabled"] = args ? args.adminEnabled : undefined;
-            inputs["anonymousPullEnabled"] = args ? args.anonymousPullEnabled : undefined;
-            inputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["georeplicationLocations"] = args ? args.georeplicationLocations : undefined;
-            inputs["georeplications"] = args ? args.georeplications : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkRuleBypassOption"] = args ? args.networkRuleBypassOption : undefined;
-            inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["quarantinePolicyEnabled"] = args ? args.quarantinePolicyEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trustPolicy"] = args ? args.trustPolicy : undefined;
-            inputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
-            inputs["adminPassword"] = undefined /*out*/;
-            inputs["adminUsername"] = undefined /*out*/;
-            inputs["loginServer"] = undefined /*out*/;
+            resourceInputs["adminEnabled"] = args ? args.adminEnabled : undefined;
+            resourceInputs["anonymousPullEnabled"] = args ? args.anonymousPullEnabled : undefined;
+            resourceInputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["georeplicationLocations"] = args ? args.georeplicationLocations : undefined;
+            resourceInputs["georeplications"] = args ? args.georeplications : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkRuleBypassOption"] = args ? args.networkRuleBypassOption : undefined;
+            resourceInputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["quarantinePolicyEnabled"] = args ? args.quarantinePolicyEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trustPolicy"] = args ? args.trustPolicy : undefined;
+            resourceInputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
+            resourceInputs["adminPassword"] = undefined /*out*/;
+            resourceInputs["adminUsername"] = undefined /*out*/;
+            resourceInputs["loginServer"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Registry.__pulumiType, name, inputs, opts);
+        super(Registry.__pulumiType, name, resourceInputs, opts);
     }
 }
 

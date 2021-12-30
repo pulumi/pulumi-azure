@@ -95,14 +95,14 @@ export class NotebookWorkspace extends pulumi.CustomResource {
      */
     constructor(name: string, args: NotebookWorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotebookWorkspaceArgs | NotebookWorkspaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotebookWorkspaceState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serverEndpoint"] = state ? state.serverEndpoint : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serverEndpoint"] = state ? state.serverEndpoint : undefined;
         } else {
             const args = argsOrState as NotebookWorkspaceArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -111,15 +111,15 @@ export class NotebookWorkspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverEndpoint"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverEndpoint"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NotebookWorkspace.__pulumiType, name, inputs, opts);
+        super(NotebookWorkspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

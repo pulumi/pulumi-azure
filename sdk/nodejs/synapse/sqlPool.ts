@@ -119,19 +119,19 @@ export class SqlPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlPoolArgs | SqlPoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlPoolState | undefined;
-            inputs["collation"] = state ? state.collation : undefined;
-            inputs["createMode"] = state ? state.createMode : undefined;
-            inputs["dataEncrypted"] = state ? state.dataEncrypted : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["recoveryDatabaseId"] = state ? state.recoveryDatabaseId : undefined;
-            inputs["restore"] = state ? state.restore : undefined;
-            inputs["skuName"] = state ? state.skuName : undefined;
-            inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["collation"] = state ? state.collation : undefined;
+            resourceInputs["createMode"] = state ? state.createMode : undefined;
+            resourceInputs["dataEncrypted"] = state ? state.dataEncrypted : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["recoveryDatabaseId"] = state ? state.recoveryDatabaseId : undefined;
+            resourceInputs["restore"] = state ? state.restore : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SqlPoolArgs | undefined;
             if ((!args || args.skuName === undefined) && !opts.urn) {
@@ -140,20 +140,20 @@ export class SqlPool extends pulumi.CustomResource {
             if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            inputs["collation"] = args ? args.collation : undefined;
-            inputs["createMode"] = args ? args.createMode : undefined;
-            inputs["dataEncrypted"] = args ? args.dataEncrypted : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recoveryDatabaseId"] = args ? args.recoveryDatabaseId : undefined;
-            inputs["restore"] = args ? args.restore : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["dataEncrypted"] = args ? args.dataEncrypted : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recoveryDatabaseId"] = args ? args.recoveryDatabaseId : undefined;
+            resourceInputs["restore"] = args ? args.restore : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SqlPool.__pulumiType, name, inputs, opts);
+        super(SqlPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

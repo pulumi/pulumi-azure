@@ -106,18 +106,18 @@ export class IntegrationAccountAssembly extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationAccountAssemblyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationAccountAssemblyArgs | IntegrationAccountAssemblyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountAssemblyState | undefined;
-            inputs["assemblyName"] = state ? state.assemblyName : undefined;
-            inputs["assemblyVersion"] = state ? state.assemblyVersion : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["contentLinkUri"] = state ? state.contentLinkUri : undefined;
-            inputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["assemblyName"] = state ? state.assemblyName : undefined;
+            resourceInputs["assemblyVersion"] = state ? state.assemblyVersion : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["contentLinkUri"] = state ? state.contentLinkUri : undefined;
+            resourceInputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IntegrationAccountAssemblyArgs | undefined;
             if ((!args || args.assemblyName === undefined) && !opts.urn) {
@@ -129,19 +129,19 @@ export class IntegrationAccountAssembly extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["assemblyName"] = args ? args.assemblyName : undefined;
-            inputs["assemblyVersion"] = args ? args.assemblyVersion : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["contentLinkUri"] = args ? args.contentLinkUri : undefined;
-            inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["assemblyName"] = args ? args.assemblyName : undefined;
+            resourceInputs["assemblyVersion"] = args ? args.assemblyVersion : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["contentLinkUri"] = args ? args.contentLinkUri : undefined;
+            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IntegrationAccountAssembly.__pulumiType, name, inputs, opts);
+        super(IntegrationAccountAssembly.__pulumiType, name, resourceInputs, opts);
     }
 }
 

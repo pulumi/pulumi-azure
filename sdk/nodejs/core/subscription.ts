@@ -149,34 +149,34 @@ export class Subscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubscriptionArgs | SubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["billingScopeId"] = state ? state.billingScopeId : undefined;
-            inputs["subscriptionId"] = state ? state.subscriptionId : undefined;
-            inputs["subscriptionName"] = state ? state.subscriptionName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
-            inputs["workload"] = state ? state.workload : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["billingScopeId"] = state ? state.billingScopeId : undefined;
+            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
+            resourceInputs["subscriptionName"] = state ? state.subscriptionName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["workload"] = state ? state.workload : undefined;
         } else {
             const args = argsOrState as SubscriptionArgs | undefined;
             if ((!args || args.subscriptionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionName'");
             }
-            inputs["alias"] = args ? args.alias : undefined;
-            inputs["billingScopeId"] = args ? args.billingScopeId : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workload"] = args ? args.workload : undefined;
-            inputs["tenantId"] = undefined /*out*/;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["billingScopeId"] = args ? args.billingScopeId : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workload"] = args ? args.workload : undefined;
+            resourceInputs["tenantId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Subscription.__pulumiType, name, inputs, opts);
+        super(Subscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

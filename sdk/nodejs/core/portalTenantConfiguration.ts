@@ -76,22 +76,22 @@ export class PortalTenantConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: PortalTenantConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PortalTenantConfigurationArgs | PortalTenantConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PortalTenantConfigurationState | undefined;
-            inputs["privateMarkdownStorageEnforced"] = state ? state.privateMarkdownStorageEnforced : undefined;
+            resourceInputs["privateMarkdownStorageEnforced"] = state ? state.privateMarkdownStorageEnforced : undefined;
         } else {
             const args = argsOrState as PortalTenantConfigurationArgs | undefined;
             if ((!args || args.privateMarkdownStorageEnforced === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateMarkdownStorageEnforced'");
             }
-            inputs["privateMarkdownStorageEnforced"] = args ? args.privateMarkdownStorageEnforced : undefined;
+            resourceInputs["privateMarkdownStorageEnforced"] = args ? args.privateMarkdownStorageEnforced : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PortalTenantConfiguration.__pulumiType, name, inputs, opts);
+        super(PortalTenantConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

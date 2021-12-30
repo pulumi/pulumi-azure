@@ -175,19 +175,19 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkPacketCaptureArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkPacketCaptureArgs | NetworkPacketCaptureState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkPacketCaptureState | undefined;
-            inputs["filters"] = state ? state.filters : undefined;
-            inputs["maximumBytesPerPacket"] = state ? state.maximumBytesPerPacket : undefined;
-            inputs["maximumBytesPerSession"] = state ? state.maximumBytesPerSession : undefined;
-            inputs["maximumCaptureDuration"] = state ? state.maximumCaptureDuration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkWatcherName"] = state ? state.networkWatcherName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["storageLocation"] = state ? state.storageLocation : undefined;
-            inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["maximumBytesPerPacket"] = state ? state.maximumBytesPerPacket : undefined;
+            resourceInputs["maximumBytesPerSession"] = state ? state.maximumBytesPerSession : undefined;
+            resourceInputs["maximumCaptureDuration"] = state ? state.maximumCaptureDuration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkWatcherName"] = state ? state.networkWatcherName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["storageLocation"] = state ? state.storageLocation : undefined;
+            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as NetworkPacketCaptureArgs | undefined;
             if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
@@ -202,20 +202,20 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["maximumBytesPerPacket"] = args ? args.maximumBytesPerPacket : undefined;
-            inputs["maximumBytesPerSession"] = args ? args.maximumBytesPerSession : undefined;
-            inputs["maximumCaptureDuration"] = args ? args.maximumCaptureDuration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageLocation"] = args ? args.storageLocation : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["maximumBytesPerPacket"] = args ? args.maximumBytesPerPacket : undefined;
+            resourceInputs["maximumBytesPerSession"] = args ? args.maximumBytesPerSession : undefined;
+            resourceInputs["maximumCaptureDuration"] = args ? args.maximumCaptureDuration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NetworkPacketCapture.__pulumiType, name, inputs, opts);
+        super(NetworkPacketCapture.__pulumiType, name, resourceInputs, opts);
     }
 }
 

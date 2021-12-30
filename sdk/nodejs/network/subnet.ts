@@ -129,20 +129,20 @@ export class Subnet extends pulumi.CustomResource {
      */
     constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubnetArgs | SubnetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubnetState | undefined;
-            inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
-            inputs["addressPrefixes"] = state ? state.addressPrefixes : undefined;
-            inputs["delegations"] = state ? state.delegations : undefined;
-            inputs["enforcePrivateLinkEndpointNetworkPolicies"] = state ? state.enforcePrivateLinkEndpointNetworkPolicies : undefined;
-            inputs["enforcePrivateLinkServiceNetworkPolicies"] = state ? state.enforcePrivateLinkServiceNetworkPolicies : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serviceEndpointPolicyIds"] = state ? state.serviceEndpointPolicyIds : undefined;
-            inputs["serviceEndpoints"] = state ? state.serviceEndpoints : undefined;
-            inputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
+            resourceInputs["addressPrefix"] = state ? state.addressPrefix : undefined;
+            resourceInputs["addressPrefixes"] = state ? state.addressPrefixes : undefined;
+            resourceInputs["delegations"] = state ? state.delegations : undefined;
+            resourceInputs["enforcePrivateLinkEndpointNetworkPolicies"] = state ? state.enforcePrivateLinkEndpointNetworkPolicies : undefined;
+            resourceInputs["enforcePrivateLinkServiceNetworkPolicies"] = state ? state.enforcePrivateLinkServiceNetworkPolicies : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serviceEndpointPolicyIds"] = state ? state.serviceEndpointPolicyIds : undefined;
+            resourceInputs["serviceEndpoints"] = state ? state.serviceEndpoints : undefined;
+            resourceInputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
         } else {
             const args = argsOrState as SubnetArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -151,21 +151,21 @@ export class Subnet extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            inputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
-            inputs["delegations"] = args ? args.delegations : undefined;
-            inputs["enforcePrivateLinkEndpointNetworkPolicies"] = args ? args.enforcePrivateLinkEndpointNetworkPolicies : undefined;
-            inputs["enforcePrivateLinkServiceNetworkPolicies"] = args ? args.enforcePrivateLinkServiceNetworkPolicies : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceEndpointPolicyIds"] = args ? args.serviceEndpointPolicyIds : undefined;
-            inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
-            inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
+            resourceInputs["delegations"] = args ? args.delegations : undefined;
+            resourceInputs["enforcePrivateLinkEndpointNetworkPolicies"] = args ? args.enforcePrivateLinkEndpointNetworkPolicies : undefined;
+            resourceInputs["enforcePrivateLinkServiceNetworkPolicies"] = args ? args.enforcePrivateLinkServiceNetworkPolicies : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceEndpointPolicyIds"] = args ? args.serviceEndpointPolicyIds : undefined;
+            resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
+            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Subnet.__pulumiType, name, inputs, opts);
+        super(Subnet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

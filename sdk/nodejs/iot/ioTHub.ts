@@ -251,33 +251,33 @@ export class IoTHub extends pulumi.CustomResource {
      */
     constructor(name: string, args: IoTHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IoTHubArgs | IoTHubState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IoTHubState | undefined;
-            inputs["cloudToDevice"] = state ? state.cloudToDevice : undefined;
-            inputs["endpoints"] = state ? state.endpoints : undefined;
-            inputs["enrichments"] = state ? state.enrichments : undefined;
-            inputs["eventHubEventsEndpoint"] = state ? state.eventHubEventsEndpoint : undefined;
-            inputs["eventHubEventsPath"] = state ? state.eventHubEventsPath : undefined;
-            inputs["eventHubOperationsEndpoint"] = state ? state.eventHubOperationsEndpoint : undefined;
-            inputs["eventHubOperationsPath"] = state ? state.eventHubOperationsPath : undefined;
-            inputs["eventHubPartitionCount"] = state ? state.eventHubPartitionCount : undefined;
-            inputs["eventHubRetentionInDays"] = state ? state.eventHubRetentionInDays : undefined;
-            inputs["fallbackRoute"] = state ? state.fallbackRoute : undefined;
-            inputs["fileUpload"] = state ? state.fileUpload : undefined;
-            inputs["hostname"] = state ? state.hostname : undefined;
-            inputs["ipFilterRules"] = state ? state.ipFilterRules : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["routes"] = state ? state.routes : undefined;
-            inputs["sharedAccessPolicies"] = state ? state.sharedAccessPolicies : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["cloudToDevice"] = state ? state.cloudToDevice : undefined;
+            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
+            resourceInputs["enrichments"] = state ? state.enrichments : undefined;
+            resourceInputs["eventHubEventsEndpoint"] = state ? state.eventHubEventsEndpoint : undefined;
+            resourceInputs["eventHubEventsPath"] = state ? state.eventHubEventsPath : undefined;
+            resourceInputs["eventHubOperationsEndpoint"] = state ? state.eventHubOperationsEndpoint : undefined;
+            resourceInputs["eventHubOperationsPath"] = state ? state.eventHubOperationsPath : undefined;
+            resourceInputs["eventHubPartitionCount"] = state ? state.eventHubPartitionCount : undefined;
+            resourceInputs["eventHubRetentionInDays"] = state ? state.eventHubRetentionInDays : undefined;
+            resourceInputs["fallbackRoute"] = state ? state.fallbackRoute : undefined;
+            resourceInputs["fileUpload"] = state ? state.fileUpload : undefined;
+            resourceInputs["hostname"] = state ? state.hostname : undefined;
+            resourceInputs["ipFilterRules"] = state ? state.ipFilterRules : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["routes"] = state ? state.routes : undefined;
+            resourceInputs["sharedAccessPolicies"] = state ? state.sharedAccessPolicies : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as IoTHubArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -286,34 +286,34 @@ export class IoTHub extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["cloudToDevice"] = args ? args.cloudToDevice : undefined;
-            inputs["endpoints"] = args ? args.endpoints : undefined;
-            inputs["enrichments"] = args ? args.enrichments : undefined;
-            inputs["eventHubPartitionCount"] = args ? args.eventHubPartitionCount : undefined;
-            inputs["eventHubRetentionInDays"] = args ? args.eventHubRetentionInDays : undefined;
-            inputs["fallbackRoute"] = args ? args.fallbackRoute : undefined;
-            inputs["fileUpload"] = args ? args.fileUpload : undefined;
-            inputs["ipFilterRules"] = args ? args.ipFilterRules : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routes"] = args ? args.routes : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["eventHubEventsEndpoint"] = undefined /*out*/;
-            inputs["eventHubEventsPath"] = undefined /*out*/;
-            inputs["eventHubOperationsEndpoint"] = undefined /*out*/;
-            inputs["eventHubOperationsPath"] = undefined /*out*/;
-            inputs["hostname"] = undefined /*out*/;
-            inputs["sharedAccessPolicies"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cloudToDevice"] = args ? args.cloudToDevice : undefined;
+            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
+            resourceInputs["enrichments"] = args ? args.enrichments : undefined;
+            resourceInputs["eventHubPartitionCount"] = args ? args.eventHubPartitionCount : undefined;
+            resourceInputs["eventHubRetentionInDays"] = args ? args.eventHubRetentionInDays : undefined;
+            resourceInputs["fallbackRoute"] = args ? args.fallbackRoute : undefined;
+            resourceInputs["fileUpload"] = args ? args.fileUpload : undefined;
+            resourceInputs["ipFilterRules"] = args ? args.ipFilterRules : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routes"] = args ? args.routes : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["eventHubEventsEndpoint"] = undefined /*out*/;
+            resourceInputs["eventHubEventsPath"] = undefined /*out*/;
+            resourceInputs["eventHubOperationsEndpoint"] = undefined /*out*/;
+            resourceInputs["eventHubOperationsPath"] = undefined /*out*/;
+            resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["sharedAccessPolicies"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IoTHub.__pulumiType, name, inputs, opts);
+        super(IoTHub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

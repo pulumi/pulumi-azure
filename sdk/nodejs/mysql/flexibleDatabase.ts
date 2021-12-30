@@ -95,15 +95,15 @@ export class FlexibleDatabase extends pulumi.CustomResource {
      */
     constructor(name: string, args: FlexibleDatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FlexibleDatabaseArgs | FlexibleDatabaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleDatabaseState | undefined;
-            inputs["charset"] = state ? state.charset : undefined;
-            inputs["collation"] = state ? state.collation : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serverName"] = state ? state.serverName : undefined;
+            resourceInputs["charset"] = state ? state.charset : undefined;
+            resourceInputs["collation"] = state ? state.collation : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serverName"] = state ? state.serverName : undefined;
         } else {
             const args = argsOrState as FlexibleDatabaseArgs | undefined;
             if ((!args || args.charset === undefined) && !opts.urn) {
@@ -118,16 +118,16 @@ export class FlexibleDatabase extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["charset"] = args ? args.charset : undefined;
-            inputs["collation"] = args ? args.collation : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["charset"] = args ? args.charset : undefined;
+            resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FlexibleDatabase.__pulumiType, name, inputs, opts);
+        super(FlexibleDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

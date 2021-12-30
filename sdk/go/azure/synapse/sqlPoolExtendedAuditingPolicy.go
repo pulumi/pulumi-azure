@@ -223,7 +223,7 @@ type SqlPoolExtendedAuditingPolicyInput interface {
 }
 
 func (*SqlPoolExtendedAuditingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolExtendedAuditingPolicy)(nil))
+	return reflect.TypeOf((**SqlPoolExtendedAuditingPolicy)(nil)).Elem()
 }
 
 func (i *SqlPoolExtendedAuditingPolicy) ToSqlPoolExtendedAuditingPolicyOutput() SqlPoolExtendedAuditingPolicyOutput {
@@ -232,35 +232,6 @@ func (i *SqlPoolExtendedAuditingPolicy) ToSqlPoolExtendedAuditingPolicyOutput() 
 
 func (i *SqlPoolExtendedAuditingPolicy) ToSqlPoolExtendedAuditingPolicyOutputWithContext(ctx context.Context) SqlPoolExtendedAuditingPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolExtendedAuditingPolicyOutput)
-}
-
-func (i *SqlPoolExtendedAuditingPolicy) ToSqlPoolExtendedAuditingPolicyPtrOutput() SqlPoolExtendedAuditingPolicyPtrOutput {
-	return i.ToSqlPoolExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *SqlPoolExtendedAuditingPolicy) ToSqlPoolExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlPoolExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolExtendedAuditingPolicyPtrOutput)
-}
-
-type SqlPoolExtendedAuditingPolicyPtrInput interface {
-	pulumi.Input
-
-	ToSqlPoolExtendedAuditingPolicyPtrOutput() SqlPoolExtendedAuditingPolicyPtrOutput
-	ToSqlPoolExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlPoolExtendedAuditingPolicyPtrOutput
-}
-
-type sqlPoolExtendedAuditingPolicyPtrType SqlPoolExtendedAuditingPolicyArgs
-
-func (*sqlPoolExtendedAuditingPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlPoolExtendedAuditingPolicy)(nil))
-}
-
-func (i *sqlPoolExtendedAuditingPolicyPtrType) ToSqlPoolExtendedAuditingPolicyPtrOutput() SqlPoolExtendedAuditingPolicyPtrOutput {
-	return i.ToSqlPoolExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *sqlPoolExtendedAuditingPolicyPtrType) ToSqlPoolExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlPoolExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolExtendedAuditingPolicyPtrOutput)
 }
 
 // SqlPoolExtendedAuditingPolicyArrayInput is an input type that accepts SqlPoolExtendedAuditingPolicyArray and SqlPoolExtendedAuditingPolicyArrayOutput values.
@@ -316,7 +287,7 @@ func (i SqlPoolExtendedAuditingPolicyMap) ToSqlPoolExtendedAuditingPolicyMapOutp
 type SqlPoolExtendedAuditingPolicyOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolExtendedAuditingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolExtendedAuditingPolicy)(nil))
+	return reflect.TypeOf((**SqlPoolExtendedAuditingPolicy)(nil)).Elem()
 }
 
 func (o SqlPoolExtendedAuditingPolicyOutput) ToSqlPoolExtendedAuditingPolicyOutput() SqlPoolExtendedAuditingPolicyOutput {
@@ -327,44 +298,10 @@ func (o SqlPoolExtendedAuditingPolicyOutput) ToSqlPoolExtendedAuditingPolicyOutp
 	return o
 }
 
-func (o SqlPoolExtendedAuditingPolicyOutput) ToSqlPoolExtendedAuditingPolicyPtrOutput() SqlPoolExtendedAuditingPolicyPtrOutput {
-	return o.ToSqlPoolExtendedAuditingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o SqlPoolExtendedAuditingPolicyOutput) ToSqlPoolExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlPoolExtendedAuditingPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlPoolExtendedAuditingPolicy) *SqlPoolExtendedAuditingPolicy {
-		return &v
-	}).(SqlPoolExtendedAuditingPolicyPtrOutput)
-}
-
-type SqlPoolExtendedAuditingPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (SqlPoolExtendedAuditingPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlPoolExtendedAuditingPolicy)(nil))
-}
-
-func (o SqlPoolExtendedAuditingPolicyPtrOutput) ToSqlPoolExtendedAuditingPolicyPtrOutput() SqlPoolExtendedAuditingPolicyPtrOutput {
-	return o
-}
-
-func (o SqlPoolExtendedAuditingPolicyPtrOutput) ToSqlPoolExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) SqlPoolExtendedAuditingPolicyPtrOutput {
-	return o
-}
-
-func (o SqlPoolExtendedAuditingPolicyPtrOutput) Elem() SqlPoolExtendedAuditingPolicyOutput {
-	return o.ApplyT(func(v *SqlPoolExtendedAuditingPolicy) SqlPoolExtendedAuditingPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret SqlPoolExtendedAuditingPolicy
-		return ret
-	}).(SqlPoolExtendedAuditingPolicyOutput)
-}
-
 type SqlPoolExtendedAuditingPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolExtendedAuditingPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SqlPoolExtendedAuditingPolicy)(nil))
+	return reflect.TypeOf((*[]*SqlPoolExtendedAuditingPolicy)(nil)).Elem()
 }
 
 func (o SqlPoolExtendedAuditingPolicyArrayOutput) ToSqlPoolExtendedAuditingPolicyArrayOutput() SqlPoolExtendedAuditingPolicyArrayOutput {
@@ -376,15 +313,15 @@ func (o SqlPoolExtendedAuditingPolicyArrayOutput) ToSqlPoolExtendedAuditingPolic
 }
 
 func (o SqlPoolExtendedAuditingPolicyArrayOutput) Index(i pulumi.IntInput) SqlPoolExtendedAuditingPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlPoolExtendedAuditingPolicy {
-		return vs[0].([]SqlPoolExtendedAuditingPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlPoolExtendedAuditingPolicy {
+		return vs[0].([]*SqlPoolExtendedAuditingPolicy)[vs[1].(int)]
 	}).(SqlPoolExtendedAuditingPolicyOutput)
 }
 
 type SqlPoolExtendedAuditingPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolExtendedAuditingPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SqlPoolExtendedAuditingPolicy)(nil))
+	return reflect.TypeOf((*map[string]*SqlPoolExtendedAuditingPolicy)(nil)).Elem()
 }
 
 func (o SqlPoolExtendedAuditingPolicyMapOutput) ToSqlPoolExtendedAuditingPolicyMapOutput() SqlPoolExtendedAuditingPolicyMapOutput {
@@ -396,18 +333,16 @@ func (o SqlPoolExtendedAuditingPolicyMapOutput) ToSqlPoolExtendedAuditingPolicyM
 }
 
 func (o SqlPoolExtendedAuditingPolicyMapOutput) MapIndex(k pulumi.StringInput) SqlPoolExtendedAuditingPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SqlPoolExtendedAuditingPolicy {
-		return vs[0].(map[string]SqlPoolExtendedAuditingPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SqlPoolExtendedAuditingPolicy {
+		return vs[0].(map[string]*SqlPoolExtendedAuditingPolicy)[vs[1].(string)]
 	}).(SqlPoolExtendedAuditingPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolExtendedAuditingPolicyInput)(nil)).Elem(), &SqlPoolExtendedAuditingPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolExtendedAuditingPolicyPtrInput)(nil)).Elem(), &SqlPoolExtendedAuditingPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolExtendedAuditingPolicyArrayInput)(nil)).Elem(), SqlPoolExtendedAuditingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlPoolExtendedAuditingPolicyMapInput)(nil)).Elem(), SqlPoolExtendedAuditingPolicyMap{})
 	pulumi.RegisterOutputType(SqlPoolExtendedAuditingPolicyOutput{})
-	pulumi.RegisterOutputType(SqlPoolExtendedAuditingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SqlPoolExtendedAuditingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(SqlPoolExtendedAuditingPolicyMapOutput{})
 }

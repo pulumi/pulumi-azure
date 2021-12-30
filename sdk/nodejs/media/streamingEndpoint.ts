@@ -199,26 +199,26 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: StreamingEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamingEndpointArgs | StreamingEndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamingEndpointState | undefined;
-            inputs["accessControl"] = state ? state.accessControl : undefined;
-            inputs["autoStartEnabled"] = state ? state.autoStartEnabled : undefined;
-            inputs["cdnEnabled"] = state ? state.cdnEnabled : undefined;
-            inputs["cdnProfile"] = state ? state.cdnProfile : undefined;
-            inputs["cdnProvider"] = state ? state.cdnProvider : undefined;
-            inputs["crossSiteAccessPolicy"] = state ? state.crossSiteAccessPolicy : undefined;
-            inputs["customHostNames"] = state ? state.customHostNames : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["hostName"] = state ? state.hostName : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["maxCacheAgeSeconds"] = state ? state.maxCacheAgeSeconds : undefined;
-            inputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scaleUnits"] = state ? state.scaleUnits : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["accessControl"] = state ? state.accessControl : undefined;
+            resourceInputs["autoStartEnabled"] = state ? state.autoStartEnabled : undefined;
+            resourceInputs["cdnEnabled"] = state ? state.cdnEnabled : undefined;
+            resourceInputs["cdnProfile"] = state ? state.cdnProfile : undefined;
+            resourceInputs["cdnProvider"] = state ? state.cdnProvider : undefined;
+            resourceInputs["crossSiteAccessPolicy"] = state ? state.crossSiteAccessPolicy : undefined;
+            resourceInputs["customHostNames"] = state ? state.customHostNames : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["hostName"] = state ? state.hostName : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["maxCacheAgeSeconds"] = state ? state.maxCacheAgeSeconds : undefined;
+            resourceInputs["mediaServicesAccountName"] = state ? state.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scaleUnits"] = state ? state.scaleUnits : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as StreamingEndpointArgs | undefined;
             if ((!args || args.mediaServicesAccountName === undefined) && !opts.urn) {
@@ -230,27 +230,27 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             if ((!args || args.scaleUnits === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scaleUnits'");
             }
-            inputs["accessControl"] = args ? args.accessControl : undefined;
-            inputs["autoStartEnabled"] = args ? args.autoStartEnabled : undefined;
-            inputs["cdnEnabled"] = args ? args.cdnEnabled : undefined;
-            inputs["cdnProfile"] = args ? args.cdnProfile : undefined;
-            inputs["cdnProvider"] = args ? args.cdnProvider : undefined;
-            inputs["crossSiteAccessPolicy"] = args ? args.crossSiteAccessPolicy : undefined;
-            inputs["customHostNames"] = args ? args.customHostNames : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maxCacheAgeSeconds"] = args ? args.maxCacheAgeSeconds : undefined;
-            inputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scaleUnits"] = args ? args.scaleUnits : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["hostName"] = undefined /*out*/;
+            resourceInputs["accessControl"] = args ? args.accessControl : undefined;
+            resourceInputs["autoStartEnabled"] = args ? args.autoStartEnabled : undefined;
+            resourceInputs["cdnEnabled"] = args ? args.cdnEnabled : undefined;
+            resourceInputs["cdnProfile"] = args ? args.cdnProfile : undefined;
+            resourceInputs["cdnProvider"] = args ? args.cdnProvider : undefined;
+            resourceInputs["crossSiteAccessPolicy"] = args ? args.crossSiteAccessPolicy : undefined;
+            resourceInputs["customHostNames"] = args ? args.customHostNames : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxCacheAgeSeconds"] = args ? args.maxCacheAgeSeconds : undefined;
+            resourceInputs["mediaServicesAccountName"] = args ? args.mediaServicesAccountName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["hostName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(StreamingEndpoint.__pulumiType, name, inputs, opts);
+        super(StreamingEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

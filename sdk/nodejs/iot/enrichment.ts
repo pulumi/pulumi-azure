@@ -124,15 +124,15 @@ export class Enrichment extends pulumi.CustomResource {
      */
     constructor(name: string, args: EnrichmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EnrichmentArgs | EnrichmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnrichmentState | undefined;
-            inputs["endpointNames"] = state ? state.endpointNames : undefined;
-            inputs["iothubName"] = state ? state.iothubName : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["value"] = state ? state.value : undefined;
+            resourceInputs["endpointNames"] = state ? state.endpointNames : undefined;
+            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as EnrichmentArgs | undefined;
             if ((!args || args.endpointNames === undefined) && !opts.urn) {
@@ -150,16 +150,16 @@ export class Enrichment extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["endpointNames"] = args ? args.endpointNames : undefined;
-            inputs["iothubName"] = args ? args.iothubName : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["value"] = args ? args.value : undefined;
+            resourceInputs["endpointNames"] = args ? args.endpointNames : undefined;
+            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Enrichment.__pulumiType, name, inputs, opts);
+        super(Enrichment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

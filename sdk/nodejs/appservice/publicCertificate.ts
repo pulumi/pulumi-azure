@@ -107,16 +107,16 @@ export class PublicCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: PublicCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PublicCertificateArgs | PublicCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PublicCertificateState | undefined;
-            inputs["appServiceName"] = state ? state.appServiceName : undefined;
-            inputs["blob"] = state ? state.blob : undefined;
-            inputs["certificateLocation"] = state ? state.certificateLocation : undefined;
-            inputs["certificateName"] = state ? state.certificateName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["appServiceName"] = state ? state.appServiceName : undefined;
+            resourceInputs["blob"] = state ? state.blob : undefined;
+            resourceInputs["certificateLocation"] = state ? state.certificateLocation : undefined;
+            resourceInputs["certificateName"] = state ? state.certificateName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as PublicCertificateArgs | undefined;
             if ((!args || args.appServiceName === undefined) && !opts.urn) {
@@ -134,17 +134,17 @@ export class PublicCertificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["appServiceName"] = args ? args.appServiceName : undefined;
-            inputs["blob"] = args ? args.blob : undefined;
-            inputs["certificateLocation"] = args ? args.certificateLocation : undefined;
-            inputs["certificateName"] = args ? args.certificateName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["appServiceName"] = args ? args.appServiceName : undefined;
+            resourceInputs["blob"] = args ? args.blob : undefined;
+            resourceInputs["certificateLocation"] = args ? args.certificateLocation : undefined;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["thumbprint"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PublicCertificate.__pulumiType, name, inputs, opts);
+        super(PublicCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

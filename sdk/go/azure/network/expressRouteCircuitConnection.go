@@ -256,7 +256,7 @@ type ExpressRouteCircuitConnectionInput interface {
 }
 
 func (*ExpressRouteCircuitConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitConnection)(nil))
+	return reflect.TypeOf((**ExpressRouteCircuitConnection)(nil)).Elem()
 }
 
 func (i *ExpressRouteCircuitConnection) ToExpressRouteCircuitConnectionOutput() ExpressRouteCircuitConnectionOutput {
@@ -265,35 +265,6 @@ func (i *ExpressRouteCircuitConnection) ToExpressRouteCircuitConnectionOutput() 
 
 func (i *ExpressRouteCircuitConnection) ToExpressRouteCircuitConnectionOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitConnectionOutput)
-}
-
-func (i *ExpressRouteCircuitConnection) ToExpressRouteCircuitConnectionPtrOutput() ExpressRouteCircuitConnectionPtrOutput {
-	return i.ToExpressRouteCircuitConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *ExpressRouteCircuitConnection) ToExpressRouteCircuitConnectionPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitConnectionPtrOutput)
-}
-
-type ExpressRouteCircuitConnectionPtrInput interface {
-	pulumi.Input
-
-	ToExpressRouteCircuitConnectionPtrOutput() ExpressRouteCircuitConnectionPtrOutput
-	ToExpressRouteCircuitConnectionPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionPtrOutput
-}
-
-type expressRouteCircuitConnectionPtrType ExpressRouteCircuitConnectionArgs
-
-func (*expressRouteCircuitConnectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExpressRouteCircuitConnection)(nil))
-}
-
-func (i *expressRouteCircuitConnectionPtrType) ToExpressRouteCircuitConnectionPtrOutput() ExpressRouteCircuitConnectionPtrOutput {
-	return i.ToExpressRouteCircuitConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *expressRouteCircuitConnectionPtrType) ToExpressRouteCircuitConnectionPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitConnectionPtrOutput)
 }
 
 // ExpressRouteCircuitConnectionArrayInput is an input type that accepts ExpressRouteCircuitConnectionArray and ExpressRouteCircuitConnectionArrayOutput values.
@@ -349,7 +320,7 @@ func (i ExpressRouteCircuitConnectionMap) ToExpressRouteCircuitConnectionMapOutp
 type ExpressRouteCircuitConnectionOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitConnection)(nil))
+	return reflect.TypeOf((**ExpressRouteCircuitConnection)(nil)).Elem()
 }
 
 func (o ExpressRouteCircuitConnectionOutput) ToExpressRouteCircuitConnectionOutput() ExpressRouteCircuitConnectionOutput {
@@ -360,44 +331,10 @@ func (o ExpressRouteCircuitConnectionOutput) ToExpressRouteCircuitConnectionOutp
 	return o
 }
 
-func (o ExpressRouteCircuitConnectionOutput) ToExpressRouteCircuitConnectionPtrOutput() ExpressRouteCircuitConnectionPtrOutput {
-	return o.ToExpressRouteCircuitConnectionPtrOutputWithContext(context.Background())
-}
-
-func (o ExpressRouteCircuitConnectionOutput) ToExpressRouteCircuitConnectionPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressRouteCircuitConnection) *ExpressRouteCircuitConnection {
-		return &v
-	}).(ExpressRouteCircuitConnectionPtrOutput)
-}
-
-type ExpressRouteCircuitConnectionPtrOutput struct{ *pulumi.OutputState }
-
-func (ExpressRouteCircuitConnectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExpressRouteCircuitConnection)(nil))
-}
-
-func (o ExpressRouteCircuitConnectionPtrOutput) ToExpressRouteCircuitConnectionPtrOutput() ExpressRouteCircuitConnectionPtrOutput {
-	return o
-}
-
-func (o ExpressRouteCircuitConnectionPtrOutput) ToExpressRouteCircuitConnectionPtrOutputWithContext(ctx context.Context) ExpressRouteCircuitConnectionPtrOutput {
-	return o
-}
-
-func (o ExpressRouteCircuitConnectionPtrOutput) Elem() ExpressRouteCircuitConnectionOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitConnection) ExpressRouteCircuitConnection {
-		if v != nil {
-			return *v
-		}
-		var ret ExpressRouteCircuitConnection
-		return ret
-	}).(ExpressRouteCircuitConnectionOutput)
-}
-
 type ExpressRouteCircuitConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitConnectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExpressRouteCircuitConnection)(nil))
+	return reflect.TypeOf((*[]*ExpressRouteCircuitConnection)(nil)).Elem()
 }
 
 func (o ExpressRouteCircuitConnectionArrayOutput) ToExpressRouteCircuitConnectionArrayOutput() ExpressRouteCircuitConnectionArrayOutput {
@@ -409,15 +346,15 @@ func (o ExpressRouteCircuitConnectionArrayOutput) ToExpressRouteCircuitConnectio
 }
 
 func (o ExpressRouteCircuitConnectionArrayOutput) Index(i pulumi.IntInput) ExpressRouteCircuitConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressRouteCircuitConnection {
-		return vs[0].([]ExpressRouteCircuitConnection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExpressRouteCircuitConnection {
+		return vs[0].([]*ExpressRouteCircuitConnection)[vs[1].(int)]
 	}).(ExpressRouteCircuitConnectionOutput)
 }
 
 type ExpressRouteCircuitConnectionMapOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitConnectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ExpressRouteCircuitConnection)(nil))
+	return reflect.TypeOf((*map[string]*ExpressRouteCircuitConnection)(nil)).Elem()
 }
 
 func (o ExpressRouteCircuitConnectionMapOutput) ToExpressRouteCircuitConnectionMapOutput() ExpressRouteCircuitConnectionMapOutput {
@@ -429,18 +366,16 @@ func (o ExpressRouteCircuitConnectionMapOutput) ToExpressRouteCircuitConnectionM
 }
 
 func (o ExpressRouteCircuitConnectionMapOutput) MapIndex(k pulumi.StringInput) ExpressRouteCircuitConnectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExpressRouteCircuitConnection {
-		return vs[0].(map[string]ExpressRouteCircuitConnection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ExpressRouteCircuitConnection {
+		return vs[0].(map[string]*ExpressRouteCircuitConnection)[vs[1].(string)]
 	}).(ExpressRouteCircuitConnectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCircuitConnectionInput)(nil)).Elem(), &ExpressRouteCircuitConnection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCircuitConnectionPtrInput)(nil)).Elem(), &ExpressRouteCircuitConnection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCircuitConnectionArrayInput)(nil)).Elem(), ExpressRouteCircuitConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressRouteCircuitConnectionMapInput)(nil)).Elem(), ExpressRouteCircuitConnectionMap{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitConnectionOutput{})
-	pulumi.RegisterOutputType(ExpressRouteCircuitConnectionPtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitConnectionArrayOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitConnectionMapOutput{})
 }

@@ -47,47 +47,6 @@ func (i CustomDatasetLinkedServiceArgs) ToCustomDatasetLinkedServiceOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetLinkedServiceOutput)
 }
 
-func (i CustomDatasetLinkedServiceArgs) ToCustomDatasetLinkedServicePtrOutput() CustomDatasetLinkedServicePtrOutput {
-	return i.ToCustomDatasetLinkedServicePtrOutputWithContext(context.Background())
-}
-
-func (i CustomDatasetLinkedServiceArgs) ToCustomDatasetLinkedServicePtrOutputWithContext(ctx context.Context) CustomDatasetLinkedServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetLinkedServiceOutput).ToCustomDatasetLinkedServicePtrOutputWithContext(ctx)
-}
-
-// CustomDatasetLinkedServicePtrInput is an input type that accepts CustomDatasetLinkedServiceArgs, CustomDatasetLinkedServicePtr and CustomDatasetLinkedServicePtrOutput values.
-// You can construct a concrete instance of `CustomDatasetLinkedServicePtrInput` via:
-//
-//          CustomDatasetLinkedServiceArgs{...}
-//
-//  or:
-//
-//          nil
-type CustomDatasetLinkedServicePtrInput interface {
-	pulumi.Input
-
-	ToCustomDatasetLinkedServicePtrOutput() CustomDatasetLinkedServicePtrOutput
-	ToCustomDatasetLinkedServicePtrOutputWithContext(context.Context) CustomDatasetLinkedServicePtrOutput
-}
-
-type customDatasetLinkedServicePtrType CustomDatasetLinkedServiceArgs
-
-func CustomDatasetLinkedServicePtr(v *CustomDatasetLinkedServiceArgs) CustomDatasetLinkedServicePtrInput {
-	return (*customDatasetLinkedServicePtrType)(v)
-}
-
-func (*customDatasetLinkedServicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDatasetLinkedService)(nil)).Elem()
-}
-
-func (i *customDatasetLinkedServicePtrType) ToCustomDatasetLinkedServicePtrOutput() CustomDatasetLinkedServicePtrOutput {
-	return i.ToCustomDatasetLinkedServicePtrOutputWithContext(context.Background())
-}
-
-func (i *customDatasetLinkedServicePtrType) ToCustomDatasetLinkedServicePtrOutputWithContext(ctx context.Context) CustomDatasetLinkedServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetLinkedServicePtrOutput)
-}
-
 type CustomDatasetLinkedServiceOutput struct{ *pulumi.OutputState }
 
 func (CustomDatasetLinkedServiceOutput) ElementType() reflect.Type {
@@ -102,16 +61,6 @@ func (o CustomDatasetLinkedServiceOutput) ToCustomDatasetLinkedServiceOutputWith
 	return o
 }
 
-func (o CustomDatasetLinkedServiceOutput) ToCustomDatasetLinkedServicePtrOutput() CustomDatasetLinkedServicePtrOutput {
-	return o.ToCustomDatasetLinkedServicePtrOutputWithContext(context.Background())
-}
-
-func (o CustomDatasetLinkedServiceOutput) ToCustomDatasetLinkedServicePtrOutputWithContext(ctx context.Context) CustomDatasetLinkedServicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDatasetLinkedService) *CustomDatasetLinkedService {
-		return &v
-	}).(CustomDatasetLinkedServicePtrOutput)
-}
-
 // The name of the Data Factory Linked Service.
 func (o CustomDatasetLinkedServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDatasetLinkedService) string { return v.Name }).(pulumi.StringOutput)
@@ -120,50 +69,6 @@ func (o CustomDatasetLinkedServiceOutput) Name() pulumi.StringOutput {
 // A map of parameters to associate with the Data Factory Linked Service.
 func (o CustomDatasetLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CustomDatasetLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
-}
-
-type CustomDatasetLinkedServicePtrOutput struct{ *pulumi.OutputState }
-
-func (CustomDatasetLinkedServicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDatasetLinkedService)(nil)).Elem()
-}
-
-func (o CustomDatasetLinkedServicePtrOutput) ToCustomDatasetLinkedServicePtrOutput() CustomDatasetLinkedServicePtrOutput {
-	return o
-}
-
-func (o CustomDatasetLinkedServicePtrOutput) ToCustomDatasetLinkedServicePtrOutputWithContext(ctx context.Context) CustomDatasetLinkedServicePtrOutput {
-	return o
-}
-
-func (o CustomDatasetLinkedServicePtrOutput) Elem() CustomDatasetLinkedServiceOutput {
-	return o.ApplyT(func(v *CustomDatasetLinkedService) CustomDatasetLinkedService {
-		if v != nil {
-			return *v
-		}
-		var ret CustomDatasetLinkedService
-		return ret
-	}).(CustomDatasetLinkedServiceOutput)
-}
-
-// The name of the Data Factory Linked Service.
-func (o CustomDatasetLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomDatasetLinkedService) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// A map of parameters to associate with the Data Factory Linked Service.
-func (o CustomDatasetLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CustomDatasetLinkedService) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(pulumi.StringMapOutput)
 }
 
 type DataFlowSink struct {
@@ -10959,47 +10864,6 @@ func (i TriggerTumblingWindowPipelineArgs) ToTriggerTumblingWindowPipelineOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowPipelineOutput)
 }
 
-func (i TriggerTumblingWindowPipelineArgs) ToTriggerTumblingWindowPipelinePtrOutput() TriggerTumblingWindowPipelinePtrOutput {
-	return i.ToTriggerTumblingWindowPipelinePtrOutputWithContext(context.Background())
-}
-
-func (i TriggerTumblingWindowPipelineArgs) ToTriggerTumblingWindowPipelinePtrOutputWithContext(ctx context.Context) TriggerTumblingWindowPipelinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowPipelineOutput).ToTriggerTumblingWindowPipelinePtrOutputWithContext(ctx)
-}
-
-// TriggerTumblingWindowPipelinePtrInput is an input type that accepts TriggerTumblingWindowPipelineArgs, TriggerTumblingWindowPipelinePtr and TriggerTumblingWindowPipelinePtrOutput values.
-// You can construct a concrete instance of `TriggerTumblingWindowPipelinePtrInput` via:
-//
-//          TriggerTumblingWindowPipelineArgs{...}
-//
-//  or:
-//
-//          nil
-type TriggerTumblingWindowPipelinePtrInput interface {
-	pulumi.Input
-
-	ToTriggerTumblingWindowPipelinePtrOutput() TriggerTumblingWindowPipelinePtrOutput
-	ToTriggerTumblingWindowPipelinePtrOutputWithContext(context.Context) TriggerTumblingWindowPipelinePtrOutput
-}
-
-type triggerTumblingWindowPipelinePtrType TriggerTumblingWindowPipelineArgs
-
-func TriggerTumblingWindowPipelinePtr(v *TriggerTumblingWindowPipelineArgs) TriggerTumblingWindowPipelinePtrInput {
-	return (*triggerTumblingWindowPipelinePtrType)(v)
-}
-
-func (*triggerTumblingWindowPipelinePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TriggerTumblingWindowPipeline)(nil)).Elem()
-}
-
-func (i *triggerTumblingWindowPipelinePtrType) ToTriggerTumblingWindowPipelinePtrOutput() TriggerTumblingWindowPipelinePtrOutput {
-	return i.ToTriggerTumblingWindowPipelinePtrOutputWithContext(context.Background())
-}
-
-func (i *triggerTumblingWindowPipelinePtrType) ToTriggerTumblingWindowPipelinePtrOutputWithContext(ctx context.Context) TriggerTumblingWindowPipelinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowPipelinePtrOutput)
-}
-
 type TriggerTumblingWindowPipelineOutput struct{ *pulumi.OutputState }
 
 func (TriggerTumblingWindowPipelineOutput) ElementType() reflect.Type {
@@ -11014,64 +10878,12 @@ func (o TriggerTumblingWindowPipelineOutput) ToTriggerTumblingWindowPipelineOutp
 	return o
 }
 
-func (o TriggerTumblingWindowPipelineOutput) ToTriggerTumblingWindowPipelinePtrOutput() TriggerTumblingWindowPipelinePtrOutput {
-	return o.ToTriggerTumblingWindowPipelinePtrOutputWithContext(context.Background())
-}
-
-func (o TriggerTumblingWindowPipelineOutput) ToTriggerTumblingWindowPipelinePtrOutputWithContext(ctx context.Context) TriggerTumblingWindowPipelinePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerTumblingWindowPipeline) *TriggerTumblingWindowPipeline {
-		return &v
-	}).(TriggerTumblingWindowPipelinePtrOutput)
-}
-
 func (o TriggerTumblingWindowPipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowPipeline) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o TriggerTumblingWindowPipelineOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowPipeline) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
-}
-
-type TriggerTumblingWindowPipelinePtrOutput struct{ *pulumi.OutputState }
-
-func (TriggerTumblingWindowPipelinePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TriggerTumblingWindowPipeline)(nil)).Elem()
-}
-
-func (o TriggerTumblingWindowPipelinePtrOutput) ToTriggerTumblingWindowPipelinePtrOutput() TriggerTumblingWindowPipelinePtrOutput {
-	return o
-}
-
-func (o TriggerTumblingWindowPipelinePtrOutput) ToTriggerTumblingWindowPipelinePtrOutputWithContext(ctx context.Context) TriggerTumblingWindowPipelinePtrOutput {
-	return o
-}
-
-func (o TriggerTumblingWindowPipelinePtrOutput) Elem() TriggerTumblingWindowPipelineOutput {
-	return o.ApplyT(func(v *TriggerTumblingWindowPipeline) TriggerTumblingWindowPipeline {
-		if v != nil {
-			return *v
-		}
-		var ret TriggerTumblingWindowPipeline
-		return ret
-	}).(TriggerTumblingWindowPipelineOutput)
-}
-
-func (o TriggerTumblingWindowPipelinePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TriggerTumblingWindowPipeline) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TriggerTumblingWindowPipelinePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *TriggerTumblingWindowPipeline) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(pulumi.StringMapOutput)
 }
 
 type TriggerTumblingWindowRetry struct {
@@ -11726,7 +11538,6 @@ func (o GetFactoryVstsConfigurationArrayOutput) Index(i pulumi.IntInput) GetFact
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetLinkedServiceInput)(nil)).Elem(), CustomDatasetLinkedServiceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetLinkedServicePtrInput)(nil)).Elem(), CustomDatasetLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkInput)(nil)).Elem(), DataFlowSinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkArrayInput)(nil)).Elem(), DataFlowSinkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkDatasetInput)(nil)).Elem(), DataFlowSinkDatasetArgs{})
@@ -11862,7 +11673,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerScheduleScheduleMonthlyInput)(nil)).Elem(), TriggerScheduleScheduleMonthlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerScheduleScheduleMonthlyArrayInput)(nil)).Elem(), TriggerScheduleScheduleMonthlyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTumblingWindowPipelineInput)(nil)).Elem(), TriggerTumblingWindowPipelineArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTumblingWindowPipelinePtrInput)(nil)).Elem(), TriggerTumblingWindowPipelineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTumblingWindowRetryInput)(nil)).Elem(), TriggerTumblingWindowRetryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTumblingWindowRetryPtrInput)(nil)).Elem(), TriggerTumblingWindowRetryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTumblingWindowTriggerDependencyInput)(nil)).Elem(), TriggerTumblingWindowTriggerDependencyArgs{})
@@ -11874,7 +11684,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFactoryVstsConfigurationInput)(nil)).Elem(), GetFactoryVstsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFactoryVstsConfigurationArrayInput)(nil)).Elem(), GetFactoryVstsConfigurationArray{})
 	pulumi.RegisterOutputType(CustomDatasetLinkedServiceOutput{})
-	pulumi.RegisterOutputType(CustomDatasetLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkArrayOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkDatasetOutput{})
@@ -12010,7 +11819,6 @@ func init() {
 	pulumi.RegisterOutputType(TriggerScheduleScheduleMonthlyOutput{})
 	pulumi.RegisterOutputType(TriggerScheduleScheduleMonthlyArrayOutput{})
 	pulumi.RegisterOutputType(TriggerTumblingWindowPipelineOutput{})
-	pulumi.RegisterOutputType(TriggerTumblingWindowPipelinePtrOutput{})
 	pulumi.RegisterOutputType(TriggerTumblingWindowRetryOutput{})
 	pulumi.RegisterOutputType(TriggerTumblingWindowRetryPtrOutput{})
 	pulumi.RegisterOutputType(TriggerTumblingWindowTriggerDependencyOutput{})

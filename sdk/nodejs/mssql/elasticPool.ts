@@ -131,21 +131,21 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: ElasticPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ElasticPoolArgs | ElasticPoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ElasticPoolState | undefined;
-            inputs["licenseType"] = state ? state.licenseType : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
-            inputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["perDatabaseSettings"] = state ? state.perDatabaseSettings : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serverName"] = state ? state.serverName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
+            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
+            resourceInputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["perDatabaseSettings"] = state ? state.perDatabaseSettings : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serverName"] = state ? state.serverName : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as ElasticPoolArgs | undefined;
             if ((!args || args.perDatabaseSettings === undefined) && !opts.urn) {
@@ -160,22 +160,22 @@ export class ElasticPool extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["licenseType"] = args ? args.licenseType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
-            inputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["perDatabaseSettings"] = args ? args.perDatabaseSettings : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
+            resourceInputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["perDatabaseSettings"] = args ? args.perDatabaseSettings : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ElasticPool.__pulumiType, name, inputs, opts);
+        super(ElasticPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

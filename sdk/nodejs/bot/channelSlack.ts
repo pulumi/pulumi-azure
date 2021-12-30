@@ -111,18 +111,18 @@ export class ChannelSlack extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelSlackArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelSlackArgs | ChannelSlackState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelSlackState | undefined;
-            inputs["botName"] = state ? state.botName : undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["clientSecret"] = state ? state.clientSecret : undefined;
-            inputs["landingPageUrl"] = state ? state.landingPageUrl : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["signingSecret"] = state ? state.signingSecret : undefined;
-            inputs["verificationToken"] = state ? state.verificationToken : undefined;
+            resourceInputs["botName"] = state ? state.botName : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["landingPageUrl"] = state ? state.landingPageUrl : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["signingSecret"] = state ? state.signingSecret : undefined;
+            resourceInputs["verificationToken"] = state ? state.verificationToken : undefined;
         } else {
             const args = argsOrState as ChannelSlackArgs | undefined;
             if ((!args || args.botName === undefined) && !opts.urn) {
@@ -140,19 +140,19 @@ export class ChannelSlack extends pulumi.CustomResource {
             if ((!args || args.verificationToken === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'verificationToken'");
             }
-            inputs["botName"] = args ? args.botName : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["landingPageUrl"] = args ? args.landingPageUrl : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["signingSecret"] = args ? args.signingSecret : undefined;
-            inputs["verificationToken"] = args ? args.verificationToken : undefined;
+            resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["landingPageUrl"] = args ? args.landingPageUrl : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["signingSecret"] = args ? args.signingSecret : undefined;
+            resourceInputs["verificationToken"] = args ? args.verificationToken : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ChannelSlack.__pulumiType, name, inputs, opts);
+        super(ChannelSlack.__pulumiType, name, resourceInputs, opts);
     }
 }
 

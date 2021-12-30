@@ -292,7 +292,7 @@ type DatasetJsonInput interface {
 }
 
 func (*DatasetJson) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetJson)(nil))
+	return reflect.TypeOf((**DatasetJson)(nil)).Elem()
 }
 
 func (i *DatasetJson) ToDatasetJsonOutput() DatasetJsonOutput {
@@ -301,35 +301,6 @@ func (i *DatasetJson) ToDatasetJsonOutput() DatasetJsonOutput {
 
 func (i *DatasetJson) ToDatasetJsonOutputWithContext(ctx context.Context) DatasetJsonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonOutput)
-}
-
-func (i *DatasetJson) ToDatasetJsonPtrOutput() DatasetJsonPtrOutput {
-	return i.ToDatasetJsonPtrOutputWithContext(context.Background())
-}
-
-func (i *DatasetJson) ToDatasetJsonPtrOutputWithContext(ctx context.Context) DatasetJsonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonPtrOutput)
-}
-
-type DatasetJsonPtrInput interface {
-	pulumi.Input
-
-	ToDatasetJsonPtrOutput() DatasetJsonPtrOutput
-	ToDatasetJsonPtrOutputWithContext(ctx context.Context) DatasetJsonPtrOutput
-}
-
-type datasetJsonPtrType DatasetJsonArgs
-
-func (*datasetJsonPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetJson)(nil))
-}
-
-func (i *datasetJsonPtrType) ToDatasetJsonPtrOutput() DatasetJsonPtrOutput {
-	return i.ToDatasetJsonPtrOutputWithContext(context.Background())
-}
-
-func (i *datasetJsonPtrType) ToDatasetJsonPtrOutputWithContext(ctx context.Context) DatasetJsonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonPtrOutput)
 }
 
 // DatasetJsonArrayInput is an input type that accepts DatasetJsonArray and DatasetJsonArrayOutput values.
@@ -385,7 +356,7 @@ func (i DatasetJsonMap) ToDatasetJsonMapOutputWithContext(ctx context.Context) D
 type DatasetJsonOutput struct{ *pulumi.OutputState }
 
 func (DatasetJsonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetJson)(nil))
+	return reflect.TypeOf((**DatasetJson)(nil)).Elem()
 }
 
 func (o DatasetJsonOutput) ToDatasetJsonOutput() DatasetJsonOutput {
@@ -396,44 +367,10 @@ func (o DatasetJsonOutput) ToDatasetJsonOutputWithContext(ctx context.Context) D
 	return o
 }
 
-func (o DatasetJsonOutput) ToDatasetJsonPtrOutput() DatasetJsonPtrOutput {
-	return o.ToDatasetJsonPtrOutputWithContext(context.Background())
-}
-
-func (o DatasetJsonOutput) ToDatasetJsonPtrOutputWithContext(ctx context.Context) DatasetJsonPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetJson) *DatasetJson {
-		return &v
-	}).(DatasetJsonPtrOutput)
-}
-
-type DatasetJsonPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetJsonPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetJson)(nil))
-}
-
-func (o DatasetJsonPtrOutput) ToDatasetJsonPtrOutput() DatasetJsonPtrOutput {
-	return o
-}
-
-func (o DatasetJsonPtrOutput) ToDatasetJsonPtrOutputWithContext(ctx context.Context) DatasetJsonPtrOutput {
-	return o
-}
-
-func (o DatasetJsonPtrOutput) Elem() DatasetJsonOutput {
-	return o.ApplyT(func(v *DatasetJson) DatasetJson {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetJson
-		return ret
-	}).(DatasetJsonOutput)
-}
-
 type DatasetJsonArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetJsonArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetJson)(nil))
+	return reflect.TypeOf((*[]*DatasetJson)(nil)).Elem()
 }
 
 func (o DatasetJsonArrayOutput) ToDatasetJsonArrayOutput() DatasetJsonArrayOutput {
@@ -445,15 +382,15 @@ func (o DatasetJsonArrayOutput) ToDatasetJsonArrayOutputWithContext(ctx context.
 }
 
 func (o DatasetJsonArrayOutput) Index(i pulumi.IntInput) DatasetJsonOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetJson {
-		return vs[0].([]DatasetJson)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetJson {
+		return vs[0].([]*DatasetJson)[vs[1].(int)]
 	}).(DatasetJsonOutput)
 }
 
 type DatasetJsonMapOutput struct{ *pulumi.OutputState }
 
 func (DatasetJsonMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatasetJson)(nil))
+	return reflect.TypeOf((*map[string]*DatasetJson)(nil)).Elem()
 }
 
 func (o DatasetJsonMapOutput) ToDatasetJsonMapOutput() DatasetJsonMapOutput {
@@ -465,18 +402,16 @@ func (o DatasetJsonMapOutput) ToDatasetJsonMapOutputWithContext(ctx context.Cont
 }
 
 func (o DatasetJsonMapOutput) MapIndex(k pulumi.StringInput) DatasetJsonOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetJson {
-		return vs[0].(map[string]DatasetJson)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatasetJson {
+		return vs[0].(map[string]*DatasetJson)[vs[1].(string)]
 	}).(DatasetJsonOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetJsonInput)(nil)).Elem(), &DatasetJson{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetJsonPtrInput)(nil)).Elem(), &DatasetJson{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetJsonArrayInput)(nil)).Elem(), DatasetJsonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetJsonMapInput)(nil)).Elem(), DatasetJsonMap{})
 	pulumi.RegisterOutputType(DatasetJsonOutput{})
-	pulumi.RegisterOutputType(DatasetJsonPtrOutput{})
 	pulumi.RegisterOutputType(DatasetJsonArrayOutput{})
 	pulumi.RegisterOutputType(DatasetJsonMapOutput{})
 }

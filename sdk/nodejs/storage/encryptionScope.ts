@@ -97,15 +97,15 @@ export class EncryptionScope extends pulumi.CustomResource {
      */
     constructor(name: string, args: EncryptionScopeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EncryptionScopeArgs | EncryptionScopeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EncryptionScopeState | undefined;
-            inputs["infrastructureEncryptionRequired"] = state ? state.infrastructureEncryptionRequired : undefined;
-            inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["source"] = state ? state.source : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["infrastructureEncryptionRequired"] = state ? state.infrastructureEncryptionRequired : undefined;
+            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as EncryptionScopeArgs | undefined;
             if ((!args || args.source === undefined) && !opts.urn) {
@@ -114,16 +114,16 @@ export class EncryptionScope extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            inputs["infrastructureEncryptionRequired"] = args ? args.infrastructureEncryptionRequired : undefined;
-            inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["infrastructureEncryptionRequired"] = args ? args.infrastructureEncryptionRequired : undefined;
+            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EncryptionScope.__pulumiType, name, inputs, opts);
+        super(EncryptionScope.__pulumiType, name, resourceInputs, opts);
     }
 }
 

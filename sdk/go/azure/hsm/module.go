@@ -297,7 +297,7 @@ type ModuleInput interface {
 }
 
 func (*Module) ElementType() reflect.Type {
-	return reflect.TypeOf((*Module)(nil))
+	return reflect.TypeOf((**Module)(nil)).Elem()
 }
 
 func (i *Module) ToModuleOutput() ModuleOutput {
@@ -306,35 +306,6 @@ func (i *Module) ToModuleOutput() ModuleOutput {
 
 func (i *Module) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleOutput)
-}
-
-func (i *Module) ToModulePtrOutput() ModulePtrOutput {
-	return i.ToModulePtrOutputWithContext(context.Background())
-}
-
-func (i *Module) ToModulePtrOutputWithContext(ctx context.Context) ModulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModulePtrOutput)
-}
-
-type ModulePtrInput interface {
-	pulumi.Input
-
-	ToModulePtrOutput() ModulePtrOutput
-	ToModulePtrOutputWithContext(ctx context.Context) ModulePtrOutput
-}
-
-type modulePtrType ModuleArgs
-
-func (*modulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Module)(nil))
-}
-
-func (i *modulePtrType) ToModulePtrOutput() ModulePtrOutput {
-	return i.ToModulePtrOutputWithContext(context.Background())
-}
-
-func (i *modulePtrType) ToModulePtrOutputWithContext(ctx context.Context) ModulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModulePtrOutput)
 }
 
 // ModuleArrayInput is an input type that accepts ModuleArray and ModuleArrayOutput values.
@@ -390,7 +361,7 @@ func (i ModuleMap) ToModuleMapOutputWithContext(ctx context.Context) ModuleMapOu
 type ModuleOutput struct{ *pulumi.OutputState }
 
 func (ModuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Module)(nil))
+	return reflect.TypeOf((**Module)(nil)).Elem()
 }
 
 func (o ModuleOutput) ToModuleOutput() ModuleOutput {
@@ -401,44 +372,10 @@ func (o ModuleOutput) ToModuleOutputWithContext(ctx context.Context) ModuleOutpu
 	return o
 }
 
-func (o ModuleOutput) ToModulePtrOutput() ModulePtrOutput {
-	return o.ToModulePtrOutputWithContext(context.Background())
-}
-
-func (o ModuleOutput) ToModulePtrOutputWithContext(ctx context.Context) ModulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Module) *Module {
-		return &v
-	}).(ModulePtrOutput)
-}
-
-type ModulePtrOutput struct{ *pulumi.OutputState }
-
-func (ModulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Module)(nil))
-}
-
-func (o ModulePtrOutput) ToModulePtrOutput() ModulePtrOutput {
-	return o
-}
-
-func (o ModulePtrOutput) ToModulePtrOutputWithContext(ctx context.Context) ModulePtrOutput {
-	return o
-}
-
-func (o ModulePtrOutput) Elem() ModuleOutput {
-	return o.ApplyT(func(v *Module) Module {
-		if v != nil {
-			return *v
-		}
-		var ret Module
-		return ret
-	}).(ModuleOutput)
-}
-
 type ModuleArrayOutput struct{ *pulumi.OutputState }
 
 func (ModuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Module)(nil))
+	return reflect.TypeOf((*[]*Module)(nil)).Elem()
 }
 
 func (o ModuleArrayOutput) ToModuleArrayOutput() ModuleArrayOutput {
@@ -450,15 +387,15 @@ func (o ModuleArrayOutput) ToModuleArrayOutputWithContext(ctx context.Context) M
 }
 
 func (o ModuleArrayOutput) Index(i pulumi.IntInput) ModuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Module {
-		return vs[0].([]Module)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Module {
+		return vs[0].([]*Module)[vs[1].(int)]
 	}).(ModuleOutput)
 }
 
 type ModuleMapOutput struct{ *pulumi.OutputState }
 
 func (ModuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Module)(nil))
+	return reflect.TypeOf((*map[string]*Module)(nil)).Elem()
 }
 
 func (o ModuleMapOutput) ToModuleMapOutput() ModuleMapOutput {
@@ -470,18 +407,16 @@ func (o ModuleMapOutput) ToModuleMapOutputWithContext(ctx context.Context) Modul
 }
 
 func (o ModuleMapOutput) MapIndex(k pulumi.StringInput) ModuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Module {
-		return vs[0].(map[string]Module)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Module {
+		return vs[0].(map[string]*Module)[vs[1].(string)]
 	}).(ModuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleInput)(nil)).Elem(), &Module{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModulePtrInput)(nil)).Elem(), &Module{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleArrayInput)(nil)).Elem(), ModuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleMapInput)(nil)).Elem(), ModuleMap{})
 	pulumi.RegisterOutputType(ModuleOutput{})
-	pulumi.RegisterOutputType(ModulePtrOutput{})
 	pulumi.RegisterOutputType(ModuleArrayOutput{})
 	pulumi.RegisterOutputType(ModuleMapOutput{})
 }

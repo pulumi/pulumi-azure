@@ -184,16 +184,16 @@ export class BackupInstancePostgresql extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackupInstancePostgresqlArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BackupInstancePostgresqlArgs | BackupInstancePostgresqlState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupInstancePostgresqlState | undefined;
-            inputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
-            inputs["databaseCredentialKeyVaultSecretId"] = state ? state.databaseCredentialKeyVaultSecretId : undefined;
-            inputs["databaseId"] = state ? state.databaseId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
+            resourceInputs["databaseCredentialKeyVaultSecretId"] = state ? state.databaseCredentialKeyVaultSecretId : undefined;
+            resourceInputs["databaseId"] = state ? state.databaseId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
         } else {
             const args = argsOrState as BackupInstancePostgresqlArgs | undefined;
             if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
@@ -205,17 +205,17 @@ export class BackupInstancePostgresql extends pulumi.CustomResource {
             if ((!args || args.vaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            inputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
-            inputs["databaseCredentialKeyVaultSecretId"] = args ? args.databaseCredentialKeyVaultSecretId : undefined;
-            inputs["databaseId"] = args ? args.databaseId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
+            resourceInputs["databaseCredentialKeyVaultSecretId"] = args ? args.databaseCredentialKeyVaultSecretId : undefined;
+            resourceInputs["databaseId"] = args ? args.databaseId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BackupInstancePostgresql.__pulumiType, name, inputs, opts);
+        super(BackupInstancePostgresql.__pulumiType, name, resourceInputs, opts);
     }
 }
 

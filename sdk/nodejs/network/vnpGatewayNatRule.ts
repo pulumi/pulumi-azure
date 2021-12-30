@@ -115,18 +115,18 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: VnpGatewayNatRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VnpGatewayNatRuleArgs | VnpGatewayNatRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VnpGatewayNatRuleState | undefined;
-            inputs["externalAddressSpaceMappings"] = state ? state.externalAddressSpaceMappings : undefined;
-            inputs["internalAddressSpaceMappings"] = state ? state.internalAddressSpaceMappings : undefined;
-            inputs["ipConfigurationId"] = state ? state.ipConfigurationId : undefined;
-            inputs["mode"] = state ? state.mode : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+            resourceInputs["externalAddressSpaceMappings"] = state ? state.externalAddressSpaceMappings : undefined;
+            resourceInputs["internalAddressSpaceMappings"] = state ? state.internalAddressSpaceMappings : undefined;
+            resourceInputs["ipConfigurationId"] = state ? state.ipConfigurationId : undefined;
+            resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as VnpGatewayNatRuleArgs | undefined;
             if ((!args || args.externalAddressSpaceMappings === undefined) && !opts.urn) {
@@ -141,19 +141,19 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
             if ((!args || args.vpnGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
-            inputs["externalAddressSpaceMappings"] = args ? args.externalAddressSpaceMappings : undefined;
-            inputs["internalAddressSpaceMappings"] = args ? args.internalAddressSpaceMappings : undefined;
-            inputs["ipConfigurationId"] = args ? args.ipConfigurationId : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["externalAddressSpaceMappings"] = args ? args.externalAddressSpaceMappings : undefined;
+            resourceInputs["internalAddressSpaceMappings"] = args ? args.internalAddressSpaceMappings : undefined;
+            resourceInputs["ipConfigurationId"] = args ? args.ipConfigurationId : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VnpGatewayNatRule.__pulumiType, name, inputs, opts);
+        super(VnpGatewayNatRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -123,14 +123,14 @@ export class ManangementLock extends pulumi.CustomResource {
     /** @deprecated azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock */
     constructor(name: string, argsOrState?: ManangementLockArgs | ManangementLockState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ManangementLock is deprecated: azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManangementLockState | undefined;
-            inputs["lockLevel"] = state ? state.lockLevel : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["lockLevel"] = state ? state.lockLevel : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as ManangementLockArgs | undefined;
             if ((!args || args.lockLevel === undefined) && !opts.urn) {
@@ -139,15 +139,15 @@ export class ManangementLock extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["lockLevel"] = args ? args.lockLevel : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["lockLevel"] = args ? args.lockLevel : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ManangementLock.__pulumiType, name, inputs, opts);
+        super(ManangementLock.__pulumiType, name, resourceInputs, opts);
     }
 }
 

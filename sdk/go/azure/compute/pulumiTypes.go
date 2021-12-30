@@ -226,47 +226,6 @@ func (i ConfigurationPolicyAssignmentConfigurationArgs) ToConfigurationPolicyAss
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationOutput)
 }
 
-func (i ConfigurationPolicyAssignmentConfigurationArgs) ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return i.ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationPolicyAssignmentConfigurationArgs) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationOutput).ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx)
-}
-
-// ConfigurationPolicyAssignmentConfigurationPtrInput is an input type that accepts ConfigurationPolicyAssignmentConfigurationArgs, ConfigurationPolicyAssignmentConfigurationPtr and ConfigurationPolicyAssignmentConfigurationPtrOutput values.
-// You can construct a concrete instance of `ConfigurationPolicyAssignmentConfigurationPtrInput` via:
-//
-//          ConfigurationPolicyAssignmentConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ConfigurationPolicyAssignmentConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput
-	ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput
-}
-
-type configurationPolicyAssignmentConfigurationPtrType ConfigurationPolicyAssignmentConfigurationArgs
-
-func ConfigurationPolicyAssignmentConfigurationPtr(v *ConfigurationPolicyAssignmentConfigurationArgs) ConfigurationPolicyAssignmentConfigurationPtrInput {
-	return (*configurationPolicyAssignmentConfigurationPtrType)(v)
-}
-
-func (*configurationPolicyAssignmentConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationPolicyAssignmentConfiguration)(nil)).Elem()
-}
-
-func (i *configurationPolicyAssignmentConfigurationPtrType) ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return i.ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *configurationPolicyAssignmentConfigurationPtrType) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationPtrOutput)
-}
-
 type ConfigurationPolicyAssignmentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationPolicyAssignmentConfigurationOutput) ElementType() reflect.Type {
@@ -279,16 +238,6 @@ func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyA
 
 func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyAssignmentConfigurationOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationOutput {
 	return o
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return o.ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyAssignmentConfiguration) *ConfigurationPolicyAssignmentConfiguration {
-		return &v
-	}).(ConfigurationPolicyAssignmentConfigurationPtrOutput)
 }
 
 // The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
@@ -306,60 +255,6 @@ func (o ConfigurationPolicyAssignmentConfigurationOutput) Parameters() Configura
 // The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
 func (o ConfigurationPolicyAssignmentConfigurationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type ConfigurationPolicyAssignmentConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationPolicyAssignmentConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationPolicyAssignmentConfiguration)(nil)).Elem()
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return o
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
-	return o
-}
-
-func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Elem() ConfigurationPolicyAssignmentConfigurationOutput {
-	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) ConfigurationPolicyAssignmentConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationPolicyAssignmentConfiguration
-		return ret
-	}).(ConfigurationPolicyAssignmentConfigurationOutput)
-}
-
-// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// One or more `parameter` blocks which define what configuration parameters and values against.
-func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Parameters() ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
-	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) []ConfigurationPolicyAssignmentConfigurationParameter {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(ConfigurationPolicyAssignmentConfigurationParameterArrayOutput)
-}
-
-// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
-func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
 }
 
 type ConfigurationPolicyAssignmentConfigurationParameter struct {
@@ -509,47 +404,6 @@ func (i DiskEncryptionSetIdentityArgs) ToDiskEncryptionSetIdentityOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetIdentityOutput)
 }
 
-func (i DiskEncryptionSetIdentityArgs) ToDiskEncryptionSetIdentityPtrOutput() DiskEncryptionSetIdentityPtrOutput {
-	return i.ToDiskEncryptionSetIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i DiskEncryptionSetIdentityArgs) ToDiskEncryptionSetIdentityPtrOutputWithContext(ctx context.Context) DiskEncryptionSetIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetIdentityOutput).ToDiskEncryptionSetIdentityPtrOutputWithContext(ctx)
-}
-
-// DiskEncryptionSetIdentityPtrInput is an input type that accepts DiskEncryptionSetIdentityArgs, DiskEncryptionSetIdentityPtr and DiskEncryptionSetIdentityPtrOutput values.
-// You can construct a concrete instance of `DiskEncryptionSetIdentityPtrInput` via:
-//
-//          DiskEncryptionSetIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type DiskEncryptionSetIdentityPtrInput interface {
-	pulumi.Input
-
-	ToDiskEncryptionSetIdentityPtrOutput() DiskEncryptionSetIdentityPtrOutput
-	ToDiskEncryptionSetIdentityPtrOutputWithContext(context.Context) DiskEncryptionSetIdentityPtrOutput
-}
-
-type diskEncryptionSetIdentityPtrType DiskEncryptionSetIdentityArgs
-
-func DiskEncryptionSetIdentityPtr(v *DiskEncryptionSetIdentityArgs) DiskEncryptionSetIdentityPtrInput {
-	return (*diskEncryptionSetIdentityPtrType)(v)
-}
-
-func (*diskEncryptionSetIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskEncryptionSetIdentity)(nil)).Elem()
-}
-
-func (i *diskEncryptionSetIdentityPtrType) ToDiskEncryptionSetIdentityPtrOutput() DiskEncryptionSetIdentityPtrOutput {
-	return i.ToDiskEncryptionSetIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *diskEncryptionSetIdentityPtrType) ToDiskEncryptionSetIdentityPtrOutputWithContext(ctx context.Context) DiskEncryptionSetIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetIdentityPtrOutput)
-}
-
 type DiskEncryptionSetIdentityOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetIdentityOutput) ElementType() reflect.Type {
@@ -562,16 +416,6 @@ func (o DiskEncryptionSetIdentityOutput) ToDiskEncryptionSetIdentityOutput() Dis
 
 func (o DiskEncryptionSetIdentityOutput) ToDiskEncryptionSetIdentityOutputWithContext(ctx context.Context) DiskEncryptionSetIdentityOutput {
 	return o
-}
-
-func (o DiskEncryptionSetIdentityOutput) ToDiskEncryptionSetIdentityPtrOutput() DiskEncryptionSetIdentityPtrOutput {
-	return o.ToDiskEncryptionSetIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o DiskEncryptionSetIdentityOutput) ToDiskEncryptionSetIdentityPtrOutputWithContext(ctx context.Context) DiskEncryptionSetIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskEncryptionSetIdentity) *DiskEncryptionSetIdentity {
-		return &v
-	}).(DiskEncryptionSetIdentityPtrOutput)
 }
 
 // The (Client) ID of the Service Principal.
@@ -587,60 +431,6 @@ func (o DiskEncryptionSetIdentityOutput) TenantId() pulumi.StringPtrOutput {
 // The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
 func (o DiskEncryptionSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskEncryptionSetIdentity) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type DiskEncryptionSetIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (DiskEncryptionSetIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskEncryptionSetIdentity)(nil)).Elem()
-}
-
-func (o DiskEncryptionSetIdentityPtrOutput) ToDiskEncryptionSetIdentityPtrOutput() DiskEncryptionSetIdentityPtrOutput {
-	return o
-}
-
-func (o DiskEncryptionSetIdentityPtrOutput) ToDiskEncryptionSetIdentityPtrOutputWithContext(ctx context.Context) DiskEncryptionSetIdentityPtrOutput {
-	return o
-}
-
-func (o DiskEncryptionSetIdentityPtrOutput) Elem() DiskEncryptionSetIdentityOutput {
-	return o.ApplyT(func(v *DiskEncryptionSetIdentity) DiskEncryptionSetIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret DiskEncryptionSetIdentity
-		return ret
-	}).(DiskEncryptionSetIdentityOutput)
-}
-
-// The (Client) ID of the Service Principal.
-func (o DiskEncryptionSetIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskEncryptionSetIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Tenant the Service Principal is assigned in.
-func (o DiskEncryptionSetIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskEncryptionSetIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
-func (o DiskEncryptionSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskEncryptionSetIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type ImageDataDisk struct {
@@ -1639,47 +1429,6 @@ func (i LinuxVirtualMachineOsDiskArgs) ToLinuxVirtualMachineOsDiskOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsDiskOutput)
 }
 
-func (i LinuxVirtualMachineOsDiskArgs) ToLinuxVirtualMachineOsDiskPtrOutput() LinuxVirtualMachineOsDiskPtrOutput {
-	return i.ToLinuxVirtualMachineOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (i LinuxVirtualMachineOsDiskArgs) ToLinuxVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsDiskOutput).ToLinuxVirtualMachineOsDiskPtrOutputWithContext(ctx)
-}
-
-// LinuxVirtualMachineOsDiskPtrInput is an input type that accepts LinuxVirtualMachineOsDiskArgs, LinuxVirtualMachineOsDiskPtr and LinuxVirtualMachineOsDiskPtrOutput values.
-// You can construct a concrete instance of `LinuxVirtualMachineOsDiskPtrInput` via:
-//
-//          LinuxVirtualMachineOsDiskArgs{...}
-//
-//  or:
-//
-//          nil
-type LinuxVirtualMachineOsDiskPtrInput interface {
-	pulumi.Input
-
-	ToLinuxVirtualMachineOsDiskPtrOutput() LinuxVirtualMachineOsDiskPtrOutput
-	ToLinuxVirtualMachineOsDiskPtrOutputWithContext(context.Context) LinuxVirtualMachineOsDiskPtrOutput
-}
-
-type linuxVirtualMachineOsDiskPtrType LinuxVirtualMachineOsDiskArgs
-
-func LinuxVirtualMachineOsDiskPtr(v *LinuxVirtualMachineOsDiskArgs) LinuxVirtualMachineOsDiskPtrInput {
-	return (*linuxVirtualMachineOsDiskPtrType)(v)
-}
-
-func (*linuxVirtualMachineOsDiskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinuxVirtualMachineOsDisk)(nil)).Elem()
-}
-
-func (i *linuxVirtualMachineOsDiskPtrType) ToLinuxVirtualMachineOsDiskPtrOutput() LinuxVirtualMachineOsDiskPtrOutput {
-	return i.ToLinuxVirtualMachineOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (i *linuxVirtualMachineOsDiskPtrType) ToLinuxVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineOsDiskPtrOutput)
-}
-
 type LinuxVirtualMachineOsDiskOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineOsDiskOutput) ElementType() reflect.Type {
@@ -1692,16 +1441,6 @@ func (o LinuxVirtualMachineOsDiskOutput) ToLinuxVirtualMachineOsDiskOutput() Lin
 
 func (o LinuxVirtualMachineOsDiskOutput) ToLinuxVirtualMachineOsDiskOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskOutput {
 	return o
-}
-
-func (o LinuxVirtualMachineOsDiskOutput) ToLinuxVirtualMachineOsDiskPtrOutput() LinuxVirtualMachineOsDiskPtrOutput {
-	return o.ToLinuxVirtualMachineOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (o LinuxVirtualMachineOsDiskOutput) ToLinuxVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDisk {
-		return &v
-	}).(LinuxVirtualMachineOsDiskPtrOutput)
 }
 
 // The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -1739,100 +1478,6 @@ func (o LinuxVirtualMachineOsDiskOutput) StorageAccountType() pulumi.StringOutpu
 // Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 func (o LinuxVirtualMachineOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
-}
-
-type LinuxVirtualMachineOsDiskPtrOutput struct{ *pulumi.OutputState }
-
-func (LinuxVirtualMachineOsDiskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinuxVirtualMachineOsDisk)(nil)).Elem()
-}
-
-func (o LinuxVirtualMachineOsDiskPtrOutput) ToLinuxVirtualMachineOsDiskPtrOutput() LinuxVirtualMachineOsDiskPtrOutput {
-	return o
-}
-
-func (o LinuxVirtualMachineOsDiskPtrOutput) ToLinuxVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineOsDiskPtrOutput {
-	return o
-}
-
-func (o LinuxVirtualMachineOsDiskPtrOutput) Elem() LinuxVirtualMachineOsDiskOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) LinuxVirtualMachineOsDisk {
-		if v != nil {
-			return *v
-		}
-		var ret LinuxVirtualMachineOsDisk
-		return ret
-	}).(LinuxVirtualMachineOsDiskOutput)
-}
-
-// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-func (o LinuxVirtualMachineOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Caching
-	}).(pulumi.StringPtrOutput)
-}
-
-// A `diffDiskSettings` block as defined above.
-func (o LinuxVirtualMachineOsDiskPtrOutput) DiffDiskSettings() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDiskDiffDiskSettings {
-		if v == nil {
-			return nil
-		}
-		return v.DiffDiskSettings
-	}).(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
-}
-
-// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-func (o LinuxVirtualMachineOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiskEncryptionSetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
-func (o LinuxVirtualMachineOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DiskSizeGb
-	}).(pulumi.IntPtrOutput)
-}
-
-// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageAccountType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-func (o LinuxVirtualMachineOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.WriteAcceleratorEnabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type LinuxVirtualMachineOsDiskDiffDiskSettings struct {
@@ -3999,47 +3644,6 @@ func (i LinuxVirtualMachineScaleSetOsDiskArgs) ToLinuxVirtualMachineScaleSetOsDi
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOsDiskOutput)
 }
 
-func (i LinuxVirtualMachineScaleSetOsDiskArgs) ToLinuxVirtualMachineScaleSetOsDiskPtrOutput() LinuxVirtualMachineScaleSetOsDiskPtrOutput {
-	return i.ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (i LinuxVirtualMachineScaleSetOsDiskArgs) ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOsDiskOutput).ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx)
-}
-
-// LinuxVirtualMachineScaleSetOsDiskPtrInput is an input type that accepts LinuxVirtualMachineScaleSetOsDiskArgs, LinuxVirtualMachineScaleSetOsDiskPtr and LinuxVirtualMachineScaleSetOsDiskPtrOutput values.
-// You can construct a concrete instance of `LinuxVirtualMachineScaleSetOsDiskPtrInput` via:
-//
-//          LinuxVirtualMachineScaleSetOsDiskArgs{...}
-//
-//  or:
-//
-//          nil
-type LinuxVirtualMachineScaleSetOsDiskPtrInput interface {
-	pulumi.Input
-
-	ToLinuxVirtualMachineScaleSetOsDiskPtrOutput() LinuxVirtualMachineScaleSetOsDiskPtrOutput
-	ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetOsDiskPtrOutput
-}
-
-type linuxVirtualMachineScaleSetOsDiskPtrType LinuxVirtualMachineScaleSetOsDiskArgs
-
-func LinuxVirtualMachineScaleSetOsDiskPtr(v *LinuxVirtualMachineScaleSetOsDiskArgs) LinuxVirtualMachineScaleSetOsDiskPtrInput {
-	return (*linuxVirtualMachineScaleSetOsDiskPtrType)(v)
-}
-
-func (*linuxVirtualMachineScaleSetOsDiskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinuxVirtualMachineScaleSetOsDisk)(nil)).Elem()
-}
-
-func (i *linuxVirtualMachineScaleSetOsDiskPtrType) ToLinuxVirtualMachineScaleSetOsDiskPtrOutput() LinuxVirtualMachineScaleSetOsDiskPtrOutput {
-	return i.ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (i *linuxVirtualMachineScaleSetOsDiskPtrType) ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetOsDiskPtrOutput)
-}
-
 type LinuxVirtualMachineScaleSetOsDiskOutput struct{ *pulumi.OutputState }
 
 func (LinuxVirtualMachineScaleSetOsDiskOutput) ElementType() reflect.Type {
@@ -4052,16 +3656,6 @@ func (o LinuxVirtualMachineScaleSetOsDiskOutput) ToLinuxVirtualMachineScaleSetOs
 
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) ToLinuxVirtualMachineScaleSetOsDiskOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskOutput {
 	return o
-}
-
-func (o LinuxVirtualMachineScaleSetOsDiskOutput) ToLinuxVirtualMachineScaleSetOsDiskPtrOutput() LinuxVirtualMachineScaleSetOsDiskPtrOutput {
-	return o.ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (o LinuxVirtualMachineScaleSetOsDiskOutput) ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetOsDisk) *LinuxVirtualMachineScaleSetOsDisk {
-		return &v
-	}).(LinuxVirtualMachineScaleSetOsDiskPtrOutput)
 }
 
 // The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -4094,90 +3688,6 @@ func (o LinuxVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pulumi.Str
 // Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
-}
-
-type LinuxVirtualMachineScaleSetOsDiskPtrOutput struct{ *pulumi.OutputState }
-
-func (LinuxVirtualMachineScaleSetOsDiskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinuxVirtualMachineScaleSetOsDisk)(nil)).Elem()
-}
-
-func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) ToLinuxVirtualMachineScaleSetOsDiskPtrOutput() LinuxVirtualMachineScaleSetOsDiskPtrOutput {
-	return o
-}
-
-func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) ToLinuxVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetOsDiskPtrOutput {
-	return o
-}
-
-func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) Elem() LinuxVirtualMachineScaleSetOsDiskOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) LinuxVirtualMachineScaleSetOsDisk {
-		if v != nil {
-			return *v
-		}
-		var ret LinuxVirtualMachineScaleSetOsDisk
-		return ret
-	}).(LinuxVirtualMachineScaleSetOsDiskOutput)
-}
-
-// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Caching
-	}).(pulumi.StringPtrOutput)
-}
-
-// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiffDiskSettings() LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
-		if v == nil {
-			return nil
-		}
-		return v.DiffDiskSettings
-	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
-}
-
-// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
-func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiskEncryptionSetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
-func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DiskSizeGb
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
-func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageAccountType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.WriteAcceleratorEnabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
@@ -10651,47 +10161,6 @@ func (i ScaleSetOsProfileArgs) ToScaleSetOsProfileOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileOutput)
 }
 
-func (i ScaleSetOsProfileArgs) ToScaleSetOsProfilePtrOutput() ScaleSetOsProfilePtrOutput {
-	return i.ToScaleSetOsProfilePtrOutputWithContext(context.Background())
-}
-
-func (i ScaleSetOsProfileArgs) ToScaleSetOsProfilePtrOutputWithContext(ctx context.Context) ScaleSetOsProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfileOutput).ToScaleSetOsProfilePtrOutputWithContext(ctx)
-}
-
-// ScaleSetOsProfilePtrInput is an input type that accepts ScaleSetOsProfileArgs, ScaleSetOsProfilePtr and ScaleSetOsProfilePtrOutput values.
-// You can construct a concrete instance of `ScaleSetOsProfilePtrInput` via:
-//
-//          ScaleSetOsProfileArgs{...}
-//
-//  or:
-//
-//          nil
-type ScaleSetOsProfilePtrInput interface {
-	pulumi.Input
-
-	ToScaleSetOsProfilePtrOutput() ScaleSetOsProfilePtrOutput
-	ToScaleSetOsProfilePtrOutputWithContext(context.Context) ScaleSetOsProfilePtrOutput
-}
-
-type scaleSetOsProfilePtrType ScaleSetOsProfileArgs
-
-func ScaleSetOsProfilePtr(v *ScaleSetOsProfileArgs) ScaleSetOsProfilePtrInput {
-	return (*scaleSetOsProfilePtrType)(v)
-}
-
-func (*scaleSetOsProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScaleSetOsProfile)(nil)).Elem()
-}
-
-func (i *scaleSetOsProfilePtrType) ToScaleSetOsProfilePtrOutput() ScaleSetOsProfilePtrOutput {
-	return i.ToScaleSetOsProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *scaleSetOsProfilePtrType) ToScaleSetOsProfilePtrOutputWithContext(ctx context.Context) ScaleSetOsProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOsProfilePtrOutput)
-}
-
 type ScaleSetOsProfileOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOsProfileOutput) ElementType() reflect.Type {
@@ -10704,16 +10173,6 @@ func (o ScaleSetOsProfileOutput) ToScaleSetOsProfileOutput() ScaleSetOsProfileOu
 
 func (o ScaleSetOsProfileOutput) ToScaleSetOsProfileOutputWithContext(ctx context.Context) ScaleSetOsProfileOutput {
 	return o
-}
-
-func (o ScaleSetOsProfileOutput) ToScaleSetOsProfilePtrOutput() ScaleSetOsProfilePtrOutput {
-	return o.ToScaleSetOsProfilePtrOutputWithContext(context.Background())
-}
-
-func (o ScaleSetOsProfileOutput) ToScaleSetOsProfilePtrOutputWithContext(ctx context.Context) ScaleSetOsProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetOsProfile) *ScaleSetOsProfile {
-		return &v
-	}).(ScaleSetOsProfilePtrOutput)
 }
 
 // Specifies the administrator password to use for all the instances of virtual machines in a scale set.
@@ -10734,70 +10193,6 @@ func (o ScaleSetOsProfileOutput) ComputerNamePrefix() pulumi.StringOutput {
 // Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 func (o ScaleSetOsProfileOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
-}
-
-type ScaleSetOsProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (ScaleSetOsProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScaleSetOsProfile)(nil)).Elem()
-}
-
-func (o ScaleSetOsProfilePtrOutput) ToScaleSetOsProfilePtrOutput() ScaleSetOsProfilePtrOutput {
-	return o
-}
-
-func (o ScaleSetOsProfilePtrOutput) ToScaleSetOsProfilePtrOutputWithContext(ctx context.Context) ScaleSetOsProfilePtrOutput {
-	return o
-}
-
-func (o ScaleSetOsProfilePtrOutput) Elem() ScaleSetOsProfileOutput {
-	return o.ApplyT(func(v *ScaleSetOsProfile) ScaleSetOsProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ScaleSetOsProfile
-		return ret
-	}).(ScaleSetOsProfileOutput)
-}
-
-// Specifies the administrator password to use for all the instances of virtual machines in a scale set.
-func (o ScaleSetOsProfilePtrOutput) AdminPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScaleSetOsProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AdminPassword
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
-func (o ScaleSetOsProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScaleSetOsProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AdminUsername
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
-func (o ScaleSetOsProfilePtrOutput) ComputerNamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScaleSetOsProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ComputerNamePrefix
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
-func (o ScaleSetOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScaleSetOsProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomData
-	}).(pulumi.StringPtrOutput)
 }
 
 type ScaleSetOsProfileLinuxConfig struct {
@@ -12104,47 +11499,6 @@ func (i ScaleSetSkuArgs) ToScaleSetSkuOutputWithContext(ctx context.Context) Sca
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetSkuOutput)
 }
 
-func (i ScaleSetSkuArgs) ToScaleSetSkuPtrOutput() ScaleSetSkuPtrOutput {
-	return i.ToScaleSetSkuPtrOutputWithContext(context.Background())
-}
-
-func (i ScaleSetSkuArgs) ToScaleSetSkuPtrOutputWithContext(ctx context.Context) ScaleSetSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetSkuOutput).ToScaleSetSkuPtrOutputWithContext(ctx)
-}
-
-// ScaleSetSkuPtrInput is an input type that accepts ScaleSetSkuArgs, ScaleSetSkuPtr and ScaleSetSkuPtrOutput values.
-// You can construct a concrete instance of `ScaleSetSkuPtrInput` via:
-//
-//          ScaleSetSkuArgs{...}
-//
-//  or:
-//
-//          nil
-type ScaleSetSkuPtrInput interface {
-	pulumi.Input
-
-	ToScaleSetSkuPtrOutput() ScaleSetSkuPtrOutput
-	ToScaleSetSkuPtrOutputWithContext(context.Context) ScaleSetSkuPtrOutput
-}
-
-type scaleSetSkuPtrType ScaleSetSkuArgs
-
-func ScaleSetSkuPtr(v *ScaleSetSkuArgs) ScaleSetSkuPtrInput {
-	return (*scaleSetSkuPtrType)(v)
-}
-
-func (*scaleSetSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScaleSetSku)(nil)).Elem()
-}
-
-func (i *scaleSetSkuPtrType) ToScaleSetSkuPtrOutput() ScaleSetSkuPtrOutput {
-	return i.ToScaleSetSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *scaleSetSkuPtrType) ToScaleSetSkuPtrOutputWithContext(ctx context.Context) ScaleSetSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetSkuPtrOutput)
-}
-
 type ScaleSetSkuOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetSkuOutput) ElementType() reflect.Type {
@@ -12157,16 +11511,6 @@ func (o ScaleSetSkuOutput) ToScaleSetSkuOutput() ScaleSetSkuOutput {
 
 func (o ScaleSetSkuOutput) ToScaleSetSkuOutputWithContext(ctx context.Context) ScaleSetSkuOutput {
 	return o
-}
-
-func (o ScaleSetSkuOutput) ToScaleSetSkuPtrOutput() ScaleSetSkuPtrOutput {
-	return o.ToScaleSetSkuPtrOutputWithContext(context.Background())
-}
-
-func (o ScaleSetSkuOutput) ToScaleSetSkuPtrOutputWithContext(ctx context.Context) ScaleSetSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetSku) *ScaleSetSku {
-		return &v
-	}).(ScaleSetSkuPtrOutput)
 }
 
 // Specifies the number of virtual machines in the scale set.
@@ -12182,60 +11526,6 @@ func (o ScaleSetSkuOutput) Name() pulumi.StringOutput {
 // Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
 func (o ScaleSetSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleSetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-type ScaleSetSkuPtrOutput struct{ *pulumi.OutputState }
-
-func (ScaleSetSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScaleSetSku)(nil)).Elem()
-}
-
-func (o ScaleSetSkuPtrOutput) ToScaleSetSkuPtrOutput() ScaleSetSkuPtrOutput {
-	return o
-}
-
-func (o ScaleSetSkuPtrOutput) ToScaleSetSkuPtrOutputWithContext(ctx context.Context) ScaleSetSkuPtrOutput {
-	return o
-}
-
-func (o ScaleSetSkuPtrOutput) Elem() ScaleSetSkuOutput {
-	return o.ApplyT(func(v *ScaleSetSku) ScaleSetSku {
-		if v != nil {
-			return *v
-		}
-		var ret ScaleSetSku
-		return ret
-	}).(ScaleSetSkuOutput)
-}
-
-// Specifies the number of virtual machines in the scale set.
-func (o ScaleSetSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ScaleSetSku) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the size of virtual machines in a scale set.
-func (o ScaleSetSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScaleSetSku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
-func (o ScaleSetSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScaleSetSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
 }
 
 type ScaleSetStorageProfileDataDisk struct {
@@ -12649,47 +11939,6 @@ func (i ScaleSetStorageProfileOsDiskArgs) ToScaleSetStorageProfileOsDiskOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetStorageProfileOsDiskOutput)
 }
 
-func (i ScaleSetStorageProfileOsDiskArgs) ToScaleSetStorageProfileOsDiskPtrOutput() ScaleSetStorageProfileOsDiskPtrOutput {
-	return i.ToScaleSetStorageProfileOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (i ScaleSetStorageProfileOsDiskArgs) ToScaleSetStorageProfileOsDiskPtrOutputWithContext(ctx context.Context) ScaleSetStorageProfileOsDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetStorageProfileOsDiskOutput).ToScaleSetStorageProfileOsDiskPtrOutputWithContext(ctx)
-}
-
-// ScaleSetStorageProfileOsDiskPtrInput is an input type that accepts ScaleSetStorageProfileOsDiskArgs, ScaleSetStorageProfileOsDiskPtr and ScaleSetStorageProfileOsDiskPtrOutput values.
-// You can construct a concrete instance of `ScaleSetStorageProfileOsDiskPtrInput` via:
-//
-//          ScaleSetStorageProfileOsDiskArgs{...}
-//
-//  or:
-//
-//          nil
-type ScaleSetStorageProfileOsDiskPtrInput interface {
-	pulumi.Input
-
-	ToScaleSetStorageProfileOsDiskPtrOutput() ScaleSetStorageProfileOsDiskPtrOutput
-	ToScaleSetStorageProfileOsDiskPtrOutputWithContext(context.Context) ScaleSetStorageProfileOsDiskPtrOutput
-}
-
-type scaleSetStorageProfileOsDiskPtrType ScaleSetStorageProfileOsDiskArgs
-
-func ScaleSetStorageProfileOsDiskPtr(v *ScaleSetStorageProfileOsDiskArgs) ScaleSetStorageProfileOsDiskPtrInput {
-	return (*scaleSetStorageProfileOsDiskPtrType)(v)
-}
-
-func (*scaleSetStorageProfileOsDiskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScaleSetStorageProfileOsDisk)(nil)).Elem()
-}
-
-func (i *scaleSetStorageProfileOsDiskPtrType) ToScaleSetStorageProfileOsDiskPtrOutput() ScaleSetStorageProfileOsDiskPtrOutput {
-	return i.ToScaleSetStorageProfileOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (i *scaleSetStorageProfileOsDiskPtrType) ToScaleSetStorageProfileOsDiskPtrOutputWithContext(ctx context.Context) ScaleSetStorageProfileOsDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetStorageProfileOsDiskPtrOutput)
-}
-
 type ScaleSetStorageProfileOsDiskOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetStorageProfileOsDiskOutput) ElementType() reflect.Type {
@@ -12702,16 +11951,6 @@ func (o ScaleSetStorageProfileOsDiskOutput) ToScaleSetStorageProfileOsDiskOutput
 
 func (o ScaleSetStorageProfileOsDiskOutput) ToScaleSetStorageProfileOsDiskOutputWithContext(ctx context.Context) ScaleSetStorageProfileOsDiskOutput {
 	return o
-}
-
-func (o ScaleSetStorageProfileOsDiskOutput) ToScaleSetStorageProfileOsDiskPtrOutput() ScaleSetStorageProfileOsDiskPtrOutput {
-	return o.ToScaleSetStorageProfileOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (o ScaleSetStorageProfileOsDiskOutput) ToScaleSetStorageProfileOsDiskPtrOutputWithContext(ctx context.Context) ScaleSetStorageProfileOsDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetStorageProfileOsDisk) *ScaleSetStorageProfileOsDisk {
-		return &v
-	}).(ScaleSetStorageProfileOsDiskPtrOutput)
 }
 
 // Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
@@ -12749,102 +11988,6 @@ func (o ScaleSetStorageProfileOsDiskOutput) OsType() pulumi.StringPtrOutput {
 // Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
 func (o ScaleSetStorageProfileOsDiskOutput) VhdContainers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) []string { return v.VhdContainers }).(pulumi.StringArrayOutput)
-}
-
-type ScaleSetStorageProfileOsDiskPtrOutput struct{ *pulumi.OutputState }
-
-func (ScaleSetStorageProfileOsDiskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScaleSetStorageProfileOsDisk)(nil)).Elem()
-}
-
-func (o ScaleSetStorageProfileOsDiskPtrOutput) ToScaleSetStorageProfileOsDiskPtrOutput() ScaleSetStorageProfileOsDiskPtrOutput {
-	return o
-}
-
-func (o ScaleSetStorageProfileOsDiskPtrOutput) ToScaleSetStorageProfileOsDiskPtrOutputWithContext(ctx context.Context) ScaleSetStorageProfileOsDiskPtrOutput {
-	return o
-}
-
-func (o ScaleSetStorageProfileOsDiskPtrOutput) Elem() ScaleSetStorageProfileOsDiskOutput {
-	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) ScaleSetStorageProfileOsDisk {
-		if v != nil {
-			return *v
-		}
-		var ret ScaleSetStorageProfileOsDisk
-		return ret
-	}).(ScaleSetStorageProfileOsDiskOutput)
-}
-
-// Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
-func (o ScaleSetStorageProfileOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Caching
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies how the virtual machine should be created. The only possible option is `FromImage`.
-func (o ScaleSetStorageProfileOsDiskPtrOutput) CreateOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreateOption
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
-// Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
-// When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
-func (o ScaleSetStorageProfileOsDiskPtrOutput) Image() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Image
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhdContainers` or `image` is specified.
-func (o ScaleSetStorageProfileOsDiskPtrOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedDiskType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
-func (o ScaleSetStorageProfileOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the operating system Type, valid values are windows, linux.
-func (o ScaleSetStorageProfileOsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OsType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
-func (o ScaleSetStorageProfileOsDiskPtrOutput) VhdContainers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) []string {
-		if v == nil {
-			return nil
-		}
-		return v.VhdContainers
-	}).(pulumi.StringArrayOutput)
 }
 
 type SharedImageIdentifier struct {
@@ -12888,47 +12031,6 @@ func (i SharedImageIdentifierArgs) ToSharedImageIdentifierOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageIdentifierOutput)
 }
 
-func (i SharedImageIdentifierArgs) ToSharedImageIdentifierPtrOutput() SharedImageIdentifierPtrOutput {
-	return i.ToSharedImageIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (i SharedImageIdentifierArgs) ToSharedImageIdentifierPtrOutputWithContext(ctx context.Context) SharedImageIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedImageIdentifierOutput).ToSharedImageIdentifierPtrOutputWithContext(ctx)
-}
-
-// SharedImageIdentifierPtrInput is an input type that accepts SharedImageIdentifierArgs, SharedImageIdentifierPtr and SharedImageIdentifierPtrOutput values.
-// You can construct a concrete instance of `SharedImageIdentifierPtrInput` via:
-//
-//          SharedImageIdentifierArgs{...}
-//
-//  or:
-//
-//          nil
-type SharedImageIdentifierPtrInput interface {
-	pulumi.Input
-
-	ToSharedImageIdentifierPtrOutput() SharedImageIdentifierPtrOutput
-	ToSharedImageIdentifierPtrOutputWithContext(context.Context) SharedImageIdentifierPtrOutput
-}
-
-type sharedImageIdentifierPtrType SharedImageIdentifierArgs
-
-func SharedImageIdentifierPtr(v *SharedImageIdentifierArgs) SharedImageIdentifierPtrInput {
-	return (*sharedImageIdentifierPtrType)(v)
-}
-
-func (*sharedImageIdentifierPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SharedImageIdentifier)(nil)).Elem()
-}
-
-func (i *sharedImageIdentifierPtrType) ToSharedImageIdentifierPtrOutput() SharedImageIdentifierPtrOutput {
-	return i.ToSharedImageIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (i *sharedImageIdentifierPtrType) ToSharedImageIdentifierPtrOutputWithContext(ctx context.Context) SharedImageIdentifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedImageIdentifierPtrOutput)
-}
-
 type SharedImageIdentifierOutput struct{ *pulumi.OutputState }
 
 func (SharedImageIdentifierOutput) ElementType() reflect.Type {
@@ -12941,16 +12043,6 @@ func (o SharedImageIdentifierOutput) ToSharedImageIdentifierOutput() SharedImage
 
 func (o SharedImageIdentifierOutput) ToSharedImageIdentifierOutputWithContext(ctx context.Context) SharedImageIdentifierOutput {
 	return o
-}
-
-func (o SharedImageIdentifierOutput) ToSharedImageIdentifierPtrOutput() SharedImageIdentifierPtrOutput {
-	return o.ToSharedImageIdentifierPtrOutputWithContext(context.Background())
-}
-
-func (o SharedImageIdentifierOutput) ToSharedImageIdentifierPtrOutputWithContext(ctx context.Context) SharedImageIdentifierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedImageIdentifier) *SharedImageIdentifier {
-		return &v
-	}).(SharedImageIdentifierPtrOutput)
 }
 
 // The Offer Name for this Shared Image.
@@ -12966,60 +12058,6 @@ func (o SharedImageIdentifierOutput) Publisher() pulumi.StringOutput {
 // The Name of the SKU for this Gallery Image.
 func (o SharedImageIdentifierOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
-}
-
-type SharedImageIdentifierPtrOutput struct{ *pulumi.OutputState }
-
-func (SharedImageIdentifierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SharedImageIdentifier)(nil)).Elem()
-}
-
-func (o SharedImageIdentifierPtrOutput) ToSharedImageIdentifierPtrOutput() SharedImageIdentifierPtrOutput {
-	return o
-}
-
-func (o SharedImageIdentifierPtrOutput) ToSharedImageIdentifierPtrOutputWithContext(ctx context.Context) SharedImageIdentifierPtrOutput {
-	return o
-}
-
-func (o SharedImageIdentifierPtrOutput) Elem() SharedImageIdentifierOutput {
-	return o.ApplyT(func(v *SharedImageIdentifier) SharedImageIdentifier {
-		if v != nil {
-			return *v
-		}
-		var ret SharedImageIdentifier
-		return ret
-	}).(SharedImageIdentifierOutput)
-}
-
-// The Offer Name for this Shared Image.
-func (o SharedImageIdentifierPtrOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedImageIdentifier) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Offer
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Publisher Name for this Gallery Image.
-func (o SharedImageIdentifierPtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedImageIdentifier) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Publisher
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Name of the SKU for this Gallery Image.
-func (o SharedImageIdentifierPtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedImageIdentifier) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Sku
-	}).(pulumi.StringPtrOutput)
 }
 
 type SharedImagePurchasePlan struct {
@@ -15988,47 +15026,6 @@ func (i VirtualMachineStorageOsDiskArgs) ToVirtualMachineStorageOsDiskOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageOsDiskOutput)
 }
 
-func (i VirtualMachineStorageOsDiskArgs) ToVirtualMachineStorageOsDiskPtrOutput() VirtualMachineStorageOsDiskPtrOutput {
-	return i.ToVirtualMachineStorageOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineStorageOsDiskArgs) ToVirtualMachineStorageOsDiskPtrOutputWithContext(ctx context.Context) VirtualMachineStorageOsDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageOsDiskOutput).ToVirtualMachineStorageOsDiskPtrOutputWithContext(ctx)
-}
-
-// VirtualMachineStorageOsDiskPtrInput is an input type that accepts VirtualMachineStorageOsDiskArgs, VirtualMachineStorageOsDiskPtr and VirtualMachineStorageOsDiskPtrOutput values.
-// You can construct a concrete instance of `VirtualMachineStorageOsDiskPtrInput` via:
-//
-//          VirtualMachineStorageOsDiskArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualMachineStorageOsDiskPtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachineStorageOsDiskPtrOutput() VirtualMachineStorageOsDiskPtrOutput
-	ToVirtualMachineStorageOsDiskPtrOutputWithContext(context.Context) VirtualMachineStorageOsDiskPtrOutput
-}
-
-type virtualMachineStorageOsDiskPtrType VirtualMachineStorageOsDiskArgs
-
-func VirtualMachineStorageOsDiskPtr(v *VirtualMachineStorageOsDiskArgs) VirtualMachineStorageOsDiskPtrInput {
-	return (*virtualMachineStorageOsDiskPtrType)(v)
-}
-
-func (*virtualMachineStorageOsDiskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineStorageOsDisk)(nil)).Elem()
-}
-
-func (i *virtualMachineStorageOsDiskPtrType) ToVirtualMachineStorageOsDiskPtrOutput() VirtualMachineStorageOsDiskPtrOutput {
-	return i.ToVirtualMachineStorageOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachineStorageOsDiskPtrType) ToVirtualMachineStorageOsDiskPtrOutputWithContext(ctx context.Context) VirtualMachineStorageOsDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageOsDiskPtrOutput)
-}
-
 type VirtualMachineStorageOsDiskOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageOsDiskOutput) ElementType() reflect.Type {
@@ -16041,16 +15038,6 @@ func (o VirtualMachineStorageOsDiskOutput) ToVirtualMachineStorageOsDiskOutput()
 
 func (o VirtualMachineStorageOsDiskOutput) ToVirtualMachineStorageOsDiskOutputWithContext(ctx context.Context) VirtualMachineStorageOsDiskOutput {
 	return o
-}
-
-func (o VirtualMachineStorageOsDiskOutput) ToVirtualMachineStorageOsDiskPtrOutput() VirtualMachineStorageOsDiskPtrOutput {
-	return o.ToVirtualMachineStorageOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachineStorageOsDiskOutput) ToVirtualMachineStorageOsDiskPtrOutputWithContext(ctx context.Context) VirtualMachineStorageOsDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineStorageOsDisk) *VirtualMachineStorageOsDisk {
-		return &v
-	}).(VirtualMachineStorageOsDiskPtrOutput)
 }
 
 // Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
@@ -16101,130 +15088,6 @@ func (o VirtualMachineStorageOsDiskOutput) VhdUri() pulumi.StringPtrOutput {
 // Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 func (o VirtualMachineStorageOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
-}
-
-type VirtualMachineStorageOsDiskPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineStorageOsDiskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineStorageOsDisk)(nil)).Elem()
-}
-
-func (o VirtualMachineStorageOsDiskPtrOutput) ToVirtualMachineStorageOsDiskPtrOutput() VirtualMachineStorageOsDiskPtrOutput {
-	return o
-}
-
-func (o VirtualMachineStorageOsDiskPtrOutput) ToVirtualMachineStorageOsDiskPtrOutputWithContext(ctx context.Context) VirtualMachineStorageOsDiskPtrOutput {
-	return o
-}
-
-func (o VirtualMachineStorageOsDiskPtrOutput) Elem() VirtualMachineStorageOsDiskOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) VirtualMachineStorageOsDisk {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualMachineStorageOsDisk
-		return ret
-	}).(VirtualMachineStorageOsDiskOutput)
-}
-
-// Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
-func (o VirtualMachineStorageOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Caching
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
-func (o VirtualMachineStorageOsDiskPtrOutput) CreateOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreateOption
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the size of the OS Disk in gigabytes.
-func (o VirtualMachineStorageOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DiskSizeGb
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
-func (o VirtualMachineStorageOsDiskPtrOutput) ImageUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ImageUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
-func (o VirtualMachineStorageOsDiskPtrOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedDiskId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
-func (o VirtualMachineStorageOsDiskPtrOutput) ManagedDiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedDiskType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the OS Disk.
-func (o VirtualMachineStorageOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
-func (o VirtualMachineStorageOsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OsType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
-func (o VirtualMachineStorageOsDiskPtrOutput) VhdUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VhdUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
-func (o VirtualMachineStorageOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.WriteAcceleratorEnabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type WindowsVirtualMachineAdditionalCapabilities struct {
@@ -16858,47 +15721,6 @@ func (i WindowsVirtualMachineOsDiskArgs) ToWindowsVirtualMachineOsDiskOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsDiskOutput)
 }
 
-func (i WindowsVirtualMachineOsDiskArgs) ToWindowsVirtualMachineOsDiskPtrOutput() WindowsVirtualMachineOsDiskPtrOutput {
-	return i.ToWindowsVirtualMachineOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (i WindowsVirtualMachineOsDiskArgs) ToWindowsVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsDiskOutput).ToWindowsVirtualMachineOsDiskPtrOutputWithContext(ctx)
-}
-
-// WindowsVirtualMachineOsDiskPtrInput is an input type that accepts WindowsVirtualMachineOsDiskArgs, WindowsVirtualMachineOsDiskPtr and WindowsVirtualMachineOsDiskPtrOutput values.
-// You can construct a concrete instance of `WindowsVirtualMachineOsDiskPtrInput` via:
-//
-//          WindowsVirtualMachineOsDiskArgs{...}
-//
-//  or:
-//
-//          nil
-type WindowsVirtualMachineOsDiskPtrInput interface {
-	pulumi.Input
-
-	ToWindowsVirtualMachineOsDiskPtrOutput() WindowsVirtualMachineOsDiskPtrOutput
-	ToWindowsVirtualMachineOsDiskPtrOutputWithContext(context.Context) WindowsVirtualMachineOsDiskPtrOutput
-}
-
-type windowsVirtualMachineOsDiskPtrType WindowsVirtualMachineOsDiskArgs
-
-func WindowsVirtualMachineOsDiskPtr(v *WindowsVirtualMachineOsDiskArgs) WindowsVirtualMachineOsDiskPtrInput {
-	return (*windowsVirtualMachineOsDiskPtrType)(v)
-}
-
-func (*windowsVirtualMachineOsDiskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsVirtualMachineOsDisk)(nil)).Elem()
-}
-
-func (i *windowsVirtualMachineOsDiskPtrType) ToWindowsVirtualMachineOsDiskPtrOutput() WindowsVirtualMachineOsDiskPtrOutput {
-	return i.ToWindowsVirtualMachineOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (i *windowsVirtualMachineOsDiskPtrType) ToWindowsVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineOsDiskPtrOutput)
-}
-
 type WindowsVirtualMachineOsDiskOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineOsDiskOutput) ElementType() reflect.Type {
@@ -16911,16 +15733,6 @@ func (o WindowsVirtualMachineOsDiskOutput) ToWindowsVirtualMachineOsDiskOutput()
 
 func (o WindowsVirtualMachineOsDiskOutput) ToWindowsVirtualMachineOsDiskOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskOutput {
 	return o
-}
-
-func (o WindowsVirtualMachineOsDiskOutput) ToWindowsVirtualMachineOsDiskPtrOutput() WindowsVirtualMachineOsDiskPtrOutput {
-	return o.ToWindowsVirtualMachineOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (o WindowsVirtualMachineOsDiskOutput) ToWindowsVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDisk {
-		return &v
-	}).(WindowsVirtualMachineOsDiskPtrOutput)
 }
 
 // The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -16958,100 +15770,6 @@ func (o WindowsVirtualMachineOsDiskOutput) StorageAccountType() pulumi.StringOut
 // Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 func (o WindowsVirtualMachineOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
-}
-
-type WindowsVirtualMachineOsDiskPtrOutput struct{ *pulumi.OutputState }
-
-func (WindowsVirtualMachineOsDiskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsVirtualMachineOsDisk)(nil)).Elem()
-}
-
-func (o WindowsVirtualMachineOsDiskPtrOutput) ToWindowsVirtualMachineOsDiskPtrOutput() WindowsVirtualMachineOsDiskPtrOutput {
-	return o
-}
-
-func (o WindowsVirtualMachineOsDiskPtrOutput) ToWindowsVirtualMachineOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineOsDiskPtrOutput {
-	return o
-}
-
-func (o WindowsVirtualMachineOsDiskPtrOutput) Elem() WindowsVirtualMachineOsDiskOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) WindowsVirtualMachineOsDisk {
-		if v != nil {
-			return *v
-		}
-		var ret WindowsVirtualMachineOsDisk
-		return ret
-	}).(WindowsVirtualMachineOsDiskOutput)
-}
-
-// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-func (o WindowsVirtualMachineOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Caching
-	}).(pulumi.StringPtrOutput)
-}
-
-// A `diffDiskSettings` block as defined above.
-func (o WindowsVirtualMachineOsDiskPtrOutput) DiffDiskSettings() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDiskDiffDiskSettings {
-		if v == nil {
-			return nil
-		}
-		return v.DiffDiskSettings
-	}).(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput)
-}
-
-// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-func (o WindowsVirtualMachineOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiskEncryptionSetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
-func (o WindowsVirtualMachineOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DiskSizeGb
-	}).(pulumi.IntPtrOutput)
-}
-
-// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
-func (o WindowsVirtualMachineOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
-func (o WindowsVirtualMachineOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageAccountType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-func (o WindowsVirtualMachineOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.WriteAcceleratorEnabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type WindowsVirtualMachineOsDiskDiffDiskSettings struct {
@@ -19218,47 +17936,6 @@ func (i WindowsVirtualMachineScaleSetOsDiskArgs) ToWindowsVirtualMachineScaleSet
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOsDiskOutput)
 }
 
-func (i WindowsVirtualMachineScaleSetOsDiskArgs) ToWindowsVirtualMachineScaleSetOsDiskPtrOutput() WindowsVirtualMachineScaleSetOsDiskPtrOutput {
-	return i.ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (i WindowsVirtualMachineScaleSetOsDiskArgs) ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOsDiskOutput).ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx)
-}
-
-// WindowsVirtualMachineScaleSetOsDiskPtrInput is an input type that accepts WindowsVirtualMachineScaleSetOsDiskArgs, WindowsVirtualMachineScaleSetOsDiskPtr and WindowsVirtualMachineScaleSetOsDiskPtrOutput values.
-// You can construct a concrete instance of `WindowsVirtualMachineScaleSetOsDiskPtrInput` via:
-//
-//          WindowsVirtualMachineScaleSetOsDiskArgs{...}
-//
-//  or:
-//
-//          nil
-type WindowsVirtualMachineScaleSetOsDiskPtrInput interface {
-	pulumi.Input
-
-	ToWindowsVirtualMachineScaleSetOsDiskPtrOutput() WindowsVirtualMachineScaleSetOsDiskPtrOutput
-	ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetOsDiskPtrOutput
-}
-
-type windowsVirtualMachineScaleSetOsDiskPtrType WindowsVirtualMachineScaleSetOsDiskArgs
-
-func WindowsVirtualMachineScaleSetOsDiskPtr(v *WindowsVirtualMachineScaleSetOsDiskArgs) WindowsVirtualMachineScaleSetOsDiskPtrInput {
-	return (*windowsVirtualMachineScaleSetOsDiskPtrType)(v)
-}
-
-func (*windowsVirtualMachineScaleSetOsDiskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsVirtualMachineScaleSetOsDisk)(nil)).Elem()
-}
-
-func (i *windowsVirtualMachineScaleSetOsDiskPtrType) ToWindowsVirtualMachineScaleSetOsDiskPtrOutput() WindowsVirtualMachineScaleSetOsDiskPtrOutput {
-	return i.ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (i *windowsVirtualMachineScaleSetOsDiskPtrType) ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetOsDiskPtrOutput)
-}
-
 type WindowsVirtualMachineScaleSetOsDiskOutput struct{ *pulumi.OutputState }
 
 func (WindowsVirtualMachineScaleSetOsDiskOutput) ElementType() reflect.Type {
@@ -19271,16 +17948,6 @@ func (o WindowsVirtualMachineScaleSetOsDiskOutput) ToWindowsVirtualMachineScaleS
 
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) ToWindowsVirtualMachineScaleSetOsDiskOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskOutput {
 	return o
-}
-
-func (o WindowsVirtualMachineScaleSetOsDiskOutput) ToWindowsVirtualMachineScaleSetOsDiskPtrOutput() WindowsVirtualMachineScaleSetOsDiskPtrOutput {
-	return o.ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(context.Background())
-}
-
-func (o WindowsVirtualMachineScaleSetOsDiskOutput) ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetOsDisk) *WindowsVirtualMachineScaleSetOsDisk {
-		return &v
-	}).(WindowsVirtualMachineScaleSetOsDiskPtrOutput)
 }
 
 // The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -19313,90 +17980,6 @@ func (o WindowsVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pulumi.S
 // Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
-}
-
-type WindowsVirtualMachineScaleSetOsDiskPtrOutput struct{ *pulumi.OutputState }
-
-func (WindowsVirtualMachineScaleSetOsDiskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsVirtualMachineScaleSetOsDisk)(nil)).Elem()
-}
-
-func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) ToWindowsVirtualMachineScaleSetOsDiskPtrOutput() WindowsVirtualMachineScaleSetOsDiskPtrOutput {
-	return o
-}
-
-func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) ToWindowsVirtualMachineScaleSetOsDiskPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetOsDiskPtrOutput {
-	return o
-}
-
-func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) Elem() WindowsVirtualMachineScaleSetOsDiskOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) WindowsVirtualMachineScaleSetOsDisk {
-		if v != nil {
-			return *v
-		}
-		var ret WindowsVirtualMachineScaleSetOsDisk
-		return ret
-	}).(WindowsVirtualMachineScaleSetOsDiskOutput)
-}
-
-// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Caching
-	}).(pulumi.StringPtrOutput)
-}
-
-// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
-func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiffDiskSettings() WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
-		if v == nil {
-			return nil
-		}
-		return v.DiffDiskSettings
-	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
-}
-
-// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
-func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiskEncryptionSetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
-func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DiskSizeGb
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
-func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageAccountType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.WriteAcceleratorEnabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
@@ -23373,11 +21956,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostIpConfigurationInput)(nil)).Elem(), BastionHostIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BastionHostIpConfigurationPtrInput)(nil)).Elem(), BastionHostIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentConfigurationInput)(nil)).Elem(), ConfigurationPolicyAssignmentConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentConfigurationPtrInput)(nil)).Elem(), ConfigurationPolicyAssignmentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentConfigurationParameterInput)(nil)).Elem(), ConfigurationPolicyAssignmentConfigurationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyAssignmentConfigurationParameterArrayInput)(nil)).Elem(), ConfigurationPolicyAssignmentConfigurationParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetIdentityInput)(nil)).Elem(), DiskEncryptionSetIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiskEncryptionSetIdentityPtrInput)(nil)).Elem(), DiskEncryptionSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageDataDiskInput)(nil)).Elem(), ImageDataDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageDataDiskArrayInput)(nil)).Elem(), ImageDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOsDiskInput)(nil)).Elem(), ImageOsDiskArgs{})
@@ -23391,7 +21972,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineIdentityInput)(nil)).Elem(), LinuxVirtualMachineIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineIdentityPtrInput)(nil)).Elem(), LinuxVirtualMachineIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineOsDiskInput)(nil)).Elem(), LinuxVirtualMachineOsDiskArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineOsDiskPtrInput)(nil)).Elem(), LinuxVirtualMachineOsDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineOsDiskDiffDiskSettingsInput)(nil)).Elem(), LinuxVirtualMachineOsDiskDiffDiskSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput)(nil)).Elem(), LinuxVirtualMachineOsDiskDiffDiskSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachinePlanInput)(nil)).Elem(), LinuxVirtualMachinePlanArgs{})
@@ -23421,7 +22001,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput)(nil)).Elem(), LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput)(nil)).Elem(), LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetOsDiskInput)(nil)).Elem(), LinuxVirtualMachineScaleSetOsDiskArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetOsDiskPtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetOsDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsInput)(nil)).Elem(), LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetPlanInput)(nil)).Elem(), LinuxVirtualMachineScaleSetPlanArgs{})
@@ -23509,7 +22088,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationInput)(nil)).Elem(), ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrInput)(nil)).Elem(), ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetOsProfileInput)(nil)).Elem(), ScaleSetOsProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetOsProfilePtrInput)(nil)).Elem(), ScaleSetOsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetOsProfileLinuxConfigInput)(nil)).Elem(), ScaleSetOsProfileLinuxConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetOsProfileLinuxConfigPtrInput)(nil)).Elem(), ScaleSetOsProfileLinuxConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetOsProfileLinuxConfigSshKeyInput)(nil)).Elem(), ScaleSetOsProfileLinuxConfigSshKeyArgs{})
@@ -23529,15 +22107,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetRollingUpgradePolicyInput)(nil)).Elem(), ScaleSetRollingUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetRollingUpgradePolicyPtrInput)(nil)).Elem(), ScaleSetRollingUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetSkuInput)(nil)).Elem(), ScaleSetSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetSkuPtrInput)(nil)).Elem(), ScaleSetSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStorageProfileDataDiskInput)(nil)).Elem(), ScaleSetStorageProfileDataDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStorageProfileDataDiskArrayInput)(nil)).Elem(), ScaleSetStorageProfileDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStorageProfileImageReferenceInput)(nil)).Elem(), ScaleSetStorageProfileImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStorageProfileImageReferencePtrInput)(nil)).Elem(), ScaleSetStorageProfileImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStorageProfileOsDiskInput)(nil)).Elem(), ScaleSetStorageProfileOsDiskArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStorageProfileOsDiskPtrInput)(nil)).Elem(), ScaleSetStorageProfileOsDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageIdentifierInput)(nil)).Elem(), SharedImageIdentifierArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageIdentifierPtrInput)(nil)).Elem(), SharedImageIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImagePurchasePlanInput)(nil)).Elem(), SharedImagePurchasePlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImagePurchasePlanPtrInput)(nil)).Elem(), SharedImagePurchasePlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedImageVersionTargetRegionInput)(nil)).Elem(), SharedImageVersionTargetRegionArgs{})
@@ -23577,7 +22152,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageImageReferenceInput)(nil)).Elem(), VirtualMachineStorageImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageImageReferencePtrInput)(nil)).Elem(), VirtualMachineStorageImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageOsDiskInput)(nil)).Elem(), VirtualMachineStorageOsDiskArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageOsDiskPtrInput)(nil)).Elem(), VirtualMachineStorageOsDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineAdditionalCapabilitiesInput)(nil)).Elem(), WindowsVirtualMachineAdditionalCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineAdditionalCapabilitiesPtrInput)(nil)).Elem(), WindowsVirtualMachineAdditionalCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineAdditionalUnattendContentInput)(nil)).Elem(), WindowsVirtualMachineAdditionalUnattendContentArgs{})
@@ -23587,7 +22161,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineIdentityInput)(nil)).Elem(), WindowsVirtualMachineIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineIdentityPtrInput)(nil)).Elem(), WindowsVirtualMachineIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineOsDiskInput)(nil)).Elem(), WindowsVirtualMachineOsDiskArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineOsDiskPtrInput)(nil)).Elem(), WindowsVirtualMachineOsDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineOsDiskDiffDiskSettingsInput)(nil)).Elem(), WindowsVirtualMachineOsDiskDiffDiskSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput)(nil)).Elem(), WindowsVirtualMachineOsDiskDiffDiskSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachinePlanInput)(nil)).Elem(), WindowsVirtualMachinePlanArgs{})
@@ -23617,7 +22190,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput)(nil)).Elem(), WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput)(nil)).Elem(), WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetOsDiskInput)(nil)).Elem(), WindowsVirtualMachineScaleSetOsDiskArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetOsDiskPtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetOsDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsInput)(nil)).Elem(), WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetPlanInput)(nil)).Elem(), WindowsVirtualMachineScaleSetPlanArgs{})
@@ -23681,11 +22253,9 @@ func init() {
 	pulumi.RegisterOutputType(BastionHostIpConfigurationOutput{})
 	pulumi.RegisterOutputType(BastionHostIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentConfigurationOutput{})
-	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentConfigurationParameterOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentConfigurationParameterArrayOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetIdentityOutput{})
-	pulumi.RegisterOutputType(DiskEncryptionSetIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ImageDataDiskOutput{})
 	pulumi.RegisterOutputType(ImageDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(ImageOsDiskOutput{})
@@ -23699,7 +22269,6 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineIdentityOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineIdentityPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineOsDiskOutput{})
-	pulumi.RegisterOutputType(LinuxVirtualMachineOsDiskPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineOsDiskDiffDiskSettingsOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachinePlanOutput{})
@@ -23729,7 +22298,6 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetOsDiskOutput{})
-	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetOsDiskPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetPlanOutput{})
@@ -23817,7 +22385,6 @@ func init() {
 	pulumi.RegisterOutputType(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput{})
 	pulumi.RegisterOutputType(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetOsProfileOutput{})
-	pulumi.RegisterOutputType(ScaleSetOsProfilePtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetOsProfileLinuxConfigOutput{})
 	pulumi.RegisterOutputType(ScaleSetOsProfileLinuxConfigPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetOsProfileLinuxConfigSshKeyOutput{})
@@ -23837,15 +22404,12 @@ func init() {
 	pulumi.RegisterOutputType(ScaleSetRollingUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(ScaleSetRollingUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetSkuOutput{})
-	pulumi.RegisterOutputType(ScaleSetSkuPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetStorageProfileDataDiskOutput{})
 	pulumi.RegisterOutputType(ScaleSetStorageProfileDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(ScaleSetStorageProfileImageReferenceOutput{})
 	pulumi.RegisterOutputType(ScaleSetStorageProfileImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetStorageProfileOsDiskOutput{})
-	pulumi.RegisterOutputType(ScaleSetStorageProfileOsDiskPtrOutput{})
 	pulumi.RegisterOutputType(SharedImageIdentifierOutput{})
-	pulumi.RegisterOutputType(SharedImageIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(SharedImagePurchasePlanOutput{})
 	pulumi.RegisterOutputType(SharedImagePurchasePlanPtrOutput{})
 	pulumi.RegisterOutputType(SharedImageVersionTargetRegionOutput{})
@@ -23885,7 +22449,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineStorageImageReferenceOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineStorageOsDiskOutput{})
-	pulumi.RegisterOutputType(VirtualMachineStorageOsDiskPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineAdditionalCapabilitiesOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineAdditionalCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineAdditionalUnattendContentOutput{})
@@ -23895,7 +22458,6 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineIdentityOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineOsDiskOutput{})
-	pulumi.RegisterOutputType(WindowsVirtualMachineOsDiskPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineOsDiskDiffDiskSettingsOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachinePlanOutput{})
@@ -23925,7 +22487,6 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetOsDiskOutput{})
-	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetOsDiskPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetPlanOutput{})

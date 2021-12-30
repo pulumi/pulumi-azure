@@ -91,28 +91,28 @@ export class ExpressRouteAuthorization extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExpressRouteAuthorizationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExpressRouteAuthorizationArgs | ExpressRouteAuthorizationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRouteAuthorizationState | undefined;
-            inputs["expressRouteAuthorizationId"] = state ? state.expressRouteAuthorizationId : undefined;
-            inputs["expressRouteAuthorizationKey"] = state ? state.expressRouteAuthorizationKey : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["privateCloudId"] = state ? state.privateCloudId : undefined;
+            resourceInputs["expressRouteAuthorizationId"] = state ? state.expressRouteAuthorizationId : undefined;
+            resourceInputs["expressRouteAuthorizationKey"] = state ? state.expressRouteAuthorizationKey : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateCloudId"] = state ? state.privateCloudId : undefined;
         } else {
             const args = argsOrState as ExpressRouteAuthorizationArgs | undefined;
             if ((!args || args.privateCloudId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateCloudId"] = args ? args.privateCloudId : undefined;
-            inputs["expressRouteAuthorizationId"] = undefined /*out*/;
-            inputs["expressRouteAuthorizationKey"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateCloudId"] = args ? args.privateCloudId : undefined;
+            resourceInputs["expressRouteAuthorizationId"] = undefined /*out*/;
+            resourceInputs["expressRouteAuthorizationKey"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ExpressRouteAuthorization.__pulumiType, name, inputs, opts);
+        super(ExpressRouteAuthorization.__pulumiType, name, resourceInputs, opts);
     }
 }
 

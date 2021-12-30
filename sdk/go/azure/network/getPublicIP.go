@@ -116,6 +116,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_ = network.GetPublicIPOutput(ctx, network.GetPublicIPOutputArgs{
+// 			Name:              examplePublicIp.Name,
+// 			ResourceGroupName: exampleVirtualMachine.ResourceGroupName,
+// 		}, nil)
 // 		ctx.Export("publicIpAddress", examplePublicIp.IpAddress)
 // 		return nil
 // 	})

@@ -93,34 +93,34 @@ export class Zone extends pulumi.CustomResource {
      */
     constructor(name: string, args: ZoneArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ZoneArgs | ZoneState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
-            inputs["maxNumberOfRecordSets"] = state ? state.maxNumberOfRecordSets : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nameServers"] = state ? state.nameServers : undefined;
-            inputs["numberOfRecordSets"] = state ? state.numberOfRecordSets : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["soaRecord"] = state ? state.soaRecord : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["maxNumberOfRecordSets"] = state ? state.maxNumberOfRecordSets : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nameServers"] = state ? state.nameServers : undefined;
+            resourceInputs["numberOfRecordSets"] = state ? state.numberOfRecordSets : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["soaRecord"] = state ? state.soaRecord : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["soaRecord"] = args ? args.soaRecord : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["maxNumberOfRecordSets"] = undefined /*out*/;
-            inputs["nameServers"] = undefined /*out*/;
-            inputs["numberOfRecordSets"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["soaRecord"] = args ? args.soaRecord : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["maxNumberOfRecordSets"] = undefined /*out*/;
+            resourceInputs["nameServers"] = undefined /*out*/;
+            resourceInputs["numberOfRecordSets"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Zone.__pulumiType, name, inputs, opts);
+        super(Zone.__pulumiType, name, resourceInputs, opts);
     }
 }
 

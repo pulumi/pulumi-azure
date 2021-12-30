@@ -126,17 +126,17 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: FailoverGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FailoverGroupArgs | FailoverGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FailoverGroupState | undefined;
-            inputs["databases"] = state ? state.databases : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partnerServers"] = state ? state.partnerServers : undefined;
-            inputs["readWriteEndpointFailoverPolicy"] = state ? state.readWriteEndpointFailoverPolicy : undefined;
-            inputs["readonlyEndpointFailoverPolicyEnabled"] = state ? state.readonlyEndpointFailoverPolicyEnabled : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["databases"] = state ? state.databases : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partnerServers"] = state ? state.partnerServers : undefined;
+            resourceInputs["readWriteEndpointFailoverPolicy"] = state ? state.readWriteEndpointFailoverPolicy : undefined;
+            resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = state ? state.readonlyEndpointFailoverPolicyEnabled : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FailoverGroupArgs | undefined;
             if ((!args || args.partnerServers === undefined) && !opts.urn) {
@@ -148,18 +148,18 @@ export class FailoverGroup extends pulumi.CustomResource {
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            inputs["databases"] = args ? args.databases : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partnerServers"] = args ? args.partnerServers : undefined;
-            inputs["readWriteEndpointFailoverPolicy"] = args ? args.readWriteEndpointFailoverPolicy : undefined;
-            inputs["readonlyEndpointFailoverPolicyEnabled"] = args ? args.readonlyEndpointFailoverPolicyEnabled : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["databases"] = args ? args.databases : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partnerServers"] = args ? args.partnerServers : undefined;
+            resourceInputs["readWriteEndpointFailoverPolicy"] = args ? args.readWriteEndpointFailoverPolicy : undefined;
+            resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = args ? args.readonlyEndpointFailoverPolicyEnabled : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FailoverGroup.__pulumiType, name, inputs, opts);
+        super(FailoverGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -90,21 +90,21 @@ export class ResourceProviderRegistration extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ResourceProviderRegistrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceProviderRegistrationArgs | ResourceProviderRegistrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceProviderRegistrationState | undefined;
-            inputs["features"] = state ? state.features : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["features"] = state ? state.features : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ResourceProviderRegistrationArgs | undefined;
-            inputs["features"] = args ? args.features : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["features"] = args ? args.features : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ResourceProviderRegistration.__pulumiType, name, inputs, opts);
+        super(ResourceProviderRegistration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

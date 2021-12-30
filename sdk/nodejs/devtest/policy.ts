@@ -116,19 +116,19 @@ export class Policy extends pulumi.CustomResource {
      */
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["evaluatorType"] = state ? state.evaluatorType : undefined;
-            inputs["factData"] = state ? state.factData : undefined;
-            inputs["labName"] = state ? state.labName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policySetName"] = state ? state.policySetName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["threshold"] = state ? state.threshold : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["evaluatorType"] = state ? state.evaluatorType : undefined;
+            resourceInputs["factData"] = state ? state.factData : undefined;
+            resourceInputs["labName"] = state ? state.labName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policySetName"] = state ? state.policySetName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["threshold"] = state ? state.threshold : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
             if ((!args || args.evaluatorType === undefined) && !opts.urn) {
@@ -146,20 +146,20 @@ export class Policy extends pulumi.CustomResource {
             if ((!args || args.threshold === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'threshold'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["evaluatorType"] = args ? args.evaluatorType : undefined;
-            inputs["factData"] = args ? args.factData : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policySetName"] = args ? args.policySetName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["threshold"] = args ? args.threshold : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["evaluatorType"] = args ? args.evaluatorType : undefined;
+            resourceInputs["factData"] = args ? args.factData : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policySetName"] = args ? args.policySetName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["threshold"] = args ? args.threshold : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Policy.__pulumiType, name, inputs, opts);
+        super(Policy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

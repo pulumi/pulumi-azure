@@ -108,13 +108,13 @@ export class EndpointCustomDomain extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointCustomDomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointCustomDomainArgs | EndpointCustomDomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointCustomDomainState | undefined;
-            inputs["cdnEndpointId"] = state ? state.cdnEndpointId : undefined;
-            inputs["hostName"] = state ? state.hostName : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["cdnEndpointId"] = state ? state.cdnEndpointId : undefined;
+            resourceInputs["hostName"] = state ? state.hostName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as EndpointCustomDomainArgs | undefined;
             if ((!args || args.cdnEndpointId === undefined) && !opts.urn) {
@@ -123,14 +123,14 @@ export class EndpointCustomDomain extends pulumi.CustomResource {
             if ((!args || args.hostName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            inputs["cdnEndpointId"] = args ? args.cdnEndpointId : undefined;
-            inputs["hostName"] = args ? args.hostName : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["cdnEndpointId"] = args ? args.cdnEndpointId : undefined;
+            resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EndpointCustomDomain.__pulumiType, name, inputs, opts);
+        super(EndpointCustomDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

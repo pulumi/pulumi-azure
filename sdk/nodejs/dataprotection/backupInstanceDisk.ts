@@ -124,16 +124,16 @@ export class BackupInstanceDisk extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackupInstanceDiskArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BackupInstanceDiskArgs | BackupInstanceDiskState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupInstanceDiskState | undefined;
-            inputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
-            inputs["diskId"] = state ? state.diskId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["snapshotResourceGroupName"] = state ? state.snapshotResourceGroupName : undefined;
-            inputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
+            resourceInputs["diskId"] = state ? state.diskId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["snapshotResourceGroupName"] = state ? state.snapshotResourceGroupName : undefined;
+            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
         } else {
             const args = argsOrState as BackupInstanceDiskArgs | undefined;
             if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
@@ -148,17 +148,17 @@ export class BackupInstanceDisk extends pulumi.CustomResource {
             if ((!args || args.vaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            inputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
-            inputs["diskId"] = args ? args.diskId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["snapshotResourceGroupName"] = args ? args.snapshotResourceGroupName : undefined;
-            inputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
+            resourceInputs["diskId"] = args ? args.diskId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["snapshotResourceGroupName"] = args ? args.snapshotResourceGroupName : undefined;
+            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BackupInstanceDisk.__pulumiType, name, inputs, opts);
+        super(BackupInstanceDisk.__pulumiType, name, resourceInputs, opts);
     }
 }
 

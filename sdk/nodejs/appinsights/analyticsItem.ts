@@ -111,19 +111,19 @@ export class AnalyticsItem extends pulumi.CustomResource {
      */
     constructor(name: string, args: AnalyticsItemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AnalyticsItemArgs | AnalyticsItemState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyticsItemState | undefined;
-            inputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["functionAlias"] = state ? state.functionAlias : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
-            inputs["timeCreated"] = state ? state.timeCreated : undefined;
-            inputs["timeModified"] = state ? state.timeModified : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["functionAlias"] = state ? state.functionAlias : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["timeCreated"] = state ? state.timeCreated : undefined;
+            resourceInputs["timeModified"] = state ? state.timeModified : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as AnalyticsItemArgs | undefined;
             if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
@@ -138,20 +138,20 @@ export class AnalyticsItem extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["functionAlias"] = args ? args.functionAlias : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["timeModified"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["functionAlias"] = args ? args.functionAlias : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["timeModified"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AnalyticsItem.__pulumiType, name, inputs, opts);
+        super(AnalyticsItem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

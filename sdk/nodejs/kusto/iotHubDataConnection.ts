@@ -160,22 +160,22 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: IotHubDataConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IotHubDataConnectionArgs | IotHubDataConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IotHubDataConnectionState | undefined;
-            inputs["clusterName"] = state ? state.clusterName : undefined;
-            inputs["consumerGroup"] = state ? state.consumerGroup : undefined;
-            inputs["dataFormat"] = state ? state.dataFormat : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["eventSystemProperties"] = state ? state.eventSystemProperties : undefined;
-            inputs["iothubId"] = state ? state.iothubId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
-            inputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["consumerGroup"] = state ? state.consumerGroup : undefined;
+            resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["eventSystemProperties"] = state ? state.eventSystemProperties : undefined;
+            resourceInputs["iothubId"] = state ? state.iothubId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as IotHubDataConnectionArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -196,23 +196,23 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             if ((!args || args.sharedAccessPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessPolicyName'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["consumerGroup"] = args ? args.consumerGroup : undefined;
-            inputs["dataFormat"] = args ? args.dataFormat : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
-            inputs["iothubId"] = args ? args.iothubId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["consumerGroup"] = args ? args.consumerGroup : undefined;
+            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
+            resourceInputs["iothubId"] = args ? args.iothubId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IotHubDataConnection.__pulumiType, name, inputs, opts);
+        super(IotHubDataConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

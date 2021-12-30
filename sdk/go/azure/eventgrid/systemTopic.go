@@ -213,7 +213,7 @@ type SystemTopicInput interface {
 }
 
 func (*SystemTopic) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemTopic)(nil))
+	return reflect.TypeOf((**SystemTopic)(nil)).Elem()
 }
 
 func (i *SystemTopic) ToSystemTopicOutput() SystemTopicOutput {
@@ -222,35 +222,6 @@ func (i *SystemTopic) ToSystemTopicOutput() SystemTopicOutput {
 
 func (i *SystemTopic) ToSystemTopicOutputWithContext(ctx context.Context) SystemTopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicOutput)
-}
-
-func (i *SystemTopic) ToSystemTopicPtrOutput() SystemTopicPtrOutput {
-	return i.ToSystemTopicPtrOutputWithContext(context.Background())
-}
-
-func (i *SystemTopic) ToSystemTopicPtrOutputWithContext(ctx context.Context) SystemTopicPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicPtrOutput)
-}
-
-type SystemTopicPtrInput interface {
-	pulumi.Input
-
-	ToSystemTopicPtrOutput() SystemTopicPtrOutput
-	ToSystemTopicPtrOutputWithContext(ctx context.Context) SystemTopicPtrOutput
-}
-
-type systemTopicPtrType SystemTopicArgs
-
-func (*systemTopicPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemTopic)(nil))
-}
-
-func (i *systemTopicPtrType) ToSystemTopicPtrOutput() SystemTopicPtrOutput {
-	return i.ToSystemTopicPtrOutputWithContext(context.Background())
-}
-
-func (i *systemTopicPtrType) ToSystemTopicPtrOutputWithContext(ctx context.Context) SystemTopicPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicPtrOutput)
 }
 
 // SystemTopicArrayInput is an input type that accepts SystemTopicArray and SystemTopicArrayOutput values.
@@ -306,7 +277,7 @@ func (i SystemTopicMap) ToSystemTopicMapOutputWithContext(ctx context.Context) S
 type SystemTopicOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemTopic)(nil))
+	return reflect.TypeOf((**SystemTopic)(nil)).Elem()
 }
 
 func (o SystemTopicOutput) ToSystemTopicOutput() SystemTopicOutput {
@@ -317,44 +288,10 @@ func (o SystemTopicOutput) ToSystemTopicOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SystemTopicOutput) ToSystemTopicPtrOutput() SystemTopicPtrOutput {
-	return o.ToSystemTopicPtrOutputWithContext(context.Background())
-}
-
-func (o SystemTopicOutput) ToSystemTopicPtrOutputWithContext(ctx context.Context) SystemTopicPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopic) *SystemTopic {
-		return &v
-	}).(SystemTopicPtrOutput)
-}
-
-type SystemTopicPtrOutput struct{ *pulumi.OutputState }
-
-func (SystemTopicPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemTopic)(nil))
-}
-
-func (o SystemTopicPtrOutput) ToSystemTopicPtrOutput() SystemTopicPtrOutput {
-	return o
-}
-
-func (o SystemTopicPtrOutput) ToSystemTopicPtrOutputWithContext(ctx context.Context) SystemTopicPtrOutput {
-	return o
-}
-
-func (o SystemTopicPtrOutput) Elem() SystemTopicOutput {
-	return o.ApplyT(func(v *SystemTopic) SystemTopic {
-		if v != nil {
-			return *v
-		}
-		var ret SystemTopic
-		return ret
-	}).(SystemTopicOutput)
-}
-
 type SystemTopicArrayOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SystemTopic)(nil))
+	return reflect.TypeOf((*[]*SystemTopic)(nil)).Elem()
 }
 
 func (o SystemTopicArrayOutput) ToSystemTopicArrayOutput() SystemTopicArrayOutput {
@@ -366,15 +303,15 @@ func (o SystemTopicArrayOutput) ToSystemTopicArrayOutputWithContext(ctx context.
 }
 
 func (o SystemTopicArrayOutput) Index(i pulumi.IntInput) SystemTopicOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SystemTopic {
-		return vs[0].([]SystemTopic)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SystemTopic {
+		return vs[0].([]*SystemTopic)[vs[1].(int)]
 	}).(SystemTopicOutput)
 }
 
 type SystemTopicMapOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SystemTopic)(nil))
+	return reflect.TypeOf((*map[string]*SystemTopic)(nil)).Elem()
 }
 
 func (o SystemTopicMapOutput) ToSystemTopicMapOutput() SystemTopicMapOutput {
@@ -386,18 +323,16 @@ func (o SystemTopicMapOutput) ToSystemTopicMapOutputWithContext(ctx context.Cont
 }
 
 func (o SystemTopicMapOutput) MapIndex(k pulumi.StringInput) SystemTopicOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SystemTopic {
-		return vs[0].(map[string]SystemTopic)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SystemTopic {
+		return vs[0].(map[string]*SystemTopic)[vs[1].(string)]
 	}).(SystemTopicOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicInput)(nil)).Elem(), &SystemTopic{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicPtrInput)(nil)).Elem(), &SystemTopic{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicArrayInput)(nil)).Elem(), SystemTopicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicMapInput)(nil)).Elem(), SystemTopicMap{})
 	pulumi.RegisterOutputType(SystemTopicOutput{})
-	pulumi.RegisterOutputType(SystemTopicPtrOutput{})
 	pulumi.RegisterOutputType(SystemTopicArrayOutput{})
 	pulumi.RegisterOutputType(SystemTopicMapOutput{})
 }

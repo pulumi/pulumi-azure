@@ -100,15 +100,15 @@ export class TableEntity extends pulumi.CustomResource {
      */
     constructor(name: string, args: TableEntityArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TableEntityArgs | TableEntityState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableEntityState | undefined;
-            inputs["entity"] = state ? state.entity : undefined;
-            inputs["partitionKey"] = state ? state.partitionKey : undefined;
-            inputs["rowKey"] = state ? state.rowKey : undefined;
-            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            inputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["entity"] = state ? state.entity : undefined;
+            resourceInputs["partitionKey"] = state ? state.partitionKey : undefined;
+            resourceInputs["rowKey"] = state ? state.rowKey : undefined;
+            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as TableEntityArgs | undefined;
             if ((!args || args.entity === undefined) && !opts.urn) {
@@ -126,16 +126,16 @@ export class TableEntity extends pulumi.CustomResource {
             if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            inputs["entity"] = args ? args.entity : undefined;
-            inputs["partitionKey"] = args ? args.partitionKey : undefined;
-            inputs["rowKey"] = args ? args.rowKey : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["entity"] = args ? args.entity : undefined;
+            resourceInputs["partitionKey"] = args ? args.partitionKey : undefined;
+            resourceInputs["rowKey"] = args ? args.rowKey : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TableEntity.__pulumiType, name, inputs, opts);
+        super(TableEntity.__pulumiType, name, resourceInputs, opts);
     }
 }
 

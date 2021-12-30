@@ -92,13 +92,13 @@ export class SqlFunction extends pulumi.CustomResource {
      */
     constructor(name: string, args: SqlFunctionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlFunctionArgs | SqlFunctionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlFunctionState | undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["containerId"] = state ? state.containerId : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["containerId"] = state ? state.containerId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as SqlFunctionArgs | undefined;
             if ((!args || args.body === undefined) && !opts.urn) {
@@ -107,14 +107,14 @@ export class SqlFunction extends pulumi.CustomResource {
             if ((!args || args.containerId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerId'");
             }
-            inputs["body"] = args ? args.body : undefined;
-            inputs["containerId"] = args ? args.containerId : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["containerId"] = args ? args.containerId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SqlFunction.__pulumiType, name, inputs, opts);
+        super(SqlFunction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

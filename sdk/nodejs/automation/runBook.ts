@@ -125,22 +125,22 @@ export class RunBook extends pulumi.CustomResource {
      */
     constructor(name: string, args: RunBookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RunBookArgs | RunBookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RunBookState | undefined;
-            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["jobSchedules"] = state ? state.jobSchedules : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["logProgress"] = state ? state.logProgress : undefined;
-            inputs["logVerbose"] = state ? state.logVerbose : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publishContentLink"] = state ? state.publishContentLink : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["runbookType"] = state ? state.runbookType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["jobSchedules"] = state ? state.jobSchedules : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["logProgress"] = state ? state.logProgress : undefined;
+            resourceInputs["logVerbose"] = state ? state.logVerbose : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publishContentLink"] = state ? state.publishContentLink : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["runbookType"] = state ? state.runbookType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RunBookArgs | undefined;
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -158,23 +158,23 @@ export class RunBook extends pulumi.CustomResource {
             if ((!args || args.runbookType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'runbookType'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["jobSchedules"] = args ? args.jobSchedules : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["logProgress"] = args ? args.logProgress : undefined;
-            inputs["logVerbose"] = args ? args.logVerbose : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publishContentLink"] = args ? args.publishContentLink : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["runbookType"] = args ? args.runbookType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["jobSchedules"] = args ? args.jobSchedules : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logProgress"] = args ? args.logProgress : undefined;
+            resourceInputs["logVerbose"] = args ? args.logVerbose : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publishContentLink"] = args ? args.publishContentLink : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["runbookType"] = args ? args.runbookType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RunBook.__pulumiType, name, inputs, opts);
+        super(RunBook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

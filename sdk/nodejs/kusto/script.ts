@@ -43,9 +43,9 @@ import * as utilities from "../utilities";
  *     type: "Block",
  *     sourceContent: ".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)",
  * });
- * const exampleAccountBlobContainerSAS = pulumi.all([exampleAccount.primaryConnectionString, exampleContainer.name]).apply(([primaryConnectionString, name]) => azure.storage.getAccountBlobContainerSAS({
- *     connectionString: primaryConnectionString,
- *     containerName: name,
+ * const exampleAccountBlobContainerSAS = azure.storage.getAccountBlobContainerSASOutput({
+ *     connectionString: exampleAccount.primaryConnectionString,
+ *     containerName: exampleContainer.name,
  *     httpsOnly: true,
  *     start: "2017-03-21",
  *     expiry: "2022-03-21",
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *         "delete": false,
  *         list: true,
  *     },
- * }));
+ * });
  * const exampleScript = new azure.kusto.Script("exampleScript", {
  *     databaseId: exampleDatabase.id,
  *     url: exampleBlob.id,
@@ -137,16 +137,16 @@ export class Script extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScriptArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScriptArgs | ScriptState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScriptState | undefined;
-            inputs["continueOnErrorsEnabled"] = state ? state.continueOnErrorsEnabled : undefined;
-            inputs["databaseId"] = state ? state.databaseId : undefined;
-            inputs["forceAnUpdateWhenValueChanged"] = state ? state.forceAnUpdateWhenValueChanged : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["sasToken"] = state ? state.sasToken : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["continueOnErrorsEnabled"] = state ? state.continueOnErrorsEnabled : undefined;
+            resourceInputs["databaseId"] = state ? state.databaseId : undefined;
+            resourceInputs["forceAnUpdateWhenValueChanged"] = state ? state.forceAnUpdateWhenValueChanged : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["sasToken"] = state ? state.sasToken : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ScriptArgs | undefined;
             if ((!args || args.databaseId === undefined) && !opts.urn) {
@@ -158,17 +158,17 @@ export class Script extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            inputs["continueOnErrorsEnabled"] = args ? args.continueOnErrorsEnabled : undefined;
-            inputs["databaseId"] = args ? args.databaseId : undefined;
-            inputs["forceAnUpdateWhenValueChanged"] = args ? args.forceAnUpdateWhenValueChanged : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["sasToken"] = args ? args.sasToken : undefined;
-            inputs["url"] = args ? args.url : undefined;
+            resourceInputs["continueOnErrorsEnabled"] = args ? args.continueOnErrorsEnabled : undefined;
+            resourceInputs["databaseId"] = args ? args.databaseId : undefined;
+            resourceInputs["forceAnUpdateWhenValueChanged"] = args ? args.forceAnUpdateWhenValueChanged : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["sasToken"] = args ? args.sasToken : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Script.__pulumiType, name, inputs, opts);
+        super(Script.__pulumiType, name, resourceInputs, opts);
     }
 }
 

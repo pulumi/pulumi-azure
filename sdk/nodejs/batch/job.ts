@@ -106,32 +106,32 @@ export class Job extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobState | undefined;
-            inputs["batchPoolId"] = state ? state.batchPoolId : undefined;
-            inputs["commonEnvironmentProperties"] = state ? state.commonEnvironmentProperties : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["taskRetryMaximum"] = state ? state.taskRetryMaximum : undefined;
+            resourceInputs["batchPoolId"] = state ? state.batchPoolId : undefined;
+            resourceInputs["commonEnvironmentProperties"] = state ? state.commonEnvironmentProperties : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["taskRetryMaximum"] = state ? state.taskRetryMaximum : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
             if ((!args || args.batchPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'batchPoolId'");
             }
-            inputs["batchPoolId"] = args ? args.batchPoolId : undefined;
-            inputs["commonEnvironmentProperties"] = args ? args.commonEnvironmentProperties : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["taskRetryMaximum"] = args ? args.taskRetryMaximum : undefined;
+            resourceInputs["batchPoolId"] = args ? args.batchPoolId : undefined;
+            resourceInputs["commonEnvironmentProperties"] = args ? args.commonEnvironmentProperties : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["taskRetryMaximum"] = args ? args.taskRetryMaximum : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Job.__pulumiType, name, inputs, opts);
+        super(Job.__pulumiType, name, resourceInputs, opts);
     }
 }
 

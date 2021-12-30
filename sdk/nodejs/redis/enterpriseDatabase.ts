@@ -112,20 +112,20 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
      */
     constructor(name: string, args: EnterpriseDatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EnterpriseDatabaseArgs | EnterpriseDatabaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnterpriseDatabaseState | undefined;
-            inputs["clientProtocol"] = state ? state.clientProtocol : undefined;
-            inputs["clusterId"] = state ? state.clusterId : undefined;
-            inputs["clusteringPolicy"] = state ? state.clusteringPolicy : undefined;
-            inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
-            inputs["modules"] = state ? state.modules : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            resourceInputs["clientProtocol"] = state ? state.clientProtocol : undefined;
+            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
+            resourceInputs["clusteringPolicy"] = state ? state.clusteringPolicy : undefined;
+            resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
+            resourceInputs["modules"] = state ? state.modules : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
         } else {
             const args = argsOrState as EnterpriseDatabaseArgs | undefined;
             if ((!args || args.clusterId === undefined) && !opts.urn) {
@@ -134,21 +134,21 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["clientProtocol"] = args ? args.clientProtocol : undefined;
-            inputs["clusterId"] = args ? args.clusterId : undefined;
-            inputs["clusteringPolicy"] = args ? args.clusteringPolicy : undefined;
-            inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            inputs["modules"] = args ? args.modules : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["primaryAccessKey"] = undefined /*out*/;
-            inputs["secondaryAccessKey"] = undefined /*out*/;
+            resourceInputs["clientProtocol"] = args ? args.clientProtocol : undefined;
+            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
+            resourceInputs["clusteringPolicy"] = args ? args.clusteringPolicy : undefined;
+            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            resourceInputs["modules"] = args ? args.modules : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["primaryAccessKey"] = undefined /*out*/;
+            resourceInputs["secondaryAccessKey"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EnterpriseDatabase.__pulumiType, name, inputs, opts);
+        super(EnterpriseDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

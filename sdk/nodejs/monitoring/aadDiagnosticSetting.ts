@@ -148,32 +148,32 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
      */
     constructor(name: string, args: AadDiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AadDiagnosticSettingArgs | AadDiagnosticSettingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AadDiagnosticSettingState | undefined;
-            inputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
-            inputs["eventhubName"] = state ? state.eventhubName : undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["logs"] = state ? state.logs : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
+            resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["logs"] = state ? state.logs : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
             const args = argsOrState as AadDiagnosticSettingArgs | undefined;
             if ((!args || args.logs === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logs'");
             }
-            inputs["eventhubAuthorizationRuleId"] = args ? args.eventhubAuthorizationRuleId : undefined;
-            inputs["eventhubName"] = args ? args.eventhubName : undefined;
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["logs"] = args ? args.logs : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["eventhubAuthorizationRuleId"] = args ? args.eventhubAuthorizationRuleId : undefined;
+            resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["logs"] = args ? args.logs : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AadDiagnosticSetting.__pulumiType, name, inputs, opts);
+        super(AadDiagnosticSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

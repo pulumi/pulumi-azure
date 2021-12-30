@@ -51,47 +51,6 @@ func (i AssessmentStatusArgs) ToAssessmentStatusOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusOutput)
 }
 
-func (i AssessmentStatusArgs) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
-	return i.ToAssessmentStatusPtrOutputWithContext(context.Background())
-}
-
-func (i AssessmentStatusArgs) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusOutput).ToAssessmentStatusPtrOutputWithContext(ctx)
-}
-
-// AssessmentStatusPtrInput is an input type that accepts AssessmentStatusArgs, AssessmentStatusPtr and AssessmentStatusPtrOutput values.
-// You can construct a concrete instance of `AssessmentStatusPtrInput` via:
-//
-//          AssessmentStatusArgs{...}
-//
-//  or:
-//
-//          nil
-type AssessmentStatusPtrInput interface {
-	pulumi.Input
-
-	ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput
-	ToAssessmentStatusPtrOutputWithContext(context.Context) AssessmentStatusPtrOutput
-}
-
-type assessmentStatusPtrType AssessmentStatusArgs
-
-func AssessmentStatusPtr(v *AssessmentStatusArgs) AssessmentStatusPtrInput {
-	return (*assessmentStatusPtrType)(v)
-}
-
-func (*assessmentStatusPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentStatus)(nil)).Elem()
-}
-
-func (i *assessmentStatusPtrType) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
-	return i.ToAssessmentStatusPtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentStatusPtrType) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusPtrOutput)
-}
-
 type AssessmentStatusOutput struct{ *pulumi.OutputState }
 
 func (AssessmentStatusOutput) ElementType() reflect.Type {
@@ -104,16 +63,6 @@ func (o AssessmentStatusOutput) ToAssessmentStatusOutput() AssessmentStatusOutpu
 
 func (o AssessmentStatusOutput) ToAssessmentStatusOutputWithContext(ctx context.Context) AssessmentStatusOutput {
 	return o
-}
-
-func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
-	return o.ToAssessmentStatusPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatus) *AssessmentStatus {
-		return &v
-	}).(AssessmentStatusPtrOutput)
 }
 
 // Specifies the cause of the assessment status.
@@ -129,60 +78,6 @@ func (o AssessmentStatusOutput) Code() pulumi.StringOutput {
 // Specifies the human readable description of the assessment status.
 func (o AssessmentStatusOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentStatus) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-type AssessmentStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentStatus)(nil)).Elem()
-}
-
-func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
-	return o
-}
-
-func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
-	return o
-}
-
-func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {
-	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentStatus
-		return ret
-	}).(AssessmentStatusOutput)
-}
-
-// Specifies the cause of the assessment status.
-func (o AssessmentStatusPtrOutput) Cause() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Cause
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the programmatic code of the assessment status. Possible values are `Healthy`, `Unhealthy` and `NotApplicable`.
-func (o AssessmentStatusPtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Code
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the human readable description of the assessment status.
-func (o AssessmentStatusPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
 }
 
 type AutomationAction struct {
@@ -638,7 +533,6 @@ func (o AutomationSourceRuleSetRuleArrayOutput) Index(i pulumi.IntInput) Automat
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentStatusInput)(nil)).Elem(), AssessmentStatusArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentStatusPtrInput)(nil)).Elem(), AssessmentStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationActionInput)(nil)).Elem(), AutomationActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationActionArrayInput)(nil)).Elem(), AutomationActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationSourceInput)(nil)).Elem(), AutomationSourceArgs{})
@@ -648,7 +542,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationSourceRuleSetRuleInput)(nil)).Elem(), AutomationSourceRuleSetRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationSourceRuleSetRuleArrayInput)(nil)).Elem(), AutomationSourceRuleSetRuleArray{})
 	pulumi.RegisterOutputType(AssessmentStatusOutput{})
-	pulumi.RegisterOutputType(AssessmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(AutomationActionOutput{})
 	pulumi.RegisterOutputType(AutomationActionArrayOutput{})
 	pulumi.RegisterOutputType(AutomationSourceOutput{})

@@ -711,47 +711,6 @@ func (i EndpointPrivateServiceConnectionArgs) ToEndpointPrivateServiceConnection
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateServiceConnectionOutput)
 }
 
-func (i EndpointPrivateServiceConnectionArgs) ToEndpointPrivateServiceConnectionPtrOutput() EndpointPrivateServiceConnectionPtrOutput {
-	return i.ToEndpointPrivateServiceConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i EndpointPrivateServiceConnectionArgs) ToEndpointPrivateServiceConnectionPtrOutputWithContext(ctx context.Context) EndpointPrivateServiceConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateServiceConnectionOutput).ToEndpointPrivateServiceConnectionPtrOutputWithContext(ctx)
-}
-
-// EndpointPrivateServiceConnectionPtrInput is an input type that accepts EndpointPrivateServiceConnectionArgs, EndpointPrivateServiceConnectionPtr and EndpointPrivateServiceConnectionPtrOutput values.
-// You can construct a concrete instance of `EndpointPrivateServiceConnectionPtrInput` via:
-//
-//          EndpointPrivateServiceConnectionArgs{...}
-//
-//  or:
-//
-//          nil
-type EndpointPrivateServiceConnectionPtrInput interface {
-	pulumi.Input
-
-	ToEndpointPrivateServiceConnectionPtrOutput() EndpointPrivateServiceConnectionPtrOutput
-	ToEndpointPrivateServiceConnectionPtrOutputWithContext(context.Context) EndpointPrivateServiceConnectionPtrOutput
-}
-
-type endpointPrivateServiceConnectionPtrType EndpointPrivateServiceConnectionArgs
-
-func EndpointPrivateServiceConnectionPtr(v *EndpointPrivateServiceConnectionArgs) EndpointPrivateServiceConnectionPtrInput {
-	return (*endpointPrivateServiceConnectionPtrType)(v)
-}
-
-func (*endpointPrivateServiceConnectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointPrivateServiceConnection)(nil)).Elem()
-}
-
-func (i *endpointPrivateServiceConnectionPtrType) ToEndpointPrivateServiceConnectionPtrOutput() EndpointPrivateServiceConnectionPtrOutput {
-	return i.ToEndpointPrivateServiceConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *endpointPrivateServiceConnectionPtrType) ToEndpointPrivateServiceConnectionPtrOutputWithContext(ctx context.Context) EndpointPrivateServiceConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateServiceConnectionPtrOutput)
-}
-
 type EndpointPrivateServiceConnectionOutput struct{ *pulumi.OutputState }
 
 func (EndpointPrivateServiceConnectionOutput) ElementType() reflect.Type {
@@ -764,16 +723,6 @@ func (o EndpointPrivateServiceConnectionOutput) ToEndpointPrivateServiceConnecti
 
 func (o EndpointPrivateServiceConnectionOutput) ToEndpointPrivateServiceConnectionOutputWithContext(ctx context.Context) EndpointPrivateServiceConnectionOutput {
 	return o
-}
-
-func (o EndpointPrivateServiceConnectionOutput) ToEndpointPrivateServiceConnectionPtrOutput() EndpointPrivateServiceConnectionPtrOutput {
-	return o.ToEndpointPrivateServiceConnectionPtrOutputWithContext(context.Background())
-}
-
-func (o EndpointPrivateServiceConnectionOutput) ToEndpointPrivateServiceConnectionPtrOutputWithContext(ctx context.Context) EndpointPrivateServiceConnectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPrivateServiceConnection) *EndpointPrivateServiceConnection {
-		return &v
-	}).(EndpointPrivateServiceConnectionPtrOutput)
 }
 
 // Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
@@ -809,100 +758,6 @@ func (o EndpointPrivateServiceConnectionOutput) RequestMessage() pulumi.StringPt
 // A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionOutput) SubresourceNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) []string { return v.SubresourceNames }).(pulumi.StringArrayOutput)
-}
-
-type EndpointPrivateServiceConnectionPtrOutput struct{ *pulumi.OutputState }
-
-func (EndpointPrivateServiceConnectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointPrivateServiceConnection)(nil)).Elem()
-}
-
-func (o EndpointPrivateServiceConnectionPtrOutput) ToEndpointPrivateServiceConnectionPtrOutput() EndpointPrivateServiceConnectionPtrOutput {
-	return o
-}
-
-func (o EndpointPrivateServiceConnectionPtrOutput) ToEndpointPrivateServiceConnectionPtrOutputWithContext(ctx context.Context) EndpointPrivateServiceConnectionPtrOutput {
-	return o
-}
-
-func (o EndpointPrivateServiceConnectionPtrOutput) Elem() EndpointPrivateServiceConnectionOutput {
-	return o.ApplyT(func(v *EndpointPrivateServiceConnection) EndpointPrivateServiceConnection {
-		if v != nil {
-			return *v
-		}
-		var ret EndpointPrivateServiceConnection
-		return ret
-	}).(EndpointPrivateServiceConnectionOutput)
-}
-
-// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
-func (o EndpointPrivateServiceConnectionPtrOutput) IsManualConnection() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.IsManualConnection
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
-func (o EndpointPrivateServiceConnectionPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
-func (o EndpointPrivateServiceConnectionPtrOutput) PrivateConnectionResourceAlias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateConnectionResourceAlias
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
-func (o EndpointPrivateServiceConnectionPtrOutput) PrivateConnectionResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateConnectionResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
-func (o EndpointPrivateServiceConnectionPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateIpAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
-func (o EndpointPrivateServiceConnectionPtrOutput) RequestMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RequestMessage
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
-func (o EndpointPrivateServiceConnectionPtrOutput) SubresourceNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EndpointPrivateServiceConnection) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SubresourceNames
-	}).(pulumi.StringArrayOutput)
 }
 
 type GetEndpointConnectionNetworkInterface struct {
@@ -1446,7 +1301,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPrivateDnsZoneGroupInput)(nil)).Elem(), EndpointPrivateDnsZoneGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPrivateDnsZoneGroupPtrInput)(nil)).Elem(), EndpointPrivateDnsZoneGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPrivateServiceConnectionInput)(nil)).Elem(), EndpointPrivateServiceConnectionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPrivateServiceConnectionPtrInput)(nil)).Elem(), EndpointPrivateServiceConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointConnectionNetworkInterfaceInput)(nil)).Elem(), GetEndpointConnectionNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointConnectionNetworkInterfaceArrayInput)(nil)).Elem(), GetEndpointConnectionNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointConnectionPrivateServiceConnectionInput)(nil)).Elem(), GetEndpointConnectionPrivateServiceConnectionArgs{})
@@ -1466,7 +1320,6 @@ func init() {
 	pulumi.RegisterOutputType(EndpointPrivateDnsZoneGroupOutput{})
 	pulumi.RegisterOutputType(EndpointPrivateDnsZoneGroupPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPrivateServiceConnectionOutput{})
-	pulumi.RegisterOutputType(EndpointPrivateServiceConnectionPtrOutput{})
 	pulumi.RegisterOutputType(GetEndpointConnectionNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(GetEndpointConnectionNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointConnectionPrivateServiceConnectionOutput{})

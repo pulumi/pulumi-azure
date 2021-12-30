@@ -127,21 +127,21 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: ElasticPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ElasticPoolArgs | ElasticPoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ElasticPoolState | undefined;
-            inputs["creationDate"] = state ? state.creationDate : undefined;
-            inputs["dbDtuMax"] = state ? state.dbDtuMax : undefined;
-            inputs["dbDtuMin"] = state ? state.dbDtuMin : undefined;
-            inputs["dtu"] = state ? state.dtu : undefined;
-            inputs["edition"] = state ? state.edition : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["poolSize"] = state ? state.poolSize : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serverName"] = state ? state.serverName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["dbDtuMax"] = state ? state.dbDtuMax : undefined;
+            resourceInputs["dbDtuMin"] = state ? state.dbDtuMin : undefined;
+            resourceInputs["dtu"] = state ? state.dtu : undefined;
+            resourceInputs["edition"] = state ? state.edition : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["poolSize"] = state ? state.poolSize : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serverName"] = state ? state.serverName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ElasticPoolArgs | undefined;
             if ((!args || args.dtu === undefined) && !opts.urn) {
@@ -156,22 +156,22 @@ export class ElasticPool extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["dbDtuMax"] = args ? args.dbDtuMax : undefined;
-            inputs["dbDtuMin"] = args ? args.dbDtuMin : undefined;
-            inputs["dtu"] = args ? args.dtu : undefined;
-            inputs["edition"] = args ? args.edition : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["poolSize"] = args ? args.poolSize : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationDate"] = undefined /*out*/;
+            resourceInputs["dbDtuMax"] = args ? args.dbDtuMax : undefined;
+            resourceInputs["dbDtuMin"] = args ? args.dbDtuMin : undefined;
+            resourceInputs["dtu"] = args ? args.dtu : undefined;
+            resourceInputs["edition"] = args ? args.edition : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["poolSize"] = args ? args.poolSize : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ElasticPool.__pulumiType, name, inputs, opts);
+        super(ElasticPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

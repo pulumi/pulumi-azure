@@ -58,25 +58,25 @@ export class TriggerTumblingWindow extends pulumi.CustomResource {
      */
     constructor(name: string, args: TriggerTumblingWindowArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TriggerTumblingWindowArgs | TriggerTumblingWindowState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerTumblingWindowState | undefined;
-            inputs["activated"] = state ? state.activated : undefined;
-            inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            inputs["annotations"] = state ? state.annotations : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["delay"] = state ? state.delay : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["endTime"] = state ? state.endTime : undefined;
-            inputs["frequency"] = state ? state.frequency : undefined;
-            inputs["interval"] = state ? state.interval : undefined;
-            inputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pipeline"] = state ? state.pipeline : undefined;
-            inputs["retry"] = state ? state.retry : undefined;
-            inputs["startTime"] = state ? state.startTime : undefined;
-            inputs["triggerDependencies"] = state ? state.triggerDependencies : undefined;
+            resourceInputs["activated"] = state ? state.activated : undefined;
+            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
+            resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["delay"] = state ? state.delay : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["endTime"] = state ? state.endTime : undefined;
+            resourceInputs["frequency"] = state ? state.frequency : undefined;
+            resourceInputs["interval"] = state ? state.interval : undefined;
+            resourceInputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pipeline"] = state ? state.pipeline : undefined;
+            resourceInputs["retry"] = state ? state.retry : undefined;
+            resourceInputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["triggerDependencies"] = state ? state.triggerDependencies : undefined;
         } else {
             const args = argsOrState as TriggerTumblingWindowArgs | undefined;
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
@@ -94,26 +94,26 @@ export class TriggerTumblingWindow extends pulumi.CustomResource {
             if ((!args || args.startTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            inputs["activated"] = args ? args.activated : undefined;
-            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["delay"] = args ? args.delay : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["interval"] = args ? args.interval : undefined;
-            inputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pipeline"] = args ? args.pipeline : undefined;
-            inputs["retry"] = args ? args.retry : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["triggerDependencies"] = args ? args.triggerDependencies : undefined;
+            resourceInputs["activated"] = args ? args.activated : undefined;
+            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["delay"] = args ? args.delay : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["interval"] = args ? args.interval : undefined;
+            resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pipeline"] = args ? args.pipeline : undefined;
+            resourceInputs["retry"] = args ? args.retry : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["triggerDependencies"] = args ? args.triggerDependencies : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TriggerTumblingWindow.__pulumiType, name, inputs, opts);
+        super(TriggerTumblingWindow.__pulumiType, name, resourceInputs, opts);
     }
 }
 

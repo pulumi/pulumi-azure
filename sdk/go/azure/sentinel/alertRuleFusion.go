@@ -182,7 +182,7 @@ type AlertRuleFusionInput interface {
 }
 
 func (*AlertRuleFusion) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleFusion)(nil))
+	return reflect.TypeOf((**AlertRuleFusion)(nil)).Elem()
 }
 
 func (i *AlertRuleFusion) ToAlertRuleFusionOutput() AlertRuleFusionOutput {
@@ -191,35 +191,6 @@ func (i *AlertRuleFusion) ToAlertRuleFusionOutput() AlertRuleFusionOutput {
 
 func (i *AlertRuleFusion) ToAlertRuleFusionOutputWithContext(ctx context.Context) AlertRuleFusionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionOutput)
-}
-
-func (i *AlertRuleFusion) ToAlertRuleFusionPtrOutput() AlertRuleFusionPtrOutput {
-	return i.ToAlertRuleFusionPtrOutputWithContext(context.Background())
-}
-
-func (i *AlertRuleFusion) ToAlertRuleFusionPtrOutputWithContext(ctx context.Context) AlertRuleFusionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionPtrOutput)
-}
-
-type AlertRuleFusionPtrInput interface {
-	pulumi.Input
-
-	ToAlertRuleFusionPtrOutput() AlertRuleFusionPtrOutput
-	ToAlertRuleFusionPtrOutputWithContext(ctx context.Context) AlertRuleFusionPtrOutput
-}
-
-type alertRuleFusionPtrType AlertRuleFusionArgs
-
-func (*alertRuleFusionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleFusion)(nil))
-}
-
-func (i *alertRuleFusionPtrType) ToAlertRuleFusionPtrOutput() AlertRuleFusionPtrOutput {
-	return i.ToAlertRuleFusionPtrOutputWithContext(context.Background())
-}
-
-func (i *alertRuleFusionPtrType) ToAlertRuleFusionPtrOutputWithContext(ctx context.Context) AlertRuleFusionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleFusionPtrOutput)
 }
 
 // AlertRuleFusionArrayInput is an input type that accepts AlertRuleFusionArray and AlertRuleFusionArrayOutput values.
@@ -275,7 +246,7 @@ func (i AlertRuleFusionMap) ToAlertRuleFusionMapOutputWithContext(ctx context.Co
 type AlertRuleFusionOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleFusionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleFusion)(nil))
+	return reflect.TypeOf((**AlertRuleFusion)(nil)).Elem()
 }
 
 func (o AlertRuleFusionOutput) ToAlertRuleFusionOutput() AlertRuleFusionOutput {
@@ -286,44 +257,10 @@ func (o AlertRuleFusionOutput) ToAlertRuleFusionOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o AlertRuleFusionOutput) ToAlertRuleFusionPtrOutput() AlertRuleFusionPtrOutput {
-	return o.ToAlertRuleFusionPtrOutputWithContext(context.Background())
-}
-
-func (o AlertRuleFusionOutput) ToAlertRuleFusionPtrOutputWithContext(ctx context.Context) AlertRuleFusionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleFusion) *AlertRuleFusion {
-		return &v
-	}).(AlertRuleFusionPtrOutput)
-}
-
-type AlertRuleFusionPtrOutput struct{ *pulumi.OutputState }
-
-func (AlertRuleFusionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleFusion)(nil))
-}
-
-func (o AlertRuleFusionPtrOutput) ToAlertRuleFusionPtrOutput() AlertRuleFusionPtrOutput {
-	return o
-}
-
-func (o AlertRuleFusionPtrOutput) ToAlertRuleFusionPtrOutputWithContext(ctx context.Context) AlertRuleFusionPtrOutput {
-	return o
-}
-
-func (o AlertRuleFusionPtrOutput) Elem() AlertRuleFusionOutput {
-	return o.ApplyT(func(v *AlertRuleFusion) AlertRuleFusion {
-		if v != nil {
-			return *v
-		}
-		var ret AlertRuleFusion
-		return ret
-	}).(AlertRuleFusionOutput)
-}
-
 type AlertRuleFusionArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleFusionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertRuleFusion)(nil))
+	return reflect.TypeOf((*[]*AlertRuleFusion)(nil)).Elem()
 }
 
 func (o AlertRuleFusionArrayOutput) ToAlertRuleFusionArrayOutput() AlertRuleFusionArrayOutput {
@@ -335,15 +272,15 @@ func (o AlertRuleFusionArrayOutput) ToAlertRuleFusionArrayOutputWithContext(ctx 
 }
 
 func (o AlertRuleFusionArrayOutput) Index(i pulumi.IntInput) AlertRuleFusionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleFusion {
-		return vs[0].([]AlertRuleFusion)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertRuleFusion {
+		return vs[0].([]*AlertRuleFusion)[vs[1].(int)]
 	}).(AlertRuleFusionOutput)
 }
 
 type AlertRuleFusionMapOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleFusionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AlertRuleFusion)(nil))
+	return reflect.TypeOf((*map[string]*AlertRuleFusion)(nil)).Elem()
 }
 
 func (o AlertRuleFusionMapOutput) ToAlertRuleFusionMapOutput() AlertRuleFusionMapOutput {
@@ -355,18 +292,16 @@ func (o AlertRuleFusionMapOutput) ToAlertRuleFusionMapOutputWithContext(ctx cont
 }
 
 func (o AlertRuleFusionMapOutput) MapIndex(k pulumi.StringInput) AlertRuleFusionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AlertRuleFusion {
-		return vs[0].(map[string]AlertRuleFusion)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AlertRuleFusion {
+		return vs[0].(map[string]*AlertRuleFusion)[vs[1].(string)]
 	}).(AlertRuleFusionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionInput)(nil)).Elem(), &AlertRuleFusion{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionPtrInput)(nil)).Elem(), &AlertRuleFusion{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionArrayInput)(nil)).Elem(), AlertRuleFusionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleFusionMapInput)(nil)).Elem(), AlertRuleFusionMap{})
 	pulumi.RegisterOutputType(AlertRuleFusionOutput{})
-	pulumi.RegisterOutputType(AlertRuleFusionPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleFusionArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleFusionMapOutput{})
 }

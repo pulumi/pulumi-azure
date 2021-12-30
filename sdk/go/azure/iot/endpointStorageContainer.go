@@ -256,7 +256,7 @@ type EndpointStorageContainerInput interface {
 }
 
 func (*EndpointStorageContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointStorageContainer)(nil))
+	return reflect.TypeOf((**EndpointStorageContainer)(nil)).Elem()
 }
 
 func (i *EndpointStorageContainer) ToEndpointStorageContainerOutput() EndpointStorageContainerOutput {
@@ -265,35 +265,6 @@ func (i *EndpointStorageContainer) ToEndpointStorageContainerOutput() EndpointSt
 
 func (i *EndpointStorageContainer) ToEndpointStorageContainerOutputWithContext(ctx context.Context) EndpointStorageContainerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointStorageContainerOutput)
-}
-
-func (i *EndpointStorageContainer) ToEndpointStorageContainerPtrOutput() EndpointStorageContainerPtrOutput {
-	return i.ToEndpointStorageContainerPtrOutputWithContext(context.Background())
-}
-
-func (i *EndpointStorageContainer) ToEndpointStorageContainerPtrOutputWithContext(ctx context.Context) EndpointStorageContainerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointStorageContainerPtrOutput)
-}
-
-type EndpointStorageContainerPtrInput interface {
-	pulumi.Input
-
-	ToEndpointStorageContainerPtrOutput() EndpointStorageContainerPtrOutput
-	ToEndpointStorageContainerPtrOutputWithContext(ctx context.Context) EndpointStorageContainerPtrOutput
-}
-
-type endpointStorageContainerPtrType EndpointStorageContainerArgs
-
-func (*endpointStorageContainerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointStorageContainer)(nil))
-}
-
-func (i *endpointStorageContainerPtrType) ToEndpointStorageContainerPtrOutput() EndpointStorageContainerPtrOutput {
-	return i.ToEndpointStorageContainerPtrOutputWithContext(context.Background())
-}
-
-func (i *endpointStorageContainerPtrType) ToEndpointStorageContainerPtrOutputWithContext(ctx context.Context) EndpointStorageContainerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointStorageContainerPtrOutput)
 }
 
 // EndpointStorageContainerArrayInput is an input type that accepts EndpointStorageContainerArray and EndpointStorageContainerArrayOutput values.
@@ -349,7 +320,7 @@ func (i EndpointStorageContainerMap) ToEndpointStorageContainerMapOutputWithCont
 type EndpointStorageContainerOutput struct{ *pulumi.OutputState }
 
 func (EndpointStorageContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointStorageContainer)(nil))
+	return reflect.TypeOf((**EndpointStorageContainer)(nil)).Elem()
 }
 
 func (o EndpointStorageContainerOutput) ToEndpointStorageContainerOutput() EndpointStorageContainerOutput {
@@ -360,44 +331,10 @@ func (o EndpointStorageContainerOutput) ToEndpointStorageContainerOutputWithCont
 	return o
 }
 
-func (o EndpointStorageContainerOutput) ToEndpointStorageContainerPtrOutput() EndpointStorageContainerPtrOutput {
-	return o.ToEndpointStorageContainerPtrOutputWithContext(context.Background())
-}
-
-func (o EndpointStorageContainerOutput) ToEndpointStorageContainerPtrOutputWithContext(ctx context.Context) EndpointStorageContainerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointStorageContainer) *EndpointStorageContainer {
-		return &v
-	}).(EndpointStorageContainerPtrOutput)
-}
-
-type EndpointStorageContainerPtrOutput struct{ *pulumi.OutputState }
-
-func (EndpointStorageContainerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointStorageContainer)(nil))
-}
-
-func (o EndpointStorageContainerPtrOutput) ToEndpointStorageContainerPtrOutput() EndpointStorageContainerPtrOutput {
-	return o
-}
-
-func (o EndpointStorageContainerPtrOutput) ToEndpointStorageContainerPtrOutputWithContext(ctx context.Context) EndpointStorageContainerPtrOutput {
-	return o
-}
-
-func (o EndpointStorageContainerPtrOutput) Elem() EndpointStorageContainerOutput {
-	return o.ApplyT(func(v *EndpointStorageContainer) EndpointStorageContainer {
-		if v != nil {
-			return *v
-		}
-		var ret EndpointStorageContainer
-		return ret
-	}).(EndpointStorageContainerOutput)
-}
-
 type EndpointStorageContainerArrayOutput struct{ *pulumi.OutputState }
 
 func (EndpointStorageContainerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EndpointStorageContainer)(nil))
+	return reflect.TypeOf((*[]*EndpointStorageContainer)(nil)).Elem()
 }
 
 func (o EndpointStorageContainerArrayOutput) ToEndpointStorageContainerArrayOutput() EndpointStorageContainerArrayOutput {
@@ -409,15 +346,15 @@ func (o EndpointStorageContainerArrayOutput) ToEndpointStorageContainerArrayOutp
 }
 
 func (o EndpointStorageContainerArrayOutput) Index(i pulumi.IntInput) EndpointStorageContainerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointStorageContainer {
-		return vs[0].([]EndpointStorageContainer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointStorageContainer {
+		return vs[0].([]*EndpointStorageContainer)[vs[1].(int)]
 	}).(EndpointStorageContainerOutput)
 }
 
 type EndpointStorageContainerMapOutput struct{ *pulumi.OutputState }
 
 func (EndpointStorageContainerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EndpointStorageContainer)(nil))
+	return reflect.TypeOf((*map[string]*EndpointStorageContainer)(nil)).Elem()
 }
 
 func (o EndpointStorageContainerMapOutput) ToEndpointStorageContainerMapOutput() EndpointStorageContainerMapOutput {
@@ -429,18 +366,16 @@ func (o EndpointStorageContainerMapOutput) ToEndpointStorageContainerMapOutputWi
 }
 
 func (o EndpointStorageContainerMapOutput) MapIndex(k pulumi.StringInput) EndpointStorageContainerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EndpointStorageContainer {
-		return vs[0].(map[string]EndpointStorageContainer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EndpointStorageContainer {
+		return vs[0].(map[string]*EndpointStorageContainer)[vs[1].(string)]
 	}).(EndpointStorageContainerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStorageContainerInput)(nil)).Elem(), &EndpointStorageContainer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStorageContainerPtrInput)(nil)).Elem(), &EndpointStorageContainer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStorageContainerArrayInput)(nil)).Elem(), EndpointStorageContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointStorageContainerMapInput)(nil)).Elem(), EndpointStorageContainerMap{})
 	pulumi.RegisterOutputType(EndpointStorageContainerOutput{})
-	pulumi.RegisterOutputType(EndpointStorageContainerPtrOutput{})
 	pulumi.RegisterOutputType(EndpointStorageContainerArrayOutput{})
 	pulumi.RegisterOutputType(EndpointStorageContainerMapOutput{})
 }

@@ -122,27 +122,27 @@ export class SparkPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: SparkPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SparkPoolArgs | SparkPoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SparkPoolState | undefined;
-            inputs["autoPause"] = state ? state.autoPause : undefined;
-            inputs["autoScale"] = state ? state.autoScale : undefined;
-            inputs["cacheSize"] = state ? state.cacheSize : undefined;
-            inputs["computeIsolationEnabled"] = state ? state.computeIsolationEnabled : undefined;
-            inputs["dynamicExecutorAllocationEnabled"] = state ? state.dynamicExecutorAllocationEnabled : undefined;
-            inputs["libraryRequirement"] = state ? state.libraryRequirement : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nodeCount"] = state ? state.nodeCount : undefined;
-            inputs["nodeSize"] = state ? state.nodeSize : undefined;
-            inputs["nodeSizeFamily"] = state ? state.nodeSizeFamily : undefined;
-            inputs["sessionLevelPackagesEnabled"] = state ? state.sessionLevelPackagesEnabled : undefined;
-            inputs["sparkConfig"] = state ? state.sparkConfig : undefined;
-            inputs["sparkEventsFolder"] = state ? state.sparkEventsFolder : undefined;
-            inputs["sparkLogFolder"] = state ? state.sparkLogFolder : undefined;
-            inputs["sparkVersion"] = state ? state.sparkVersion : undefined;
-            inputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["autoPause"] = state ? state.autoPause : undefined;
+            resourceInputs["autoScale"] = state ? state.autoScale : undefined;
+            resourceInputs["cacheSize"] = state ? state.cacheSize : undefined;
+            resourceInputs["computeIsolationEnabled"] = state ? state.computeIsolationEnabled : undefined;
+            resourceInputs["dynamicExecutorAllocationEnabled"] = state ? state.dynamicExecutorAllocationEnabled : undefined;
+            resourceInputs["libraryRequirement"] = state ? state.libraryRequirement : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nodeCount"] = state ? state.nodeCount : undefined;
+            resourceInputs["nodeSize"] = state ? state.nodeSize : undefined;
+            resourceInputs["nodeSizeFamily"] = state ? state.nodeSizeFamily : undefined;
+            resourceInputs["sessionLevelPackagesEnabled"] = state ? state.sessionLevelPackagesEnabled : undefined;
+            resourceInputs["sparkConfig"] = state ? state.sparkConfig : undefined;
+            resourceInputs["sparkEventsFolder"] = state ? state.sparkEventsFolder : undefined;
+            resourceInputs["sparkLogFolder"] = state ? state.sparkLogFolder : undefined;
+            resourceInputs["sparkVersion"] = state ? state.sparkVersion : undefined;
+            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SparkPoolArgs | undefined;
             if ((!args || args.nodeSize === undefined) && !opts.urn) {
@@ -154,28 +154,28 @@ export class SparkPool extends pulumi.CustomResource {
             if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            inputs["autoPause"] = args ? args.autoPause : undefined;
-            inputs["autoScale"] = args ? args.autoScale : undefined;
-            inputs["cacheSize"] = args ? args.cacheSize : undefined;
-            inputs["computeIsolationEnabled"] = args ? args.computeIsolationEnabled : undefined;
-            inputs["dynamicExecutorAllocationEnabled"] = args ? args.dynamicExecutorAllocationEnabled : undefined;
-            inputs["libraryRequirement"] = args ? args.libraryRequirement : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nodeCount"] = args ? args.nodeCount : undefined;
-            inputs["nodeSize"] = args ? args.nodeSize : undefined;
-            inputs["nodeSizeFamily"] = args ? args.nodeSizeFamily : undefined;
-            inputs["sessionLevelPackagesEnabled"] = args ? args.sessionLevelPackagesEnabled : undefined;
-            inputs["sparkConfig"] = args ? args.sparkConfig : undefined;
-            inputs["sparkEventsFolder"] = args ? args.sparkEventsFolder : undefined;
-            inputs["sparkLogFolder"] = args ? args.sparkLogFolder : undefined;
-            inputs["sparkVersion"] = args ? args.sparkVersion : undefined;
-            inputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoPause"] = args ? args.autoPause : undefined;
+            resourceInputs["autoScale"] = args ? args.autoScale : undefined;
+            resourceInputs["cacheSize"] = args ? args.cacheSize : undefined;
+            resourceInputs["computeIsolationEnabled"] = args ? args.computeIsolationEnabled : undefined;
+            resourceInputs["dynamicExecutorAllocationEnabled"] = args ? args.dynamicExecutorAllocationEnabled : undefined;
+            resourceInputs["libraryRequirement"] = args ? args.libraryRequirement : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
+            resourceInputs["nodeSize"] = args ? args.nodeSize : undefined;
+            resourceInputs["nodeSizeFamily"] = args ? args.nodeSizeFamily : undefined;
+            resourceInputs["sessionLevelPackagesEnabled"] = args ? args.sessionLevelPackagesEnabled : undefined;
+            resourceInputs["sparkConfig"] = args ? args.sparkConfig : undefined;
+            resourceInputs["sparkEventsFolder"] = args ? args.sparkEventsFolder : undefined;
+            resourceInputs["sparkLogFolder"] = args ? args.sparkLogFolder : undefined;
+            resourceInputs["sparkVersion"] = args ? args.sparkVersion : undefined;
+            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SparkPool.__pulumiType, name, inputs, opts);
+        super(SparkPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

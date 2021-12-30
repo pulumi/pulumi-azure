@@ -187,7 +187,7 @@ type FlexibleDatabaseInput interface {
 }
 
 func (*FlexibleDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlexibleDatabase)(nil))
+	return reflect.TypeOf((**FlexibleDatabase)(nil)).Elem()
 }
 
 func (i *FlexibleDatabase) ToFlexibleDatabaseOutput() FlexibleDatabaseOutput {
@@ -196,35 +196,6 @@ func (i *FlexibleDatabase) ToFlexibleDatabaseOutput() FlexibleDatabaseOutput {
 
 func (i *FlexibleDatabase) ToFlexibleDatabaseOutputWithContext(ctx context.Context) FlexibleDatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleDatabaseOutput)
-}
-
-func (i *FlexibleDatabase) ToFlexibleDatabasePtrOutput() FlexibleDatabasePtrOutput {
-	return i.ToFlexibleDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *FlexibleDatabase) ToFlexibleDatabasePtrOutputWithContext(ctx context.Context) FlexibleDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlexibleDatabasePtrOutput)
-}
-
-type FlexibleDatabasePtrInput interface {
-	pulumi.Input
-
-	ToFlexibleDatabasePtrOutput() FlexibleDatabasePtrOutput
-	ToFlexibleDatabasePtrOutputWithContext(ctx context.Context) FlexibleDatabasePtrOutput
-}
-
-type flexibleDatabasePtrType FlexibleDatabaseArgs
-
-func (*flexibleDatabasePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlexibleDatabase)(nil))
-}
-
-func (i *flexibleDatabasePtrType) ToFlexibleDatabasePtrOutput() FlexibleDatabasePtrOutput {
-	return i.ToFlexibleDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *flexibleDatabasePtrType) ToFlexibleDatabasePtrOutputWithContext(ctx context.Context) FlexibleDatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlexibleDatabasePtrOutput)
 }
 
 // FlexibleDatabaseArrayInput is an input type that accepts FlexibleDatabaseArray and FlexibleDatabaseArrayOutput values.
@@ -280,7 +251,7 @@ func (i FlexibleDatabaseMap) ToFlexibleDatabaseMapOutputWithContext(ctx context.
 type FlexibleDatabaseOutput struct{ *pulumi.OutputState }
 
 func (FlexibleDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlexibleDatabase)(nil))
+	return reflect.TypeOf((**FlexibleDatabase)(nil)).Elem()
 }
 
 func (o FlexibleDatabaseOutput) ToFlexibleDatabaseOutput() FlexibleDatabaseOutput {
@@ -291,44 +262,10 @@ func (o FlexibleDatabaseOutput) ToFlexibleDatabaseOutputWithContext(ctx context.
 	return o
 }
 
-func (o FlexibleDatabaseOutput) ToFlexibleDatabasePtrOutput() FlexibleDatabasePtrOutput {
-	return o.ToFlexibleDatabasePtrOutputWithContext(context.Background())
-}
-
-func (o FlexibleDatabaseOutput) ToFlexibleDatabasePtrOutputWithContext(ctx context.Context) FlexibleDatabasePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleDatabase) *FlexibleDatabase {
-		return &v
-	}).(FlexibleDatabasePtrOutput)
-}
-
-type FlexibleDatabasePtrOutput struct{ *pulumi.OutputState }
-
-func (FlexibleDatabasePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlexibleDatabase)(nil))
-}
-
-func (o FlexibleDatabasePtrOutput) ToFlexibleDatabasePtrOutput() FlexibleDatabasePtrOutput {
-	return o
-}
-
-func (o FlexibleDatabasePtrOutput) ToFlexibleDatabasePtrOutputWithContext(ctx context.Context) FlexibleDatabasePtrOutput {
-	return o
-}
-
-func (o FlexibleDatabasePtrOutput) Elem() FlexibleDatabaseOutput {
-	return o.ApplyT(func(v *FlexibleDatabase) FlexibleDatabase {
-		if v != nil {
-			return *v
-		}
-		var ret FlexibleDatabase
-		return ret
-	}).(FlexibleDatabaseOutput)
-}
-
 type FlexibleDatabaseArrayOutput struct{ *pulumi.OutputState }
 
 func (FlexibleDatabaseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FlexibleDatabase)(nil))
+	return reflect.TypeOf((*[]*FlexibleDatabase)(nil)).Elem()
 }
 
 func (o FlexibleDatabaseArrayOutput) ToFlexibleDatabaseArrayOutput() FlexibleDatabaseArrayOutput {
@@ -340,15 +277,15 @@ func (o FlexibleDatabaseArrayOutput) ToFlexibleDatabaseArrayOutputWithContext(ct
 }
 
 func (o FlexibleDatabaseArrayOutput) Index(i pulumi.IntInput) FlexibleDatabaseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlexibleDatabase {
-		return vs[0].([]FlexibleDatabase)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlexibleDatabase {
+		return vs[0].([]*FlexibleDatabase)[vs[1].(int)]
 	}).(FlexibleDatabaseOutput)
 }
 
 type FlexibleDatabaseMapOutput struct{ *pulumi.OutputState }
 
 func (FlexibleDatabaseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FlexibleDatabase)(nil))
+	return reflect.TypeOf((*map[string]*FlexibleDatabase)(nil)).Elem()
 }
 
 func (o FlexibleDatabaseMapOutput) ToFlexibleDatabaseMapOutput() FlexibleDatabaseMapOutput {
@@ -360,18 +297,16 @@ func (o FlexibleDatabaseMapOutput) ToFlexibleDatabaseMapOutputWithContext(ctx co
 }
 
 func (o FlexibleDatabaseMapOutput) MapIndex(k pulumi.StringInput) FlexibleDatabaseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FlexibleDatabase {
-		return vs[0].(map[string]FlexibleDatabase)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FlexibleDatabase {
+		return vs[0].(map[string]*FlexibleDatabase)[vs[1].(string)]
 	}).(FlexibleDatabaseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleDatabaseInput)(nil)).Elem(), &FlexibleDatabase{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleDatabasePtrInput)(nil)).Elem(), &FlexibleDatabase{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleDatabaseArrayInput)(nil)).Elem(), FlexibleDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleDatabaseMapInput)(nil)).Elem(), FlexibleDatabaseMap{})
 	pulumi.RegisterOutputType(FlexibleDatabaseOutput{})
-	pulumi.RegisterOutputType(FlexibleDatabasePtrOutput{})
 	pulumi.RegisterOutputType(FlexibleDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(FlexibleDatabaseMapOutput{})
 }

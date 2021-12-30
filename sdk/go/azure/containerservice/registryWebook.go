@@ -241,7 +241,7 @@ type RegistryWebookInput interface {
 }
 
 func (*RegistryWebook) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryWebook)(nil))
+	return reflect.TypeOf((**RegistryWebook)(nil)).Elem()
 }
 
 func (i *RegistryWebook) ToRegistryWebookOutput() RegistryWebookOutput {
@@ -250,35 +250,6 @@ func (i *RegistryWebook) ToRegistryWebookOutput() RegistryWebookOutput {
 
 func (i *RegistryWebook) ToRegistryWebookOutputWithContext(ctx context.Context) RegistryWebookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebookOutput)
-}
-
-func (i *RegistryWebook) ToRegistryWebookPtrOutput() RegistryWebookPtrOutput {
-	return i.ToRegistryWebookPtrOutputWithContext(context.Background())
-}
-
-func (i *RegistryWebook) ToRegistryWebookPtrOutputWithContext(ctx context.Context) RegistryWebookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebookPtrOutput)
-}
-
-type RegistryWebookPtrInput interface {
-	pulumi.Input
-
-	ToRegistryWebookPtrOutput() RegistryWebookPtrOutput
-	ToRegistryWebookPtrOutputWithContext(ctx context.Context) RegistryWebookPtrOutput
-}
-
-type registryWebookPtrType RegistryWebookArgs
-
-func (*registryWebookPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryWebook)(nil))
-}
-
-func (i *registryWebookPtrType) ToRegistryWebookPtrOutput() RegistryWebookPtrOutput {
-	return i.ToRegistryWebookPtrOutputWithContext(context.Background())
-}
-
-func (i *registryWebookPtrType) ToRegistryWebookPtrOutputWithContext(ctx context.Context) RegistryWebookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebookPtrOutput)
 }
 
 // RegistryWebookArrayInput is an input type that accepts RegistryWebookArray and RegistryWebookArrayOutput values.
@@ -334,7 +305,7 @@ func (i RegistryWebookMap) ToRegistryWebookMapOutputWithContext(ctx context.Cont
 type RegistryWebookOutput struct{ *pulumi.OutputState }
 
 func (RegistryWebookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryWebook)(nil))
+	return reflect.TypeOf((**RegistryWebook)(nil)).Elem()
 }
 
 func (o RegistryWebookOutput) ToRegistryWebookOutput() RegistryWebookOutput {
@@ -345,44 +316,10 @@ func (o RegistryWebookOutput) ToRegistryWebookOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o RegistryWebookOutput) ToRegistryWebookPtrOutput() RegistryWebookPtrOutput {
-	return o.ToRegistryWebookPtrOutputWithContext(context.Background())
-}
-
-func (o RegistryWebookOutput) ToRegistryWebookPtrOutputWithContext(ctx context.Context) RegistryWebookPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryWebook) *RegistryWebook {
-		return &v
-	}).(RegistryWebookPtrOutput)
-}
-
-type RegistryWebookPtrOutput struct{ *pulumi.OutputState }
-
-func (RegistryWebookPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryWebook)(nil))
-}
-
-func (o RegistryWebookPtrOutput) ToRegistryWebookPtrOutput() RegistryWebookPtrOutput {
-	return o
-}
-
-func (o RegistryWebookPtrOutput) ToRegistryWebookPtrOutputWithContext(ctx context.Context) RegistryWebookPtrOutput {
-	return o
-}
-
-func (o RegistryWebookPtrOutput) Elem() RegistryWebookOutput {
-	return o.ApplyT(func(v *RegistryWebook) RegistryWebook {
-		if v != nil {
-			return *v
-		}
-		var ret RegistryWebook
-		return ret
-	}).(RegistryWebookOutput)
-}
-
 type RegistryWebookArrayOutput struct{ *pulumi.OutputState }
 
 func (RegistryWebookArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryWebook)(nil))
+	return reflect.TypeOf((*[]*RegistryWebook)(nil)).Elem()
 }
 
 func (o RegistryWebookArrayOutput) ToRegistryWebookArrayOutput() RegistryWebookArrayOutput {
@@ -394,15 +331,15 @@ func (o RegistryWebookArrayOutput) ToRegistryWebookArrayOutputWithContext(ctx co
 }
 
 func (o RegistryWebookArrayOutput) Index(i pulumi.IntInput) RegistryWebookOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryWebook {
-		return vs[0].([]RegistryWebook)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryWebook {
+		return vs[0].([]*RegistryWebook)[vs[1].(int)]
 	}).(RegistryWebookOutput)
 }
 
 type RegistryWebookMapOutput struct{ *pulumi.OutputState }
 
 func (RegistryWebookMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RegistryWebook)(nil))
+	return reflect.TypeOf((*map[string]*RegistryWebook)(nil)).Elem()
 }
 
 func (o RegistryWebookMapOutput) ToRegistryWebookMapOutput() RegistryWebookMapOutput {
@@ -414,18 +351,16 @@ func (o RegistryWebookMapOutput) ToRegistryWebookMapOutputWithContext(ctx contex
 }
 
 func (o RegistryWebookMapOutput) MapIndex(k pulumi.StringInput) RegistryWebookOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RegistryWebook {
-		return vs[0].(map[string]RegistryWebook)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RegistryWebook {
+		return vs[0].(map[string]*RegistryWebook)[vs[1].(string)]
 	}).(RegistryWebookOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryWebookInput)(nil)).Elem(), &RegistryWebook{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryWebookPtrInput)(nil)).Elem(), &RegistryWebook{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryWebookArrayInput)(nil)).Elem(), RegistryWebookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryWebookMapInput)(nil)).Elem(), RegistryWebookMap{})
 	pulumi.RegisterOutputType(RegistryWebookOutput{})
-	pulumi.RegisterOutputType(RegistryWebookPtrOutput{})
 	pulumi.RegisterOutputType(RegistryWebookArrayOutput{})
 	pulumi.RegisterOutputType(RegistryWebookMapOutput{})
 }

@@ -105,17 +105,17 @@ export class CertificateIssuer extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateIssuerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateIssuerArgs | CertificateIssuerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateIssuerState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["admins"] = state ? state.admins : undefined;
-            inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["orgId"] = state ? state.orgId : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["providerName"] = state ? state.providerName : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["admins"] = state ? state.admins : undefined;
+            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["orgId"] = state ? state.orgId : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["providerName"] = state ? state.providerName : undefined;
         } else {
             const args = argsOrState as CertificateIssuerArgs | undefined;
             if ((!args || args.keyVaultId === undefined) && !opts.urn) {
@@ -124,18 +124,18 @@ export class CertificateIssuer extends pulumi.CustomResource {
             if ((!args || args.providerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["admins"] = args ? args.admins : undefined;
-            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["orgId"] = args ? args.orgId : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["admins"] = args ? args.admins : undefined;
+            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["orgId"] = args ? args.orgId : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["providerName"] = args ? args.providerName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CertificateIssuer.__pulumiType, name, inputs, opts);
+        super(CertificateIssuer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

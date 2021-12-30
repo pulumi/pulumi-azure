@@ -280,7 +280,7 @@ type ReferenceInputMssqlInput interface {
 }
 
 func (*ReferenceInputMssql) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceInputMssql)(nil))
+	return reflect.TypeOf((**ReferenceInputMssql)(nil)).Elem()
 }
 
 func (i *ReferenceInputMssql) ToReferenceInputMssqlOutput() ReferenceInputMssqlOutput {
@@ -289,35 +289,6 @@ func (i *ReferenceInputMssql) ToReferenceInputMssqlOutput() ReferenceInputMssqlO
 
 func (i *ReferenceInputMssql) ToReferenceInputMssqlOutputWithContext(ctx context.Context) ReferenceInputMssqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputMssqlOutput)
-}
-
-func (i *ReferenceInputMssql) ToReferenceInputMssqlPtrOutput() ReferenceInputMssqlPtrOutput {
-	return i.ToReferenceInputMssqlPtrOutputWithContext(context.Background())
-}
-
-func (i *ReferenceInputMssql) ToReferenceInputMssqlPtrOutputWithContext(ctx context.Context) ReferenceInputMssqlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputMssqlPtrOutput)
-}
-
-type ReferenceInputMssqlPtrInput interface {
-	pulumi.Input
-
-	ToReferenceInputMssqlPtrOutput() ReferenceInputMssqlPtrOutput
-	ToReferenceInputMssqlPtrOutputWithContext(ctx context.Context) ReferenceInputMssqlPtrOutput
-}
-
-type referenceInputMssqlPtrType ReferenceInputMssqlArgs
-
-func (*referenceInputMssqlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReferenceInputMssql)(nil))
-}
-
-func (i *referenceInputMssqlPtrType) ToReferenceInputMssqlPtrOutput() ReferenceInputMssqlPtrOutput {
-	return i.ToReferenceInputMssqlPtrOutputWithContext(context.Background())
-}
-
-func (i *referenceInputMssqlPtrType) ToReferenceInputMssqlPtrOutputWithContext(ctx context.Context) ReferenceInputMssqlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputMssqlPtrOutput)
 }
 
 // ReferenceInputMssqlArrayInput is an input type that accepts ReferenceInputMssqlArray and ReferenceInputMssqlArrayOutput values.
@@ -373,7 +344,7 @@ func (i ReferenceInputMssqlMap) ToReferenceInputMssqlMapOutputWithContext(ctx co
 type ReferenceInputMssqlOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputMssqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceInputMssql)(nil))
+	return reflect.TypeOf((**ReferenceInputMssql)(nil)).Elem()
 }
 
 func (o ReferenceInputMssqlOutput) ToReferenceInputMssqlOutput() ReferenceInputMssqlOutput {
@@ -384,44 +355,10 @@ func (o ReferenceInputMssqlOutput) ToReferenceInputMssqlOutputWithContext(ctx co
 	return o
 }
 
-func (o ReferenceInputMssqlOutput) ToReferenceInputMssqlPtrOutput() ReferenceInputMssqlPtrOutput {
-	return o.ToReferenceInputMssqlPtrOutputWithContext(context.Background())
-}
-
-func (o ReferenceInputMssqlOutput) ToReferenceInputMssqlPtrOutputWithContext(ctx context.Context) ReferenceInputMssqlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceInputMssql) *ReferenceInputMssql {
-		return &v
-	}).(ReferenceInputMssqlPtrOutput)
-}
-
-type ReferenceInputMssqlPtrOutput struct{ *pulumi.OutputState }
-
-func (ReferenceInputMssqlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReferenceInputMssql)(nil))
-}
-
-func (o ReferenceInputMssqlPtrOutput) ToReferenceInputMssqlPtrOutput() ReferenceInputMssqlPtrOutput {
-	return o
-}
-
-func (o ReferenceInputMssqlPtrOutput) ToReferenceInputMssqlPtrOutputWithContext(ctx context.Context) ReferenceInputMssqlPtrOutput {
-	return o
-}
-
-func (o ReferenceInputMssqlPtrOutput) Elem() ReferenceInputMssqlOutput {
-	return o.ApplyT(func(v *ReferenceInputMssql) ReferenceInputMssql {
-		if v != nil {
-			return *v
-		}
-		var ret ReferenceInputMssql
-		return ret
-	}).(ReferenceInputMssqlOutput)
-}
-
 type ReferenceInputMssqlArrayOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputMssqlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReferenceInputMssql)(nil))
+	return reflect.TypeOf((*[]*ReferenceInputMssql)(nil)).Elem()
 }
 
 func (o ReferenceInputMssqlArrayOutput) ToReferenceInputMssqlArrayOutput() ReferenceInputMssqlArrayOutput {
@@ -433,15 +370,15 @@ func (o ReferenceInputMssqlArrayOutput) ToReferenceInputMssqlArrayOutputWithCont
 }
 
 func (o ReferenceInputMssqlArrayOutput) Index(i pulumi.IntInput) ReferenceInputMssqlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReferenceInputMssql {
-		return vs[0].([]ReferenceInputMssql)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReferenceInputMssql {
+		return vs[0].([]*ReferenceInputMssql)[vs[1].(int)]
 	}).(ReferenceInputMssqlOutput)
 }
 
 type ReferenceInputMssqlMapOutput struct{ *pulumi.OutputState }
 
 func (ReferenceInputMssqlMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ReferenceInputMssql)(nil))
+	return reflect.TypeOf((*map[string]*ReferenceInputMssql)(nil)).Elem()
 }
 
 func (o ReferenceInputMssqlMapOutput) ToReferenceInputMssqlMapOutput() ReferenceInputMssqlMapOutput {
@@ -453,18 +390,16 @@ func (o ReferenceInputMssqlMapOutput) ToReferenceInputMssqlMapOutputWithContext(
 }
 
 func (o ReferenceInputMssqlMapOutput) MapIndex(k pulumi.StringInput) ReferenceInputMssqlOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReferenceInputMssql {
-		return vs[0].(map[string]ReferenceInputMssql)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ReferenceInputMssql {
+		return vs[0].(map[string]*ReferenceInputMssql)[vs[1].(string)]
 	}).(ReferenceInputMssqlOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceInputMssqlInput)(nil)).Elem(), &ReferenceInputMssql{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceInputMssqlPtrInput)(nil)).Elem(), &ReferenceInputMssql{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceInputMssqlArrayInput)(nil)).Elem(), ReferenceInputMssqlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceInputMssqlMapInput)(nil)).Elem(), ReferenceInputMssqlMap{})
 	pulumi.RegisterOutputType(ReferenceInputMssqlOutput{})
-	pulumi.RegisterOutputType(ReferenceInputMssqlPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceInputMssqlArrayOutput{})
 	pulumi.RegisterOutputType(ReferenceInputMssqlMapOutput{})
 }

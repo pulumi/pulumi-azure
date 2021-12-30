@@ -135,17 +135,17 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpnGatewayConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpnGatewayConnectionArgs | VpnGatewayConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnGatewayConnectionState | undefined;
-            inputs["internetSecurityEnabled"] = state ? state.internetSecurityEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["remoteVpnSiteId"] = state ? state.remoteVpnSiteId : undefined;
-            inputs["routings"] = state ? state.routings : undefined;
-            inputs["trafficSelectorPolicies"] = state ? state.trafficSelectorPolicies : undefined;
-            inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
-            inputs["vpnLinks"] = state ? state.vpnLinks : undefined;
+            resourceInputs["internetSecurityEnabled"] = state ? state.internetSecurityEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["remoteVpnSiteId"] = state ? state.remoteVpnSiteId : undefined;
+            resourceInputs["routings"] = state ? state.routings : undefined;
+            resourceInputs["trafficSelectorPolicies"] = state ? state.trafficSelectorPolicies : undefined;
+            resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+            resourceInputs["vpnLinks"] = state ? state.vpnLinks : undefined;
         } else {
             const args = argsOrState as VpnGatewayConnectionArgs | undefined;
             if ((!args || args.remoteVpnSiteId === undefined) && !opts.urn) {
@@ -157,18 +157,18 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
             if ((!args || args.vpnLinks === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnLinks'");
             }
-            inputs["internetSecurityEnabled"] = args ? args.internetSecurityEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["remoteVpnSiteId"] = args ? args.remoteVpnSiteId : undefined;
-            inputs["routings"] = args ? args.routings : undefined;
-            inputs["trafficSelectorPolicies"] = args ? args.trafficSelectorPolicies : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
-            inputs["vpnLinks"] = args ? args.vpnLinks : undefined;
+            resourceInputs["internetSecurityEnabled"] = args ? args.internetSecurityEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["remoteVpnSiteId"] = args ? args.remoteVpnSiteId : undefined;
+            resourceInputs["routings"] = args ? args.routings : undefined;
+            resourceInputs["trafficSelectorPolicies"] = args ? args.trafficSelectorPolicies : undefined;
+            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["vpnLinks"] = args ? args.vpnLinks : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VpnGatewayConnection.__pulumiType, name, inputs, opts);
+        super(VpnGatewayConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

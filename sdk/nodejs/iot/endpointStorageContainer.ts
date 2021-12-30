@@ -129,19 +129,19 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointStorageContainerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointStorageContainerArgs | EndpointStorageContainerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointStorageContainerState | undefined;
-            inputs["batchFrequencyInSeconds"] = state ? state.batchFrequencyInSeconds : undefined;
-            inputs["connectionString"] = state ? state.connectionString : undefined;
-            inputs["containerName"] = state ? state.containerName : undefined;
-            inputs["encoding"] = state ? state.encoding : undefined;
-            inputs["fileNameFormat"] = state ? state.fileNameFormat : undefined;
-            inputs["iothubName"] = state ? state.iothubName : undefined;
-            inputs["maxChunkSizeInBytes"] = state ? state.maxChunkSizeInBytes : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["batchFrequencyInSeconds"] = state ? state.batchFrequencyInSeconds : undefined;
+            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
+            resourceInputs["containerName"] = state ? state.containerName : undefined;
+            resourceInputs["encoding"] = state ? state.encoding : undefined;
+            resourceInputs["fileNameFormat"] = state ? state.fileNameFormat : undefined;
+            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
+            resourceInputs["maxChunkSizeInBytes"] = state ? state.maxChunkSizeInBytes : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as EndpointStorageContainerArgs | undefined;
             if ((!args || args.connectionString === undefined) && !opts.urn) {
@@ -156,20 +156,20 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["batchFrequencyInSeconds"] = args ? args.batchFrequencyInSeconds : undefined;
-            inputs["connectionString"] = args ? args.connectionString : undefined;
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["encoding"] = args ? args.encoding : undefined;
-            inputs["fileNameFormat"] = args ? args.fileNameFormat : undefined;
-            inputs["iothubName"] = args ? args.iothubName : undefined;
-            inputs["maxChunkSizeInBytes"] = args ? args.maxChunkSizeInBytes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["batchFrequencyInSeconds"] = args ? args.batchFrequencyInSeconds : undefined;
+            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["encoding"] = args ? args.encoding : undefined;
+            resourceInputs["fileNameFormat"] = args ? args.fileNameFormat : undefined;
+            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
+            resourceInputs["maxChunkSizeInBytes"] = args ? args.maxChunkSizeInBytes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EndpointStorageContainer.__pulumiType, name, inputs, opts);
+        super(EndpointStorageContainer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

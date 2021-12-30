@@ -124,22 +124,22 @@ export class Definition extends pulumi.CustomResource {
      */
     constructor(name: string, args: DefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DefinitionArgs | DefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefinitionState | undefined;
-            inputs["authorizations"] = state ? state.authorizations : undefined;
-            inputs["createUiDefinition"] = state ? state.createUiDefinition : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["lockLevel"] = state ? state.lockLevel : undefined;
-            inputs["mainTemplate"] = state ? state.mainTemplate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["packageEnabled"] = state ? state.packageEnabled : undefined;
-            inputs["packageFileUri"] = state ? state.packageFileUri : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["authorizations"] = state ? state.authorizations : undefined;
+            resourceInputs["createUiDefinition"] = state ? state.createUiDefinition : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["lockLevel"] = state ? state.lockLevel : undefined;
+            resourceInputs["mainTemplate"] = state ? state.mainTemplate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["packageEnabled"] = state ? state.packageEnabled : undefined;
+            resourceInputs["packageFileUri"] = state ? state.packageFileUri : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -151,23 +151,23 @@ export class Definition extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authorizations"] = args ? args.authorizations : undefined;
-            inputs["createUiDefinition"] = args ? args.createUiDefinition : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["lockLevel"] = args ? args.lockLevel : undefined;
-            inputs["mainTemplate"] = args ? args.mainTemplate : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["packageEnabled"] = args ? args.packageEnabled : undefined;
-            inputs["packageFileUri"] = args ? args.packageFileUri : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
+            resourceInputs["createUiDefinition"] = args ? args.createUiDefinition : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["lockLevel"] = args ? args.lockLevel : undefined;
+            resourceInputs["mainTemplate"] = args ? args.mainTemplate : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["packageEnabled"] = args ? args.packageEnabled : undefined;
+            resourceInputs["packageFileUri"] = args ? args.packageFileUri : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Definition.__pulumiType, name, inputs, opts);
+        super(Definition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

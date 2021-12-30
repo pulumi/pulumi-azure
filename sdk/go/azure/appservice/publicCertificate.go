@@ -217,7 +217,7 @@ type PublicCertificateInput interface {
 }
 
 func (*PublicCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicCertificate)(nil))
+	return reflect.TypeOf((**PublicCertificate)(nil)).Elem()
 }
 
 func (i *PublicCertificate) ToPublicCertificateOutput() PublicCertificateOutput {
@@ -226,35 +226,6 @@ func (i *PublicCertificate) ToPublicCertificateOutput() PublicCertificateOutput 
 
 func (i *PublicCertificate) ToPublicCertificateOutputWithContext(ctx context.Context) PublicCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicCertificateOutput)
-}
-
-func (i *PublicCertificate) ToPublicCertificatePtrOutput() PublicCertificatePtrOutput {
-	return i.ToPublicCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *PublicCertificate) ToPublicCertificatePtrOutputWithContext(ctx context.Context) PublicCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicCertificatePtrOutput)
-}
-
-type PublicCertificatePtrInput interface {
-	pulumi.Input
-
-	ToPublicCertificatePtrOutput() PublicCertificatePtrOutput
-	ToPublicCertificatePtrOutputWithContext(ctx context.Context) PublicCertificatePtrOutput
-}
-
-type publicCertificatePtrType PublicCertificateArgs
-
-func (*publicCertificatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublicCertificate)(nil))
-}
-
-func (i *publicCertificatePtrType) ToPublicCertificatePtrOutput() PublicCertificatePtrOutput {
-	return i.ToPublicCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *publicCertificatePtrType) ToPublicCertificatePtrOutputWithContext(ctx context.Context) PublicCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicCertificatePtrOutput)
 }
 
 // PublicCertificateArrayInput is an input type that accepts PublicCertificateArray and PublicCertificateArrayOutput values.
@@ -310,7 +281,7 @@ func (i PublicCertificateMap) ToPublicCertificateMapOutputWithContext(ctx contex
 type PublicCertificateOutput struct{ *pulumi.OutputState }
 
 func (PublicCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicCertificate)(nil))
+	return reflect.TypeOf((**PublicCertificate)(nil)).Elem()
 }
 
 func (o PublicCertificateOutput) ToPublicCertificateOutput() PublicCertificateOutput {
@@ -321,44 +292,10 @@ func (o PublicCertificateOutput) ToPublicCertificateOutputWithContext(ctx contex
 	return o
 }
 
-func (o PublicCertificateOutput) ToPublicCertificatePtrOutput() PublicCertificatePtrOutput {
-	return o.ToPublicCertificatePtrOutputWithContext(context.Background())
-}
-
-func (o PublicCertificateOutput) ToPublicCertificatePtrOutputWithContext(ctx context.Context) PublicCertificatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicCertificate) *PublicCertificate {
-		return &v
-	}).(PublicCertificatePtrOutput)
-}
-
-type PublicCertificatePtrOutput struct{ *pulumi.OutputState }
-
-func (PublicCertificatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublicCertificate)(nil))
-}
-
-func (o PublicCertificatePtrOutput) ToPublicCertificatePtrOutput() PublicCertificatePtrOutput {
-	return o
-}
-
-func (o PublicCertificatePtrOutput) ToPublicCertificatePtrOutputWithContext(ctx context.Context) PublicCertificatePtrOutput {
-	return o
-}
-
-func (o PublicCertificatePtrOutput) Elem() PublicCertificateOutput {
-	return o.ApplyT(func(v *PublicCertificate) PublicCertificate {
-		if v != nil {
-			return *v
-		}
-		var ret PublicCertificate
-		return ret
-	}).(PublicCertificateOutput)
-}
-
 type PublicCertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (PublicCertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PublicCertificate)(nil))
+	return reflect.TypeOf((*[]*PublicCertificate)(nil)).Elem()
 }
 
 func (o PublicCertificateArrayOutput) ToPublicCertificateArrayOutput() PublicCertificateArrayOutput {
@@ -370,15 +307,15 @@ func (o PublicCertificateArrayOutput) ToPublicCertificateArrayOutputWithContext(
 }
 
 func (o PublicCertificateArrayOutput) Index(i pulumi.IntInput) PublicCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublicCertificate {
-		return vs[0].([]PublicCertificate)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PublicCertificate {
+		return vs[0].([]*PublicCertificate)[vs[1].(int)]
 	}).(PublicCertificateOutput)
 }
 
 type PublicCertificateMapOutput struct{ *pulumi.OutputState }
 
 func (PublicCertificateMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PublicCertificate)(nil))
+	return reflect.TypeOf((*map[string]*PublicCertificate)(nil)).Elem()
 }
 
 func (o PublicCertificateMapOutput) ToPublicCertificateMapOutput() PublicCertificateMapOutput {
@@ -390,18 +327,16 @@ func (o PublicCertificateMapOutput) ToPublicCertificateMapOutputWithContext(ctx 
 }
 
 func (o PublicCertificateMapOutput) MapIndex(k pulumi.StringInput) PublicCertificateOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PublicCertificate {
-		return vs[0].(map[string]PublicCertificate)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PublicCertificate {
+		return vs[0].(map[string]*PublicCertificate)[vs[1].(string)]
 	}).(PublicCertificateOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicCertificateInput)(nil)).Elem(), &PublicCertificate{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PublicCertificatePtrInput)(nil)).Elem(), &PublicCertificate{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicCertificateArrayInput)(nil)).Elem(), PublicCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicCertificateMapInput)(nil)).Elem(), PublicCertificateMap{})
 	pulumi.RegisterOutputType(PublicCertificateOutput{})
-	pulumi.RegisterOutputType(PublicCertificatePtrOutput{})
 	pulumi.RegisterOutputType(PublicCertificateArrayOutput{})
 	pulumi.RegisterOutputType(PublicCertificateMapOutput{})
 }

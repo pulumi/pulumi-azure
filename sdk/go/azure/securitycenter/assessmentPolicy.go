@@ -199,7 +199,7 @@ type AssessmentPolicyInput interface {
 }
 
 func (*AssessmentPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentPolicy)(nil))
+	return reflect.TypeOf((**AssessmentPolicy)(nil)).Elem()
 }
 
 func (i *AssessmentPolicy) ToAssessmentPolicyOutput() AssessmentPolicyOutput {
@@ -208,35 +208,6 @@ func (i *AssessmentPolicy) ToAssessmentPolicyOutput() AssessmentPolicyOutput {
 
 func (i *AssessmentPolicy) ToAssessmentPolicyOutputWithContext(ctx context.Context) AssessmentPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentPolicyOutput)
-}
-
-func (i *AssessmentPolicy) ToAssessmentPolicyPtrOutput() AssessmentPolicyPtrOutput {
-	return i.ToAssessmentPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *AssessmentPolicy) ToAssessmentPolicyPtrOutputWithContext(ctx context.Context) AssessmentPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentPolicyPtrOutput)
-}
-
-type AssessmentPolicyPtrInput interface {
-	pulumi.Input
-
-	ToAssessmentPolicyPtrOutput() AssessmentPolicyPtrOutput
-	ToAssessmentPolicyPtrOutputWithContext(ctx context.Context) AssessmentPolicyPtrOutput
-}
-
-type assessmentPolicyPtrType AssessmentPolicyArgs
-
-func (*assessmentPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentPolicy)(nil))
-}
-
-func (i *assessmentPolicyPtrType) ToAssessmentPolicyPtrOutput() AssessmentPolicyPtrOutput {
-	return i.ToAssessmentPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentPolicyPtrType) ToAssessmentPolicyPtrOutputWithContext(ctx context.Context) AssessmentPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentPolicyPtrOutput)
 }
 
 // AssessmentPolicyArrayInput is an input type that accepts AssessmentPolicyArray and AssessmentPolicyArrayOutput values.
@@ -292,7 +263,7 @@ func (i AssessmentPolicyMap) ToAssessmentPolicyMapOutputWithContext(ctx context.
 type AssessmentPolicyOutput struct{ *pulumi.OutputState }
 
 func (AssessmentPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentPolicy)(nil))
+	return reflect.TypeOf((**AssessmentPolicy)(nil)).Elem()
 }
 
 func (o AssessmentPolicyOutput) ToAssessmentPolicyOutput() AssessmentPolicyOutput {
@@ -303,44 +274,10 @@ func (o AssessmentPolicyOutput) ToAssessmentPolicyOutputWithContext(ctx context.
 	return o
 }
 
-func (o AssessmentPolicyOutput) ToAssessmentPolicyPtrOutput() AssessmentPolicyPtrOutput {
-	return o.ToAssessmentPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentPolicyOutput) ToAssessmentPolicyPtrOutputWithContext(ctx context.Context) AssessmentPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentPolicy) *AssessmentPolicy {
-		return &v
-	}).(AssessmentPolicyPtrOutput)
-}
-
-type AssessmentPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentPolicy)(nil))
-}
-
-func (o AssessmentPolicyPtrOutput) ToAssessmentPolicyPtrOutput() AssessmentPolicyPtrOutput {
-	return o
-}
-
-func (o AssessmentPolicyPtrOutput) ToAssessmentPolicyPtrOutputWithContext(ctx context.Context) AssessmentPolicyPtrOutput {
-	return o
-}
-
-func (o AssessmentPolicyPtrOutput) Elem() AssessmentPolicyOutput {
-	return o.ApplyT(func(v *AssessmentPolicy) AssessmentPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentPolicy
-		return ret
-	}).(AssessmentPolicyOutput)
-}
-
 type AssessmentPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (AssessmentPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssessmentPolicy)(nil))
+	return reflect.TypeOf((*[]*AssessmentPolicy)(nil)).Elem()
 }
 
 func (o AssessmentPolicyArrayOutput) ToAssessmentPolicyArrayOutput() AssessmentPolicyArrayOutput {
@@ -352,15 +289,15 @@ func (o AssessmentPolicyArrayOutput) ToAssessmentPolicyArrayOutputWithContext(ct
 }
 
 func (o AssessmentPolicyArrayOutput) Index(i pulumi.IntInput) AssessmentPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentPolicy {
-		return vs[0].([]AssessmentPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AssessmentPolicy {
+		return vs[0].([]*AssessmentPolicy)[vs[1].(int)]
 	}).(AssessmentPolicyOutput)
 }
 
 type AssessmentPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (AssessmentPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AssessmentPolicy)(nil))
+	return reflect.TypeOf((*map[string]*AssessmentPolicy)(nil)).Elem()
 }
 
 func (o AssessmentPolicyMapOutput) ToAssessmentPolicyMapOutput() AssessmentPolicyMapOutput {
@@ -372,18 +309,16 @@ func (o AssessmentPolicyMapOutput) ToAssessmentPolicyMapOutputWithContext(ctx co
 }
 
 func (o AssessmentPolicyMapOutput) MapIndex(k pulumi.StringInput) AssessmentPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssessmentPolicy {
-		return vs[0].(map[string]AssessmentPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AssessmentPolicy {
+		return vs[0].(map[string]*AssessmentPolicy)[vs[1].(string)]
 	}).(AssessmentPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentPolicyInput)(nil)).Elem(), &AssessmentPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentPolicyPtrInput)(nil)).Elem(), &AssessmentPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentPolicyArrayInput)(nil)).Elem(), AssessmentPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentPolicyMapInput)(nil)).Elem(), AssessmentPolicyMap{})
 	pulumi.RegisterOutputType(AssessmentPolicyOutput{})
-	pulumi.RegisterOutputType(AssessmentPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentPolicyArrayOutput{})
 	pulumi.RegisterOutputType(AssessmentPolicyMapOutput{})
 }

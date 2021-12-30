@@ -89,14 +89,14 @@ export class PrivateLinkScopedService extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrivateLinkScopedServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PrivateLinkScopedServiceArgs | PrivateLinkScopedServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrivateLinkScopedServiceState | undefined;
-            inputs["linkedResourceId"] = state ? state.linkedResourceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scopeName"] = state ? state.scopeName : undefined;
+            resourceInputs["linkedResourceId"] = state ? state.linkedResourceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scopeName"] = state ? state.scopeName : undefined;
         } else {
             const args = argsOrState as PrivateLinkScopedServiceArgs | undefined;
             if ((!args || args.linkedResourceId === undefined) && !opts.urn) {
@@ -108,15 +108,15 @@ export class PrivateLinkScopedService extends pulumi.CustomResource {
             if ((!args || args.scopeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopeName'");
             }
-            inputs["linkedResourceId"] = args ? args.linkedResourceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scopeName"] = args ? args.scopeName : undefined;
+            resourceInputs["linkedResourceId"] = args ? args.linkedResourceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scopeName"] = args ? args.scopeName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PrivateLinkScopedService.__pulumiType, name, inputs, opts);
+        super(PrivateLinkScopedService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

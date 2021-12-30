@@ -159,16 +159,16 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: FirewallPolicyRuleCollectionGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirewallPolicyRuleCollectionGroupArgs | FirewallPolicyRuleCollectionGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallPolicyRuleCollectionGroupState | undefined;
-            inputs["applicationRuleCollections"] = state ? state.applicationRuleCollections : undefined;
-            inputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["natRuleCollections"] = state ? state.natRuleCollections : undefined;
-            inputs["networkRuleCollections"] = state ? state.networkRuleCollections : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["applicationRuleCollections"] = state ? state.applicationRuleCollections : undefined;
+            resourceInputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["natRuleCollections"] = state ? state.natRuleCollections : undefined;
+            resourceInputs["networkRuleCollections"] = state ? state.networkRuleCollections : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
         } else {
             const args = argsOrState as FirewallPolicyRuleCollectionGroupArgs | undefined;
             if ((!args || args.firewallPolicyId === undefined) && !opts.urn) {
@@ -177,17 +177,17 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
             if ((!args || args.priority === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            inputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;
-            inputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["natRuleCollections"] = args ? args.natRuleCollections : undefined;
-            inputs["networkRuleCollections"] = args ? args.networkRuleCollections : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;
+            resourceInputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["natRuleCollections"] = args ? args.natRuleCollections : undefined;
+            resourceInputs["networkRuleCollections"] = args ? args.networkRuleCollections : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FirewallPolicyRuleCollectionGroup.__pulumiType, name, inputs, opts);
+        super(FirewallPolicyRuleCollectionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

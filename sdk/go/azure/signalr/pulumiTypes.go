@@ -365,47 +365,6 @@ func (i ServiceNetworkAclPublicNetworkArgs) ToServiceNetworkAclPublicNetworkOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPublicNetworkOutput)
 }
 
-func (i ServiceNetworkAclPublicNetworkArgs) ToServiceNetworkAclPublicNetworkPtrOutput() ServiceNetworkAclPublicNetworkPtrOutput {
-	return i.ToServiceNetworkAclPublicNetworkPtrOutputWithContext(context.Background())
-}
-
-func (i ServiceNetworkAclPublicNetworkArgs) ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPublicNetworkOutput).ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx)
-}
-
-// ServiceNetworkAclPublicNetworkPtrInput is an input type that accepts ServiceNetworkAclPublicNetworkArgs, ServiceNetworkAclPublicNetworkPtr and ServiceNetworkAclPublicNetworkPtrOutput values.
-// You can construct a concrete instance of `ServiceNetworkAclPublicNetworkPtrInput` via:
-//
-//          ServiceNetworkAclPublicNetworkArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceNetworkAclPublicNetworkPtrInput interface {
-	pulumi.Input
-
-	ToServiceNetworkAclPublicNetworkPtrOutput() ServiceNetworkAclPublicNetworkPtrOutput
-	ToServiceNetworkAclPublicNetworkPtrOutputWithContext(context.Context) ServiceNetworkAclPublicNetworkPtrOutput
-}
-
-type serviceNetworkAclPublicNetworkPtrType ServiceNetworkAclPublicNetworkArgs
-
-func ServiceNetworkAclPublicNetworkPtr(v *ServiceNetworkAclPublicNetworkArgs) ServiceNetworkAclPublicNetworkPtrInput {
-	return (*serviceNetworkAclPublicNetworkPtrType)(v)
-}
-
-func (*serviceNetworkAclPublicNetworkPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceNetworkAclPublicNetwork)(nil)).Elem()
-}
-
-func (i *serviceNetworkAclPublicNetworkPtrType) ToServiceNetworkAclPublicNetworkPtrOutput() ServiceNetworkAclPublicNetworkPtrOutput {
-	return i.ToServiceNetworkAclPublicNetworkPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceNetworkAclPublicNetworkPtrType) ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPublicNetworkPtrOutput)
-}
-
 type ServiceNetworkAclPublicNetworkOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkAclPublicNetworkOutput) ElementType() reflect.Type {
@@ -420,16 +379,6 @@ func (o ServiceNetworkAclPublicNetworkOutput) ToServiceNetworkAclPublicNetworkOu
 	return o
 }
 
-func (o ServiceNetworkAclPublicNetworkOutput) ToServiceNetworkAclPublicNetworkPtrOutput() ServiceNetworkAclPublicNetworkPtrOutput {
-	return o.ToServiceNetworkAclPublicNetworkPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceNetworkAclPublicNetworkOutput) ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNetworkAclPublicNetwork) *ServiceNetworkAclPublicNetwork {
-		return &v
-	}).(ServiceNetworkAclPublicNetworkPtrOutput)
-}
-
 // The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 func (o ServiceNetworkAclPublicNetworkOutput) AllowedRequestTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceNetworkAclPublicNetwork) []string { return v.AllowedRequestTypes }).(pulumi.StringArrayOutput)
@@ -438,50 +387,6 @@ func (o ServiceNetworkAclPublicNetworkOutput) AllowedRequestTypes() pulumi.Strin
 // The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 func (o ServiceNetworkAclPublicNetworkOutput) DeniedRequestTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceNetworkAclPublicNetwork) []string { return v.DeniedRequestTypes }).(pulumi.StringArrayOutput)
-}
-
-type ServiceNetworkAclPublicNetworkPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceNetworkAclPublicNetworkPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceNetworkAclPublicNetwork)(nil)).Elem()
-}
-
-func (o ServiceNetworkAclPublicNetworkPtrOutput) ToServiceNetworkAclPublicNetworkPtrOutput() ServiceNetworkAclPublicNetworkPtrOutput {
-	return o
-}
-
-func (o ServiceNetworkAclPublicNetworkPtrOutput) ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkPtrOutput {
-	return o
-}
-
-func (o ServiceNetworkAclPublicNetworkPtrOutput) Elem() ServiceNetworkAclPublicNetworkOutput {
-	return o.ApplyT(func(v *ServiceNetworkAclPublicNetwork) ServiceNetworkAclPublicNetwork {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceNetworkAclPublicNetwork
-		return ret
-	}).(ServiceNetworkAclPublicNetworkOutput)
-}
-
-// The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
-func (o ServiceNetworkAclPublicNetworkPtrOutput) AllowedRequestTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ServiceNetworkAclPublicNetwork) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedRequestTypes
-	}).(pulumi.StringArrayOutput)
-}
-
-// The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
-func (o ServiceNetworkAclPublicNetworkPtrOutput) DeniedRequestTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ServiceNetworkAclPublicNetwork) []string {
-		if v == nil {
-			return nil
-		}
-		return v.DeniedRequestTypes
-	}).(pulumi.StringArrayOutput)
 }
 
 type ServiceSku struct {
@@ -521,47 +426,6 @@ func (i ServiceSkuArgs) ToServiceSkuOutputWithContext(ctx context.Context) Servi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuOutput)
 }
 
-func (i ServiceSkuArgs) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
-	return i.ToServiceSkuPtrOutputWithContext(context.Background())
-}
-
-func (i ServiceSkuArgs) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuOutput).ToServiceSkuPtrOutputWithContext(ctx)
-}
-
-// ServiceSkuPtrInput is an input type that accepts ServiceSkuArgs, ServiceSkuPtr and ServiceSkuPtrOutput values.
-// You can construct a concrete instance of `ServiceSkuPtrInput` via:
-//
-//          ServiceSkuArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceSkuPtrInput interface {
-	pulumi.Input
-
-	ToServiceSkuPtrOutput() ServiceSkuPtrOutput
-	ToServiceSkuPtrOutputWithContext(context.Context) ServiceSkuPtrOutput
-}
-
-type serviceSkuPtrType ServiceSkuArgs
-
-func ServiceSkuPtr(v *ServiceSkuArgs) ServiceSkuPtrInput {
-	return (*serviceSkuPtrType)(v)
-}
-
-func (*serviceSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceSku)(nil)).Elem()
-}
-
-func (i *serviceSkuPtrType) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
-	return i.ToServiceSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceSkuPtrType) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuPtrOutput)
-}
-
 type ServiceSkuOutput struct{ *pulumi.OutputState }
 
 func (ServiceSkuOutput) ElementType() reflect.Type {
@@ -576,16 +440,6 @@ func (o ServiceSkuOutput) ToServiceSkuOutputWithContext(ctx context.Context) Ser
 	return o
 }
 
-func (o ServiceSkuOutput) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
-	return o.ToServiceSkuPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceSkuOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSku) *ServiceSku {
-		return &v
-	}).(ServiceSkuPtrOutput)
-}
-
 // Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
 func (o ServiceSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
@@ -594,50 +448,6 @@ func (o ServiceSkuOutput) Capacity() pulumi.IntOutput {
 // Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
 func (o ServiceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type ServiceSkuPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceSku)(nil)).Elem()
-}
-
-func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
-	return o
-}
-
-func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
-	return o
-}
-
-func (o ServiceSkuPtrOutput) Elem() ServiceSkuOutput {
-	return o.ApplyT(func(v *ServiceSku) ServiceSku {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceSku
-		return ret
-	}).(ServiceSkuOutput)
-}
-
-// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
-func (o ServiceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServiceSku) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Capacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
-func (o ServiceSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceSku) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceUpstreamEndpoint struct {
@@ -772,9 +582,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPrivateEndpointInput)(nil)).Elem(), ServiceNetworkAclPrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPrivateEndpointArrayInput)(nil)).Elem(), ServiceNetworkAclPrivateEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPublicNetworkInput)(nil)).Elem(), ServiceNetworkAclPublicNetworkArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAclPublicNetworkPtrInput)(nil)).Elem(), ServiceNetworkAclPublicNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSkuInput)(nil)).Elem(), ServiceSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSkuPtrInput)(nil)).Elem(), ServiceSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUpstreamEndpointInput)(nil)).Elem(), ServiceUpstreamEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUpstreamEndpointArrayInput)(nil)).Elem(), ServiceUpstreamEndpointArray{})
 	pulumi.RegisterOutputType(ServiceCorOutput{})
@@ -784,9 +592,7 @@ func init() {
 	pulumi.RegisterOutputType(ServiceNetworkAclPrivateEndpointOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkAclPrivateEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkAclPublicNetworkOutput{})
-	pulumi.RegisterOutputType(ServiceNetworkAclPublicNetworkPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSkuOutput{})
-	pulumi.RegisterOutputType(ServiceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ServiceUpstreamEndpointOutput{})
 	pulumi.RegisterOutputType(ServiceUpstreamEndpointArrayOutput{})
 }

@@ -182,7 +182,7 @@ type AlertRuleMachineLearningBehaviorAnalyticsInput interface {
 }
 
 func (*AlertRuleMachineLearningBehaviorAnalytics) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleMachineLearningBehaviorAnalytics)(nil))
+	return reflect.TypeOf((**AlertRuleMachineLearningBehaviorAnalytics)(nil)).Elem()
 }
 
 func (i *AlertRuleMachineLearningBehaviorAnalytics) ToAlertRuleMachineLearningBehaviorAnalyticsOutput() AlertRuleMachineLearningBehaviorAnalyticsOutput {
@@ -191,35 +191,6 @@ func (i *AlertRuleMachineLearningBehaviorAnalytics) ToAlertRuleMachineLearningBe
 
 func (i *AlertRuleMachineLearningBehaviorAnalytics) ToAlertRuleMachineLearningBehaviorAnalyticsOutputWithContext(ctx context.Context) AlertRuleMachineLearningBehaviorAnalyticsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMachineLearningBehaviorAnalyticsOutput)
-}
-
-func (i *AlertRuleMachineLearningBehaviorAnalytics) ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutput() AlertRuleMachineLearningBehaviorAnalyticsPtrOutput {
-	return i.ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutputWithContext(context.Background())
-}
-
-func (i *AlertRuleMachineLearningBehaviorAnalytics) ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutputWithContext(ctx context.Context) AlertRuleMachineLearningBehaviorAnalyticsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMachineLearningBehaviorAnalyticsPtrOutput)
-}
-
-type AlertRuleMachineLearningBehaviorAnalyticsPtrInput interface {
-	pulumi.Input
-
-	ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutput() AlertRuleMachineLearningBehaviorAnalyticsPtrOutput
-	ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutputWithContext(ctx context.Context) AlertRuleMachineLearningBehaviorAnalyticsPtrOutput
-}
-
-type alertRuleMachineLearningBehaviorAnalyticsPtrType AlertRuleMachineLearningBehaviorAnalyticsArgs
-
-func (*alertRuleMachineLearningBehaviorAnalyticsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleMachineLearningBehaviorAnalytics)(nil))
-}
-
-func (i *alertRuleMachineLearningBehaviorAnalyticsPtrType) ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutput() AlertRuleMachineLearningBehaviorAnalyticsPtrOutput {
-	return i.ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutputWithContext(context.Background())
-}
-
-func (i *alertRuleMachineLearningBehaviorAnalyticsPtrType) ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutputWithContext(ctx context.Context) AlertRuleMachineLearningBehaviorAnalyticsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMachineLearningBehaviorAnalyticsPtrOutput)
 }
 
 // AlertRuleMachineLearningBehaviorAnalyticsArrayInput is an input type that accepts AlertRuleMachineLearningBehaviorAnalyticsArray and AlertRuleMachineLearningBehaviorAnalyticsArrayOutput values.
@@ -275,7 +246,7 @@ func (i AlertRuleMachineLearningBehaviorAnalyticsMap) ToAlertRuleMachineLearning
 type AlertRuleMachineLearningBehaviorAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleMachineLearningBehaviorAnalyticsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleMachineLearningBehaviorAnalytics)(nil))
+	return reflect.TypeOf((**AlertRuleMachineLearningBehaviorAnalytics)(nil)).Elem()
 }
 
 func (o AlertRuleMachineLearningBehaviorAnalyticsOutput) ToAlertRuleMachineLearningBehaviorAnalyticsOutput() AlertRuleMachineLearningBehaviorAnalyticsOutput {
@@ -286,44 +257,10 @@ func (o AlertRuleMachineLearningBehaviorAnalyticsOutput) ToAlertRuleMachineLearn
 	return o
 }
 
-func (o AlertRuleMachineLearningBehaviorAnalyticsOutput) ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutput() AlertRuleMachineLearningBehaviorAnalyticsPtrOutput {
-	return o.ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutputWithContext(context.Background())
-}
-
-func (o AlertRuleMachineLearningBehaviorAnalyticsOutput) ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutputWithContext(ctx context.Context) AlertRuleMachineLearningBehaviorAnalyticsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleMachineLearningBehaviorAnalytics) *AlertRuleMachineLearningBehaviorAnalytics {
-		return &v
-	}).(AlertRuleMachineLearningBehaviorAnalyticsPtrOutput)
-}
-
-type AlertRuleMachineLearningBehaviorAnalyticsPtrOutput struct{ *pulumi.OutputState }
-
-func (AlertRuleMachineLearningBehaviorAnalyticsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertRuleMachineLearningBehaviorAnalytics)(nil))
-}
-
-func (o AlertRuleMachineLearningBehaviorAnalyticsPtrOutput) ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutput() AlertRuleMachineLearningBehaviorAnalyticsPtrOutput {
-	return o
-}
-
-func (o AlertRuleMachineLearningBehaviorAnalyticsPtrOutput) ToAlertRuleMachineLearningBehaviorAnalyticsPtrOutputWithContext(ctx context.Context) AlertRuleMachineLearningBehaviorAnalyticsPtrOutput {
-	return o
-}
-
-func (o AlertRuleMachineLearningBehaviorAnalyticsPtrOutput) Elem() AlertRuleMachineLearningBehaviorAnalyticsOutput {
-	return o.ApplyT(func(v *AlertRuleMachineLearningBehaviorAnalytics) AlertRuleMachineLearningBehaviorAnalytics {
-		if v != nil {
-			return *v
-		}
-		var ret AlertRuleMachineLearningBehaviorAnalytics
-		return ret
-	}).(AlertRuleMachineLearningBehaviorAnalyticsOutput)
-}
-
 type AlertRuleMachineLearningBehaviorAnalyticsArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleMachineLearningBehaviorAnalyticsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertRuleMachineLearningBehaviorAnalytics)(nil))
+	return reflect.TypeOf((*[]*AlertRuleMachineLearningBehaviorAnalytics)(nil)).Elem()
 }
 
 func (o AlertRuleMachineLearningBehaviorAnalyticsArrayOutput) ToAlertRuleMachineLearningBehaviorAnalyticsArrayOutput() AlertRuleMachineLearningBehaviorAnalyticsArrayOutput {
@@ -335,15 +272,15 @@ func (o AlertRuleMachineLearningBehaviorAnalyticsArrayOutput) ToAlertRuleMachine
 }
 
 func (o AlertRuleMachineLearningBehaviorAnalyticsArrayOutput) Index(i pulumi.IntInput) AlertRuleMachineLearningBehaviorAnalyticsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleMachineLearningBehaviorAnalytics {
-		return vs[0].([]AlertRuleMachineLearningBehaviorAnalytics)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertRuleMachineLearningBehaviorAnalytics {
+		return vs[0].([]*AlertRuleMachineLearningBehaviorAnalytics)[vs[1].(int)]
 	}).(AlertRuleMachineLearningBehaviorAnalyticsOutput)
 }
 
 type AlertRuleMachineLearningBehaviorAnalyticsMapOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleMachineLearningBehaviorAnalyticsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AlertRuleMachineLearningBehaviorAnalytics)(nil))
+	return reflect.TypeOf((*map[string]*AlertRuleMachineLearningBehaviorAnalytics)(nil)).Elem()
 }
 
 func (o AlertRuleMachineLearningBehaviorAnalyticsMapOutput) ToAlertRuleMachineLearningBehaviorAnalyticsMapOutput() AlertRuleMachineLearningBehaviorAnalyticsMapOutput {
@@ -355,18 +292,16 @@ func (o AlertRuleMachineLearningBehaviorAnalyticsMapOutput) ToAlertRuleMachineLe
 }
 
 func (o AlertRuleMachineLearningBehaviorAnalyticsMapOutput) MapIndex(k pulumi.StringInput) AlertRuleMachineLearningBehaviorAnalyticsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AlertRuleMachineLearningBehaviorAnalytics {
-		return vs[0].(map[string]AlertRuleMachineLearningBehaviorAnalytics)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AlertRuleMachineLearningBehaviorAnalytics {
+		return vs[0].(map[string]*AlertRuleMachineLearningBehaviorAnalytics)[vs[1].(string)]
 	}).(AlertRuleMachineLearningBehaviorAnalyticsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMachineLearningBehaviorAnalyticsInput)(nil)).Elem(), &AlertRuleMachineLearningBehaviorAnalytics{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMachineLearningBehaviorAnalyticsPtrInput)(nil)).Elem(), &AlertRuleMachineLearningBehaviorAnalytics{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMachineLearningBehaviorAnalyticsArrayInput)(nil)).Elem(), AlertRuleMachineLearningBehaviorAnalyticsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleMachineLearningBehaviorAnalyticsMapInput)(nil)).Elem(), AlertRuleMachineLearningBehaviorAnalyticsMap{})
 	pulumi.RegisterOutputType(AlertRuleMachineLearningBehaviorAnalyticsOutput{})
-	pulumi.RegisterOutputType(AlertRuleMachineLearningBehaviorAnalyticsPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleMachineLearningBehaviorAnalyticsArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleMachineLearningBehaviorAnalyticsMapOutput{})
 }

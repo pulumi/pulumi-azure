@@ -43,47 +43,6 @@ func (i HBaseClusterComponentVersionArgs) ToHBaseClusterComponentVersionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterComponentVersionOutput)
 }
 
-func (i HBaseClusterComponentVersionArgs) ToHBaseClusterComponentVersionPtrOutput() HBaseClusterComponentVersionPtrOutput {
-	return i.ToHBaseClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (i HBaseClusterComponentVersionArgs) ToHBaseClusterComponentVersionPtrOutputWithContext(ctx context.Context) HBaseClusterComponentVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterComponentVersionOutput).ToHBaseClusterComponentVersionPtrOutputWithContext(ctx)
-}
-
-// HBaseClusterComponentVersionPtrInput is an input type that accepts HBaseClusterComponentVersionArgs, HBaseClusterComponentVersionPtr and HBaseClusterComponentVersionPtrOutput values.
-// You can construct a concrete instance of `HBaseClusterComponentVersionPtrInput` via:
-//
-//          HBaseClusterComponentVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type HBaseClusterComponentVersionPtrInput interface {
-	pulumi.Input
-
-	ToHBaseClusterComponentVersionPtrOutput() HBaseClusterComponentVersionPtrOutput
-	ToHBaseClusterComponentVersionPtrOutputWithContext(context.Context) HBaseClusterComponentVersionPtrOutput
-}
-
-type hbaseClusterComponentVersionPtrType HBaseClusterComponentVersionArgs
-
-func HBaseClusterComponentVersionPtr(v *HBaseClusterComponentVersionArgs) HBaseClusterComponentVersionPtrInput {
-	return (*hbaseClusterComponentVersionPtrType)(v)
-}
-
-func (*hbaseClusterComponentVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HBaseClusterComponentVersion)(nil)).Elem()
-}
-
-func (i *hbaseClusterComponentVersionPtrType) ToHBaseClusterComponentVersionPtrOutput() HBaseClusterComponentVersionPtrOutput {
-	return i.ToHBaseClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *hbaseClusterComponentVersionPtrType) ToHBaseClusterComponentVersionPtrOutputWithContext(ctx context.Context) HBaseClusterComponentVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterComponentVersionPtrOutput)
-}
-
 type HBaseClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterComponentVersionOutput) ElementType() reflect.Type {
@@ -98,53 +57,9 @@ func (o HBaseClusterComponentVersionOutput) ToHBaseClusterComponentVersionOutput
 	return o
 }
 
-func (o HBaseClusterComponentVersionOutput) ToHBaseClusterComponentVersionPtrOutput() HBaseClusterComponentVersionPtrOutput {
-	return o.ToHBaseClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (o HBaseClusterComponentVersionOutput) ToHBaseClusterComponentVersionPtrOutputWithContext(ctx context.Context) HBaseClusterComponentVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterComponentVersion) *HBaseClusterComponentVersion {
-		return &v
-	}).(HBaseClusterComponentVersionPtrOutput)
-}
-
 // The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
 func (o HBaseClusterComponentVersionOutput) Hbase() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterComponentVersion) string { return v.Hbase }).(pulumi.StringOutput)
-}
-
-type HBaseClusterComponentVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (HBaseClusterComponentVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HBaseClusterComponentVersion)(nil)).Elem()
-}
-
-func (o HBaseClusterComponentVersionPtrOutput) ToHBaseClusterComponentVersionPtrOutput() HBaseClusterComponentVersionPtrOutput {
-	return o
-}
-
-func (o HBaseClusterComponentVersionPtrOutput) ToHBaseClusterComponentVersionPtrOutputWithContext(ctx context.Context) HBaseClusterComponentVersionPtrOutput {
-	return o
-}
-
-func (o HBaseClusterComponentVersionPtrOutput) Elem() HBaseClusterComponentVersionOutput {
-	return o.ApplyT(func(v *HBaseClusterComponentVersion) HBaseClusterComponentVersion {
-		if v != nil {
-			return *v
-		}
-		var ret HBaseClusterComponentVersion
-		return ret
-	}).(HBaseClusterComponentVersionOutput)
-}
-
-// The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
-func (o HBaseClusterComponentVersionPtrOutput) Hbase() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterComponentVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Hbase
-	}).(pulumi.StringPtrOutput)
 }
 
 type HBaseClusterGateway struct {
@@ -192,47 +107,6 @@ func (i HBaseClusterGatewayArgs) ToHBaseClusterGatewayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterGatewayOutput)
 }
 
-func (i HBaseClusterGatewayArgs) ToHBaseClusterGatewayPtrOutput() HBaseClusterGatewayPtrOutput {
-	return i.ToHBaseClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i HBaseClusterGatewayArgs) ToHBaseClusterGatewayPtrOutputWithContext(ctx context.Context) HBaseClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterGatewayOutput).ToHBaseClusterGatewayPtrOutputWithContext(ctx)
-}
-
-// HBaseClusterGatewayPtrInput is an input type that accepts HBaseClusterGatewayArgs, HBaseClusterGatewayPtr and HBaseClusterGatewayPtrOutput values.
-// You can construct a concrete instance of `HBaseClusterGatewayPtrInput` via:
-//
-//          HBaseClusterGatewayArgs{...}
-//
-//  or:
-//
-//          nil
-type HBaseClusterGatewayPtrInput interface {
-	pulumi.Input
-
-	ToHBaseClusterGatewayPtrOutput() HBaseClusterGatewayPtrOutput
-	ToHBaseClusterGatewayPtrOutputWithContext(context.Context) HBaseClusterGatewayPtrOutput
-}
-
-type hbaseClusterGatewayPtrType HBaseClusterGatewayArgs
-
-func HBaseClusterGatewayPtr(v *HBaseClusterGatewayArgs) HBaseClusterGatewayPtrInput {
-	return (*hbaseClusterGatewayPtrType)(v)
-}
-
-func (*hbaseClusterGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HBaseClusterGateway)(nil)).Elem()
-}
-
-func (i *hbaseClusterGatewayPtrType) ToHBaseClusterGatewayPtrOutput() HBaseClusterGatewayPtrOutput {
-	return i.ToHBaseClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *hbaseClusterGatewayPtrType) ToHBaseClusterGatewayPtrOutputWithContext(ctx context.Context) HBaseClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterGatewayPtrOutput)
-}
-
 type HBaseClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterGatewayOutput) ElementType() reflect.Type {
@@ -245,16 +119,6 @@ func (o HBaseClusterGatewayOutput) ToHBaseClusterGatewayOutput() HBaseClusterGat
 
 func (o HBaseClusterGatewayOutput) ToHBaseClusterGatewayOutputWithContext(ctx context.Context) HBaseClusterGatewayOutput {
 	return o
-}
-
-func (o HBaseClusterGatewayOutput) ToHBaseClusterGatewayPtrOutput() HBaseClusterGatewayPtrOutput {
-	return o.ToHBaseClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o HBaseClusterGatewayOutput) ToHBaseClusterGatewayPtrOutputWithContext(ctx context.Context) HBaseClusterGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterGateway) *HBaseClusterGateway {
-		return &v
-	}).(HBaseClusterGatewayPtrOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -272,62 +136,6 @@ func (o HBaseClusterGatewayOutput) Password() pulumi.StringOutput {
 // The username used for the Ambari Portal. Changing this forces a new resource to be created.
 func (o HBaseClusterGatewayOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterGateway) string { return v.Username }).(pulumi.StringOutput)
-}
-
-type HBaseClusterGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (HBaseClusterGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HBaseClusterGateway)(nil)).Elem()
-}
-
-func (o HBaseClusterGatewayPtrOutput) ToHBaseClusterGatewayPtrOutput() HBaseClusterGatewayPtrOutput {
-	return o
-}
-
-func (o HBaseClusterGatewayPtrOutput) ToHBaseClusterGatewayPtrOutputWithContext(ctx context.Context) HBaseClusterGatewayPtrOutput {
-	return o
-}
-
-func (o HBaseClusterGatewayPtrOutput) Elem() HBaseClusterGatewayOutput {
-	return o.ApplyT(func(v *HBaseClusterGateway) HBaseClusterGateway {
-		if v != nil {
-			return *v
-		}
-		var ret HBaseClusterGateway
-		return ret
-	}).(HBaseClusterGatewayOutput)
-}
-
-// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-//
-// Deprecated: HDInsight doesn't support disabling gateway anymore
-func (o HBaseClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterGateway) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The password used for the Ambari Portal.
-func (o HBaseClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// The username used for the Ambari Portal. Changing this forces a new resource to be created.
-func (o HBaseClusterGatewayPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
 }
 
 type HBaseClusterMetastores struct {
@@ -1284,47 +1092,6 @@ func (i HBaseClusterRolesArgs) ToHBaseClusterRolesOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesOutput)
 }
 
-func (i HBaseClusterRolesArgs) ToHBaseClusterRolesPtrOutput() HBaseClusterRolesPtrOutput {
-	return i.ToHBaseClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i HBaseClusterRolesArgs) ToHBaseClusterRolesPtrOutputWithContext(ctx context.Context) HBaseClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesOutput).ToHBaseClusterRolesPtrOutputWithContext(ctx)
-}
-
-// HBaseClusterRolesPtrInput is an input type that accepts HBaseClusterRolesArgs, HBaseClusterRolesPtr and HBaseClusterRolesPtrOutput values.
-// You can construct a concrete instance of `HBaseClusterRolesPtrInput` via:
-//
-//          HBaseClusterRolesArgs{...}
-//
-//  or:
-//
-//          nil
-type HBaseClusterRolesPtrInput interface {
-	pulumi.Input
-
-	ToHBaseClusterRolesPtrOutput() HBaseClusterRolesPtrOutput
-	ToHBaseClusterRolesPtrOutputWithContext(context.Context) HBaseClusterRolesPtrOutput
-}
-
-type hbaseClusterRolesPtrType HBaseClusterRolesArgs
-
-func HBaseClusterRolesPtr(v *HBaseClusterRolesArgs) HBaseClusterRolesPtrInput {
-	return (*hbaseClusterRolesPtrType)(v)
-}
-
-func (*hbaseClusterRolesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HBaseClusterRoles)(nil)).Elem()
-}
-
-func (i *hbaseClusterRolesPtrType) ToHBaseClusterRolesPtrOutput() HBaseClusterRolesPtrOutput {
-	return i.ToHBaseClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i *hbaseClusterRolesPtrType) ToHBaseClusterRolesPtrOutputWithContext(ctx context.Context) HBaseClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesPtrOutput)
-}
-
 type HBaseClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesOutput) ElementType() reflect.Type {
@@ -1337,16 +1104,6 @@ func (o HBaseClusterRolesOutput) ToHBaseClusterRolesOutput() HBaseClusterRolesOu
 
 func (o HBaseClusterRolesOutput) ToHBaseClusterRolesOutputWithContext(ctx context.Context) HBaseClusterRolesOutput {
 	return o
-}
-
-func (o HBaseClusterRolesOutput) ToHBaseClusterRolesPtrOutput() HBaseClusterRolesPtrOutput {
-	return o.ToHBaseClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (o HBaseClusterRolesOutput) ToHBaseClusterRolesPtrOutputWithContext(ctx context.Context) HBaseClusterRolesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRoles) *HBaseClusterRoles {
-		return &v
-	}).(HBaseClusterRolesPtrOutput)
 }
 
 // A `headNode` block as defined above.
@@ -1362,60 +1119,6 @@ func (o HBaseClusterRolesOutput) WorkerNode() HBaseClusterRolesWorkerNodeOutput 
 // A `zookeeperNode` block as defined below.
 func (o HBaseClusterRolesOutput) ZookeeperNode() HBaseClusterRolesZookeeperNodeOutput {
 	return o.ApplyT(func(v HBaseClusterRoles) HBaseClusterRolesZookeeperNode { return v.ZookeeperNode }).(HBaseClusterRolesZookeeperNodeOutput)
-}
-
-type HBaseClusterRolesPtrOutput struct{ *pulumi.OutputState }
-
-func (HBaseClusterRolesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HBaseClusterRoles)(nil)).Elem()
-}
-
-func (o HBaseClusterRolesPtrOutput) ToHBaseClusterRolesPtrOutput() HBaseClusterRolesPtrOutput {
-	return o
-}
-
-func (o HBaseClusterRolesPtrOutput) ToHBaseClusterRolesPtrOutputWithContext(ctx context.Context) HBaseClusterRolesPtrOutput {
-	return o
-}
-
-func (o HBaseClusterRolesPtrOutput) Elem() HBaseClusterRolesOutput {
-	return o.ApplyT(func(v *HBaseClusterRoles) HBaseClusterRoles {
-		if v != nil {
-			return *v
-		}
-		var ret HBaseClusterRoles
-		return ret
-	}).(HBaseClusterRolesOutput)
-}
-
-// A `headNode` block as defined above.
-func (o HBaseClusterRolesPtrOutput) HeadNode() HBaseClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRoles) *HBaseClusterRolesHeadNode {
-		if v == nil {
-			return nil
-		}
-		return &v.HeadNode
-	}).(HBaseClusterRolesHeadNodePtrOutput)
-}
-
-// A `workerNode` block as defined below.
-func (o HBaseClusterRolesPtrOutput) WorkerNode() HBaseClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRoles) *HBaseClusterRolesWorkerNode {
-		if v == nil {
-			return nil
-		}
-		return &v.WorkerNode
-	}).(HBaseClusterRolesWorkerNodePtrOutput)
-}
-
-// A `zookeeperNode` block as defined below.
-func (o HBaseClusterRolesPtrOutput) ZookeeperNode() HBaseClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRoles) *HBaseClusterRolesZookeeperNode {
-		if v == nil {
-			return nil
-		}
-		return &v.ZookeeperNode
-	}).(HBaseClusterRolesZookeeperNodePtrOutput)
 }
 
 type HBaseClusterRolesHeadNode struct {
@@ -1471,47 +1174,6 @@ func (i HBaseClusterRolesHeadNodeArgs) ToHBaseClusterRolesHeadNodeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesHeadNodeOutput)
 }
 
-func (i HBaseClusterRolesHeadNodeArgs) ToHBaseClusterRolesHeadNodePtrOutput() HBaseClusterRolesHeadNodePtrOutput {
-	return i.ToHBaseClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i HBaseClusterRolesHeadNodeArgs) ToHBaseClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesHeadNodeOutput).ToHBaseClusterRolesHeadNodePtrOutputWithContext(ctx)
-}
-
-// HBaseClusterRolesHeadNodePtrInput is an input type that accepts HBaseClusterRolesHeadNodeArgs, HBaseClusterRolesHeadNodePtr and HBaseClusterRolesHeadNodePtrOutput values.
-// You can construct a concrete instance of `HBaseClusterRolesHeadNodePtrInput` via:
-//
-//          HBaseClusterRolesHeadNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type HBaseClusterRolesHeadNodePtrInput interface {
-	pulumi.Input
-
-	ToHBaseClusterRolesHeadNodePtrOutput() HBaseClusterRolesHeadNodePtrOutput
-	ToHBaseClusterRolesHeadNodePtrOutputWithContext(context.Context) HBaseClusterRolesHeadNodePtrOutput
-}
-
-type hbaseClusterRolesHeadNodePtrType HBaseClusterRolesHeadNodeArgs
-
-func HBaseClusterRolesHeadNodePtr(v *HBaseClusterRolesHeadNodeArgs) HBaseClusterRolesHeadNodePtrInput {
-	return (*hbaseClusterRolesHeadNodePtrType)(v)
-}
-
-func (*hbaseClusterRolesHeadNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HBaseClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (i *hbaseClusterRolesHeadNodePtrType) ToHBaseClusterRolesHeadNodePtrOutput() HBaseClusterRolesHeadNodePtrOutput {
-	return i.ToHBaseClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i *hbaseClusterRolesHeadNodePtrType) ToHBaseClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesHeadNodePtrOutput)
-}
-
 type HBaseClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -1524,16 +1186,6 @@ func (o HBaseClusterRolesHeadNodeOutput) ToHBaseClusterRolesHeadNodeOutput() HBa
 
 func (o HBaseClusterRolesHeadNodeOutput) ToHBaseClusterRolesHeadNodeOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodeOutput {
 	return o
-}
-
-func (o HBaseClusterRolesHeadNodeOutput) ToHBaseClusterRolesHeadNodePtrOutput() HBaseClusterRolesHeadNodePtrOutput {
-	return o.ToHBaseClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (o HBaseClusterRolesHeadNodeOutput) ToHBaseClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRolesHeadNode) *HBaseClusterRolesHeadNode {
-		return &v
-	}).(HBaseClusterRolesHeadNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -1564,90 +1216,6 @@ func (o HBaseClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOutp
 // The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type HBaseClusterRolesHeadNodePtrOutput struct{ *pulumi.OutputState }
-
-func (HBaseClusterRolesHeadNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HBaseClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (o HBaseClusterRolesHeadNodePtrOutput) ToHBaseClusterRolesHeadNodePtrOutput() HBaseClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o HBaseClusterRolesHeadNodePtrOutput) ToHBaseClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o HBaseClusterRolesHeadNodePtrOutput) Elem() HBaseClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) HBaseClusterRolesHeadNode {
-		if v != nil {
-			return *v
-		}
-		var ret HBaseClusterRolesHeadNode
-		return ret
-	}).(HBaseClusterRolesHeadNodeOutput)
-}
-
-// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesHeadNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesHeadNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesHeadNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type HBaseClusterRolesWorkerNode struct {
@@ -1719,47 +1287,6 @@ func (i HBaseClusterRolesWorkerNodeArgs) ToHBaseClusterRolesWorkerNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeOutput)
 }
 
-func (i HBaseClusterRolesWorkerNodeArgs) ToHBaseClusterRolesWorkerNodePtrOutput() HBaseClusterRolesWorkerNodePtrOutput {
-	return i.ToHBaseClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i HBaseClusterRolesWorkerNodeArgs) ToHBaseClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeOutput).ToHBaseClusterRolesWorkerNodePtrOutputWithContext(ctx)
-}
-
-// HBaseClusterRolesWorkerNodePtrInput is an input type that accepts HBaseClusterRolesWorkerNodeArgs, HBaseClusterRolesWorkerNodePtr and HBaseClusterRolesWorkerNodePtrOutput values.
-// You can construct a concrete instance of `HBaseClusterRolesWorkerNodePtrInput` via:
-//
-//          HBaseClusterRolesWorkerNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type HBaseClusterRolesWorkerNodePtrInput interface {
-	pulumi.Input
-
-	ToHBaseClusterRolesWorkerNodePtrOutput() HBaseClusterRolesWorkerNodePtrOutput
-	ToHBaseClusterRolesWorkerNodePtrOutputWithContext(context.Context) HBaseClusterRolesWorkerNodePtrOutput
-}
-
-type hbaseClusterRolesWorkerNodePtrType HBaseClusterRolesWorkerNodeArgs
-
-func HBaseClusterRolesWorkerNodePtr(v *HBaseClusterRolesWorkerNodeArgs) HBaseClusterRolesWorkerNodePtrInput {
-	return (*hbaseClusterRolesWorkerNodePtrType)(v)
-}
-
-func (*hbaseClusterRolesWorkerNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HBaseClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (i *hbaseClusterRolesWorkerNodePtrType) ToHBaseClusterRolesWorkerNodePtrOutput() HBaseClusterRolesWorkerNodePtrOutput {
-	return i.ToHBaseClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i *hbaseClusterRolesWorkerNodePtrType) ToHBaseClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodePtrOutput)
-}
-
 type HBaseClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -1772,16 +1299,6 @@ func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodeOutput()
 
 func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodeOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeOutput {
 	return o
-}
-
-func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodePtrOutput() HBaseClusterRolesWorkerNodePtrOutput {
-	return o.ToHBaseClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRolesWorkerNode) *HBaseClusterRolesWorkerNode {
-		return &v
-	}).(HBaseClusterRolesWorkerNodePtrOutput)
 }
 
 // A `autoscale` block as defined below.
@@ -1829,122 +1346,6 @@ func (o HBaseClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrOu
 // The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type HBaseClusterRolesWorkerNodePtrOutput struct{ *pulumi.OutputState }
-
-func (HBaseClusterRolesWorkerNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HBaseClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (o HBaseClusterRolesWorkerNodePtrOutput) ToHBaseClusterRolesWorkerNodePtrOutput() HBaseClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o HBaseClusterRolesWorkerNodePtrOutput) ToHBaseClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o HBaseClusterRolesWorkerNodePtrOutput) Elem() HBaseClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) HBaseClusterRolesWorkerNode {
-		if v != nil {
-			return *v
-		}
-		var ret HBaseClusterRolesWorkerNode
-		return ret
-	}).(HBaseClusterRolesWorkerNodeOutput)
-}
-
-// A `autoscale` block as defined below.
-func (o HBaseClusterRolesWorkerNodePtrOutput) Autoscale() HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *HBaseClusterRolesWorkerNodeAutoscale {
-		if v == nil {
-			return nil
-		}
-		return v.Autoscale
-	}).(HBaseClusterRolesWorkerNodeAutoscalePtrOutput)
-}
-
-// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-//
-// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
-func (o HBaseClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesWorkerNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of instances which should be run for the Worker Nodes.
-func (o HBaseClusterRolesWorkerNodePtrOutput) TargetInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesWorkerNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesWorkerNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type HBaseClusterRolesWorkerNodeAutoscale struct {
@@ -2412,47 +1813,6 @@ func (i HBaseClusterRolesZookeeperNodeArgs) ToHBaseClusterRolesZookeeperNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesZookeeperNodeOutput)
 }
 
-func (i HBaseClusterRolesZookeeperNodeArgs) ToHBaseClusterRolesZookeeperNodePtrOutput() HBaseClusterRolesZookeeperNodePtrOutput {
-	return i.ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i HBaseClusterRolesZookeeperNodeArgs) ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesZookeeperNodeOutput).ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(ctx)
-}
-
-// HBaseClusterRolesZookeeperNodePtrInput is an input type that accepts HBaseClusterRolesZookeeperNodeArgs, HBaseClusterRolesZookeeperNodePtr and HBaseClusterRolesZookeeperNodePtrOutput values.
-// You can construct a concrete instance of `HBaseClusterRolesZookeeperNodePtrInput` via:
-//
-//          HBaseClusterRolesZookeeperNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type HBaseClusterRolesZookeeperNodePtrInput interface {
-	pulumi.Input
-
-	ToHBaseClusterRolesZookeeperNodePtrOutput() HBaseClusterRolesZookeeperNodePtrOutput
-	ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(context.Context) HBaseClusterRolesZookeeperNodePtrOutput
-}
-
-type hbaseClusterRolesZookeeperNodePtrType HBaseClusterRolesZookeeperNodeArgs
-
-func HBaseClusterRolesZookeeperNodePtr(v *HBaseClusterRolesZookeeperNodeArgs) HBaseClusterRolesZookeeperNodePtrInput {
-	return (*hbaseClusterRolesZookeeperNodePtrType)(v)
-}
-
-func (*hbaseClusterRolesZookeeperNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HBaseClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (i *hbaseClusterRolesZookeeperNodePtrType) ToHBaseClusterRolesZookeeperNodePtrOutput() HBaseClusterRolesZookeeperNodePtrOutput {
-	return i.ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i *hbaseClusterRolesZookeeperNodePtrType) ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesZookeeperNodePtrOutput)
-}
-
 type HBaseClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -2465,16 +1825,6 @@ func (o HBaseClusterRolesZookeeperNodeOutput) ToHBaseClusterRolesZookeeperNodeOu
 
 func (o HBaseClusterRolesZookeeperNodeOutput) ToHBaseClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodeOutput {
 	return o
-}
-
-func (o HBaseClusterRolesZookeeperNodeOutput) ToHBaseClusterRolesZookeeperNodePtrOutput() HBaseClusterRolesZookeeperNodePtrOutput {
-	return o.ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (o HBaseClusterRolesZookeeperNodeOutput) ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRolesZookeeperNode) *HBaseClusterRolesZookeeperNode {
-		return &v
-	}).(HBaseClusterRolesZookeeperNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -2505,90 +1855,6 @@ func (o HBaseClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringPt
 // The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type HBaseClusterRolesZookeeperNodePtrOutput struct{ *pulumi.OutputState }
-
-func (HBaseClusterRolesZookeeperNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HBaseClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (o HBaseClusterRolesZookeeperNodePtrOutput) ToHBaseClusterRolesZookeeperNodePtrOutput() HBaseClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o HBaseClusterRolesZookeeperNodePtrOutput) ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o HBaseClusterRolesZookeeperNodePtrOutput) Elem() HBaseClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) HBaseClusterRolesZookeeperNode {
-		if v != nil {
-			return *v
-		}
-		var ret HBaseClusterRolesZookeeperNode
-		return ret
-	}).(HBaseClusterRolesZookeeperNodeOutput)
-}
-
-// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesZookeeperNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesZookeeperNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesZookeeperNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o HBaseClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type HBaseClusterSecurityProfile struct {
@@ -3184,47 +2450,6 @@ func (i HadoopClusterComponentVersionArgs) ToHadoopClusterComponentVersionOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterComponentVersionOutput)
 }
 
-func (i HadoopClusterComponentVersionArgs) ToHadoopClusterComponentVersionPtrOutput() HadoopClusterComponentVersionPtrOutput {
-	return i.ToHadoopClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (i HadoopClusterComponentVersionArgs) ToHadoopClusterComponentVersionPtrOutputWithContext(ctx context.Context) HadoopClusterComponentVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterComponentVersionOutput).ToHadoopClusterComponentVersionPtrOutputWithContext(ctx)
-}
-
-// HadoopClusterComponentVersionPtrInput is an input type that accepts HadoopClusterComponentVersionArgs, HadoopClusterComponentVersionPtr and HadoopClusterComponentVersionPtrOutput values.
-// You can construct a concrete instance of `HadoopClusterComponentVersionPtrInput` via:
-//
-//          HadoopClusterComponentVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type HadoopClusterComponentVersionPtrInput interface {
-	pulumi.Input
-
-	ToHadoopClusterComponentVersionPtrOutput() HadoopClusterComponentVersionPtrOutput
-	ToHadoopClusterComponentVersionPtrOutputWithContext(context.Context) HadoopClusterComponentVersionPtrOutput
-}
-
-type hadoopClusterComponentVersionPtrType HadoopClusterComponentVersionArgs
-
-func HadoopClusterComponentVersionPtr(v *HadoopClusterComponentVersionArgs) HadoopClusterComponentVersionPtrInput {
-	return (*hadoopClusterComponentVersionPtrType)(v)
-}
-
-func (*hadoopClusterComponentVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HadoopClusterComponentVersion)(nil)).Elem()
-}
-
-func (i *hadoopClusterComponentVersionPtrType) ToHadoopClusterComponentVersionPtrOutput() HadoopClusterComponentVersionPtrOutput {
-	return i.ToHadoopClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *hadoopClusterComponentVersionPtrType) ToHadoopClusterComponentVersionPtrOutputWithContext(ctx context.Context) HadoopClusterComponentVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterComponentVersionPtrOutput)
-}
-
 type HadoopClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterComponentVersionOutput) ElementType() reflect.Type {
@@ -3239,53 +2464,9 @@ func (o HadoopClusterComponentVersionOutput) ToHadoopClusterComponentVersionOutp
 	return o
 }
 
-func (o HadoopClusterComponentVersionOutput) ToHadoopClusterComponentVersionPtrOutput() HadoopClusterComponentVersionPtrOutput {
-	return o.ToHadoopClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (o HadoopClusterComponentVersionOutput) ToHadoopClusterComponentVersionPtrOutputWithContext(ctx context.Context) HadoopClusterComponentVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterComponentVersion) *HadoopClusterComponentVersion {
-		return &v
-	}).(HadoopClusterComponentVersionPtrOutput)
-}
-
 // The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 func (o HadoopClusterComponentVersionOutput) Hadoop() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterComponentVersion) string { return v.Hadoop }).(pulumi.StringOutput)
-}
-
-type HadoopClusterComponentVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (HadoopClusterComponentVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HadoopClusterComponentVersion)(nil)).Elem()
-}
-
-func (o HadoopClusterComponentVersionPtrOutput) ToHadoopClusterComponentVersionPtrOutput() HadoopClusterComponentVersionPtrOutput {
-	return o
-}
-
-func (o HadoopClusterComponentVersionPtrOutput) ToHadoopClusterComponentVersionPtrOutputWithContext(ctx context.Context) HadoopClusterComponentVersionPtrOutput {
-	return o
-}
-
-func (o HadoopClusterComponentVersionPtrOutput) Elem() HadoopClusterComponentVersionOutput {
-	return o.ApplyT(func(v *HadoopClusterComponentVersion) HadoopClusterComponentVersion {
-		if v != nil {
-			return *v
-		}
-		var ret HadoopClusterComponentVersion
-		return ret
-	}).(HadoopClusterComponentVersionOutput)
-}
-
-// The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
-func (o HadoopClusterComponentVersionPtrOutput) Hadoop() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterComponentVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Hadoop
-	}).(pulumi.StringPtrOutput)
 }
 
 type HadoopClusterGateway struct {
@@ -3333,47 +2514,6 @@ func (i HadoopClusterGatewayArgs) ToHadoopClusterGatewayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterGatewayOutput)
 }
 
-func (i HadoopClusterGatewayArgs) ToHadoopClusterGatewayPtrOutput() HadoopClusterGatewayPtrOutput {
-	return i.ToHadoopClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i HadoopClusterGatewayArgs) ToHadoopClusterGatewayPtrOutputWithContext(ctx context.Context) HadoopClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterGatewayOutput).ToHadoopClusterGatewayPtrOutputWithContext(ctx)
-}
-
-// HadoopClusterGatewayPtrInput is an input type that accepts HadoopClusterGatewayArgs, HadoopClusterGatewayPtr and HadoopClusterGatewayPtrOutput values.
-// You can construct a concrete instance of `HadoopClusterGatewayPtrInput` via:
-//
-//          HadoopClusterGatewayArgs{...}
-//
-//  or:
-//
-//          nil
-type HadoopClusterGatewayPtrInput interface {
-	pulumi.Input
-
-	ToHadoopClusterGatewayPtrOutput() HadoopClusterGatewayPtrOutput
-	ToHadoopClusterGatewayPtrOutputWithContext(context.Context) HadoopClusterGatewayPtrOutput
-}
-
-type hadoopClusterGatewayPtrType HadoopClusterGatewayArgs
-
-func HadoopClusterGatewayPtr(v *HadoopClusterGatewayArgs) HadoopClusterGatewayPtrInput {
-	return (*hadoopClusterGatewayPtrType)(v)
-}
-
-func (*hadoopClusterGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HadoopClusterGateway)(nil)).Elem()
-}
-
-func (i *hadoopClusterGatewayPtrType) ToHadoopClusterGatewayPtrOutput() HadoopClusterGatewayPtrOutput {
-	return i.ToHadoopClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *hadoopClusterGatewayPtrType) ToHadoopClusterGatewayPtrOutputWithContext(ctx context.Context) HadoopClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterGatewayPtrOutput)
-}
-
 type HadoopClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterGatewayOutput) ElementType() reflect.Type {
@@ -3386,16 +2526,6 @@ func (o HadoopClusterGatewayOutput) ToHadoopClusterGatewayOutput() HadoopCluster
 
 func (o HadoopClusterGatewayOutput) ToHadoopClusterGatewayOutputWithContext(ctx context.Context) HadoopClusterGatewayOutput {
 	return o
-}
-
-func (o HadoopClusterGatewayOutput) ToHadoopClusterGatewayPtrOutput() HadoopClusterGatewayPtrOutput {
-	return o.ToHadoopClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o HadoopClusterGatewayOutput) ToHadoopClusterGatewayPtrOutputWithContext(ctx context.Context) HadoopClusterGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterGateway) *HadoopClusterGateway {
-		return &v
-	}).(HadoopClusterGatewayPtrOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -3413,62 +2543,6 @@ func (o HadoopClusterGatewayOutput) Password() pulumi.StringOutput {
 // The username used for the Ambari Portal. Changing this forces a new resource to be created.
 func (o HadoopClusterGatewayOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterGateway) string { return v.Username }).(pulumi.StringOutput)
-}
-
-type HadoopClusterGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (HadoopClusterGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HadoopClusterGateway)(nil)).Elem()
-}
-
-func (o HadoopClusterGatewayPtrOutput) ToHadoopClusterGatewayPtrOutput() HadoopClusterGatewayPtrOutput {
-	return o
-}
-
-func (o HadoopClusterGatewayPtrOutput) ToHadoopClusterGatewayPtrOutputWithContext(ctx context.Context) HadoopClusterGatewayPtrOutput {
-	return o
-}
-
-func (o HadoopClusterGatewayPtrOutput) Elem() HadoopClusterGatewayOutput {
-	return o.ApplyT(func(v *HadoopClusterGateway) HadoopClusterGateway {
-		if v != nil {
-			return *v
-		}
-		var ret HadoopClusterGateway
-		return ret
-	}).(HadoopClusterGatewayOutput)
-}
-
-// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-//
-// Deprecated: HDInsight doesn't support disabling gateway anymore
-func (o HadoopClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterGateway) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The password used for the Ambari Portal.
-func (o HadoopClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// The username used for the Ambari Portal. Changing this forces a new resource to be created.
-func (o HadoopClusterGatewayPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
 }
 
 type HadoopClusterMetastores struct {
@@ -4585,47 +3659,6 @@ func (i HadoopClusterRolesArgs) ToHadoopClusterRolesOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesOutput)
 }
 
-func (i HadoopClusterRolesArgs) ToHadoopClusterRolesPtrOutput() HadoopClusterRolesPtrOutput {
-	return i.ToHadoopClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i HadoopClusterRolesArgs) ToHadoopClusterRolesPtrOutputWithContext(ctx context.Context) HadoopClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesOutput).ToHadoopClusterRolesPtrOutputWithContext(ctx)
-}
-
-// HadoopClusterRolesPtrInput is an input type that accepts HadoopClusterRolesArgs, HadoopClusterRolesPtr and HadoopClusterRolesPtrOutput values.
-// You can construct a concrete instance of `HadoopClusterRolesPtrInput` via:
-//
-//          HadoopClusterRolesArgs{...}
-//
-//  or:
-//
-//          nil
-type HadoopClusterRolesPtrInput interface {
-	pulumi.Input
-
-	ToHadoopClusterRolesPtrOutput() HadoopClusterRolesPtrOutput
-	ToHadoopClusterRolesPtrOutputWithContext(context.Context) HadoopClusterRolesPtrOutput
-}
-
-type hadoopClusterRolesPtrType HadoopClusterRolesArgs
-
-func HadoopClusterRolesPtr(v *HadoopClusterRolesArgs) HadoopClusterRolesPtrInput {
-	return (*hadoopClusterRolesPtrType)(v)
-}
-
-func (*hadoopClusterRolesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HadoopClusterRoles)(nil)).Elem()
-}
-
-func (i *hadoopClusterRolesPtrType) ToHadoopClusterRolesPtrOutput() HadoopClusterRolesPtrOutput {
-	return i.ToHadoopClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i *hadoopClusterRolesPtrType) ToHadoopClusterRolesPtrOutputWithContext(ctx context.Context) HadoopClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesPtrOutput)
-}
-
 type HadoopClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesOutput) ElementType() reflect.Type {
@@ -4638,16 +3671,6 @@ func (o HadoopClusterRolesOutput) ToHadoopClusterRolesOutput() HadoopClusterRole
 
 func (o HadoopClusterRolesOutput) ToHadoopClusterRolesOutputWithContext(ctx context.Context) HadoopClusterRolesOutput {
 	return o
-}
-
-func (o HadoopClusterRolesOutput) ToHadoopClusterRolesPtrOutput() HadoopClusterRolesPtrOutput {
-	return o.ToHadoopClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (o HadoopClusterRolesOutput) ToHadoopClusterRolesPtrOutputWithContext(ctx context.Context) HadoopClusterRolesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRoles) *HadoopClusterRoles {
-		return &v
-	}).(HadoopClusterRolesPtrOutput)
 }
 
 // A `edgeNode` block as defined below.
@@ -4668,70 +3691,6 @@ func (o HadoopClusterRolesOutput) WorkerNode() HadoopClusterRolesWorkerNodeOutpu
 // A `zookeeperNode` block as defined below.
 func (o HadoopClusterRolesOutput) ZookeeperNode() HadoopClusterRolesZookeeperNodeOutput {
 	return o.ApplyT(func(v HadoopClusterRoles) HadoopClusterRolesZookeeperNode { return v.ZookeeperNode }).(HadoopClusterRolesZookeeperNodeOutput)
-}
-
-type HadoopClusterRolesPtrOutput struct{ *pulumi.OutputState }
-
-func (HadoopClusterRolesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HadoopClusterRoles)(nil)).Elem()
-}
-
-func (o HadoopClusterRolesPtrOutput) ToHadoopClusterRolesPtrOutput() HadoopClusterRolesPtrOutput {
-	return o
-}
-
-func (o HadoopClusterRolesPtrOutput) ToHadoopClusterRolesPtrOutputWithContext(ctx context.Context) HadoopClusterRolesPtrOutput {
-	return o
-}
-
-func (o HadoopClusterRolesPtrOutput) Elem() HadoopClusterRolesOutput {
-	return o.ApplyT(func(v *HadoopClusterRoles) HadoopClusterRoles {
-		if v != nil {
-			return *v
-		}
-		var ret HadoopClusterRoles
-		return ret
-	}).(HadoopClusterRolesOutput)
-}
-
-// A `edgeNode` block as defined below.
-func (o HadoopClusterRolesPtrOutput) EdgeNode() HadoopClusterRolesEdgeNodePtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRoles) *HadoopClusterRolesEdgeNode {
-		if v == nil {
-			return nil
-		}
-		return v.EdgeNode
-	}).(HadoopClusterRolesEdgeNodePtrOutput)
-}
-
-// A `headNode` block as defined above.
-func (o HadoopClusterRolesPtrOutput) HeadNode() HadoopClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRoles) *HadoopClusterRolesHeadNode {
-		if v == nil {
-			return nil
-		}
-		return &v.HeadNode
-	}).(HadoopClusterRolesHeadNodePtrOutput)
-}
-
-// A `workerNode` block as defined below.
-func (o HadoopClusterRolesPtrOutput) WorkerNode() HadoopClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRoles) *HadoopClusterRolesWorkerNode {
-		if v == nil {
-			return nil
-		}
-		return &v.WorkerNode
-	}).(HadoopClusterRolesWorkerNodePtrOutput)
-}
-
-// A `zookeeperNode` block as defined below.
-func (o HadoopClusterRolesPtrOutput) ZookeeperNode() HadoopClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRoles) *HadoopClusterRolesZookeeperNode {
-		if v == nil {
-			return nil
-		}
-		return &v.ZookeeperNode
-	}).(HadoopClusterRolesZookeeperNodePtrOutput)
 }
 
 type HadoopClusterRolesEdgeNode struct {
@@ -5070,47 +4029,6 @@ func (i HadoopClusterRolesHeadNodeArgs) ToHadoopClusterRolesHeadNodeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesHeadNodeOutput)
 }
 
-func (i HadoopClusterRolesHeadNodeArgs) ToHadoopClusterRolesHeadNodePtrOutput() HadoopClusterRolesHeadNodePtrOutput {
-	return i.ToHadoopClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i HadoopClusterRolesHeadNodeArgs) ToHadoopClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesHeadNodeOutput).ToHadoopClusterRolesHeadNodePtrOutputWithContext(ctx)
-}
-
-// HadoopClusterRolesHeadNodePtrInput is an input type that accepts HadoopClusterRolesHeadNodeArgs, HadoopClusterRolesHeadNodePtr and HadoopClusterRolesHeadNodePtrOutput values.
-// You can construct a concrete instance of `HadoopClusterRolesHeadNodePtrInput` via:
-//
-//          HadoopClusterRolesHeadNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type HadoopClusterRolesHeadNodePtrInput interface {
-	pulumi.Input
-
-	ToHadoopClusterRolesHeadNodePtrOutput() HadoopClusterRolesHeadNodePtrOutput
-	ToHadoopClusterRolesHeadNodePtrOutputWithContext(context.Context) HadoopClusterRolesHeadNodePtrOutput
-}
-
-type hadoopClusterRolesHeadNodePtrType HadoopClusterRolesHeadNodeArgs
-
-func HadoopClusterRolesHeadNodePtr(v *HadoopClusterRolesHeadNodeArgs) HadoopClusterRolesHeadNodePtrInput {
-	return (*hadoopClusterRolesHeadNodePtrType)(v)
-}
-
-func (*hadoopClusterRolesHeadNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HadoopClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (i *hadoopClusterRolesHeadNodePtrType) ToHadoopClusterRolesHeadNodePtrOutput() HadoopClusterRolesHeadNodePtrOutput {
-	return i.ToHadoopClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i *hadoopClusterRolesHeadNodePtrType) ToHadoopClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesHeadNodePtrOutput)
-}
-
 type HadoopClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -5123,16 +4041,6 @@ func (o HadoopClusterRolesHeadNodeOutput) ToHadoopClusterRolesHeadNodeOutput() H
 
 func (o HadoopClusterRolesHeadNodeOutput) ToHadoopClusterRolesHeadNodeOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodeOutput {
 	return o
-}
-
-func (o HadoopClusterRolesHeadNodeOutput) ToHadoopClusterRolesHeadNodePtrOutput() HadoopClusterRolesHeadNodePtrOutput {
-	return o.ToHadoopClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (o HadoopClusterRolesHeadNodeOutput) ToHadoopClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesHeadNode) *HadoopClusterRolesHeadNode {
-		return &v
-	}).(HadoopClusterRolesHeadNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -5163,90 +4071,6 @@ func (o HadoopClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOut
 // The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type HadoopClusterRolesHeadNodePtrOutput struct{ *pulumi.OutputState }
-
-func (HadoopClusterRolesHeadNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HadoopClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (o HadoopClusterRolesHeadNodePtrOutput) ToHadoopClusterRolesHeadNodePtrOutput() HadoopClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o HadoopClusterRolesHeadNodePtrOutput) ToHadoopClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o HadoopClusterRolesHeadNodePtrOutput) Elem() HadoopClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) HadoopClusterRolesHeadNode {
-		if v != nil {
-			return *v
-		}
-		var ret HadoopClusterRolesHeadNode
-		return ret
-	}).(HadoopClusterRolesHeadNodeOutput)
-}
-
-// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesHeadNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesHeadNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesHeadNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type HadoopClusterRolesWorkerNode struct {
@@ -5318,47 +4142,6 @@ func (i HadoopClusterRolesWorkerNodeArgs) ToHadoopClusterRolesWorkerNodeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeOutput)
 }
 
-func (i HadoopClusterRolesWorkerNodeArgs) ToHadoopClusterRolesWorkerNodePtrOutput() HadoopClusterRolesWorkerNodePtrOutput {
-	return i.ToHadoopClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i HadoopClusterRolesWorkerNodeArgs) ToHadoopClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeOutput).ToHadoopClusterRolesWorkerNodePtrOutputWithContext(ctx)
-}
-
-// HadoopClusterRolesWorkerNodePtrInput is an input type that accepts HadoopClusterRolesWorkerNodeArgs, HadoopClusterRolesWorkerNodePtr and HadoopClusterRolesWorkerNodePtrOutput values.
-// You can construct a concrete instance of `HadoopClusterRolesWorkerNodePtrInput` via:
-//
-//          HadoopClusterRolesWorkerNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type HadoopClusterRolesWorkerNodePtrInput interface {
-	pulumi.Input
-
-	ToHadoopClusterRolesWorkerNodePtrOutput() HadoopClusterRolesWorkerNodePtrOutput
-	ToHadoopClusterRolesWorkerNodePtrOutputWithContext(context.Context) HadoopClusterRolesWorkerNodePtrOutput
-}
-
-type hadoopClusterRolesWorkerNodePtrType HadoopClusterRolesWorkerNodeArgs
-
-func HadoopClusterRolesWorkerNodePtr(v *HadoopClusterRolesWorkerNodeArgs) HadoopClusterRolesWorkerNodePtrInput {
-	return (*hadoopClusterRolesWorkerNodePtrType)(v)
-}
-
-func (*hadoopClusterRolesWorkerNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HadoopClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (i *hadoopClusterRolesWorkerNodePtrType) ToHadoopClusterRolesWorkerNodePtrOutput() HadoopClusterRolesWorkerNodePtrOutput {
-	return i.ToHadoopClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i *hadoopClusterRolesWorkerNodePtrType) ToHadoopClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodePtrOutput)
-}
-
 type HadoopClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -5371,16 +4154,6 @@ func (o HadoopClusterRolesWorkerNodeOutput) ToHadoopClusterRolesWorkerNodeOutput
 
 func (o HadoopClusterRolesWorkerNodeOutput) ToHadoopClusterRolesWorkerNodeOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeOutput {
 	return o
-}
-
-func (o HadoopClusterRolesWorkerNodeOutput) ToHadoopClusterRolesWorkerNodePtrOutput() HadoopClusterRolesWorkerNodePtrOutput {
-	return o.ToHadoopClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (o HadoopClusterRolesWorkerNodeOutput) ToHadoopClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesWorkerNode) *HadoopClusterRolesWorkerNode {
-		return &v
-	}).(HadoopClusterRolesWorkerNodePtrOutput)
 }
 
 // A `autoscale` block as defined below.
@@ -5428,122 +4201,6 @@ func (o HadoopClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrO
 // The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type HadoopClusterRolesWorkerNodePtrOutput struct{ *pulumi.OutputState }
-
-func (HadoopClusterRolesWorkerNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HadoopClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (o HadoopClusterRolesWorkerNodePtrOutput) ToHadoopClusterRolesWorkerNodePtrOutput() HadoopClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o HadoopClusterRolesWorkerNodePtrOutput) ToHadoopClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o HadoopClusterRolesWorkerNodePtrOutput) Elem() HadoopClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) HadoopClusterRolesWorkerNode {
-		if v != nil {
-			return *v
-		}
-		var ret HadoopClusterRolesWorkerNode
-		return ret
-	}).(HadoopClusterRolesWorkerNodeOutput)
-}
-
-// A `autoscale` block as defined below.
-func (o HadoopClusterRolesWorkerNodePtrOutput) Autoscale() HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) *HadoopClusterRolesWorkerNodeAutoscale {
-		if v == nil {
-			return nil
-		}
-		return v.Autoscale
-	}).(HadoopClusterRolesWorkerNodeAutoscalePtrOutput)
-}
-
-// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-//
-// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
-func (o HadoopClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesWorkerNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of instances which should be run for the Worker Nodes.
-func (o HadoopClusterRolesWorkerNodePtrOutput) TargetInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesWorkerNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesWorkerNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type HadoopClusterRolesWorkerNodeAutoscale struct {
@@ -6188,47 +4845,6 @@ func (i HadoopClusterRolesZookeeperNodeArgs) ToHadoopClusterRolesZookeeperNodeOu
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesZookeeperNodeOutput)
 }
 
-func (i HadoopClusterRolesZookeeperNodeArgs) ToHadoopClusterRolesZookeeperNodePtrOutput() HadoopClusterRolesZookeeperNodePtrOutput {
-	return i.ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i HadoopClusterRolesZookeeperNodeArgs) ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesZookeeperNodeOutput).ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(ctx)
-}
-
-// HadoopClusterRolesZookeeperNodePtrInput is an input type that accepts HadoopClusterRolesZookeeperNodeArgs, HadoopClusterRolesZookeeperNodePtr and HadoopClusterRolesZookeeperNodePtrOutput values.
-// You can construct a concrete instance of `HadoopClusterRolesZookeeperNodePtrInput` via:
-//
-//          HadoopClusterRolesZookeeperNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type HadoopClusterRolesZookeeperNodePtrInput interface {
-	pulumi.Input
-
-	ToHadoopClusterRolesZookeeperNodePtrOutput() HadoopClusterRolesZookeeperNodePtrOutput
-	ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(context.Context) HadoopClusterRolesZookeeperNodePtrOutput
-}
-
-type hadoopClusterRolesZookeeperNodePtrType HadoopClusterRolesZookeeperNodeArgs
-
-func HadoopClusterRolesZookeeperNodePtr(v *HadoopClusterRolesZookeeperNodeArgs) HadoopClusterRolesZookeeperNodePtrInput {
-	return (*hadoopClusterRolesZookeeperNodePtrType)(v)
-}
-
-func (*hadoopClusterRolesZookeeperNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HadoopClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (i *hadoopClusterRolesZookeeperNodePtrType) ToHadoopClusterRolesZookeeperNodePtrOutput() HadoopClusterRolesZookeeperNodePtrOutput {
-	return i.ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i *hadoopClusterRolesZookeeperNodePtrType) ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesZookeeperNodePtrOutput)
-}
-
 type HadoopClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -6241,16 +4857,6 @@ func (o HadoopClusterRolesZookeeperNodeOutput) ToHadoopClusterRolesZookeeperNode
 
 func (o HadoopClusterRolesZookeeperNodeOutput) ToHadoopClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodeOutput {
 	return o
-}
-
-func (o HadoopClusterRolesZookeeperNodeOutput) ToHadoopClusterRolesZookeeperNodePtrOutput() HadoopClusterRolesZookeeperNodePtrOutput {
-	return o.ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (o HadoopClusterRolesZookeeperNodeOutput) ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesZookeeperNode) *HadoopClusterRolesZookeeperNode {
-		return &v
-	}).(HadoopClusterRolesZookeeperNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -6281,90 +4887,6 @@ func (o HadoopClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringP
 // The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type HadoopClusterRolesZookeeperNodePtrOutput struct{ *pulumi.OutputState }
-
-func (HadoopClusterRolesZookeeperNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HadoopClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (o HadoopClusterRolesZookeeperNodePtrOutput) ToHadoopClusterRolesZookeeperNodePtrOutput() HadoopClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o HadoopClusterRolesZookeeperNodePtrOutput) ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o HadoopClusterRolesZookeeperNodePtrOutput) Elem() HadoopClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) HadoopClusterRolesZookeeperNode {
-		if v != nil {
-			return *v
-		}
-		var ret HadoopClusterRolesZookeeperNode
-		return ret
-	}).(HadoopClusterRolesZookeeperNodeOutput)
-}
-
-// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesZookeeperNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesZookeeperNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesZookeeperNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o HadoopClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type HadoopClusterSecurityProfile struct {
@@ -6958,47 +5480,6 @@ func (i InteractiveQueryClusterComponentVersionArgs) ToInteractiveQueryClusterCo
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterComponentVersionOutput)
 }
 
-func (i InteractiveQueryClusterComponentVersionArgs) ToInteractiveQueryClusterComponentVersionPtrOutput() InteractiveQueryClusterComponentVersionPtrOutput {
-	return i.ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (i InteractiveQueryClusterComponentVersionArgs) ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterComponentVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterComponentVersionOutput).ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(ctx)
-}
-
-// InteractiveQueryClusterComponentVersionPtrInput is an input type that accepts InteractiveQueryClusterComponentVersionArgs, InteractiveQueryClusterComponentVersionPtr and InteractiveQueryClusterComponentVersionPtrOutput values.
-// You can construct a concrete instance of `InteractiveQueryClusterComponentVersionPtrInput` via:
-//
-//          InteractiveQueryClusterComponentVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type InteractiveQueryClusterComponentVersionPtrInput interface {
-	pulumi.Input
-
-	ToInteractiveQueryClusterComponentVersionPtrOutput() InteractiveQueryClusterComponentVersionPtrOutput
-	ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(context.Context) InteractiveQueryClusterComponentVersionPtrOutput
-}
-
-type interactiveQueryClusterComponentVersionPtrType InteractiveQueryClusterComponentVersionArgs
-
-func InteractiveQueryClusterComponentVersionPtr(v *InteractiveQueryClusterComponentVersionArgs) InteractiveQueryClusterComponentVersionPtrInput {
-	return (*interactiveQueryClusterComponentVersionPtrType)(v)
-}
-
-func (*interactiveQueryClusterComponentVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterComponentVersion)(nil)).Elem()
-}
-
-func (i *interactiveQueryClusterComponentVersionPtrType) ToInteractiveQueryClusterComponentVersionPtrOutput() InteractiveQueryClusterComponentVersionPtrOutput {
-	return i.ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *interactiveQueryClusterComponentVersionPtrType) ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterComponentVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterComponentVersionPtrOutput)
-}
-
 type InteractiveQueryClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterComponentVersionOutput) ElementType() reflect.Type {
@@ -7013,51 +5494,8 @@ func (o InteractiveQueryClusterComponentVersionOutput) ToInteractiveQueryCluster
 	return o
 }
 
-func (o InteractiveQueryClusterComponentVersionOutput) ToInteractiveQueryClusterComponentVersionPtrOutput() InteractiveQueryClusterComponentVersionPtrOutput {
-	return o.ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (o InteractiveQueryClusterComponentVersionOutput) ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterComponentVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterComponentVersion) *InteractiveQueryClusterComponentVersion {
-		return &v
-	}).(InteractiveQueryClusterComponentVersionPtrOutput)
-}
-
 func (o InteractiveQueryClusterComponentVersionOutput) InteractiveHive() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterComponentVersion) string { return v.InteractiveHive }).(pulumi.StringOutput)
-}
-
-type InteractiveQueryClusterComponentVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (InteractiveQueryClusterComponentVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterComponentVersion)(nil)).Elem()
-}
-
-func (o InteractiveQueryClusterComponentVersionPtrOutput) ToInteractiveQueryClusterComponentVersionPtrOutput() InteractiveQueryClusterComponentVersionPtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterComponentVersionPtrOutput) ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterComponentVersionPtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterComponentVersionPtrOutput) Elem() InteractiveQueryClusterComponentVersionOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterComponentVersion) InteractiveQueryClusterComponentVersion {
-		if v != nil {
-			return *v
-		}
-		var ret InteractiveQueryClusterComponentVersion
-		return ret
-	}).(InteractiveQueryClusterComponentVersionOutput)
-}
-
-func (o InteractiveQueryClusterComponentVersionPtrOutput) InteractiveHive() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterComponentVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.InteractiveHive
-	}).(pulumi.StringPtrOutput)
 }
 
 type InteractiveQueryClusterGateway struct {
@@ -7105,47 +5543,6 @@ func (i InteractiveQueryClusterGatewayArgs) ToInteractiveQueryClusterGatewayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterGatewayOutput)
 }
 
-func (i InteractiveQueryClusterGatewayArgs) ToInteractiveQueryClusterGatewayPtrOutput() InteractiveQueryClusterGatewayPtrOutput {
-	return i.ToInteractiveQueryClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i InteractiveQueryClusterGatewayArgs) ToInteractiveQueryClusterGatewayPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterGatewayOutput).ToInteractiveQueryClusterGatewayPtrOutputWithContext(ctx)
-}
-
-// InteractiveQueryClusterGatewayPtrInput is an input type that accepts InteractiveQueryClusterGatewayArgs, InteractiveQueryClusterGatewayPtr and InteractiveQueryClusterGatewayPtrOutput values.
-// You can construct a concrete instance of `InteractiveQueryClusterGatewayPtrInput` via:
-//
-//          InteractiveQueryClusterGatewayArgs{...}
-//
-//  or:
-//
-//          nil
-type InteractiveQueryClusterGatewayPtrInput interface {
-	pulumi.Input
-
-	ToInteractiveQueryClusterGatewayPtrOutput() InteractiveQueryClusterGatewayPtrOutput
-	ToInteractiveQueryClusterGatewayPtrOutputWithContext(context.Context) InteractiveQueryClusterGatewayPtrOutput
-}
-
-type interactiveQueryClusterGatewayPtrType InteractiveQueryClusterGatewayArgs
-
-func InteractiveQueryClusterGatewayPtr(v *InteractiveQueryClusterGatewayArgs) InteractiveQueryClusterGatewayPtrInput {
-	return (*interactiveQueryClusterGatewayPtrType)(v)
-}
-
-func (*interactiveQueryClusterGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterGateway)(nil)).Elem()
-}
-
-func (i *interactiveQueryClusterGatewayPtrType) ToInteractiveQueryClusterGatewayPtrOutput() InteractiveQueryClusterGatewayPtrOutput {
-	return i.ToInteractiveQueryClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *interactiveQueryClusterGatewayPtrType) ToInteractiveQueryClusterGatewayPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterGatewayPtrOutput)
-}
-
 type InteractiveQueryClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterGatewayOutput) ElementType() reflect.Type {
@@ -7158,16 +5555,6 @@ func (o InteractiveQueryClusterGatewayOutput) ToInteractiveQueryClusterGatewayOu
 
 func (o InteractiveQueryClusterGatewayOutput) ToInteractiveQueryClusterGatewayOutputWithContext(ctx context.Context) InteractiveQueryClusterGatewayOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterGatewayOutput) ToInteractiveQueryClusterGatewayPtrOutput() InteractiveQueryClusterGatewayPtrOutput {
-	return o.ToInteractiveQueryClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o InteractiveQueryClusterGatewayOutput) ToInteractiveQueryClusterGatewayPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterGateway) *InteractiveQueryClusterGateway {
-		return &v
-	}).(InteractiveQueryClusterGatewayPtrOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -7185,62 +5572,6 @@ func (o InteractiveQueryClusterGatewayOutput) Password() pulumi.StringOutput {
 // The username used for the Ambari Portal. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterGatewayOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterGateway) string { return v.Username }).(pulumi.StringOutput)
-}
-
-type InteractiveQueryClusterGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (InteractiveQueryClusterGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterGateway)(nil)).Elem()
-}
-
-func (o InteractiveQueryClusterGatewayPtrOutput) ToInteractiveQueryClusterGatewayPtrOutput() InteractiveQueryClusterGatewayPtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterGatewayPtrOutput) ToInteractiveQueryClusterGatewayPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterGatewayPtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterGatewayPtrOutput) Elem() InteractiveQueryClusterGatewayOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterGateway) InteractiveQueryClusterGateway {
-		if v != nil {
-			return *v
-		}
-		var ret InteractiveQueryClusterGateway
-		return ret
-	}).(InteractiveQueryClusterGatewayOutput)
-}
-
-// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-//
-// Deprecated: HDInsight doesn't support disabling gateway anymore
-func (o InteractiveQueryClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterGateway) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The password used for the Ambari Portal.
-func (o InteractiveQueryClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// The username used for the Ambari Portal. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterGatewayPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
 }
 
 type InteractiveQueryClusterMetastores struct {
@@ -8353,47 +6684,6 @@ func (i InteractiveQueryClusterRolesArgs) ToInteractiveQueryClusterRolesOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesOutput)
 }
 
-func (i InteractiveQueryClusterRolesArgs) ToInteractiveQueryClusterRolesPtrOutput() InteractiveQueryClusterRolesPtrOutput {
-	return i.ToInteractiveQueryClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i InteractiveQueryClusterRolesArgs) ToInteractiveQueryClusterRolesPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesOutput).ToInteractiveQueryClusterRolesPtrOutputWithContext(ctx)
-}
-
-// InteractiveQueryClusterRolesPtrInput is an input type that accepts InteractiveQueryClusterRolesArgs, InteractiveQueryClusterRolesPtr and InteractiveQueryClusterRolesPtrOutput values.
-// You can construct a concrete instance of `InteractiveQueryClusterRolesPtrInput` via:
-//
-//          InteractiveQueryClusterRolesArgs{...}
-//
-//  or:
-//
-//          nil
-type InteractiveQueryClusterRolesPtrInput interface {
-	pulumi.Input
-
-	ToInteractiveQueryClusterRolesPtrOutput() InteractiveQueryClusterRolesPtrOutput
-	ToInteractiveQueryClusterRolesPtrOutputWithContext(context.Context) InteractiveQueryClusterRolesPtrOutput
-}
-
-type interactiveQueryClusterRolesPtrType InteractiveQueryClusterRolesArgs
-
-func InteractiveQueryClusterRolesPtr(v *InteractiveQueryClusterRolesArgs) InteractiveQueryClusterRolesPtrInput {
-	return (*interactiveQueryClusterRolesPtrType)(v)
-}
-
-func (*interactiveQueryClusterRolesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterRoles)(nil)).Elem()
-}
-
-func (i *interactiveQueryClusterRolesPtrType) ToInteractiveQueryClusterRolesPtrOutput() InteractiveQueryClusterRolesPtrOutput {
-	return i.ToInteractiveQueryClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i *interactiveQueryClusterRolesPtrType) ToInteractiveQueryClusterRolesPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesPtrOutput)
-}
-
 type InteractiveQueryClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesOutput) ElementType() reflect.Type {
@@ -8406,16 +6696,6 @@ func (o InteractiveQueryClusterRolesOutput) ToInteractiveQueryClusterRolesOutput
 
 func (o InteractiveQueryClusterRolesOutput) ToInteractiveQueryClusterRolesOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesOutput) ToInteractiveQueryClusterRolesPtrOutput() InteractiveQueryClusterRolesPtrOutput {
-	return o.ToInteractiveQueryClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (o InteractiveQueryClusterRolesOutput) ToInteractiveQueryClusterRolesPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRoles) *InteractiveQueryClusterRoles {
-		return &v
-	}).(InteractiveQueryClusterRolesPtrOutput)
 }
 
 // A `headNode` block as defined above.
@@ -8431,60 +6711,6 @@ func (o InteractiveQueryClusterRolesOutput) WorkerNode() InteractiveQueryCluster
 // A `zookeeperNode` block as defined below.
 func (o InteractiveQueryClusterRolesOutput) ZookeeperNode() InteractiveQueryClusterRolesZookeeperNodeOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesZookeeperNode { return v.ZookeeperNode }).(InteractiveQueryClusterRolesZookeeperNodeOutput)
-}
-
-type InteractiveQueryClusterRolesPtrOutput struct{ *pulumi.OutputState }
-
-func (InteractiveQueryClusterRolesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterRoles)(nil)).Elem()
-}
-
-func (o InteractiveQueryClusterRolesPtrOutput) ToInteractiveQueryClusterRolesPtrOutput() InteractiveQueryClusterRolesPtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterRolesPtrOutput) ToInteractiveQueryClusterRolesPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesPtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterRolesPtrOutput) Elem() InteractiveQueryClusterRolesOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRoles) InteractiveQueryClusterRoles {
-		if v != nil {
-			return *v
-		}
-		var ret InteractiveQueryClusterRoles
-		return ret
-	}).(InteractiveQueryClusterRolesOutput)
-}
-
-// A `headNode` block as defined above.
-func (o InteractiveQueryClusterRolesPtrOutput) HeadNode() InteractiveQueryClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRoles) *InteractiveQueryClusterRolesHeadNode {
-		if v == nil {
-			return nil
-		}
-		return &v.HeadNode
-	}).(InteractiveQueryClusterRolesHeadNodePtrOutput)
-}
-
-// A `workerNode` block as defined below.
-func (o InteractiveQueryClusterRolesPtrOutput) WorkerNode() InteractiveQueryClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRoles) *InteractiveQueryClusterRolesWorkerNode {
-		if v == nil {
-			return nil
-		}
-		return &v.WorkerNode
-	}).(InteractiveQueryClusterRolesWorkerNodePtrOutput)
-}
-
-// A `zookeeperNode` block as defined below.
-func (o InteractiveQueryClusterRolesPtrOutput) ZookeeperNode() InteractiveQueryClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRoles) *InteractiveQueryClusterRolesZookeeperNode {
-		if v == nil {
-			return nil
-		}
-		return &v.ZookeeperNode
-	}).(InteractiveQueryClusterRolesZookeeperNodePtrOutput)
 }
 
 type InteractiveQueryClusterRolesHeadNode struct {
@@ -8540,47 +6766,6 @@ func (i InteractiveQueryClusterRolesHeadNodeArgs) ToInteractiveQueryClusterRoles
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesHeadNodeOutput)
 }
 
-func (i InteractiveQueryClusterRolesHeadNodeArgs) ToInteractiveQueryClusterRolesHeadNodePtrOutput() InteractiveQueryClusterRolesHeadNodePtrOutput {
-	return i.ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i InteractiveQueryClusterRolesHeadNodeArgs) ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesHeadNodeOutput).ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(ctx)
-}
-
-// InteractiveQueryClusterRolesHeadNodePtrInput is an input type that accepts InteractiveQueryClusterRolesHeadNodeArgs, InteractiveQueryClusterRolesHeadNodePtr and InteractiveQueryClusterRolesHeadNodePtrOutput values.
-// You can construct a concrete instance of `InteractiveQueryClusterRolesHeadNodePtrInput` via:
-//
-//          InteractiveQueryClusterRolesHeadNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type InteractiveQueryClusterRolesHeadNodePtrInput interface {
-	pulumi.Input
-
-	ToInteractiveQueryClusterRolesHeadNodePtrOutput() InteractiveQueryClusterRolesHeadNodePtrOutput
-	ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(context.Context) InteractiveQueryClusterRolesHeadNodePtrOutput
-}
-
-type interactiveQueryClusterRolesHeadNodePtrType InteractiveQueryClusterRolesHeadNodeArgs
-
-func InteractiveQueryClusterRolesHeadNodePtr(v *InteractiveQueryClusterRolesHeadNodeArgs) InteractiveQueryClusterRolesHeadNodePtrInput {
-	return (*interactiveQueryClusterRolesHeadNodePtrType)(v)
-}
-
-func (*interactiveQueryClusterRolesHeadNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (i *interactiveQueryClusterRolesHeadNodePtrType) ToInteractiveQueryClusterRolesHeadNodePtrOutput() InteractiveQueryClusterRolesHeadNodePtrOutput {
-	return i.ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i *interactiveQueryClusterRolesHeadNodePtrType) ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesHeadNodePtrOutput)
-}
-
 type InteractiveQueryClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -8593,16 +6778,6 @@ func (o InteractiveQueryClusterRolesHeadNodeOutput) ToInteractiveQueryClusterRol
 
 func (o InteractiveQueryClusterRolesHeadNodeOutput) ToInteractiveQueryClusterRolesHeadNodeOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodeOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesHeadNodeOutput) ToInteractiveQueryClusterRolesHeadNodePtrOutput() InteractiveQueryClusterRolesHeadNodePtrOutput {
-	return o.ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (o InteractiveQueryClusterRolesHeadNodeOutput) ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesHeadNode) *InteractiveQueryClusterRolesHeadNode {
-		return &v
-	}).(InteractiveQueryClusterRolesHeadNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -8633,90 +6808,6 @@ func (o InteractiveQueryClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.St
 // The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type InteractiveQueryClusterRolesHeadNodePtrOutput struct{ *pulumi.OutputState }
-
-func (InteractiveQueryClusterRolesHeadNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (o InteractiveQueryClusterRolesHeadNodePtrOutput) ToInteractiveQueryClusterRolesHeadNodePtrOutput() InteractiveQueryClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterRolesHeadNodePtrOutput) ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterRolesHeadNodePtrOutput) Elem() InteractiveQueryClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) InteractiveQueryClusterRolesHeadNode {
-		if v != nil {
-			return *v
-		}
-		var ret InteractiveQueryClusterRolesHeadNode
-		return ret
-	}).(InteractiveQueryClusterRolesHeadNodeOutput)
-}
-
-// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesHeadNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesHeadNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesHeadNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type InteractiveQueryClusterRolesWorkerNode struct {
@@ -8788,47 +6879,6 @@ func (i InteractiveQueryClusterRolesWorkerNodeArgs) ToInteractiveQueryClusterRol
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeOutput)
 }
 
-func (i InteractiveQueryClusterRolesWorkerNodeArgs) ToInteractiveQueryClusterRolesWorkerNodePtrOutput() InteractiveQueryClusterRolesWorkerNodePtrOutput {
-	return i.ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i InteractiveQueryClusterRolesWorkerNodeArgs) ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeOutput).ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(ctx)
-}
-
-// InteractiveQueryClusterRolesWorkerNodePtrInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeArgs, InteractiveQueryClusterRolesWorkerNodePtr and InteractiveQueryClusterRolesWorkerNodePtrOutput values.
-// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodePtrInput` via:
-//
-//          InteractiveQueryClusterRolesWorkerNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type InteractiveQueryClusterRolesWorkerNodePtrInput interface {
-	pulumi.Input
-
-	ToInteractiveQueryClusterRolesWorkerNodePtrOutput() InteractiveQueryClusterRolesWorkerNodePtrOutput
-	ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodePtrOutput
-}
-
-type interactiveQueryClusterRolesWorkerNodePtrType InteractiveQueryClusterRolesWorkerNodeArgs
-
-func InteractiveQueryClusterRolesWorkerNodePtr(v *InteractiveQueryClusterRolesWorkerNodeArgs) InteractiveQueryClusterRolesWorkerNodePtrInput {
-	return (*interactiveQueryClusterRolesWorkerNodePtrType)(v)
-}
-
-func (*interactiveQueryClusterRolesWorkerNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (i *interactiveQueryClusterRolesWorkerNodePtrType) ToInteractiveQueryClusterRolesWorkerNodePtrOutput() InteractiveQueryClusterRolesWorkerNodePtrOutput {
-	return i.ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i *interactiveQueryClusterRolesWorkerNodePtrType) ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodePtrOutput)
-}
-
 type InteractiveQueryClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -8841,16 +6891,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToInteractiveQueryClusterR
 
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToInteractiveQueryClusterRolesWorkerNodeOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToInteractiveQueryClusterRolesWorkerNodePtrOutput() InteractiveQueryClusterRolesWorkerNodePtrOutput {
-	return o.ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesWorkerNode) *InteractiveQueryClusterRolesWorkerNode {
-		return &v
-	}).(InteractiveQueryClusterRolesWorkerNodePtrOutput)
 }
 
 // A `autoscale` block as defined below.
@@ -8900,122 +6940,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.
 // The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type InteractiveQueryClusterRolesWorkerNodePtrOutput struct{ *pulumi.OutputState }
-
-func (InteractiveQueryClusterRolesWorkerNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) ToInteractiveQueryClusterRolesWorkerNodePtrOutput() InteractiveQueryClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) InteractiveQueryClusterRolesWorkerNode {
-		if v != nil {
-			return *v
-		}
-		var ret InteractiveQueryClusterRolesWorkerNode
-		return ret
-	}).(InteractiveQueryClusterRolesWorkerNodeOutput)
-}
-
-// A `autoscale` block as defined below.
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Autoscale() InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) *InteractiveQueryClusterRolesWorkerNodeAutoscale {
-		if v == nil {
-			return nil
-		}
-		return v.Autoscale
-	}).(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput)
-}
-
-// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-//
-// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of instances which should be run for the Worker Nodes.
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) TargetInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type InteractiveQueryClusterRolesWorkerNodeAutoscale struct {
@@ -9662,47 +7586,6 @@ func (i InteractiveQueryClusterRolesZookeeperNodeArgs) ToInteractiveQueryCluster
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesZookeeperNodeOutput)
 }
 
-func (i InteractiveQueryClusterRolesZookeeperNodeArgs) ToInteractiveQueryClusterRolesZookeeperNodePtrOutput() InteractiveQueryClusterRolesZookeeperNodePtrOutput {
-	return i.ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i InteractiveQueryClusterRolesZookeeperNodeArgs) ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesZookeeperNodeOutput).ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(ctx)
-}
-
-// InteractiveQueryClusterRolesZookeeperNodePtrInput is an input type that accepts InteractiveQueryClusterRolesZookeeperNodeArgs, InteractiveQueryClusterRolesZookeeperNodePtr and InteractiveQueryClusterRolesZookeeperNodePtrOutput values.
-// You can construct a concrete instance of `InteractiveQueryClusterRolesZookeeperNodePtrInput` via:
-//
-//          InteractiveQueryClusterRolesZookeeperNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type InteractiveQueryClusterRolesZookeeperNodePtrInput interface {
-	pulumi.Input
-
-	ToInteractiveQueryClusterRolesZookeeperNodePtrOutput() InteractiveQueryClusterRolesZookeeperNodePtrOutput
-	ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(context.Context) InteractiveQueryClusterRolesZookeeperNodePtrOutput
-}
-
-type interactiveQueryClusterRolesZookeeperNodePtrType InteractiveQueryClusterRolesZookeeperNodeArgs
-
-func InteractiveQueryClusterRolesZookeeperNodePtr(v *InteractiveQueryClusterRolesZookeeperNodeArgs) InteractiveQueryClusterRolesZookeeperNodePtrInput {
-	return (*interactiveQueryClusterRolesZookeeperNodePtrType)(v)
-}
-
-func (*interactiveQueryClusterRolesZookeeperNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (i *interactiveQueryClusterRolesZookeeperNodePtrType) ToInteractiveQueryClusterRolesZookeeperNodePtrOutput() InteractiveQueryClusterRolesZookeeperNodePtrOutput {
-	return i.ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i *interactiveQueryClusterRolesZookeeperNodePtrType) ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesZookeeperNodePtrOutput)
-}
-
 type InteractiveQueryClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -9715,16 +7598,6 @@ func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ToInteractiveQueryClust
 
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ToInteractiveQueryClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodeOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ToInteractiveQueryClusterRolesZookeeperNodePtrOutput() InteractiveQueryClusterRolesZookeeperNodePtrOutput {
-	return o.ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesZookeeperNode) *InteractiveQueryClusterRolesZookeeperNode {
-		return &v
-	}).(InteractiveQueryClusterRolesZookeeperNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -9755,90 +7628,6 @@ func (o InteractiveQueryClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulu
 // The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type InteractiveQueryClusterRolesZookeeperNodePtrOutput struct{ *pulumi.OutputState }
-
-func (InteractiveQueryClusterRolesZookeeperNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InteractiveQueryClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) ToInteractiveQueryClusterRolesZookeeperNodePtrOutput() InteractiveQueryClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) Elem() InteractiveQueryClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) InteractiveQueryClusterRolesZookeeperNode {
-		if v != nil {
-			return *v
-		}
-		var ret InteractiveQueryClusterRolesZookeeperNode
-		return ret
-	}).(InteractiveQueryClusterRolesZookeeperNodeOutput)
-}
-
-// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type InteractiveQueryClusterSecurityProfile struct {
@@ -10434,47 +8223,6 @@ func (i KafkaClusterComponentVersionArgs) ToKafkaClusterComponentVersionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterComponentVersionOutput)
 }
 
-func (i KafkaClusterComponentVersionArgs) ToKafkaClusterComponentVersionPtrOutput() KafkaClusterComponentVersionPtrOutput {
-	return i.ToKafkaClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (i KafkaClusterComponentVersionArgs) ToKafkaClusterComponentVersionPtrOutputWithContext(ctx context.Context) KafkaClusterComponentVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterComponentVersionOutput).ToKafkaClusterComponentVersionPtrOutputWithContext(ctx)
-}
-
-// KafkaClusterComponentVersionPtrInput is an input type that accepts KafkaClusterComponentVersionArgs, KafkaClusterComponentVersionPtr and KafkaClusterComponentVersionPtrOutput values.
-// You can construct a concrete instance of `KafkaClusterComponentVersionPtrInput` via:
-//
-//          KafkaClusterComponentVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type KafkaClusterComponentVersionPtrInput interface {
-	pulumi.Input
-
-	ToKafkaClusterComponentVersionPtrOutput() KafkaClusterComponentVersionPtrOutput
-	ToKafkaClusterComponentVersionPtrOutputWithContext(context.Context) KafkaClusterComponentVersionPtrOutput
-}
-
-type kafkaClusterComponentVersionPtrType KafkaClusterComponentVersionArgs
-
-func KafkaClusterComponentVersionPtr(v *KafkaClusterComponentVersionArgs) KafkaClusterComponentVersionPtrInput {
-	return (*kafkaClusterComponentVersionPtrType)(v)
-}
-
-func (*kafkaClusterComponentVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KafkaClusterComponentVersion)(nil)).Elem()
-}
-
-func (i *kafkaClusterComponentVersionPtrType) ToKafkaClusterComponentVersionPtrOutput() KafkaClusterComponentVersionPtrOutput {
-	return i.ToKafkaClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *kafkaClusterComponentVersionPtrType) ToKafkaClusterComponentVersionPtrOutputWithContext(ctx context.Context) KafkaClusterComponentVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterComponentVersionPtrOutput)
-}
-
 type KafkaClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterComponentVersionOutput) ElementType() reflect.Type {
@@ -10489,53 +8237,9 @@ func (o KafkaClusterComponentVersionOutput) ToKafkaClusterComponentVersionOutput
 	return o
 }
 
-func (o KafkaClusterComponentVersionOutput) ToKafkaClusterComponentVersionPtrOutput() KafkaClusterComponentVersionPtrOutput {
-	return o.ToKafkaClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (o KafkaClusterComponentVersionOutput) ToKafkaClusterComponentVersionPtrOutputWithContext(ctx context.Context) KafkaClusterComponentVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterComponentVersion) *KafkaClusterComponentVersion {
-		return &v
-	}).(KafkaClusterComponentVersionPtrOutput)
-}
-
 // The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 func (o KafkaClusterComponentVersionOutput) Kafka() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterComponentVersion) string { return v.Kafka }).(pulumi.StringOutput)
-}
-
-type KafkaClusterComponentVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (KafkaClusterComponentVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KafkaClusterComponentVersion)(nil)).Elem()
-}
-
-func (o KafkaClusterComponentVersionPtrOutput) ToKafkaClusterComponentVersionPtrOutput() KafkaClusterComponentVersionPtrOutput {
-	return o
-}
-
-func (o KafkaClusterComponentVersionPtrOutput) ToKafkaClusterComponentVersionPtrOutputWithContext(ctx context.Context) KafkaClusterComponentVersionPtrOutput {
-	return o
-}
-
-func (o KafkaClusterComponentVersionPtrOutput) Elem() KafkaClusterComponentVersionOutput {
-	return o.ApplyT(func(v *KafkaClusterComponentVersion) KafkaClusterComponentVersion {
-		if v != nil {
-			return *v
-		}
-		var ret KafkaClusterComponentVersion
-		return ret
-	}).(KafkaClusterComponentVersionOutput)
-}
-
-// The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
-func (o KafkaClusterComponentVersionPtrOutput) Kafka() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterComponentVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Kafka
-	}).(pulumi.StringPtrOutput)
 }
 
 type KafkaClusterGateway struct {
@@ -10583,47 +8287,6 @@ func (i KafkaClusterGatewayArgs) ToKafkaClusterGatewayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterGatewayOutput)
 }
 
-func (i KafkaClusterGatewayArgs) ToKafkaClusterGatewayPtrOutput() KafkaClusterGatewayPtrOutput {
-	return i.ToKafkaClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i KafkaClusterGatewayArgs) ToKafkaClusterGatewayPtrOutputWithContext(ctx context.Context) KafkaClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterGatewayOutput).ToKafkaClusterGatewayPtrOutputWithContext(ctx)
-}
-
-// KafkaClusterGatewayPtrInput is an input type that accepts KafkaClusterGatewayArgs, KafkaClusterGatewayPtr and KafkaClusterGatewayPtrOutput values.
-// You can construct a concrete instance of `KafkaClusterGatewayPtrInput` via:
-//
-//          KafkaClusterGatewayArgs{...}
-//
-//  or:
-//
-//          nil
-type KafkaClusterGatewayPtrInput interface {
-	pulumi.Input
-
-	ToKafkaClusterGatewayPtrOutput() KafkaClusterGatewayPtrOutput
-	ToKafkaClusterGatewayPtrOutputWithContext(context.Context) KafkaClusterGatewayPtrOutput
-}
-
-type kafkaClusterGatewayPtrType KafkaClusterGatewayArgs
-
-func KafkaClusterGatewayPtr(v *KafkaClusterGatewayArgs) KafkaClusterGatewayPtrInput {
-	return (*kafkaClusterGatewayPtrType)(v)
-}
-
-func (*kafkaClusterGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KafkaClusterGateway)(nil)).Elem()
-}
-
-func (i *kafkaClusterGatewayPtrType) ToKafkaClusterGatewayPtrOutput() KafkaClusterGatewayPtrOutput {
-	return i.ToKafkaClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *kafkaClusterGatewayPtrType) ToKafkaClusterGatewayPtrOutputWithContext(ctx context.Context) KafkaClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterGatewayPtrOutput)
-}
-
 type KafkaClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterGatewayOutput) ElementType() reflect.Type {
@@ -10636,16 +8299,6 @@ func (o KafkaClusterGatewayOutput) ToKafkaClusterGatewayOutput() KafkaClusterGat
 
 func (o KafkaClusterGatewayOutput) ToKafkaClusterGatewayOutputWithContext(ctx context.Context) KafkaClusterGatewayOutput {
 	return o
-}
-
-func (o KafkaClusterGatewayOutput) ToKafkaClusterGatewayPtrOutput() KafkaClusterGatewayPtrOutput {
-	return o.ToKafkaClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o KafkaClusterGatewayOutput) ToKafkaClusterGatewayPtrOutputWithContext(ctx context.Context) KafkaClusterGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterGateway) *KafkaClusterGateway {
-		return &v
-	}).(KafkaClusterGatewayPtrOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -10663,62 +8316,6 @@ func (o KafkaClusterGatewayOutput) Password() pulumi.StringOutput {
 // The username used for the Ambari Portal. Changing this forces a new resource to be created.
 func (o KafkaClusterGatewayOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterGateway) string { return v.Username }).(pulumi.StringOutput)
-}
-
-type KafkaClusterGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (KafkaClusterGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KafkaClusterGateway)(nil)).Elem()
-}
-
-func (o KafkaClusterGatewayPtrOutput) ToKafkaClusterGatewayPtrOutput() KafkaClusterGatewayPtrOutput {
-	return o
-}
-
-func (o KafkaClusterGatewayPtrOutput) ToKafkaClusterGatewayPtrOutputWithContext(ctx context.Context) KafkaClusterGatewayPtrOutput {
-	return o
-}
-
-func (o KafkaClusterGatewayPtrOutput) Elem() KafkaClusterGatewayOutput {
-	return o.ApplyT(func(v *KafkaClusterGateway) KafkaClusterGateway {
-		if v != nil {
-			return *v
-		}
-		var ret KafkaClusterGateway
-		return ret
-	}).(KafkaClusterGatewayOutput)
-}
-
-// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-//
-// Deprecated: HDInsight doesn't support disabling gateway anymore
-func (o KafkaClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterGateway) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The password used for the Ambari Portal.
-func (o KafkaClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// The username used for the Ambari Portal. Changing this forces a new resource to be created.
-func (o KafkaClusterGatewayPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
 }
 
 type KafkaClusterMetastores struct {
@@ -11816,47 +9413,6 @@ func (i KafkaClusterRolesArgs) ToKafkaClusterRolesOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesOutput)
 }
 
-func (i KafkaClusterRolesArgs) ToKafkaClusterRolesPtrOutput() KafkaClusterRolesPtrOutput {
-	return i.ToKafkaClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i KafkaClusterRolesArgs) ToKafkaClusterRolesPtrOutputWithContext(ctx context.Context) KafkaClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesOutput).ToKafkaClusterRolesPtrOutputWithContext(ctx)
-}
-
-// KafkaClusterRolesPtrInput is an input type that accepts KafkaClusterRolesArgs, KafkaClusterRolesPtr and KafkaClusterRolesPtrOutput values.
-// You can construct a concrete instance of `KafkaClusterRolesPtrInput` via:
-//
-//          KafkaClusterRolesArgs{...}
-//
-//  or:
-//
-//          nil
-type KafkaClusterRolesPtrInput interface {
-	pulumi.Input
-
-	ToKafkaClusterRolesPtrOutput() KafkaClusterRolesPtrOutput
-	ToKafkaClusterRolesPtrOutputWithContext(context.Context) KafkaClusterRolesPtrOutput
-}
-
-type kafkaClusterRolesPtrType KafkaClusterRolesArgs
-
-func KafkaClusterRolesPtr(v *KafkaClusterRolesArgs) KafkaClusterRolesPtrInput {
-	return (*kafkaClusterRolesPtrType)(v)
-}
-
-func (*kafkaClusterRolesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KafkaClusterRoles)(nil)).Elem()
-}
-
-func (i *kafkaClusterRolesPtrType) ToKafkaClusterRolesPtrOutput() KafkaClusterRolesPtrOutput {
-	return i.ToKafkaClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i *kafkaClusterRolesPtrType) ToKafkaClusterRolesPtrOutputWithContext(ctx context.Context) KafkaClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesPtrOutput)
-}
-
 type KafkaClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesOutput) ElementType() reflect.Type {
@@ -11869,16 +9425,6 @@ func (o KafkaClusterRolesOutput) ToKafkaClusterRolesOutput() KafkaClusterRolesOu
 
 func (o KafkaClusterRolesOutput) ToKafkaClusterRolesOutputWithContext(ctx context.Context) KafkaClusterRolesOutput {
 	return o
-}
-
-func (o KafkaClusterRolesOutput) ToKafkaClusterRolesPtrOutput() KafkaClusterRolesPtrOutput {
-	return o.ToKafkaClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (o KafkaClusterRolesOutput) ToKafkaClusterRolesPtrOutputWithContext(ctx context.Context) KafkaClusterRolesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRoles) *KafkaClusterRoles {
-		return &v
-	}).(KafkaClusterRolesPtrOutput)
 }
 
 // A `headNode` block as defined above.
@@ -11899,70 +9445,6 @@ func (o KafkaClusterRolesOutput) WorkerNode() KafkaClusterRolesWorkerNodeOutput 
 // A `zookeeperNode` block as defined below.
 func (o KafkaClusterRolesOutput) ZookeeperNode() KafkaClusterRolesZookeeperNodeOutput {
 	return o.ApplyT(func(v KafkaClusterRoles) KafkaClusterRolesZookeeperNode { return v.ZookeeperNode }).(KafkaClusterRolesZookeeperNodeOutput)
-}
-
-type KafkaClusterRolesPtrOutput struct{ *pulumi.OutputState }
-
-func (KafkaClusterRolesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KafkaClusterRoles)(nil)).Elem()
-}
-
-func (o KafkaClusterRolesPtrOutput) ToKafkaClusterRolesPtrOutput() KafkaClusterRolesPtrOutput {
-	return o
-}
-
-func (o KafkaClusterRolesPtrOutput) ToKafkaClusterRolesPtrOutputWithContext(ctx context.Context) KafkaClusterRolesPtrOutput {
-	return o
-}
-
-func (o KafkaClusterRolesPtrOutput) Elem() KafkaClusterRolesOutput {
-	return o.ApplyT(func(v *KafkaClusterRoles) KafkaClusterRoles {
-		if v != nil {
-			return *v
-		}
-		var ret KafkaClusterRoles
-		return ret
-	}).(KafkaClusterRolesOutput)
-}
-
-// A `headNode` block as defined above.
-func (o KafkaClusterRolesPtrOutput) HeadNode() KafkaClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRoles) *KafkaClusterRolesHeadNode {
-		if v == nil {
-			return nil
-		}
-		return &v.HeadNode
-	}).(KafkaClusterRolesHeadNodePtrOutput)
-}
-
-// A `kafkaManagementNode` block as defined below.
-func (o KafkaClusterRolesPtrOutput) KafkaManagementNode() KafkaClusterRolesKafkaManagementNodePtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRoles) *KafkaClusterRolesKafkaManagementNode {
-		if v == nil {
-			return nil
-		}
-		return v.KafkaManagementNode
-	}).(KafkaClusterRolesKafkaManagementNodePtrOutput)
-}
-
-// A `workerNode` block as defined below.
-func (o KafkaClusterRolesPtrOutput) WorkerNode() KafkaClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRoles) *KafkaClusterRolesWorkerNode {
-		if v == nil {
-			return nil
-		}
-		return &v.WorkerNode
-	}).(KafkaClusterRolesWorkerNodePtrOutput)
-}
-
-// A `zookeeperNode` block as defined below.
-func (o KafkaClusterRolesPtrOutput) ZookeeperNode() KafkaClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRoles) *KafkaClusterRolesZookeeperNode {
-		if v == nil {
-			return nil
-		}
-		return &v.ZookeeperNode
-	}).(KafkaClusterRolesZookeeperNodePtrOutput)
 }
 
 type KafkaClusterRolesHeadNode struct {
@@ -12018,47 +9500,6 @@ func (i KafkaClusterRolesHeadNodeArgs) ToKafkaClusterRolesHeadNodeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesHeadNodeOutput)
 }
 
-func (i KafkaClusterRolesHeadNodeArgs) ToKafkaClusterRolesHeadNodePtrOutput() KafkaClusterRolesHeadNodePtrOutput {
-	return i.ToKafkaClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i KafkaClusterRolesHeadNodeArgs) ToKafkaClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesHeadNodeOutput).ToKafkaClusterRolesHeadNodePtrOutputWithContext(ctx)
-}
-
-// KafkaClusterRolesHeadNodePtrInput is an input type that accepts KafkaClusterRolesHeadNodeArgs, KafkaClusterRolesHeadNodePtr and KafkaClusterRolesHeadNodePtrOutput values.
-// You can construct a concrete instance of `KafkaClusterRolesHeadNodePtrInput` via:
-//
-//          KafkaClusterRolesHeadNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type KafkaClusterRolesHeadNodePtrInput interface {
-	pulumi.Input
-
-	ToKafkaClusterRolesHeadNodePtrOutput() KafkaClusterRolesHeadNodePtrOutput
-	ToKafkaClusterRolesHeadNodePtrOutputWithContext(context.Context) KafkaClusterRolesHeadNodePtrOutput
-}
-
-type kafkaClusterRolesHeadNodePtrType KafkaClusterRolesHeadNodeArgs
-
-func KafkaClusterRolesHeadNodePtr(v *KafkaClusterRolesHeadNodeArgs) KafkaClusterRolesHeadNodePtrInput {
-	return (*kafkaClusterRolesHeadNodePtrType)(v)
-}
-
-func (*kafkaClusterRolesHeadNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KafkaClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (i *kafkaClusterRolesHeadNodePtrType) ToKafkaClusterRolesHeadNodePtrOutput() KafkaClusterRolesHeadNodePtrOutput {
-	return i.ToKafkaClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i *kafkaClusterRolesHeadNodePtrType) ToKafkaClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesHeadNodePtrOutput)
-}
-
 type KafkaClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -12071,16 +9512,6 @@ func (o KafkaClusterRolesHeadNodeOutput) ToKafkaClusterRolesHeadNodeOutput() Kaf
 
 func (o KafkaClusterRolesHeadNodeOutput) ToKafkaClusterRolesHeadNodeOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodeOutput {
 	return o
-}
-
-func (o KafkaClusterRolesHeadNodeOutput) ToKafkaClusterRolesHeadNodePtrOutput() KafkaClusterRolesHeadNodePtrOutput {
-	return o.ToKafkaClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (o KafkaClusterRolesHeadNodeOutput) ToKafkaClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRolesHeadNode) *KafkaClusterRolesHeadNode {
-		return &v
-	}).(KafkaClusterRolesHeadNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -12111,90 +9542,6 @@ func (o KafkaClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOutp
 // The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type KafkaClusterRolesHeadNodePtrOutput struct{ *pulumi.OutputState }
-
-func (KafkaClusterRolesHeadNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KafkaClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (o KafkaClusterRolesHeadNodePtrOutput) ToKafkaClusterRolesHeadNodePtrOutput() KafkaClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o KafkaClusterRolesHeadNodePtrOutput) ToKafkaClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o KafkaClusterRolesHeadNodePtrOutput) Elem() KafkaClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) KafkaClusterRolesHeadNode {
-		if v != nil {
-			return *v
-		}
-		var ret KafkaClusterRolesHeadNode
-		return ret
-	}).(KafkaClusterRolesHeadNodeOutput)
-}
-
-// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesHeadNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesHeadNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesHeadNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type KafkaClusterRolesKafkaManagementNode struct {
@@ -12498,47 +9845,6 @@ func (i KafkaClusterRolesWorkerNodeArgs) ToKafkaClusterRolesWorkerNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesWorkerNodeOutput)
 }
 
-func (i KafkaClusterRolesWorkerNodeArgs) ToKafkaClusterRolesWorkerNodePtrOutput() KafkaClusterRolesWorkerNodePtrOutput {
-	return i.ToKafkaClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i KafkaClusterRolesWorkerNodeArgs) ToKafkaClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesWorkerNodeOutput).ToKafkaClusterRolesWorkerNodePtrOutputWithContext(ctx)
-}
-
-// KafkaClusterRolesWorkerNodePtrInput is an input type that accepts KafkaClusterRolesWorkerNodeArgs, KafkaClusterRolesWorkerNodePtr and KafkaClusterRolesWorkerNodePtrOutput values.
-// You can construct a concrete instance of `KafkaClusterRolesWorkerNodePtrInput` via:
-//
-//          KafkaClusterRolesWorkerNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type KafkaClusterRolesWorkerNodePtrInput interface {
-	pulumi.Input
-
-	ToKafkaClusterRolesWorkerNodePtrOutput() KafkaClusterRolesWorkerNodePtrOutput
-	ToKafkaClusterRolesWorkerNodePtrOutputWithContext(context.Context) KafkaClusterRolesWorkerNodePtrOutput
-}
-
-type kafkaClusterRolesWorkerNodePtrType KafkaClusterRolesWorkerNodeArgs
-
-func KafkaClusterRolesWorkerNodePtr(v *KafkaClusterRolesWorkerNodeArgs) KafkaClusterRolesWorkerNodePtrInput {
-	return (*kafkaClusterRolesWorkerNodePtrType)(v)
-}
-
-func (*kafkaClusterRolesWorkerNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KafkaClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (i *kafkaClusterRolesWorkerNodePtrType) ToKafkaClusterRolesWorkerNodePtrOutput() KafkaClusterRolesWorkerNodePtrOutput {
-	return i.ToKafkaClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i *kafkaClusterRolesWorkerNodePtrType) ToKafkaClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesWorkerNodePtrOutput)
-}
-
 type KafkaClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -12551,16 +9857,6 @@ func (o KafkaClusterRolesWorkerNodeOutput) ToKafkaClusterRolesWorkerNodeOutput()
 
 func (o KafkaClusterRolesWorkerNodeOutput) ToKafkaClusterRolesWorkerNodeOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodeOutput {
 	return o
-}
-
-func (o KafkaClusterRolesWorkerNodeOutput) ToKafkaClusterRolesWorkerNodePtrOutput() KafkaClusterRolesWorkerNodePtrOutput {
-	return o.ToKafkaClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (o KafkaClusterRolesWorkerNodeOutput) ToKafkaClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRolesWorkerNode) *KafkaClusterRolesWorkerNode {
-		return &v
-	}).(KafkaClusterRolesWorkerNodePtrOutput)
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
@@ -12608,122 +9904,6 @@ func (o KafkaClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrOu
 // The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type KafkaClusterRolesWorkerNodePtrOutput struct{ *pulumi.OutputState }
-
-func (KafkaClusterRolesWorkerNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KafkaClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (o KafkaClusterRolesWorkerNodePtrOutput) ToKafkaClusterRolesWorkerNodePtrOutput() KafkaClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o KafkaClusterRolesWorkerNodePtrOutput) ToKafkaClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o KafkaClusterRolesWorkerNodePtrOutput) Elem() KafkaClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) KafkaClusterRolesWorkerNode {
-		if v != nil {
-			return *v
-		}
-		var ret KafkaClusterRolesWorkerNode
-		return ret
-	}).(KafkaClusterRolesWorkerNodeOutput)
-}
-
-// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-//
-// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
-func (o KafkaClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesWorkerNodePtrOutput) NumberOfDisksPerNode() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.NumberOfDisksPerNode
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesWorkerNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of instances which should be run for the Worker Nodes.
-func (o KafkaClusterRolesWorkerNodePtrOutput) TargetInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesWorkerNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesWorkerNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type KafkaClusterRolesZookeeperNode struct {
@@ -12779,47 +9959,6 @@ func (i KafkaClusterRolesZookeeperNodeArgs) ToKafkaClusterRolesZookeeperNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesZookeeperNodeOutput)
 }
 
-func (i KafkaClusterRolesZookeeperNodeArgs) ToKafkaClusterRolesZookeeperNodePtrOutput() KafkaClusterRolesZookeeperNodePtrOutput {
-	return i.ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i KafkaClusterRolesZookeeperNodeArgs) ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesZookeeperNodeOutput).ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(ctx)
-}
-
-// KafkaClusterRolesZookeeperNodePtrInput is an input type that accepts KafkaClusterRolesZookeeperNodeArgs, KafkaClusterRolesZookeeperNodePtr and KafkaClusterRolesZookeeperNodePtrOutput values.
-// You can construct a concrete instance of `KafkaClusterRolesZookeeperNodePtrInput` via:
-//
-//          KafkaClusterRolesZookeeperNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type KafkaClusterRolesZookeeperNodePtrInput interface {
-	pulumi.Input
-
-	ToKafkaClusterRolesZookeeperNodePtrOutput() KafkaClusterRolesZookeeperNodePtrOutput
-	ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(context.Context) KafkaClusterRolesZookeeperNodePtrOutput
-}
-
-type kafkaClusterRolesZookeeperNodePtrType KafkaClusterRolesZookeeperNodeArgs
-
-func KafkaClusterRolesZookeeperNodePtr(v *KafkaClusterRolesZookeeperNodeArgs) KafkaClusterRolesZookeeperNodePtrInput {
-	return (*kafkaClusterRolesZookeeperNodePtrType)(v)
-}
-
-func (*kafkaClusterRolesZookeeperNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KafkaClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (i *kafkaClusterRolesZookeeperNodePtrType) ToKafkaClusterRolesZookeeperNodePtrOutput() KafkaClusterRolesZookeeperNodePtrOutput {
-	return i.ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i *kafkaClusterRolesZookeeperNodePtrType) ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesZookeeperNodePtrOutput)
-}
-
 type KafkaClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -12832,16 +9971,6 @@ func (o KafkaClusterRolesZookeeperNodeOutput) ToKafkaClusterRolesZookeeperNodeOu
 
 func (o KafkaClusterRolesZookeeperNodeOutput) ToKafkaClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodeOutput {
 	return o
-}
-
-func (o KafkaClusterRolesZookeeperNodeOutput) ToKafkaClusterRolesZookeeperNodePtrOutput() KafkaClusterRolesZookeeperNodePtrOutput {
-	return o.ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (o KafkaClusterRolesZookeeperNodeOutput) ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRolesZookeeperNode) *KafkaClusterRolesZookeeperNode {
-		return &v
-	}).(KafkaClusterRolesZookeeperNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -12872,90 +10001,6 @@ func (o KafkaClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringPt
 // The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type KafkaClusterRolesZookeeperNodePtrOutput struct{ *pulumi.OutputState }
-
-func (KafkaClusterRolesZookeeperNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KafkaClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (o KafkaClusterRolesZookeeperNodePtrOutput) ToKafkaClusterRolesZookeeperNodePtrOutput() KafkaClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o KafkaClusterRolesZookeeperNodePtrOutput) ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o KafkaClusterRolesZookeeperNodePtrOutput) Elem() KafkaClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) KafkaClusterRolesZookeeperNode {
-		if v != nil {
-			return *v
-		}
-		var ret KafkaClusterRolesZookeeperNode
-		return ret
-	}).(KafkaClusterRolesZookeeperNodeOutput)
-}
-
-// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesZookeeperNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesZookeeperNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesZookeeperNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o KafkaClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type KafkaClusterSecurityProfile struct {
@@ -13563,47 +10608,6 @@ func (i MLServicesClusterGatewayArgs) ToMLServicesClusterGatewayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterGatewayOutput)
 }
 
-func (i MLServicesClusterGatewayArgs) ToMLServicesClusterGatewayPtrOutput() MLServicesClusterGatewayPtrOutput {
-	return i.ToMLServicesClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i MLServicesClusterGatewayArgs) ToMLServicesClusterGatewayPtrOutputWithContext(ctx context.Context) MLServicesClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterGatewayOutput).ToMLServicesClusterGatewayPtrOutputWithContext(ctx)
-}
-
-// MLServicesClusterGatewayPtrInput is an input type that accepts MLServicesClusterGatewayArgs, MLServicesClusterGatewayPtr and MLServicesClusterGatewayPtrOutput values.
-// You can construct a concrete instance of `MLServicesClusterGatewayPtrInput` via:
-//
-//          MLServicesClusterGatewayArgs{...}
-//
-//  or:
-//
-//          nil
-type MLServicesClusterGatewayPtrInput interface {
-	pulumi.Input
-
-	ToMLServicesClusterGatewayPtrOutput() MLServicesClusterGatewayPtrOutput
-	ToMLServicesClusterGatewayPtrOutputWithContext(context.Context) MLServicesClusterGatewayPtrOutput
-}
-
-type mlservicesClusterGatewayPtrType MLServicesClusterGatewayArgs
-
-func MLServicesClusterGatewayPtr(v *MLServicesClusterGatewayArgs) MLServicesClusterGatewayPtrInput {
-	return (*mlservicesClusterGatewayPtrType)(v)
-}
-
-func (*mlservicesClusterGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesClusterGateway)(nil)).Elem()
-}
-
-func (i *mlservicesClusterGatewayPtrType) ToMLServicesClusterGatewayPtrOutput() MLServicesClusterGatewayPtrOutput {
-	return i.ToMLServicesClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *mlservicesClusterGatewayPtrType) ToMLServicesClusterGatewayPtrOutputWithContext(ctx context.Context) MLServicesClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterGatewayPtrOutput)
-}
-
 type MLServicesClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterGatewayOutput) ElementType() reflect.Type {
@@ -13616,16 +10620,6 @@ func (o MLServicesClusterGatewayOutput) ToMLServicesClusterGatewayOutput() MLSer
 
 func (o MLServicesClusterGatewayOutput) ToMLServicesClusterGatewayOutputWithContext(ctx context.Context) MLServicesClusterGatewayOutput {
 	return o
-}
-
-func (o MLServicesClusterGatewayOutput) ToMLServicesClusterGatewayPtrOutput() MLServicesClusterGatewayPtrOutput {
-	return o.ToMLServicesClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o MLServicesClusterGatewayOutput) ToMLServicesClusterGatewayPtrOutputWithContext(ctx context.Context) MLServicesClusterGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesClusterGateway) *MLServicesClusterGateway {
-		return &v
-	}).(MLServicesClusterGatewayPtrOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -13643,62 +10637,6 @@ func (o MLServicesClusterGatewayOutput) Password() pulumi.StringOutput {
 // The username used for the Ambari Portal. Changing this forces a new resource to be created.
 func (o MLServicesClusterGatewayOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v MLServicesClusterGateway) string { return v.Username }).(pulumi.StringOutput)
-}
-
-type MLServicesClusterGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (MLServicesClusterGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesClusterGateway)(nil)).Elem()
-}
-
-func (o MLServicesClusterGatewayPtrOutput) ToMLServicesClusterGatewayPtrOutput() MLServicesClusterGatewayPtrOutput {
-	return o
-}
-
-func (o MLServicesClusterGatewayPtrOutput) ToMLServicesClusterGatewayPtrOutputWithContext(ctx context.Context) MLServicesClusterGatewayPtrOutput {
-	return o
-}
-
-func (o MLServicesClusterGatewayPtrOutput) Elem() MLServicesClusterGatewayOutput {
-	return o.ApplyT(func(v *MLServicesClusterGateway) MLServicesClusterGateway {
-		if v != nil {
-			return *v
-		}
-		var ret MLServicesClusterGateway
-		return ret
-	}).(MLServicesClusterGatewayOutput)
-}
-
-// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-//
-// Deprecated: HDInsight doesn't support disabling gateway anymore
-func (o MLServicesClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterGateway) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The password used for the Ambari Portal.
-func (o MLServicesClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// The username used for the Ambari Portal. Changing this forces a new resource to be created.
-func (o MLServicesClusterGatewayPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
 }
 
 type MLServicesClusterRoles struct {
@@ -13746,47 +10684,6 @@ func (i MLServicesClusterRolesArgs) ToMLServicesClusterRolesOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesOutput)
 }
 
-func (i MLServicesClusterRolesArgs) ToMLServicesClusterRolesPtrOutput() MLServicesClusterRolesPtrOutput {
-	return i.ToMLServicesClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i MLServicesClusterRolesArgs) ToMLServicesClusterRolesPtrOutputWithContext(ctx context.Context) MLServicesClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesOutput).ToMLServicesClusterRolesPtrOutputWithContext(ctx)
-}
-
-// MLServicesClusterRolesPtrInput is an input type that accepts MLServicesClusterRolesArgs, MLServicesClusterRolesPtr and MLServicesClusterRolesPtrOutput values.
-// You can construct a concrete instance of `MLServicesClusterRolesPtrInput` via:
-//
-//          MLServicesClusterRolesArgs{...}
-//
-//  or:
-//
-//          nil
-type MLServicesClusterRolesPtrInput interface {
-	pulumi.Input
-
-	ToMLServicesClusterRolesPtrOutput() MLServicesClusterRolesPtrOutput
-	ToMLServicesClusterRolesPtrOutputWithContext(context.Context) MLServicesClusterRolesPtrOutput
-}
-
-type mlservicesClusterRolesPtrType MLServicesClusterRolesArgs
-
-func MLServicesClusterRolesPtr(v *MLServicesClusterRolesArgs) MLServicesClusterRolesPtrInput {
-	return (*mlservicesClusterRolesPtrType)(v)
-}
-
-func (*mlservicesClusterRolesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesClusterRoles)(nil)).Elem()
-}
-
-func (i *mlservicesClusterRolesPtrType) ToMLServicesClusterRolesPtrOutput() MLServicesClusterRolesPtrOutput {
-	return i.ToMLServicesClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i *mlservicesClusterRolesPtrType) ToMLServicesClusterRolesPtrOutputWithContext(ctx context.Context) MLServicesClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesPtrOutput)
-}
-
 type MLServicesClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterRolesOutput) ElementType() reflect.Type {
@@ -13799,16 +10696,6 @@ func (o MLServicesClusterRolesOutput) ToMLServicesClusterRolesOutput() MLService
 
 func (o MLServicesClusterRolesOutput) ToMLServicesClusterRolesOutputWithContext(ctx context.Context) MLServicesClusterRolesOutput {
 	return o
-}
-
-func (o MLServicesClusterRolesOutput) ToMLServicesClusterRolesPtrOutput() MLServicesClusterRolesPtrOutput {
-	return o.ToMLServicesClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (o MLServicesClusterRolesOutput) ToMLServicesClusterRolesPtrOutputWithContext(ctx context.Context) MLServicesClusterRolesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesClusterRoles) *MLServicesClusterRoles {
-		return &v
-	}).(MLServicesClusterRolesPtrOutput)
 }
 
 // A `edgeNode` block as defined above.
@@ -13829,70 +10716,6 @@ func (o MLServicesClusterRolesOutput) WorkerNode() MLServicesClusterRolesWorkerN
 // A `zookeeperNode` block as defined below.
 func (o MLServicesClusterRolesOutput) ZookeeperNode() MLServicesClusterRolesZookeeperNodeOutput {
 	return o.ApplyT(func(v MLServicesClusterRoles) MLServicesClusterRolesZookeeperNode { return v.ZookeeperNode }).(MLServicesClusterRolesZookeeperNodeOutput)
-}
-
-type MLServicesClusterRolesPtrOutput struct{ *pulumi.OutputState }
-
-func (MLServicesClusterRolesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesClusterRoles)(nil)).Elem()
-}
-
-func (o MLServicesClusterRolesPtrOutput) ToMLServicesClusterRolesPtrOutput() MLServicesClusterRolesPtrOutput {
-	return o
-}
-
-func (o MLServicesClusterRolesPtrOutput) ToMLServicesClusterRolesPtrOutputWithContext(ctx context.Context) MLServicesClusterRolesPtrOutput {
-	return o
-}
-
-func (o MLServicesClusterRolesPtrOutput) Elem() MLServicesClusterRolesOutput {
-	return o.ApplyT(func(v *MLServicesClusterRoles) MLServicesClusterRoles {
-		if v != nil {
-			return *v
-		}
-		var ret MLServicesClusterRoles
-		return ret
-	}).(MLServicesClusterRolesOutput)
-}
-
-// A `edgeNode` block as defined above.
-func (o MLServicesClusterRolesPtrOutput) EdgeNode() MLServicesClusterRolesEdgeNodePtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRoles) *MLServicesClusterRolesEdgeNode {
-		if v == nil {
-			return nil
-		}
-		return &v.EdgeNode
-	}).(MLServicesClusterRolesEdgeNodePtrOutput)
-}
-
-// A `headNode` block as defined above.
-func (o MLServicesClusterRolesPtrOutput) HeadNode() MLServicesClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRoles) *MLServicesClusterRolesHeadNode {
-		if v == nil {
-			return nil
-		}
-		return &v.HeadNode
-	}).(MLServicesClusterRolesHeadNodePtrOutput)
-}
-
-// A `workerNode` block as defined below.
-func (o MLServicesClusterRolesPtrOutput) WorkerNode() MLServicesClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRoles) *MLServicesClusterRolesWorkerNode {
-		if v == nil {
-			return nil
-		}
-		return &v.WorkerNode
-	}).(MLServicesClusterRolesWorkerNodePtrOutput)
-}
-
-// A `zookeeperNode` block as defined below.
-func (o MLServicesClusterRolesPtrOutput) ZookeeperNode() MLServicesClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRoles) *MLServicesClusterRolesZookeeperNode {
-		if v == nil {
-			return nil
-		}
-		return &v.ZookeeperNode
-	}).(MLServicesClusterRolesZookeeperNodePtrOutput)
 }
 
 type MLServicesClusterRolesEdgeNode struct {
@@ -13948,47 +10771,6 @@ func (i MLServicesClusterRolesEdgeNodeArgs) ToMLServicesClusterRolesEdgeNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesEdgeNodeOutput)
 }
 
-func (i MLServicesClusterRolesEdgeNodeArgs) ToMLServicesClusterRolesEdgeNodePtrOutput() MLServicesClusterRolesEdgeNodePtrOutput {
-	return i.ToMLServicesClusterRolesEdgeNodePtrOutputWithContext(context.Background())
-}
-
-func (i MLServicesClusterRolesEdgeNodeArgs) ToMLServicesClusterRolesEdgeNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesEdgeNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesEdgeNodeOutput).ToMLServicesClusterRolesEdgeNodePtrOutputWithContext(ctx)
-}
-
-// MLServicesClusterRolesEdgeNodePtrInput is an input type that accepts MLServicesClusterRolesEdgeNodeArgs, MLServicesClusterRolesEdgeNodePtr and MLServicesClusterRolesEdgeNodePtrOutput values.
-// You can construct a concrete instance of `MLServicesClusterRolesEdgeNodePtrInput` via:
-//
-//          MLServicesClusterRolesEdgeNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type MLServicesClusterRolesEdgeNodePtrInput interface {
-	pulumi.Input
-
-	ToMLServicesClusterRolesEdgeNodePtrOutput() MLServicesClusterRolesEdgeNodePtrOutput
-	ToMLServicesClusterRolesEdgeNodePtrOutputWithContext(context.Context) MLServicesClusterRolesEdgeNodePtrOutput
-}
-
-type mlservicesClusterRolesEdgeNodePtrType MLServicesClusterRolesEdgeNodeArgs
-
-func MLServicesClusterRolesEdgeNodePtr(v *MLServicesClusterRolesEdgeNodeArgs) MLServicesClusterRolesEdgeNodePtrInput {
-	return (*mlservicesClusterRolesEdgeNodePtrType)(v)
-}
-
-func (*mlservicesClusterRolesEdgeNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesClusterRolesEdgeNode)(nil)).Elem()
-}
-
-func (i *mlservicesClusterRolesEdgeNodePtrType) ToMLServicesClusterRolesEdgeNodePtrOutput() MLServicesClusterRolesEdgeNodePtrOutput {
-	return i.ToMLServicesClusterRolesEdgeNodePtrOutputWithContext(context.Background())
-}
-
-func (i *mlservicesClusterRolesEdgeNodePtrType) ToMLServicesClusterRolesEdgeNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesEdgeNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesEdgeNodePtrOutput)
-}
-
 type MLServicesClusterRolesEdgeNodeOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterRolesEdgeNodeOutput) ElementType() reflect.Type {
@@ -14001,16 +10783,6 @@ func (o MLServicesClusterRolesEdgeNodeOutput) ToMLServicesClusterRolesEdgeNodeOu
 
 func (o MLServicesClusterRolesEdgeNodeOutput) ToMLServicesClusterRolesEdgeNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesEdgeNodeOutput {
 	return o
-}
-
-func (o MLServicesClusterRolesEdgeNodeOutput) ToMLServicesClusterRolesEdgeNodePtrOutput() MLServicesClusterRolesEdgeNodePtrOutput {
-	return o.ToMLServicesClusterRolesEdgeNodePtrOutputWithContext(context.Background())
-}
-
-func (o MLServicesClusterRolesEdgeNodeOutput) ToMLServicesClusterRolesEdgeNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesEdgeNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesClusterRolesEdgeNode) *MLServicesClusterRolesEdgeNode {
-		return &v
-	}).(MLServicesClusterRolesEdgeNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
@@ -14041,90 +10813,6 @@ func (o MLServicesClusterRolesEdgeNodeOutput) VirtualNetworkId() pulumi.StringPt
 // The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
 func (o MLServicesClusterRolesEdgeNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v MLServicesClusterRolesEdgeNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type MLServicesClusterRolesEdgeNodePtrOutput struct{ *pulumi.OutputState }
-
-func (MLServicesClusterRolesEdgeNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesClusterRolesEdgeNode)(nil)).Elem()
-}
-
-func (o MLServicesClusterRolesEdgeNodePtrOutput) ToMLServicesClusterRolesEdgeNodePtrOutput() MLServicesClusterRolesEdgeNodePtrOutput {
-	return o
-}
-
-func (o MLServicesClusterRolesEdgeNodePtrOutput) ToMLServicesClusterRolesEdgeNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesEdgeNodePtrOutput {
-	return o
-}
-
-func (o MLServicesClusterRolesEdgeNodePtrOutput) Elem() MLServicesClusterRolesEdgeNodeOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesEdgeNode) MLServicesClusterRolesEdgeNode {
-		if v != nil {
-			return *v
-		}
-		var ret MLServicesClusterRolesEdgeNode
-		return ret
-	}).(MLServicesClusterRolesEdgeNodeOutput)
-}
-
-// The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesEdgeNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesEdgeNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesEdgeNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesEdgeNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesEdgeNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesEdgeNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesEdgeNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesEdgeNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesEdgeNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesEdgeNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesEdgeNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesEdgeNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type MLServicesClusterRolesHeadNode struct {
@@ -14180,47 +10868,6 @@ func (i MLServicesClusterRolesHeadNodeArgs) ToMLServicesClusterRolesHeadNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesHeadNodeOutput)
 }
 
-func (i MLServicesClusterRolesHeadNodeArgs) ToMLServicesClusterRolesHeadNodePtrOutput() MLServicesClusterRolesHeadNodePtrOutput {
-	return i.ToMLServicesClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i MLServicesClusterRolesHeadNodeArgs) ToMLServicesClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesHeadNodeOutput).ToMLServicesClusterRolesHeadNodePtrOutputWithContext(ctx)
-}
-
-// MLServicesClusterRolesHeadNodePtrInput is an input type that accepts MLServicesClusterRolesHeadNodeArgs, MLServicesClusterRolesHeadNodePtr and MLServicesClusterRolesHeadNodePtrOutput values.
-// You can construct a concrete instance of `MLServicesClusterRolesHeadNodePtrInput` via:
-//
-//          MLServicesClusterRolesHeadNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type MLServicesClusterRolesHeadNodePtrInput interface {
-	pulumi.Input
-
-	ToMLServicesClusterRolesHeadNodePtrOutput() MLServicesClusterRolesHeadNodePtrOutput
-	ToMLServicesClusterRolesHeadNodePtrOutputWithContext(context.Context) MLServicesClusterRolesHeadNodePtrOutput
-}
-
-type mlservicesClusterRolesHeadNodePtrType MLServicesClusterRolesHeadNodeArgs
-
-func MLServicesClusterRolesHeadNodePtr(v *MLServicesClusterRolesHeadNodeArgs) MLServicesClusterRolesHeadNodePtrInput {
-	return (*mlservicesClusterRolesHeadNodePtrType)(v)
-}
-
-func (*mlservicesClusterRolesHeadNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (i *mlservicesClusterRolesHeadNodePtrType) ToMLServicesClusterRolesHeadNodePtrOutput() MLServicesClusterRolesHeadNodePtrOutput {
-	return i.ToMLServicesClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i *mlservicesClusterRolesHeadNodePtrType) ToMLServicesClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesHeadNodePtrOutput)
-}
-
 type MLServicesClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -14233,16 +10880,6 @@ func (o MLServicesClusterRolesHeadNodeOutput) ToMLServicesClusterRolesHeadNodeOu
 
 func (o MLServicesClusterRolesHeadNodeOutput) ToMLServicesClusterRolesHeadNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesHeadNodeOutput {
 	return o
-}
-
-func (o MLServicesClusterRolesHeadNodeOutput) ToMLServicesClusterRolesHeadNodePtrOutput() MLServicesClusterRolesHeadNodePtrOutput {
-	return o.ToMLServicesClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (o MLServicesClusterRolesHeadNodeOutput) ToMLServicesClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesHeadNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesClusterRolesHeadNode) *MLServicesClusterRolesHeadNode {
-		return &v
-	}).(MLServicesClusterRolesHeadNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -14273,90 +10910,6 @@ func (o MLServicesClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPt
 // The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
 func (o MLServicesClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v MLServicesClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type MLServicesClusterRolesHeadNodePtrOutput struct{ *pulumi.OutputState }
-
-func (MLServicesClusterRolesHeadNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (o MLServicesClusterRolesHeadNodePtrOutput) ToMLServicesClusterRolesHeadNodePtrOutput() MLServicesClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o MLServicesClusterRolesHeadNodePtrOutput) ToMLServicesClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o MLServicesClusterRolesHeadNodePtrOutput) Elem() MLServicesClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesHeadNode) MLServicesClusterRolesHeadNode {
-		if v != nil {
-			return *v
-		}
-		var ret MLServicesClusterRolesHeadNode
-		return ret
-	}).(MLServicesClusterRolesHeadNodeOutput)
-}
-
-// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesHeadNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesHeadNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesHeadNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesHeadNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type MLServicesClusterRolesWorkerNode struct {
@@ -14424,47 +10977,6 @@ func (i MLServicesClusterRolesWorkerNodeArgs) ToMLServicesClusterRolesWorkerNode
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesWorkerNodeOutput)
 }
 
-func (i MLServicesClusterRolesWorkerNodeArgs) ToMLServicesClusterRolesWorkerNodePtrOutput() MLServicesClusterRolesWorkerNodePtrOutput {
-	return i.ToMLServicesClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i MLServicesClusterRolesWorkerNodeArgs) ToMLServicesClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesWorkerNodeOutput).ToMLServicesClusterRolesWorkerNodePtrOutputWithContext(ctx)
-}
-
-// MLServicesClusterRolesWorkerNodePtrInput is an input type that accepts MLServicesClusterRolesWorkerNodeArgs, MLServicesClusterRolesWorkerNodePtr and MLServicesClusterRolesWorkerNodePtrOutput values.
-// You can construct a concrete instance of `MLServicesClusterRolesWorkerNodePtrInput` via:
-//
-//          MLServicesClusterRolesWorkerNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type MLServicesClusterRolesWorkerNodePtrInput interface {
-	pulumi.Input
-
-	ToMLServicesClusterRolesWorkerNodePtrOutput() MLServicesClusterRolesWorkerNodePtrOutput
-	ToMLServicesClusterRolesWorkerNodePtrOutputWithContext(context.Context) MLServicesClusterRolesWorkerNodePtrOutput
-}
-
-type mlservicesClusterRolesWorkerNodePtrType MLServicesClusterRolesWorkerNodeArgs
-
-func MLServicesClusterRolesWorkerNodePtr(v *MLServicesClusterRolesWorkerNodeArgs) MLServicesClusterRolesWorkerNodePtrInput {
-	return (*mlservicesClusterRolesWorkerNodePtrType)(v)
-}
-
-func (*mlservicesClusterRolesWorkerNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (i *mlservicesClusterRolesWorkerNodePtrType) ToMLServicesClusterRolesWorkerNodePtrOutput() MLServicesClusterRolesWorkerNodePtrOutput {
-	return i.ToMLServicesClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i *mlservicesClusterRolesWorkerNodePtrType) ToMLServicesClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesWorkerNodePtrOutput)
-}
-
 type MLServicesClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -14477,16 +10989,6 @@ func (o MLServicesClusterRolesWorkerNodeOutput) ToMLServicesClusterRolesWorkerNo
 
 func (o MLServicesClusterRolesWorkerNodeOutput) ToMLServicesClusterRolesWorkerNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesWorkerNodeOutput {
 	return o
-}
-
-func (o MLServicesClusterRolesWorkerNodeOutput) ToMLServicesClusterRolesWorkerNodePtrOutput() MLServicesClusterRolesWorkerNodePtrOutput {
-	return o.ToMLServicesClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (o MLServicesClusterRolesWorkerNodeOutput) ToMLServicesClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesWorkerNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesClusterRolesWorkerNode) *MLServicesClusterRolesWorkerNode {
-		return &v
-	}).(MLServicesClusterRolesWorkerNodePtrOutput)
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
@@ -14529,112 +11031,6 @@ func (o MLServicesClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.String
 // The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
 func (o MLServicesClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v MLServicesClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type MLServicesClusterRolesWorkerNodePtrOutput struct{ *pulumi.OutputState }
-
-func (MLServicesClusterRolesWorkerNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (o MLServicesClusterRolesWorkerNodePtrOutput) ToMLServicesClusterRolesWorkerNodePtrOutput() MLServicesClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o MLServicesClusterRolesWorkerNodePtrOutput) ToMLServicesClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o MLServicesClusterRolesWorkerNodePtrOutput) Elem() MLServicesClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesWorkerNode) MLServicesClusterRolesWorkerNode {
-		if v != nil {
-			return *v
-		}
-		var ret MLServicesClusterRolesWorkerNode
-		return ret
-	}).(MLServicesClusterRolesWorkerNodeOutput)
-}
-
-// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-//
-// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
-func (o MLServicesClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesWorkerNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesWorkerNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of instances which should be run for the Worker Nodes.
-func (o MLServicesClusterRolesWorkerNodePtrOutput) TargetInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesWorkerNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesWorkerNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type MLServicesClusterRolesZookeeperNode struct {
@@ -14690,47 +11086,6 @@ func (i MLServicesClusterRolesZookeeperNodeArgs) ToMLServicesClusterRolesZookeep
 	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesZookeeperNodeOutput)
 }
 
-func (i MLServicesClusterRolesZookeeperNodeArgs) ToMLServicesClusterRolesZookeeperNodePtrOutput() MLServicesClusterRolesZookeeperNodePtrOutput {
-	return i.ToMLServicesClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i MLServicesClusterRolesZookeeperNodeArgs) ToMLServicesClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesZookeeperNodeOutput).ToMLServicesClusterRolesZookeeperNodePtrOutputWithContext(ctx)
-}
-
-// MLServicesClusterRolesZookeeperNodePtrInput is an input type that accepts MLServicesClusterRolesZookeeperNodeArgs, MLServicesClusterRolesZookeeperNodePtr and MLServicesClusterRolesZookeeperNodePtrOutput values.
-// You can construct a concrete instance of `MLServicesClusterRolesZookeeperNodePtrInput` via:
-//
-//          MLServicesClusterRolesZookeeperNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type MLServicesClusterRolesZookeeperNodePtrInput interface {
-	pulumi.Input
-
-	ToMLServicesClusterRolesZookeeperNodePtrOutput() MLServicesClusterRolesZookeeperNodePtrOutput
-	ToMLServicesClusterRolesZookeeperNodePtrOutputWithContext(context.Context) MLServicesClusterRolesZookeeperNodePtrOutput
-}
-
-type mlservicesClusterRolesZookeeperNodePtrType MLServicesClusterRolesZookeeperNodeArgs
-
-func MLServicesClusterRolesZookeeperNodePtr(v *MLServicesClusterRolesZookeeperNodeArgs) MLServicesClusterRolesZookeeperNodePtrInput {
-	return (*mlservicesClusterRolesZookeeperNodePtrType)(v)
-}
-
-func (*mlservicesClusterRolesZookeeperNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (i *mlservicesClusterRolesZookeeperNodePtrType) ToMLServicesClusterRolesZookeeperNodePtrOutput() MLServicesClusterRolesZookeeperNodePtrOutput {
-	return i.ToMLServicesClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i *mlservicesClusterRolesZookeeperNodePtrType) ToMLServicesClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLServicesClusterRolesZookeeperNodePtrOutput)
-}
-
 type MLServicesClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (MLServicesClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -14743,16 +11098,6 @@ func (o MLServicesClusterRolesZookeeperNodeOutput) ToMLServicesClusterRolesZooke
 
 func (o MLServicesClusterRolesZookeeperNodeOutput) ToMLServicesClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesZookeeperNodeOutput {
 	return o
-}
-
-func (o MLServicesClusterRolesZookeeperNodeOutput) ToMLServicesClusterRolesZookeeperNodePtrOutput() MLServicesClusterRolesZookeeperNodePtrOutput {
-	return o.ToMLServicesClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (o MLServicesClusterRolesZookeeperNodeOutput) ToMLServicesClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLServicesClusterRolesZookeeperNode) *MLServicesClusterRolesZookeeperNode {
-		return &v
-	}).(MLServicesClusterRolesZookeeperNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -14783,90 +11128,6 @@ func (o MLServicesClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.Str
 // The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o MLServicesClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v MLServicesClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type MLServicesClusterRolesZookeeperNodePtrOutput struct{ *pulumi.OutputState }
-
-func (MLServicesClusterRolesZookeeperNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLServicesClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (o MLServicesClusterRolesZookeeperNodePtrOutput) ToMLServicesClusterRolesZookeeperNodePtrOutput() MLServicesClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o MLServicesClusterRolesZookeeperNodePtrOutput) ToMLServicesClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) MLServicesClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o MLServicesClusterRolesZookeeperNodePtrOutput) Elem() MLServicesClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesZookeeperNode) MLServicesClusterRolesZookeeperNode {
-		if v != nil {
-			return *v
-		}
-		var ret MLServicesClusterRolesZookeeperNode
-		return ret
-	}).(MLServicesClusterRolesZookeeperNodeOutput)
-}
-
-// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesZookeeperNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesZookeeperNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesZookeeperNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesZookeeperNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o MLServicesClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLServicesClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type MLServicesClusterStorageAccount struct {
@@ -15029,47 +11290,6 @@ func (i RServerClusterGatewayArgs) ToRServerClusterGatewayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterGatewayOutput)
 }
 
-func (i RServerClusterGatewayArgs) ToRServerClusterGatewayPtrOutput() RServerClusterGatewayPtrOutput {
-	return i.ToRServerClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i RServerClusterGatewayArgs) ToRServerClusterGatewayPtrOutputWithContext(ctx context.Context) RServerClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterGatewayOutput).ToRServerClusterGatewayPtrOutputWithContext(ctx)
-}
-
-// RServerClusterGatewayPtrInput is an input type that accepts RServerClusterGatewayArgs, RServerClusterGatewayPtr and RServerClusterGatewayPtrOutput values.
-// You can construct a concrete instance of `RServerClusterGatewayPtrInput` via:
-//
-//          RServerClusterGatewayArgs{...}
-//
-//  or:
-//
-//          nil
-type RServerClusterGatewayPtrInput interface {
-	pulumi.Input
-
-	ToRServerClusterGatewayPtrOutput() RServerClusterGatewayPtrOutput
-	ToRServerClusterGatewayPtrOutputWithContext(context.Context) RServerClusterGatewayPtrOutput
-}
-
-type rserverClusterGatewayPtrType RServerClusterGatewayArgs
-
-func RServerClusterGatewayPtr(v *RServerClusterGatewayArgs) RServerClusterGatewayPtrInput {
-	return (*rserverClusterGatewayPtrType)(v)
-}
-
-func (*rserverClusterGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerClusterGateway)(nil)).Elem()
-}
-
-func (i *rserverClusterGatewayPtrType) ToRServerClusterGatewayPtrOutput() RServerClusterGatewayPtrOutput {
-	return i.ToRServerClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *rserverClusterGatewayPtrType) ToRServerClusterGatewayPtrOutputWithContext(ctx context.Context) RServerClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterGatewayPtrOutput)
-}
-
 type RServerClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterGatewayOutput) ElementType() reflect.Type {
@@ -15082,16 +11302,6 @@ func (o RServerClusterGatewayOutput) ToRServerClusterGatewayOutput() RServerClus
 
 func (o RServerClusterGatewayOutput) ToRServerClusterGatewayOutputWithContext(ctx context.Context) RServerClusterGatewayOutput {
 	return o
-}
-
-func (o RServerClusterGatewayOutput) ToRServerClusterGatewayPtrOutput() RServerClusterGatewayPtrOutput {
-	return o.ToRServerClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o RServerClusterGatewayOutput) ToRServerClusterGatewayPtrOutputWithContext(ctx context.Context) RServerClusterGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerClusterGateway) *RServerClusterGateway {
-		return &v
-	}).(RServerClusterGatewayPtrOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -15109,62 +11319,6 @@ func (o RServerClusterGatewayOutput) Password() pulumi.StringOutput {
 // The username used for the Ambari Portal. Changing this forces a new resource to be created.
 func (o RServerClusterGatewayOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v RServerClusterGateway) string { return v.Username }).(pulumi.StringOutput)
-}
-
-type RServerClusterGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (RServerClusterGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerClusterGateway)(nil)).Elem()
-}
-
-func (o RServerClusterGatewayPtrOutput) ToRServerClusterGatewayPtrOutput() RServerClusterGatewayPtrOutput {
-	return o
-}
-
-func (o RServerClusterGatewayPtrOutput) ToRServerClusterGatewayPtrOutputWithContext(ctx context.Context) RServerClusterGatewayPtrOutput {
-	return o
-}
-
-func (o RServerClusterGatewayPtrOutput) Elem() RServerClusterGatewayOutput {
-	return o.ApplyT(func(v *RServerClusterGateway) RServerClusterGateway {
-		if v != nil {
-			return *v
-		}
-		var ret RServerClusterGateway
-		return ret
-	}).(RServerClusterGatewayOutput)
-}
-
-// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-//
-// Deprecated: HDInsight doesn't support disabling gateway anymore
-func (o RServerClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RServerClusterGateway) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The password used for the Ambari Portal.
-func (o RServerClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// The username used for the Ambari Portal. Changing this forces a new resource to be created.
-func (o RServerClusterGatewayPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
 }
 
 type RServerClusterRoles struct {
@@ -15212,47 +11366,6 @@ func (i RServerClusterRolesArgs) ToRServerClusterRolesOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesOutput)
 }
 
-func (i RServerClusterRolesArgs) ToRServerClusterRolesPtrOutput() RServerClusterRolesPtrOutput {
-	return i.ToRServerClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i RServerClusterRolesArgs) ToRServerClusterRolesPtrOutputWithContext(ctx context.Context) RServerClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesOutput).ToRServerClusterRolesPtrOutputWithContext(ctx)
-}
-
-// RServerClusterRolesPtrInput is an input type that accepts RServerClusterRolesArgs, RServerClusterRolesPtr and RServerClusterRolesPtrOutput values.
-// You can construct a concrete instance of `RServerClusterRolesPtrInput` via:
-//
-//          RServerClusterRolesArgs{...}
-//
-//  or:
-//
-//          nil
-type RServerClusterRolesPtrInput interface {
-	pulumi.Input
-
-	ToRServerClusterRolesPtrOutput() RServerClusterRolesPtrOutput
-	ToRServerClusterRolesPtrOutputWithContext(context.Context) RServerClusterRolesPtrOutput
-}
-
-type rserverClusterRolesPtrType RServerClusterRolesArgs
-
-func RServerClusterRolesPtr(v *RServerClusterRolesArgs) RServerClusterRolesPtrInput {
-	return (*rserverClusterRolesPtrType)(v)
-}
-
-func (*rserverClusterRolesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerClusterRoles)(nil)).Elem()
-}
-
-func (i *rserverClusterRolesPtrType) ToRServerClusterRolesPtrOutput() RServerClusterRolesPtrOutput {
-	return i.ToRServerClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i *rserverClusterRolesPtrType) ToRServerClusterRolesPtrOutputWithContext(ctx context.Context) RServerClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesPtrOutput)
-}
-
 type RServerClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterRolesOutput) ElementType() reflect.Type {
@@ -15265,16 +11378,6 @@ func (o RServerClusterRolesOutput) ToRServerClusterRolesOutput() RServerClusterR
 
 func (o RServerClusterRolesOutput) ToRServerClusterRolesOutputWithContext(ctx context.Context) RServerClusterRolesOutput {
 	return o
-}
-
-func (o RServerClusterRolesOutput) ToRServerClusterRolesPtrOutput() RServerClusterRolesPtrOutput {
-	return o.ToRServerClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (o RServerClusterRolesOutput) ToRServerClusterRolesPtrOutputWithContext(ctx context.Context) RServerClusterRolesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerClusterRoles) *RServerClusterRoles {
-		return &v
-	}).(RServerClusterRolesPtrOutput)
 }
 
 // A `edgeNode` block as defined above.
@@ -15295,70 +11398,6 @@ func (o RServerClusterRolesOutput) WorkerNode() RServerClusterRolesWorkerNodeOut
 // A `zookeeperNode` block as defined below.
 func (o RServerClusterRolesOutput) ZookeeperNode() RServerClusterRolesZookeeperNodeOutput {
 	return o.ApplyT(func(v RServerClusterRoles) RServerClusterRolesZookeeperNode { return v.ZookeeperNode }).(RServerClusterRolesZookeeperNodeOutput)
-}
-
-type RServerClusterRolesPtrOutput struct{ *pulumi.OutputState }
-
-func (RServerClusterRolesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerClusterRoles)(nil)).Elem()
-}
-
-func (o RServerClusterRolesPtrOutput) ToRServerClusterRolesPtrOutput() RServerClusterRolesPtrOutput {
-	return o
-}
-
-func (o RServerClusterRolesPtrOutput) ToRServerClusterRolesPtrOutputWithContext(ctx context.Context) RServerClusterRolesPtrOutput {
-	return o
-}
-
-func (o RServerClusterRolesPtrOutput) Elem() RServerClusterRolesOutput {
-	return o.ApplyT(func(v *RServerClusterRoles) RServerClusterRoles {
-		if v != nil {
-			return *v
-		}
-		var ret RServerClusterRoles
-		return ret
-	}).(RServerClusterRolesOutput)
-}
-
-// A `edgeNode` block as defined above.
-func (o RServerClusterRolesPtrOutput) EdgeNode() RServerClusterRolesEdgeNodePtrOutput {
-	return o.ApplyT(func(v *RServerClusterRoles) *RServerClusterRolesEdgeNode {
-		if v == nil {
-			return nil
-		}
-		return &v.EdgeNode
-	}).(RServerClusterRolesEdgeNodePtrOutput)
-}
-
-// A `headNode` block as defined above.
-func (o RServerClusterRolesPtrOutput) HeadNode() RServerClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v *RServerClusterRoles) *RServerClusterRolesHeadNode {
-		if v == nil {
-			return nil
-		}
-		return &v.HeadNode
-	}).(RServerClusterRolesHeadNodePtrOutput)
-}
-
-// A `workerNode` block as defined below.
-func (o RServerClusterRolesPtrOutput) WorkerNode() RServerClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v *RServerClusterRoles) *RServerClusterRolesWorkerNode {
-		if v == nil {
-			return nil
-		}
-		return &v.WorkerNode
-	}).(RServerClusterRolesWorkerNodePtrOutput)
-}
-
-// A `zookeeperNode` block as defined below.
-func (o RServerClusterRolesPtrOutput) ZookeeperNode() RServerClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v *RServerClusterRoles) *RServerClusterRolesZookeeperNode {
-		if v == nil {
-			return nil
-		}
-		return &v.ZookeeperNode
-	}).(RServerClusterRolesZookeeperNodePtrOutput)
 }
 
 type RServerClusterRolesEdgeNode struct {
@@ -15414,47 +11453,6 @@ func (i RServerClusterRolesEdgeNodeArgs) ToRServerClusterRolesEdgeNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesEdgeNodeOutput)
 }
 
-func (i RServerClusterRolesEdgeNodeArgs) ToRServerClusterRolesEdgeNodePtrOutput() RServerClusterRolesEdgeNodePtrOutput {
-	return i.ToRServerClusterRolesEdgeNodePtrOutputWithContext(context.Background())
-}
-
-func (i RServerClusterRolesEdgeNodeArgs) ToRServerClusterRolesEdgeNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesEdgeNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesEdgeNodeOutput).ToRServerClusterRolesEdgeNodePtrOutputWithContext(ctx)
-}
-
-// RServerClusterRolesEdgeNodePtrInput is an input type that accepts RServerClusterRolesEdgeNodeArgs, RServerClusterRolesEdgeNodePtr and RServerClusterRolesEdgeNodePtrOutput values.
-// You can construct a concrete instance of `RServerClusterRolesEdgeNodePtrInput` via:
-//
-//          RServerClusterRolesEdgeNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type RServerClusterRolesEdgeNodePtrInput interface {
-	pulumi.Input
-
-	ToRServerClusterRolesEdgeNodePtrOutput() RServerClusterRolesEdgeNodePtrOutput
-	ToRServerClusterRolesEdgeNodePtrOutputWithContext(context.Context) RServerClusterRolesEdgeNodePtrOutput
-}
-
-type rserverClusterRolesEdgeNodePtrType RServerClusterRolesEdgeNodeArgs
-
-func RServerClusterRolesEdgeNodePtr(v *RServerClusterRolesEdgeNodeArgs) RServerClusterRolesEdgeNodePtrInput {
-	return (*rserverClusterRolesEdgeNodePtrType)(v)
-}
-
-func (*rserverClusterRolesEdgeNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerClusterRolesEdgeNode)(nil)).Elem()
-}
-
-func (i *rserverClusterRolesEdgeNodePtrType) ToRServerClusterRolesEdgeNodePtrOutput() RServerClusterRolesEdgeNodePtrOutput {
-	return i.ToRServerClusterRolesEdgeNodePtrOutputWithContext(context.Background())
-}
-
-func (i *rserverClusterRolesEdgeNodePtrType) ToRServerClusterRolesEdgeNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesEdgeNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesEdgeNodePtrOutput)
-}
-
 type RServerClusterRolesEdgeNodeOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterRolesEdgeNodeOutput) ElementType() reflect.Type {
@@ -15467,16 +11465,6 @@ func (o RServerClusterRolesEdgeNodeOutput) ToRServerClusterRolesEdgeNodeOutput()
 
 func (o RServerClusterRolesEdgeNodeOutput) ToRServerClusterRolesEdgeNodeOutputWithContext(ctx context.Context) RServerClusterRolesEdgeNodeOutput {
 	return o
-}
-
-func (o RServerClusterRolesEdgeNodeOutput) ToRServerClusterRolesEdgeNodePtrOutput() RServerClusterRolesEdgeNodePtrOutput {
-	return o.ToRServerClusterRolesEdgeNodePtrOutputWithContext(context.Background())
-}
-
-func (o RServerClusterRolesEdgeNodeOutput) ToRServerClusterRolesEdgeNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesEdgeNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerClusterRolesEdgeNode) *RServerClusterRolesEdgeNode {
-		return &v
-	}).(RServerClusterRolesEdgeNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
@@ -15507,90 +11495,6 @@ func (o RServerClusterRolesEdgeNodeOutput) VirtualNetworkId() pulumi.StringPtrOu
 // The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
 func (o RServerClusterRolesEdgeNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v RServerClusterRolesEdgeNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type RServerClusterRolesEdgeNodePtrOutput struct{ *pulumi.OutputState }
-
-func (RServerClusterRolesEdgeNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerClusterRolesEdgeNode)(nil)).Elem()
-}
-
-func (o RServerClusterRolesEdgeNodePtrOutput) ToRServerClusterRolesEdgeNodePtrOutput() RServerClusterRolesEdgeNodePtrOutput {
-	return o
-}
-
-func (o RServerClusterRolesEdgeNodePtrOutput) ToRServerClusterRolesEdgeNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesEdgeNodePtrOutput {
-	return o
-}
-
-func (o RServerClusterRolesEdgeNodePtrOutput) Elem() RServerClusterRolesEdgeNodeOutput {
-	return o.ApplyT(func(v *RServerClusterRolesEdgeNode) RServerClusterRolesEdgeNode {
-		if v != nil {
-			return *v
-		}
-		var ret RServerClusterRolesEdgeNode
-		return ret
-	}).(RServerClusterRolesEdgeNodeOutput)
-}
-
-// The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
-func (o RServerClusterRolesEdgeNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesEdgeNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
-func (o RServerClusterRolesEdgeNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RServerClusterRolesEdgeNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-func (o RServerClusterRolesEdgeNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesEdgeNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
-func (o RServerClusterRolesEdgeNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesEdgeNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
-func (o RServerClusterRolesEdgeNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesEdgeNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
-func (o RServerClusterRolesEdgeNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesEdgeNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type RServerClusterRolesHeadNode struct {
@@ -15646,47 +11550,6 @@ func (i RServerClusterRolesHeadNodeArgs) ToRServerClusterRolesHeadNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesHeadNodeOutput)
 }
 
-func (i RServerClusterRolesHeadNodeArgs) ToRServerClusterRolesHeadNodePtrOutput() RServerClusterRolesHeadNodePtrOutput {
-	return i.ToRServerClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i RServerClusterRolesHeadNodeArgs) ToRServerClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesHeadNodeOutput).ToRServerClusterRolesHeadNodePtrOutputWithContext(ctx)
-}
-
-// RServerClusterRolesHeadNodePtrInput is an input type that accepts RServerClusterRolesHeadNodeArgs, RServerClusterRolesHeadNodePtr and RServerClusterRolesHeadNodePtrOutput values.
-// You can construct a concrete instance of `RServerClusterRolesHeadNodePtrInput` via:
-//
-//          RServerClusterRolesHeadNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type RServerClusterRolesHeadNodePtrInput interface {
-	pulumi.Input
-
-	ToRServerClusterRolesHeadNodePtrOutput() RServerClusterRolesHeadNodePtrOutput
-	ToRServerClusterRolesHeadNodePtrOutputWithContext(context.Context) RServerClusterRolesHeadNodePtrOutput
-}
-
-type rserverClusterRolesHeadNodePtrType RServerClusterRolesHeadNodeArgs
-
-func RServerClusterRolesHeadNodePtr(v *RServerClusterRolesHeadNodeArgs) RServerClusterRolesHeadNodePtrInput {
-	return (*rserverClusterRolesHeadNodePtrType)(v)
-}
-
-func (*rserverClusterRolesHeadNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (i *rserverClusterRolesHeadNodePtrType) ToRServerClusterRolesHeadNodePtrOutput() RServerClusterRolesHeadNodePtrOutput {
-	return i.ToRServerClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i *rserverClusterRolesHeadNodePtrType) ToRServerClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesHeadNodePtrOutput)
-}
-
 type RServerClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -15699,16 +11562,6 @@ func (o RServerClusterRolesHeadNodeOutput) ToRServerClusterRolesHeadNodeOutput()
 
 func (o RServerClusterRolesHeadNodeOutput) ToRServerClusterRolesHeadNodeOutputWithContext(ctx context.Context) RServerClusterRolesHeadNodeOutput {
 	return o
-}
-
-func (o RServerClusterRolesHeadNodeOutput) ToRServerClusterRolesHeadNodePtrOutput() RServerClusterRolesHeadNodePtrOutput {
-	return o.ToRServerClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (o RServerClusterRolesHeadNodeOutput) ToRServerClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesHeadNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerClusterRolesHeadNode) *RServerClusterRolesHeadNode {
-		return &v
-	}).(RServerClusterRolesHeadNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -15739,90 +11592,6 @@ func (o RServerClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOu
 // The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
 func (o RServerClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v RServerClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type RServerClusterRolesHeadNodePtrOutput struct{ *pulumi.OutputState }
-
-func (RServerClusterRolesHeadNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (o RServerClusterRolesHeadNodePtrOutput) ToRServerClusterRolesHeadNodePtrOutput() RServerClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o RServerClusterRolesHeadNodePtrOutput) ToRServerClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o RServerClusterRolesHeadNodePtrOutput) Elem() RServerClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *RServerClusterRolesHeadNode) RServerClusterRolesHeadNode {
-		if v != nil {
-			return *v
-		}
-		var ret RServerClusterRolesHeadNode
-		return ret
-	}).(RServerClusterRolesHeadNodeOutput)
-}
-
-// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o RServerClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-func (o RServerClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RServerClusterRolesHeadNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o RServerClusterRolesHeadNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o RServerClusterRolesHeadNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o RServerClusterRolesHeadNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-func (o RServerClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type RServerClusterRolesWorkerNode struct {
@@ -15890,47 +11659,6 @@ func (i RServerClusterRolesWorkerNodeArgs) ToRServerClusterRolesWorkerNodeOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesWorkerNodeOutput)
 }
 
-func (i RServerClusterRolesWorkerNodeArgs) ToRServerClusterRolesWorkerNodePtrOutput() RServerClusterRolesWorkerNodePtrOutput {
-	return i.ToRServerClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i RServerClusterRolesWorkerNodeArgs) ToRServerClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesWorkerNodeOutput).ToRServerClusterRolesWorkerNodePtrOutputWithContext(ctx)
-}
-
-// RServerClusterRolesWorkerNodePtrInput is an input type that accepts RServerClusterRolesWorkerNodeArgs, RServerClusterRolesWorkerNodePtr and RServerClusterRolesWorkerNodePtrOutput values.
-// You can construct a concrete instance of `RServerClusterRolesWorkerNodePtrInput` via:
-//
-//          RServerClusterRolesWorkerNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type RServerClusterRolesWorkerNodePtrInput interface {
-	pulumi.Input
-
-	ToRServerClusterRolesWorkerNodePtrOutput() RServerClusterRolesWorkerNodePtrOutput
-	ToRServerClusterRolesWorkerNodePtrOutputWithContext(context.Context) RServerClusterRolesWorkerNodePtrOutput
-}
-
-type rserverClusterRolesWorkerNodePtrType RServerClusterRolesWorkerNodeArgs
-
-func RServerClusterRolesWorkerNodePtr(v *RServerClusterRolesWorkerNodeArgs) RServerClusterRolesWorkerNodePtrInput {
-	return (*rserverClusterRolesWorkerNodePtrType)(v)
-}
-
-func (*rserverClusterRolesWorkerNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (i *rserverClusterRolesWorkerNodePtrType) ToRServerClusterRolesWorkerNodePtrOutput() RServerClusterRolesWorkerNodePtrOutput {
-	return i.ToRServerClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i *rserverClusterRolesWorkerNodePtrType) ToRServerClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesWorkerNodePtrOutput)
-}
-
 type RServerClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -15943,16 +11671,6 @@ func (o RServerClusterRolesWorkerNodeOutput) ToRServerClusterRolesWorkerNodeOutp
 
 func (o RServerClusterRolesWorkerNodeOutput) ToRServerClusterRolesWorkerNodeOutputWithContext(ctx context.Context) RServerClusterRolesWorkerNodeOutput {
 	return o
-}
-
-func (o RServerClusterRolesWorkerNodeOutput) ToRServerClusterRolesWorkerNodePtrOutput() RServerClusterRolesWorkerNodePtrOutput {
-	return o.ToRServerClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (o RServerClusterRolesWorkerNodeOutput) ToRServerClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesWorkerNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerClusterRolesWorkerNode) *RServerClusterRolesWorkerNode {
-		return &v
-	}).(RServerClusterRolesWorkerNodePtrOutput)
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
@@ -15995,112 +11713,6 @@ func (o RServerClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtr
 // The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
 func (o RServerClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v RServerClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type RServerClusterRolesWorkerNodePtrOutput struct{ *pulumi.OutputState }
-
-func (RServerClusterRolesWorkerNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (o RServerClusterRolesWorkerNodePtrOutput) ToRServerClusterRolesWorkerNodePtrOutput() RServerClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o RServerClusterRolesWorkerNodePtrOutput) ToRServerClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o RServerClusterRolesWorkerNodePtrOutput) Elem() RServerClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *RServerClusterRolesWorkerNode) RServerClusterRolesWorkerNode {
-		if v != nil {
-			return *v
-		}
-		var ret RServerClusterRolesWorkerNode
-		return ret
-	}).(RServerClusterRolesWorkerNodeOutput)
-}
-
-// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-//
-// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
-func (o RServerClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o RServerClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-func (o RServerClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RServerClusterRolesWorkerNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o RServerClusterRolesWorkerNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of instances which should be run for the Worker Nodes.
-func (o RServerClusterRolesWorkerNodePtrOutput) TargetInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o RServerClusterRolesWorkerNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o RServerClusterRolesWorkerNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-func (o RServerClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type RServerClusterRolesZookeeperNode struct {
@@ -16156,47 +11768,6 @@ func (i RServerClusterRolesZookeeperNodeArgs) ToRServerClusterRolesZookeeperNode
 	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesZookeeperNodeOutput)
 }
 
-func (i RServerClusterRolesZookeeperNodeArgs) ToRServerClusterRolesZookeeperNodePtrOutput() RServerClusterRolesZookeeperNodePtrOutput {
-	return i.ToRServerClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i RServerClusterRolesZookeeperNodeArgs) ToRServerClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesZookeeperNodeOutput).ToRServerClusterRolesZookeeperNodePtrOutputWithContext(ctx)
-}
-
-// RServerClusterRolesZookeeperNodePtrInput is an input type that accepts RServerClusterRolesZookeeperNodeArgs, RServerClusterRolesZookeeperNodePtr and RServerClusterRolesZookeeperNodePtrOutput values.
-// You can construct a concrete instance of `RServerClusterRolesZookeeperNodePtrInput` via:
-//
-//          RServerClusterRolesZookeeperNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type RServerClusterRolesZookeeperNodePtrInput interface {
-	pulumi.Input
-
-	ToRServerClusterRolesZookeeperNodePtrOutput() RServerClusterRolesZookeeperNodePtrOutput
-	ToRServerClusterRolesZookeeperNodePtrOutputWithContext(context.Context) RServerClusterRolesZookeeperNodePtrOutput
-}
-
-type rserverClusterRolesZookeeperNodePtrType RServerClusterRolesZookeeperNodeArgs
-
-func RServerClusterRolesZookeeperNodePtr(v *RServerClusterRolesZookeeperNodeArgs) RServerClusterRolesZookeeperNodePtrInput {
-	return (*rserverClusterRolesZookeeperNodePtrType)(v)
-}
-
-func (*rserverClusterRolesZookeeperNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (i *rserverClusterRolesZookeeperNodePtrType) ToRServerClusterRolesZookeeperNodePtrOutput() RServerClusterRolesZookeeperNodePtrOutput {
-	return i.ToRServerClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i *rserverClusterRolesZookeeperNodePtrType) ToRServerClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RServerClusterRolesZookeeperNodePtrOutput)
-}
-
 type RServerClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (RServerClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -16209,16 +11780,6 @@ func (o RServerClusterRolesZookeeperNodeOutput) ToRServerClusterRolesZookeeperNo
 
 func (o RServerClusterRolesZookeeperNodeOutput) ToRServerClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) RServerClusterRolesZookeeperNodeOutput {
 	return o
-}
-
-func (o RServerClusterRolesZookeeperNodeOutput) ToRServerClusterRolesZookeeperNodePtrOutput() RServerClusterRolesZookeeperNodePtrOutput {
-	return o.ToRServerClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (o RServerClusterRolesZookeeperNodeOutput) ToRServerClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RServerClusterRolesZookeeperNode) *RServerClusterRolesZookeeperNode {
-		return &v
-	}).(RServerClusterRolesZookeeperNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -16249,90 +11810,6 @@ func (o RServerClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.String
 // The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o RServerClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v RServerClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type RServerClusterRolesZookeeperNodePtrOutput struct{ *pulumi.OutputState }
-
-func (RServerClusterRolesZookeeperNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RServerClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (o RServerClusterRolesZookeeperNodePtrOutput) ToRServerClusterRolesZookeeperNodePtrOutput() RServerClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o RServerClusterRolesZookeeperNodePtrOutput) ToRServerClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) RServerClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o RServerClusterRolesZookeeperNodePtrOutput) Elem() RServerClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *RServerClusterRolesZookeeperNode) RServerClusterRolesZookeeperNode {
-		if v != nil {
-			return *v
-		}
-		var ret RServerClusterRolesZookeeperNode
-		return ret
-	}).(RServerClusterRolesZookeeperNodeOutput)
-}
-
-// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o RServerClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o RServerClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RServerClusterRolesZookeeperNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o RServerClusterRolesZookeeperNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o RServerClusterRolesZookeeperNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o RServerClusterRolesZookeeperNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o RServerClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RServerClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type RServerClusterStorageAccount struct {
@@ -16483,47 +11960,6 @@ func (i SparkClusterComponentVersionArgs) ToSparkClusterComponentVersionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterComponentVersionOutput)
 }
 
-func (i SparkClusterComponentVersionArgs) ToSparkClusterComponentVersionPtrOutput() SparkClusterComponentVersionPtrOutput {
-	return i.ToSparkClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (i SparkClusterComponentVersionArgs) ToSparkClusterComponentVersionPtrOutputWithContext(ctx context.Context) SparkClusterComponentVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterComponentVersionOutput).ToSparkClusterComponentVersionPtrOutputWithContext(ctx)
-}
-
-// SparkClusterComponentVersionPtrInput is an input type that accepts SparkClusterComponentVersionArgs, SparkClusterComponentVersionPtr and SparkClusterComponentVersionPtrOutput values.
-// You can construct a concrete instance of `SparkClusterComponentVersionPtrInput` via:
-//
-//          SparkClusterComponentVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type SparkClusterComponentVersionPtrInput interface {
-	pulumi.Input
-
-	ToSparkClusterComponentVersionPtrOutput() SparkClusterComponentVersionPtrOutput
-	ToSparkClusterComponentVersionPtrOutputWithContext(context.Context) SparkClusterComponentVersionPtrOutput
-}
-
-type sparkClusterComponentVersionPtrType SparkClusterComponentVersionArgs
-
-func SparkClusterComponentVersionPtr(v *SparkClusterComponentVersionArgs) SparkClusterComponentVersionPtrInput {
-	return (*sparkClusterComponentVersionPtrType)(v)
-}
-
-func (*sparkClusterComponentVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkClusterComponentVersion)(nil)).Elem()
-}
-
-func (i *sparkClusterComponentVersionPtrType) ToSparkClusterComponentVersionPtrOutput() SparkClusterComponentVersionPtrOutput {
-	return i.ToSparkClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *sparkClusterComponentVersionPtrType) ToSparkClusterComponentVersionPtrOutputWithContext(ctx context.Context) SparkClusterComponentVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterComponentVersionPtrOutput)
-}
-
 type SparkClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterComponentVersionOutput) ElementType() reflect.Type {
@@ -16538,53 +11974,9 @@ func (o SparkClusterComponentVersionOutput) ToSparkClusterComponentVersionOutput
 	return o
 }
 
-func (o SparkClusterComponentVersionOutput) ToSparkClusterComponentVersionPtrOutput() SparkClusterComponentVersionPtrOutput {
-	return o.ToSparkClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (o SparkClusterComponentVersionOutput) ToSparkClusterComponentVersionPtrOutputWithContext(ctx context.Context) SparkClusterComponentVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterComponentVersion) *SparkClusterComponentVersion {
-		return &v
-	}).(SparkClusterComponentVersionPtrOutput)
-}
-
 // The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 func (o SparkClusterComponentVersionOutput) Spark() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterComponentVersion) string { return v.Spark }).(pulumi.StringOutput)
-}
-
-type SparkClusterComponentVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (SparkClusterComponentVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkClusterComponentVersion)(nil)).Elem()
-}
-
-func (o SparkClusterComponentVersionPtrOutput) ToSparkClusterComponentVersionPtrOutput() SparkClusterComponentVersionPtrOutput {
-	return o
-}
-
-func (o SparkClusterComponentVersionPtrOutput) ToSparkClusterComponentVersionPtrOutputWithContext(ctx context.Context) SparkClusterComponentVersionPtrOutput {
-	return o
-}
-
-func (o SparkClusterComponentVersionPtrOutput) Elem() SparkClusterComponentVersionOutput {
-	return o.ApplyT(func(v *SparkClusterComponentVersion) SparkClusterComponentVersion {
-		if v != nil {
-			return *v
-		}
-		var ret SparkClusterComponentVersion
-		return ret
-	}).(SparkClusterComponentVersionOutput)
-}
-
-// The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
-func (o SparkClusterComponentVersionPtrOutput) Spark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterComponentVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Spark
-	}).(pulumi.StringPtrOutput)
 }
 
 type SparkClusterGateway struct {
@@ -16632,47 +12024,6 @@ func (i SparkClusterGatewayArgs) ToSparkClusterGatewayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterGatewayOutput)
 }
 
-func (i SparkClusterGatewayArgs) ToSparkClusterGatewayPtrOutput() SparkClusterGatewayPtrOutput {
-	return i.ToSparkClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i SparkClusterGatewayArgs) ToSparkClusterGatewayPtrOutputWithContext(ctx context.Context) SparkClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterGatewayOutput).ToSparkClusterGatewayPtrOutputWithContext(ctx)
-}
-
-// SparkClusterGatewayPtrInput is an input type that accepts SparkClusterGatewayArgs, SparkClusterGatewayPtr and SparkClusterGatewayPtrOutput values.
-// You can construct a concrete instance of `SparkClusterGatewayPtrInput` via:
-//
-//          SparkClusterGatewayArgs{...}
-//
-//  or:
-//
-//          nil
-type SparkClusterGatewayPtrInput interface {
-	pulumi.Input
-
-	ToSparkClusterGatewayPtrOutput() SparkClusterGatewayPtrOutput
-	ToSparkClusterGatewayPtrOutputWithContext(context.Context) SparkClusterGatewayPtrOutput
-}
-
-type sparkClusterGatewayPtrType SparkClusterGatewayArgs
-
-func SparkClusterGatewayPtr(v *SparkClusterGatewayArgs) SparkClusterGatewayPtrInput {
-	return (*sparkClusterGatewayPtrType)(v)
-}
-
-func (*sparkClusterGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkClusterGateway)(nil)).Elem()
-}
-
-func (i *sparkClusterGatewayPtrType) ToSparkClusterGatewayPtrOutput() SparkClusterGatewayPtrOutput {
-	return i.ToSparkClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *sparkClusterGatewayPtrType) ToSparkClusterGatewayPtrOutputWithContext(ctx context.Context) SparkClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterGatewayPtrOutput)
-}
-
 type SparkClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterGatewayOutput) ElementType() reflect.Type {
@@ -16685,16 +12036,6 @@ func (o SparkClusterGatewayOutput) ToSparkClusterGatewayOutput() SparkClusterGat
 
 func (o SparkClusterGatewayOutput) ToSparkClusterGatewayOutputWithContext(ctx context.Context) SparkClusterGatewayOutput {
 	return o
-}
-
-func (o SparkClusterGatewayOutput) ToSparkClusterGatewayPtrOutput() SparkClusterGatewayPtrOutput {
-	return o.ToSparkClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o SparkClusterGatewayOutput) ToSparkClusterGatewayPtrOutputWithContext(ctx context.Context) SparkClusterGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterGateway) *SparkClusterGateway {
-		return &v
-	}).(SparkClusterGatewayPtrOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -16712,62 +12053,6 @@ func (o SparkClusterGatewayOutput) Password() pulumi.StringOutput {
 // The username used for the Ambari Portal. Changing this forces a new resource to be created.
 func (o SparkClusterGatewayOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterGateway) string { return v.Username }).(pulumi.StringOutput)
-}
-
-type SparkClusterGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (SparkClusterGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkClusterGateway)(nil)).Elem()
-}
-
-func (o SparkClusterGatewayPtrOutput) ToSparkClusterGatewayPtrOutput() SparkClusterGatewayPtrOutput {
-	return o
-}
-
-func (o SparkClusterGatewayPtrOutput) ToSparkClusterGatewayPtrOutputWithContext(ctx context.Context) SparkClusterGatewayPtrOutput {
-	return o
-}
-
-func (o SparkClusterGatewayPtrOutput) Elem() SparkClusterGatewayOutput {
-	return o.ApplyT(func(v *SparkClusterGateway) SparkClusterGateway {
-		if v != nil {
-			return *v
-		}
-		var ret SparkClusterGateway
-		return ret
-	}).(SparkClusterGatewayOutput)
-}
-
-// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-//
-// Deprecated: HDInsight doesn't support disabling gateway anymore
-func (o SparkClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SparkClusterGateway) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The password used for the Ambari Portal.
-func (o SparkClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// The username used for the Ambari Portal. Changing this forces a new resource to be created.
-func (o SparkClusterGatewayPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
 }
 
 type SparkClusterMetastores struct {
@@ -17880,47 +13165,6 @@ func (i SparkClusterRolesArgs) ToSparkClusterRolesOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesOutput)
 }
 
-func (i SparkClusterRolesArgs) ToSparkClusterRolesPtrOutput() SparkClusterRolesPtrOutput {
-	return i.ToSparkClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i SparkClusterRolesArgs) ToSparkClusterRolesPtrOutputWithContext(ctx context.Context) SparkClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesOutput).ToSparkClusterRolesPtrOutputWithContext(ctx)
-}
-
-// SparkClusterRolesPtrInput is an input type that accepts SparkClusterRolesArgs, SparkClusterRolesPtr and SparkClusterRolesPtrOutput values.
-// You can construct a concrete instance of `SparkClusterRolesPtrInput` via:
-//
-//          SparkClusterRolesArgs{...}
-//
-//  or:
-//
-//          nil
-type SparkClusterRolesPtrInput interface {
-	pulumi.Input
-
-	ToSparkClusterRolesPtrOutput() SparkClusterRolesPtrOutput
-	ToSparkClusterRolesPtrOutputWithContext(context.Context) SparkClusterRolesPtrOutput
-}
-
-type sparkClusterRolesPtrType SparkClusterRolesArgs
-
-func SparkClusterRolesPtr(v *SparkClusterRolesArgs) SparkClusterRolesPtrInput {
-	return (*sparkClusterRolesPtrType)(v)
-}
-
-func (*sparkClusterRolesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkClusterRoles)(nil)).Elem()
-}
-
-func (i *sparkClusterRolesPtrType) ToSparkClusterRolesPtrOutput() SparkClusterRolesPtrOutput {
-	return i.ToSparkClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i *sparkClusterRolesPtrType) ToSparkClusterRolesPtrOutputWithContext(ctx context.Context) SparkClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesPtrOutput)
-}
-
 type SparkClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesOutput) ElementType() reflect.Type {
@@ -17933,16 +13177,6 @@ func (o SparkClusterRolesOutput) ToSparkClusterRolesOutput() SparkClusterRolesOu
 
 func (o SparkClusterRolesOutput) ToSparkClusterRolesOutputWithContext(ctx context.Context) SparkClusterRolesOutput {
 	return o
-}
-
-func (o SparkClusterRolesOutput) ToSparkClusterRolesPtrOutput() SparkClusterRolesPtrOutput {
-	return o.ToSparkClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (o SparkClusterRolesOutput) ToSparkClusterRolesPtrOutputWithContext(ctx context.Context) SparkClusterRolesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRoles) *SparkClusterRoles {
-		return &v
-	}).(SparkClusterRolesPtrOutput)
 }
 
 // A `headNode` block as defined above.
@@ -17958,60 +13192,6 @@ func (o SparkClusterRolesOutput) WorkerNode() SparkClusterRolesWorkerNodeOutput 
 // A `zookeeperNode` block as defined below.
 func (o SparkClusterRolesOutput) ZookeeperNode() SparkClusterRolesZookeeperNodeOutput {
 	return o.ApplyT(func(v SparkClusterRoles) SparkClusterRolesZookeeperNode { return v.ZookeeperNode }).(SparkClusterRolesZookeeperNodeOutput)
-}
-
-type SparkClusterRolesPtrOutput struct{ *pulumi.OutputState }
-
-func (SparkClusterRolesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkClusterRoles)(nil)).Elem()
-}
-
-func (o SparkClusterRolesPtrOutput) ToSparkClusterRolesPtrOutput() SparkClusterRolesPtrOutput {
-	return o
-}
-
-func (o SparkClusterRolesPtrOutput) ToSparkClusterRolesPtrOutputWithContext(ctx context.Context) SparkClusterRolesPtrOutput {
-	return o
-}
-
-func (o SparkClusterRolesPtrOutput) Elem() SparkClusterRolesOutput {
-	return o.ApplyT(func(v *SparkClusterRoles) SparkClusterRoles {
-		if v != nil {
-			return *v
-		}
-		var ret SparkClusterRoles
-		return ret
-	}).(SparkClusterRolesOutput)
-}
-
-// A `headNode` block as defined above.
-func (o SparkClusterRolesPtrOutput) HeadNode() SparkClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v *SparkClusterRoles) *SparkClusterRolesHeadNode {
-		if v == nil {
-			return nil
-		}
-		return &v.HeadNode
-	}).(SparkClusterRolesHeadNodePtrOutput)
-}
-
-// A `workerNode` block as defined below.
-func (o SparkClusterRolesPtrOutput) WorkerNode() SparkClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v *SparkClusterRoles) *SparkClusterRolesWorkerNode {
-		if v == nil {
-			return nil
-		}
-		return &v.WorkerNode
-	}).(SparkClusterRolesWorkerNodePtrOutput)
-}
-
-// A `zookeeperNode` block as defined below.
-func (o SparkClusterRolesPtrOutput) ZookeeperNode() SparkClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v *SparkClusterRoles) *SparkClusterRolesZookeeperNode {
-		if v == nil {
-			return nil
-		}
-		return &v.ZookeeperNode
-	}).(SparkClusterRolesZookeeperNodePtrOutput)
 }
 
 type SparkClusterRolesHeadNode struct {
@@ -18067,47 +13247,6 @@ func (i SparkClusterRolesHeadNodeArgs) ToSparkClusterRolesHeadNodeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesHeadNodeOutput)
 }
 
-func (i SparkClusterRolesHeadNodeArgs) ToSparkClusterRolesHeadNodePtrOutput() SparkClusterRolesHeadNodePtrOutput {
-	return i.ToSparkClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i SparkClusterRolesHeadNodeArgs) ToSparkClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesHeadNodeOutput).ToSparkClusterRolesHeadNodePtrOutputWithContext(ctx)
-}
-
-// SparkClusterRolesHeadNodePtrInput is an input type that accepts SparkClusterRolesHeadNodeArgs, SparkClusterRolesHeadNodePtr and SparkClusterRolesHeadNodePtrOutput values.
-// You can construct a concrete instance of `SparkClusterRolesHeadNodePtrInput` via:
-//
-//          SparkClusterRolesHeadNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type SparkClusterRolesHeadNodePtrInput interface {
-	pulumi.Input
-
-	ToSparkClusterRolesHeadNodePtrOutput() SparkClusterRolesHeadNodePtrOutput
-	ToSparkClusterRolesHeadNodePtrOutputWithContext(context.Context) SparkClusterRolesHeadNodePtrOutput
-}
-
-type sparkClusterRolesHeadNodePtrType SparkClusterRolesHeadNodeArgs
-
-func SparkClusterRolesHeadNodePtr(v *SparkClusterRolesHeadNodeArgs) SparkClusterRolesHeadNodePtrInput {
-	return (*sparkClusterRolesHeadNodePtrType)(v)
-}
-
-func (*sparkClusterRolesHeadNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (i *sparkClusterRolesHeadNodePtrType) ToSparkClusterRolesHeadNodePtrOutput() SparkClusterRolesHeadNodePtrOutput {
-	return i.ToSparkClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i *sparkClusterRolesHeadNodePtrType) ToSparkClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesHeadNodePtrOutput)
-}
-
 type SparkClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -18120,16 +13259,6 @@ func (o SparkClusterRolesHeadNodeOutput) ToSparkClusterRolesHeadNodeOutput() Spa
 
 func (o SparkClusterRolesHeadNodeOutput) ToSparkClusterRolesHeadNodeOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodeOutput {
 	return o
-}
-
-func (o SparkClusterRolesHeadNodeOutput) ToSparkClusterRolesHeadNodePtrOutput() SparkClusterRolesHeadNodePtrOutput {
-	return o.ToSparkClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (o SparkClusterRolesHeadNodeOutput) ToSparkClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesHeadNode) *SparkClusterRolesHeadNode {
-		return &v
-	}).(SparkClusterRolesHeadNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -18160,90 +13289,6 @@ func (o SparkClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOutp
 // The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
 func (o SparkClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type SparkClusterRolesHeadNodePtrOutput struct{ *pulumi.OutputState }
-
-func (SparkClusterRolesHeadNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (o SparkClusterRolesHeadNodePtrOutput) ToSparkClusterRolesHeadNodePtrOutput() SparkClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o SparkClusterRolesHeadNodePtrOutput) ToSparkClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o SparkClusterRolesHeadNodePtrOutput) Elem() SparkClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *SparkClusterRolesHeadNode) SparkClusterRolesHeadNode {
-		if v != nil {
-			return *v
-		}
-		var ret SparkClusterRolesHeadNode
-		return ret
-	}).(SparkClusterRolesHeadNodeOutput)
-}
-
-// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o SparkClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-func (o SparkClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SparkClusterRolesHeadNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o SparkClusterRolesHeadNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o SparkClusterRolesHeadNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o SparkClusterRolesHeadNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-func (o SparkClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type SparkClusterRolesWorkerNode struct {
@@ -18315,47 +13360,6 @@ func (i SparkClusterRolesWorkerNodeArgs) ToSparkClusterRolesWorkerNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeOutput)
 }
 
-func (i SparkClusterRolesWorkerNodeArgs) ToSparkClusterRolesWorkerNodePtrOutput() SparkClusterRolesWorkerNodePtrOutput {
-	return i.ToSparkClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i SparkClusterRolesWorkerNodeArgs) ToSparkClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeOutput).ToSparkClusterRolesWorkerNodePtrOutputWithContext(ctx)
-}
-
-// SparkClusterRolesWorkerNodePtrInput is an input type that accepts SparkClusterRolesWorkerNodeArgs, SparkClusterRolesWorkerNodePtr and SparkClusterRolesWorkerNodePtrOutput values.
-// You can construct a concrete instance of `SparkClusterRolesWorkerNodePtrInput` via:
-//
-//          SparkClusterRolesWorkerNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type SparkClusterRolesWorkerNodePtrInput interface {
-	pulumi.Input
-
-	ToSparkClusterRolesWorkerNodePtrOutput() SparkClusterRolesWorkerNodePtrOutput
-	ToSparkClusterRolesWorkerNodePtrOutputWithContext(context.Context) SparkClusterRolesWorkerNodePtrOutput
-}
-
-type sparkClusterRolesWorkerNodePtrType SparkClusterRolesWorkerNodeArgs
-
-func SparkClusterRolesWorkerNodePtr(v *SparkClusterRolesWorkerNodeArgs) SparkClusterRolesWorkerNodePtrInput {
-	return (*sparkClusterRolesWorkerNodePtrType)(v)
-}
-
-func (*sparkClusterRolesWorkerNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (i *sparkClusterRolesWorkerNodePtrType) ToSparkClusterRolesWorkerNodePtrOutput() SparkClusterRolesWorkerNodePtrOutput {
-	return i.ToSparkClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i *sparkClusterRolesWorkerNodePtrType) ToSparkClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodePtrOutput)
-}
-
 type SparkClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -18368,16 +13372,6 @@ func (o SparkClusterRolesWorkerNodeOutput) ToSparkClusterRolesWorkerNodeOutput()
 
 func (o SparkClusterRolesWorkerNodeOutput) ToSparkClusterRolesWorkerNodeOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeOutput {
 	return o
-}
-
-func (o SparkClusterRolesWorkerNodeOutput) ToSparkClusterRolesWorkerNodePtrOutput() SparkClusterRolesWorkerNodePtrOutput {
-	return o.ToSparkClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (o SparkClusterRolesWorkerNodeOutput) ToSparkClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesWorkerNode) *SparkClusterRolesWorkerNode {
-		return &v
-	}).(SparkClusterRolesWorkerNodePtrOutput)
 }
 
 // A `autoscale` block as defined below.
@@ -18425,122 +13419,6 @@ func (o SparkClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrOu
 // The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
 func (o SparkClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type SparkClusterRolesWorkerNodePtrOutput struct{ *pulumi.OutputState }
-
-func (SparkClusterRolesWorkerNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (o SparkClusterRolesWorkerNodePtrOutput) ToSparkClusterRolesWorkerNodePtrOutput() SparkClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o SparkClusterRolesWorkerNodePtrOutput) ToSparkClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o SparkClusterRolesWorkerNodePtrOutput) Elem() SparkClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) SparkClusterRolesWorkerNode {
-		if v != nil {
-			return *v
-		}
-		var ret SparkClusterRolesWorkerNode
-		return ret
-	}).(SparkClusterRolesWorkerNodeOutput)
-}
-
-// A `autoscale` block as defined below.
-func (o SparkClusterRolesWorkerNodePtrOutput) Autoscale() SparkClusterRolesWorkerNodeAutoscalePtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) *SparkClusterRolesWorkerNodeAutoscale {
-		if v == nil {
-			return nil
-		}
-		return v.Autoscale
-	}).(SparkClusterRolesWorkerNodeAutoscalePtrOutput)
-}
-
-// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-//
-// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
-func (o SparkClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o SparkClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-func (o SparkClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o SparkClusterRolesWorkerNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of instances which should be run for the Worker Nodes.
-func (o SparkClusterRolesWorkerNodePtrOutput) TargetInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o SparkClusterRolesWorkerNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o SparkClusterRolesWorkerNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-func (o SparkClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type SparkClusterRolesWorkerNodeAutoscale struct {
@@ -19185,47 +14063,6 @@ func (i SparkClusterRolesZookeeperNodeArgs) ToSparkClusterRolesZookeeperNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesZookeeperNodeOutput)
 }
 
-func (i SparkClusterRolesZookeeperNodeArgs) ToSparkClusterRolesZookeeperNodePtrOutput() SparkClusterRolesZookeeperNodePtrOutput {
-	return i.ToSparkClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i SparkClusterRolesZookeeperNodeArgs) ToSparkClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesZookeeperNodeOutput).ToSparkClusterRolesZookeeperNodePtrOutputWithContext(ctx)
-}
-
-// SparkClusterRolesZookeeperNodePtrInput is an input type that accepts SparkClusterRolesZookeeperNodeArgs, SparkClusterRolesZookeeperNodePtr and SparkClusterRolesZookeeperNodePtrOutput values.
-// You can construct a concrete instance of `SparkClusterRolesZookeeperNodePtrInput` via:
-//
-//          SparkClusterRolesZookeeperNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type SparkClusterRolesZookeeperNodePtrInput interface {
-	pulumi.Input
-
-	ToSparkClusterRolesZookeeperNodePtrOutput() SparkClusterRolesZookeeperNodePtrOutput
-	ToSparkClusterRolesZookeeperNodePtrOutputWithContext(context.Context) SparkClusterRolesZookeeperNodePtrOutput
-}
-
-type sparkClusterRolesZookeeperNodePtrType SparkClusterRolesZookeeperNodeArgs
-
-func SparkClusterRolesZookeeperNodePtr(v *SparkClusterRolesZookeeperNodeArgs) SparkClusterRolesZookeeperNodePtrInput {
-	return (*sparkClusterRolesZookeeperNodePtrType)(v)
-}
-
-func (*sparkClusterRolesZookeeperNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (i *sparkClusterRolesZookeeperNodePtrType) ToSparkClusterRolesZookeeperNodePtrOutput() SparkClusterRolesZookeeperNodePtrOutput {
-	return i.ToSparkClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i *sparkClusterRolesZookeeperNodePtrType) ToSparkClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesZookeeperNodePtrOutput)
-}
-
 type SparkClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -19238,16 +14075,6 @@ func (o SparkClusterRolesZookeeperNodeOutput) ToSparkClusterRolesZookeeperNodeOu
 
 func (o SparkClusterRolesZookeeperNodeOutput) ToSparkClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodeOutput {
 	return o
-}
-
-func (o SparkClusterRolesZookeeperNodeOutput) ToSparkClusterRolesZookeeperNodePtrOutput() SparkClusterRolesZookeeperNodePtrOutput {
-	return o.ToSparkClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (o SparkClusterRolesZookeeperNodeOutput) ToSparkClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesZookeeperNode) *SparkClusterRolesZookeeperNode {
-		return &v
-	}).(SparkClusterRolesZookeeperNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -19278,90 +14105,6 @@ func (o SparkClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringPt
 // The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o SparkClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type SparkClusterRolesZookeeperNodePtrOutput struct{ *pulumi.OutputState }
-
-func (SparkClusterRolesZookeeperNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SparkClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (o SparkClusterRolesZookeeperNodePtrOutput) ToSparkClusterRolesZookeeperNodePtrOutput() SparkClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o SparkClusterRolesZookeeperNodePtrOutput) ToSparkClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o SparkClusterRolesZookeeperNodePtrOutput) Elem() SparkClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) SparkClusterRolesZookeeperNode {
-		if v != nil {
-			return *v
-		}
-		var ret SparkClusterRolesZookeeperNode
-		return ret
-	}).(SparkClusterRolesZookeeperNodeOutput)
-}
-
-// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o SparkClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o SparkClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o SparkClusterRolesZookeeperNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o SparkClusterRolesZookeeperNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o SparkClusterRolesZookeeperNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o SparkClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type SparkClusterSecurityProfile struct {
@@ -19957,47 +14700,6 @@ func (i StormClusterComponentVersionArgs) ToStormClusterComponentVersionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterComponentVersionOutput)
 }
 
-func (i StormClusterComponentVersionArgs) ToStormClusterComponentVersionPtrOutput() StormClusterComponentVersionPtrOutput {
-	return i.ToStormClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (i StormClusterComponentVersionArgs) ToStormClusterComponentVersionPtrOutputWithContext(ctx context.Context) StormClusterComponentVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StormClusterComponentVersionOutput).ToStormClusterComponentVersionPtrOutputWithContext(ctx)
-}
-
-// StormClusterComponentVersionPtrInput is an input type that accepts StormClusterComponentVersionArgs, StormClusterComponentVersionPtr and StormClusterComponentVersionPtrOutput values.
-// You can construct a concrete instance of `StormClusterComponentVersionPtrInput` via:
-//
-//          StormClusterComponentVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type StormClusterComponentVersionPtrInput interface {
-	pulumi.Input
-
-	ToStormClusterComponentVersionPtrOutput() StormClusterComponentVersionPtrOutput
-	ToStormClusterComponentVersionPtrOutputWithContext(context.Context) StormClusterComponentVersionPtrOutput
-}
-
-type stormClusterComponentVersionPtrType StormClusterComponentVersionArgs
-
-func StormClusterComponentVersionPtr(v *StormClusterComponentVersionArgs) StormClusterComponentVersionPtrInput {
-	return (*stormClusterComponentVersionPtrType)(v)
-}
-
-func (*stormClusterComponentVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StormClusterComponentVersion)(nil)).Elem()
-}
-
-func (i *stormClusterComponentVersionPtrType) ToStormClusterComponentVersionPtrOutput() StormClusterComponentVersionPtrOutput {
-	return i.ToStormClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *stormClusterComponentVersionPtrType) ToStormClusterComponentVersionPtrOutputWithContext(ctx context.Context) StormClusterComponentVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StormClusterComponentVersionPtrOutput)
-}
-
 type StormClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (StormClusterComponentVersionOutput) ElementType() reflect.Type {
@@ -20012,53 +14714,9 @@ func (o StormClusterComponentVersionOutput) ToStormClusterComponentVersionOutput
 	return o
 }
 
-func (o StormClusterComponentVersionOutput) ToStormClusterComponentVersionPtrOutput() StormClusterComponentVersionPtrOutput {
-	return o.ToStormClusterComponentVersionPtrOutputWithContext(context.Background())
-}
-
-func (o StormClusterComponentVersionOutput) ToStormClusterComponentVersionPtrOutputWithContext(ctx context.Context) StormClusterComponentVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterComponentVersion) *StormClusterComponentVersion {
-		return &v
-	}).(StormClusterComponentVersionPtrOutput)
-}
-
 // The version of Storm which should be used for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
 func (o StormClusterComponentVersionOutput) Storm() pulumi.StringOutput {
 	return o.ApplyT(func(v StormClusterComponentVersion) string { return v.Storm }).(pulumi.StringOutput)
-}
-
-type StormClusterComponentVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (StormClusterComponentVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StormClusterComponentVersion)(nil)).Elem()
-}
-
-func (o StormClusterComponentVersionPtrOutput) ToStormClusterComponentVersionPtrOutput() StormClusterComponentVersionPtrOutput {
-	return o
-}
-
-func (o StormClusterComponentVersionPtrOutput) ToStormClusterComponentVersionPtrOutputWithContext(ctx context.Context) StormClusterComponentVersionPtrOutput {
-	return o
-}
-
-func (o StormClusterComponentVersionPtrOutput) Elem() StormClusterComponentVersionOutput {
-	return o.ApplyT(func(v *StormClusterComponentVersion) StormClusterComponentVersion {
-		if v != nil {
-			return *v
-		}
-		var ret StormClusterComponentVersion
-		return ret
-	}).(StormClusterComponentVersionOutput)
-}
-
-// The version of Storm which should be used for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
-func (o StormClusterComponentVersionPtrOutput) Storm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterComponentVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Storm
-	}).(pulumi.StringPtrOutput)
 }
 
 type StormClusterGateway struct {
@@ -20106,47 +14764,6 @@ func (i StormClusterGatewayArgs) ToStormClusterGatewayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterGatewayOutput)
 }
 
-func (i StormClusterGatewayArgs) ToStormClusterGatewayPtrOutput() StormClusterGatewayPtrOutput {
-	return i.ToStormClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i StormClusterGatewayArgs) ToStormClusterGatewayPtrOutputWithContext(ctx context.Context) StormClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StormClusterGatewayOutput).ToStormClusterGatewayPtrOutputWithContext(ctx)
-}
-
-// StormClusterGatewayPtrInput is an input type that accepts StormClusterGatewayArgs, StormClusterGatewayPtr and StormClusterGatewayPtrOutput values.
-// You can construct a concrete instance of `StormClusterGatewayPtrInput` via:
-//
-//          StormClusterGatewayArgs{...}
-//
-//  or:
-//
-//          nil
-type StormClusterGatewayPtrInput interface {
-	pulumi.Input
-
-	ToStormClusterGatewayPtrOutput() StormClusterGatewayPtrOutput
-	ToStormClusterGatewayPtrOutputWithContext(context.Context) StormClusterGatewayPtrOutput
-}
-
-type stormClusterGatewayPtrType StormClusterGatewayArgs
-
-func StormClusterGatewayPtr(v *StormClusterGatewayArgs) StormClusterGatewayPtrInput {
-	return (*stormClusterGatewayPtrType)(v)
-}
-
-func (*stormClusterGatewayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StormClusterGateway)(nil)).Elem()
-}
-
-func (i *stormClusterGatewayPtrType) ToStormClusterGatewayPtrOutput() StormClusterGatewayPtrOutput {
-	return i.ToStormClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (i *stormClusterGatewayPtrType) ToStormClusterGatewayPtrOutputWithContext(ctx context.Context) StormClusterGatewayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StormClusterGatewayPtrOutput)
-}
-
 type StormClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (StormClusterGatewayOutput) ElementType() reflect.Type {
@@ -20159,16 +14776,6 @@ func (o StormClusterGatewayOutput) ToStormClusterGatewayOutput() StormClusterGat
 
 func (o StormClusterGatewayOutput) ToStormClusterGatewayOutputWithContext(ctx context.Context) StormClusterGatewayOutput {
 	return o
-}
-
-func (o StormClusterGatewayOutput) ToStormClusterGatewayPtrOutput() StormClusterGatewayPtrOutput {
-	return o.ToStormClusterGatewayPtrOutputWithContext(context.Background())
-}
-
-func (o StormClusterGatewayOutput) ToStormClusterGatewayPtrOutputWithContext(ctx context.Context) StormClusterGatewayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterGateway) *StormClusterGateway {
-		return &v
-	}).(StormClusterGatewayPtrOutput)
 }
 
 // Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
@@ -20186,62 +14793,6 @@ func (o StormClusterGatewayOutput) Password() pulumi.StringOutput {
 // The username used for the Ambari Portal. Changing this forces a new resource to be created.
 func (o StormClusterGatewayOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v StormClusterGateway) string { return v.Username }).(pulumi.StringOutput)
-}
-
-type StormClusterGatewayPtrOutput struct{ *pulumi.OutputState }
-
-func (StormClusterGatewayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StormClusterGateway)(nil)).Elem()
-}
-
-func (o StormClusterGatewayPtrOutput) ToStormClusterGatewayPtrOutput() StormClusterGatewayPtrOutput {
-	return o
-}
-
-func (o StormClusterGatewayPtrOutput) ToStormClusterGatewayPtrOutputWithContext(ctx context.Context) StormClusterGatewayPtrOutput {
-	return o
-}
-
-func (o StormClusterGatewayPtrOutput) Elem() StormClusterGatewayOutput {
-	return o.ApplyT(func(v *StormClusterGateway) StormClusterGateway {
-		if v != nil {
-			return *v
-		}
-		var ret StormClusterGateway
-		return ret
-	}).(StormClusterGatewayOutput)
-}
-
-// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-//
-// Deprecated: HDInsight doesn't support disabling gateway anymore
-func (o StormClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StormClusterGateway) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The password used for the Ambari Portal.
-func (o StormClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// The username used for the Ambari Portal. Changing this forces a new resource to be created.
-func (o StormClusterGatewayPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterGateway) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
 }
 
 type StormClusterMetastores struct {
@@ -21198,47 +15749,6 @@ func (i StormClusterRolesArgs) ToStormClusterRolesOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesOutput)
 }
 
-func (i StormClusterRolesArgs) ToStormClusterRolesPtrOutput() StormClusterRolesPtrOutput {
-	return i.ToStormClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i StormClusterRolesArgs) ToStormClusterRolesPtrOutputWithContext(ctx context.Context) StormClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesOutput).ToStormClusterRolesPtrOutputWithContext(ctx)
-}
-
-// StormClusterRolesPtrInput is an input type that accepts StormClusterRolesArgs, StormClusterRolesPtr and StormClusterRolesPtrOutput values.
-// You can construct a concrete instance of `StormClusterRolesPtrInput` via:
-//
-//          StormClusterRolesArgs{...}
-//
-//  or:
-//
-//          nil
-type StormClusterRolesPtrInput interface {
-	pulumi.Input
-
-	ToStormClusterRolesPtrOutput() StormClusterRolesPtrOutput
-	ToStormClusterRolesPtrOutputWithContext(context.Context) StormClusterRolesPtrOutput
-}
-
-type stormClusterRolesPtrType StormClusterRolesArgs
-
-func StormClusterRolesPtr(v *StormClusterRolesArgs) StormClusterRolesPtrInput {
-	return (*stormClusterRolesPtrType)(v)
-}
-
-func (*stormClusterRolesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StormClusterRoles)(nil)).Elem()
-}
-
-func (i *stormClusterRolesPtrType) ToStormClusterRolesPtrOutput() StormClusterRolesPtrOutput {
-	return i.ToStormClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (i *stormClusterRolesPtrType) ToStormClusterRolesPtrOutputWithContext(ctx context.Context) StormClusterRolesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesPtrOutput)
-}
-
 type StormClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (StormClusterRolesOutput) ElementType() reflect.Type {
@@ -21251,16 +15761,6 @@ func (o StormClusterRolesOutput) ToStormClusterRolesOutput() StormClusterRolesOu
 
 func (o StormClusterRolesOutput) ToStormClusterRolesOutputWithContext(ctx context.Context) StormClusterRolesOutput {
 	return o
-}
-
-func (o StormClusterRolesOutput) ToStormClusterRolesPtrOutput() StormClusterRolesPtrOutput {
-	return o.ToStormClusterRolesPtrOutputWithContext(context.Background())
-}
-
-func (o StormClusterRolesOutput) ToStormClusterRolesPtrOutputWithContext(ctx context.Context) StormClusterRolesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterRoles) *StormClusterRoles {
-		return &v
-	}).(StormClusterRolesPtrOutput)
 }
 
 // A `headNode` block as defined above.
@@ -21276,60 +15776,6 @@ func (o StormClusterRolesOutput) WorkerNode() StormClusterRolesWorkerNodeOutput 
 // A `zookeeperNode` block as defined below.
 func (o StormClusterRolesOutput) ZookeeperNode() StormClusterRolesZookeeperNodeOutput {
 	return o.ApplyT(func(v StormClusterRoles) StormClusterRolesZookeeperNode { return v.ZookeeperNode }).(StormClusterRolesZookeeperNodeOutput)
-}
-
-type StormClusterRolesPtrOutput struct{ *pulumi.OutputState }
-
-func (StormClusterRolesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StormClusterRoles)(nil)).Elem()
-}
-
-func (o StormClusterRolesPtrOutput) ToStormClusterRolesPtrOutput() StormClusterRolesPtrOutput {
-	return o
-}
-
-func (o StormClusterRolesPtrOutput) ToStormClusterRolesPtrOutputWithContext(ctx context.Context) StormClusterRolesPtrOutput {
-	return o
-}
-
-func (o StormClusterRolesPtrOutput) Elem() StormClusterRolesOutput {
-	return o.ApplyT(func(v *StormClusterRoles) StormClusterRoles {
-		if v != nil {
-			return *v
-		}
-		var ret StormClusterRoles
-		return ret
-	}).(StormClusterRolesOutput)
-}
-
-// A `headNode` block as defined above.
-func (o StormClusterRolesPtrOutput) HeadNode() StormClusterRolesHeadNodePtrOutput {
-	return o.ApplyT(func(v *StormClusterRoles) *StormClusterRolesHeadNode {
-		if v == nil {
-			return nil
-		}
-		return &v.HeadNode
-	}).(StormClusterRolesHeadNodePtrOutput)
-}
-
-// A `workerNode` block as defined below.
-func (o StormClusterRolesPtrOutput) WorkerNode() StormClusterRolesWorkerNodePtrOutput {
-	return o.ApplyT(func(v *StormClusterRoles) *StormClusterRolesWorkerNode {
-		if v == nil {
-			return nil
-		}
-		return &v.WorkerNode
-	}).(StormClusterRolesWorkerNodePtrOutput)
-}
-
-// A `zookeeperNode` block as defined below.
-func (o StormClusterRolesPtrOutput) ZookeeperNode() StormClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyT(func(v *StormClusterRoles) *StormClusterRolesZookeeperNode {
-		if v == nil {
-			return nil
-		}
-		return &v.ZookeeperNode
-	}).(StormClusterRolesZookeeperNodePtrOutput)
 }
 
 type StormClusterRolesHeadNode struct {
@@ -21385,47 +15831,6 @@ func (i StormClusterRolesHeadNodeArgs) ToStormClusterRolesHeadNodeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesHeadNodeOutput)
 }
 
-func (i StormClusterRolesHeadNodeArgs) ToStormClusterRolesHeadNodePtrOutput() StormClusterRolesHeadNodePtrOutput {
-	return i.ToStormClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i StormClusterRolesHeadNodeArgs) ToStormClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) StormClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesHeadNodeOutput).ToStormClusterRolesHeadNodePtrOutputWithContext(ctx)
-}
-
-// StormClusterRolesHeadNodePtrInput is an input type that accepts StormClusterRolesHeadNodeArgs, StormClusterRolesHeadNodePtr and StormClusterRolesHeadNodePtrOutput values.
-// You can construct a concrete instance of `StormClusterRolesHeadNodePtrInput` via:
-//
-//          StormClusterRolesHeadNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type StormClusterRolesHeadNodePtrInput interface {
-	pulumi.Input
-
-	ToStormClusterRolesHeadNodePtrOutput() StormClusterRolesHeadNodePtrOutput
-	ToStormClusterRolesHeadNodePtrOutputWithContext(context.Context) StormClusterRolesHeadNodePtrOutput
-}
-
-type stormClusterRolesHeadNodePtrType StormClusterRolesHeadNodeArgs
-
-func StormClusterRolesHeadNodePtr(v *StormClusterRolesHeadNodeArgs) StormClusterRolesHeadNodePtrInput {
-	return (*stormClusterRolesHeadNodePtrType)(v)
-}
-
-func (*stormClusterRolesHeadNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StormClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (i *stormClusterRolesHeadNodePtrType) ToStormClusterRolesHeadNodePtrOutput() StormClusterRolesHeadNodePtrOutput {
-	return i.ToStormClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (i *stormClusterRolesHeadNodePtrType) ToStormClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) StormClusterRolesHeadNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesHeadNodePtrOutput)
-}
-
 type StormClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (StormClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -21438,16 +15843,6 @@ func (o StormClusterRolesHeadNodeOutput) ToStormClusterRolesHeadNodeOutput() Sto
 
 func (o StormClusterRolesHeadNodeOutput) ToStormClusterRolesHeadNodeOutputWithContext(ctx context.Context) StormClusterRolesHeadNodeOutput {
 	return o
-}
-
-func (o StormClusterRolesHeadNodeOutput) ToStormClusterRolesHeadNodePtrOutput() StormClusterRolesHeadNodePtrOutput {
-	return o.ToStormClusterRolesHeadNodePtrOutputWithContext(context.Background())
-}
-
-func (o StormClusterRolesHeadNodeOutput) ToStormClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) StormClusterRolesHeadNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterRolesHeadNode) *StormClusterRolesHeadNode {
-		return &v
-	}).(StormClusterRolesHeadNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -21478,90 +15873,6 @@ func (o StormClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringPtrOutp
 // The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
 func (o StormClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v StormClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type StormClusterRolesHeadNodePtrOutput struct{ *pulumi.OutputState }
-
-func (StormClusterRolesHeadNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StormClusterRolesHeadNode)(nil)).Elem()
-}
-
-func (o StormClusterRolesHeadNodePtrOutput) ToStormClusterRolesHeadNodePtrOutput() StormClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o StormClusterRolesHeadNodePtrOutput) ToStormClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) StormClusterRolesHeadNodePtrOutput {
-	return o
-}
-
-func (o StormClusterRolesHeadNodePtrOutput) Elem() StormClusterRolesHeadNodeOutput {
-	return o.ApplyT(func(v *StormClusterRolesHeadNode) StormClusterRolesHeadNode {
-		if v != nil {
-			return *v
-		}
-		var ret StormClusterRolesHeadNode
-		return ret
-	}).(StormClusterRolesHeadNodeOutput)
-}
-
-// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o StormClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-func (o StormClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StormClusterRolesHeadNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o StormClusterRolesHeadNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-func (o StormClusterRolesHeadNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o StormClusterRolesHeadNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-func (o StormClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesHeadNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type StormClusterRolesWorkerNode struct {
@@ -21629,47 +15940,6 @@ func (i StormClusterRolesWorkerNodeArgs) ToStormClusterRolesWorkerNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesWorkerNodeOutput)
 }
 
-func (i StormClusterRolesWorkerNodeArgs) ToStormClusterRolesWorkerNodePtrOutput() StormClusterRolesWorkerNodePtrOutput {
-	return i.ToStormClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i StormClusterRolesWorkerNodeArgs) ToStormClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) StormClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesWorkerNodeOutput).ToStormClusterRolesWorkerNodePtrOutputWithContext(ctx)
-}
-
-// StormClusterRolesWorkerNodePtrInput is an input type that accepts StormClusterRolesWorkerNodeArgs, StormClusterRolesWorkerNodePtr and StormClusterRolesWorkerNodePtrOutput values.
-// You can construct a concrete instance of `StormClusterRolesWorkerNodePtrInput` via:
-//
-//          StormClusterRolesWorkerNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type StormClusterRolesWorkerNodePtrInput interface {
-	pulumi.Input
-
-	ToStormClusterRolesWorkerNodePtrOutput() StormClusterRolesWorkerNodePtrOutput
-	ToStormClusterRolesWorkerNodePtrOutputWithContext(context.Context) StormClusterRolesWorkerNodePtrOutput
-}
-
-type stormClusterRolesWorkerNodePtrType StormClusterRolesWorkerNodeArgs
-
-func StormClusterRolesWorkerNodePtr(v *StormClusterRolesWorkerNodeArgs) StormClusterRolesWorkerNodePtrInput {
-	return (*stormClusterRolesWorkerNodePtrType)(v)
-}
-
-func (*stormClusterRolesWorkerNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StormClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (i *stormClusterRolesWorkerNodePtrType) ToStormClusterRolesWorkerNodePtrOutput() StormClusterRolesWorkerNodePtrOutput {
-	return i.ToStormClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (i *stormClusterRolesWorkerNodePtrType) ToStormClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) StormClusterRolesWorkerNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesWorkerNodePtrOutput)
-}
-
 type StormClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (StormClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -21682,16 +15952,6 @@ func (o StormClusterRolesWorkerNodeOutput) ToStormClusterRolesWorkerNodeOutput()
 
 func (o StormClusterRolesWorkerNodeOutput) ToStormClusterRolesWorkerNodeOutputWithContext(ctx context.Context) StormClusterRolesWorkerNodeOutput {
 	return o
-}
-
-func (o StormClusterRolesWorkerNodeOutput) ToStormClusterRolesWorkerNodePtrOutput() StormClusterRolesWorkerNodePtrOutput {
-	return o.ToStormClusterRolesWorkerNodePtrOutputWithContext(context.Background())
-}
-
-func (o StormClusterRolesWorkerNodeOutput) ToStormClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) StormClusterRolesWorkerNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterRolesWorkerNode) *StormClusterRolesWorkerNode {
-		return &v
-	}).(StormClusterRolesWorkerNodePtrOutput)
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
@@ -21734,112 +15994,6 @@ func (o StormClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringPtrOu
 // The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
 func (o StormClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v StormClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type StormClusterRolesWorkerNodePtrOutput struct{ *pulumi.OutputState }
-
-func (StormClusterRolesWorkerNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StormClusterRolesWorkerNode)(nil)).Elem()
-}
-
-func (o StormClusterRolesWorkerNodePtrOutput) ToStormClusterRolesWorkerNodePtrOutput() StormClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o StormClusterRolesWorkerNodePtrOutput) ToStormClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) StormClusterRolesWorkerNodePtrOutput {
-	return o
-}
-
-func (o StormClusterRolesWorkerNodePtrOutput) Elem() StormClusterRolesWorkerNodeOutput {
-	return o.ApplyT(func(v *StormClusterRolesWorkerNode) StormClusterRolesWorkerNode {
-		if v != nil {
-			return *v
-		}
-		var ret StormClusterRolesWorkerNode
-		return ret
-	}).(StormClusterRolesWorkerNodeOutput)
-}
-
-// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-//
-// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
-func (o StormClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o StormClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-func (o StormClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StormClusterRolesWorkerNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o StormClusterRolesWorkerNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of instances which should be run for the Worker Nodes.
-func (o StormClusterRolesWorkerNodePtrOutput) TargetInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesWorkerNode) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-func (o StormClusterRolesWorkerNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o StormClusterRolesWorkerNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-func (o StormClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesWorkerNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type StormClusterRolesZookeeperNode struct {
@@ -21895,47 +16049,6 @@ func (i StormClusterRolesZookeeperNodeArgs) ToStormClusterRolesZookeeperNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesZookeeperNodeOutput)
 }
 
-func (i StormClusterRolesZookeeperNodeArgs) ToStormClusterRolesZookeeperNodePtrOutput() StormClusterRolesZookeeperNodePtrOutput {
-	return i.ToStormClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i StormClusterRolesZookeeperNodeArgs) ToStormClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) StormClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesZookeeperNodeOutput).ToStormClusterRolesZookeeperNodePtrOutputWithContext(ctx)
-}
-
-// StormClusterRolesZookeeperNodePtrInput is an input type that accepts StormClusterRolesZookeeperNodeArgs, StormClusterRolesZookeeperNodePtr and StormClusterRolesZookeeperNodePtrOutput values.
-// You can construct a concrete instance of `StormClusterRolesZookeeperNodePtrInput` via:
-//
-//          StormClusterRolesZookeeperNodeArgs{...}
-//
-//  or:
-//
-//          nil
-type StormClusterRolesZookeeperNodePtrInput interface {
-	pulumi.Input
-
-	ToStormClusterRolesZookeeperNodePtrOutput() StormClusterRolesZookeeperNodePtrOutput
-	ToStormClusterRolesZookeeperNodePtrOutputWithContext(context.Context) StormClusterRolesZookeeperNodePtrOutput
-}
-
-type stormClusterRolesZookeeperNodePtrType StormClusterRolesZookeeperNodeArgs
-
-func StormClusterRolesZookeeperNodePtr(v *StormClusterRolesZookeeperNodeArgs) StormClusterRolesZookeeperNodePtrInput {
-	return (*stormClusterRolesZookeeperNodePtrType)(v)
-}
-
-func (*stormClusterRolesZookeeperNodePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StormClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (i *stormClusterRolesZookeeperNodePtrType) ToStormClusterRolesZookeeperNodePtrOutput() StormClusterRolesZookeeperNodePtrOutput {
-	return i.ToStormClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (i *stormClusterRolesZookeeperNodePtrType) ToStormClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) StormClusterRolesZookeeperNodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StormClusterRolesZookeeperNodePtrOutput)
-}
-
 type StormClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (StormClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -21948,16 +16061,6 @@ func (o StormClusterRolesZookeeperNodeOutput) ToStormClusterRolesZookeeperNodeOu
 
 func (o StormClusterRolesZookeeperNodeOutput) ToStormClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) StormClusterRolesZookeeperNodeOutput {
 	return o
-}
-
-func (o StormClusterRolesZookeeperNodeOutput) ToStormClusterRolesZookeeperNodePtrOutput() StormClusterRolesZookeeperNodePtrOutput {
-	return o.ToStormClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
-}
-
-func (o StormClusterRolesZookeeperNodeOutput) ToStormClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) StormClusterRolesZookeeperNodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StormClusterRolesZookeeperNode) *StormClusterRolesZookeeperNode {
-		return &v
-	}).(StormClusterRolesZookeeperNodePtrOutput)
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -21988,90 +16091,6 @@ func (o StormClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringPt
 // The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
 func (o StormClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v StormClusterRolesZookeeperNode) string { return v.VmSize }).(pulumi.StringOutput)
-}
-
-type StormClusterRolesZookeeperNodePtrOutput struct{ *pulumi.OutputState }
-
-func (StormClusterRolesZookeeperNodePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StormClusterRolesZookeeperNode)(nil)).Elem()
-}
-
-func (o StormClusterRolesZookeeperNodePtrOutput) ToStormClusterRolesZookeeperNodePtrOutput() StormClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o StormClusterRolesZookeeperNodePtrOutput) ToStormClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) StormClusterRolesZookeeperNodePtrOutput {
-	return o
-}
-
-func (o StormClusterRolesZookeeperNodePtrOutput) Elem() StormClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v *StormClusterRolesZookeeperNode) StormClusterRolesZookeeperNode {
-		if v != nil {
-			return *v
-		}
-		var ret StormClusterRolesZookeeperNode
-		return ret
-	}).(StormClusterRolesZookeeperNodeOutput)
-}
-
-// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o StormClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o StormClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StormClusterRolesZookeeperNode) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKeys
-	}).(pulumi.StringArrayOutput)
-}
-
-// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o StormClusterRolesZookeeperNodePtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o StormClusterRolesZookeeperNodePtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Username
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-func (o StormClusterRolesZookeeperNodePtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-func (o StormClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StormClusterRolesZookeeperNode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 type StormClusterStorageAccount struct {
@@ -22306,9 +16325,7 @@ func (o GetClusterGatewayArrayOutput) Index(i pulumi.IntInput) GetClusterGateway
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterComponentVersionInput)(nil)).Elem(), HBaseClusterComponentVersionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterComponentVersionPtrInput)(nil)).Elem(), HBaseClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterGatewayInput)(nil)).Elem(), HBaseClusterGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterGatewayPtrInput)(nil)).Elem(), HBaseClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterMetastoresInput)(nil)).Elem(), HBaseClusterMetastoresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterMetastoresPtrInput)(nil)).Elem(), HBaseClusterMetastoresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterMetastoresAmbariInput)(nil)).Elem(), HBaseClusterMetastoresAmbariArgs{})
@@ -22320,11 +16337,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterMonitorInput)(nil)).Elem(), HBaseClusterMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterMonitorPtrInput)(nil)).Elem(), HBaseClusterMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesInput)(nil)).Elem(), HBaseClusterRolesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesPtrInput)(nil)).Elem(), HBaseClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesHeadNodeInput)(nil)).Elem(), HBaseClusterRolesHeadNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesHeadNodePtrInput)(nil)).Elem(), HBaseClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodePtrInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscaleInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeAutoscaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscalePtrInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeAutoscaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscaleRecurrenceInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs{})
@@ -22332,7 +16346,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput)(nil)).Elem(), HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesZookeeperNodeInput)(nil)).Elem(), HBaseClusterRolesZookeeperNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesZookeeperNodePtrInput)(nil)).Elem(), HBaseClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterSecurityProfileInput)(nil)).Elem(), HBaseClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterSecurityProfilePtrInput)(nil)).Elem(), HBaseClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterStorageAccountInput)(nil)).Elem(), HBaseClusterStorageAccountArgs{})
@@ -22340,9 +16353,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterStorageAccountGen2Input)(nil)).Elem(), HBaseClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterStorageAccountGen2PtrInput)(nil)).Elem(), HBaseClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterComponentVersionInput)(nil)).Elem(), HadoopClusterComponentVersionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterComponentVersionPtrInput)(nil)).Elem(), HadoopClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterGatewayInput)(nil)).Elem(), HadoopClusterGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterGatewayPtrInput)(nil)).Elem(), HadoopClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterMetastoresInput)(nil)).Elem(), HadoopClusterMetastoresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterMetastoresPtrInput)(nil)).Elem(), HadoopClusterMetastoresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterMetastoresAmbariInput)(nil)).Elem(), HadoopClusterMetastoresAmbariArgs{})
@@ -22356,15 +16367,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterNetworkInput)(nil)).Elem(), HadoopClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterNetworkPtrInput)(nil)).Elem(), HadoopClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesInput)(nil)).Elem(), HadoopClusterRolesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesPtrInput)(nil)).Elem(), HadoopClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodeInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodePtrInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodeInstallScriptActionInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeInstallScriptActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesEdgeNodeInstallScriptActionArrayInput)(nil)).Elem(), HadoopClusterRolesEdgeNodeInstallScriptActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesHeadNodeInput)(nil)).Elem(), HadoopClusterRolesHeadNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesHeadNodePtrInput)(nil)).Elem(), HadoopClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodePtrInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeAutoscaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscalePtrInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeAutoscaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleCapacityInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs{})
@@ -22374,7 +16382,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput)(nil)).Elem(), HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesZookeeperNodeInput)(nil)).Elem(), HadoopClusterRolesZookeeperNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterRolesZookeeperNodePtrInput)(nil)).Elem(), HadoopClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterSecurityProfileInput)(nil)).Elem(), HadoopClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterSecurityProfilePtrInput)(nil)).Elem(), HadoopClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterStorageAccountInput)(nil)).Elem(), HadoopClusterStorageAccountArgs{})
@@ -22382,9 +16389,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterStorageAccountGen2Input)(nil)).Elem(), HadoopClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterStorageAccountGen2PtrInput)(nil)).Elem(), HadoopClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterComponentVersionInput)(nil)).Elem(), InteractiveQueryClusterComponentVersionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterComponentVersionPtrInput)(nil)).Elem(), InteractiveQueryClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterGatewayInput)(nil)).Elem(), InteractiveQueryClusterGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterGatewayPtrInput)(nil)).Elem(), InteractiveQueryClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterMetastoresInput)(nil)).Elem(), InteractiveQueryClusterMetastoresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterMetastoresPtrInput)(nil)).Elem(), InteractiveQueryClusterMetastoresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterMetastoresAmbariInput)(nil)).Elem(), InteractiveQueryClusterMetastoresAmbariArgs{})
@@ -22398,11 +16403,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterNetworkInput)(nil)).Elem(), InteractiveQueryClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterNetworkPtrInput)(nil)).Elem(), InteractiveQueryClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesInput)(nil)).Elem(), InteractiveQueryClusterRolesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesPtrInput)(nil)).Elem(), InteractiveQueryClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesHeadNodeInput)(nil)).Elem(), InteractiveQueryClusterRolesHeadNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesHeadNodePtrInput)(nil)).Elem(), InteractiveQueryClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodePtrInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs{})
@@ -22412,7 +16414,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput)(nil)).Elem(), InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesZookeeperNodeInput)(nil)).Elem(), InteractiveQueryClusterRolesZookeeperNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterRolesZookeeperNodePtrInput)(nil)).Elem(), InteractiveQueryClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterSecurityProfileInput)(nil)).Elem(), InteractiveQueryClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterSecurityProfilePtrInput)(nil)).Elem(), InteractiveQueryClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterStorageAccountInput)(nil)).Elem(), InteractiveQueryClusterStorageAccountArgs{})
@@ -22420,9 +16421,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterStorageAccountGen2Input)(nil)).Elem(), InteractiveQueryClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterStorageAccountGen2PtrInput)(nil)).Elem(), InteractiveQueryClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterComponentVersionInput)(nil)).Elem(), KafkaClusterComponentVersionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterComponentVersionPtrInput)(nil)).Elem(), KafkaClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterGatewayInput)(nil)).Elem(), KafkaClusterGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterGatewayPtrInput)(nil)).Elem(), KafkaClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterMetastoresInput)(nil)).Elem(), KafkaClusterMetastoresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterMetastoresPtrInput)(nil)).Elem(), KafkaClusterMetastoresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterMetastoresAmbariInput)(nil)).Elem(), KafkaClusterMetastoresAmbariArgs{})
@@ -22436,15 +16435,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRestProxyInput)(nil)).Elem(), KafkaClusterRestProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRestProxyPtrInput)(nil)).Elem(), KafkaClusterRestProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesInput)(nil)).Elem(), KafkaClusterRolesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesPtrInput)(nil)).Elem(), KafkaClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesHeadNodeInput)(nil)).Elem(), KafkaClusterRolesHeadNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesHeadNodePtrInput)(nil)).Elem(), KafkaClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesKafkaManagementNodeInput)(nil)).Elem(), KafkaClusterRolesKafkaManagementNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesKafkaManagementNodePtrInput)(nil)).Elem(), KafkaClusterRolesKafkaManagementNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesWorkerNodeInput)(nil)).Elem(), KafkaClusterRolesWorkerNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesWorkerNodePtrInput)(nil)).Elem(), KafkaClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesZookeeperNodeInput)(nil)).Elem(), KafkaClusterRolesZookeeperNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterRolesZookeeperNodePtrInput)(nil)).Elem(), KafkaClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterSecurityProfileInput)(nil)).Elem(), KafkaClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterSecurityProfilePtrInput)(nil)).Elem(), KafkaClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterStorageAccountInput)(nil)).Elem(), KafkaClusterStorageAccountArgs{})
@@ -22452,37 +16447,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterStorageAccountGen2Input)(nil)).Elem(), KafkaClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterStorageAccountGen2PtrInput)(nil)).Elem(), KafkaClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterGatewayInput)(nil)).Elem(), MLServicesClusterGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterGatewayPtrInput)(nil)).Elem(), MLServicesClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterRolesInput)(nil)).Elem(), MLServicesClusterRolesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterRolesPtrInput)(nil)).Elem(), MLServicesClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterRolesEdgeNodeInput)(nil)).Elem(), MLServicesClusterRolesEdgeNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterRolesEdgeNodePtrInput)(nil)).Elem(), MLServicesClusterRolesEdgeNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterRolesHeadNodeInput)(nil)).Elem(), MLServicesClusterRolesHeadNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterRolesHeadNodePtrInput)(nil)).Elem(), MLServicesClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterRolesWorkerNodeInput)(nil)).Elem(), MLServicesClusterRolesWorkerNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterRolesWorkerNodePtrInput)(nil)).Elem(), MLServicesClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterRolesZookeeperNodeInput)(nil)).Elem(), MLServicesClusterRolesZookeeperNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterRolesZookeeperNodePtrInput)(nil)).Elem(), MLServicesClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterStorageAccountInput)(nil)).Elem(), MLServicesClusterStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLServicesClusterStorageAccountArrayInput)(nil)).Elem(), MLServicesClusterStorageAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterGatewayInput)(nil)).Elem(), RServerClusterGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterGatewayPtrInput)(nil)).Elem(), RServerClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterRolesInput)(nil)).Elem(), RServerClusterRolesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterRolesPtrInput)(nil)).Elem(), RServerClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterRolesEdgeNodeInput)(nil)).Elem(), RServerClusterRolesEdgeNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterRolesEdgeNodePtrInput)(nil)).Elem(), RServerClusterRolesEdgeNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterRolesHeadNodeInput)(nil)).Elem(), RServerClusterRolesHeadNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterRolesHeadNodePtrInput)(nil)).Elem(), RServerClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterRolesWorkerNodeInput)(nil)).Elem(), RServerClusterRolesWorkerNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterRolesWorkerNodePtrInput)(nil)).Elem(), RServerClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterRolesZookeeperNodeInput)(nil)).Elem(), RServerClusterRolesZookeeperNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterRolesZookeeperNodePtrInput)(nil)).Elem(), RServerClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterStorageAccountInput)(nil)).Elem(), RServerClusterStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RServerClusterStorageAccountArrayInput)(nil)).Elem(), RServerClusterStorageAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterComponentVersionInput)(nil)).Elem(), SparkClusterComponentVersionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterComponentVersionPtrInput)(nil)).Elem(), SparkClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterGatewayInput)(nil)).Elem(), SparkClusterGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterGatewayPtrInput)(nil)).Elem(), SparkClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterMetastoresInput)(nil)).Elem(), SparkClusterMetastoresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterMetastoresPtrInput)(nil)).Elem(), SparkClusterMetastoresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterMetastoresAmbariInput)(nil)).Elem(), SparkClusterMetastoresAmbariArgs{})
@@ -22496,11 +16477,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterNetworkInput)(nil)).Elem(), SparkClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterNetworkPtrInput)(nil)).Elem(), SparkClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesInput)(nil)).Elem(), SparkClusterRolesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesPtrInput)(nil)).Elem(), SparkClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesHeadNodeInput)(nil)).Elem(), SparkClusterRolesHeadNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesHeadNodePtrInput)(nil)).Elem(), SparkClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeInput)(nil)).Elem(), SparkClusterRolesWorkerNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodePtrInput)(nil)).Elem(), SparkClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleInput)(nil)).Elem(), SparkClusterRolesWorkerNodeAutoscaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscalePtrInput)(nil)).Elem(), SparkClusterRolesWorkerNodeAutoscaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleCapacityInput)(nil)).Elem(), SparkClusterRolesWorkerNodeAutoscaleCapacityArgs{})
@@ -22510,7 +16488,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput)(nil)).Elem(), SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput)(nil)).Elem(), SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesZookeeperNodeInput)(nil)).Elem(), SparkClusterRolesZookeeperNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterRolesZookeeperNodePtrInput)(nil)).Elem(), SparkClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterSecurityProfileInput)(nil)).Elem(), SparkClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterSecurityProfilePtrInput)(nil)).Elem(), SparkClusterSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterStorageAccountInput)(nil)).Elem(), SparkClusterStorageAccountArgs{})
@@ -22518,9 +16495,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterStorageAccountGen2Input)(nil)).Elem(), SparkClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterStorageAccountGen2PtrInput)(nil)).Elem(), SparkClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterComponentVersionInput)(nil)).Elem(), StormClusterComponentVersionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterComponentVersionPtrInput)(nil)).Elem(), StormClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterGatewayInput)(nil)).Elem(), StormClusterGatewayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterGatewayPtrInput)(nil)).Elem(), StormClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterMetastoresInput)(nil)).Elem(), StormClusterMetastoresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterMetastoresPtrInput)(nil)).Elem(), StormClusterMetastoresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterMetastoresAmbariInput)(nil)).Elem(), StormClusterMetastoresAmbariArgs{})
@@ -22532,21 +16507,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterMonitorInput)(nil)).Elem(), StormClusterMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterMonitorPtrInput)(nil)).Elem(), StormClusterMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterRolesInput)(nil)).Elem(), StormClusterRolesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterRolesPtrInput)(nil)).Elem(), StormClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterRolesHeadNodeInput)(nil)).Elem(), StormClusterRolesHeadNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterRolesHeadNodePtrInput)(nil)).Elem(), StormClusterRolesHeadNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterRolesWorkerNodeInput)(nil)).Elem(), StormClusterRolesWorkerNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterRolesWorkerNodePtrInput)(nil)).Elem(), StormClusterRolesWorkerNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterRolesZookeeperNodeInput)(nil)).Elem(), StormClusterRolesZookeeperNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterRolesZookeeperNodePtrInput)(nil)).Elem(), StormClusterRolesZookeeperNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterStorageAccountInput)(nil)).Elem(), StormClusterStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StormClusterStorageAccountArrayInput)(nil)).Elem(), StormClusterStorageAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterGatewayInput)(nil)).Elem(), GetClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterGatewayArrayInput)(nil)).Elem(), GetClusterGatewayArray{})
 	pulumi.RegisterOutputType(HBaseClusterComponentVersionOutput{})
-	pulumi.RegisterOutputType(HBaseClusterComponentVersionPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterGatewayOutput{})
-	pulumi.RegisterOutputType(HBaseClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterMetastoresOutput{})
 	pulumi.RegisterOutputType(HBaseClusterMetastoresPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterMetastoresAmbariOutput{})
@@ -22558,11 +16527,8 @@ func init() {
 	pulumi.RegisterOutputType(HBaseClusterMonitorOutput{})
 	pulumi.RegisterOutputType(HBaseClusterMonitorPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesOutput{})
-	pulumi.RegisterOutputType(HBaseClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesHeadNodeOutput{})
-	pulumi.RegisterOutputType(HBaseClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeOutput{})
-	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscalePtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput{})
@@ -22570,7 +16536,6 @@ func init() {
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesZookeeperNodeOutput{})
-	pulumi.RegisterOutputType(HBaseClusterRolesZookeeperNodePtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterSecurityProfileOutput{})
 	pulumi.RegisterOutputType(HBaseClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterStorageAccountOutput{})
@@ -22578,9 +16543,7 @@ func init() {
 	pulumi.RegisterOutputType(HBaseClusterStorageAccountGen2Output{})
 	pulumi.RegisterOutputType(HBaseClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterComponentVersionOutput{})
-	pulumi.RegisterOutputType(HadoopClusterComponentVersionPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterGatewayOutput{})
-	pulumi.RegisterOutputType(HadoopClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterMetastoresOutput{})
 	pulumi.RegisterOutputType(HadoopClusterMetastoresPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterMetastoresAmbariOutput{})
@@ -22594,15 +16557,12 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterNetworkOutput{})
 	pulumi.RegisterOutputType(HadoopClusterNetworkPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesOutput{})
-	pulumi.RegisterOutputType(HadoopClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeInstallScriptActionOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesHeadNodeOutput{})
-	pulumi.RegisterOutputType(HadoopClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeOutput{})
-	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscalePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput{})
@@ -22612,7 +16572,6 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesZookeeperNodeOutput{})
-	pulumi.RegisterOutputType(HadoopClusterRolesZookeeperNodePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterSecurityProfileOutput{})
 	pulumi.RegisterOutputType(HadoopClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterStorageAccountOutput{})
@@ -22620,9 +16579,7 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterStorageAccountGen2Output{})
 	pulumi.RegisterOutputType(HadoopClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterComponentVersionOutput{})
-	pulumi.RegisterOutputType(InteractiveQueryClusterComponentVersionPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterGatewayOutput{})
-	pulumi.RegisterOutputType(InteractiveQueryClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterMetastoresOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterMetastoresPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterMetastoresAmbariOutput{})
@@ -22636,11 +16593,8 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterNetworkOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterNetworkPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesOutput{})
-	pulumi.RegisterOutputType(InteractiveQueryClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesHeadNodeOutput{})
-	pulumi.RegisterOutputType(InteractiveQueryClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeOutput{})
-	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput{})
@@ -22650,7 +16604,6 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesZookeeperNodeOutput{})
-	pulumi.RegisterOutputType(InteractiveQueryClusterRolesZookeeperNodePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterSecurityProfileOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountOutput{})
@@ -22658,9 +16611,7 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountGen2Output{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterComponentVersionOutput{})
-	pulumi.RegisterOutputType(KafkaClusterComponentVersionPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterGatewayOutput{})
-	pulumi.RegisterOutputType(KafkaClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterMetastoresOutput{})
 	pulumi.RegisterOutputType(KafkaClusterMetastoresPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterMetastoresAmbariOutput{})
@@ -22674,15 +16625,11 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterRestProxyOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRestProxyPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesOutput{})
-	pulumi.RegisterOutputType(KafkaClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesHeadNodeOutput{})
-	pulumi.RegisterOutputType(KafkaClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesKafkaManagementNodeOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesKafkaManagementNodePtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesWorkerNodeOutput{})
-	pulumi.RegisterOutputType(KafkaClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterRolesZookeeperNodeOutput{})
-	pulumi.RegisterOutputType(KafkaClusterRolesZookeeperNodePtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterSecurityProfileOutput{})
 	pulumi.RegisterOutputType(KafkaClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterStorageAccountOutput{})
@@ -22690,37 +16637,23 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterStorageAccountGen2Output{})
 	pulumi.RegisterOutputType(KafkaClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(MLServicesClusterGatewayOutput{})
-	pulumi.RegisterOutputType(MLServicesClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(MLServicesClusterRolesOutput{})
-	pulumi.RegisterOutputType(MLServicesClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(MLServicesClusterRolesEdgeNodeOutput{})
-	pulumi.RegisterOutputType(MLServicesClusterRolesEdgeNodePtrOutput{})
 	pulumi.RegisterOutputType(MLServicesClusterRolesHeadNodeOutput{})
-	pulumi.RegisterOutputType(MLServicesClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(MLServicesClusterRolesWorkerNodeOutput{})
-	pulumi.RegisterOutputType(MLServicesClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(MLServicesClusterRolesZookeeperNodeOutput{})
-	pulumi.RegisterOutputType(MLServicesClusterRolesZookeeperNodePtrOutput{})
 	pulumi.RegisterOutputType(MLServicesClusterStorageAccountOutput{})
 	pulumi.RegisterOutputType(MLServicesClusterStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(RServerClusterGatewayOutput{})
-	pulumi.RegisterOutputType(RServerClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(RServerClusterRolesOutput{})
-	pulumi.RegisterOutputType(RServerClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(RServerClusterRolesEdgeNodeOutput{})
-	pulumi.RegisterOutputType(RServerClusterRolesEdgeNodePtrOutput{})
 	pulumi.RegisterOutputType(RServerClusterRolesHeadNodeOutput{})
-	pulumi.RegisterOutputType(RServerClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(RServerClusterRolesWorkerNodeOutput{})
-	pulumi.RegisterOutputType(RServerClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(RServerClusterRolesZookeeperNodeOutput{})
-	pulumi.RegisterOutputType(RServerClusterRolesZookeeperNodePtrOutput{})
 	pulumi.RegisterOutputType(RServerClusterStorageAccountOutput{})
 	pulumi.RegisterOutputType(RServerClusterStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(SparkClusterComponentVersionOutput{})
-	pulumi.RegisterOutputType(SparkClusterComponentVersionPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterGatewayOutput{})
-	pulumi.RegisterOutputType(SparkClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterMetastoresOutput{})
 	pulumi.RegisterOutputType(SparkClusterMetastoresPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterMetastoresAmbariOutput{})
@@ -22734,11 +16667,8 @@ func init() {
 	pulumi.RegisterOutputType(SparkClusterNetworkOutput{})
 	pulumi.RegisterOutputType(SparkClusterNetworkPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesOutput{})
-	pulumi.RegisterOutputType(SparkClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesHeadNodeOutput{})
-	pulumi.RegisterOutputType(SparkClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeOutput{})
-	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscalePtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleCapacityOutput{})
@@ -22748,7 +16678,6 @@ func init() {
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesZookeeperNodeOutput{})
-	pulumi.RegisterOutputType(SparkClusterRolesZookeeperNodePtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterSecurityProfileOutput{})
 	pulumi.RegisterOutputType(SparkClusterSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterStorageAccountOutput{})
@@ -22756,9 +16685,7 @@ func init() {
 	pulumi.RegisterOutputType(SparkClusterStorageAccountGen2Output{})
 	pulumi.RegisterOutputType(SparkClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(StormClusterComponentVersionOutput{})
-	pulumi.RegisterOutputType(StormClusterComponentVersionPtrOutput{})
 	pulumi.RegisterOutputType(StormClusterGatewayOutput{})
-	pulumi.RegisterOutputType(StormClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(StormClusterMetastoresOutput{})
 	pulumi.RegisterOutputType(StormClusterMetastoresPtrOutput{})
 	pulumi.RegisterOutputType(StormClusterMetastoresAmbariOutput{})
@@ -22770,13 +16697,9 @@ func init() {
 	pulumi.RegisterOutputType(StormClusterMonitorOutput{})
 	pulumi.RegisterOutputType(StormClusterMonitorPtrOutput{})
 	pulumi.RegisterOutputType(StormClusterRolesOutput{})
-	pulumi.RegisterOutputType(StormClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(StormClusterRolesHeadNodeOutput{})
-	pulumi.RegisterOutputType(StormClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(StormClusterRolesWorkerNodeOutput{})
-	pulumi.RegisterOutputType(StormClusterRolesWorkerNodePtrOutput{})
 	pulumi.RegisterOutputType(StormClusterRolesZookeeperNodeOutput{})
-	pulumi.RegisterOutputType(StormClusterRolesZookeeperNodePtrOutput{})
 	pulumi.RegisterOutputType(StormClusterStorageAccountOutput{})
 	pulumi.RegisterOutputType(StormClusterStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterGatewayOutput{})

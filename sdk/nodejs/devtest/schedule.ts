@@ -121,22 +121,22 @@ export class Schedule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
-            inputs["dailyRecurrence"] = state ? state.dailyRecurrence : undefined;
-            inputs["hourlyRecurrence"] = state ? state.hourlyRecurrence : undefined;
-            inputs["labName"] = state ? state.labName : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notificationSettings"] = state ? state.notificationSettings : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["taskType"] = state ? state.taskType : undefined;
-            inputs["timeZoneId"] = state ? state.timeZoneId : undefined;
-            inputs["weeklyRecurrence"] = state ? state.weeklyRecurrence : undefined;
+            resourceInputs["dailyRecurrence"] = state ? state.dailyRecurrence : undefined;
+            resourceInputs["hourlyRecurrence"] = state ? state.hourlyRecurrence : undefined;
+            resourceInputs["labName"] = state ? state.labName : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationSettings"] = state ? state.notificationSettings : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["taskType"] = state ? state.taskType : undefined;
+            resourceInputs["timeZoneId"] = state ? state.timeZoneId : undefined;
+            resourceInputs["weeklyRecurrence"] = state ? state.weeklyRecurrence : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
             if ((!args || args.labName === undefined) && !opts.urn) {
@@ -154,23 +154,23 @@ export class Schedule extends pulumi.CustomResource {
             if ((!args || args.timeZoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeZoneId'");
             }
-            inputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
-            inputs["hourlyRecurrence"] = args ? args.hourlyRecurrence : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationSettings"] = args ? args.notificationSettings : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["taskType"] = args ? args.taskType : undefined;
-            inputs["timeZoneId"] = args ? args.timeZoneId : undefined;
-            inputs["weeklyRecurrence"] = args ? args.weeklyRecurrence : undefined;
+            resourceInputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
+            resourceInputs["hourlyRecurrence"] = args ? args.hourlyRecurrence : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationSettings"] = args ? args.notificationSettings : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taskType"] = args ? args.taskType : undefined;
+            resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
+            resourceInputs["weeklyRecurrence"] = args ? args.weeklyRecurrence : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Schedule.__pulumiType, name, inputs, opts);
+        super(Schedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

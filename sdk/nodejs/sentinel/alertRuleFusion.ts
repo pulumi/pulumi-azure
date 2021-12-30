@@ -98,14 +98,14 @@ export class AlertRuleFusion extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlertRuleFusionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlertRuleFusionArgs | AlertRuleFusionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertRuleFusionState | undefined;
-            inputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as AlertRuleFusionArgs | undefined;
             if ((!args || args.alertRuleTemplateGuid === undefined) && !opts.urn) {
@@ -114,15 +114,15 @@ export class AlertRuleFusion extends pulumi.CustomResource {
             if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            inputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AlertRuleFusion.__pulumiType, name, inputs, opts);
+        super(AlertRuleFusion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

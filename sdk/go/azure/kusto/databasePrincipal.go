@@ -260,7 +260,7 @@ type DatabasePrincipalInput interface {
 }
 
 func (*DatabasePrincipal) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipal)(nil))
+	return reflect.TypeOf((**DatabasePrincipal)(nil)).Elem()
 }
 
 func (i *DatabasePrincipal) ToDatabasePrincipalOutput() DatabasePrincipalOutput {
@@ -269,35 +269,6 @@ func (i *DatabasePrincipal) ToDatabasePrincipalOutput() DatabasePrincipalOutput 
 
 func (i *DatabasePrincipal) ToDatabasePrincipalOutputWithContext(ctx context.Context) DatabasePrincipalOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalOutput)
-}
-
-func (i *DatabasePrincipal) ToDatabasePrincipalPtrOutput() DatabasePrincipalPtrOutput {
-	return i.ToDatabasePrincipalPtrOutputWithContext(context.Background())
-}
-
-func (i *DatabasePrincipal) ToDatabasePrincipalPtrOutputWithContext(ctx context.Context) DatabasePrincipalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalPtrOutput)
-}
-
-type DatabasePrincipalPtrInput interface {
-	pulumi.Input
-
-	ToDatabasePrincipalPtrOutput() DatabasePrincipalPtrOutput
-	ToDatabasePrincipalPtrOutputWithContext(ctx context.Context) DatabasePrincipalPtrOutput
-}
-
-type databasePrincipalPtrType DatabasePrincipalArgs
-
-func (*databasePrincipalPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabasePrincipal)(nil))
-}
-
-func (i *databasePrincipalPtrType) ToDatabasePrincipalPtrOutput() DatabasePrincipalPtrOutput {
-	return i.ToDatabasePrincipalPtrOutputWithContext(context.Background())
-}
-
-func (i *databasePrincipalPtrType) ToDatabasePrincipalPtrOutputWithContext(ctx context.Context) DatabasePrincipalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalPtrOutput)
 }
 
 // DatabasePrincipalArrayInput is an input type that accepts DatabasePrincipalArray and DatabasePrincipalArrayOutput values.
@@ -353,7 +324,7 @@ func (i DatabasePrincipalMap) ToDatabasePrincipalMapOutputWithContext(ctx contex
 type DatabasePrincipalOutput struct{ *pulumi.OutputState }
 
 func (DatabasePrincipalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipal)(nil))
+	return reflect.TypeOf((**DatabasePrincipal)(nil)).Elem()
 }
 
 func (o DatabasePrincipalOutput) ToDatabasePrincipalOutput() DatabasePrincipalOutput {
@@ -364,44 +335,10 @@ func (o DatabasePrincipalOutput) ToDatabasePrincipalOutputWithContext(ctx contex
 	return o
 }
 
-func (o DatabasePrincipalOutput) ToDatabasePrincipalPtrOutput() DatabasePrincipalPtrOutput {
-	return o.ToDatabasePrincipalPtrOutputWithContext(context.Background())
-}
-
-func (o DatabasePrincipalOutput) ToDatabasePrincipalPtrOutputWithContext(ctx context.Context) DatabasePrincipalPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabasePrincipal) *DatabasePrincipal {
-		return &v
-	}).(DatabasePrincipalPtrOutput)
-}
-
-type DatabasePrincipalPtrOutput struct{ *pulumi.OutputState }
-
-func (DatabasePrincipalPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabasePrincipal)(nil))
-}
-
-func (o DatabasePrincipalPtrOutput) ToDatabasePrincipalPtrOutput() DatabasePrincipalPtrOutput {
-	return o
-}
-
-func (o DatabasePrincipalPtrOutput) ToDatabasePrincipalPtrOutputWithContext(ctx context.Context) DatabasePrincipalPtrOutput {
-	return o
-}
-
-func (o DatabasePrincipalPtrOutput) Elem() DatabasePrincipalOutput {
-	return o.ApplyT(func(v *DatabasePrincipal) DatabasePrincipal {
-		if v != nil {
-			return *v
-		}
-		var ret DatabasePrincipal
-		return ret
-	}).(DatabasePrincipalOutput)
-}
-
 type DatabasePrincipalArrayOutput struct{ *pulumi.OutputState }
 
 func (DatabasePrincipalArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabasePrincipal)(nil))
+	return reflect.TypeOf((*[]*DatabasePrincipal)(nil)).Elem()
 }
 
 func (o DatabasePrincipalArrayOutput) ToDatabasePrincipalArrayOutput() DatabasePrincipalArrayOutput {
@@ -413,15 +350,15 @@ func (o DatabasePrincipalArrayOutput) ToDatabasePrincipalArrayOutputWithContext(
 }
 
 func (o DatabasePrincipalArrayOutput) Index(i pulumi.IntInput) DatabasePrincipalOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabasePrincipal {
-		return vs[0].([]DatabasePrincipal)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatabasePrincipal {
+		return vs[0].([]*DatabasePrincipal)[vs[1].(int)]
 	}).(DatabasePrincipalOutput)
 }
 
 type DatabasePrincipalMapOutput struct{ *pulumi.OutputState }
 
 func (DatabasePrincipalMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatabasePrincipal)(nil))
+	return reflect.TypeOf((*map[string]*DatabasePrincipal)(nil)).Elem()
 }
 
 func (o DatabasePrincipalMapOutput) ToDatabasePrincipalMapOutput() DatabasePrincipalMapOutput {
@@ -433,18 +370,16 @@ func (o DatabasePrincipalMapOutput) ToDatabasePrincipalMapOutputWithContext(ctx 
 }
 
 func (o DatabasePrincipalMapOutput) MapIndex(k pulumi.StringInput) DatabasePrincipalOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatabasePrincipal {
-		return vs[0].(map[string]DatabasePrincipal)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatabasePrincipal {
+		return vs[0].(map[string]*DatabasePrincipal)[vs[1].(string)]
 	}).(DatabasePrincipalOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalInput)(nil)).Elem(), &DatabasePrincipal{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalPtrInput)(nil)).Elem(), &DatabasePrincipal{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalArrayInput)(nil)).Elem(), DatabasePrincipalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalMapInput)(nil)).Elem(), DatabasePrincipalMap{})
 	pulumi.RegisterOutputType(DatabasePrincipalOutput{})
-	pulumi.RegisterOutputType(DatabasePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalArrayOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalMapOutput{})
 }

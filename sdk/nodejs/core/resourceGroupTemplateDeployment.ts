@@ -91,19 +91,19 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResourceGroupTemplateDeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceGroupTemplateDeploymentArgs | ResourceGroupTemplateDeploymentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceGroupTemplateDeploymentState | undefined;
-            inputs["debugLevel"] = state ? state.debugLevel : undefined;
-            inputs["deploymentMode"] = state ? state.deploymentMode : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outputContent"] = state ? state.outputContent : undefined;
-            inputs["parametersContent"] = state ? state.parametersContent : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["templateContent"] = state ? state.templateContent : undefined;
-            inputs["templateSpecVersionId"] = state ? state.templateSpecVersionId : undefined;
+            resourceInputs["debugLevel"] = state ? state.debugLevel : undefined;
+            resourceInputs["deploymentMode"] = state ? state.deploymentMode : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputContent"] = state ? state.outputContent : undefined;
+            resourceInputs["parametersContent"] = state ? state.parametersContent : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["templateContent"] = state ? state.templateContent : undefined;
+            resourceInputs["templateSpecVersionId"] = state ? state.templateSpecVersionId : undefined;
         } else {
             const args = argsOrState as ResourceGroupTemplateDeploymentArgs | undefined;
             if ((!args || args.deploymentMode === undefined) && !opts.urn) {
@@ -112,20 +112,20 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["debugLevel"] = args ? args.debugLevel : undefined;
-            inputs["deploymentMode"] = args ? args.deploymentMode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parametersContent"] = args ? args.parametersContent : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateContent"] = args ? args.templateContent : undefined;
-            inputs["templateSpecVersionId"] = args ? args.templateSpecVersionId : undefined;
-            inputs["outputContent"] = undefined /*out*/;
+            resourceInputs["debugLevel"] = args ? args.debugLevel : undefined;
+            resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parametersContent"] = args ? args.parametersContent : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateContent"] = args ? args.templateContent : undefined;
+            resourceInputs["templateSpecVersionId"] = args ? args.templateSpecVersionId : undefined;
+            resourceInputs["outputContent"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ResourceGroupTemplateDeployment.__pulumiType, name, inputs, opts);
+        super(ResourceGroupTemplateDeployment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

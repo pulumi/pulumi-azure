@@ -236,7 +236,7 @@ type LogzMonitorInput interface {
 }
 
 func (*LogzMonitor) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogzMonitor)(nil))
+	return reflect.TypeOf((**LogzMonitor)(nil)).Elem()
 }
 
 func (i *LogzMonitor) ToLogzMonitorOutput() LogzMonitorOutput {
@@ -245,35 +245,6 @@ func (i *LogzMonitor) ToLogzMonitorOutput() LogzMonitorOutput {
 
 func (i *LogzMonitor) ToLogzMonitorOutputWithContext(ctx context.Context) LogzMonitorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorOutput)
-}
-
-func (i *LogzMonitor) ToLogzMonitorPtrOutput() LogzMonitorPtrOutput {
-	return i.ToLogzMonitorPtrOutputWithContext(context.Background())
-}
-
-func (i *LogzMonitor) ToLogzMonitorPtrOutputWithContext(ctx context.Context) LogzMonitorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorPtrOutput)
-}
-
-type LogzMonitorPtrInput interface {
-	pulumi.Input
-
-	ToLogzMonitorPtrOutput() LogzMonitorPtrOutput
-	ToLogzMonitorPtrOutputWithContext(ctx context.Context) LogzMonitorPtrOutput
-}
-
-type logzMonitorPtrType LogzMonitorArgs
-
-func (*logzMonitorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogzMonitor)(nil))
-}
-
-func (i *logzMonitorPtrType) ToLogzMonitorPtrOutput() LogzMonitorPtrOutput {
-	return i.ToLogzMonitorPtrOutputWithContext(context.Background())
-}
-
-func (i *logzMonitorPtrType) ToLogzMonitorPtrOutputWithContext(ctx context.Context) LogzMonitorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorPtrOutput)
 }
 
 // LogzMonitorArrayInput is an input type that accepts LogzMonitorArray and LogzMonitorArrayOutput values.
@@ -329,7 +300,7 @@ func (i LogzMonitorMap) ToLogzMonitorMapOutputWithContext(ctx context.Context) L
 type LogzMonitorOutput struct{ *pulumi.OutputState }
 
 func (LogzMonitorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogzMonitor)(nil))
+	return reflect.TypeOf((**LogzMonitor)(nil)).Elem()
 }
 
 func (o LogzMonitorOutput) ToLogzMonitorOutput() LogzMonitorOutput {
@@ -340,44 +311,10 @@ func (o LogzMonitorOutput) ToLogzMonitorOutputWithContext(ctx context.Context) L
 	return o
 }
 
-func (o LogzMonitorOutput) ToLogzMonitorPtrOutput() LogzMonitorPtrOutput {
-	return o.ToLogzMonitorPtrOutputWithContext(context.Background())
-}
-
-func (o LogzMonitorOutput) ToLogzMonitorPtrOutputWithContext(ctx context.Context) LogzMonitorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogzMonitor) *LogzMonitor {
-		return &v
-	}).(LogzMonitorPtrOutput)
-}
-
-type LogzMonitorPtrOutput struct{ *pulumi.OutputState }
-
-func (LogzMonitorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogzMonitor)(nil))
-}
-
-func (o LogzMonitorPtrOutput) ToLogzMonitorPtrOutput() LogzMonitorPtrOutput {
-	return o
-}
-
-func (o LogzMonitorPtrOutput) ToLogzMonitorPtrOutputWithContext(ctx context.Context) LogzMonitorPtrOutput {
-	return o
-}
-
-func (o LogzMonitorPtrOutput) Elem() LogzMonitorOutput {
-	return o.ApplyT(func(v *LogzMonitor) LogzMonitor {
-		if v != nil {
-			return *v
-		}
-		var ret LogzMonitor
-		return ret
-	}).(LogzMonitorOutput)
-}
-
 type LogzMonitorArrayOutput struct{ *pulumi.OutputState }
 
 func (LogzMonitorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogzMonitor)(nil))
+	return reflect.TypeOf((*[]*LogzMonitor)(nil)).Elem()
 }
 
 func (o LogzMonitorArrayOutput) ToLogzMonitorArrayOutput() LogzMonitorArrayOutput {
@@ -389,15 +326,15 @@ func (o LogzMonitorArrayOutput) ToLogzMonitorArrayOutputWithContext(ctx context.
 }
 
 func (o LogzMonitorArrayOutput) Index(i pulumi.IntInput) LogzMonitorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogzMonitor {
-		return vs[0].([]LogzMonitor)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogzMonitor {
+		return vs[0].([]*LogzMonitor)[vs[1].(int)]
 	}).(LogzMonitorOutput)
 }
 
 type LogzMonitorMapOutput struct{ *pulumi.OutputState }
 
 func (LogzMonitorMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LogzMonitor)(nil))
+	return reflect.TypeOf((*map[string]*LogzMonitor)(nil)).Elem()
 }
 
 func (o LogzMonitorMapOutput) ToLogzMonitorMapOutput() LogzMonitorMapOutput {
@@ -409,18 +346,16 @@ func (o LogzMonitorMapOutput) ToLogzMonitorMapOutputWithContext(ctx context.Cont
 }
 
 func (o LogzMonitorMapOutput) MapIndex(k pulumi.StringInput) LogzMonitorOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogzMonitor {
-		return vs[0].(map[string]LogzMonitor)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LogzMonitor {
+		return vs[0].(map[string]*LogzMonitor)[vs[1].(string)]
 	}).(LogzMonitorOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorInput)(nil)).Elem(), &LogzMonitor{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorPtrInput)(nil)).Elem(), &LogzMonitor{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorArrayInput)(nil)).Elem(), LogzMonitorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogzMonitorMapInput)(nil)).Elem(), LogzMonitorMap{})
 	pulumi.RegisterOutputType(LogzMonitorOutput{})
-	pulumi.RegisterOutputType(LogzMonitorPtrOutput{})
 	pulumi.RegisterOutputType(LogzMonitorArrayOutput{})
 	pulumi.RegisterOutputType(LogzMonitorMapOutput{})
 }

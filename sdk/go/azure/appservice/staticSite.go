@@ -183,7 +183,7 @@ type StaticSiteInput interface {
 }
 
 func (*StaticSite) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSite)(nil))
+	return reflect.TypeOf((**StaticSite)(nil)).Elem()
 }
 
 func (i *StaticSite) ToStaticSiteOutput() StaticSiteOutput {
@@ -192,35 +192,6 @@ func (i *StaticSite) ToStaticSiteOutput() StaticSiteOutput {
 
 func (i *StaticSite) ToStaticSiteOutputWithContext(ctx context.Context) StaticSiteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteOutput)
-}
-
-func (i *StaticSite) ToStaticSitePtrOutput() StaticSitePtrOutput {
-	return i.ToStaticSitePtrOutputWithContext(context.Background())
-}
-
-func (i *StaticSite) ToStaticSitePtrOutputWithContext(ctx context.Context) StaticSitePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StaticSitePtrOutput)
-}
-
-type StaticSitePtrInput interface {
-	pulumi.Input
-
-	ToStaticSitePtrOutput() StaticSitePtrOutput
-	ToStaticSitePtrOutputWithContext(ctx context.Context) StaticSitePtrOutput
-}
-
-type staticSitePtrType StaticSiteArgs
-
-func (*staticSitePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StaticSite)(nil))
-}
-
-func (i *staticSitePtrType) ToStaticSitePtrOutput() StaticSitePtrOutput {
-	return i.ToStaticSitePtrOutputWithContext(context.Background())
-}
-
-func (i *staticSitePtrType) ToStaticSitePtrOutputWithContext(ctx context.Context) StaticSitePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StaticSitePtrOutput)
 }
 
 // StaticSiteArrayInput is an input type that accepts StaticSiteArray and StaticSiteArrayOutput values.
@@ -276,7 +247,7 @@ func (i StaticSiteMap) ToStaticSiteMapOutputWithContext(ctx context.Context) Sta
 type StaticSiteOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSite)(nil))
+	return reflect.TypeOf((**StaticSite)(nil)).Elem()
 }
 
 func (o StaticSiteOutput) ToStaticSiteOutput() StaticSiteOutput {
@@ -287,44 +258,10 @@ func (o StaticSiteOutput) ToStaticSiteOutputWithContext(ctx context.Context) Sta
 	return o
 }
 
-func (o StaticSiteOutput) ToStaticSitePtrOutput() StaticSitePtrOutput {
-	return o.ToStaticSitePtrOutputWithContext(context.Background())
-}
-
-func (o StaticSiteOutput) ToStaticSitePtrOutputWithContext(ctx context.Context) StaticSitePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticSite) *StaticSite {
-		return &v
-	}).(StaticSitePtrOutput)
-}
-
-type StaticSitePtrOutput struct{ *pulumi.OutputState }
-
-func (StaticSitePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StaticSite)(nil))
-}
-
-func (o StaticSitePtrOutput) ToStaticSitePtrOutput() StaticSitePtrOutput {
-	return o
-}
-
-func (o StaticSitePtrOutput) ToStaticSitePtrOutputWithContext(ctx context.Context) StaticSitePtrOutput {
-	return o
-}
-
-func (o StaticSitePtrOutput) Elem() StaticSiteOutput {
-	return o.ApplyT(func(v *StaticSite) StaticSite {
-		if v != nil {
-			return *v
-		}
-		var ret StaticSite
-		return ret
-	}).(StaticSiteOutput)
-}
-
 type StaticSiteArrayOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StaticSite)(nil))
+	return reflect.TypeOf((*[]*StaticSite)(nil)).Elem()
 }
 
 func (o StaticSiteArrayOutput) ToStaticSiteArrayOutput() StaticSiteArrayOutput {
@@ -336,15 +273,15 @@ func (o StaticSiteArrayOutput) ToStaticSiteArrayOutputWithContext(ctx context.Co
 }
 
 func (o StaticSiteArrayOutput) Index(i pulumi.IntInput) StaticSiteOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StaticSite {
-		return vs[0].([]StaticSite)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StaticSite {
+		return vs[0].([]*StaticSite)[vs[1].(int)]
 	}).(StaticSiteOutput)
 }
 
 type StaticSiteMapOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StaticSite)(nil))
+	return reflect.TypeOf((*map[string]*StaticSite)(nil)).Elem()
 }
 
 func (o StaticSiteMapOutput) ToStaticSiteMapOutput() StaticSiteMapOutput {
@@ -356,18 +293,16 @@ func (o StaticSiteMapOutput) ToStaticSiteMapOutputWithContext(ctx context.Contex
 }
 
 func (o StaticSiteMapOutput) MapIndex(k pulumi.StringInput) StaticSiteOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StaticSite {
-		return vs[0].(map[string]StaticSite)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StaticSite {
+		return vs[0].(map[string]*StaticSite)[vs[1].(string)]
 	}).(StaticSiteOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteInput)(nil)).Elem(), &StaticSite{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StaticSitePtrInput)(nil)).Elem(), &StaticSite{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteArrayInput)(nil)).Elem(), StaticSiteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteMapInput)(nil)).Elem(), StaticSiteMap{})
 	pulumi.RegisterOutputType(StaticSiteOutput{})
-	pulumi.RegisterOutputType(StaticSitePtrOutput{})
 	pulumi.RegisterOutputType(StaticSiteArrayOutput{})
 	pulumi.RegisterOutputType(StaticSiteMapOutput{})
 }

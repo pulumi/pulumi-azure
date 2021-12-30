@@ -202,7 +202,7 @@ type BackupPolicyDiskInput interface {
 }
 
 func (*BackupPolicyDisk) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupPolicyDisk)(nil))
+	return reflect.TypeOf((**BackupPolicyDisk)(nil)).Elem()
 }
 
 func (i *BackupPolicyDisk) ToBackupPolicyDiskOutput() BackupPolicyDiskOutput {
@@ -211,35 +211,6 @@ func (i *BackupPolicyDisk) ToBackupPolicyDiskOutput() BackupPolicyDiskOutput {
 
 func (i *BackupPolicyDisk) ToBackupPolicyDiskOutputWithContext(ctx context.Context) BackupPolicyDiskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDiskOutput)
-}
-
-func (i *BackupPolicyDisk) ToBackupPolicyDiskPtrOutput() BackupPolicyDiskPtrOutput {
-	return i.ToBackupPolicyDiskPtrOutputWithContext(context.Background())
-}
-
-func (i *BackupPolicyDisk) ToBackupPolicyDiskPtrOutputWithContext(ctx context.Context) BackupPolicyDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDiskPtrOutput)
-}
-
-type BackupPolicyDiskPtrInput interface {
-	pulumi.Input
-
-	ToBackupPolicyDiskPtrOutput() BackupPolicyDiskPtrOutput
-	ToBackupPolicyDiskPtrOutputWithContext(ctx context.Context) BackupPolicyDiskPtrOutput
-}
-
-type backupPolicyDiskPtrType BackupPolicyDiskArgs
-
-func (*backupPolicyDiskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupPolicyDisk)(nil))
-}
-
-func (i *backupPolicyDiskPtrType) ToBackupPolicyDiskPtrOutput() BackupPolicyDiskPtrOutput {
-	return i.ToBackupPolicyDiskPtrOutputWithContext(context.Background())
-}
-
-func (i *backupPolicyDiskPtrType) ToBackupPolicyDiskPtrOutputWithContext(ctx context.Context) BackupPolicyDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDiskPtrOutput)
 }
 
 // BackupPolicyDiskArrayInput is an input type that accepts BackupPolicyDiskArray and BackupPolicyDiskArrayOutput values.
@@ -295,7 +266,7 @@ func (i BackupPolicyDiskMap) ToBackupPolicyDiskMapOutputWithContext(ctx context.
 type BackupPolicyDiskOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyDiskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupPolicyDisk)(nil))
+	return reflect.TypeOf((**BackupPolicyDisk)(nil)).Elem()
 }
 
 func (o BackupPolicyDiskOutput) ToBackupPolicyDiskOutput() BackupPolicyDiskOutput {
@@ -306,44 +277,10 @@ func (o BackupPolicyDiskOutput) ToBackupPolicyDiskOutputWithContext(ctx context.
 	return o
 }
 
-func (o BackupPolicyDiskOutput) ToBackupPolicyDiskPtrOutput() BackupPolicyDiskPtrOutput {
-	return o.ToBackupPolicyDiskPtrOutputWithContext(context.Background())
-}
-
-func (o BackupPolicyDiskOutput) ToBackupPolicyDiskPtrOutputWithContext(ctx context.Context) BackupPolicyDiskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyDisk) *BackupPolicyDisk {
-		return &v
-	}).(BackupPolicyDiskPtrOutput)
-}
-
-type BackupPolicyDiskPtrOutput struct{ *pulumi.OutputState }
-
-func (BackupPolicyDiskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupPolicyDisk)(nil))
-}
-
-func (o BackupPolicyDiskPtrOutput) ToBackupPolicyDiskPtrOutput() BackupPolicyDiskPtrOutput {
-	return o
-}
-
-func (o BackupPolicyDiskPtrOutput) ToBackupPolicyDiskPtrOutputWithContext(ctx context.Context) BackupPolicyDiskPtrOutput {
-	return o
-}
-
-func (o BackupPolicyDiskPtrOutput) Elem() BackupPolicyDiskOutput {
-	return o.ApplyT(func(v *BackupPolicyDisk) BackupPolicyDisk {
-		if v != nil {
-			return *v
-		}
-		var ret BackupPolicyDisk
-		return ret
-	}).(BackupPolicyDiskOutput)
-}
-
 type BackupPolicyDiskArrayOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyDiskArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BackupPolicyDisk)(nil))
+	return reflect.TypeOf((*[]*BackupPolicyDisk)(nil)).Elem()
 }
 
 func (o BackupPolicyDiskArrayOutput) ToBackupPolicyDiskArrayOutput() BackupPolicyDiskArrayOutput {
@@ -355,15 +292,15 @@ func (o BackupPolicyDiskArrayOutput) ToBackupPolicyDiskArrayOutputWithContext(ct
 }
 
 func (o BackupPolicyDiskArrayOutput) Index(i pulumi.IntInput) BackupPolicyDiskOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyDisk {
-		return vs[0].([]BackupPolicyDisk)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BackupPolicyDisk {
+		return vs[0].([]*BackupPolicyDisk)[vs[1].(int)]
 	}).(BackupPolicyDiskOutput)
 }
 
 type BackupPolicyDiskMapOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyDiskMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BackupPolicyDisk)(nil))
+	return reflect.TypeOf((*map[string]*BackupPolicyDisk)(nil)).Elem()
 }
 
 func (o BackupPolicyDiskMapOutput) ToBackupPolicyDiskMapOutput() BackupPolicyDiskMapOutput {
@@ -375,18 +312,16 @@ func (o BackupPolicyDiskMapOutput) ToBackupPolicyDiskMapOutputWithContext(ctx co
 }
 
 func (o BackupPolicyDiskMapOutput) MapIndex(k pulumi.StringInput) BackupPolicyDiskOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BackupPolicyDisk {
-		return vs[0].(map[string]BackupPolicyDisk)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BackupPolicyDisk {
+		return vs[0].(map[string]*BackupPolicyDisk)[vs[1].(string)]
 	}).(BackupPolicyDiskOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskInput)(nil)).Elem(), &BackupPolicyDisk{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskPtrInput)(nil)).Elem(), &BackupPolicyDisk{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskArrayInput)(nil)).Elem(), BackupPolicyDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskMapInput)(nil)).Elem(), BackupPolicyDiskMap{})
 	pulumi.RegisterOutputType(BackupPolicyDiskOutput{})
-	pulumi.RegisterOutputType(BackupPolicyDiskPtrOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskMapOutput{})
 }

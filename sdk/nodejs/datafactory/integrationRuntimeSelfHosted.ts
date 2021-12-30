@@ -105,36 +105,36 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationRuntimeSelfHostedArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationRuntimeSelfHostedArgs | IntegrationRuntimeSelfHostedState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeSelfHostedState | undefined;
-            inputs["authKey1"] = state ? state.authKey1 : undefined;
-            inputs["authKey2"] = state ? state.authKey2 : undefined;
-            inputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rbacAuthorizations"] = state ? state.rbacAuthorizations : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["authKey1"] = state ? state.authKey1 : undefined;
+            resourceInputs["authKey2"] = state ? state.authKey2 : undefined;
+            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["rbacAuthorizations"] = state ? state.rbacAuthorizations : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as IntegrationRuntimeSelfHostedArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rbacAuthorizations"] = args ? args.rbacAuthorizations : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["authKey1"] = undefined /*out*/;
-            inputs["authKey2"] = undefined /*out*/;
+            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
+            resourceInputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rbacAuthorizations"] = args ? args.rbacAuthorizations : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authKey1"] = undefined /*out*/;
+            resourceInputs["authKey2"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IntegrationRuntimeSelfHosted.__pulumiType, name, inputs, opts);
+        super(IntegrationRuntimeSelfHosted.__pulumiType, name, resourceInputs, opts);
     }
 }
 

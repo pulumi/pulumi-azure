@@ -96,14 +96,14 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
      */
     constructor(name: string, args: BackendAddressPoolAddressArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BackendAddressPoolAddressArgs | BackendAddressPoolAddressState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackendAddressPoolAddressState | undefined;
-            inputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
+            resourceInputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
         } else {
             const args = argsOrState as BackendAddressPoolAddressArgs | undefined;
             if ((!args || args.backendAddressPoolId === undefined) && !opts.urn) {
@@ -115,15 +115,15 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkId'");
             }
-            inputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
-            inputs["ipAddress"] = args ? args.ipAddress : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
+            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BackendAddressPoolAddress.__pulumiType, name, inputs, opts);
+        super(BackendAddressPoolAddress.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -94,28 +94,28 @@ export class JobAgent extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobAgentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobAgentArgs | JobAgentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobAgentState | undefined;
-            inputs["databaseId"] = state ? state.databaseId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["databaseId"] = state ? state.databaseId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as JobAgentArgs | undefined;
             if ((!args || args.databaseId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseId'");
             }
-            inputs["databaseId"] = args ? args.databaseId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["databaseId"] = args ? args.databaseId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(JobAgent.__pulumiType, name, inputs, opts);
+        super(JobAgent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

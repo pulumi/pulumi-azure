@@ -122,18 +122,18 @@ export class OutputMssql extends pulumi.CustomResource {
      */
     constructor(name: string, args: OutputMssqlArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OutputMssqlArgs | OutputMssqlState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputMssqlState | undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["server"] = state ? state.server : undefined;
-            inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
-            inputs["table"] = state ? state.table : undefined;
-            inputs["user"] = state ? state.user : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["server"] = state ? state.server : undefined;
+            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["table"] = state ? state.table : undefined;
+            resourceInputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as OutputMssqlArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -157,19 +157,19 @@ export class OutputMssql extends pulumi.CustomResource {
             if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            inputs["database"] = args ? args.database : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["server"] = args ? args.server : undefined;
-            inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
-            inputs["table"] = args ? args.table : undefined;
-            inputs["user"] = args ? args.user : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["server"] = args ? args.server : undefined;
+            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["table"] = args ? args.table : undefined;
+            resourceInputs["user"] = args ? args.user : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OutputMssql.__pulumiType, name, inputs, opts);
+        super(OutputMssql.__pulumiType, name, resourceInputs, opts);
     }
 }
 

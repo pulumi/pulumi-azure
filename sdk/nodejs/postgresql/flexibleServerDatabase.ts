@@ -92,28 +92,28 @@ export class FlexibleServerDatabase extends pulumi.CustomResource {
      */
     constructor(name: string, args: FlexibleServerDatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FlexibleServerDatabaseArgs | FlexibleServerDatabaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleServerDatabaseState | undefined;
-            inputs["charset"] = state ? state.charset : undefined;
-            inputs["collation"] = state ? state.collation : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["charset"] = state ? state.charset : undefined;
+            resourceInputs["collation"] = state ? state.collation : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
         } else {
             const args = argsOrState as FlexibleServerDatabaseArgs | undefined;
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            inputs["charset"] = args ? args.charset : undefined;
-            inputs["collation"] = args ? args.collation : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["charset"] = args ? args.charset : undefined;
+            resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FlexibleServerDatabase.__pulumiType, name, inputs, opts);
+        super(FlexibleServerDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -60,7 +60,7 @@ import (
 // 			MediaServicesAccountName: exampleServiceAccount.Name,
 // 			Description:              pulumi.String("My transform description"),
 // 			Outputs: media.TransformOutputArray{
-// 				&media.TransformOutputArgs{
+// 				media.TransformOutputArgs{
 // 					RelativePriority: pulumi.String("Normal"),
 // 					OnErrorAction:    pulumi.String("ContinueJob"),
 // 					BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
@@ -123,14 +123,14 @@ import (
 // 			MediaServicesAccountName: exampleServiceAccount.Name,
 // 			Description:              pulumi.String("My transform description"),
 // 			Outputs: media.TransformOutputArray{
-// 				&media.TransformOutputArgs{
+// 				media.TransformOutputArgs{
 // 					RelativePriority: pulumi.String("Normal"),
 // 					OnErrorAction:    pulumi.String("ContinueJob"),
 // 					BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
 // 						PresetName: pulumi.String("AACGoodQualityAudio"),
 // 					},
 // 				},
-// 				&media.TransformOutputArgs{
+// 				media.TransformOutputArgs{
 // 					RelativePriority: pulumi.String("Low"),
 // 					OnErrorAction:    pulumi.String("ContinueJob"),
 // 					AudioAnalyzerPreset: &media.TransformOutputAudioAnalyzerPresetArgs{
@@ -138,7 +138,7 @@ import (
 // 						AudioAnalysisMode: pulumi.String("Basic"),
 // 					},
 // 				},
-// 				&media.TransformOutputArgs{
+// 				media.TransformOutputArgs{
 // 					RelativePriority: pulumi.String("Low"),
 // 					OnErrorAction:    pulumi.String("StopProcessingJob"),
 // 					FaceDetectorPreset: &media.TransformOutputFaceDetectorPresetArgs{
@@ -280,7 +280,7 @@ type TransformInput interface {
 }
 
 func (*Transform) ElementType() reflect.Type {
-	return reflect.TypeOf((*Transform)(nil))
+	return reflect.TypeOf((**Transform)(nil)).Elem()
 }
 
 func (i *Transform) ToTransformOutput() TransformOutput {
@@ -289,35 +289,6 @@ func (i *Transform) ToTransformOutput() TransformOutput {
 
 func (i *Transform) ToTransformOutputWithContext(ctx context.Context) TransformOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutput)
-}
-
-func (i *Transform) ToTransformPtrOutput() TransformPtrOutput {
-	return i.ToTransformPtrOutputWithContext(context.Background())
-}
-
-func (i *Transform) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransformPtrOutput)
-}
-
-type TransformPtrInput interface {
-	pulumi.Input
-
-	ToTransformPtrOutput() TransformPtrOutput
-	ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput
-}
-
-type transformPtrType TransformArgs
-
-func (*transformPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Transform)(nil))
-}
-
-func (i *transformPtrType) ToTransformPtrOutput() TransformPtrOutput {
-	return i.ToTransformPtrOutputWithContext(context.Background())
-}
-
-func (i *transformPtrType) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransformPtrOutput)
 }
 
 // TransformArrayInput is an input type that accepts TransformArray and TransformArrayOutput values.
@@ -373,7 +344,7 @@ func (i TransformMap) ToTransformMapOutputWithContext(ctx context.Context) Trans
 type TransformOutput struct{ *pulumi.OutputState }
 
 func (TransformOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Transform)(nil))
+	return reflect.TypeOf((**Transform)(nil)).Elem()
 }
 
 func (o TransformOutput) ToTransformOutput() TransformOutput {
@@ -384,44 +355,10 @@ func (o TransformOutput) ToTransformOutputWithContext(ctx context.Context) Trans
 	return o
 }
 
-func (o TransformOutput) ToTransformPtrOutput() TransformPtrOutput {
-	return o.ToTransformPtrOutputWithContext(context.Background())
-}
-
-func (o TransformOutput) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Transform) *Transform {
-		return &v
-	}).(TransformPtrOutput)
-}
-
-type TransformPtrOutput struct{ *pulumi.OutputState }
-
-func (TransformPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Transform)(nil))
-}
-
-func (o TransformPtrOutput) ToTransformPtrOutput() TransformPtrOutput {
-	return o
-}
-
-func (o TransformPtrOutput) ToTransformPtrOutputWithContext(ctx context.Context) TransformPtrOutput {
-	return o
-}
-
-func (o TransformPtrOutput) Elem() TransformOutput {
-	return o.ApplyT(func(v *Transform) Transform {
-		if v != nil {
-			return *v
-		}
-		var ret Transform
-		return ret
-	}).(TransformOutput)
-}
-
 type TransformArrayOutput struct{ *pulumi.OutputState }
 
 func (TransformArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Transform)(nil))
+	return reflect.TypeOf((*[]*Transform)(nil)).Elem()
 }
 
 func (o TransformArrayOutput) ToTransformArrayOutput() TransformArrayOutput {
@@ -433,15 +370,15 @@ func (o TransformArrayOutput) ToTransformArrayOutputWithContext(ctx context.Cont
 }
 
 func (o TransformArrayOutput) Index(i pulumi.IntInput) TransformOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Transform {
-		return vs[0].([]Transform)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Transform {
+		return vs[0].([]*Transform)[vs[1].(int)]
 	}).(TransformOutput)
 }
 
 type TransformMapOutput struct{ *pulumi.OutputState }
 
 func (TransformMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Transform)(nil))
+	return reflect.TypeOf((*map[string]*Transform)(nil)).Elem()
 }
 
 func (o TransformMapOutput) ToTransformMapOutput() TransformMapOutput {
@@ -453,18 +390,16 @@ func (o TransformMapOutput) ToTransformMapOutputWithContext(ctx context.Context)
 }
 
 func (o TransformMapOutput) MapIndex(k pulumi.StringInput) TransformOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Transform {
-		return vs[0].(map[string]Transform)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Transform {
+		return vs[0].(map[string]*Transform)[vs[1].(string)]
 	}).(TransformOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformInput)(nil)).Elem(), &Transform{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransformPtrInput)(nil)).Elem(), &Transform{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformArrayInput)(nil)).Elem(), TransformArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformMapInput)(nil)).Elem(), TransformMap{})
 	pulumi.RegisterOutputType(TransformOutput{})
-	pulumi.RegisterOutputType(TransformPtrOutput{})
 	pulumi.RegisterOutputType(TransformArrayOutput{})
 	pulumi.RegisterOutputType(TransformMapOutput{})
 }

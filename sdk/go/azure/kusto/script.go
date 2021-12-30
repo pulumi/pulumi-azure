@@ -77,6 +77,21 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleAccountBlobContainerSAS := storage.GetAccountBlobContainerSASOutput(ctx, storage.GetAccountBlobContainerSASOutputArgs{
+// 			ConnectionString: exampleAccount.PrimaryConnectionString,
+// 			ContainerName:    exampleContainer.Name,
+// 			HttpsOnly:        pulumi.Bool(true),
+// 			Start:            pulumi.String("2017-03-21"),
+// 			Expiry:           pulumi.String("2022-03-21"),
+// 			Permissions: &storage.GetAccountBlobContainerSASPermissionsArgs{
+// 				Read:   pulumi.Bool(true),
+// 				Add:    pulumi.Bool(false),
+// 				Create: pulumi.Bool(false),
+// 				Write:  pulumi.Bool(true),
+// 				Delete: pulumi.Bool(false),
+// 				List:   pulumi.Bool(true),
+// 			},
+// 		}, nil)
 // 		_, err = kusto.NewScript(ctx, "exampleScript", &kusto.ScriptArgs{
 // 			DatabaseId: exampleDatabase.ID(),
 // 			Url:        exampleBlob.ID(),
@@ -232,7 +247,7 @@ type ScriptInput interface {
 }
 
 func (*Script) ElementType() reflect.Type {
-	return reflect.TypeOf((*Script)(nil))
+	return reflect.TypeOf((**Script)(nil)).Elem()
 }
 
 func (i *Script) ToScriptOutput() ScriptOutput {
@@ -241,35 +256,6 @@ func (i *Script) ToScriptOutput() ScriptOutput {
 
 func (i *Script) ToScriptOutputWithContext(ctx context.Context) ScriptOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptOutput)
-}
-
-func (i *Script) ToScriptPtrOutput() ScriptPtrOutput {
-	return i.ToScriptPtrOutputWithContext(context.Background())
-}
-
-func (i *Script) ToScriptPtrOutputWithContext(ctx context.Context) ScriptPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScriptPtrOutput)
-}
-
-type ScriptPtrInput interface {
-	pulumi.Input
-
-	ToScriptPtrOutput() ScriptPtrOutput
-	ToScriptPtrOutputWithContext(ctx context.Context) ScriptPtrOutput
-}
-
-type scriptPtrType ScriptArgs
-
-func (*scriptPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Script)(nil))
-}
-
-func (i *scriptPtrType) ToScriptPtrOutput() ScriptPtrOutput {
-	return i.ToScriptPtrOutputWithContext(context.Background())
-}
-
-func (i *scriptPtrType) ToScriptPtrOutputWithContext(ctx context.Context) ScriptPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScriptPtrOutput)
 }
 
 // ScriptArrayInput is an input type that accepts ScriptArray and ScriptArrayOutput values.
@@ -325,7 +311,7 @@ func (i ScriptMap) ToScriptMapOutputWithContext(ctx context.Context) ScriptMapOu
 type ScriptOutput struct{ *pulumi.OutputState }
 
 func (ScriptOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Script)(nil))
+	return reflect.TypeOf((**Script)(nil)).Elem()
 }
 
 func (o ScriptOutput) ToScriptOutput() ScriptOutput {
@@ -336,44 +322,10 @@ func (o ScriptOutput) ToScriptOutputWithContext(ctx context.Context) ScriptOutpu
 	return o
 }
 
-func (o ScriptOutput) ToScriptPtrOutput() ScriptPtrOutput {
-	return o.ToScriptPtrOutputWithContext(context.Background())
-}
-
-func (o ScriptOutput) ToScriptPtrOutputWithContext(ctx context.Context) ScriptPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Script) *Script {
-		return &v
-	}).(ScriptPtrOutput)
-}
-
-type ScriptPtrOutput struct{ *pulumi.OutputState }
-
-func (ScriptPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Script)(nil))
-}
-
-func (o ScriptPtrOutput) ToScriptPtrOutput() ScriptPtrOutput {
-	return o
-}
-
-func (o ScriptPtrOutput) ToScriptPtrOutputWithContext(ctx context.Context) ScriptPtrOutput {
-	return o
-}
-
-func (o ScriptPtrOutput) Elem() ScriptOutput {
-	return o.ApplyT(func(v *Script) Script {
-		if v != nil {
-			return *v
-		}
-		var ret Script
-		return ret
-	}).(ScriptOutput)
-}
-
 type ScriptArrayOutput struct{ *pulumi.OutputState }
 
 func (ScriptArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Script)(nil))
+	return reflect.TypeOf((*[]*Script)(nil)).Elem()
 }
 
 func (o ScriptArrayOutput) ToScriptArrayOutput() ScriptArrayOutput {
@@ -385,15 +337,15 @@ func (o ScriptArrayOutput) ToScriptArrayOutputWithContext(ctx context.Context) S
 }
 
 func (o ScriptArrayOutput) Index(i pulumi.IntInput) ScriptOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Script {
-		return vs[0].([]Script)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Script {
+		return vs[0].([]*Script)[vs[1].(int)]
 	}).(ScriptOutput)
 }
 
 type ScriptMapOutput struct{ *pulumi.OutputState }
 
 func (ScriptMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Script)(nil))
+	return reflect.TypeOf((*map[string]*Script)(nil)).Elem()
 }
 
 func (o ScriptMapOutput) ToScriptMapOutput() ScriptMapOutput {
@@ -405,18 +357,16 @@ func (o ScriptMapOutput) ToScriptMapOutputWithContext(ctx context.Context) Scrip
 }
 
 func (o ScriptMapOutput) MapIndex(k pulumi.StringInput) ScriptOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Script {
-		return vs[0].(map[string]Script)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Script {
+		return vs[0].(map[string]*Script)[vs[1].(string)]
 	}).(ScriptOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptInput)(nil)).Elem(), &Script{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScriptPtrInput)(nil)).Elem(), &Script{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptArrayInput)(nil)).Elem(), ScriptArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptMapInput)(nil)).Elem(), ScriptMap{})
 	pulumi.RegisterOutputType(ScriptOutput{})
-	pulumi.RegisterOutputType(ScriptPtrOutput{})
 	pulumi.RegisterOutputType(ScriptArrayOutput{})
 	pulumi.RegisterOutputType(ScriptMapOutput{})
 }

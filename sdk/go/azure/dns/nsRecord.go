@@ -205,7 +205,7 @@ type NsRecordInput interface {
 }
 
 func (*NsRecord) ElementType() reflect.Type {
-	return reflect.TypeOf((*NsRecord)(nil))
+	return reflect.TypeOf((**NsRecord)(nil)).Elem()
 }
 
 func (i *NsRecord) ToNsRecordOutput() NsRecordOutput {
@@ -214,35 +214,6 @@ func (i *NsRecord) ToNsRecordOutput() NsRecordOutput {
 
 func (i *NsRecord) ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NsRecordOutput)
-}
-
-func (i *NsRecord) ToNsRecordPtrOutput() NsRecordPtrOutput {
-	return i.ToNsRecordPtrOutputWithContext(context.Background())
-}
-
-func (i *NsRecord) ToNsRecordPtrOutputWithContext(ctx context.Context) NsRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NsRecordPtrOutput)
-}
-
-type NsRecordPtrInput interface {
-	pulumi.Input
-
-	ToNsRecordPtrOutput() NsRecordPtrOutput
-	ToNsRecordPtrOutputWithContext(ctx context.Context) NsRecordPtrOutput
-}
-
-type nsRecordPtrType NsRecordArgs
-
-func (*nsRecordPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NsRecord)(nil))
-}
-
-func (i *nsRecordPtrType) ToNsRecordPtrOutput() NsRecordPtrOutput {
-	return i.ToNsRecordPtrOutputWithContext(context.Background())
-}
-
-func (i *nsRecordPtrType) ToNsRecordPtrOutputWithContext(ctx context.Context) NsRecordPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NsRecordPtrOutput)
 }
 
 // NsRecordArrayInput is an input type that accepts NsRecordArray and NsRecordArrayOutput values.
@@ -298,7 +269,7 @@ func (i NsRecordMap) ToNsRecordMapOutputWithContext(ctx context.Context) NsRecor
 type NsRecordOutput struct{ *pulumi.OutputState }
 
 func (NsRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NsRecord)(nil))
+	return reflect.TypeOf((**NsRecord)(nil)).Elem()
 }
 
 func (o NsRecordOutput) ToNsRecordOutput() NsRecordOutput {
@@ -309,44 +280,10 @@ func (o NsRecordOutput) ToNsRecordOutputWithContext(ctx context.Context) NsRecor
 	return o
 }
 
-func (o NsRecordOutput) ToNsRecordPtrOutput() NsRecordPtrOutput {
-	return o.ToNsRecordPtrOutputWithContext(context.Background())
-}
-
-func (o NsRecordOutput) ToNsRecordPtrOutputWithContext(ctx context.Context) NsRecordPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NsRecord) *NsRecord {
-		return &v
-	}).(NsRecordPtrOutput)
-}
-
-type NsRecordPtrOutput struct{ *pulumi.OutputState }
-
-func (NsRecordPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NsRecord)(nil))
-}
-
-func (o NsRecordPtrOutput) ToNsRecordPtrOutput() NsRecordPtrOutput {
-	return o
-}
-
-func (o NsRecordPtrOutput) ToNsRecordPtrOutputWithContext(ctx context.Context) NsRecordPtrOutput {
-	return o
-}
-
-func (o NsRecordPtrOutput) Elem() NsRecordOutput {
-	return o.ApplyT(func(v *NsRecord) NsRecord {
-		if v != nil {
-			return *v
-		}
-		var ret NsRecord
-		return ret
-	}).(NsRecordOutput)
-}
-
 type NsRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (NsRecordArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NsRecord)(nil))
+	return reflect.TypeOf((*[]*NsRecord)(nil)).Elem()
 }
 
 func (o NsRecordArrayOutput) ToNsRecordArrayOutput() NsRecordArrayOutput {
@@ -358,15 +295,15 @@ func (o NsRecordArrayOutput) ToNsRecordArrayOutputWithContext(ctx context.Contex
 }
 
 func (o NsRecordArrayOutput) Index(i pulumi.IntInput) NsRecordOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NsRecord {
-		return vs[0].([]NsRecord)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NsRecord {
+		return vs[0].([]*NsRecord)[vs[1].(int)]
 	}).(NsRecordOutput)
 }
 
 type NsRecordMapOutput struct{ *pulumi.OutputState }
 
 func (NsRecordMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NsRecord)(nil))
+	return reflect.TypeOf((*map[string]*NsRecord)(nil)).Elem()
 }
 
 func (o NsRecordMapOutput) ToNsRecordMapOutput() NsRecordMapOutput {
@@ -378,18 +315,16 @@ func (o NsRecordMapOutput) ToNsRecordMapOutputWithContext(ctx context.Context) N
 }
 
 func (o NsRecordMapOutput) MapIndex(k pulumi.StringInput) NsRecordOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NsRecord {
-		return vs[0].(map[string]NsRecord)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NsRecord {
+		return vs[0].(map[string]*NsRecord)[vs[1].(string)]
 	}).(NsRecordOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NsRecordInput)(nil)).Elem(), &NsRecord{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NsRecordPtrInput)(nil)).Elem(), &NsRecord{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NsRecordArrayInput)(nil)).Elem(), NsRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NsRecordMapInput)(nil)).Elem(), NsRecordMap{})
 	pulumi.RegisterOutputType(NsRecordOutput{})
-	pulumi.RegisterOutputType(NsRecordPtrOutput{})
 	pulumi.RegisterOutputType(NsRecordArrayOutput{})
 	pulumi.RegisterOutputType(NsRecordMapOutput{})
 }

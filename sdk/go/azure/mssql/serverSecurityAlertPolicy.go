@@ -243,7 +243,7 @@ type ServerSecurityAlertPolicyInput interface {
 }
 
 func (*ServerSecurityAlertPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((**ServerSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (i *ServerSecurityAlertPolicy) ToServerSecurityAlertPolicyOutput() ServerSecurityAlertPolicyOutput {
@@ -252,35 +252,6 @@ func (i *ServerSecurityAlertPolicy) ToServerSecurityAlertPolicyOutput() ServerSe
 
 func (i *ServerSecurityAlertPolicy) ToServerSecurityAlertPolicyOutputWithContext(ctx context.Context) ServerSecurityAlertPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerSecurityAlertPolicyOutput)
-}
-
-func (i *ServerSecurityAlertPolicy) ToServerSecurityAlertPolicyPtrOutput() ServerSecurityAlertPolicyPtrOutput {
-	return i.ToServerSecurityAlertPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *ServerSecurityAlertPolicy) ToServerSecurityAlertPolicyPtrOutputWithContext(ctx context.Context) ServerSecurityAlertPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerSecurityAlertPolicyPtrOutput)
-}
-
-type ServerSecurityAlertPolicyPtrInput interface {
-	pulumi.Input
-
-	ToServerSecurityAlertPolicyPtrOutput() ServerSecurityAlertPolicyPtrOutput
-	ToServerSecurityAlertPolicyPtrOutputWithContext(ctx context.Context) ServerSecurityAlertPolicyPtrOutput
-}
-
-type serverSecurityAlertPolicyPtrType ServerSecurityAlertPolicyArgs
-
-func (*serverSecurityAlertPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerSecurityAlertPolicy)(nil))
-}
-
-func (i *serverSecurityAlertPolicyPtrType) ToServerSecurityAlertPolicyPtrOutput() ServerSecurityAlertPolicyPtrOutput {
-	return i.ToServerSecurityAlertPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *serverSecurityAlertPolicyPtrType) ToServerSecurityAlertPolicyPtrOutputWithContext(ctx context.Context) ServerSecurityAlertPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerSecurityAlertPolicyPtrOutput)
 }
 
 // ServerSecurityAlertPolicyArrayInput is an input type that accepts ServerSecurityAlertPolicyArray and ServerSecurityAlertPolicyArrayOutput values.
@@ -336,7 +307,7 @@ func (i ServerSecurityAlertPolicyMap) ToServerSecurityAlertPolicyMapOutputWithCo
 type ServerSecurityAlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerSecurityAlertPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((**ServerSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (o ServerSecurityAlertPolicyOutput) ToServerSecurityAlertPolicyOutput() ServerSecurityAlertPolicyOutput {
@@ -347,44 +318,10 @@ func (o ServerSecurityAlertPolicyOutput) ToServerSecurityAlertPolicyOutputWithCo
 	return o
 }
 
-func (o ServerSecurityAlertPolicyOutput) ToServerSecurityAlertPolicyPtrOutput() ServerSecurityAlertPolicyPtrOutput {
-	return o.ToServerSecurityAlertPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ServerSecurityAlertPolicyOutput) ToServerSecurityAlertPolicyPtrOutputWithContext(ctx context.Context) ServerSecurityAlertPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerSecurityAlertPolicy) *ServerSecurityAlertPolicy {
-		return &v
-	}).(ServerSecurityAlertPolicyPtrOutput)
-}
-
-type ServerSecurityAlertPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ServerSecurityAlertPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerSecurityAlertPolicy)(nil))
-}
-
-func (o ServerSecurityAlertPolicyPtrOutput) ToServerSecurityAlertPolicyPtrOutput() ServerSecurityAlertPolicyPtrOutput {
-	return o
-}
-
-func (o ServerSecurityAlertPolicyPtrOutput) ToServerSecurityAlertPolicyPtrOutputWithContext(ctx context.Context) ServerSecurityAlertPolicyPtrOutput {
-	return o
-}
-
-func (o ServerSecurityAlertPolicyPtrOutput) Elem() ServerSecurityAlertPolicyOutput {
-	return o.ApplyT(func(v *ServerSecurityAlertPolicy) ServerSecurityAlertPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ServerSecurityAlertPolicy
-		return ret
-	}).(ServerSecurityAlertPolicyOutput)
-}
-
 type ServerSecurityAlertPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (ServerSecurityAlertPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((*[]*ServerSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (o ServerSecurityAlertPolicyArrayOutput) ToServerSecurityAlertPolicyArrayOutput() ServerSecurityAlertPolicyArrayOutput {
@@ -396,15 +333,15 @@ func (o ServerSecurityAlertPolicyArrayOutput) ToServerSecurityAlertPolicyArrayOu
 }
 
 func (o ServerSecurityAlertPolicyArrayOutput) Index(i pulumi.IntInput) ServerSecurityAlertPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerSecurityAlertPolicy {
-		return vs[0].([]ServerSecurityAlertPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerSecurityAlertPolicy {
+		return vs[0].([]*ServerSecurityAlertPolicy)[vs[1].(int)]
 	}).(ServerSecurityAlertPolicyOutput)
 }
 
 type ServerSecurityAlertPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ServerSecurityAlertPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServerSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ServerSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (o ServerSecurityAlertPolicyMapOutput) ToServerSecurityAlertPolicyMapOutput() ServerSecurityAlertPolicyMapOutput {
@@ -416,18 +353,16 @@ func (o ServerSecurityAlertPolicyMapOutput) ToServerSecurityAlertPolicyMapOutput
 }
 
 func (o ServerSecurityAlertPolicyMapOutput) MapIndex(k pulumi.StringInput) ServerSecurityAlertPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServerSecurityAlertPolicy {
-		return vs[0].(map[string]ServerSecurityAlertPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServerSecurityAlertPolicy {
+		return vs[0].(map[string]*ServerSecurityAlertPolicy)[vs[1].(string)]
 	}).(ServerSecurityAlertPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerSecurityAlertPolicyInput)(nil)).Elem(), &ServerSecurityAlertPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServerSecurityAlertPolicyPtrInput)(nil)).Elem(), &ServerSecurityAlertPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerSecurityAlertPolicyArrayInput)(nil)).Elem(), ServerSecurityAlertPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerSecurityAlertPolicyMapInput)(nil)).Elem(), ServerSecurityAlertPolicyMap{})
 	pulumi.RegisterOutputType(ServerSecurityAlertPolicyOutput{})
-	pulumi.RegisterOutputType(ServerSecurityAlertPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ServerSecurityAlertPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ServerSecurityAlertPolicyMapOutput{})
 }

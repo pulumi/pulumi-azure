@@ -134,21 +134,21 @@ export class ReferenceInputMssql extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReferenceInputMssqlArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReferenceInputMssqlArgs | ReferenceInputMssqlState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReferenceInputMssqlState | undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["deltaSnapshotQuery"] = state ? state.deltaSnapshotQuery : undefined;
-            inputs["fullSnapshotQuery"] = state ? state.fullSnapshotQuery : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["refreshIntervalDuration"] = state ? state.refreshIntervalDuration : undefined;
-            inputs["refreshType"] = state ? state.refreshType : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["server"] = state ? state.server : undefined;
-            inputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["deltaSnapshotQuery"] = state ? state.deltaSnapshotQuery : undefined;
+            resourceInputs["fullSnapshotQuery"] = state ? state.fullSnapshotQuery : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["refreshIntervalDuration"] = state ? state.refreshIntervalDuration : undefined;
+            resourceInputs["refreshType"] = state ? state.refreshType : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["server"] = state ? state.server : undefined;
+            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as ReferenceInputMssqlArgs | undefined;
             if ((!args || args.database === undefined) && !opts.urn) {
@@ -175,22 +175,22 @@ export class ReferenceInputMssql extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["database"] = args ? args.database : undefined;
-            inputs["deltaSnapshotQuery"] = args ? args.deltaSnapshotQuery : undefined;
-            inputs["fullSnapshotQuery"] = args ? args.fullSnapshotQuery : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["refreshIntervalDuration"] = args ? args.refreshIntervalDuration : undefined;
-            inputs["refreshType"] = args ? args.refreshType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["server"] = args ? args.server : undefined;
-            inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["deltaSnapshotQuery"] = args ? args.deltaSnapshotQuery : undefined;
+            resourceInputs["fullSnapshotQuery"] = args ? args.fullSnapshotQuery : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["refreshIntervalDuration"] = args ? args.refreshIntervalDuration : undefined;
+            resourceInputs["refreshType"] = args ? args.refreshType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["server"] = args ? args.server : undefined;
+            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ReferenceInputMssql.__pulumiType, name, inputs, opts);
+        super(ReferenceInputMssql.__pulumiType, name, resourceInputs, opts);
     }
 }
 

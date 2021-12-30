@@ -116,18 +116,18 @@ export class ResourceGroupCostManagementExport extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResourceGroupCostManagementExportArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceGroupCostManagementExportArgs | ResourceGroupCostManagementExportState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceGroupCostManagementExportState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["exportDataOptions"] = state ? state.exportDataOptions : undefined;
-            inputs["exportDataStorageLocation"] = state ? state.exportDataStorageLocation : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["recurrencePeriodEndDate"] = state ? state.recurrencePeriodEndDate : undefined;
-            inputs["recurrencePeriodStartDate"] = state ? state.recurrencePeriodStartDate : undefined;
-            inputs["recurrenceType"] = state ? state.recurrenceType : undefined;
-            inputs["resourceGroupId"] = state ? state.resourceGroupId : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["exportDataOptions"] = state ? state.exportDataOptions : undefined;
+            resourceInputs["exportDataStorageLocation"] = state ? state.exportDataStorageLocation : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["recurrencePeriodEndDate"] = state ? state.recurrencePeriodEndDate : undefined;
+            resourceInputs["recurrencePeriodStartDate"] = state ? state.recurrencePeriodStartDate : undefined;
+            resourceInputs["recurrenceType"] = state ? state.recurrenceType : undefined;
+            resourceInputs["resourceGroupId"] = state ? state.resourceGroupId : undefined;
         } else {
             const args = argsOrState as ResourceGroupCostManagementExportArgs | undefined;
             if ((!args || args.exportDataOptions === undefined) && !opts.urn) {
@@ -148,19 +148,19 @@ export class ResourceGroupCostManagementExport extends pulumi.CustomResource {
             if ((!args || args.resourceGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupId'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["exportDataOptions"] = args ? args.exportDataOptions : undefined;
-            inputs["exportDataStorageLocation"] = args ? args.exportDataStorageLocation : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recurrencePeriodEndDate"] = args ? args.recurrencePeriodEndDate : undefined;
-            inputs["recurrencePeriodStartDate"] = args ? args.recurrencePeriodStartDate : undefined;
-            inputs["recurrenceType"] = args ? args.recurrenceType : undefined;
-            inputs["resourceGroupId"] = args ? args.resourceGroupId : undefined;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["exportDataOptions"] = args ? args.exportDataOptions : undefined;
+            resourceInputs["exportDataStorageLocation"] = args ? args.exportDataStorageLocation : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recurrencePeriodEndDate"] = args ? args.recurrencePeriodEndDate : undefined;
+            resourceInputs["recurrencePeriodStartDate"] = args ? args.recurrencePeriodStartDate : undefined;
+            resourceInputs["recurrenceType"] = args ? args.recurrenceType : undefined;
+            resourceInputs["resourceGroupId"] = args ? args.resourceGroupId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ResourceGroupCostManagementExport.__pulumiType, name, inputs, opts);
+        super(ResourceGroupCostManagementExport.__pulumiType, name, resourceInputs, opts);
     }
 }
 

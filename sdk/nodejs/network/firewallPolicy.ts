@@ -134,54 +134,54 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: FirewallPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirewallPolicyArgs | FirewallPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallPolicyState | undefined;
-            inputs["basePolicyId"] = state ? state.basePolicyId : undefined;
-            inputs["childPolicies"] = state ? state.childPolicies : undefined;
-            inputs["dns"] = state ? state.dns : undefined;
-            inputs["firewalls"] = state ? state.firewalls : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["insights"] = state ? state.insights : undefined;
-            inputs["intrusionDetection"] = state ? state.intrusionDetection : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["privateIpRanges"] = state ? state.privateIpRanges : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["ruleCollectionGroups"] = state ? state.ruleCollectionGroups : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["threatIntelligenceAllowlist"] = state ? state.threatIntelligenceAllowlist : undefined;
-            inputs["threatIntelligenceMode"] = state ? state.threatIntelligenceMode : undefined;
-            inputs["tlsCertificate"] = state ? state.tlsCertificate : undefined;
+            resourceInputs["basePolicyId"] = state ? state.basePolicyId : undefined;
+            resourceInputs["childPolicies"] = state ? state.childPolicies : undefined;
+            resourceInputs["dns"] = state ? state.dns : undefined;
+            resourceInputs["firewalls"] = state ? state.firewalls : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["insights"] = state ? state.insights : undefined;
+            resourceInputs["intrusionDetection"] = state ? state.intrusionDetection : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateIpRanges"] = state ? state.privateIpRanges : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["ruleCollectionGroups"] = state ? state.ruleCollectionGroups : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["threatIntelligenceAllowlist"] = state ? state.threatIntelligenceAllowlist : undefined;
+            resourceInputs["threatIntelligenceMode"] = state ? state.threatIntelligenceMode : undefined;
+            resourceInputs["tlsCertificate"] = state ? state.tlsCertificate : undefined;
         } else {
             const args = argsOrState as FirewallPolicyArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["basePolicyId"] = args ? args.basePolicyId : undefined;
-            inputs["dns"] = args ? args.dns : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["insights"] = args ? args.insights : undefined;
-            inputs["intrusionDetection"] = args ? args.intrusionDetection : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateIpRanges"] = args ? args.privateIpRanges : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["threatIntelligenceAllowlist"] = args ? args.threatIntelligenceAllowlist : undefined;
-            inputs["threatIntelligenceMode"] = args ? args.threatIntelligenceMode : undefined;
-            inputs["tlsCertificate"] = args ? args.tlsCertificate : undefined;
-            inputs["childPolicies"] = undefined /*out*/;
-            inputs["firewalls"] = undefined /*out*/;
-            inputs["ruleCollectionGroups"] = undefined /*out*/;
+            resourceInputs["basePolicyId"] = args ? args.basePolicyId : undefined;
+            resourceInputs["dns"] = args ? args.dns : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["insights"] = args ? args.insights : undefined;
+            resourceInputs["intrusionDetection"] = args ? args.intrusionDetection : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateIpRanges"] = args ? args.privateIpRanges : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["threatIntelligenceAllowlist"] = args ? args.threatIntelligenceAllowlist : undefined;
+            resourceInputs["threatIntelligenceMode"] = args ? args.threatIntelligenceMode : undefined;
+            resourceInputs["tlsCertificate"] = args ? args.tlsCertificate : undefined;
+            resourceInputs["childPolicies"] = undefined /*out*/;
+            resourceInputs["firewalls"] = undefined /*out*/;
+            resourceInputs["ruleCollectionGroups"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FirewallPolicy.__pulumiType, name, inputs, opts);
+        super(FirewallPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -265,7 +265,7 @@ type DatasetPostgresqlInput interface {
 }
 
 func (*DatasetPostgresql) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetPostgresql)(nil))
+	return reflect.TypeOf((**DatasetPostgresql)(nil)).Elem()
 }
 
 func (i *DatasetPostgresql) ToDatasetPostgresqlOutput() DatasetPostgresqlOutput {
@@ -274,35 +274,6 @@ func (i *DatasetPostgresql) ToDatasetPostgresqlOutput() DatasetPostgresqlOutput 
 
 func (i *DatasetPostgresql) ToDatasetPostgresqlOutputWithContext(ctx context.Context) DatasetPostgresqlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlOutput)
-}
-
-func (i *DatasetPostgresql) ToDatasetPostgresqlPtrOutput() DatasetPostgresqlPtrOutput {
-	return i.ToDatasetPostgresqlPtrOutputWithContext(context.Background())
-}
-
-func (i *DatasetPostgresql) ToDatasetPostgresqlPtrOutputWithContext(ctx context.Context) DatasetPostgresqlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlPtrOutput)
-}
-
-type DatasetPostgresqlPtrInput interface {
-	pulumi.Input
-
-	ToDatasetPostgresqlPtrOutput() DatasetPostgresqlPtrOutput
-	ToDatasetPostgresqlPtrOutputWithContext(ctx context.Context) DatasetPostgresqlPtrOutput
-}
-
-type datasetPostgresqlPtrType DatasetPostgresqlArgs
-
-func (*datasetPostgresqlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetPostgresql)(nil))
-}
-
-func (i *datasetPostgresqlPtrType) ToDatasetPostgresqlPtrOutput() DatasetPostgresqlPtrOutput {
-	return i.ToDatasetPostgresqlPtrOutputWithContext(context.Background())
-}
-
-func (i *datasetPostgresqlPtrType) ToDatasetPostgresqlPtrOutputWithContext(ctx context.Context) DatasetPostgresqlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetPostgresqlPtrOutput)
 }
 
 // DatasetPostgresqlArrayInput is an input type that accepts DatasetPostgresqlArray and DatasetPostgresqlArrayOutput values.
@@ -358,7 +329,7 @@ func (i DatasetPostgresqlMap) ToDatasetPostgresqlMapOutputWithContext(ctx contex
 type DatasetPostgresqlOutput struct{ *pulumi.OutputState }
 
 func (DatasetPostgresqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetPostgresql)(nil))
+	return reflect.TypeOf((**DatasetPostgresql)(nil)).Elem()
 }
 
 func (o DatasetPostgresqlOutput) ToDatasetPostgresqlOutput() DatasetPostgresqlOutput {
@@ -369,44 +340,10 @@ func (o DatasetPostgresqlOutput) ToDatasetPostgresqlOutputWithContext(ctx contex
 	return o
 }
 
-func (o DatasetPostgresqlOutput) ToDatasetPostgresqlPtrOutput() DatasetPostgresqlPtrOutput {
-	return o.ToDatasetPostgresqlPtrOutputWithContext(context.Background())
-}
-
-func (o DatasetPostgresqlOutput) ToDatasetPostgresqlPtrOutputWithContext(ctx context.Context) DatasetPostgresqlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetPostgresql) *DatasetPostgresql {
-		return &v
-	}).(DatasetPostgresqlPtrOutput)
-}
-
-type DatasetPostgresqlPtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetPostgresqlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetPostgresql)(nil))
-}
-
-func (o DatasetPostgresqlPtrOutput) ToDatasetPostgresqlPtrOutput() DatasetPostgresqlPtrOutput {
-	return o
-}
-
-func (o DatasetPostgresqlPtrOutput) ToDatasetPostgresqlPtrOutputWithContext(ctx context.Context) DatasetPostgresqlPtrOutput {
-	return o
-}
-
-func (o DatasetPostgresqlPtrOutput) Elem() DatasetPostgresqlOutput {
-	return o.ApplyT(func(v *DatasetPostgresql) DatasetPostgresql {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetPostgresql
-		return ret
-	}).(DatasetPostgresqlOutput)
-}
-
 type DatasetPostgresqlArrayOutput struct{ *pulumi.OutputState }
 
 func (DatasetPostgresqlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatasetPostgresql)(nil))
+	return reflect.TypeOf((*[]*DatasetPostgresql)(nil)).Elem()
 }
 
 func (o DatasetPostgresqlArrayOutput) ToDatasetPostgresqlArrayOutput() DatasetPostgresqlArrayOutput {
@@ -418,15 +355,15 @@ func (o DatasetPostgresqlArrayOutput) ToDatasetPostgresqlArrayOutputWithContext(
 }
 
 func (o DatasetPostgresqlArrayOutput) Index(i pulumi.IntInput) DatasetPostgresqlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetPostgresql {
-		return vs[0].([]DatasetPostgresql)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetPostgresql {
+		return vs[0].([]*DatasetPostgresql)[vs[1].(int)]
 	}).(DatasetPostgresqlOutput)
 }
 
 type DatasetPostgresqlMapOutput struct{ *pulumi.OutputState }
 
 func (DatasetPostgresqlMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DatasetPostgresql)(nil))
+	return reflect.TypeOf((*map[string]*DatasetPostgresql)(nil)).Elem()
 }
 
 func (o DatasetPostgresqlMapOutput) ToDatasetPostgresqlMapOutput() DatasetPostgresqlMapOutput {
@@ -438,18 +375,16 @@ func (o DatasetPostgresqlMapOutput) ToDatasetPostgresqlMapOutputWithContext(ctx 
 }
 
 func (o DatasetPostgresqlMapOutput) MapIndex(k pulumi.StringInput) DatasetPostgresqlOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatasetPostgresql {
-		return vs[0].(map[string]DatasetPostgresql)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DatasetPostgresql {
+		return vs[0].(map[string]*DatasetPostgresql)[vs[1].(string)]
 	}).(DatasetPostgresqlOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetPostgresqlInput)(nil)).Elem(), &DatasetPostgresql{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatasetPostgresqlPtrInput)(nil)).Elem(), &DatasetPostgresql{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetPostgresqlArrayInput)(nil)).Elem(), DatasetPostgresqlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetPostgresqlMapInput)(nil)).Elem(), DatasetPostgresqlMap{})
 	pulumi.RegisterOutputType(DatasetPostgresqlOutput{})
-	pulumi.RegisterOutputType(DatasetPostgresqlPtrOutput{})
 	pulumi.RegisterOutputType(DatasetPostgresqlArrayOutput{})
 	pulumi.RegisterOutputType(DatasetPostgresqlMapOutput{})
 }

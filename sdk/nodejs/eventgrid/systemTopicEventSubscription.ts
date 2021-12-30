@@ -171,31 +171,31 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: SystemTopicEventSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SystemTopicEventSubscriptionArgs | SystemTopicEventSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SystemTopicEventSubscriptionState | undefined;
-            inputs["advancedFilter"] = state ? state.advancedFilter : undefined;
-            inputs["advancedFilteringOnArraysEnabled"] = state ? state.advancedFilteringOnArraysEnabled : undefined;
-            inputs["azureFunctionEndpoint"] = state ? state.azureFunctionEndpoint : undefined;
-            inputs["deadLetterIdentity"] = state ? state.deadLetterIdentity : undefined;
-            inputs["deliveryIdentity"] = state ? state.deliveryIdentity : undefined;
-            inputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
-            inputs["eventhubEndpointId"] = state ? state.eventhubEndpointId : undefined;
-            inputs["expirationTimeUtc"] = state ? state.expirationTimeUtc : undefined;
-            inputs["hybridConnectionEndpointId"] = state ? state.hybridConnectionEndpointId : undefined;
-            inputs["includedEventTypes"] = state ? state.includedEventTypes : undefined;
-            inputs["labels"] = state ? state.labels : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["retryPolicy"] = state ? state.retryPolicy : undefined;
-            inputs["serviceBusQueueEndpointId"] = state ? state.serviceBusQueueEndpointId : undefined;
-            inputs["serviceBusTopicEndpointId"] = state ? state.serviceBusTopicEndpointId : undefined;
-            inputs["storageBlobDeadLetterDestination"] = state ? state.storageBlobDeadLetterDestination : undefined;
-            inputs["storageQueueEndpoint"] = state ? state.storageQueueEndpoint : undefined;
-            inputs["subjectFilter"] = state ? state.subjectFilter : undefined;
-            inputs["systemTopic"] = state ? state.systemTopic : undefined;
-            inputs["webhookEndpoint"] = state ? state.webhookEndpoint : undefined;
+            resourceInputs["advancedFilter"] = state ? state.advancedFilter : undefined;
+            resourceInputs["advancedFilteringOnArraysEnabled"] = state ? state.advancedFilteringOnArraysEnabled : undefined;
+            resourceInputs["azureFunctionEndpoint"] = state ? state.azureFunctionEndpoint : undefined;
+            resourceInputs["deadLetterIdentity"] = state ? state.deadLetterIdentity : undefined;
+            resourceInputs["deliveryIdentity"] = state ? state.deliveryIdentity : undefined;
+            resourceInputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
+            resourceInputs["eventhubEndpointId"] = state ? state.eventhubEndpointId : undefined;
+            resourceInputs["expirationTimeUtc"] = state ? state.expirationTimeUtc : undefined;
+            resourceInputs["hybridConnectionEndpointId"] = state ? state.hybridConnectionEndpointId : undefined;
+            resourceInputs["includedEventTypes"] = state ? state.includedEventTypes : undefined;
+            resourceInputs["labels"] = state ? state.labels : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["retryPolicy"] = state ? state.retryPolicy : undefined;
+            resourceInputs["serviceBusQueueEndpointId"] = state ? state.serviceBusQueueEndpointId : undefined;
+            resourceInputs["serviceBusTopicEndpointId"] = state ? state.serviceBusTopicEndpointId : undefined;
+            resourceInputs["storageBlobDeadLetterDestination"] = state ? state.storageBlobDeadLetterDestination : undefined;
+            resourceInputs["storageQueueEndpoint"] = state ? state.storageQueueEndpoint : undefined;
+            resourceInputs["subjectFilter"] = state ? state.subjectFilter : undefined;
+            resourceInputs["systemTopic"] = state ? state.systemTopic : undefined;
+            resourceInputs["webhookEndpoint"] = state ? state.webhookEndpoint : undefined;
         } else {
             const args = argsOrState as SystemTopicEventSubscriptionArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -204,32 +204,32 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             if ((!args || args.systemTopic === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'systemTopic'");
             }
-            inputs["advancedFilter"] = args ? args.advancedFilter : undefined;
-            inputs["advancedFilteringOnArraysEnabled"] = args ? args.advancedFilteringOnArraysEnabled : undefined;
-            inputs["azureFunctionEndpoint"] = args ? args.azureFunctionEndpoint : undefined;
-            inputs["deadLetterIdentity"] = args ? args.deadLetterIdentity : undefined;
-            inputs["deliveryIdentity"] = args ? args.deliveryIdentity : undefined;
-            inputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
-            inputs["eventhubEndpointId"] = args ? args.eventhubEndpointId : undefined;
-            inputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
-            inputs["hybridConnectionEndpointId"] = args ? args.hybridConnectionEndpointId : undefined;
-            inputs["includedEventTypes"] = args ? args.includedEventTypes : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retryPolicy"] = args ? args.retryPolicy : undefined;
-            inputs["serviceBusQueueEndpointId"] = args ? args.serviceBusQueueEndpointId : undefined;
-            inputs["serviceBusTopicEndpointId"] = args ? args.serviceBusTopicEndpointId : undefined;
-            inputs["storageBlobDeadLetterDestination"] = args ? args.storageBlobDeadLetterDestination : undefined;
-            inputs["storageQueueEndpoint"] = args ? args.storageQueueEndpoint : undefined;
-            inputs["subjectFilter"] = args ? args.subjectFilter : undefined;
-            inputs["systemTopic"] = args ? args.systemTopic : undefined;
-            inputs["webhookEndpoint"] = args ? args.webhookEndpoint : undefined;
+            resourceInputs["advancedFilter"] = args ? args.advancedFilter : undefined;
+            resourceInputs["advancedFilteringOnArraysEnabled"] = args ? args.advancedFilteringOnArraysEnabled : undefined;
+            resourceInputs["azureFunctionEndpoint"] = args ? args.azureFunctionEndpoint : undefined;
+            resourceInputs["deadLetterIdentity"] = args ? args.deadLetterIdentity : undefined;
+            resourceInputs["deliveryIdentity"] = args ? args.deliveryIdentity : undefined;
+            resourceInputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
+            resourceInputs["eventhubEndpointId"] = args ? args.eventhubEndpointId : undefined;
+            resourceInputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
+            resourceInputs["hybridConnectionEndpointId"] = args ? args.hybridConnectionEndpointId : undefined;
+            resourceInputs["includedEventTypes"] = args ? args.includedEventTypes : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retryPolicy"] = args ? args.retryPolicy : undefined;
+            resourceInputs["serviceBusQueueEndpointId"] = args ? args.serviceBusQueueEndpointId : undefined;
+            resourceInputs["serviceBusTopicEndpointId"] = args ? args.serviceBusTopicEndpointId : undefined;
+            resourceInputs["storageBlobDeadLetterDestination"] = args ? args.storageBlobDeadLetterDestination : undefined;
+            resourceInputs["storageQueueEndpoint"] = args ? args.storageQueueEndpoint : undefined;
+            resourceInputs["subjectFilter"] = args ? args.subjectFilter : undefined;
+            resourceInputs["systemTopic"] = args ? args.systemTopic : undefined;
+            resourceInputs["webhookEndpoint"] = args ? args.webhookEndpoint : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SystemTopicEventSubscription.__pulumiType, name, inputs, opts);
+        super(SystemTopicEventSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

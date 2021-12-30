@@ -205,7 +205,7 @@ type IntegrationAccountMapInput interface {
 }
 
 func (*IntegrationAccountMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountMap)(nil))
+	return reflect.TypeOf((**IntegrationAccountMap)(nil)).Elem()
 }
 
 func (i *IntegrationAccountMap) ToIntegrationAccountMapOutput() IntegrationAccountMapOutput {
@@ -214,35 +214,6 @@ func (i *IntegrationAccountMap) ToIntegrationAccountMapOutput() IntegrationAccou
 
 func (i *IntegrationAccountMap) ToIntegrationAccountMapOutputWithContext(ctx context.Context) IntegrationAccountMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapOutput)
-}
-
-func (i *IntegrationAccountMap) ToIntegrationAccountMapPtrOutput() IntegrationAccountMapPtrOutput {
-	return i.ToIntegrationAccountMapPtrOutputWithContext(context.Background())
-}
-
-func (i *IntegrationAccountMap) ToIntegrationAccountMapPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPtrOutput)
-}
-
-type IntegrationAccountMapPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountMapPtrOutput() IntegrationAccountMapPtrOutput
-	ToIntegrationAccountMapPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPtrOutput
-}
-
-type integrationAccountMapPtrType IntegrationAccountMapArgs
-
-func (*integrationAccountMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountMap)(nil))
-}
-
-func (i *integrationAccountMapPtrType) ToIntegrationAccountMapPtrOutput() IntegrationAccountMapPtrOutput {
-	return i.ToIntegrationAccountMapPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationAccountMapPtrType) ToIntegrationAccountMapPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPtrOutput)
 }
 
 // IntegrationAccountMapArrayInput is an input type that accepts IntegrationAccountMapArray and IntegrationAccountMapArrayOutput values.
@@ -298,7 +269,7 @@ func (i IntegrationAccountMapMap) ToIntegrationAccountMapMapOutputWithContext(ct
 type IntegrationAccountMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountMap)(nil))
+	return reflect.TypeOf((**IntegrationAccountMap)(nil)).Elem()
 }
 
 func (o IntegrationAccountMapOutput) ToIntegrationAccountMapOutput() IntegrationAccountMapOutput {
@@ -309,44 +280,10 @@ func (o IntegrationAccountMapOutput) ToIntegrationAccountMapOutputWithContext(ct
 	return o
 }
 
-func (o IntegrationAccountMapOutput) ToIntegrationAccountMapPtrOutput() IntegrationAccountMapPtrOutput {
-	return o.ToIntegrationAccountMapPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationAccountMapOutput) ToIntegrationAccountMapPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountMap) *IntegrationAccountMap {
-		return &v
-	}).(IntegrationAccountMapPtrOutput)
-}
-
-type IntegrationAccountMapPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountMap)(nil))
-}
-
-func (o IntegrationAccountMapPtrOutput) ToIntegrationAccountMapPtrOutput() IntegrationAccountMapPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountMapPtrOutput) ToIntegrationAccountMapPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountMapPtrOutput) Elem() IntegrationAccountMapOutput {
-	return o.ApplyT(func(v *IntegrationAccountMap) IntegrationAccountMap {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationAccountMap
-		return ret
-	}).(IntegrationAccountMapOutput)
-}
-
 type IntegrationAccountMapArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IntegrationAccountMap)(nil))
+	return reflect.TypeOf((*[]*IntegrationAccountMap)(nil)).Elem()
 }
 
 func (o IntegrationAccountMapArrayOutput) ToIntegrationAccountMapArrayOutput() IntegrationAccountMapArrayOutput {
@@ -358,15 +295,15 @@ func (o IntegrationAccountMapArrayOutput) ToIntegrationAccountMapArrayOutputWith
 }
 
 func (o IntegrationAccountMapArrayOutput) Index(i pulumi.IntInput) IntegrationAccountMapOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAccountMap {
-		return vs[0].([]IntegrationAccountMap)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountMap {
+		return vs[0].([]*IntegrationAccountMap)[vs[1].(int)]
 	}).(IntegrationAccountMapOutput)
 }
 
 type IntegrationAccountMapMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IntegrationAccountMap)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationAccountMap)(nil)).Elem()
 }
 
 func (o IntegrationAccountMapMapOutput) ToIntegrationAccountMapMapOutput() IntegrationAccountMapMapOutput {
@@ -378,18 +315,16 @@ func (o IntegrationAccountMapMapOutput) ToIntegrationAccountMapMapOutputWithCont
 }
 
 func (o IntegrationAccountMapMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountMapOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationAccountMap {
-		return vs[0].(map[string]IntegrationAccountMap)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IntegrationAccountMap {
+		return vs[0].(map[string]*IntegrationAccountMap)[vs[1].(string)]
 	}).(IntegrationAccountMapOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapInput)(nil)).Elem(), &IntegrationAccountMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapPtrInput)(nil)).Elem(), &IntegrationAccountMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapArrayInput)(nil)).Elem(), IntegrationAccountMapArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMapMapInput)(nil)).Elem(), IntegrationAccountMapMap{})
 	pulumi.RegisterOutputType(IntegrationAccountMapOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountMapPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapMapOutput{})
 }

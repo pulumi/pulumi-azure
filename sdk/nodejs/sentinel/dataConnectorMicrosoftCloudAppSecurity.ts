@@ -101,30 +101,30 @@ export class DataConnectorMicrosoftCloudAppSecurity extends pulumi.CustomResourc
      */
     constructor(name: string, args: DataConnectorMicrosoftCloudAppSecurityArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataConnectorMicrosoftCloudAppSecurityArgs | DataConnectorMicrosoftCloudAppSecurityState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorMicrosoftCloudAppSecurityState | undefined;
-            inputs["alertsEnabled"] = state ? state.alertsEnabled : undefined;
-            inputs["discoveryLogsEnabled"] = state ? state.discoveryLogsEnabled : undefined;
-            inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["alertsEnabled"] = state ? state.alertsEnabled : undefined;
+            resourceInputs["discoveryLogsEnabled"] = state ? state.discoveryLogsEnabled : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as DataConnectorMicrosoftCloudAppSecurityArgs | undefined;
             if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            inputs["alertsEnabled"] = args ? args.alertsEnabled : undefined;
-            inputs["discoveryLogsEnabled"] = args ? args.discoveryLogsEnabled : undefined;
-            inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["alertsEnabled"] = args ? args.alertsEnabled : undefined;
+            resourceInputs["discoveryLogsEnabled"] = args ? args.discoveryLogsEnabled : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DataConnectorMicrosoftCloudAppSecurity.__pulumiType, name, inputs, opts);
+        super(DataConnectorMicrosoftCloudAppSecurity.__pulumiType, name, resourceInputs, opts);
     }
 }
 

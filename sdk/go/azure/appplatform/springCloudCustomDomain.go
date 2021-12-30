@@ -125,7 +125,7 @@ type SpringCloudCustomDomainInput interface {
 }
 
 func (*SpringCloudCustomDomain) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudCustomDomain)(nil))
+	return reflect.TypeOf((**SpringCloudCustomDomain)(nil)).Elem()
 }
 
 func (i *SpringCloudCustomDomain) ToSpringCloudCustomDomainOutput() SpringCloudCustomDomainOutput {
@@ -134,35 +134,6 @@ func (i *SpringCloudCustomDomain) ToSpringCloudCustomDomainOutput() SpringCloudC
 
 func (i *SpringCloudCustomDomain) ToSpringCloudCustomDomainOutputWithContext(ctx context.Context) SpringCloudCustomDomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomDomainOutput)
-}
-
-func (i *SpringCloudCustomDomain) ToSpringCloudCustomDomainPtrOutput() SpringCloudCustomDomainPtrOutput {
-	return i.ToSpringCloudCustomDomainPtrOutputWithContext(context.Background())
-}
-
-func (i *SpringCloudCustomDomain) ToSpringCloudCustomDomainPtrOutputWithContext(ctx context.Context) SpringCloudCustomDomainPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomDomainPtrOutput)
-}
-
-type SpringCloudCustomDomainPtrInput interface {
-	pulumi.Input
-
-	ToSpringCloudCustomDomainPtrOutput() SpringCloudCustomDomainPtrOutput
-	ToSpringCloudCustomDomainPtrOutputWithContext(ctx context.Context) SpringCloudCustomDomainPtrOutput
-}
-
-type springCloudCustomDomainPtrType SpringCloudCustomDomainArgs
-
-func (*springCloudCustomDomainPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudCustomDomain)(nil))
-}
-
-func (i *springCloudCustomDomainPtrType) ToSpringCloudCustomDomainPtrOutput() SpringCloudCustomDomainPtrOutput {
-	return i.ToSpringCloudCustomDomainPtrOutputWithContext(context.Background())
-}
-
-func (i *springCloudCustomDomainPtrType) ToSpringCloudCustomDomainPtrOutputWithContext(ctx context.Context) SpringCloudCustomDomainPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomDomainPtrOutput)
 }
 
 // SpringCloudCustomDomainArrayInput is an input type that accepts SpringCloudCustomDomainArray and SpringCloudCustomDomainArrayOutput values.
@@ -218,7 +189,7 @@ func (i SpringCloudCustomDomainMap) ToSpringCloudCustomDomainMapOutputWithContex
 type SpringCloudCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCustomDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpringCloudCustomDomain)(nil))
+	return reflect.TypeOf((**SpringCloudCustomDomain)(nil)).Elem()
 }
 
 func (o SpringCloudCustomDomainOutput) ToSpringCloudCustomDomainOutput() SpringCloudCustomDomainOutput {
@@ -229,44 +200,10 @@ func (o SpringCloudCustomDomainOutput) ToSpringCloudCustomDomainOutputWithContex
 	return o
 }
 
-func (o SpringCloudCustomDomainOutput) ToSpringCloudCustomDomainPtrOutput() SpringCloudCustomDomainPtrOutput {
-	return o.ToSpringCloudCustomDomainPtrOutputWithContext(context.Background())
-}
-
-func (o SpringCloudCustomDomainOutput) ToSpringCloudCustomDomainPtrOutputWithContext(ctx context.Context) SpringCloudCustomDomainPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudCustomDomain) *SpringCloudCustomDomain {
-		return &v
-	}).(SpringCloudCustomDomainPtrOutput)
-}
-
-type SpringCloudCustomDomainPtrOutput struct{ *pulumi.OutputState }
-
-func (SpringCloudCustomDomainPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpringCloudCustomDomain)(nil))
-}
-
-func (o SpringCloudCustomDomainPtrOutput) ToSpringCloudCustomDomainPtrOutput() SpringCloudCustomDomainPtrOutput {
-	return o
-}
-
-func (o SpringCloudCustomDomainPtrOutput) ToSpringCloudCustomDomainPtrOutputWithContext(ctx context.Context) SpringCloudCustomDomainPtrOutput {
-	return o
-}
-
-func (o SpringCloudCustomDomainPtrOutput) Elem() SpringCloudCustomDomainOutput {
-	return o.ApplyT(func(v *SpringCloudCustomDomain) SpringCloudCustomDomain {
-		if v != nil {
-			return *v
-		}
-		var ret SpringCloudCustomDomain
-		return ret
-	}).(SpringCloudCustomDomainOutput)
-}
-
 type SpringCloudCustomDomainArrayOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCustomDomainArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpringCloudCustomDomain)(nil))
+	return reflect.TypeOf((*[]*SpringCloudCustomDomain)(nil)).Elem()
 }
 
 func (o SpringCloudCustomDomainArrayOutput) ToSpringCloudCustomDomainArrayOutput() SpringCloudCustomDomainArrayOutput {
@@ -278,15 +215,15 @@ func (o SpringCloudCustomDomainArrayOutput) ToSpringCloudCustomDomainArrayOutput
 }
 
 func (o SpringCloudCustomDomainArrayOutput) Index(i pulumi.IntInput) SpringCloudCustomDomainOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudCustomDomain {
-		return vs[0].([]SpringCloudCustomDomain)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudCustomDomain {
+		return vs[0].([]*SpringCloudCustomDomain)[vs[1].(int)]
 	}).(SpringCloudCustomDomainOutput)
 }
 
 type SpringCloudCustomDomainMapOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCustomDomainMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SpringCloudCustomDomain)(nil))
+	return reflect.TypeOf((*map[string]*SpringCloudCustomDomain)(nil)).Elem()
 }
 
 func (o SpringCloudCustomDomainMapOutput) ToSpringCloudCustomDomainMapOutput() SpringCloudCustomDomainMapOutput {
@@ -298,18 +235,16 @@ func (o SpringCloudCustomDomainMapOutput) ToSpringCloudCustomDomainMapOutputWith
 }
 
 func (o SpringCloudCustomDomainMapOutput) MapIndex(k pulumi.StringInput) SpringCloudCustomDomainOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpringCloudCustomDomain {
-		return vs[0].(map[string]SpringCloudCustomDomain)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SpringCloudCustomDomain {
+		return vs[0].(map[string]*SpringCloudCustomDomain)[vs[1].(string)]
 	}).(SpringCloudCustomDomainOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomDomainInput)(nil)).Elem(), &SpringCloudCustomDomain{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomDomainPtrInput)(nil)).Elem(), &SpringCloudCustomDomain{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomDomainArrayInput)(nil)).Elem(), SpringCloudCustomDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomDomainMapInput)(nil)).Elem(), SpringCloudCustomDomainMap{})
 	pulumi.RegisterOutputType(SpringCloudCustomDomainOutput{})
-	pulumi.RegisterOutputType(SpringCloudCustomDomainPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudCustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudCustomDomainMapOutput{})
 }

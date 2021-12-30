@@ -135,21 +135,21 @@ export class Application extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            inputs["applicationDefinitionId"] = state ? state.applicationDefinitionId : undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outputs"] = state ? state.outputs : undefined;
-            inputs["parameterValues"] = state ? state.parameterValues : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["plan"] = state ? state.plan : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["applicationDefinitionId"] = state ? state.applicationDefinitionId : undefined;
+            resourceInputs["kind"] = state ? state.kind : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputs"] = state ? state.outputs : undefined;
+            resourceInputs["parameterValues"] = state ? state.parameterValues : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["plan"] = state ? state.plan : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -161,22 +161,22 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameterValues"] = args ? args.parameterValues : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["outputs"] = undefined /*out*/;
+            resourceInputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["outputs"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Application.__pulumiType, name, inputs, opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

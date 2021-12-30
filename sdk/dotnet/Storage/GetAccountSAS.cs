@@ -47,18 +47,18 @@ namespace Pulumi.Azure.Storage
         ///                 { "environment", "staging" },
         ///             },
         ///         });
-        ///         var exampleAccountSAS = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; Azure.Storage.GetAccountSAS.InvokeAsync(new Azure.Storage.GetAccountSASArgs
+        ///         var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new Azure.Storage.GetAccountSASInvokeArgs
         ///         {
-        ///             ConnectionString = primaryConnectionString,
+        ///             ConnectionString = exampleAccount.PrimaryConnectionString,
         ///             HttpsOnly = true,
         ///             SignedVersion = "2017-07-29",
-        ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesArgs
+        ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
         ///             {
         ///                 Service = true,
         ///                 Container = false,
         ///                 Object = false,
         ///             },
-        ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesArgs
+        ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesInputArgs
         ///             {
         ///                 Blob = true,
         ///                 Queue = false,
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Storage
         ///             },
         ///             Start = "2018-03-21T00:00:00Z",
         ///             Expiry = "2020-03-21T00:00:00Z",
-        ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsArgs
+        ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
         ///             {
         ///                 Read = true,
         ///                 Write = true,
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Storage
         ///                 Update = false,
         ///                 Process = false,
         ///             },
-        ///         }));
+        ///         });
         ///         this.SasUrlQueryString = exampleAccountSAS.Apply(exampleAccountSAS =&gt; exampleAccountSAS.Sas);
         ///     }
         /// 
@@ -127,18 +127,18 @@ namespace Pulumi.Azure.Storage
         ///                 { "environment", "staging" },
         ///             },
         ///         });
-        ///         var exampleAccountSAS = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; Azure.Storage.GetAccountSAS.InvokeAsync(new Azure.Storage.GetAccountSASArgs
+        ///         var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new Azure.Storage.GetAccountSASInvokeArgs
         ///         {
-        ///             ConnectionString = primaryConnectionString,
+        ///             ConnectionString = exampleAccount.PrimaryConnectionString,
         ///             HttpsOnly = true,
         ///             SignedVersion = "2017-07-29",
-        ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesArgs
+        ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
         ///             {
         ///                 Service = true,
         ///                 Container = false,
         ///                 Object = false,
         ///             },
-        ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesArgs
+        ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesInputArgs
         ///             {
         ///                 Blob = true,
         ///                 Queue = false,
@@ -147,7 +147,7 @@ namespace Pulumi.Azure.Storage
         ///             },
         ///             Start = "2018-03-21T00:00:00Z",
         ///             Expiry = "2020-03-21T00:00:00Z",
-        ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsArgs
+        ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
         ///             {
         ///                 Read = true,
         ///                 Write = true,
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.Storage
         ///                 Update = false,
         ///                 Process = false,
         ///             },
-        ///         }));
+        ///         });
         ///         this.SasUrlQueryString = exampleAccountSAS.Apply(exampleAccountSAS =&gt; exampleAccountSAS.Sas);
         ///     }
         /// 

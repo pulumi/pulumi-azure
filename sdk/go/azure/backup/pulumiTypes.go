@@ -47,47 +47,6 @@ func (i PolicyFileShareBackupArgs) ToPolicyFileShareBackupOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareBackupOutput)
 }
 
-func (i PolicyFileShareBackupArgs) ToPolicyFileShareBackupPtrOutput() PolicyFileShareBackupPtrOutput {
-	return i.ToPolicyFileShareBackupPtrOutputWithContext(context.Background())
-}
-
-func (i PolicyFileShareBackupArgs) ToPolicyFileShareBackupPtrOutputWithContext(ctx context.Context) PolicyFileShareBackupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareBackupOutput).ToPolicyFileShareBackupPtrOutputWithContext(ctx)
-}
-
-// PolicyFileShareBackupPtrInput is an input type that accepts PolicyFileShareBackupArgs, PolicyFileShareBackupPtr and PolicyFileShareBackupPtrOutput values.
-// You can construct a concrete instance of `PolicyFileShareBackupPtrInput` via:
-//
-//          PolicyFileShareBackupArgs{...}
-//
-//  or:
-//
-//          nil
-type PolicyFileShareBackupPtrInput interface {
-	pulumi.Input
-
-	ToPolicyFileShareBackupPtrOutput() PolicyFileShareBackupPtrOutput
-	ToPolicyFileShareBackupPtrOutputWithContext(context.Context) PolicyFileShareBackupPtrOutput
-}
-
-type policyFileShareBackupPtrType PolicyFileShareBackupArgs
-
-func PolicyFileShareBackupPtr(v *PolicyFileShareBackupArgs) PolicyFileShareBackupPtrInput {
-	return (*policyFileShareBackupPtrType)(v)
-}
-
-func (*policyFileShareBackupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyFileShareBackup)(nil)).Elem()
-}
-
-func (i *policyFileShareBackupPtrType) ToPolicyFileShareBackupPtrOutput() PolicyFileShareBackupPtrOutput {
-	return i.ToPolicyFileShareBackupPtrOutputWithContext(context.Background())
-}
-
-func (i *policyFileShareBackupPtrType) ToPolicyFileShareBackupPtrOutputWithContext(ctx context.Context) PolicyFileShareBackupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareBackupPtrOutput)
-}
-
 type PolicyFileShareBackupOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareBackupOutput) ElementType() reflect.Type {
@@ -102,16 +61,6 @@ func (o PolicyFileShareBackupOutput) ToPolicyFileShareBackupOutputWithContext(ct
 	return o
 }
 
-func (o PolicyFileShareBackupOutput) ToPolicyFileShareBackupPtrOutput() PolicyFileShareBackupPtrOutput {
-	return o.ToPolicyFileShareBackupPtrOutputWithContext(context.Background())
-}
-
-func (o PolicyFileShareBackupOutput) ToPolicyFileShareBackupPtrOutputWithContext(ctx context.Context) PolicyFileShareBackupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFileShareBackup) *PolicyFileShareBackup {
-		return &v
-	}).(PolicyFileShareBackupPtrOutput)
-}
-
 // Sets the backup frequency. Currently, only `Daily` is supported
 func (o PolicyFileShareBackupOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyFileShareBackup) string { return v.Frequency }).(pulumi.StringOutput)
@@ -120,50 +69,6 @@ func (o PolicyFileShareBackupOutput) Frequency() pulumi.StringOutput {
 // The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
 func (o PolicyFileShareBackupOutput) Time() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyFileShareBackup) string { return v.Time }).(pulumi.StringOutput)
-}
-
-type PolicyFileShareBackupPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyFileShareBackupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyFileShareBackup)(nil)).Elem()
-}
-
-func (o PolicyFileShareBackupPtrOutput) ToPolicyFileShareBackupPtrOutput() PolicyFileShareBackupPtrOutput {
-	return o
-}
-
-func (o PolicyFileShareBackupPtrOutput) ToPolicyFileShareBackupPtrOutputWithContext(ctx context.Context) PolicyFileShareBackupPtrOutput {
-	return o
-}
-
-func (o PolicyFileShareBackupPtrOutput) Elem() PolicyFileShareBackupOutput {
-	return o.ApplyT(func(v *PolicyFileShareBackup) PolicyFileShareBackup {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyFileShareBackup
-		return ret
-	}).(PolicyFileShareBackupOutput)
-}
-
-// Sets the backup frequency. Currently, only `Daily` is supported
-func (o PolicyFileShareBackupPtrOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyFileShareBackup) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Frequency
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
-func (o PolicyFileShareBackupPtrOutput) Time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyFileShareBackup) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Time
-	}).(pulumi.StringPtrOutput)
 }
 
 type PolicyFileShareRetentionDaily struct {
@@ -199,47 +104,6 @@ func (i PolicyFileShareRetentionDailyArgs) ToPolicyFileShareRetentionDailyOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareRetentionDailyOutput)
 }
 
-func (i PolicyFileShareRetentionDailyArgs) ToPolicyFileShareRetentionDailyPtrOutput() PolicyFileShareRetentionDailyPtrOutput {
-	return i.ToPolicyFileShareRetentionDailyPtrOutputWithContext(context.Background())
-}
-
-func (i PolicyFileShareRetentionDailyArgs) ToPolicyFileShareRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyFileShareRetentionDailyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareRetentionDailyOutput).ToPolicyFileShareRetentionDailyPtrOutputWithContext(ctx)
-}
-
-// PolicyFileShareRetentionDailyPtrInput is an input type that accepts PolicyFileShareRetentionDailyArgs, PolicyFileShareRetentionDailyPtr and PolicyFileShareRetentionDailyPtrOutput values.
-// You can construct a concrete instance of `PolicyFileShareRetentionDailyPtrInput` via:
-//
-//          PolicyFileShareRetentionDailyArgs{...}
-//
-//  or:
-//
-//          nil
-type PolicyFileShareRetentionDailyPtrInput interface {
-	pulumi.Input
-
-	ToPolicyFileShareRetentionDailyPtrOutput() PolicyFileShareRetentionDailyPtrOutput
-	ToPolicyFileShareRetentionDailyPtrOutputWithContext(context.Context) PolicyFileShareRetentionDailyPtrOutput
-}
-
-type policyFileShareRetentionDailyPtrType PolicyFileShareRetentionDailyArgs
-
-func PolicyFileShareRetentionDailyPtr(v *PolicyFileShareRetentionDailyArgs) PolicyFileShareRetentionDailyPtrInput {
-	return (*policyFileShareRetentionDailyPtrType)(v)
-}
-
-func (*policyFileShareRetentionDailyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyFileShareRetentionDaily)(nil)).Elem()
-}
-
-func (i *policyFileShareRetentionDailyPtrType) ToPolicyFileShareRetentionDailyPtrOutput() PolicyFileShareRetentionDailyPtrOutput {
-	return i.ToPolicyFileShareRetentionDailyPtrOutputWithContext(context.Background())
-}
-
-func (i *policyFileShareRetentionDailyPtrType) ToPolicyFileShareRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyFileShareRetentionDailyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareRetentionDailyPtrOutput)
-}
-
 type PolicyFileShareRetentionDailyOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareRetentionDailyOutput) ElementType() reflect.Type {
@@ -254,53 +118,9 @@ func (o PolicyFileShareRetentionDailyOutput) ToPolicyFileShareRetentionDailyOutp
 	return o
 }
 
-func (o PolicyFileShareRetentionDailyOutput) ToPolicyFileShareRetentionDailyPtrOutput() PolicyFileShareRetentionDailyPtrOutput {
-	return o.ToPolicyFileShareRetentionDailyPtrOutputWithContext(context.Background())
-}
-
-func (o PolicyFileShareRetentionDailyOutput) ToPolicyFileShareRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyFileShareRetentionDailyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFileShareRetentionDaily) *PolicyFileShareRetentionDaily {
-		return &v
-	}).(PolicyFileShareRetentionDailyPtrOutput)
-}
-
 // The number of yearly backups to keep. Must be between `1` and `10`
 func (o PolicyFileShareRetentionDailyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyFileShareRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
-}
-
-type PolicyFileShareRetentionDailyPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyFileShareRetentionDailyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyFileShareRetentionDaily)(nil)).Elem()
-}
-
-func (o PolicyFileShareRetentionDailyPtrOutput) ToPolicyFileShareRetentionDailyPtrOutput() PolicyFileShareRetentionDailyPtrOutput {
-	return o
-}
-
-func (o PolicyFileShareRetentionDailyPtrOutput) ToPolicyFileShareRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyFileShareRetentionDailyPtrOutput {
-	return o
-}
-
-func (o PolicyFileShareRetentionDailyPtrOutput) Elem() PolicyFileShareRetentionDailyOutput {
-	return o.ApplyT(func(v *PolicyFileShareRetentionDaily) PolicyFileShareRetentionDaily {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyFileShareRetentionDaily
-		return ret
-	}).(PolicyFileShareRetentionDailyOutput)
-}
-
-// The number of yearly backups to keep. Must be between `1` and `10`
-func (o PolicyFileShareRetentionDailyPtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PolicyFileShareRetentionDaily) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Count
-	}).(pulumi.IntPtrOutput)
 }
 
 type PolicyFileShareRetentionMonthly struct {
@@ -869,47 +689,6 @@ func (i PolicyVMBackupArgs) ToPolicyVMBackupOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMBackupOutput)
 }
 
-func (i PolicyVMBackupArgs) ToPolicyVMBackupPtrOutput() PolicyVMBackupPtrOutput {
-	return i.ToPolicyVMBackupPtrOutputWithContext(context.Background())
-}
-
-func (i PolicyVMBackupArgs) ToPolicyVMBackupPtrOutputWithContext(ctx context.Context) PolicyVMBackupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMBackupOutput).ToPolicyVMBackupPtrOutputWithContext(ctx)
-}
-
-// PolicyVMBackupPtrInput is an input type that accepts PolicyVMBackupArgs, PolicyVMBackupPtr and PolicyVMBackupPtrOutput values.
-// You can construct a concrete instance of `PolicyVMBackupPtrInput` via:
-//
-//          PolicyVMBackupArgs{...}
-//
-//  or:
-//
-//          nil
-type PolicyVMBackupPtrInput interface {
-	pulumi.Input
-
-	ToPolicyVMBackupPtrOutput() PolicyVMBackupPtrOutput
-	ToPolicyVMBackupPtrOutputWithContext(context.Context) PolicyVMBackupPtrOutput
-}
-
-type policyVMBackupPtrType PolicyVMBackupArgs
-
-func PolicyVMBackupPtr(v *PolicyVMBackupArgs) PolicyVMBackupPtrInput {
-	return (*policyVMBackupPtrType)(v)
-}
-
-func (*policyVMBackupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyVMBackup)(nil)).Elem()
-}
-
-func (i *policyVMBackupPtrType) ToPolicyVMBackupPtrOutput() PolicyVMBackupPtrOutput {
-	return i.ToPolicyVMBackupPtrOutputWithContext(context.Background())
-}
-
-func (i *policyVMBackupPtrType) ToPolicyVMBackupPtrOutputWithContext(ctx context.Context) PolicyVMBackupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMBackupPtrOutput)
-}
-
 type PolicyVMBackupOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMBackupOutput) ElementType() reflect.Type {
@@ -922,16 +701,6 @@ func (o PolicyVMBackupOutput) ToPolicyVMBackupOutput() PolicyVMBackupOutput {
 
 func (o PolicyVMBackupOutput) ToPolicyVMBackupOutputWithContext(ctx context.Context) PolicyVMBackupOutput {
 	return o
-}
-
-func (o PolicyVMBackupOutput) ToPolicyVMBackupPtrOutput() PolicyVMBackupPtrOutput {
-	return o.ToPolicyVMBackupPtrOutputWithContext(context.Background())
-}
-
-func (o PolicyVMBackupOutput) ToPolicyVMBackupPtrOutputWithContext(ctx context.Context) PolicyVMBackupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMBackup) *PolicyVMBackup {
-		return &v
-	}).(PolicyVMBackupPtrOutput)
 }
 
 // Sets the backup frequency. Must be either `Daily` or`Weekly`.
@@ -947,60 +716,6 @@ func (o PolicyVMBackupOutput) Time() pulumi.StringOutput {
 // The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 func (o PolicyVMBackupOutput) Weekdays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyVMBackup) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
-}
-
-type PolicyVMBackupPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyVMBackupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyVMBackup)(nil)).Elem()
-}
-
-func (o PolicyVMBackupPtrOutput) ToPolicyVMBackupPtrOutput() PolicyVMBackupPtrOutput {
-	return o
-}
-
-func (o PolicyVMBackupPtrOutput) ToPolicyVMBackupPtrOutputWithContext(ctx context.Context) PolicyVMBackupPtrOutput {
-	return o
-}
-
-func (o PolicyVMBackupPtrOutput) Elem() PolicyVMBackupOutput {
-	return o.ApplyT(func(v *PolicyVMBackup) PolicyVMBackup {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyVMBackup
-		return ret
-	}).(PolicyVMBackupOutput)
-}
-
-// Sets the backup frequency. Must be either `Daily` or`Weekly`.
-func (o PolicyVMBackupPtrOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyVMBackup) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Frequency
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time of day to perform the backup in 24hour format.
-func (o PolicyVMBackupPtrOutput) Time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyVMBackup) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Time
-	}).(pulumi.StringPtrOutput)
-}
-
-// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-func (o PolicyVMBackupPtrOutput) Weekdays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PolicyVMBackup) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Weekdays
-	}).(pulumi.StringArrayOutput)
 }
 
 type PolicyVMRetentionDaily struct {
@@ -1667,9 +1382,7 @@ func (o PolicyVMRetentionYearlyPtrOutput) Weeks() pulumi.StringArrayOutput {
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareBackupInput)(nil)).Elem(), PolicyFileShareBackupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareBackupPtrInput)(nil)).Elem(), PolicyFileShareBackupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareRetentionDailyInput)(nil)).Elem(), PolicyFileShareRetentionDailyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareRetentionDailyPtrInput)(nil)).Elem(), PolicyFileShareRetentionDailyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareRetentionMonthlyInput)(nil)).Elem(), PolicyFileShareRetentionMonthlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareRetentionMonthlyPtrInput)(nil)).Elem(), PolicyFileShareRetentionMonthlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareRetentionWeeklyInput)(nil)).Elem(), PolicyFileShareRetentionWeeklyArgs{})
@@ -1677,7 +1390,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareRetentionYearlyInput)(nil)).Elem(), PolicyFileShareRetentionYearlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareRetentionYearlyPtrInput)(nil)).Elem(), PolicyFileShareRetentionYearlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMBackupInput)(nil)).Elem(), PolicyVMBackupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMBackupPtrInput)(nil)).Elem(), PolicyVMBackupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionDailyInput)(nil)).Elem(), PolicyVMRetentionDailyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionDailyPtrInput)(nil)).Elem(), PolicyVMRetentionDailyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionMonthlyInput)(nil)).Elem(), PolicyVMRetentionMonthlyArgs{})
@@ -1687,9 +1399,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionYearlyInput)(nil)).Elem(), PolicyVMRetentionYearlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionYearlyPtrInput)(nil)).Elem(), PolicyVMRetentionYearlyArgs{})
 	pulumi.RegisterOutputType(PolicyFileShareBackupOutput{})
-	pulumi.RegisterOutputType(PolicyFileShareBackupPtrOutput{})
 	pulumi.RegisterOutputType(PolicyFileShareRetentionDailyOutput{})
-	pulumi.RegisterOutputType(PolicyFileShareRetentionDailyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyFileShareRetentionMonthlyOutput{})
 	pulumi.RegisterOutputType(PolicyFileShareRetentionMonthlyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyFileShareRetentionWeeklyOutput{})
@@ -1697,7 +1407,6 @@ func init() {
 	pulumi.RegisterOutputType(PolicyFileShareRetentionYearlyOutput{})
 	pulumi.RegisterOutputType(PolicyFileShareRetentionYearlyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyVMBackupOutput{})
-	pulumi.RegisterOutputType(PolicyVMBackupPtrOutput{})
 	pulumi.RegisterOutputType(PolicyVMRetentionDailyOutput{})
 	pulumi.RegisterOutputType(PolicyVMRetentionDailyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyVMRetentionMonthlyOutput{})

@@ -116,36 +116,36 @@ export class Share extends pulumi.CustomResource {
      */
     constructor(name: string, args: ShareArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ShareArgs | ShareState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ShareState | undefined;
-            inputs["acls"] = state ? state.acls : undefined;
-            inputs["enabledProtocol"] = state ? state.enabledProtocol : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["quota"] = state ? state.quota : undefined;
-            inputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
-            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["acls"] = state ? state.acls : undefined;
+            resourceInputs["enabledProtocol"] = state ? state.enabledProtocol : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["quota"] = state ? state.quota : undefined;
+            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
+            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ShareArgs | undefined;
             if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            inputs["acls"] = args ? args.acls : undefined;
-            inputs["enabledProtocol"] = args ? args.enabledProtocol : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["quota"] = args ? args.quota : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["resourceManagerId"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["acls"] = args ? args.acls : undefined;
+            resourceInputs["enabledProtocol"] = args ? args.enabledProtocol : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["quota"] = args ? args.quota : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["resourceManagerId"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Share.__pulumiType, name, inputs, opts);
+        super(Share.__pulumiType, name, resourceInputs, opts);
     }
 }
 

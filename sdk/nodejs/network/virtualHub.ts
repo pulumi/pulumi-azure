@@ -109,38 +109,38 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualHubArgs | VirtualHubState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualHubState | undefined;
-            inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
-            inputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["routes"] = state ? state.routes : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["virtualWanId"] = state ? state.virtualWanId : undefined;
+            resourceInputs["addressPrefix"] = state ? state.addressPrefix : undefined;
+            resourceInputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["routes"] = state ? state.routes : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualWanId"] = state ? state.virtualWanId : undefined;
         } else {
             const args = argsOrState as VirtualHubArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routes"] = args ? args.routes : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualWanId"] = args ? args.virtualWanId : undefined;
-            inputs["defaultRouteTableId"] = undefined /*out*/;
+            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routes"] = args ? args.routes : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualWanId"] = args ? args.virtualWanId : undefined;
+            resourceInputs["defaultRouteTableId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VirtualHub.__pulumiType, name, inputs, opts);
+        super(VirtualHub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

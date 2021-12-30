@@ -223,7 +223,7 @@ type IntegrationAccountAssemblyInput interface {
 }
 
 func (*IntegrationAccountAssembly) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountAssembly)(nil))
+	return reflect.TypeOf((**IntegrationAccountAssembly)(nil)).Elem()
 }
 
 func (i *IntegrationAccountAssembly) ToIntegrationAccountAssemblyOutput() IntegrationAccountAssemblyOutput {
@@ -232,35 +232,6 @@ func (i *IntegrationAccountAssembly) ToIntegrationAccountAssemblyOutput() Integr
 
 func (i *IntegrationAccountAssembly) ToIntegrationAccountAssemblyOutputWithContext(ctx context.Context) IntegrationAccountAssemblyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAssemblyOutput)
-}
-
-func (i *IntegrationAccountAssembly) ToIntegrationAccountAssemblyPtrOutput() IntegrationAccountAssemblyPtrOutput {
-	return i.ToIntegrationAccountAssemblyPtrOutputWithContext(context.Background())
-}
-
-func (i *IntegrationAccountAssembly) ToIntegrationAccountAssemblyPtrOutputWithContext(ctx context.Context) IntegrationAccountAssemblyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAssemblyPtrOutput)
-}
-
-type IntegrationAccountAssemblyPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountAssemblyPtrOutput() IntegrationAccountAssemblyPtrOutput
-	ToIntegrationAccountAssemblyPtrOutputWithContext(ctx context.Context) IntegrationAccountAssemblyPtrOutput
-}
-
-type integrationAccountAssemblyPtrType IntegrationAccountAssemblyArgs
-
-func (*integrationAccountAssemblyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountAssembly)(nil))
-}
-
-func (i *integrationAccountAssemblyPtrType) ToIntegrationAccountAssemblyPtrOutput() IntegrationAccountAssemblyPtrOutput {
-	return i.ToIntegrationAccountAssemblyPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationAccountAssemblyPtrType) ToIntegrationAccountAssemblyPtrOutputWithContext(ctx context.Context) IntegrationAccountAssemblyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAssemblyPtrOutput)
 }
 
 // IntegrationAccountAssemblyArrayInput is an input type that accepts IntegrationAccountAssemblyArray and IntegrationAccountAssemblyArrayOutput values.
@@ -316,7 +287,7 @@ func (i IntegrationAccountAssemblyMap) ToIntegrationAccountAssemblyMapOutputWith
 type IntegrationAccountAssemblyOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAssemblyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountAssembly)(nil))
+	return reflect.TypeOf((**IntegrationAccountAssembly)(nil)).Elem()
 }
 
 func (o IntegrationAccountAssemblyOutput) ToIntegrationAccountAssemblyOutput() IntegrationAccountAssemblyOutput {
@@ -327,44 +298,10 @@ func (o IntegrationAccountAssemblyOutput) ToIntegrationAccountAssemblyOutputWith
 	return o
 }
 
-func (o IntegrationAccountAssemblyOutput) ToIntegrationAccountAssemblyPtrOutput() IntegrationAccountAssemblyPtrOutput {
-	return o.ToIntegrationAccountAssemblyPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationAccountAssemblyOutput) ToIntegrationAccountAssemblyPtrOutputWithContext(ctx context.Context) IntegrationAccountAssemblyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountAssembly) *IntegrationAccountAssembly {
-		return &v
-	}).(IntegrationAccountAssemblyPtrOutput)
-}
-
-type IntegrationAccountAssemblyPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountAssemblyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountAssembly)(nil))
-}
-
-func (o IntegrationAccountAssemblyPtrOutput) ToIntegrationAccountAssemblyPtrOutput() IntegrationAccountAssemblyPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountAssemblyPtrOutput) ToIntegrationAccountAssemblyPtrOutputWithContext(ctx context.Context) IntegrationAccountAssemblyPtrOutput {
-	return o
-}
-
-func (o IntegrationAccountAssemblyPtrOutput) Elem() IntegrationAccountAssemblyOutput {
-	return o.ApplyT(func(v *IntegrationAccountAssembly) IntegrationAccountAssembly {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationAccountAssembly
-		return ret
-	}).(IntegrationAccountAssemblyOutput)
-}
-
 type IntegrationAccountAssemblyArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAssemblyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IntegrationAccountAssembly)(nil))
+	return reflect.TypeOf((*[]*IntegrationAccountAssembly)(nil)).Elem()
 }
 
 func (o IntegrationAccountAssemblyArrayOutput) ToIntegrationAccountAssemblyArrayOutput() IntegrationAccountAssemblyArrayOutput {
@@ -376,15 +313,15 @@ func (o IntegrationAccountAssemblyArrayOutput) ToIntegrationAccountAssemblyArray
 }
 
 func (o IntegrationAccountAssemblyArrayOutput) Index(i pulumi.IntInput) IntegrationAccountAssemblyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAccountAssembly {
-		return vs[0].([]IntegrationAccountAssembly)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountAssembly {
+		return vs[0].([]*IntegrationAccountAssembly)[vs[1].(int)]
 	}).(IntegrationAccountAssemblyOutput)
 }
 
 type IntegrationAccountAssemblyMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAssemblyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IntegrationAccountAssembly)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationAccountAssembly)(nil)).Elem()
 }
 
 func (o IntegrationAccountAssemblyMapOutput) ToIntegrationAccountAssemblyMapOutput() IntegrationAccountAssemblyMapOutput {
@@ -396,18 +333,16 @@ func (o IntegrationAccountAssemblyMapOutput) ToIntegrationAccountAssemblyMapOutp
 }
 
 func (o IntegrationAccountAssemblyMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountAssemblyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationAccountAssembly {
-		return vs[0].(map[string]IntegrationAccountAssembly)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IntegrationAccountAssembly {
+		return vs[0].(map[string]*IntegrationAccountAssembly)[vs[1].(string)]
 	}).(IntegrationAccountAssemblyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAssemblyInput)(nil)).Elem(), &IntegrationAccountAssembly{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAssemblyPtrInput)(nil)).Elem(), &IntegrationAccountAssembly{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAssemblyArrayInput)(nil)).Elem(), IntegrationAccountAssemblyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountAssemblyMapInput)(nil)).Elem(), IntegrationAccountAssemblyMap{})
 	pulumi.RegisterOutputType(IntegrationAccountAssemblyOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountAssemblyPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountAssemblyArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountAssemblyMapOutput{})
 }

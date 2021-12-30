@@ -102,16 +102,16 @@ export class Application extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["allowUpdates"] = state ? state.allowUpdates : undefined;
-            inputs["defaultVersion"] = state ? state.defaultVersion : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["allowUpdates"] = state ? state.allowUpdates : undefined;
+            resourceInputs["defaultVersion"] = state ? state.defaultVersion : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -120,17 +120,17 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["allowUpdates"] = args ? args.allowUpdates : undefined;
-            inputs["defaultVersion"] = args ? args.defaultVersion : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["allowUpdates"] = args ? args.allowUpdates : undefined;
+            resourceInputs["defaultVersion"] = args ? args.defaultVersion : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Application.__pulumiType, name, inputs, opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

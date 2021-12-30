@@ -241,7 +241,7 @@ type ActivityLogAlertInput interface {
 }
 
 func (*ActivityLogAlert) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlert)(nil))
+	return reflect.TypeOf((**ActivityLogAlert)(nil)).Elem()
 }
 
 func (i *ActivityLogAlert) ToActivityLogAlertOutput() ActivityLogAlertOutput {
@@ -250,35 +250,6 @@ func (i *ActivityLogAlert) ToActivityLogAlertOutput() ActivityLogAlertOutput {
 
 func (i *ActivityLogAlert) ToActivityLogAlertOutputWithContext(ctx context.Context) ActivityLogAlertOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertOutput)
-}
-
-func (i *ActivityLogAlert) ToActivityLogAlertPtrOutput() ActivityLogAlertPtrOutput {
-	return i.ToActivityLogAlertPtrOutputWithContext(context.Background())
-}
-
-func (i *ActivityLogAlert) ToActivityLogAlertPtrOutputWithContext(ctx context.Context) ActivityLogAlertPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertPtrOutput)
-}
-
-type ActivityLogAlertPtrInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertPtrOutput() ActivityLogAlertPtrOutput
-	ToActivityLogAlertPtrOutputWithContext(ctx context.Context) ActivityLogAlertPtrOutput
-}
-
-type activityLogAlertPtrType ActivityLogAlertArgs
-
-func (*activityLogAlertPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlert)(nil))
-}
-
-func (i *activityLogAlertPtrType) ToActivityLogAlertPtrOutput() ActivityLogAlertPtrOutput {
-	return i.ToActivityLogAlertPtrOutputWithContext(context.Background())
-}
-
-func (i *activityLogAlertPtrType) ToActivityLogAlertPtrOutputWithContext(ctx context.Context) ActivityLogAlertPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertPtrOutput)
 }
 
 // ActivityLogAlertArrayInput is an input type that accepts ActivityLogAlertArray and ActivityLogAlertArrayOutput values.
@@ -334,7 +305,7 @@ func (i ActivityLogAlertMap) ToActivityLogAlertMapOutputWithContext(ctx context.
 type ActivityLogAlertOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlert)(nil))
+	return reflect.TypeOf((**ActivityLogAlert)(nil)).Elem()
 }
 
 func (o ActivityLogAlertOutput) ToActivityLogAlertOutput() ActivityLogAlertOutput {
@@ -345,44 +316,10 @@ func (o ActivityLogAlertOutput) ToActivityLogAlertOutputWithContext(ctx context.
 	return o
 }
 
-func (o ActivityLogAlertOutput) ToActivityLogAlertPtrOutput() ActivityLogAlertPtrOutput {
-	return o.ToActivityLogAlertPtrOutputWithContext(context.Background())
-}
-
-func (o ActivityLogAlertOutput) ToActivityLogAlertPtrOutputWithContext(ctx context.Context) ActivityLogAlertPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlert) *ActivityLogAlert {
-		return &v
-	}).(ActivityLogAlertPtrOutput)
-}
-
-type ActivityLogAlertPtrOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlert)(nil))
-}
-
-func (o ActivityLogAlertPtrOutput) ToActivityLogAlertPtrOutput() ActivityLogAlertPtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertPtrOutput) ToActivityLogAlertPtrOutputWithContext(ctx context.Context) ActivityLogAlertPtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertPtrOutput) Elem() ActivityLogAlertOutput {
-	return o.ApplyT(func(v *ActivityLogAlert) ActivityLogAlert {
-		if v != nil {
-			return *v
-		}
-		var ret ActivityLogAlert
-		return ret
-	}).(ActivityLogAlertOutput)
-}
-
 type ActivityLogAlertArrayOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlert)(nil))
+	return reflect.TypeOf((*[]*ActivityLogAlert)(nil)).Elem()
 }
 
 func (o ActivityLogAlertArrayOutput) ToActivityLogAlertArrayOutput() ActivityLogAlertArrayOutput {
@@ -394,15 +331,15 @@ func (o ActivityLogAlertArrayOutput) ToActivityLogAlertArrayOutputWithContext(ct
 }
 
 func (o ActivityLogAlertArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityLogAlert {
-		return vs[0].([]ActivityLogAlert)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActivityLogAlert {
+		return vs[0].([]*ActivityLogAlert)[vs[1].(int)]
 	}).(ActivityLogAlertOutput)
 }
 
 type ActivityLogAlertMapOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ActivityLogAlert)(nil))
+	return reflect.TypeOf((*map[string]*ActivityLogAlert)(nil)).Elem()
 }
 
 func (o ActivityLogAlertMapOutput) ToActivityLogAlertMapOutput() ActivityLogAlertMapOutput {
@@ -414,18 +351,16 @@ func (o ActivityLogAlertMapOutput) ToActivityLogAlertMapOutputWithContext(ctx co
 }
 
 func (o ActivityLogAlertMapOutput) MapIndex(k pulumi.StringInput) ActivityLogAlertOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ActivityLogAlert {
-		return vs[0].(map[string]ActivityLogAlert)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ActivityLogAlert {
+		return vs[0].(map[string]*ActivityLogAlert)[vs[1].(string)]
 	}).(ActivityLogAlertOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertInput)(nil)).Elem(), &ActivityLogAlert{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertPtrInput)(nil)).Elem(), &ActivityLogAlert{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertArrayInput)(nil)).Elem(), ActivityLogAlertArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertMapInput)(nil)).Elem(), ActivityLogAlertMap{})
 	pulumi.RegisterOutputType(ActivityLogAlertOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertPtrOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertArrayOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertMapOutput{})
 }

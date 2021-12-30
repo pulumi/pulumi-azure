@@ -95,40 +95,40 @@ export class ManagedCertificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedCertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedCertificateArgs | ManagedCertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedCertificateState | undefined;
-            inputs["canonicalName"] = state ? state.canonicalName : undefined;
-            inputs["customHostnameBindingId"] = state ? state.customHostnameBindingId : undefined;
-            inputs["expirationDate"] = state ? state.expirationDate : undefined;
-            inputs["friendlyName"] = state ? state.friendlyName : undefined;
-            inputs["hostNames"] = state ? state.hostNames : undefined;
-            inputs["issueDate"] = state ? state.issueDate : undefined;
-            inputs["issuer"] = state ? state.issuer : undefined;
-            inputs["subjectName"] = state ? state.subjectName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["canonicalName"] = state ? state.canonicalName : undefined;
+            resourceInputs["customHostnameBindingId"] = state ? state.customHostnameBindingId : undefined;
+            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
+            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
+            resourceInputs["hostNames"] = state ? state.hostNames : undefined;
+            resourceInputs["issueDate"] = state ? state.issueDate : undefined;
+            resourceInputs["issuer"] = state ? state.issuer : undefined;
+            resourceInputs["subjectName"] = state ? state.subjectName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as ManagedCertificateArgs | undefined;
             if ((!args || args.customHostnameBindingId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'customHostnameBindingId'");
             }
-            inputs["customHostnameBindingId"] = args ? args.customHostnameBindingId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["canonicalName"] = undefined /*out*/;
-            inputs["expirationDate"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["hostNames"] = undefined /*out*/;
-            inputs["issueDate"] = undefined /*out*/;
-            inputs["issuer"] = undefined /*out*/;
-            inputs["subjectName"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["customHostnameBindingId"] = args ? args.customHostnameBindingId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["canonicalName"] = undefined /*out*/;
+            resourceInputs["expirationDate"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["hostNames"] = undefined /*out*/;
+            resourceInputs["issueDate"] = undefined /*out*/;
+            resourceInputs["issuer"] = undefined /*out*/;
+            resourceInputs["subjectName"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ManagedCertificate.__pulumiType, name, inputs, opts);
+        super(ManagedCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

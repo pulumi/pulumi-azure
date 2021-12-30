@@ -123,20 +123,20 @@ export class RegistryWebook extends pulumi.CustomResource {
     /** @deprecated azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook */
     constructor(name: string, argsOrState?: RegistryWebookArgs | RegistryWebookState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("RegistryWebook is deprecated: azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryWebookState | undefined;
-            inputs["actions"] = state ? state.actions : undefined;
-            inputs["customHeaders"] = state ? state.customHeaders : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["registryName"] = state ? state.registryName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
-            inputs["serviceUri"] = state ? state.serviceUri : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["actions"] = state ? state.actions : undefined;
+            resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["registryName"] = state ? state.registryName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["serviceUri"] = state ? state.serviceUri : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RegistryWebookArgs | undefined;
             if ((!args || args.actions === undefined) && !opts.urn) {
@@ -151,21 +151,21 @@ export class RegistryWebook extends pulumi.CustomResource {
             if ((!args || args.serviceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceUri'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["customHeaders"] = args ? args.customHeaders : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["serviceUri"] = args ? args.serviceUri : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["serviceUri"] = args ? args.serviceUri : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RegistryWebook.__pulumiType, name, inputs, opts);
+        super(RegistryWebook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

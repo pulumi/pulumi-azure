@@ -120,16 +120,16 @@ export class LinkedServer extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkedServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkedServerArgs | LinkedServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServerState | undefined;
-            inputs["linkedRedisCacheId"] = state ? state.linkedRedisCacheId : undefined;
-            inputs["linkedRedisCacheLocation"] = state ? state.linkedRedisCacheLocation : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["serverRole"] = state ? state.serverRole : undefined;
-            inputs["targetRedisCacheName"] = state ? state.targetRedisCacheName : undefined;
+            resourceInputs["linkedRedisCacheId"] = state ? state.linkedRedisCacheId : undefined;
+            resourceInputs["linkedRedisCacheLocation"] = state ? state.linkedRedisCacheLocation : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["serverRole"] = state ? state.serverRole : undefined;
+            resourceInputs["targetRedisCacheName"] = state ? state.targetRedisCacheName : undefined;
         } else {
             const args = argsOrState as LinkedServerArgs | undefined;
             if ((!args || args.linkedRedisCacheId === undefined) && !opts.urn) {
@@ -147,17 +147,17 @@ export class LinkedServer extends pulumi.CustomResource {
             if ((!args || args.targetRedisCacheName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetRedisCacheName'");
             }
-            inputs["linkedRedisCacheId"] = args ? args.linkedRedisCacheId : undefined;
-            inputs["linkedRedisCacheLocation"] = args ? args.linkedRedisCacheLocation : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverRole"] = args ? args.serverRole : undefined;
-            inputs["targetRedisCacheName"] = args ? args.targetRedisCacheName : undefined;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["linkedRedisCacheId"] = args ? args.linkedRedisCacheId : undefined;
+            resourceInputs["linkedRedisCacheLocation"] = args ? args.linkedRedisCacheLocation : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverRole"] = args ? args.serverRole : undefined;
+            resourceInputs["targetRedisCacheName"] = args ? args.targetRedisCacheName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LinkedServer.__pulumiType, name, inputs, opts);
+        super(LinkedServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

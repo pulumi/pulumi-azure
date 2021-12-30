@@ -46,6 +46,33 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_ = storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
+// 			ConnectionString: exampleAccount.PrimaryConnectionString,
+// 			HttpsOnly:        pulumi.Bool(true),
+// 			ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
+// 				Service:   pulumi.Bool(true),
+// 				Container: pulumi.Bool(false),
+// 				Object:    pulumi.Bool(false),
+// 			},
+// 			Services: &storage.GetAccountSASServicesArgs{
+// 				Blob:  pulumi.Bool(true),
+// 				Queue: pulumi.Bool(false),
+// 				Table: pulumi.Bool(false),
+// 				File:  pulumi.Bool(false),
+// 			},
+// 			Start:  pulumi.String("2021-04-30T00:00:00Z"),
+// 			Expiry: pulumi.String("2023-04-30T00:00:00Z"),
+// 			Permissions: &storage.GetAccountSASPermissionsArgs{
+// 				Read:    pulumi.Bool(true),
+// 				Write:   pulumi.Bool(true),
+// 				Delete:  pulumi.Bool(false),
+// 				List:    pulumi.Bool(false),
+// 				Add:     pulumi.Bool(true),
+// 				Create:  pulumi.Bool(true),
+// 				Update:  pulumi.Bool(false),
+// 				Process: pulumi.Bool(false),
+// 			},
+// 		}, nil)
 // 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
@@ -122,6 +149,33 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_ = storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
+// 			ConnectionString: exampleAccount.PrimaryConnectionString,
+// 			HttpsOnly:        pulumi.Bool(true),
+// 			ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
+// 				Service:   pulumi.Bool(true),
+// 				Container: pulumi.Bool(false),
+// 				Object:    pulumi.Bool(false),
+// 			},
+// 			Services: &storage.GetAccountSASServicesArgs{
+// 				Blob:  pulumi.Bool(true),
+// 				Queue: pulumi.Bool(false),
+// 				Table: pulumi.Bool(false),
+// 				File:  pulumi.Bool(false),
+// 			},
+// 			Start:  pulumi.String("2021-04-30T00:00:00Z"),
+// 			Expiry: pulumi.String("2023-04-30T00:00:00Z"),
+// 			Permissions: &storage.GetAccountSASPermissionsArgs{
+// 				Read:    pulumi.Bool(true),
+// 				Write:   pulumi.Bool(true),
+// 				Delete:  pulumi.Bool(false),
+// 				List:    pulumi.Bool(false),
+// 				Add:     pulumi.Bool(true),
+// 				Create:  pulumi.Bool(true),
+// 				Update:  pulumi.Bool(false),
+// 				Process: pulumi.Bool(false),
+// 			},
+// 		}, nil)
 // 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
@@ -322,7 +376,7 @@ type ManagedStorageAccountInput interface {
 }
 
 func (*ManagedStorageAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedStorageAccount)(nil))
+	return reflect.TypeOf((**ManagedStorageAccount)(nil)).Elem()
 }
 
 func (i *ManagedStorageAccount) ToManagedStorageAccountOutput() ManagedStorageAccountOutput {
@@ -331,35 +385,6 @@ func (i *ManagedStorageAccount) ToManagedStorageAccountOutput() ManagedStorageAc
 
 func (i *ManagedStorageAccount) ToManagedStorageAccountOutputWithContext(ctx context.Context) ManagedStorageAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedStorageAccountOutput)
-}
-
-func (i *ManagedStorageAccount) ToManagedStorageAccountPtrOutput() ManagedStorageAccountPtrOutput {
-	return i.ToManagedStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *ManagedStorageAccount) ToManagedStorageAccountPtrOutputWithContext(ctx context.Context) ManagedStorageAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedStorageAccountPtrOutput)
-}
-
-type ManagedStorageAccountPtrInput interface {
-	pulumi.Input
-
-	ToManagedStorageAccountPtrOutput() ManagedStorageAccountPtrOutput
-	ToManagedStorageAccountPtrOutputWithContext(ctx context.Context) ManagedStorageAccountPtrOutput
-}
-
-type managedStorageAccountPtrType ManagedStorageAccountArgs
-
-func (*managedStorageAccountPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedStorageAccount)(nil))
-}
-
-func (i *managedStorageAccountPtrType) ToManagedStorageAccountPtrOutput() ManagedStorageAccountPtrOutput {
-	return i.ToManagedStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *managedStorageAccountPtrType) ToManagedStorageAccountPtrOutputWithContext(ctx context.Context) ManagedStorageAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedStorageAccountPtrOutput)
 }
 
 // ManagedStorageAccountArrayInput is an input type that accepts ManagedStorageAccountArray and ManagedStorageAccountArrayOutput values.
@@ -415,7 +440,7 @@ func (i ManagedStorageAccountMap) ToManagedStorageAccountMapOutputWithContext(ct
 type ManagedStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (ManagedStorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedStorageAccount)(nil))
+	return reflect.TypeOf((**ManagedStorageAccount)(nil)).Elem()
 }
 
 func (o ManagedStorageAccountOutput) ToManagedStorageAccountOutput() ManagedStorageAccountOutput {
@@ -426,44 +451,10 @@ func (o ManagedStorageAccountOutput) ToManagedStorageAccountOutputWithContext(ct
 	return o
 }
 
-func (o ManagedStorageAccountOutput) ToManagedStorageAccountPtrOutput() ManagedStorageAccountPtrOutput {
-	return o.ToManagedStorageAccountPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedStorageAccountOutput) ToManagedStorageAccountPtrOutputWithContext(ctx context.Context) ManagedStorageAccountPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedStorageAccount) *ManagedStorageAccount {
-		return &v
-	}).(ManagedStorageAccountPtrOutput)
-}
-
-type ManagedStorageAccountPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedStorageAccountPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedStorageAccount)(nil))
-}
-
-func (o ManagedStorageAccountPtrOutput) ToManagedStorageAccountPtrOutput() ManagedStorageAccountPtrOutput {
-	return o
-}
-
-func (o ManagedStorageAccountPtrOutput) ToManagedStorageAccountPtrOutputWithContext(ctx context.Context) ManagedStorageAccountPtrOutput {
-	return o
-}
-
-func (o ManagedStorageAccountPtrOutput) Elem() ManagedStorageAccountOutput {
-	return o.ApplyT(func(v *ManagedStorageAccount) ManagedStorageAccount {
-		if v != nil {
-			return *v
-		}
-		var ret ManagedStorageAccount
-		return ret
-	}).(ManagedStorageAccountOutput)
-}
-
 type ManagedStorageAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (ManagedStorageAccountArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedStorageAccount)(nil))
+	return reflect.TypeOf((*[]*ManagedStorageAccount)(nil)).Elem()
 }
 
 func (o ManagedStorageAccountArrayOutput) ToManagedStorageAccountArrayOutput() ManagedStorageAccountArrayOutput {
@@ -475,15 +466,15 @@ func (o ManagedStorageAccountArrayOutput) ToManagedStorageAccountArrayOutputWith
 }
 
 func (o ManagedStorageAccountArrayOutput) Index(i pulumi.IntInput) ManagedStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedStorageAccount {
-		return vs[0].([]ManagedStorageAccount)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedStorageAccount {
+		return vs[0].([]*ManagedStorageAccount)[vs[1].(int)]
 	}).(ManagedStorageAccountOutput)
 }
 
 type ManagedStorageAccountMapOutput struct{ *pulumi.OutputState }
 
 func (ManagedStorageAccountMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedStorageAccount)(nil))
+	return reflect.TypeOf((*map[string]*ManagedStorageAccount)(nil)).Elem()
 }
 
 func (o ManagedStorageAccountMapOutput) ToManagedStorageAccountMapOutput() ManagedStorageAccountMapOutput {
@@ -495,18 +486,16 @@ func (o ManagedStorageAccountMapOutput) ToManagedStorageAccountMapOutputWithCont
 }
 
 func (o ManagedStorageAccountMapOutput) MapIndex(k pulumi.StringInput) ManagedStorageAccountOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedStorageAccount {
-		return vs[0].(map[string]ManagedStorageAccount)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ManagedStorageAccount {
+		return vs[0].(map[string]*ManagedStorageAccount)[vs[1].(string)]
 	}).(ManagedStorageAccountOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountInput)(nil)).Elem(), &ManagedStorageAccount{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountPtrInput)(nil)).Elem(), &ManagedStorageAccount{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountArrayInput)(nil)).Elem(), ManagedStorageAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedStorageAccountMapInput)(nil)).Elem(), ManagedStorageAccountMap{})
 	pulumi.RegisterOutputType(ManagedStorageAccountOutput{})
-	pulumi.RegisterOutputType(ManagedStorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(ManagedStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(ManagedStorageAccountMapOutput{})
 }

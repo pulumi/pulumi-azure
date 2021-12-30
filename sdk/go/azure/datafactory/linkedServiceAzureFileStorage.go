@@ -33,6 +33,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
+// 			Name:              pulumi.String("storageaccountname"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		}, nil)
 // 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
@@ -280,7 +284,7 @@ type LinkedServiceAzureFileStorageInput interface {
 }
 
 func (*LinkedServiceAzureFileStorage) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureFileStorage)(nil))
+	return reflect.TypeOf((**LinkedServiceAzureFileStorage)(nil)).Elem()
 }
 
 func (i *LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStorageOutput() LinkedServiceAzureFileStorageOutput {
@@ -289,35 +293,6 @@ func (i *LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStorageOutput() 
 
 func (i *LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStorageOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFileStorageOutput)
-}
-
-func (i *LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStoragePtrOutput() LinkedServiceAzureFileStoragePtrOutput {
-	return i.ToLinkedServiceAzureFileStoragePtrOutputWithContext(context.Background())
-}
-
-func (i *LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStoragePtrOutputWithContext(ctx context.Context) LinkedServiceAzureFileStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFileStoragePtrOutput)
-}
-
-type LinkedServiceAzureFileStoragePtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceAzureFileStoragePtrOutput() LinkedServiceAzureFileStoragePtrOutput
-	ToLinkedServiceAzureFileStoragePtrOutputWithContext(ctx context.Context) LinkedServiceAzureFileStoragePtrOutput
-}
-
-type linkedServiceAzureFileStoragePtrType LinkedServiceAzureFileStorageArgs
-
-func (*linkedServiceAzureFileStoragePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureFileStorage)(nil))
-}
-
-func (i *linkedServiceAzureFileStoragePtrType) ToLinkedServiceAzureFileStoragePtrOutput() LinkedServiceAzureFileStoragePtrOutput {
-	return i.ToLinkedServiceAzureFileStoragePtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServiceAzureFileStoragePtrType) ToLinkedServiceAzureFileStoragePtrOutputWithContext(ctx context.Context) LinkedServiceAzureFileStoragePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFileStoragePtrOutput)
 }
 
 // LinkedServiceAzureFileStorageArrayInput is an input type that accepts LinkedServiceAzureFileStorageArray and LinkedServiceAzureFileStorageArrayOutput values.
@@ -373,7 +348,7 @@ func (i LinkedServiceAzureFileStorageMap) ToLinkedServiceAzureFileStorageMapOutp
 type LinkedServiceAzureFileStorageOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureFileStorageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureFileStorage)(nil))
+	return reflect.TypeOf((**LinkedServiceAzureFileStorage)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureFileStorageOutput) ToLinkedServiceAzureFileStorageOutput() LinkedServiceAzureFileStorageOutput {
@@ -384,44 +359,10 @@ func (o LinkedServiceAzureFileStorageOutput) ToLinkedServiceAzureFileStorageOutp
 	return o
 }
 
-func (o LinkedServiceAzureFileStorageOutput) ToLinkedServiceAzureFileStoragePtrOutput() LinkedServiceAzureFileStoragePtrOutput {
-	return o.ToLinkedServiceAzureFileStoragePtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceAzureFileStorageOutput) ToLinkedServiceAzureFileStoragePtrOutputWithContext(ctx context.Context) LinkedServiceAzureFileStoragePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureFileStorage) *LinkedServiceAzureFileStorage {
-		return &v
-	}).(LinkedServiceAzureFileStoragePtrOutput)
-}
-
-type LinkedServiceAzureFileStoragePtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceAzureFileStoragePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureFileStorage)(nil))
-}
-
-func (o LinkedServiceAzureFileStoragePtrOutput) ToLinkedServiceAzureFileStoragePtrOutput() LinkedServiceAzureFileStoragePtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureFileStoragePtrOutput) ToLinkedServiceAzureFileStoragePtrOutputWithContext(ctx context.Context) LinkedServiceAzureFileStoragePtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureFileStoragePtrOutput) Elem() LinkedServiceAzureFileStorageOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureFileStorage) LinkedServiceAzureFileStorage {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceAzureFileStorage
-		return ret
-	}).(LinkedServiceAzureFileStorageOutput)
-}
-
 type LinkedServiceAzureFileStorageArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureFileStorageArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServiceAzureFileStorage)(nil))
+	return reflect.TypeOf((*[]*LinkedServiceAzureFileStorage)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureFileStorageArrayOutput) ToLinkedServiceAzureFileStorageArrayOutput() LinkedServiceAzureFileStorageArrayOutput {
@@ -433,15 +374,15 @@ func (o LinkedServiceAzureFileStorageArrayOutput) ToLinkedServiceAzureFileStorag
 }
 
 func (o LinkedServiceAzureFileStorageArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureFileStorageOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceAzureFileStorage {
-		return vs[0].([]LinkedServiceAzureFileStorage)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureFileStorage {
+		return vs[0].([]*LinkedServiceAzureFileStorage)[vs[1].(int)]
 	}).(LinkedServiceAzureFileStorageOutput)
 }
 
 type LinkedServiceAzureFileStorageMapOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureFileStorageMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LinkedServiceAzureFileStorage)(nil))
+	return reflect.TypeOf((*map[string]*LinkedServiceAzureFileStorage)(nil)).Elem()
 }
 
 func (o LinkedServiceAzureFileStorageMapOutput) ToLinkedServiceAzureFileStorageMapOutput() LinkedServiceAzureFileStorageMapOutput {
@@ -453,18 +394,16 @@ func (o LinkedServiceAzureFileStorageMapOutput) ToLinkedServiceAzureFileStorageM
 }
 
 func (o LinkedServiceAzureFileStorageMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureFileStorageOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LinkedServiceAzureFileStorage {
-		return vs[0].(map[string]LinkedServiceAzureFileStorage)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LinkedServiceAzureFileStorage {
+		return vs[0].(map[string]*LinkedServiceAzureFileStorage)[vs[1].(string)]
 	}).(LinkedServiceAzureFileStorageOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFileStorageInput)(nil)).Elem(), &LinkedServiceAzureFileStorage{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFileStoragePtrInput)(nil)).Elem(), &LinkedServiceAzureFileStorage{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFileStorageArrayInput)(nil)).Elem(), LinkedServiceAzureFileStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureFileStorageMapInput)(nil)).Elem(), LinkedServiceAzureFileStorageMap{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFileStorageOutput{})
-	pulumi.RegisterOutputType(LinkedServiceAzureFileStoragePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFileStorageArrayOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFileStorageMapOutput{})
 }

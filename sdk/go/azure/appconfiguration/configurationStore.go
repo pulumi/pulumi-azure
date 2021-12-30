@@ -206,7 +206,7 @@ type ConfigurationStoreInput interface {
 }
 
 func (*ConfigurationStore) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStore)(nil))
+	return reflect.TypeOf((**ConfigurationStore)(nil)).Elem()
 }
 
 func (i *ConfigurationStore) ToConfigurationStoreOutput() ConfigurationStoreOutput {
@@ -215,35 +215,6 @@ func (i *ConfigurationStore) ToConfigurationStoreOutput() ConfigurationStoreOutp
 
 func (i *ConfigurationStore) ToConfigurationStoreOutputWithContext(ctx context.Context) ConfigurationStoreOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreOutput)
-}
-
-func (i *ConfigurationStore) ToConfigurationStorePtrOutput() ConfigurationStorePtrOutput {
-	return i.ToConfigurationStorePtrOutputWithContext(context.Background())
-}
-
-func (i *ConfigurationStore) ToConfigurationStorePtrOutputWithContext(ctx context.Context) ConfigurationStorePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePtrOutput)
-}
-
-type ConfigurationStorePtrInput interface {
-	pulumi.Input
-
-	ToConfigurationStorePtrOutput() ConfigurationStorePtrOutput
-	ToConfigurationStorePtrOutputWithContext(ctx context.Context) ConfigurationStorePtrOutput
-}
-
-type configurationStorePtrType ConfigurationStoreArgs
-
-func (*configurationStorePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationStore)(nil))
-}
-
-func (i *configurationStorePtrType) ToConfigurationStorePtrOutput() ConfigurationStorePtrOutput {
-	return i.ToConfigurationStorePtrOutputWithContext(context.Background())
-}
-
-func (i *configurationStorePtrType) ToConfigurationStorePtrOutputWithContext(ctx context.Context) ConfigurationStorePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePtrOutput)
 }
 
 // ConfigurationStoreArrayInput is an input type that accepts ConfigurationStoreArray and ConfigurationStoreArrayOutput values.
@@ -299,7 +270,7 @@ func (i ConfigurationStoreMap) ToConfigurationStoreMapOutputWithContext(ctx cont
 type ConfigurationStoreOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStore)(nil))
+	return reflect.TypeOf((**ConfigurationStore)(nil)).Elem()
 }
 
 func (o ConfigurationStoreOutput) ToConfigurationStoreOutput() ConfigurationStoreOutput {
@@ -310,44 +281,10 @@ func (o ConfigurationStoreOutput) ToConfigurationStoreOutputWithContext(ctx cont
 	return o
 }
 
-func (o ConfigurationStoreOutput) ToConfigurationStorePtrOutput() ConfigurationStorePtrOutput {
-	return o.ToConfigurationStorePtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationStoreOutput) ToConfigurationStorePtrOutputWithContext(ctx context.Context) ConfigurationStorePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationStore) *ConfigurationStore {
-		return &v
-	}).(ConfigurationStorePtrOutput)
-}
-
-type ConfigurationStorePtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationStorePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationStore)(nil))
-}
-
-func (o ConfigurationStorePtrOutput) ToConfigurationStorePtrOutput() ConfigurationStorePtrOutput {
-	return o
-}
-
-func (o ConfigurationStorePtrOutput) ToConfigurationStorePtrOutputWithContext(ctx context.Context) ConfigurationStorePtrOutput {
-	return o
-}
-
-func (o ConfigurationStorePtrOutput) Elem() ConfigurationStoreOutput {
-	return o.ApplyT(func(v *ConfigurationStore) ConfigurationStore {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationStore
-		return ret
-	}).(ConfigurationStoreOutput)
-}
-
 type ConfigurationStoreArrayOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConfigurationStore)(nil))
+	return reflect.TypeOf((*[]*ConfigurationStore)(nil)).Elem()
 }
 
 func (o ConfigurationStoreArrayOutput) ToConfigurationStoreArrayOutput() ConfigurationStoreArrayOutput {
@@ -359,15 +296,15 @@ func (o ConfigurationStoreArrayOutput) ToConfigurationStoreArrayOutputWithContex
 }
 
 func (o ConfigurationStoreArrayOutput) Index(i pulumi.IntInput) ConfigurationStoreOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationStore {
-		return vs[0].([]ConfigurationStore)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationStore {
+		return vs[0].([]*ConfigurationStore)[vs[1].(int)]
 	}).(ConfigurationStoreOutput)
 }
 
 type ConfigurationStoreMapOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ConfigurationStore)(nil))
+	return reflect.TypeOf((*map[string]*ConfigurationStore)(nil)).Elem()
 }
 
 func (o ConfigurationStoreMapOutput) ToConfigurationStoreMapOutput() ConfigurationStoreMapOutput {
@@ -379,18 +316,16 @@ func (o ConfigurationStoreMapOutput) ToConfigurationStoreMapOutputWithContext(ct
 }
 
 func (o ConfigurationStoreMapOutput) MapIndex(k pulumi.StringInput) ConfigurationStoreOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConfigurationStore {
-		return vs[0].(map[string]ConfigurationStore)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ConfigurationStore {
+		return vs[0].(map[string]*ConfigurationStore)[vs[1].(string)]
 	}).(ConfigurationStoreOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreInput)(nil)).Elem(), &ConfigurationStore{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStorePtrInput)(nil)).Elem(), &ConfigurationStore{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreArrayInput)(nil)).Elem(), ConfigurationStoreArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreMapInput)(nil)).Elem(), ConfigurationStoreMap{})
 	pulumi.RegisterOutputType(ConfigurationStoreOutput{})
-	pulumi.RegisterOutputType(ConfigurationStorePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationStoreArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationStoreMapOutput{})
 }

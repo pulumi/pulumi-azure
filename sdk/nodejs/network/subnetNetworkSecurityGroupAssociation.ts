@@ -99,12 +99,12 @@ export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource
      */
     constructor(name: string, args: SubnetNetworkSecurityGroupAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubnetNetworkSecurityGroupAssociationArgs | SubnetNetworkSecurityGroupAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubnetNetworkSecurityGroupAssociationState | undefined;
-            inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as SubnetNetworkSecurityGroupAssociationArgs | undefined;
             if ((!args || args.networkSecurityGroupId === undefined) && !opts.urn) {
@@ -113,13 +113,13 @@ export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SubnetNetworkSecurityGroupAssociation.__pulumiType, name, inputs, opts);
+        super(SubnetNetworkSecurityGroupAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

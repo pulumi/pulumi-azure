@@ -122,48 +122,48 @@ export class Domain extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["inboundIpRules"] = state ? state.inboundIpRules : undefined;
-            inputs["inputMappingDefaultValues"] = state ? state.inputMappingDefaultValues : undefined;
-            inputs["inputMappingFields"] = state ? state.inputMappingFields : undefined;
-            inputs["inputSchema"] = state ? state.inputSchema : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["inboundIpRules"] = state ? state.inboundIpRules : undefined;
+            resourceInputs["inputMappingDefaultValues"] = state ? state.inputMappingDefaultValues : undefined;
+            resourceInputs["inputMappingFields"] = state ? state.inputMappingFields : undefined;
+            resourceInputs["inputSchema"] = state ? state.inputSchema : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            inputs["inputMappingDefaultValues"] = args ? args.inputMappingDefaultValues : undefined;
-            inputs["inputMappingFields"] = args ? args.inputMappingFields : undefined;
-            inputs["inputSchema"] = args ? args.inputSchema : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["primaryAccessKey"] = undefined /*out*/;
-            inputs["secondaryAccessKey"] = undefined /*out*/;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
+            resourceInputs["inputMappingDefaultValues"] = args ? args.inputMappingDefaultValues : undefined;
+            resourceInputs["inputMappingFields"] = args ? args.inputMappingFields : undefined;
+            resourceInputs["inputSchema"] = args ? args.inputSchema : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["primaryAccessKey"] = undefined /*out*/;
+            resourceInputs["secondaryAccessKey"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:eventhub/domain:Domain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Domain.__pulumiType, name, inputs, opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

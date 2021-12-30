@@ -103,15 +103,15 @@ export class ConsumerGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConsumerGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConsumerGroupArgs | ConsumerGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConsumerGroupState | undefined;
-            inputs["eventhubName"] = state ? state.eventhubName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namespaceName"] = state ? state.namespaceName : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["userMetadata"] = state ? state.userMetadata : undefined;
+            resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["userMetadata"] = state ? state.userMetadata : undefined;
         } else {
             const args = argsOrState as ConsumerGroupArgs | undefined;
             if ((!args || args.eventhubName === undefined) && !opts.urn) {
@@ -123,18 +123,18 @@ export class ConsumerGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["eventhubName"] = args ? args.eventhubName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConsumerGroup.__pulumiType, name, inputs, opts);
+        super(ConsumerGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 
