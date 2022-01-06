@@ -3,7 +3,7 @@ CHANGELOG
 
 ## Notice (2022-01-06)
 
-*As of this notice, using CHANGELOG.md is DEPRECATED. We will be using [GitHub Releases](https://github.com/pulumi/pulumi-aiven/releases) for this repository*
+*As of this notice, using CHANGELOG.md is DEPRECATED. We will be using [GitHub Releases](https://github.com/pulumi/pulumi-azure/releases) for this repository*
 
 ## HEAD (Unreleased)
 _(none)_
