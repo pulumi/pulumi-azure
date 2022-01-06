@@ -29,7 +29,8 @@ builds:
   - -X github.com/hashicorp/terraform-provider-azurerm/version.ProviderVersion={{.Tag}}
   main: ./cmd/pulumi-resource-azure/
 changelog:
-  skip: true
+  use: git
+  sort: asc
 release:
   disable: false
 snapshot:
