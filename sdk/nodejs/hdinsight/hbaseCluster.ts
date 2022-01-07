@@ -133,6 +133,10 @@ export class HBaseCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A `network` block as defined below.
+     */
+    public readonly network!: pulumi.Output<outputs.hdinsight.HBaseClusterNetwork | undefined>;
+    /**
      * Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -187,6 +191,7 @@ export class HBaseCluster extends pulumi.CustomResource {
             inputs["metastores"] = state ? state.metastores : undefined;
             inputs["monitor"] = state ? state.monitor : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["network"] = state ? state.network : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["roles"] = state ? state.roles : undefined;
             inputs["securityProfile"] = state ? state.securityProfile : undefined;
@@ -223,6 +228,7 @@ export class HBaseCluster extends pulumi.CustomResource {
             inputs["metastores"] = args ? args.metastores : undefined;
             inputs["monitor"] = args ? args.monitor : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["network"] = args ? args.network : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
             inputs["securityProfile"] = args ? args.securityProfile : undefined;
@@ -277,6 +283,10 @@ export interface HBaseClusterState {
      * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `network` block as defined below.
+     */
+    network?: pulumi.Input<inputs.hdinsight.HBaseClusterNetwork>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -344,6 +354,10 @@ export interface HBaseClusterArgs {
      * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `network` block as defined below.
+     */
+    network?: pulumi.Input<inputs.hdinsight.HBaseClusterNetwork>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      */

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,9 +69,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = servicebus.NewNamespaceNetworkRuleSet(ctx, "exampleNamespaceNetworkRuleSet", &servicebus.NamespaceNetworkRuleSetArgs{
-// 			NamespaceName:     exampleNamespace.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DefaultAction:     pulumi.String("Deny"),
+// 			NamespaceId:   exampleNamespace.ID(),
+// 			DefaultAction: pulumi.String("Deny"),
 // 			NetworkRules: servicebus.NamespaceNetworkRuleSetNetworkRuleArray{
 // 				&servicebus.NamespaceNetworkRuleSetNetworkRuleArgs{
 // 					SubnetId:                         exampleSubnet.ID(),
@@ -105,11 +103,13 @@ type NamespaceNetworkRuleSet struct {
 	DefaultAction pulumi.StringPtrOutput `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules pulumi.StringArrayOutput `pulumi:"ipRules"`
-	// Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
+	// Deprecated: Deprecated in favor of "namespace_id"
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayOutput `pulumi:"networkRules"`
-	// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "namespace_id"
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
 	TrustedServicesAllowed pulumi.BoolPtrOutput `pulumi:"trustedServicesAllowed"`
@@ -119,15 +119,9 @@ type NamespaceNetworkRuleSet struct {
 func NewNamespaceNetworkRuleSet(ctx *pulumi.Context,
 	name string, args *NamespaceNetworkRuleSetArgs, opts ...pulumi.ResourceOption) (*NamespaceNetworkRuleSet, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &NamespaceNetworkRuleSetArgs{}
 	}
 
-	if args.NamespaceName == nil {
-		return nil, errors.New("invalid value for required argument 'NamespaceName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
 	var resource NamespaceNetworkRuleSet
 	err := ctx.RegisterResource("azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet", name, args, &resource, opts...)
 	if err != nil {
@@ -154,11 +148,13 @@ type namespaceNetworkRuleSetState struct {
 	DefaultAction *string `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules []string `pulumi:"ipRules"`
-	// Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	NamespaceId *string `pulumi:"namespaceId"`
+	// Deprecated: Deprecated in favor of "namespace_id"
 	NamespaceName *string `pulumi:"namespaceName"`
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules []NamespaceNetworkRuleSetNetworkRule `pulumi:"networkRules"`
-	// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "namespace_id"
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
 	TrustedServicesAllowed *bool `pulumi:"trustedServicesAllowed"`
@@ -169,11 +165,13 @@ type NamespaceNetworkRuleSetState struct {
 	DefaultAction pulumi.StringPtrInput
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules pulumi.StringArrayInput
-	// Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	NamespaceId pulumi.StringPtrInput
+	// Deprecated: Deprecated in favor of "namespace_id"
 	NamespaceName pulumi.StringPtrInput
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayInput
-	// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "namespace_id"
 	ResourceGroupName pulumi.StringPtrInput
 	// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
 	TrustedServicesAllowed pulumi.BoolPtrInput
@@ -188,12 +186,14 @@ type namespaceNetworkRuleSetArgs struct {
 	DefaultAction *string `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules []string `pulumi:"ipRules"`
-	// Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
-	NamespaceName string `pulumi:"namespaceName"`
+	// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	NamespaceId *string `pulumi:"namespaceId"`
+	// Deprecated: Deprecated in favor of "namespace_id"
+	NamespaceName *string `pulumi:"namespaceName"`
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules []NamespaceNetworkRuleSetNetworkRule `pulumi:"networkRules"`
-	// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Deprecated: Deprecated in favor of "namespace_id"
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
 	TrustedServicesAllowed *bool `pulumi:"trustedServicesAllowed"`
 }
@@ -204,12 +204,14 @@ type NamespaceNetworkRuleSetArgs struct {
 	DefaultAction pulumi.StringPtrInput
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules pulumi.StringArrayInput
-	// Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
-	NamespaceName pulumi.StringInput
+	// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	NamespaceId pulumi.StringPtrInput
+	// Deprecated: Deprecated in favor of "namespace_id"
+	NamespaceName pulumi.StringPtrInput
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayInput
-	// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
+	// Deprecated: Deprecated in favor of "namespace_id"
+	ResourceGroupName pulumi.StringPtrInput
 	// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
 	TrustedServicesAllowed pulumi.BoolPtrInput
 }

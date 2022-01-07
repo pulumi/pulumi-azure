@@ -22,14 +22,9 @@ import * as utilities from "../utilities";
  *         source: "example",
  *     },
  * });
- * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     namespaceName: exampleNamespace.name,
- * });
+ * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {namespaceId: exampleNamespace.id});
  * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule", {
- *     namespaceName: exampleNamespace.name,
- *     topicName: exampleTopic.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     topicId: exampleTopic.id,
  *     listen: true,
  *     send: false,
  *     manage: false,
@@ -85,7 +80,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "topic_id"
      */
     public readonly namespaceName!: pulumi.Output<string>;
     /**
@@ -101,7 +96,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "topic_id"
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -121,7 +116,11 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly send!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+     * Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+     */
+    public readonly topicId!: pulumi.Output<string>;
+    /**
+     * @deprecated Deprecated in favor of "topic_id"
      */
     public readonly topicName!: pulumi.Output<string>;
 
@@ -132,7 +131,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TopicAuthorizationRuleArgs | TopicAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -150,24 +149,17 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
             inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             inputs["send"] = state ? state.send : undefined;
+            inputs["topicId"] = state ? state.topicId : undefined;
             inputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as TopicAuthorizationRuleArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'namespaceName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.topicName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'topicName'");
-            }
             inputs["listen"] = args ? args.listen : undefined;
             inputs["manage"] = args ? args.manage : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["send"] = args ? args.send : undefined;
+            inputs["topicId"] = args ? args.topicId : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
             inputs["primaryConnectionString"] = undefined /*out*/;
             inputs["primaryConnectionStringAlias"] = undefined /*out*/;
@@ -202,7 +194,7 @@ export interface TopicAuthorizationRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "topic_id"
      */
     namespaceName?: pulumi.Input<string>;
     /**
@@ -218,7 +210,7 @@ export interface TopicAuthorizationRuleState {
      */
     primaryKey?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "topic_id"
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -238,7 +230,11 @@ export interface TopicAuthorizationRuleState {
      */
     send?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+     * Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+     */
+    topicId?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "topic_id"
      */
     topicName?: pulumi.Input<string>;
 }
@@ -260,19 +256,23 @@ export interface TopicAuthorizationRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "topic_id"
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "topic_id"
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Grants send access to this this Authorization Rule. Defaults to `false`.
      */
     send?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+     * Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
      */
-    topicName: pulumi.Input<string>;
+    topicId?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "topic_id"
+     */
+    topicName?: pulumi.Input<string>;
 }

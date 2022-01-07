@@ -29,9 +29,9 @@ import * as utilities from "../utilities";
  *     licenseType: "LicenseIncluded",
  *     maxSizeGb: 756,
  *     sku: {
- *         name: "GP_Gen5",
- *         tier: "GeneralPurpose",
- *         family: "Gen5",
+ *         name: "BasicPool",
+ *         tier: "Basic",
+ *         family: "Gen4",
  *         capacity: 4,
  *     },
  *     perDatabaseSettings: {

@@ -22,7 +22,7 @@ class ProtectionContainerArgs:
         :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contain this protection container.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the protection container.
         """
         pulumi.set(__self__, "recovery_fabric_name", recovery_fabric_name)
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
@@ -70,7 +70,7 @@ class ProtectionContainerArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network mapping.
+        The name of the protection container.
         """
         return pulumi.get(self, "name")
 
@@ -88,7 +88,7 @@ class _ProtectionContainerState:
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProtectionContainer resources.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the protection container.
         :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contain this protection container.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
@@ -106,7 +106,7 @@ class _ProtectionContainerState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network mapping.
+        The name of the protection container.
         """
         return pulumi.get(self, "name")
 
@@ -196,7 +196,7 @@ class ProtectionContainer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the protection container.
         :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contain this protection container.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
@@ -302,7 +302,7 @@ class ProtectionContainer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the protection container.
         :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contain this protection container.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
@@ -321,7 +321,7 @@ class ProtectionContainer(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the network mapping.
+        The name of the protection container.
         """
         return pulumi.get(self, "name")
 

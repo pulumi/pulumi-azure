@@ -87,6 +87,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinkedServiceMysql{}
 	case "azure:datafactory/linkedServiceOdata:LinkedServiceOdata":
 		r = &LinkedServiceOdata{}
+	case "azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc":
+		r = &LinkedServiceOdbc{}
 	case "azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql":
 		r = &LinkedServicePostgresql{}
 	case "azure:datafactory/linkedServiceSftp:LinkedServiceSftp":
@@ -287,6 +289,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/linkedServiceOdata",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/linkedServiceOdbc",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

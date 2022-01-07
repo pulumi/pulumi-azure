@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly int? AllocationWeight;
         /// <summary>
-        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
         /// </summary>
         public readonly bool? ApplyAllocationPolicy;
         /// <summary>
-        /// The connection string to connect to the IoT Hub. Changing this forces a new resource.
+        /// The connection string to connect to the IoT Hub.
         /// </summary>
         public readonly string ConnectionString;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string? Hostname;
         /// <summary>
-        /// The location of the IoT hub. Changing this forces a new resource.
+        /// The location of the IoT hub.
         /// </summary>
         public readonly string Location;
 

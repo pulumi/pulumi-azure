@@ -11,7 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Disks Pool.
+// Manages a Disk Pool.
+//
+// !> **Note:** This resource has been deprecated in favour of `compute.DiskPool` and will be removed in version 3.0 of the Azure Provider.
 //
 // ## Example Usage
 //
@@ -86,7 +88,7 @@ import (
 //
 // ## Import
 //
-// Disks Pool can be imported using the `resource id`, e.g.
+// Disk Pools can be imported using the `resource id`, e.g.
 //
 // ```sh
 //  $ pulumi import azure:storage/disksPool:DisksPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/disksPool1
@@ -94,15 +96,15 @@ import (
 type DisksPool struct {
 	pulumi.CustomResourceState
 
-	// Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
+	// Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	// The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+	// The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
+	// The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+	// The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+	// The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The ID of the Subnet for the Disk Pool. Changing this forces a new Disks Pool to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -151,15 +153,15 @@ func GetDisksPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DisksPool resources.
 type disksPoolState struct {
-	// Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
+	// Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+	// The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
+	// The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+	// The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+	// The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Subnet for the Disk Pool. Changing this forces a new Disks Pool to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -168,15 +170,15 @@ type disksPoolState struct {
 }
 
 type DisksPoolState struct {
-	// Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
+	// Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
 	AvailabilityZones pulumi.StringArrayInput
-	// The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+	// The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
+	// The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+	// The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+	// The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
 	SkuName pulumi.StringPtrInput
 	// The ID of the Subnet for the Disk Pool. Changing this forces a new Disks Pool to be created.
 	SubnetId pulumi.StringPtrInput
@@ -189,15 +191,15 @@ func (DisksPoolState) ElementType() reflect.Type {
 }
 
 type disksPoolArgs struct {
-	// Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
+	// Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+	// The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
+	// The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+	// The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+	// The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
 	SkuName string `pulumi:"skuName"`
 	// The ID of the Subnet for the Disk Pool. Changing this forces a new Disks Pool to be created.
 	SubnetId string `pulumi:"subnetId"`
@@ -207,15 +209,15 @@ type disksPoolArgs struct {
 
 // The set of arguments for constructing a DisksPool resource.
 type DisksPoolArgs struct {
-	// Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
+	// Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
 	AvailabilityZones pulumi.StringArrayInput
-	// The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+	// The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
+	// The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+	// The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
 	ResourceGroupName pulumi.StringInput
-	// The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+	// The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
 	SkuName pulumi.StringInput
 	// The ID of the Subnet for the Disk Pool. Changing this forces a new Disks Pool to be created.
 	SubnetId pulumi.StringInput

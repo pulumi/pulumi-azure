@@ -199,6 +199,8 @@ type WindowsVirtualMachine struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine.
+	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
@@ -336,6 +338,8 @@ type windowsVirtualMachineState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine.
+	UserData *string `pulumi:"userData"`
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
@@ -427,6 +431,8 @@ type WindowsVirtualMachineState struct {
 	Tags pulumi.StringMapInput
 	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput
+	// The Base64-Encoded User Data which should be used for this Virtual Machine.
+	UserData pulumi.StringPtrInput
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringPtrInput
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
@@ -514,6 +520,8 @@ type windowsVirtualMachineArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine.
+	UserData *string `pulumi:"userData"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
@@ -596,6 +604,8 @@ type WindowsVirtualMachineArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput
+	// The Base64-Encoded User Data which should be used for this Virtual Machine.
+	UserData pulumi.StringPtrInput
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies if vTPM (virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.

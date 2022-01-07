@@ -39,6 +39,7 @@ export * from "./linkedServiceKeyVault";
 export * from "./linkedServiceKusto";
 export * from "./linkedServiceMysql";
 export * from "./linkedServiceOdata";
+export * from "./linkedServiceOdbc";
 export * from "./linkedServicePostgresql";
 export * from "./linkedServiceSftp";
 export * from "./linkedServiceSnowflake";
@@ -86,6 +87,7 @@ import { LinkedServiceKeyVault } from "./linkedServiceKeyVault";
 import { LinkedServiceKusto } from "./linkedServiceKusto";
 import { LinkedServiceMysql } from "./linkedServiceMysql";
 import { LinkedServiceOdata } from "./linkedServiceOdata";
+import { LinkedServiceOdbc } from "./linkedServiceOdbc";
 import { LinkedServicePostgresql } from "./linkedServicePostgresql";
 import { LinkedServiceSftp } from "./linkedServiceSftp";
 import { LinkedServiceSnowflake } from "./linkedServiceSnowflake";
@@ -169,6 +171,8 @@ const _module = {
                 return new LinkedServiceMysql(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceOdata:LinkedServiceOdata":
                 return new LinkedServiceOdata(name, <any>undefined, { urn })
+            case "azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc":
+                return new LinkedServiceOdbc(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql":
                 return new LinkedServicePostgresql(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceSftp:LinkedServiceSftp":
@@ -231,6 +235,7 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceKeyVaul
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceKusto", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceMysql", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceOdata", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceOdbc", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServicePostgresql", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSftp", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSnowflake", _module)

@@ -21,7 +21,7 @@ class GetSharedImageVersionResult:
     """
     A collection of values returned by getSharedImageVersion.
     """
-    def __init__(__self__, exclude_from_latest=None, gallery_name=None, id=None, image_name=None, location=None, managed_image_id=None, name=None, os_disk_image_size_gb=None, os_disk_snapshot_id=None, resource_group_name=None, tags=None, target_regions=None):
+    def __init__(__self__, exclude_from_latest=None, gallery_name=None, id=None, image_name=None, location=None, managed_image_id=None, name=None, os_disk_image_size_gb=None, os_disk_snapshot_id=None, resource_group_name=None, sort_versions_by_semver=None, tags=None, target_regions=None):
         if exclude_from_latest and not isinstance(exclude_from_latest, bool):
             raise TypeError("Expected argument 'exclude_from_latest' to be a bool")
         pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
@@ -52,6 +52,9 @@ class GetSharedImageVersionResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sort_versions_by_semver and not isinstance(sort_versions_by_semver, bool):
+            raise TypeError("Expected argument 'sort_versions_by_semver' to be a bool")
+        pulumi.set(__self__, "sort_versions_by_semver", sort_versions_by_semver)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -131,6 +134,11 @@ class GetSharedImageVersionResult:
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="sortVersionsBySemver")
+    def sort_versions_by_semver(self) -> Optional[bool]:
+        return pulumi.get(self, "sort_versions_by_semver")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -163,6 +171,7 @@ class AwaitableGetSharedImageVersionResult(GetSharedImageVersionResult):
             os_disk_image_size_gb=self.os_disk_image_size_gb,
             os_disk_snapshot_id=self.os_disk_snapshot_id,
             resource_group_name=self.resource_group_name,
+            sort_versions_by_semver=self.sort_versions_by_semver,
             tags=self.tags,
             target_regions=self.target_regions)
 
@@ -171,6 +180,7 @@ def get_shared_image_version(gallery_name: Optional[str] = None,
                              image_name: Optional[str] = None,
                              name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
+                             sort_versions_by_semver: Optional[bool] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedImageVersionResult:
     """
     Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
@@ -192,12 +202,14 @@ def get_shared_image_version(gallery_name: Optional[str] = None,
     :param str image_name: The name of the Shared Image in which this Version exists.
     :param str name: The name of the Image Version.
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
+    :param bool sort_versions_by_semver: Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
     """
     __args__ = dict()
     __args__['galleryName'] = gallery_name
     __args__['imageName'] = image_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['sortVersionsBySemver'] = sort_versions_by_semver
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -215,6 +227,7 @@ def get_shared_image_version(gallery_name: Optional[str] = None,
         os_disk_image_size_gb=__ret__.os_disk_image_size_gb,
         os_disk_snapshot_id=__ret__.os_disk_snapshot_id,
         resource_group_name=__ret__.resource_group_name,
+        sort_versions_by_semver=__ret__.sort_versions_by_semver,
         tags=__ret__.tags,
         target_regions=__ret__.target_regions)
 
@@ -224,6 +237,7 @@ def get_shared_image_version_output(gallery_name: Optional[pulumi.Input[str]] = 
                                     image_name: Optional[pulumi.Input[str]] = None,
                                     name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
+                                    sort_versions_by_semver: Optional[pulumi.Input[Optional[bool]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedImageVersionResult]:
     """
     Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
@@ -245,5 +259,6 @@ def get_shared_image_version_output(gallery_name: Optional[pulumi.Input[str]] = 
     :param str image_name: The name of the Shared Image in which this Version exists.
     :param str name: The name of the Image Version.
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
+    :param bool sort_versions_by_semver: Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
     """
     ...

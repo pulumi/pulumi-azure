@@ -11,89 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a 3rd Generation (v3) App Service Environment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 			Delegations: network.SubnetDelegationArray{
-// 				&network.SubnetDelegationArgs{
-// 					Name: pulumi.String("delegation"),
-// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-// 						Name: pulumi.String("Microsoft.Web/hostingEnvironments"),
-// 						Actions: pulumi.StringArray{
-// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewEnvironmentV3(ctx, "exampleEnvironmentV3", &appservice.EnvironmentV3Args{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SubnetId:          exampleSubnet.ID(),
-// 			ClusterSettings: appservice.EnvironmentV3ClusterSettingArray{
-// 				&appservice.EnvironmentV3ClusterSettingArgs{
-// 					Name:  pulumi.String("DisableTls1.0"),
-// 					Value: pulumi.String("1"),
-// 				},
-// 				&appservice.EnvironmentV3ClusterSettingArgs{
-// 					Name:  pulumi.String("InternalEncryption"),
-// 					Value: pulumi.String("true"),
-// 				},
-// 				&appservice.EnvironmentV3ClusterSettingArgs{
-// 					Name:  pulumi.String("FrontEndSSLCipherSuiteOrder"),
-// 					Value: pulumi.String("TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"env":         pulumi.String("production"),
-// 				"terraformed": pulumi.String("true"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // A 3rd Generation (v3) App Service Environment can be imported using the `resource id`, e.g.
@@ -108,7 +25,7 @@ type EnvironmentV3 struct {
 	AllowNewPrivateEndpointConnections pulumi.BoolPtrOutput `pulumi:"allowNewPrivateEndpointConnections"`
 	// Zero or more `clusterSetting` blocks as defined below.
 	ClusterSettings EnvironmentV3ClusterSettingArrayOutput `pulumi:"clusterSettings"`
-	// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+	// This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
 	DedicatedHostCount pulumi.IntPtrOutput `pulumi:"dedicatedHostCount"`
 	// the DNS suffix for this App Service Environment V3.
 	DnsSuffix pulumi.StringOutput `pulumi:"dnsSuffix"`
@@ -138,7 +55,8 @@ type EnvironmentV3 struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Outbound addresses of Windows based Apps in this App Service Environment V3.
 	WindowsOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"windowsOutboundIpAddresses"`
-	ZoneRedundant              pulumi.BoolPtrOutput     `pulumi:"zoneRedundant"`
+	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/en-us/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewEnvironmentV3 registers a new resource with the given unique name, arguments, and options.
@@ -180,7 +98,7 @@ type environmentV3State struct {
 	AllowNewPrivateEndpointConnections *bool `pulumi:"allowNewPrivateEndpointConnections"`
 	// Zero or more `clusterSetting` blocks as defined below.
 	ClusterSettings []EnvironmentV3ClusterSetting `pulumi:"clusterSettings"`
-	// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+	// This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
 	DedicatedHostCount *int `pulumi:"dedicatedHostCount"`
 	// the DNS suffix for this App Service Environment V3.
 	DnsSuffix *string `pulumi:"dnsSuffix"`
@@ -210,7 +128,8 @@ type environmentV3State struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Outbound addresses of Windows based Apps in this App Service Environment V3.
 	WindowsOutboundIpAddresses []string `pulumi:"windowsOutboundIpAddresses"`
-	ZoneRedundant              *bool    `pulumi:"zoneRedundant"`
+	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/en-us/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type EnvironmentV3State struct {
@@ -218,7 +137,7 @@ type EnvironmentV3State struct {
 	AllowNewPrivateEndpointConnections pulumi.BoolPtrInput
 	// Zero or more `clusterSetting` blocks as defined below.
 	ClusterSettings EnvironmentV3ClusterSettingArrayInput
-	// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+	// This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
 	DedicatedHostCount pulumi.IntPtrInput
 	// the DNS suffix for this App Service Environment V3.
 	DnsSuffix pulumi.StringPtrInput
@@ -248,7 +167,8 @@ type EnvironmentV3State struct {
 	Tags pulumi.StringMapInput
 	// Outbound addresses of Windows based Apps in this App Service Environment V3.
 	WindowsOutboundIpAddresses pulumi.StringArrayInput
-	ZoneRedundant              pulumi.BoolPtrInput
+	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/en-us/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (EnvironmentV3State) ElementType() reflect.Type {
@@ -260,7 +180,7 @@ type environmentV3Args struct {
 	AllowNewPrivateEndpointConnections *bool `pulumi:"allowNewPrivateEndpointConnections"`
 	// Zero or more `clusterSetting` blocks as defined below.
 	ClusterSettings []EnvironmentV3ClusterSetting `pulumi:"clusterSettings"`
-	// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+	// This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
 	DedicatedHostCount *int `pulumi:"dedicatedHostCount"`
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
 	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
@@ -271,8 +191,9 @@ type environmentV3Args struct {
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-	Tags          map[string]string `pulumi:"tags"`
-	ZoneRedundant *bool             `pulumi:"zoneRedundant"`
+	Tags map[string]string `pulumi:"tags"`
+	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/en-us/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a EnvironmentV3 resource.
@@ -281,7 +202,7 @@ type EnvironmentV3Args struct {
 	AllowNewPrivateEndpointConnections pulumi.BoolPtrInput
 	// Zero or more `clusterSetting` blocks as defined below.
 	ClusterSettings EnvironmentV3ClusterSettingArrayInput
-	// This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+	// This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
 	DedicatedHostCount pulumi.IntPtrInput
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
 	InternalLoadBalancingMode pulumi.StringPtrInput
@@ -292,7 +213,8 @@ type EnvironmentV3Args struct {
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-	Tags          pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/en-us/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 

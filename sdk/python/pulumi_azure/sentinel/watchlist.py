@@ -262,7 +262,7 @@ class Watchlist(pulumi.CustomResource):
         Sentinel Watchlists can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:sentinel/watchlist:Watchlist example subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/watchlists/list1
+         $ pulumi import azure:sentinel/watchlist:Watchlist example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/watchlists/list1
         ```
 
         :param str resource_name: The name of the resource.
@@ -314,7 +314,7 @@ class Watchlist(pulumi.CustomResource):
         Sentinel Watchlists can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:sentinel/watchlist:Watchlist example subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/watchlists/list1
+         $ pulumi import azure:sentinel/watchlist:Watchlist example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/watchlists/list1
         ```
 
         :param str resource_name: The name of the resource.

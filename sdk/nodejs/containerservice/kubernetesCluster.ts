@@ -194,6 +194,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * @deprecated Deprecated in favour of `private_cluster_enabled`
      */
     public readonly privateLinkEnabled!: pulumi.Output<boolean>;
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -264,6 +265,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["privateDnsZoneId"] = state ? state.privateDnsZoneId : undefined;
             inputs["privateFqdn"] = state ? state.privateFqdn : undefined;
             inputs["privateLinkEnabled"] = state ? state.privateLinkEnabled : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["roleBasedAccessControl"] = state ? state.roleBasedAccessControl : undefined;
             inputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
@@ -302,6 +304,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["privateClusterPublicFqdnEnabled"] = args ? args.privateClusterPublicFqdnEnabled : undefined;
             inputs["privateDnsZoneId"] = args ? args.privateDnsZoneId : undefined;
             inputs["privateLinkEnabled"] = args ? args.privateLinkEnabled : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roleBasedAccessControl"] = args ? args.roleBasedAccessControl : undefined;
             inputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
@@ -448,6 +451,7 @@ export interface KubernetesClusterState {
      * @deprecated Deprecated in favour of `private_cluster_enabled`
      */
     privateLinkEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -572,6 +576,7 @@ export interface KubernetesClusterArgs {
      * @deprecated Deprecated in favour of `private_cluster_enabled`
      */
     privateLinkEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */

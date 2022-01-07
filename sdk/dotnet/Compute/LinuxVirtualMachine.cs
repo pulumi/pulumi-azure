@@ -349,6 +349,12 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The Base64-Encoded User Data which should be used for this Virtual Machine.
+        /// </summary>
+        [Output("userData")]
+        public Output<string?> UserData { get; private set; } = null!;
+
+        /// <summary>
         /// A 128-bit identifier which uniquely identifies this Virtual Machine.
         /// </summary>
         [Output("virtualMachineId")]
@@ -647,6 +653,12 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
+        /// The Base64-Encoded User Data which should be used for this Virtual Machine.
+        /// </summary>
+        [Input("userData")]
+        public Input<string>? UserData { get; set; }
+
+        /// <summary>
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualMachineScaleSetId")]
@@ -934,6 +946,12 @@ namespace Pulumi.Azure.Compute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The Base64-Encoded User Data which should be used for this Virtual Machine.
+        /// </summary>
+        [Input("userData")]
+        public Input<string>? UserData { get; set; }
 
         /// <summary>
         /// A 128-bit identifier which uniquely identifies this Virtual Machine.

@@ -10,6 +10,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'EndpointCustomDomainCdnManagedHttps',
+    'EndpointCustomDomainUserManagedHttps',
     'EndpointDeliveryRule',
     'EndpointDeliveryRuleCacheExpirationAction',
     'EndpointDeliveryRuleCacheKeyQueryStringAction',
@@ -41,6 +43,117 @@ __all__ = [
     'EndpointGlobalDeliveryRuleUrlRewriteAction',
     'EndpointOrigin',
 ]
+
+@pulumi.output_type
+class EndpointCustomDomainCdnManagedHttps(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateType":
+            suggest = "certificate_type"
+        elif key == "protocolType":
+            suggest = "protocol_type"
+        elif key == "tlsVersion":
+            suggest = "tls_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointCustomDomainCdnManagedHttps. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointCustomDomainCdnManagedHttps.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointCustomDomainCdnManagedHttps.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_type: str,
+                 protocol_type: str,
+                 tls_version: Optional[str] = None):
+        """
+        :param str certificate_type: The type of HTTPS certificate. Possible values are `Shared` and `Dedicated`.
+        :param str protocol_type: The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
+        :param str tls_version: The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+        """
+        pulumi.set(__self__, "certificate_type", certificate_type)
+        pulumi.set(__self__, "protocol_type", protocol_type)
+        if tls_version is not None:
+            pulumi.set(__self__, "tls_version", tls_version)
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> str:
+        """
+        The type of HTTPS certificate. Possible values are `Shared` and `Dedicated`.
+        """
+        return pulumi.get(self, "certificate_type")
+
+    @property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> str:
+        """
+        The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
+        """
+        return pulumi.get(self, "protocol_type")
+
+    @property
+    @pulumi.getter(name="tlsVersion")
+    def tls_version(self) -> Optional[str]:
+        """
+        The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+        """
+        return pulumi.get(self, "tls_version")
+
+
+@pulumi.output_type
+class EndpointCustomDomainUserManagedHttps(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultCertificateId":
+            suggest = "key_vault_certificate_id"
+        elif key == "tlsVersion":
+            suggest = "tls_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointCustomDomainUserManagedHttps. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointCustomDomainUserManagedHttps.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointCustomDomainUserManagedHttps.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_certificate_id: str,
+                 tls_version: Optional[str] = None):
+        """
+        :param str key_vault_certificate_id: The ID of the Key Vault Certificate that contains the HTTPS certificate.
+        :param str tls_version: The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+        """
+        pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
+        if tls_version is not None:
+            pulumi.set(__self__, "tls_version", tls_version)
+
+    @property
+    @pulumi.getter(name="keyVaultCertificateId")
+    def key_vault_certificate_id(self) -> str:
+        """
+        The ID of the Key Vault Certificate that contains the HTTPS certificate.
+        """
+        return pulumi.get(self, "key_vault_certificate_id")
+
+    @property
+    @pulumi.getter(name="tlsVersion")
+    def tls_version(self) -> Optional[str]:
+        """
+        The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+        """
+        return pulumi.get(self, "tls_version")
+
 
 @pulumi.output_type
 class EndpointDeliveryRule(dict):

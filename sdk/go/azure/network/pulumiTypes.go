@@ -4627,10 +4627,12 @@ func (o ApplicationGatewayTrustedClientCertificateArrayOutput) Index(i pulumi.In
 }
 
 type ApplicationGatewayTrustedRootCertificate struct {
-	// The contents of the Trusted Root Certificate which should be used.
-	Data string `pulumi:"data"`
+	// The contents of the Trusted Root Certificate which should be used. Required if `keyVaultSecretId` is not set.
+	Data *string `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
+	// The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The Name of the Trusted Root Certificate to use.
 	Name string `pulumi:"name"`
 }
@@ -4647,10 +4649,12 @@ type ApplicationGatewayTrustedRootCertificateInput interface {
 }
 
 type ApplicationGatewayTrustedRootCertificateArgs struct {
-	// The contents of the Trusted Root Certificate which should be used.
-	Data pulumi.StringInput `pulumi:"data"`
+	// The contents of the Trusted Root Certificate which should be used. Required if `keyVaultSecretId` is not set.
+	Data pulumi.StringPtrInput `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
 	// The Name of the Trusted Root Certificate to use.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -4706,14 +4710,19 @@ func (o ApplicationGatewayTrustedRootCertificateOutput) ToApplicationGatewayTrus
 	return o
 }
 
-// The contents of the Trusted Root Certificate which should be used.
-func (o ApplicationGatewayTrustedRootCertificateOutput) Data() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationGatewayTrustedRootCertificate) string { return v.Data }).(pulumi.StringOutput)
+// The contents of the Trusted Root Certificate which should be used. Required if `keyVaultSecretId` is not set.
+func (o ApplicationGatewayTrustedRootCertificateOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayTrustedRootCertificate) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Rewrite Rule Set
 func (o ApplicationGatewayTrustedRootCertificateOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayTrustedRootCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+func (o ApplicationGatewayTrustedRootCertificateOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayTrustedRootCertificate) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
 
 // The Name of the Trusted Root Certificate to use.
@@ -5138,7 +5147,7 @@ type ApplicationGatewayWafConfiguration struct {
 	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
 	// The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
 	RuleSetType *string `pulumi:"ruleSetType"`
-	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
+	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
 	RuleSetVersion string `pulumi:"ruleSetVersion"`
 }
 
@@ -5170,7 +5179,7 @@ type ApplicationGatewayWafConfigurationArgs struct {
 	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
 	// The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
 	RuleSetType pulumi.StringPtrInput `pulumi:"ruleSetType"`
-	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
+	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
 	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
 }
 
@@ -5295,7 +5304,7 @@ func (o ApplicationGatewayWafConfigurationOutput) RuleSetType() pulumi.StringPtr
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *string { return v.RuleSetType }).(pulumi.StringPtrOutput)
 }
 
-// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
+// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
 func (o ApplicationGatewayWafConfigurationOutput) RuleSetVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) string { return v.RuleSetVersion }).(pulumi.StringOutput)
 }
@@ -5404,7 +5413,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
+// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
 func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *string {
 		if v == nil {

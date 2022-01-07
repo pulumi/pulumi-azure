@@ -35,6 +35,7 @@ export function getSharedImageVersion(args: GetSharedImageVersionArgs, opts?: pu
         "imageName": args.imageName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "sortVersionsBySemver": args.sortVersionsBySemver,
     }, opts);
 }
 
@@ -58,6 +59,10 @@ export interface GetSharedImageVersionArgs {
      * The name of the Resource Group in which the Shared Image Gallery exists.
      */
     resourceGroupName: string;
+    /**
+     * Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
+     */
+    sortVersionsBySemver?: boolean;
 }
 
 /**
@@ -95,6 +100,7 @@ export interface GetSharedImageVersionResult {
      */
     readonly osDiskSnapshotId: string;
     readonly resourceGroupName: string;
+    readonly sortVersionsBySemver?: boolean;
     /**
      * A mapping of tags assigned to the Shared Image.
      */
@@ -129,4 +135,8 @@ export interface GetSharedImageVersionOutputArgs {
      * The name of the Resource Group in which the Shared Image Gallery exists.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
+     */
+    sortVersionsBySemver?: pulumi.Input<boolean>;
 }

@@ -29,6 +29,7 @@ class WorkspaceCustomParametersArgs:
                  virtual_network_id: Optional[pulumi.Input[str]] = None,
                  vnet_address_prefix: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] machine_learning_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] no_public_ip: Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_subnet_name: The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
@@ -69,6 +70,9 @@ class WorkspaceCustomParametersArgs:
     @property
     @pulumi.getter(name="machineLearningWorkspaceId")
     def machine_learning_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "machine_learning_workspace_id")
 
     @machine_learning_workspace_id.setter

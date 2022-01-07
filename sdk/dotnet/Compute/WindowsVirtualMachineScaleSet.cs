@@ -379,6 +379,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> UpgradeMode { get; private set; } = null!;
 
         /// <summary>
+        /// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        /// </summary>
+        [Output("userData")]
+        public Output<string?> UserData { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         [Output("vtpmEnabled")]
@@ -749,6 +755,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? UpgradeMode { get; set; }
 
         /// <summary>
+        /// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        /// </summary>
+        [Input("userData")]
+        public Input<string>? UserData { get; set; }
+
+        /// <summary>
         /// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vtpmEnabled")]
@@ -1096,6 +1108,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("upgradeMode")]
         public Input<string>? UpgradeMode { get; set; }
+
+        /// <summary>
+        /// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        /// </summary>
+        [Input("userData")]
+        public Input<string>? UserData { get; set; }
 
         /// <summary>
         /// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.

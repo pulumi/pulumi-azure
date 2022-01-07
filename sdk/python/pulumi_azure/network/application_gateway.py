@@ -28,7 +28,9 @@ class ApplicationGatewayArgs:
                  autoscale_configuration: Optional[pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs']] = None,
                  custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
+                 fips_enabled: Optional[pulumi.Input[bool]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
+                 force_firewall_policy_association: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['ApplicationGatewayIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -60,7 +62,9 @@ class ApplicationGatewayArgs:
         :param pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs'] autoscale_configuration: A `autoscale_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+        :param pulumi.Input[bool] fips_enabled: Is FIPS enabled on the Application Gateway?
         :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy.
+        :param pulumi.Input[bool] force_firewall_policy_association: Is the Firewall Policy associated with the Application Gateway?
         :param pulumi.Input['ApplicationGatewayIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
@@ -95,8 +99,12 @@ class ApplicationGatewayArgs:
             pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
         if enable_http2 is not None:
             pulumi.set(__self__, "enable_http2", enable_http2)
+        if fips_enabled is not None:
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if firewall_policy_id is not None:
             pulumi.set(__self__, "firewall_policy_id", firewall_policy_id)
+        if force_firewall_policy_association is not None:
+            pulumi.set(__self__, "force_firewall_policy_association", force_firewall_policy_association)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -287,6 +295,18 @@ class ApplicationGatewayArgs:
         pulumi.set(self, "enable_http2", value)
 
     @property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is FIPS enabled on the Application Gateway?
+        """
+        return pulumi.get(self, "fips_enabled")
+
+    @fips_enabled.setter
+    def fips_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fips_enabled", value)
+
+    @property
     @pulumi.getter(name="firewallPolicyId")
     def firewall_policy_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -297,6 +317,18 @@ class ApplicationGatewayArgs:
     @firewall_policy_id.setter
     def firewall_policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "firewall_policy_id", value)
+
+    @property
+    @pulumi.getter(name="forceFirewallPolicyAssociation")
+    def force_firewall_policy_association(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Firewall Policy associated with the Application Gateway?
+        """
+        return pulumi.get(self, "force_firewall_policy_association")
+
+    @force_firewall_policy_association.setter
+    def force_firewall_policy_association(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_firewall_policy_association", value)
 
     @property
     @pulumi.getter
@@ -500,7 +532,9 @@ class _ApplicationGatewayState:
                  backend_http_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]]] = None,
                  custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
+                 fips_enabled: Optional[pulumi.Input[bool]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
+                 force_firewall_policy_association: Optional[pulumi.Input[bool]] = None,
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]]] = None,
                  frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]]] = None,
                  gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]]] = None,
@@ -533,7 +567,9 @@ class _ApplicationGatewayState:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+        :param pulumi.Input[bool] fips_enabled: Is FIPS enabled on the Application Gateway?
         :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy.
+        :param pulumi.Input[bool] force_firewall_policy_association: Is the Firewall Policy associated with the Application Gateway?
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
@@ -571,8 +607,12 @@ class _ApplicationGatewayState:
             pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
         if enable_http2 is not None:
             pulumi.set(__self__, "enable_http2", enable_http2)
+        if fips_enabled is not None:
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if firewall_policy_id is not None:
             pulumi.set(__self__, "firewall_policy_id", firewall_policy_id)
+        if force_firewall_policy_association is not None:
+            pulumi.set(__self__, "force_firewall_policy_association", force_firewall_policy_association)
         if frontend_ip_configurations is not None:
             pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
         if frontend_ports is not None:
@@ -695,6 +735,18 @@ class _ApplicationGatewayState:
         pulumi.set(self, "enable_http2", value)
 
     @property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is FIPS enabled on the Application Gateway?
+        """
+        return pulumi.get(self, "fips_enabled")
+
+    @fips_enabled.setter
+    def fips_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fips_enabled", value)
+
+    @property
     @pulumi.getter(name="firewallPolicyId")
     def firewall_policy_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -705,6 +757,18 @@ class _ApplicationGatewayState:
     @firewall_policy_id.setter
     def firewall_policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "firewall_policy_id", value)
+
+    @property
+    @pulumi.getter(name="forceFirewallPolicyAssociation")
+    def force_firewall_policy_association(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Firewall Policy associated with the Application Gateway?
+        """
+        return pulumi.get(self, "force_firewall_policy_association")
+
+    @force_firewall_policy_association.setter
+    def force_firewall_policy_association(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_firewall_policy_association", value)
 
     @property
     @pulumi.getter(name="frontendIpConfigurations")
@@ -1006,7 +1070,9 @@ class ApplicationGateway(pulumi.CustomResource):
                  backend_http_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingArgs']]]]] = None,
                  custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayCustomErrorConfigurationArgs']]]]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
+                 fips_enabled: Optional[pulumi.Input[bool]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
+                 force_firewall_policy_association: Optional[pulumi.Input[bool]] = None,
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIpConfigurationArgs']]]]] = None,
                  frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]]] = None,
                  gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]]] = None,
@@ -1126,7 +1192,9 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingArgs']]]] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayCustomErrorConfigurationArgs']]]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+        :param pulumi.Input[bool] fips_enabled: Is FIPS enabled on the Application Gateway?
         :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy.
+        :param pulumi.Input[bool] force_firewall_policy_association: Is the Firewall Policy associated with the Application Gateway?
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIpConfigurationArgs']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
@@ -1265,7 +1333,9 @@ class ApplicationGateway(pulumi.CustomResource):
                  backend_http_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingArgs']]]]] = None,
                  custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayCustomErrorConfigurationArgs']]]]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
+                 fips_enabled: Optional[pulumi.Input[bool]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
+                 force_firewall_policy_association: Optional[pulumi.Input[bool]] = None,
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIpConfigurationArgs']]]]] = None,
                  frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]]] = None,
                  gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]]] = None,
@@ -1311,7 +1381,9 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["backend_http_settings"] = backend_http_settings
             __props__.__dict__["custom_error_configurations"] = custom_error_configurations
             __props__.__dict__["enable_http2"] = enable_http2
+            __props__.__dict__["fips_enabled"] = fips_enabled
             __props__.__dict__["firewall_policy_id"] = firewall_policy_id
+            __props__.__dict__["force_firewall_policy_association"] = force_firewall_policy_association
             if frontend_ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'frontend_ip_configurations'")
             __props__.__dict__["frontend_ip_configurations"] = frontend_ip_configurations
@@ -1366,7 +1438,9 @@ class ApplicationGateway(pulumi.CustomResource):
             backend_http_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingArgs']]]]] = None,
             custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayCustomErrorConfigurationArgs']]]]] = None,
             enable_http2: Optional[pulumi.Input[bool]] = None,
+            fips_enabled: Optional[pulumi.Input[bool]] = None,
             firewall_policy_id: Optional[pulumi.Input[str]] = None,
+            force_firewall_policy_association: Optional[pulumi.Input[bool]] = None,
             frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIpConfigurationArgs']]]]] = None,
             frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]]] = None,
             gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]]] = None,
@@ -1404,7 +1478,9 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingArgs']]]] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayCustomErrorConfigurationArgs']]]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+        :param pulumi.Input[bool] fips_enabled: Is FIPS enabled on the Application Gateway?
         :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy.
+        :param pulumi.Input[bool] force_firewall_policy_association: Is the Firewall Policy associated with the Application Gateway?
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIpConfigurationArgs']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
@@ -1440,7 +1516,9 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__.__dict__["backend_http_settings"] = backend_http_settings
         __props__.__dict__["custom_error_configurations"] = custom_error_configurations
         __props__.__dict__["enable_http2"] = enable_http2
+        __props__.__dict__["fips_enabled"] = fips_enabled
         __props__.__dict__["firewall_policy_id"] = firewall_policy_id
+        __props__.__dict__["force_firewall_policy_association"] = force_firewall_policy_association
         __props__.__dict__["frontend_ip_configurations"] = frontend_ip_configurations
         __props__.__dict__["frontend_ports"] = frontend_ports
         __props__.__dict__["gateway_ip_configurations"] = gateway_ip_configurations
@@ -1516,12 +1594,28 @@ class ApplicationGateway(pulumi.CustomResource):
         return pulumi.get(self, "enable_http2")
 
     @property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is FIPS enabled on the Application Gateway?
+        """
+        return pulumi.get(self, "fips_enabled")
+
+    @property
     @pulumi.getter(name="firewallPolicyId")
     def firewall_policy_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Web Application Firewall Policy.
         """
         return pulumi.get(self, "firewall_policy_id")
+
+    @property
+    @pulumi.getter(name="forceFirewallPolicyAssociation")
+    def force_firewall_policy_association(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is the Firewall Policy associated with the Application Gateway?
+        """
+        return pulumi.get(self, "force_firewall_policy_association")
 
     @property
     @pulumi.getter(name="frontendIpConfigurations")

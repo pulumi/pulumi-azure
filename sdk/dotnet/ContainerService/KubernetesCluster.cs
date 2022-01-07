@@ -250,6 +250,9 @@ namespace Pulumi.Azure.ContainerService
         [Output("privateLinkEnabled")]
         public Output<bool> PrivateLinkEnabled { get; private set; } = null!;
 
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
@@ -482,6 +485,9 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("privateLinkEnabled")]
         public Input<bool>? PrivateLinkEnabled { get; set; }
+
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -736,6 +742,9 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("privateLinkEnabled")]
         public Input<bool>? PrivateLinkEnabled { get; set; }
+
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.

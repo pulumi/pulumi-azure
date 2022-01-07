@@ -62,8 +62,7 @@ namespace Pulumi.Azure.ServiceBus
     ///         });
     ///         var exampleNamespaceNetworkRuleSet = new Azure.ServiceBus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", new Azure.ServiceBus.NamespaceNetworkRuleSetArgs
     ///         {
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             NamespaceId = exampleNamespace.Id,
     ///             DefaultAction = "Deny",
     ///             NetworkRules = 
     ///             {
@@ -107,8 +106,11 @@ namespace Pulumi.Azure.ServiceBus
         public Output<ImmutableArray<string>> IpRules { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+        /// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
         /// </summary>
+        [Output("namespaceId")]
+        public Output<string> NamespaceId { get; private set; } = null!;
+
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
@@ -118,9 +120,6 @@ namespace Pulumi.Azure.ServiceBus
         [Output("networkRules")]
         public Output<ImmutableArray<Outputs.NamespaceNetworkRuleSetNetworkRule>> NetworkRules { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -138,7 +137,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public NamespaceNetworkRuleSet(string name, NamespaceNetworkRuleSetArgs args, CustomResourceOptions? options = null)
+        public NamespaceNetworkRuleSet(string name, NamespaceNetworkRuleSetArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet", name, args ?? new NamespaceNetworkRuleSetArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -195,10 +194,13 @@ namespace Pulumi.Azure.ServiceBus
         }
 
         /// <summary>
-        /// Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+        /// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
+
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         [Input("networkRules")]
         private InputList<Inputs.NamespaceNetworkRuleSetNetworkRuleArgs>? _networkRules;
@@ -212,11 +214,8 @@ namespace Pulumi.Azure.ServiceBus
             set => _networkRules = value;
         }
 
-        /// <summary>
-        /// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
@@ -250,8 +249,11 @@ namespace Pulumi.Azure.ServiceBus
         }
 
         /// <summary>
-        /// Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+        /// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
         /// </summary>
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
+
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
@@ -267,9 +269,6 @@ namespace Pulumi.Azure.ServiceBus
             set => _networkRules = value;
         }
 
-        /// <summary>
-        /// Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 

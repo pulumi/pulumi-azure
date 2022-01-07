@@ -93,7 +93,7 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the network mapping.
+     * The name of the protection container mapping.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -181,7 +181,7 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
  */
 export interface ProtectionContainerMappingState {
     /**
-     * The name of the network mapping.
+     * The name of the protection container mapping.
      */
     name?: pulumi.Input<string>;
     /**
@@ -215,7 +215,7 @@ export interface ProtectionContainerMappingState {
  */
 export interface ProtectionContainerMappingArgs {
     /**
-     * The name of the network mapping.
+     * The name of the protection container mapping.
      */
     name?: pulumi.Input<string>;
     /**

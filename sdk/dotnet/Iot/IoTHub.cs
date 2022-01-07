@@ -241,6 +241,12 @@ namespace Pulumi.Azure.Iot
         public Output<string> Hostname { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IoTHubIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `ip_filter_rule` blocks as defined below.
         /// </summary>
         [Output("ipFilterRules")]
@@ -406,6 +412,12 @@ namespace Pulumi.Azure.Iot
         [Input("fileUpload")]
         public Input<Inputs.IoTHubFileUploadArgs>? FileUpload { get; set; }
 
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IoTHubIdentityArgs>? Identity { get; set; }
+
         [Input("ipFilterRules")]
         private InputList<Inputs.IoTHubIpFilterRuleArgs>? _ipFilterRules;
 
@@ -568,6 +580,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IoTHubIdentityGetArgs>? Identity { get; set; }
 
         [Input("ipFilterRules")]
         private InputList<Inputs.IoTHubIpFilterRuleGetArgs>? _ipFilterRules;

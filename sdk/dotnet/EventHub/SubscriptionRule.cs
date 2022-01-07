@@ -89,23 +89,17 @@ namespace Pulumi.Azure.EventHub
     ///         });
     ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
+    ///             NamespaceId = exampleNamespace.Id,
     ///             EnablePartitioning = true,
     ///         });
     ///         var exampleSubscription = new Azure.ServiceBus.Subscription("exampleSubscription", new Azure.ServiceBus.SubscriptionArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             TopicName = exampleTopic.Name,
+    ///             TopicId = exampleTopic.Id,
     ///             MaxDeliveryCount = 1,
     ///         });
     ///         var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("exampleSubscriptionRule", new Azure.ServiceBus.SubscriptionRuleArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             TopicName = exampleTopic.Name,
-    ///             SubscriptionName = exampleSubscription.Name,
+    ///             SubscriptionId = exampleSubscription.Id,
     ///             FilterType = "CorrelationFilter",
     ///             CorrelationFilter = new Azure.ServiceBus.Inputs.SubscriptionRuleCorrelationFilterArgs
     ///             {
@@ -158,15 +152,9 @@ namespace Pulumi.Azure.EventHub
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -177,14 +165,14 @@ namespace Pulumi.Azure.EventHub
         public Output<string?> SqlFilter { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
+        /// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         /// </summary>
+        [Output("subscriptionId")]
+        public Output<string> SubscriptionId { get; private set; } = null!;
+
         [Output("subscriptionName")]
         public Output<string> SubscriptionName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("topicName")]
         public Output<string> TopicName { get; private set; } = null!;
 
@@ -258,17 +246,11 @@ namespace Pulumi.Azure.EventHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
@@ -277,16 +259,16 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? SqlFilter { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
+        /// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("subscriptionName", required: true)]
-        public Input<string> SubscriptionName { get; set; } = null!;
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
 
-        /// <summary>
-        /// The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("topicName", required: true)]
-        public Input<string> TopicName { get; set; } = null!;
+        [Input("subscriptionName")]
+        public Input<string>? SubscriptionName { get; set; }
+
+        [Input("topicName")]
+        public Input<string>? TopicName { get; set; }
 
         public SubscriptionRuleArgs()
         {
@@ -319,15 +301,9 @@ namespace Pulumi.Azure.EventHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
@@ -338,14 +314,14 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? SqlFilter { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
+        /// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
         [Input("subscriptionName")]
         public Input<string>? SubscriptionName { get; set; }
 
-        /// <summary>
-        /// The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }
 

@@ -189,10 +189,16 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly authorizationKey!: pulumi.Output<string | undefined>;
     /**
+     * Connection mode to use. Possible
+     * values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+     * Changing this value will force a resource to be created.
+     */
+    public readonly connectionMode!: pulumi.Output<string | undefined>;
+    /**
      * The IKE protocol version to use. Possible
      * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * Changing this value will force a resource to be created.
-     * > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+     * > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
      */
     public readonly connectionProtocol!: pulumi.Output<string>;
     /**
@@ -305,6 +311,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VirtualNetworkGatewayConnectionState | undefined;
             inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
+            inputs["connectionMode"] = state ? state.connectionMode : undefined;
             inputs["connectionProtocol"] = state ? state.connectionProtocol : undefined;
             inputs["dpdTimeoutSeconds"] = state ? state.dpdTimeoutSeconds : undefined;
             inputs["enableBgp"] = state ? state.enableBgp : undefined;
@@ -336,6 +343,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualNetworkGatewayId'");
             }
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            inputs["connectionMode"] = args ? args.connectionMode : undefined;
             inputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
             inputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
             inputs["enableBgp"] = args ? args.enableBgp : undefined;
@@ -374,10 +382,16 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     authorizationKey?: pulumi.Input<string>;
     /**
+     * Connection mode to use. Possible
+     * values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+     * Changing this value will force a resource to be created.
+     */
+    connectionMode?: pulumi.Input<string>;
+    /**
      * The IKE protocol version to use. Possible
      * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * Changing this value will force a resource to be created.
-     * > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+     * > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
      */
     connectionProtocol?: pulumi.Input<string>;
     /**
@@ -488,10 +502,16 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     authorizationKey?: pulumi.Input<string>;
     /**
+     * Connection mode to use. Possible
+     * values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+     * Changing this value will force a resource to be created.
+     */
+    connectionMode?: pulumi.Input<string>;
+    /**
      * The IKE protocol version to use. Possible
      * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * Changing this value will force a resource to be created.
-     * > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+     * > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
      */
     connectionProtocol?: pulumi.Input<string>;
     /**

@@ -275,6 +275,10 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly upgradeMode!: pulumi.Output<string | undefined>;
     /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     */
+    public readonly userData!: pulumi.Output<string | undefined>;
+    /**
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
     public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
@@ -343,6 +347,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["terminateNotification"] = state ? state.terminateNotification : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
             inputs["upgradeMode"] = state ? state.upgradeMode : undefined;
+            inputs["userData"] = state ? state.userData : undefined;
             inputs["vtpmEnabled"] = state ? state.vtpmEnabled : undefined;
             inputs["zoneBalance"] = state ? state.zoneBalance : undefined;
             inputs["zones"] = state ? state.zones : undefined;
@@ -408,6 +413,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["terminateNotification"] = args ? args.terminateNotification : undefined;
             inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
+            inputs["userData"] = args ? args.userData : undefined;
             inputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
             inputs["zoneBalance"] = args ? args.zoneBalance : undefined;
             inputs["zones"] = args ? args.zones : undefined;
@@ -597,6 +603,10 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     upgradeMode?: pulumi.Input<string>;
     /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     */
+    userData?: pulumi.Input<string>;
+    /**
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
     vtpmEnabled?: pulumi.Input<boolean>;
@@ -782,6 +792,10 @@ export interface LinuxVirtualMachineScaleSetArgs {
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
      */
     upgradeMode?: pulumi.Input<string>;
+    /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     */
+    userData?: pulumi.Input<string>;
     /**
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */

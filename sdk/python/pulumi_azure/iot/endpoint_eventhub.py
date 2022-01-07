@@ -21,6 +21,7 @@ class EndpointEventhubArgs:
         """
         The set of arguments for constructing a EndpointEventhub resource.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
         :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -52,6 +53,9 @@ class EndpointEventhubArgs:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -109,6 +113,7 @@ class _EndpointEventhubState:
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
         :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
         """
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
@@ -175,6 +180,9 @@ class _EndpointEventhubState:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -251,6 +259,7 @@ class EndpointEventhub(pulumi.CustomResource):
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
         :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -380,6 +389,7 @@ class EndpointEventhub(pulumi.CustomResource):
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
         :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -427,5 +437,8 @@ class EndpointEventhub(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 

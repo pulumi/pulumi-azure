@@ -84,6 +84,10 @@ export class Vault extends pulumi.CustomResource {
      */
     public readonly softDeleteEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+     */
+    public readonly storageModeType!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -107,6 +111,7 @@ export class Vault extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["softDeleteEnabled"] = state ? state.softDeleteEnabled : undefined;
+            inputs["storageModeType"] = state ? state.storageModeType : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VaultArgs | undefined;
@@ -122,6 +127,7 @@ export class Vault extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["softDeleteEnabled"] = args ? args.softDeleteEnabled : undefined;
+            inputs["storageModeType"] = args ? args.storageModeType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts.version) {
@@ -160,6 +166,10 @@ export interface VaultState {
      */
     softDeleteEnabled?: pulumi.Input<boolean>;
     /**
+     * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+     */
+    storageModeType?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -193,6 +203,10 @@ export interface VaultArgs {
      * Is soft delete enable for this Vault? Defaults to `true`.
      */
     softDeleteEnabled?: pulumi.Input<boolean>;
+    /**
+     * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+     */
+    storageModeType?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

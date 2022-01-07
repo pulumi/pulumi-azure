@@ -150,9 +150,17 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly enableHttp2!: pulumi.Output<boolean | undefined>;
     /**
+     * Is FIPS enabled on the Application Gateway?
+     */
+    public readonly fipsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of the Web Application Firewall Policy.
      */
     public readonly firewallPolicyId!: pulumi.Output<string | undefined>;
+    /**
+     * Is the Firewall Policy associated with the Application Gateway?
+     */
+    public readonly forceFirewallPolicyAssociation!: pulumi.Output<boolean | undefined>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
@@ -269,7 +277,9 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["backendHttpSettings"] = state ? state.backendHttpSettings : undefined;
             inputs["customErrorConfigurations"] = state ? state.customErrorConfigurations : undefined;
             inputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
+            inputs["fipsEnabled"] = state ? state.fipsEnabled : undefined;
             inputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
+            inputs["forceFirewallPolicyAssociation"] = state ? state.forceFirewallPolicyAssociation : undefined;
             inputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
             inputs["frontendPorts"] = state ? state.frontendPorts : undefined;
             inputs["gatewayIpConfigurations"] = state ? state.gatewayIpConfigurations : undefined;
@@ -329,7 +339,9 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["backendHttpSettings"] = args ? args.backendHttpSettings : undefined;
             inputs["customErrorConfigurations"] = args ? args.customErrorConfigurations : undefined;
             inputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
+            inputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
             inputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
+            inputs["forceFirewallPolicyAssociation"] = args ? args.forceFirewallPolicyAssociation : undefined;
             inputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
             inputs["frontendPorts"] = args ? args.frontendPorts : undefined;
             inputs["gatewayIpConfigurations"] = args ? args.gatewayIpConfigurations : undefined;
@@ -391,9 +403,17 @@ export interface ApplicationGatewayState {
      */
     enableHttp2?: pulumi.Input<boolean>;
     /**
+     * Is FIPS enabled on the Application Gateway?
+     */
+    fipsEnabled?: pulumi.Input<boolean>;
+    /**
      * The ID of the Web Application Firewall Policy.
      */
     firewallPolicyId?: pulumi.Input<string>;
+    /**
+     * Is the Firewall Policy associated with the Application Gateway?
+     */
+    forceFirewallPolicyAssociation?: pulumi.Input<boolean>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
@@ -521,9 +541,17 @@ export interface ApplicationGatewayArgs {
      */
     enableHttp2?: pulumi.Input<boolean>;
     /**
+     * Is FIPS enabled on the Application Gateway?
+     */
+    fipsEnabled?: pulumi.Input<boolean>;
+    /**
      * The ID of the Web Application Firewall Policy.
      */
     firewallPolicyId?: pulumi.Input<string>;
+    /**
+     * Is the Firewall Policy associated with the Application Gateway?
+     */
+    forceFirewallPolicyAssociation?: pulumi.Input<boolean>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */

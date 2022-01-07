@@ -198,6 +198,10 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostname!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.iot.IoTHubIdentity | undefined>;
+    /**
      * One or more `ipFilterRule` blocks as defined below.
      */
     public readonly ipFilterRules!: pulumi.Output<outputs.iot.IoTHubIpFilterRule[] | undefined>;
@@ -267,6 +271,7 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["fallbackRoute"] = state ? state.fallbackRoute : undefined;
             inputs["fileUpload"] = state ? state.fileUpload : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["ipFilterRules"] = state ? state.ipFilterRules : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
@@ -293,6 +298,7 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["eventHubRetentionInDays"] = args ? args.eventHubRetentionInDays : undefined;
             inputs["fallbackRoute"] = args ? args.fallbackRoute : undefined;
             inputs["fileUpload"] = args ? args.fileUpload : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["ipFilterRules"] = args ? args.ipFilterRules : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
@@ -369,6 +375,10 @@ export interface IoTHubState {
      * The hostname of the IotHub Resource.
      */
     hostname?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.iot.IoTHubIdentity>;
     /**
      * One or more `ipFilterRule` blocks as defined below.
      */
@@ -447,6 +457,10 @@ export interface IoTHubArgs {
      * A `fileUpload` block as defined below.
      */
     fileUpload?: pulumi.Input<inputs.iot.IoTHubFileUpload>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.iot.IoTHubIdentity>;
     /**
      * One or more `ipFilterRule` blocks as defined below.
      */

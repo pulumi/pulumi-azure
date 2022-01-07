@@ -65,7 +65,7 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class ProtectionContainer : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the network mapping.
+        /// The name of the protection container.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ProtectionContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the network mapping.
+        /// The name of the protection container.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ProtectionContainerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the network mapping.
+        /// The name of the protection container.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

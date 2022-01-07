@@ -23,8 +23,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleNamespaceAuthorizationRule = new azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", {
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     namespaceId: exampleNamespace.id,
  *     listen: true,
  *     send: true,
  *     manage: false,
@@ -83,7 +82,11 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     */
+    public readonly namespaceId!: pulumi.Output<string>;
+    /**
+     * @deprecated Deprecated in favor of "namespace_id"
      */
     public readonly namespaceName!: pulumi.Output<string>;
     /**
@@ -99,7 +102,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "namespace_id"
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -127,7 +130,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule */
-    constructor(name: string, args: NamespaceAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: NamespaceAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
     /** @deprecated azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule */
     constructor(name: string, argsOrState?: NamespaceAuthorizationRuleArgs | NamespaceAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("NamespaceAuthorizationRule is deprecated: azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule")
@@ -138,6 +141,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["listen"] = state ? state.listen : undefined;
             inputs["manage"] = state ? state.manage : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["namespaceId"] = state ? state.namespaceId : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             inputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
@@ -149,15 +153,10 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["send"] = state ? state.send : undefined;
         } else {
             const args = argsOrState as NamespaceAuthorizationRuleArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'namespaceName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             inputs["listen"] = args ? args.listen : undefined;
             inputs["manage"] = args ? args.manage : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["namespaceId"] = args ? args.namespaceId : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["send"] = args ? args.send : undefined;
@@ -192,7 +191,11 @@ export interface NamespaceAuthorizationRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     */
+    namespaceId?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "namespace_id"
      */
     namespaceName?: pulumi.Input<string>;
     /**
@@ -208,7 +211,7 @@ export interface NamespaceAuthorizationRuleState {
      */
     primaryKey?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "namespace_id"
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -246,13 +249,17 @@ export interface NamespaceAuthorizationRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "namespace_id"
      */
-    resourceGroupName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "namespace_id"
+     */
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Grants send access to this this Authorization Rule. Defaults to `false`.
      */

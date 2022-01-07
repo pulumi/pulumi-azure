@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Network
     /// 
     /// &gt; **NOTE** Azure only allows `one` DDoS Protection Plan per region.
     /// 
+    /// &gt; **NOTE** The DDoS Protection Plan is a [high-cost service](https://azure.microsoft.com/en-us/pricing/details/ddos-protection/#pricing). Please keep this in mind while testing and learning.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

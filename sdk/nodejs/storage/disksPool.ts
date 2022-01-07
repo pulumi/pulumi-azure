@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Disks Pool.
+ * Manages a Disk Pool.
+ *
+ * !> **Note:** This resource has been deprecated in favour of `azure.compute.DiskPool` and will be removed in version 3.0 of the Azure Provider.
  *
  * ## Example Usage
  *
@@ -45,7 +47,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Disks Pool can be imported using the `resource id`, e.g.
+ * Disk Pools can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:storage/disksPool:DisksPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/disksPool1
@@ -80,23 +82,23 @@ export class DisksPool extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
+     * Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
      */
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
-     * The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+     * The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
+     * The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+     * The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+     * The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -162,23 +164,23 @@ export class DisksPool extends pulumi.CustomResource {
  */
 export interface DisksPoolState {
     /**
-     * Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
+     * Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+     * The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
+     * The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+     * The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+     * The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -196,23 +198,23 @@ export interface DisksPoolState {
  */
 export interface DisksPoolArgs {
     /**
-     * Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
+     * Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
      */
     availabilityZones: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+     * The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
+     * The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+     * The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+     * The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
      */
     skuName: pulumi.Input<string>;
     /**

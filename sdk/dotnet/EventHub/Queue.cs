@@ -38,8 +38,7 @@ namespace Pulumi.Azure.EventHub
     ///         });
     ///         var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new Azure.ServiceBus.QueueArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
+    ///             NamespaceId = exampleNamespace.Id,
     ///             EnablePartitioning = true,
     ///         });
     ///     }
@@ -146,8 +145,11 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
+        /// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         /// </summary>
+        [Output("namespaceId")]
+        public Output<string> NamespaceId { get; private set; } = null!;
+
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
@@ -163,9 +165,6 @@ namespace Pulumi.Azure.EventHub
         [Output("requiresSession")]
         public Output<bool?> RequiresSession { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -183,7 +182,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Queue(string name, QueueArgs args, CustomResourceOptions? options = null)
+        public Queue(string name, QueueArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:eventhub/queue:Queue", name, args ?? new QueueArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -308,10 +307,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
+        /// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
+
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
@@ -325,11 +327,8 @@ namespace Pulumi.Azure.EventHub
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
@@ -431,8 +430,11 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
+        /// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         /// </summary>
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
+
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
@@ -448,9 +450,6 @@ namespace Pulumi.Azure.EventHub
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 

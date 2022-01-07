@@ -268,10 +268,14 @@ type VirtualNetworkGatewayConnection struct {
 	// Express Route Circuit. This field is required only if the type is an
 	// ExpressRoute connection.
 	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
+	// Connection mode to use. Possible
+	// values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+	// Changing this value will force a resource to be created.
+	ConnectionMode pulumi.StringPtrOutput `pulumi:"connectionMode"`
 	// The IKE protocol version to use. Possible
 	// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
 	// Changing this value will force a resource to be created.
-	// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringOutput `pulumi:"connectionProtocol"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrOutput `pulumi:"dpdTimeoutSeconds"`
@@ -376,10 +380,14 @@ type virtualNetworkGatewayConnectionState struct {
 	// Express Route Circuit. This field is required only if the type is an
 	// ExpressRoute connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// Connection mode to use. Possible
+	// values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+	// Changing this value will force a resource to be created.
+	ConnectionMode *string `pulumi:"connectionMode"`
 	// The IKE protocol version to use. Possible
 	// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
 	// Changing this value will force a resource to be created.
-	// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
@@ -447,10 +455,14 @@ type VirtualNetworkGatewayConnectionState struct {
 	// Express Route Circuit. This field is required only if the type is an
 	// ExpressRoute connection.
 	AuthorizationKey pulumi.StringPtrInput
+	// Connection mode to use. Possible
+	// values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+	// Changing this value will force a resource to be created.
+	ConnectionMode pulumi.StringPtrInput
 	// The IKE protocol version to use. Possible
 	// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
 	// Changing this value will force a resource to be created.
-	// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringPtrInput
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrInput
@@ -522,10 +534,14 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// Express Route Circuit. This field is required only if the type is an
 	// ExpressRoute connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// Connection mode to use. Possible
+	// values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+	// Changing this value will force a resource to be created.
+	ConnectionMode *string `pulumi:"connectionMode"`
 	// The IKE protocol version to use. Possible
 	// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
 	// Changing this value will force a resource to be created.
-	// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
@@ -594,10 +610,14 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// Express Route Circuit. This field is required only if the type is an
 	// ExpressRoute connection.
 	AuthorizationKey pulumi.StringPtrInput
+	// Connection mode to use. Possible
+	// values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+	// Changing this value will force a resource to be created.
+	ConnectionMode pulumi.StringPtrInput
 	// The IKE protocol version to use. Possible
 	// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
 	// Changing this value will force a resource to be created.
-	// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringPtrInput
 	// The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
 	DpdTimeoutSeconds pulumi.IntPtrInput

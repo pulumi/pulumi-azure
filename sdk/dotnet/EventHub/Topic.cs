@@ -40,8 +40,7 @@ namespace Pulumi.Azure.EventHub
     ///         });
     ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
+    ///             NamespaceId = exampleNamespace.Id,
     ///             EnablePartitioning = true,
     ///         });
     ///     }
@@ -129,9 +128,12 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the ServiceBus Namespace to create
+        /// The ID of the ServiceBus Namespace to create
         /// this topic in. Changing this forces a new resource to be created.
         /// </summary>
+        [Output("namespaceId")]
+        public Output<string> NamespaceId { get; private set; } = null!;
+
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
@@ -143,10 +145,6 @@ namespace Pulumi.Azure.EventHub
         [Output("requiresDuplicateDetection")]
         public Output<bool?> RequiresDuplicateDetection { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the resource group in which to
-        /// create the namespace. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -171,7 +169,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Topic(string name, TopicArgs args, CustomResourceOptions? options = null)
+        public Topic(string name, TopicArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:eventhub/topic:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -277,11 +275,14 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Namespace to create
+        /// The ID of the ServiceBus Namespace to create
         /// this topic in. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
+
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// Boolean flag which controls whether
@@ -291,12 +292,8 @@ namespace Pulumi.Azure.EventHub
         [Input("requiresDuplicateDetection")]
         public Input<bool>? RequiresDuplicateDetection { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which to
-        /// create the namespace. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
@@ -386,9 +383,12 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Namespace to create
+        /// The ID of the ServiceBus Namespace to create
         /// this topic in. Changing this forces a new resource to be created.
         /// </summary>
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
+
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
@@ -400,10 +400,6 @@ namespace Pulumi.Azure.EventHub
         [Input("requiresDuplicateDetection")]
         public Input<bool>? RequiresDuplicateDetection { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which to
-        /// create the namespace. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 

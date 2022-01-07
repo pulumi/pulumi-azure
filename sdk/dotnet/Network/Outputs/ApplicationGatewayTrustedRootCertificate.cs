@@ -14,13 +14,17 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ApplicationGatewayTrustedRootCertificate
     {
         /// <summary>
-        /// The contents of the Trusted Root Certificate which should be used.
+        /// The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
         /// </summary>
-        public readonly string Data;
+        public readonly string? Data;
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+        /// </summary>
+        public readonly string? KeyVaultSecretId;
         /// <summary>
         /// The Name of the Trusted Root Certificate to use.
         /// </summary>
@@ -28,14 +32,17 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private ApplicationGatewayTrustedRootCertificate(
-            string data,
+            string? data,
 
             string? id,
+
+            string? keyVaultSecretId,
 
             string name)
         {
             Data = data;
             Id = id;
+            KeyVaultSecretId = keyVaultSecretId;
             Name = name;
         }
     }

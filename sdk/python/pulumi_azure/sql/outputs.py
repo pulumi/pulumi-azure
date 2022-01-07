@@ -22,6 +22,7 @@ __all__ = [
     'SqlServerIdentity',
     'SqlServerThreatDetectionPolicy',
     'GetServerIdentityResult',
+    'GetSqlManagedInstanceIdentityResult',
 ]
 
 @pulumi.output_type
@@ -898,5 +899,38 @@ class GetServerIdentityResult(dict):
         The identity type of the SQL Server.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetSqlManagedInstanceIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identity_id: str):
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> str:
+        return pulumi.get(self, "user_assigned_identity_id")
 
 

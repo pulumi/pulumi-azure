@@ -69,6 +69,7 @@ __all__ = [
     'LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs',
     'LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs',
     'LinkedServiceOdataBasicAuthenticationArgs',
+    'LinkedServiceOdbcBasicAuthenticationArgs',
     'LinkedServiceSnowflakeKeyVaultPasswordArgs',
     'LinkedServiceSqlServerKeyVaultConnectionStringArgs',
     'LinkedServiceSqlServerKeyVaultPasswordArgs',
@@ -3612,6 +3613,43 @@ class LinkedServiceOdataBasicAuthenticationArgs:
     def username(self) -> pulumi.Input[str]:
         """
         The username which can be used to authenticate to the OData endpoint.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class LinkedServiceOdbcBasicAuthenticationArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] password: The password associated with the username, which can be used to authenticate to the ODBC endpoint.
+        :param pulumi.Input[str] username: The username which can be used to authenticate to the ODBC endpoint.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The password associated with the username, which can be used to authenticate to the ODBC endpoint.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The username which can be used to authenticate to the ODBC endpoint.
         """
         return pulumi.get(self, "username")
 

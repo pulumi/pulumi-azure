@@ -75,6 +75,8 @@ type KubernetesClusterNodePool struct {
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
 	// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
+	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+	ScaleDownMode pulumi.StringPtrOutput `pulumi:"scaleDownMode"`
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice pulumi.Float64PtrOutput `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
@@ -87,6 +89,8 @@ type KubernetesClusterNodePool struct {
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist.
 	VnetSubnetId pulumi.StringPtrOutput `pulumi:"vnetSubnetId"`
+	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+	WorkloadRuntime pulumi.StringPtrOutput `pulumi:"workloadRuntime"`
 }
 
 // NewKubernetesClusterNodePool registers a new resource with the given unique name, arguments, and options.
@@ -178,6 +182,8 @@ type kubernetesClusterNodePoolState struct {
 	Priority *string `pulumi:"priority"`
 	// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
+	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+	ScaleDownMode *string `pulumi:"scaleDownMode"`
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
@@ -190,6 +196,8 @@ type kubernetesClusterNodePoolState struct {
 	VmSize *string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
+	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+	WorkloadRuntime *string `pulumi:"workloadRuntime"`
 }
 
 type KubernetesClusterNodePoolState struct {
@@ -247,6 +255,8 @@ type KubernetesClusterNodePoolState struct {
 	Priority pulumi.StringPtrInput
 	// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
+	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+	ScaleDownMode pulumi.StringPtrInput
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
@@ -259,6 +269,8 @@ type KubernetesClusterNodePoolState struct {
 	VmSize pulumi.StringPtrInput
 	// The ID of the Subnet where this Node Pool should exist.
 	VnetSubnetId pulumi.StringPtrInput
+	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+	WorkloadRuntime pulumi.StringPtrInput
 }
 
 func (KubernetesClusterNodePoolState) ElementType() reflect.Type {
@@ -320,6 +332,8 @@ type kubernetesClusterNodePoolArgs struct {
 	Priority *string `pulumi:"priority"`
 	// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
+	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+	ScaleDownMode *string `pulumi:"scaleDownMode"`
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
@@ -332,6 +346,8 @@ type kubernetesClusterNodePoolArgs struct {
 	VmSize string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
+	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+	WorkloadRuntime *string `pulumi:"workloadRuntime"`
 }
 
 // The set of arguments for constructing a KubernetesClusterNodePool resource.
@@ -390,6 +406,8 @@ type KubernetesClusterNodePoolArgs struct {
 	Priority pulumi.StringPtrInput
 	// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
+	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+	ScaleDownMode pulumi.StringPtrInput
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
@@ -402,6 +420,8 @@ type KubernetesClusterNodePoolArgs struct {
 	VmSize pulumi.StringInput
 	// The ID of the Subnet where this Node Pool should exist.
 	VnetSubnetId pulumi.StringPtrInput
+	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+	WorkloadRuntime pulumi.StringPtrInput
 }
 
 func (KubernetesClusterNodePoolArgs) ElementType() reflect.Type {

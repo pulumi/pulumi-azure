@@ -12,6 +12,7 @@ export * from "./failoverGroup";
 export * from "./firewallRule";
 export * from "./getDatabase";
 export * from "./getServer";
+export * from "./getSqlManagedInstance";
 export * from "./managedDatabase";
 export * from "./managedInstance";
 export * from "./managedInstanceActiveDirectoryAdministrator";

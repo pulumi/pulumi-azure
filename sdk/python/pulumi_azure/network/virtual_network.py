@@ -429,9 +429,6 @@ class VirtualNetwork(pulumi.CustomResource):
         example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_ddos_protection_plan = azure.network.DdosProtectionPlan("exampleDdosProtectionPlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -440,10 +437,6 @@ class VirtualNetwork(pulumi.CustomResource):
                 "10.0.0.4",
                 "10.0.0.5",
             ],
-            ddos_protection_plan=azure.network.VirtualNetworkDdosProtectionPlanArgs(
-                id=example_ddos_protection_plan.id,
-                enable=True,
-            ),
             subnets=[
                 azure.network.VirtualNetworkSubnetArgs(
                     name="subnet1",
@@ -452,10 +445,6 @@ class VirtualNetwork(pulumi.CustomResource):
                 azure.network.VirtualNetworkSubnetArgs(
                     name="subnet2",
                     address_prefix="10.0.2.0/24",
-                ),
-                azure.network.VirtualNetworkSubnetArgs(
-                    name="subnet3",
-                    address_prefix="10.0.3.0/24",
                     security_group=example_network_security_group.id,
                 ),
             ],
@@ -511,9 +500,6 @@ class VirtualNetwork(pulumi.CustomResource):
         example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_ddos_protection_plan = azure.network.DdosProtectionPlan("exampleDdosProtectionPlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -522,10 +508,6 @@ class VirtualNetwork(pulumi.CustomResource):
                 "10.0.0.4",
                 "10.0.0.5",
             ],
-            ddos_protection_plan=azure.network.VirtualNetworkDdosProtectionPlanArgs(
-                id=example_ddos_protection_plan.id,
-                enable=True,
-            ),
             subnets=[
                 azure.network.VirtualNetworkSubnetArgs(
                     name="subnet1",
@@ -534,10 +516,6 @@ class VirtualNetwork(pulumi.CustomResource):
                 azure.network.VirtualNetworkSubnetArgs(
                     name="subnet2",
                     address_prefix="10.0.2.0/24",
-                ),
-                azure.network.VirtualNetworkSubnetArgs(
-                    name="subnet3",
-                    address_prefix="10.0.3.0/24",
                     security_group=example_network_security_group.id,
                 ),
             ],

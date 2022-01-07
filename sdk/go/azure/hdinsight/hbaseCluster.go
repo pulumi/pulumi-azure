@@ -122,6 +122,8 @@ type HBaseCluster struct {
 	Monitor HBaseClusterMonitorPtrOutput `pulumi:"monitor"`
 	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A `network` block as defined below.
+	Network HBaseClusterNetworkPtrOutput `pulumi:"network"`
 	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -204,6 +206,8 @@ type hbaseClusterState struct {
 	Monitor *HBaseClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `network` block as defined below.
+	Network *HBaseClusterNetwork `pulumi:"network"`
 	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -240,6 +244,8 @@ type HBaseClusterState struct {
 	Monitor HBaseClusterMonitorPtrInput
 	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `network` block as defined below.
+	Network HBaseClusterNetworkPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
@@ -278,6 +284,8 @@ type hbaseClusterArgs struct {
 	Monitor *HBaseClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `network` block as defined below.
+	Network *HBaseClusterNetwork `pulumi:"network"`
 	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -311,6 +319,8 @@ type HBaseClusterArgs struct {
 	Monitor HBaseClusterMonitorPtrInput
 	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `network` block as defined below.
+	Network HBaseClusterNetworkPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.

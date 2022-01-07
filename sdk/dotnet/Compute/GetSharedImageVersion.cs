@@ -104,6 +104,12 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
+        /// </summary>
+        [Input("sortVersionsBySemver")]
+        public bool? SortVersionsBySemver { get; set; }
+
         public GetSharedImageVersionArgs()
         {
         }
@@ -134,6 +140,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
+        /// </summary>
+        [Input("sortVersionsBySemver")]
+        public Input<bool>? SortVersionsBySemver { get; set; }
 
         public GetSharedImageVersionInvokeArgs()
         {
@@ -175,6 +187,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string OsDiskSnapshotId;
         public readonly string ResourceGroupName;
+        public readonly bool? SortVersionsBySemver;
         /// <summary>
         /// A mapping of tags assigned to the Shared Image.
         /// </summary>
@@ -206,6 +219,8 @@ namespace Pulumi.Azure.Compute
 
             string resourceGroupName,
 
+            bool? sortVersionsBySemver,
+
             ImmutableDictionary<string, string> tags,
 
             ImmutableArray<Outputs.GetSharedImageVersionTargetRegionResult> targetRegions)
@@ -220,6 +235,7 @@ namespace Pulumi.Azure.Compute
             OsDiskImageSizeGb = osDiskImageSizeGb;
             OsDiskSnapshotId = osDiskSnapshotId;
             ResourceGroupName = resourceGroupName;
+            SortVersionsBySemver = sortVersionsBySemver;
             Tags = tags;
             TargetRegions = targetRegions;
         }

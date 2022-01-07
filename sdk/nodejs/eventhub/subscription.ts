@@ -23,14 +23,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     namespaceName: exampleNamespace.name,
+ *     namespaceId: exampleNamespace.id,
  *     enablePartitioning: true,
  * });
  * const exampleSubscription = new azure.servicebus.Subscription("exampleSubscription", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     namespaceName: exampleNamespace.name,
- *     topicName: exampleTopic.name,
+ *     topicId: exampleTopic.id,
  *     maxDeliveryCount: 1,
  * });
  * ```
@@ -103,7 +100,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly forwardTo!: pulumi.Output<string | undefined>;
     /**
-     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
+     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
      */
     public readonly lockDuration!: pulumi.Output<string>;
     /**
@@ -115,7 +112,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "topic_id"
      */
     public readonly namespaceName!: pulumi.Output<string>;
     /**
@@ -123,7 +120,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly requiresSession!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "topic_id"
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -131,7 +128,11 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+     * The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+     */
+    public readonly topicId!: pulumi.Output<string>;
+    /**
+     * @deprecated Deprecated in favor of "topic_id"
      */
     public readonly topicName!: pulumi.Output<string>;
 
@@ -165,20 +166,12 @@ export class Subscription extends pulumi.CustomResource {
             inputs["requiresSession"] = state ? state.requiresSession : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["status"] = state ? state.status : undefined;
+            inputs["topicId"] = state ? state.topicId : undefined;
             inputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as SubscriptionArgs | undefined;
             if ((!args || args.maxDeliveryCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxDeliveryCount'");
-            }
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'namespaceName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.topicName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'topicName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
             inputs["deadLetteringOnFilterEvaluationError"] = args ? args.deadLetteringOnFilterEvaluationError : undefined;
@@ -194,6 +187,7 @@ export class Subscription extends pulumi.CustomResource {
             inputs["requiresSession"] = args ? args.requiresSession : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["status"] = args ? args.status : undefined;
+            inputs["topicId"] = args ? args.topicId : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
         }
         if (!opts.version) {
@@ -236,7 +230,7 @@ export interface SubscriptionState {
      */
     forwardTo?: pulumi.Input<string>;
     /**
-     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
+     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
      */
     lockDuration?: pulumi.Input<string>;
     /**
@@ -248,7 +242,7 @@ export interface SubscriptionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "topic_id"
      */
     namespaceName?: pulumi.Input<string>;
     /**
@@ -256,7 +250,7 @@ export interface SubscriptionState {
      */
     requiresSession?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "topic_id"
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -264,7 +258,11 @@ export interface SubscriptionState {
      */
     status?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+     * The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+     */
+    topicId?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "topic_id"
      */
     topicName?: pulumi.Input<string>;
 }
@@ -302,7 +300,7 @@ export interface SubscriptionArgs {
      */
     forwardTo?: pulumi.Input<string>;
     /**
-     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
+     * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
      */
     lockDuration?: pulumi.Input<string>;
     /**
@@ -314,23 +312,27 @@ export interface SubscriptionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "topic_id"
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
      */
     requiresSession?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "topic_id"
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
      */
     status?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+     * The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
      */
-    topicName: pulumi.Input<string>;
+    topicId?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "topic_id"
+     */
+    topicName?: pulumi.Input<string>;
 }

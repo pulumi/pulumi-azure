@@ -67,7 +67,7 @@ type ReplicationPolicy struct {
 
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
 	ApplicationConsistentSnapshotFrequencyInMinutes pulumi.IntOutput `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`
-	// The name of the network mapping.
+	// The name of the replication policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The duration in minutes for which the recovery points need to be stored.
 	RecoveryPointRetentionInMinutes pulumi.IntOutput `pulumi:"recoveryPointRetentionInMinutes"`
@@ -120,7 +120,7 @@ func GetReplicationPolicy(ctx *pulumi.Context,
 type replicationPolicyState struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
 	ApplicationConsistentSnapshotFrequencyInMinutes *int `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`
-	// The name of the network mapping.
+	// The name of the replication policy.
 	Name *string `pulumi:"name"`
 	// The duration in minutes for which the recovery points need to be stored.
 	RecoveryPointRetentionInMinutes *int `pulumi:"recoveryPointRetentionInMinutes"`
@@ -133,7 +133,7 @@ type replicationPolicyState struct {
 type ReplicationPolicyState struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
 	ApplicationConsistentSnapshotFrequencyInMinutes pulumi.IntPtrInput
-	// The name of the network mapping.
+	// The name of the replication policy.
 	Name pulumi.StringPtrInput
 	// The duration in minutes for which the recovery points need to be stored.
 	RecoveryPointRetentionInMinutes pulumi.IntPtrInput
@@ -150,7 +150,7 @@ func (ReplicationPolicyState) ElementType() reflect.Type {
 type replicationPolicyArgs struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
 	ApplicationConsistentSnapshotFrequencyInMinutes int `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`
-	// The name of the network mapping.
+	// The name of the replication policy.
 	Name *string `pulumi:"name"`
 	// The duration in minutes for which the recovery points need to be stored.
 	RecoveryPointRetentionInMinutes int `pulumi:"recoveryPointRetentionInMinutes"`
@@ -164,7 +164,7 @@ type replicationPolicyArgs struct {
 type ReplicationPolicyArgs struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
 	ApplicationConsistentSnapshotFrequencyInMinutes pulumi.IntInput
-	// The name of the network mapping.
+	// The name of the replication policy.
 	Name pulumi.StringPtrInput
 	// The duration in minutes for which the recovery points need to be stored.
 	RecoveryPointRetentionInMinutes pulumi.IntInput

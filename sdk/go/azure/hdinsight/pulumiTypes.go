@@ -1243,6 +1243,162 @@ func (o HBaseClusterMonitorPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type HBaseClusterNetwork struct {
+	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+	ConnectionDirection *string `pulumi:"connectionDirection"`
+	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
+}
+
+// HBaseClusterNetworkInput is an input type that accepts HBaseClusterNetworkArgs and HBaseClusterNetworkOutput values.
+// You can construct a concrete instance of `HBaseClusterNetworkInput` via:
+//
+//          HBaseClusterNetworkArgs{...}
+type HBaseClusterNetworkInput interface {
+	pulumi.Input
+
+	ToHBaseClusterNetworkOutput() HBaseClusterNetworkOutput
+	ToHBaseClusterNetworkOutputWithContext(context.Context) HBaseClusterNetworkOutput
+}
+
+type HBaseClusterNetworkArgs struct {
+	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
+	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
+}
+
+func (HBaseClusterNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterNetwork)(nil)).Elem()
+}
+
+func (i HBaseClusterNetworkArgs) ToHBaseClusterNetworkOutput() HBaseClusterNetworkOutput {
+	return i.ToHBaseClusterNetworkOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterNetworkArgs) ToHBaseClusterNetworkOutputWithContext(ctx context.Context) HBaseClusterNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterNetworkOutput)
+}
+
+func (i HBaseClusterNetworkArgs) ToHBaseClusterNetworkPtrOutput() HBaseClusterNetworkPtrOutput {
+	return i.ToHBaseClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterNetworkArgs) ToHBaseClusterNetworkPtrOutputWithContext(ctx context.Context) HBaseClusterNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterNetworkOutput).ToHBaseClusterNetworkPtrOutputWithContext(ctx)
+}
+
+// HBaseClusterNetworkPtrInput is an input type that accepts HBaseClusterNetworkArgs, HBaseClusterNetworkPtr and HBaseClusterNetworkPtrOutput values.
+// You can construct a concrete instance of `HBaseClusterNetworkPtrInput` via:
+//
+//          HBaseClusterNetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type HBaseClusterNetworkPtrInput interface {
+	pulumi.Input
+
+	ToHBaseClusterNetworkPtrOutput() HBaseClusterNetworkPtrOutput
+	ToHBaseClusterNetworkPtrOutputWithContext(context.Context) HBaseClusterNetworkPtrOutput
+}
+
+type hbaseClusterNetworkPtrType HBaseClusterNetworkArgs
+
+func HBaseClusterNetworkPtr(v *HBaseClusterNetworkArgs) HBaseClusterNetworkPtrInput {
+	return (*hbaseClusterNetworkPtrType)(v)
+}
+
+func (*hbaseClusterNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterNetwork)(nil)).Elem()
+}
+
+func (i *hbaseClusterNetworkPtrType) ToHBaseClusterNetworkPtrOutput() HBaseClusterNetworkPtrOutput {
+	return i.ToHBaseClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *hbaseClusterNetworkPtrType) ToHBaseClusterNetworkPtrOutputWithContext(ctx context.Context) HBaseClusterNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterNetworkPtrOutput)
+}
+
+type HBaseClusterNetworkOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterNetwork)(nil)).Elem()
+}
+
+func (o HBaseClusterNetworkOutput) ToHBaseClusterNetworkOutput() HBaseClusterNetworkOutput {
+	return o
+}
+
+func (o HBaseClusterNetworkOutput) ToHBaseClusterNetworkOutputWithContext(ctx context.Context) HBaseClusterNetworkOutput {
+	return o
+}
+
+func (o HBaseClusterNetworkOutput) ToHBaseClusterNetworkPtrOutput() HBaseClusterNetworkPtrOutput {
+	return o.ToHBaseClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o HBaseClusterNetworkOutput) ToHBaseClusterNetworkPtrOutputWithContext(ctx context.Context) HBaseClusterNetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterNetwork) *HBaseClusterNetwork {
+		return &v
+	}).(HBaseClusterNetworkPtrOutput)
+}
+
+// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+func (o HBaseClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
+}
+
+// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+func (o HBaseClusterNetworkOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HBaseClusterNetwork) *bool { return v.PrivateLinkEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type HBaseClusterNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterNetwork)(nil)).Elem()
+}
+
+func (o HBaseClusterNetworkPtrOutput) ToHBaseClusterNetworkPtrOutput() HBaseClusterNetworkPtrOutput {
+	return o
+}
+
+func (o HBaseClusterNetworkPtrOutput) ToHBaseClusterNetworkPtrOutputWithContext(ctx context.Context) HBaseClusterNetworkPtrOutput {
+	return o
+}
+
+func (o HBaseClusterNetworkPtrOutput) Elem() HBaseClusterNetworkOutput {
+	return o.ApplyT(func(v *HBaseClusterNetwork) HBaseClusterNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterNetwork
+		return ret
+	}).(HBaseClusterNetworkOutput)
+}
+
+// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+func (o HBaseClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionDirection
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+func (o HBaseClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterNetwork) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type HBaseClusterRoles struct {
 	// A `headNode` block as defined above.
 	HeadNode HBaseClusterRolesHeadNode `pulumi:"headNode"`
@@ -22319,6 +22475,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterMetastoresOoziePtrInput)(nil)).Elem(), HBaseClusterMetastoresOozieArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterMonitorInput)(nil)).Elem(), HBaseClusterMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterMonitorPtrInput)(nil)).Elem(), HBaseClusterMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterNetworkInput)(nil)).Elem(), HBaseClusterNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterNetworkPtrInput)(nil)).Elem(), HBaseClusterNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesInput)(nil)).Elem(), HBaseClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesPtrInput)(nil)).Elem(), HBaseClusterRolesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterRolesHeadNodeInput)(nil)).Elem(), HBaseClusterRolesHeadNodeArgs{})
@@ -22557,6 +22715,8 @@ func init() {
 	pulumi.RegisterOutputType(HBaseClusterMetastoresOoziePtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterMonitorOutput{})
 	pulumi.RegisterOutputType(HBaseClusterMonitorPtrOutput{})
+	pulumi.RegisterOutputType(HBaseClusterNetworkOutput{})
+	pulumi.RegisterOutputType(HBaseClusterNetworkPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesHeadNodeOutput{})

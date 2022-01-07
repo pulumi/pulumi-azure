@@ -9771,6 +9771,162 @@ func (o LinkedServiceOdataBasicAuthenticationPtrOutput) Username() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type LinkedServiceOdbcBasicAuthentication struct {
+	// The password associated with the username, which can be used to authenticate to the ODBC endpoint.
+	Password string `pulumi:"password"`
+	// The username which can be used to authenticate to the ODBC endpoint.
+	Username string `pulumi:"username"`
+}
+
+// LinkedServiceOdbcBasicAuthenticationInput is an input type that accepts LinkedServiceOdbcBasicAuthenticationArgs and LinkedServiceOdbcBasicAuthenticationOutput values.
+// You can construct a concrete instance of `LinkedServiceOdbcBasicAuthenticationInput` via:
+//
+//          LinkedServiceOdbcBasicAuthenticationArgs{...}
+type LinkedServiceOdbcBasicAuthenticationInput interface {
+	pulumi.Input
+
+	ToLinkedServiceOdbcBasicAuthenticationOutput() LinkedServiceOdbcBasicAuthenticationOutput
+	ToLinkedServiceOdbcBasicAuthenticationOutputWithContext(context.Context) LinkedServiceOdbcBasicAuthenticationOutput
+}
+
+type LinkedServiceOdbcBasicAuthenticationArgs struct {
+	// The password associated with the username, which can be used to authenticate to the ODBC endpoint.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username which can be used to authenticate to the ODBC endpoint.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (LinkedServiceOdbcBasicAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceOdbcBasicAuthentication)(nil)).Elem()
+}
+
+func (i LinkedServiceOdbcBasicAuthenticationArgs) ToLinkedServiceOdbcBasicAuthenticationOutput() LinkedServiceOdbcBasicAuthenticationOutput {
+	return i.ToLinkedServiceOdbcBasicAuthenticationOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceOdbcBasicAuthenticationArgs) ToLinkedServiceOdbcBasicAuthenticationOutputWithContext(ctx context.Context) LinkedServiceOdbcBasicAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOdbcBasicAuthenticationOutput)
+}
+
+func (i LinkedServiceOdbcBasicAuthenticationArgs) ToLinkedServiceOdbcBasicAuthenticationPtrOutput() LinkedServiceOdbcBasicAuthenticationPtrOutput {
+	return i.ToLinkedServiceOdbcBasicAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceOdbcBasicAuthenticationArgs) ToLinkedServiceOdbcBasicAuthenticationPtrOutputWithContext(ctx context.Context) LinkedServiceOdbcBasicAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOdbcBasicAuthenticationOutput).ToLinkedServiceOdbcBasicAuthenticationPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceOdbcBasicAuthenticationPtrInput is an input type that accepts LinkedServiceOdbcBasicAuthenticationArgs, LinkedServiceOdbcBasicAuthenticationPtr and LinkedServiceOdbcBasicAuthenticationPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceOdbcBasicAuthenticationPtrInput` via:
+//
+//          LinkedServiceOdbcBasicAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceOdbcBasicAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceOdbcBasicAuthenticationPtrOutput() LinkedServiceOdbcBasicAuthenticationPtrOutput
+	ToLinkedServiceOdbcBasicAuthenticationPtrOutputWithContext(context.Context) LinkedServiceOdbcBasicAuthenticationPtrOutput
+}
+
+type linkedServiceOdbcBasicAuthenticationPtrType LinkedServiceOdbcBasicAuthenticationArgs
+
+func LinkedServiceOdbcBasicAuthenticationPtr(v *LinkedServiceOdbcBasicAuthenticationArgs) LinkedServiceOdbcBasicAuthenticationPtrInput {
+	return (*linkedServiceOdbcBasicAuthenticationPtrType)(v)
+}
+
+func (*linkedServiceOdbcBasicAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceOdbcBasicAuthentication)(nil)).Elem()
+}
+
+func (i *linkedServiceOdbcBasicAuthenticationPtrType) ToLinkedServiceOdbcBasicAuthenticationPtrOutput() LinkedServiceOdbcBasicAuthenticationPtrOutput {
+	return i.ToLinkedServiceOdbcBasicAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceOdbcBasicAuthenticationPtrType) ToLinkedServiceOdbcBasicAuthenticationPtrOutputWithContext(ctx context.Context) LinkedServiceOdbcBasicAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOdbcBasicAuthenticationPtrOutput)
+}
+
+type LinkedServiceOdbcBasicAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceOdbcBasicAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceOdbcBasicAuthentication)(nil)).Elem()
+}
+
+func (o LinkedServiceOdbcBasicAuthenticationOutput) ToLinkedServiceOdbcBasicAuthenticationOutput() LinkedServiceOdbcBasicAuthenticationOutput {
+	return o
+}
+
+func (o LinkedServiceOdbcBasicAuthenticationOutput) ToLinkedServiceOdbcBasicAuthenticationOutputWithContext(ctx context.Context) LinkedServiceOdbcBasicAuthenticationOutput {
+	return o
+}
+
+func (o LinkedServiceOdbcBasicAuthenticationOutput) ToLinkedServiceOdbcBasicAuthenticationPtrOutput() LinkedServiceOdbcBasicAuthenticationPtrOutput {
+	return o.ToLinkedServiceOdbcBasicAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceOdbcBasicAuthenticationOutput) ToLinkedServiceOdbcBasicAuthenticationPtrOutputWithContext(ctx context.Context) LinkedServiceOdbcBasicAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceOdbcBasicAuthentication) *LinkedServiceOdbcBasicAuthentication {
+		return &v
+	}).(LinkedServiceOdbcBasicAuthenticationPtrOutput)
+}
+
+// The password associated with the username, which can be used to authenticate to the ODBC endpoint.
+func (o LinkedServiceOdbcBasicAuthenticationOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceOdbcBasicAuthentication) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The username which can be used to authenticate to the ODBC endpoint.
+func (o LinkedServiceOdbcBasicAuthenticationOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceOdbcBasicAuthentication) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type LinkedServiceOdbcBasicAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceOdbcBasicAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceOdbcBasicAuthentication)(nil)).Elem()
+}
+
+func (o LinkedServiceOdbcBasicAuthenticationPtrOutput) ToLinkedServiceOdbcBasicAuthenticationPtrOutput() LinkedServiceOdbcBasicAuthenticationPtrOutput {
+	return o
+}
+
+func (o LinkedServiceOdbcBasicAuthenticationPtrOutput) ToLinkedServiceOdbcBasicAuthenticationPtrOutputWithContext(ctx context.Context) LinkedServiceOdbcBasicAuthenticationPtrOutput {
+	return o
+}
+
+func (o LinkedServiceOdbcBasicAuthenticationPtrOutput) Elem() LinkedServiceOdbcBasicAuthenticationOutput {
+	return o.ApplyT(func(v *LinkedServiceOdbcBasicAuthentication) LinkedServiceOdbcBasicAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceOdbcBasicAuthentication
+		return ret
+	}).(LinkedServiceOdbcBasicAuthenticationOutput)
+}
+
+// The password associated with the username, which can be used to authenticate to the ODBC endpoint.
+func (o LinkedServiceOdbcBasicAuthenticationPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceOdbcBasicAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username which can be used to authenticate to the ODBC endpoint.
+func (o LinkedServiceOdbcBasicAuthenticationPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceOdbcBasicAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinkedServiceSnowflakeKeyVaultPassword struct {
 	// Specifies the name of an existing Key Vault Data Factory Linked Service.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
@@ -11845,6 +12001,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput)(nil)).Elem(), LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceOdataBasicAuthenticationInput)(nil)).Elem(), LinkedServiceOdataBasicAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceOdataBasicAuthenticationPtrInput)(nil)).Elem(), LinkedServiceOdataBasicAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceOdbcBasicAuthenticationInput)(nil)).Elem(), LinkedServiceOdbcBasicAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceOdbcBasicAuthenticationPtrInput)(nil)).Elem(), LinkedServiceOdbcBasicAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSnowflakeKeyVaultPasswordInput)(nil)).Elem(), LinkedServiceSnowflakeKeyVaultPasswordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSnowflakeKeyVaultPasswordPtrInput)(nil)).Elem(), LinkedServiceSnowflakeKeyVaultPasswordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSqlServerKeyVaultConnectionStringInput)(nil)).Elem(), LinkedServiceSqlServerKeyVaultConnectionStringArgs{})
@@ -11993,6 +12151,8 @@ func init() {
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceOdataBasicAuthenticationOutput{})
 	pulumi.RegisterOutputType(LinkedServiceOdataBasicAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceOdbcBasicAuthenticationOutput{})
+	pulumi.RegisterOutputType(LinkedServiceOdbcBasicAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultConnectionStringOutput{})

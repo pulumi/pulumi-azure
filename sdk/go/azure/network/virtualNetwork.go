@@ -46,13 +46,6 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleDdosProtectionPlan, err := network.NewDdosProtectionPlan(ctx, "exampleDdosProtectionPlan", &network.DdosProtectionPlanArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
 // 		_, err = network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
@@ -63,10 +56,6 @@ import (
 // 				pulumi.String("10.0.0.4"),
 // 				pulumi.String("10.0.0.5"),
 // 			},
-// 			DdosProtectionPlan: &network.VirtualNetworkDdosProtectionPlanArgs{
-// 				Id:     exampleDdosProtectionPlan.ID(),
-// 				Enable: pulumi.Bool(true),
-// 			},
 // 			Subnets: network.VirtualNetworkSubnetArray{
 // 				&network.VirtualNetworkSubnetArgs{
 // 					Name:          pulumi.String("subnet1"),
@@ -75,10 +64,6 @@ import (
 // 				&network.VirtualNetworkSubnetArgs{
 // 					Name:          pulumi.String("subnet2"),
 // 					AddressPrefix: pulumi.String("10.0.2.0/24"),
-// 				},
-// 				&network.VirtualNetworkSubnetArgs{
-// 					Name:          pulumi.String("subnet3"),
-// 					AddressPrefix: pulumi.String("10.0.3.0/24"),
 // 					SecurityGroup: exampleNetworkSecurityGroup.ID(),
 // 				},
 // 			},

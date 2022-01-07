@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? RuleSetType;
         /// <summary>
-        /// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
+        /// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
         /// </summary>
         public readonly string RuleSetVersion;
 

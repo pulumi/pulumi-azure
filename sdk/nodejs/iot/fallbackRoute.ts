@@ -116,6 +116,10 @@ export class FallbackRoute extends pulumi.CustomResource {
      * The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+     */
+    public readonly source!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FallbackRoute resource with the given unique name, arguments, and options.
@@ -135,6 +139,7 @@ export class FallbackRoute extends pulumi.CustomResource {
             inputs["endpointNames"] = state ? state.endpointNames : undefined;
             inputs["iothubName"] = state ? state.iothubName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["source"] = state ? state.source : undefined;
         } else {
             const args = argsOrState as FallbackRouteArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -154,6 +159,7 @@ export class FallbackRoute extends pulumi.CustomResource {
             inputs["endpointNames"] = args ? args.endpointNames : undefined;
             inputs["iothubName"] = args ? args.iothubName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["source"] = args ? args.source : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -186,6 +192,10 @@ export interface FallbackRouteState {
      * The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+     */
+    source?: pulumi.Input<string>;
 }
 
 /**
@@ -212,4 +222,8 @@ export interface FallbackRouteArgs {
      * The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+     */
+    source?: pulumi.Input<string>;
 }

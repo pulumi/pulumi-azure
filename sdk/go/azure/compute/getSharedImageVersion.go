@@ -56,6 +56,8 @@ type LookupSharedImageVersionArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Shared Image Gallery exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
+	SortVersionsBySemver *bool `pulumi:"sortVersionsBySemver"`
 }
 
 // A collection of values returned by getSharedImageVersion.
@@ -75,8 +77,9 @@ type LookupSharedImageVersionResult struct {
 	// The size of the OS disk snapshot (in Gigabytes) which was the source of this Shared Image Version.
 	OsDiskImageSizeGb int `pulumi:"osDiskImageSizeGb"`
 	// The ID of the OS disk snapshot which was the source of this Shared Image Version.
-	OsDiskSnapshotId  string `pulumi:"osDiskSnapshotId"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	OsDiskSnapshotId     string `pulumi:"osDiskSnapshotId"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
+	SortVersionsBySemver *bool  `pulumi:"sortVersionsBySemver"`
 	// A mapping of tags assigned to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
 	// One or more `targetRegion` blocks as documented below.
@@ -102,6 +105,8 @@ type LookupSharedImageVersionOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the Shared Image Gallery exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
+	SortVersionsBySemver pulumi.BoolPtrInput `pulumi:"sortVersionsBySemver"`
 }
 
 func (LookupSharedImageVersionOutputArgs) ElementType() reflect.Type {
@@ -168,6 +173,10 @@ func (o LookupSharedImageVersionResultOutput) OsDiskSnapshotId() pulumi.StringOu
 
 func (o LookupSharedImageVersionResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSharedImageVersionResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupSharedImageVersionResultOutput) SortVersionsBySemver() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSharedImageVersionResult) *bool { return v.SortVersionsBySemver }).(pulumi.BoolPtrOutput)
 }
 
 // A mapping of tags assigned to the Shared Image.

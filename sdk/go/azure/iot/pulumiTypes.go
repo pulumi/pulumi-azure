@@ -1029,6 +1029,200 @@ func (o IoTHubFileUploadPtrOutput) SasTtl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type IoTHubIdentity struct {
+	// A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal.
+	PrincipalId *string `pulumi:"principalId"`
+	// The ID of the Tenant the System Managed Service Principal is assigned in.
+	TenantId *string `pulumi:"tenantId"`
+	// The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// IoTHubIdentityInput is an input type that accepts IoTHubIdentityArgs and IoTHubIdentityOutput values.
+// You can construct a concrete instance of `IoTHubIdentityInput` via:
+//
+//          IoTHubIdentityArgs{...}
+type IoTHubIdentityInput interface {
+	pulumi.Input
+
+	ToIoTHubIdentityOutput() IoTHubIdentityOutput
+	ToIoTHubIdentityOutputWithContext(context.Context) IoTHubIdentityOutput
+}
+
+type IoTHubIdentityArgs struct {
+	// A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The ID of the Tenant the System Managed Service Principal is assigned in.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IoTHubIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubIdentity)(nil)).Elem()
+}
+
+func (i IoTHubIdentityArgs) ToIoTHubIdentityOutput() IoTHubIdentityOutput {
+	return i.ToIoTHubIdentityOutputWithContext(context.Background())
+}
+
+func (i IoTHubIdentityArgs) ToIoTHubIdentityOutputWithContext(ctx context.Context) IoTHubIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubIdentityOutput)
+}
+
+func (i IoTHubIdentityArgs) ToIoTHubIdentityPtrOutput() IoTHubIdentityPtrOutput {
+	return i.ToIoTHubIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i IoTHubIdentityArgs) ToIoTHubIdentityPtrOutputWithContext(ctx context.Context) IoTHubIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubIdentityOutput).ToIoTHubIdentityPtrOutputWithContext(ctx)
+}
+
+// IoTHubIdentityPtrInput is an input type that accepts IoTHubIdentityArgs, IoTHubIdentityPtr and IoTHubIdentityPtrOutput values.
+// You can construct a concrete instance of `IoTHubIdentityPtrInput` via:
+//
+//          IoTHubIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type IoTHubIdentityPtrInput interface {
+	pulumi.Input
+
+	ToIoTHubIdentityPtrOutput() IoTHubIdentityPtrOutput
+	ToIoTHubIdentityPtrOutputWithContext(context.Context) IoTHubIdentityPtrOutput
+}
+
+type ioTHubIdentityPtrType IoTHubIdentityArgs
+
+func IoTHubIdentityPtr(v *IoTHubIdentityArgs) IoTHubIdentityPtrInput {
+	return (*ioTHubIdentityPtrType)(v)
+}
+
+func (*ioTHubIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IoTHubIdentity)(nil)).Elem()
+}
+
+func (i *ioTHubIdentityPtrType) ToIoTHubIdentityPtrOutput() IoTHubIdentityPtrOutput {
+	return i.ToIoTHubIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *ioTHubIdentityPtrType) ToIoTHubIdentityPtrOutputWithContext(ctx context.Context) IoTHubIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubIdentityPtrOutput)
+}
+
+type IoTHubIdentityOutput struct{ *pulumi.OutputState }
+
+func (IoTHubIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubIdentity)(nil)).Elem()
+}
+
+func (o IoTHubIdentityOutput) ToIoTHubIdentityOutput() IoTHubIdentityOutput {
+	return o
+}
+
+func (o IoTHubIdentityOutput) ToIoTHubIdentityOutputWithContext(ctx context.Context) IoTHubIdentityOutput {
+	return o
+}
+
+func (o IoTHubIdentityOutput) ToIoTHubIdentityPtrOutput() IoTHubIdentityPtrOutput {
+	return o.ToIoTHubIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o IoTHubIdentityOutput) ToIoTHubIdentityPtrOutputWithContext(ctx context.Context) IoTHubIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTHubIdentity) *IoTHubIdentity {
+		return &v
+	}).(IoTHubIdentityPtrOutput)
+}
+
+// A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+func (o IoTHubIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IoTHubIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal.
+func (o IoTHubIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Tenant the System Managed Service Principal is assigned in.
+func (o IoTHubIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+func (o IoTHubIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IoTHubIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type IoTHubIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (IoTHubIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IoTHubIdentity)(nil)).Elem()
+}
+
+func (o IoTHubIdentityPtrOutput) ToIoTHubIdentityPtrOutput() IoTHubIdentityPtrOutput {
+	return o
+}
+
+func (o IoTHubIdentityPtrOutput) ToIoTHubIdentityPtrOutputWithContext(ctx context.Context) IoTHubIdentityPtrOutput {
+	return o
+}
+
+func (o IoTHubIdentityPtrOutput) Elem() IoTHubIdentityOutput {
+	return o.ApplyT(func(v *IoTHubIdentity) IoTHubIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret IoTHubIdentity
+		return ret
+	}).(IoTHubIdentityOutput)
+}
+
+// A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+func (o IoTHubIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IoTHubIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal.
+func (o IoTHubIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTHubIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Tenant the System Managed Service Principal is assigned in.
+func (o IoTHubIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTHubIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+func (o IoTHubIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTHubIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type IoTHubIpFilterRule struct {
 	// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
 	Action string `pulumi:"action"`
@@ -1560,13 +1754,13 @@ func (o IoTHubSkuPtrOutput) Name() pulumi.StringPtrOutput {
 type IotHubDpsLinkedHub struct {
 	// The weight applied to the IoT Hub. Defaults to 0.
 	AllocationWeight *int `pulumi:"allocationWeight"`
-	// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+	// Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
 	ApplyAllocationPolicy *bool `pulumi:"applyAllocationPolicy"`
-	// The connection string to connect to the IoT Hub. Changing this forces a new resource.
+	// The connection string to connect to the IoT Hub.
 	ConnectionString string `pulumi:"connectionString"`
 	// The IoT Hub hostname.
 	Hostname *string `pulumi:"hostname"`
-	// The location of the IoT hub. Changing this forces a new resource.
+	// The location of the IoT hub.
 	Location string `pulumi:"location"`
 }
 
@@ -1584,13 +1778,13 @@ type IotHubDpsLinkedHubInput interface {
 type IotHubDpsLinkedHubArgs struct {
 	// The weight applied to the IoT Hub. Defaults to 0.
 	AllocationWeight pulumi.IntPtrInput `pulumi:"allocationWeight"`
-	// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+	// Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
 	ApplyAllocationPolicy pulumi.BoolPtrInput `pulumi:"applyAllocationPolicy"`
-	// The connection string to connect to the IoT Hub. Changing this forces a new resource.
+	// The connection string to connect to the IoT Hub.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The IoT Hub hostname.
 	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
-	// The location of the IoT hub. Changing this forces a new resource.
+	// The location of the IoT hub.
 	Location pulumi.StringInput `pulumi:"location"`
 }
 
@@ -1650,12 +1844,12 @@ func (o IotHubDpsLinkedHubOutput) AllocationWeight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) *int { return v.AllocationWeight }).(pulumi.IntPtrOutput)
 }
 
-// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+// Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
 func (o IotHubDpsLinkedHubOutput) ApplyAllocationPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) *bool { return v.ApplyAllocationPolicy }).(pulumi.BoolPtrOutput)
 }
 
-// The connection string to connect to the IoT Hub. Changing this forces a new resource.
+// The connection string to connect to the IoT Hub.
 func (o IotHubDpsLinkedHubOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
@@ -1665,7 +1859,7 @@ func (o IotHubDpsLinkedHubOutput) Hostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) *string { return v.Hostname }).(pulumi.StringPtrOutput)
 }
 
-// The location of the IoT hub. Changing this forces a new resource.
+// The location of the IoT hub.
 func (o IotHubDpsLinkedHubOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -3024,6 +3218,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubFallbackRoutePtrInput)(nil)).Elem(), IoTHubFallbackRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubFileUploadInput)(nil)).Elem(), IoTHubFileUploadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubFileUploadPtrInput)(nil)).Elem(), IoTHubFileUploadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubIdentityInput)(nil)).Elem(), IoTHubIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubIdentityPtrInput)(nil)).Elem(), IoTHubIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubIpFilterRuleInput)(nil)).Elem(), IoTHubIpFilterRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubIpFilterRuleArrayInput)(nil)).Elem(), IoTHubIpFilterRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubRouteInput)(nil)).Elem(), IoTHubRouteArgs{})
@@ -3060,6 +3256,8 @@ func init() {
 	pulumi.RegisterOutputType(IoTHubFallbackRoutePtrOutput{})
 	pulumi.RegisterOutputType(IoTHubFileUploadOutput{})
 	pulumi.RegisterOutputType(IoTHubFileUploadPtrOutput{})
+	pulumi.RegisterOutputType(IoTHubIdentityOutput{})
+	pulumi.RegisterOutputType(IoTHubIdentityPtrOutput{})
 	pulumi.RegisterOutputType(IoTHubIpFilterRuleOutput{})
 	pulumi.RegisterOutputType(IoTHubIpFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(IoTHubRouteOutput{})

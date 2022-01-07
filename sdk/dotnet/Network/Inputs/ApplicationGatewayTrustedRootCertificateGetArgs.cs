@@ -13,16 +13,22 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class ApplicationGatewayTrustedRootCertificateGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The contents of the Trusted Root Certificate which should be used.
+        /// The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
         /// </summary>
-        [Input("data", required: true)]
-        public Input<string> Data { get; set; } = null!;
+        [Input("data")]
+        public Input<string>? Data { get; set; }
 
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+        /// </summary>
+        [Input("keyVaultSecretId")]
+        public Input<string>? KeyVaultSecretId { get; set; }
 
         /// <summary>
         /// The Name of the Trusted Root Certificate to use.

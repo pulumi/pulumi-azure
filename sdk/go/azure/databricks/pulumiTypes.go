@@ -11,6 +11,7 @@ import (
 )
 
 type WorkspaceCustomParameters struct {
+	// The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
 	MachineLearningWorkspaceId *string `pulumi:"machineLearningWorkspaceId"`
 	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
 	NatGatewayName *string `pulumi:"natGatewayName"`
@@ -48,6 +49,7 @@ type WorkspaceCustomParametersInput interface {
 }
 
 type WorkspaceCustomParametersArgs struct {
+	// The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
 	MachineLearningWorkspaceId pulumi.StringPtrInput `pulumi:"machineLearningWorkspaceId"`
 	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
 	NatGatewayName pulumi.StringPtrInput `pulumi:"natGatewayName"`
@@ -150,6 +152,7 @@ func (o WorkspaceCustomParametersOutput) ToWorkspaceCustomParametersPtrOutputWit
 	}).(WorkspaceCustomParametersPtrOutput)
 }
 
+// The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersOutput) MachineLearningWorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.MachineLearningWorkspaceId }).(pulumi.StringPtrOutput)
 }
@@ -233,6 +236,7 @@ func (o WorkspaceCustomParametersPtrOutput) Elem() WorkspaceCustomParametersOutp
 	}).(WorkspaceCustomParametersOutput)
 }
 
+// The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
 func (o WorkspaceCustomParametersPtrOutput) MachineLearningWorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
 		if v == nil {

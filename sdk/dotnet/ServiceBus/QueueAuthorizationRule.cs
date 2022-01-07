@@ -38,15 +38,12 @@ namespace Pulumi.Azure.ServiceBus
     ///         });
     ///         var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new Azure.ServiceBus.QueueArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
+    ///             NamespaceId = exampleNamespace.Id,
     ///             EnablePartitioning = true,
     ///         });
     ///         var exampleQueueAuthorizationRule = new Azure.ServiceBus.QueueAuthorizationRule("exampleQueueAuthorizationRule", new Azure.ServiceBus.QueueAuthorizationRuleArgs
     ///         {
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             QueueName = exampleQueue.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             QueueId = exampleQueue.Id,
     ///             Listen = true,
     ///             Send = true,
     ///             Manage = false,
@@ -85,9 +82,6 @@ namespace Pulumi.Azure.ServiceBus
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
@@ -110,14 +104,14 @@ namespace Pulumi.Azure.ServiceBus
         public Output<string> PrimaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+        /// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
         /// </summary>
+        [Output("queueId")]
+        public Output<string> QueueId { get; private set; } = null!;
+
         [Output("queueName")]
         public Output<string> QueueName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -153,7 +147,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public QueueAuthorizationRule(string name, QueueAuthorizationRuleArgs args, CustomResourceOptions? options = null)
+        public QueueAuthorizationRule(string name, QueueAuthorizationRuleArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule", name, args ?? new QueueAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -213,23 +207,20 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+        /// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("queueName", required: true)]
-        public Input<string> QueueName { get; set; } = null!;
+        [Input("queueId")]
+        public Input<string>? QueueId { get; set; }
 
-        /// <summary>
-        /// The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("queueName")]
+        public Input<string>? QueueName { get; set; }
+
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
@@ -262,9 +253,6 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
@@ -287,14 +275,14 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? PrimaryKey { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+        /// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
         /// </summary>
+        [Input("queueId")]
+        public Input<string>? QueueId { get; set; }
+
         [Input("queueName")]
         public Input<string>? QueueName { get; set; }
 
-        /// <summary>
-        /// The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 

@@ -38,14 +38,11 @@ namespace Pulumi.Azure.EventHub
     ///         });
     ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
+    ///             NamespaceId = exampleNamespace.Id,
     ///         });
     ///         var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("exampleTopicAuthorizationRule", new Azure.ServiceBus.TopicAuthorizationRuleArgs
     ///         {
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             TopicName = exampleTopic.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TopicId = exampleTopic.Id,
     ///             Listen = true,
     ///             Send = false,
     ///             Manage = false,
@@ -85,9 +82,6 @@ namespace Pulumi.Azure.EventHub
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
@@ -109,9 +103,6 @@ namespace Pulumi.Azure.EventHub
         [Output("primaryKey")]
         public Output<string> PrimaryKey { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -140,8 +131,11 @@ namespace Pulumi.Azure.EventHub
         public Output<bool?> Send { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+        /// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
         /// </summary>
+        [Output("topicId")]
+        public Output<string> TopicId { get; private set; } = null!;
+
         [Output("topicName")]
         public Output<string> TopicName { get; private set; } = null!;
 
@@ -153,7 +147,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TopicAuthorizationRule(string name, TopicAuthorizationRuleArgs args, CustomResourceOptions? options = null)
+        public TopicAuthorizationRule(string name, TopicAuthorizationRuleArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", name, args ?? new TopicAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -209,17 +203,11 @@ namespace Pulumi.Azure.EventHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// Grants send access to this this Authorization Rule. Defaults to `false`.
@@ -228,10 +216,13 @@ namespace Pulumi.Azure.EventHub
         public Input<bool>? Send { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+        /// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("topicName", required: true)]
-        public Input<string> TopicName { get; set; } = null!;
+        [Input("topicId")]
+        public Input<string>? TopicId { get; set; }
+
+        [Input("topicName")]
+        public Input<string>? TopicName { get; set; }
 
         public TopicAuthorizationRuleArgs()
         {
@@ -258,9 +249,6 @@ namespace Pulumi.Azure.EventHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
@@ -282,9 +270,6 @@ namespace Pulumi.Azure.EventHub
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
@@ -313,8 +298,11 @@ namespace Pulumi.Azure.EventHub
         public Input<bool>? Send { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+        /// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
         /// </summary>
+        [Input("topicId")]
+        public Input<string>? TopicId { get; set; }
+
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }
 

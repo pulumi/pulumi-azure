@@ -12,9 +12,9 @@ namespace Pulumi.Azure.Hsm
     /// <summary>
     /// Manages a Dedicated Hardware Security Module.
     /// 
-    /// &gt; **Note**: Before using this resource, it's required to submit the request of registering the providers and features with Azure CLI `az provider register --namespace Microsoft.HardwareSecurityModules &amp;&amp; az feature register --namespace Microsoft.HardwareSecurityModules --name AzureDedicatedHSM &amp;&amp; az provider register --namespace Microsoft.Network &amp;&amp; az feature register --namespace Microsoft.Network --name AllowBaremetalServers` and ask service team (hsmrequest@microsoft.com) to approve. See more details from https://docs.microsoft.com/en-us/azure/dedicated-hsm/tutorial-deploy-hsm-cli#prerequisites.
+    /// &gt; **Note:** Before using this resource, it's required to submit the request of registering the providers and features with Azure CLI `az provider register --namespace Microsoft.HardwareSecurityModules &amp;&amp; az feature register --namespace Microsoft.HardwareSecurityModules --name AzureDedicatedHSM &amp;&amp; az provider register --namespace Microsoft.Network &amp;&amp; az feature register --namespace Microsoft.Network --name AllowBaremetalServers` and ask service team (hsmrequest@microsoft.com) to approve. See more details from https://docs.microsoft.com/en-us/azure/dedicated-hsm/tutorial-deploy-hsm-cli#prerequisites.
     /// 
-    /// &gt; **Note**: If the quota is not enough in some region, please submit the quota request to service team.
+    /// &gt; **Note:** If the quota is not enough in some region, please submit the quota request to service team.
     /// 
     /// ## Example Usage
     /// 

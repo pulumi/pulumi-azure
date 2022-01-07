@@ -15,6 +15,7 @@ __all__ = [
     'IoTHubEnrichmentArgs',
     'IoTHubFallbackRouteArgs',
     'IoTHubFileUploadArgs',
+    'IoTHubIdentityArgs',
     'IoTHubIpFilterRuleArgs',
     'IoTHubRouteArgs',
     'IoTHubSharedAccessPolicyArgs',
@@ -528,6 +529,76 @@ class IoTHubFileUploadArgs:
 
 
 @pulumi.input_type
+class IoTHubIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+        :param pulumi.Input[str] principal_id: The ID of the System Managed Service Principal.
+        :param pulumi.Input[str] tenant_id: The ID of the Tenant the System Managed Service Principal is assigned in.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the System Managed Service Principal.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Tenant the System Managed Service Principal is assigned in.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
 class IoTHubIpFilterRuleArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
@@ -779,10 +850,10 @@ class IotHubDpsLinkedHubArgs:
                  apply_allocation_policy: Optional[pulumi.Input[bool]] = None,
                  hostname: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] connection_string: The connection string to connect to the IoT Hub. Changing this forces a new resource.
-        :param pulumi.Input[str] location: The location of the IoT hub. Changing this forces a new resource.
+        :param pulumi.Input[str] connection_string: The connection string to connect to the IoT Hub.
+        :param pulumi.Input[str] location: The location of the IoT hub.
         :param pulumi.Input[int] allocation_weight: The weight applied to the IoT Hub. Defaults to 0.
-        :param pulumi.Input[bool] apply_allocation_policy: Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+        :param pulumi.Input[bool] apply_allocation_policy: Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
         :param pulumi.Input[str] hostname: The IoT Hub hostname.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -798,7 +869,7 @@ class IotHubDpsLinkedHubArgs:
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> pulumi.Input[str]:
         """
-        The connection string to connect to the IoT Hub. Changing this forces a new resource.
+        The connection string to connect to the IoT Hub.
         """
         return pulumi.get(self, "connection_string")
 
@@ -810,7 +881,7 @@ class IotHubDpsLinkedHubArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input[str]:
         """
-        The location of the IoT hub. Changing this forces a new resource.
+        The location of the IoT hub.
         """
         return pulumi.get(self, "location")
 
@@ -834,7 +905,7 @@ class IotHubDpsLinkedHubArgs:
     @pulumi.getter(name="applyAllocationPolicy")
     def apply_allocation_policy(self) -> Optional[pulumi.Input[bool]]:
         """
-        Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+        Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
         """
         return pulumi.get(self, "apply_allocation_policy")
 

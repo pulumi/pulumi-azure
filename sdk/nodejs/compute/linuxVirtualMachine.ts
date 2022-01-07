@@ -261,6 +261,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine.
+     */
+    public readonly userData!: pulumi.Output<string | undefined>;
+    /**
      * A 128-bit identifier which uniquely identifies this Virtual Machine.
      */
     public /*out*/ readonly virtualMachineId!: pulumi.Output<string>;
@@ -328,6 +332,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["sourceImageId"] = state ? state.sourceImageId : undefined;
             inputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["userData"] = state ? state.userData : undefined;
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
             inputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
             inputs["vtpmEnabled"] = state ? state.vtpmEnabled : undefined;
@@ -383,6 +388,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["sourceImageId"] = args ? args.sourceImageId : undefined;
             inputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["userData"] = args ? args.userData : undefined;
             inputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
             inputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
             inputs["zone"] = args ? args.zone : undefined;
@@ -556,6 +562,10 @@ export interface LinuxVirtualMachineState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine.
+     */
+    userData?: pulumi.Input<string>;
+    /**
      * A 128-bit identifier which uniquely identifies this Virtual Machine.
      */
     virtualMachineId?: pulumi.Input<string>;
@@ -713,6 +723,10 @@ export interface LinuxVirtualMachineArgs {
      * A mapping of tags which should be assigned to this Virtual Machine.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine.
+     */
+    userData?: pulumi.Input<string>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
      */

@@ -44,18 +44,15 @@ import (
 // 			return err
 // 		}
 // 		exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			NamespaceName:      exampleNamespace.Name,
+// 			NamespaceId:        exampleNamespace.ID(),
 // 			EnablePartitioning: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			NamespaceName:     exampleNamespace.Name,
-// 			TopicName:         exampleTopic.Name,
-// 			MaxDeliveryCount:  pulumi.Int(1),
+// 			TopicId:          exampleTopic.ID(),
+// 			MaxDeliveryCount: pulumi.Int(1),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -89,21 +86,23 @@ type Subscription struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrOutput `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrOutput `pulumi:"forwardTo"`
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
 	LockDuration pulumi.StringOutput `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
 	MaxDeliveryCount pulumi.IntOutput `pulumi:"maxDeliveryCount"`
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "topic_id"
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresSession pulumi.BoolPtrOutput `pulumi:"requiresSession"`
-	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "topic_id"
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+	// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+	TopicId pulumi.StringOutput `pulumi:"topicId"`
+	// Deprecated: Deprecated in favor of "topic_id"
 	TopicName pulumi.StringOutput `pulumi:"topicName"`
 }
 
@@ -116,15 +115,6 @@ func NewSubscription(ctx *pulumi.Context,
 
 	if args.MaxDeliveryCount == nil {
 		return nil, errors.New("invalid value for required argument 'MaxDeliveryCount'")
-	}
-	if args.NamespaceName == nil {
-		return nil, errors.New("invalid value for required argument 'NamespaceName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.TopicName == nil {
-		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -168,21 +158,23 @@ type subscriptionState struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo *string `pulumi:"forwardTo"`
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "topic_id"
 	NamespaceName *string `pulumi:"namespaceName"`
 	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresSession *bool `pulumi:"requiresSession"`
-	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "topic_id"
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
-	// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+	// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+	TopicId *string `pulumi:"topicId"`
+	// Deprecated: Deprecated in favor of "topic_id"
 	TopicName *string `pulumi:"topicName"`
 }
 
@@ -201,21 +193,23 @@ type SubscriptionState struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrInput
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
 	LockDuration pulumi.StringPtrInput
 	// The maximum number of deliveries.
 	MaxDeliveryCount pulumi.IntPtrInput
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "topic_id"
 	NamespaceName pulumi.StringPtrInput
 	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresSession pulumi.BoolPtrInput
-	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "topic_id"
 	ResourceGroupName pulumi.StringPtrInput
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
-	// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+	// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+	TopicId pulumi.StringPtrInput
+	// Deprecated: Deprecated in favor of "topic_id"
 	TopicName pulumi.StringPtrInput
 }
 
@@ -238,22 +232,24 @@ type subscriptionArgs struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo *string `pulumi:"forwardTo"`
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
 	MaxDeliveryCount int `pulumi:"maxDeliveryCount"`
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
-	NamespaceName string `pulumi:"namespaceName"`
+	// Deprecated: Deprecated in favor of "topic_id"
+	NamespaceName *string `pulumi:"namespaceName"`
 	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresSession *bool `pulumi:"requiresSession"`
-	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Deprecated: Deprecated in favor of "topic_id"
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
-	// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
-	TopicName string `pulumi:"topicName"`
+	// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+	TopicId *string `pulumi:"topicId"`
+	// Deprecated: Deprecated in favor of "topic_id"
+	TopicName *string `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a Subscription resource.
@@ -272,22 +268,24 @@ type SubscriptionArgs struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo pulumi.StringPtrInput
-	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
+	// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
 	LockDuration pulumi.StringPtrInput
 	// The maximum number of deliveries.
 	MaxDeliveryCount pulumi.IntInput
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
-	NamespaceName pulumi.StringInput
+	// Deprecated: Deprecated in favor of "topic_id"
+	NamespaceName pulumi.StringPtrInput
 	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresSession pulumi.BoolPtrInput
-	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
+	// Deprecated: Deprecated in favor of "topic_id"
+	ResourceGroupName pulumi.StringPtrInput
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
-	// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
-	TopicName pulumi.StringInput
+	// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+	TopicId pulumi.StringPtrInput
+	// Deprecated: Deprecated in favor of "topic_id"
+	TopicName pulumi.StringPtrInput
 }
 
 func (SubscriptionArgs) ElementType() reflect.Type {

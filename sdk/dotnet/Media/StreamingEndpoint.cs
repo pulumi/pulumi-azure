@@ -139,7 +139,7 @@ namespace Pulumi.Azure.Media
     /// Streaming Endpoints can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:media/streamingEndpoint:StreamingEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/mediaservices/service1/streamingendpoints/endpoint1
+    ///  $ pulumi import azure:media/streamingEndpoint:StreamingEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/service1/streamingendpoints/endpoint1
     /// ```
     /// </summary>
     [AzureResourceType("azure:media/streamingEndpoint:StreamingEndpoint")]

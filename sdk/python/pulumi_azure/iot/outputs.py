@@ -16,6 +16,7 @@ __all__ = [
     'IoTHubEnrichment',
     'IoTHubFallbackRoute',
     'IoTHubFileUpload',
+    'IoTHubIdentity',
     'IoTHubIpFilterRule',
     'IoTHubRoute',
     'IoTHubSharedAccessPolicy',
@@ -541,6 +542,81 @@ class IoTHubFileUpload(dict):
 
 
 @pulumi.output_type
+class IoTHubIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTHubIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTHubIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTHubIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+        :param str principal_id: The ID of the System Managed Service Principal.
+        :param str tenant_id: The ID of the Tenant the System Managed Service Principal is assigned in.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Managed Identity which should be assigned to the Iot Hub. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of User Managed Identity ID's which should be assigned to the Iot Hub.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The ID of the System Managed Service Principal.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The ID of the Tenant the System Managed Service Principal is assigned in.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
 class IoTHubIpFilterRule(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -812,10 +888,10 @@ class IotHubDpsLinkedHub(dict):
                  apply_allocation_policy: Optional[bool] = None,
                  hostname: Optional[str] = None):
         """
-        :param str connection_string: The connection string to connect to the IoT Hub. Changing this forces a new resource.
-        :param str location: The location of the IoT hub. Changing this forces a new resource.
+        :param str connection_string: The connection string to connect to the IoT Hub.
+        :param str location: The location of the IoT hub.
         :param int allocation_weight: The weight applied to the IoT Hub. Defaults to 0.
-        :param bool apply_allocation_policy: Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+        :param bool apply_allocation_policy: Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
         :param str hostname: The IoT Hub hostname.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -831,7 +907,7 @@ class IotHubDpsLinkedHub(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> str:
         """
-        The connection string to connect to the IoT Hub. Changing this forces a new resource.
+        The connection string to connect to the IoT Hub.
         """
         return pulumi.get(self, "connection_string")
 
@@ -839,7 +915,7 @@ class IotHubDpsLinkedHub(dict):
     @pulumi.getter
     def location(self) -> str:
         """
-        The location of the IoT hub. Changing this forces a new resource.
+        The location of the IoT hub.
         """
         return pulumi.get(self, "location")
 
@@ -855,7 +931,7 @@ class IotHubDpsLinkedHub(dict):
     @pulumi.getter(name="applyAllocationPolicy")
     def apply_allocation_policy(self) -> Optional[bool]:
         """
-        Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+        Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
         """
         return pulumi.get(self, "apply_allocation_policy")
 

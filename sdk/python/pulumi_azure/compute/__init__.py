@@ -13,6 +13,7 @@ from .dedicated_host import *
 from .dedicated_host_group import *
 from .disk_access import *
 from .disk_encryption_set import *
+from .disk_pool import *
 from .extension import *
 from .get_availability_set import *
 from .get_dedicated_host import *

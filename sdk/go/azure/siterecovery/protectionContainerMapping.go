@@ -114,7 +114,7 @@ import (
 type ProtectionContainerMapping struct {
 	pulumi.CustomResourceState
 
-	// The name of the network mapping.
+	// The name of the protection container mapping.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of fabric that should contains the protection container to map.
 	RecoveryFabricName pulumi.StringOutput `pulumi:"recoveryFabricName"`
@@ -177,7 +177,7 @@ func GetProtectionContainerMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectionContainerMapping resources.
 type protectionContainerMappingState struct {
-	// The name of the network mapping.
+	// The name of the protection container mapping.
 	Name *string `pulumi:"name"`
 	// Name of fabric that should contains the protection container to map.
 	RecoveryFabricName *string `pulumi:"recoveryFabricName"`
@@ -194,7 +194,7 @@ type protectionContainerMappingState struct {
 }
 
 type ProtectionContainerMappingState struct {
-	// The name of the network mapping.
+	// The name of the protection container mapping.
 	Name pulumi.StringPtrInput
 	// Name of fabric that should contains the protection container to map.
 	RecoveryFabricName pulumi.StringPtrInput
@@ -215,7 +215,7 @@ func (ProtectionContainerMappingState) ElementType() reflect.Type {
 }
 
 type protectionContainerMappingArgs struct {
-	// The name of the network mapping.
+	// The name of the protection container mapping.
 	Name *string `pulumi:"name"`
 	// Name of fabric that should contains the protection container to map.
 	RecoveryFabricName string `pulumi:"recoveryFabricName"`
@@ -233,7 +233,7 @@ type protectionContainerMappingArgs struct {
 
 // The set of arguments for constructing a ProtectionContainerMapping resource.
 type ProtectionContainerMappingArgs struct {
-	// The name of the network mapping.
+	// The name of the protection container mapping.
 	Name pulumi.StringPtrInput
 	// Name of fabric that should contains the protection container to map.
 	RecoveryFabricName pulumi.StringInput

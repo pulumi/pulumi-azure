@@ -28,6 +28,7 @@ from .managed_certificate import *
 from .plan import *
 from .public_certificate import *
 from .slot import *
+from .slot_custom_hostname_binding import *
 from .slot_virtual_network_swift_connection import *
 from .source_code_token import *
 from .static_site import *

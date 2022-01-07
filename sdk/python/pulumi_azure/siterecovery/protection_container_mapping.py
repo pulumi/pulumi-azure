@@ -28,7 +28,7 @@ class ProtectionContainerMappingArgs:
         :param pulumi.Input[str] recovery_target_protection_container_id: Id of target protection container to map to.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the protection container mapping.
         """
         pulumi.set(__self__, "recovery_fabric_name", recovery_fabric_name)
         pulumi.set(__self__, "recovery_replication_policy_id", recovery_replication_policy_id)
@@ -115,7 +115,7 @@ class ProtectionContainerMappingArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network mapping.
+        The name of the protection container mapping.
         """
         return pulumi.get(self, "name")
 
@@ -136,7 +136,7 @@ class _ProtectionContainerMappingState:
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProtectionContainerMapping resources.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the protection container mapping.
         :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contains the protection container to map.
         :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this mapping.
         :param pulumi.Input[str] recovery_source_protection_container_name: Name of the source protection container to map.
@@ -163,7 +163,7 @@ class _ProtectionContainerMappingState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network mapping.
+        The name of the protection container mapping.
         """
         return pulumi.get(self, "name")
 
@@ -312,7 +312,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the protection container mapping.
         :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contains the protection container to map.
         :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this mapping.
         :param pulumi.Input[str] recovery_source_protection_container_name: Name of the source protection container to map.
@@ -456,7 +456,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the protection container mapping.
         :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contains the protection container to map.
         :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this mapping.
         :param pulumi.Input[str] recovery_source_protection_container_name: Name of the source protection container to map.
@@ -481,7 +481,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the network mapping.
+        The name of the protection container mapping.
         """
         return pulumi.get(self, "name")
 

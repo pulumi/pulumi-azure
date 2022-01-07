@@ -109,7 +109,13 @@ namespace Pulumi.Azure.Iot
         public Output<string?> FileNameFormat { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+        /// The IoTHub ID for the endpoint.
+        /// </summary>
+        [Output("iothubId")]
+        public Output<string> IothubId { get; private set; } = null!;
+
+        /// <summary>
+        /// The IoTHub name for the endpoint.
         /// </summary>
         [Output("iothubName")]
         public Output<string> IothubName { get; private set; } = null!;
@@ -127,7 +133,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+        /// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -210,10 +216,16 @@ namespace Pulumi.Azure.Iot
         public Input<string>? FileNameFormat { get; set; }
 
         /// <summary>
-        /// The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+        /// The IoTHub ID for the endpoint.
         /// </summary>
-        [Input("iothubName", required: true)]
-        public Input<string> IothubName { get; set; } = null!;
+        [Input("iothubId")]
+        public Input<string>? IothubId { get; set; }
+
+        /// <summary>
+        /// The IoTHub name for the endpoint.
+        /// </summary>
+        [Input("iothubName")]
+        public Input<string>? IothubName { get; set; }
 
         /// <summary>
         /// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
@@ -228,7 +240,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+        /// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -272,7 +284,13 @@ namespace Pulumi.Azure.Iot
         public Input<string>? FileNameFormat { get; set; }
 
         /// <summary>
-        /// The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+        /// The IoTHub ID for the endpoint.
+        /// </summary>
+        [Input("iothubId")]
+        public Input<string>? IothubId { get; set; }
+
+        /// <summary>
+        /// The IoTHub name for the endpoint.
         /// </summary>
         [Input("iothubName")]
         public Input<string>? IothubName { get; set; }
@@ -290,7 +308,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+        /// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

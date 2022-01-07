@@ -347,6 +347,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> Timezone { get; private set; } = null!;
 
         /// <summary>
+        /// The Base64-Encoded User Data which should be used for this Virtual Machine.
+        /// </summary>
+        [Output("userData")]
+        public Output<string?> UserData { get; private set; } = null!;
+
+        /// <summary>
         /// A 128-bit identifier which uniquely identifies this Virtual Machine.
         /// </summary>
         [Output("virtualMachineId")]
@@ -657,6 +663,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Timezone { get; set; }
 
         /// <summary>
+        /// The Base64-Encoded User Data which should be used for this Virtual Machine.
+        /// </summary>
+        [Input("userData")]
+        public Input<string>? UserData { get; set; }
+
+        /// <summary>
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualMachineScaleSetId")]
@@ -962,6 +974,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
+
+        /// <summary>
+        /// The Base64-Encoded User Data which should be used for this Virtual Machine.
+        /// </summary>
+        [Input("userData")]
+        public Input<string>? UserData { get; set; }
 
         /// <summary>
         /// A 128-bit identifier which uniquely identifies this Virtual Machine.

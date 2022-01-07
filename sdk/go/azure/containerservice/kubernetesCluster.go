@@ -132,7 +132,8 @@ type KubernetesCluster struct {
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn pulumi.StringOutput `pulumi:"privateFqdn"`
 	// Deprecated: Deprecated in favour of `private_cluster_enabled`
-	PrivateLinkEnabled pulumi.BoolOutput `pulumi:"privateLinkEnabled"`
+	PrivateLinkEnabled         pulumi.BoolOutput    `pulumi:"privateLinkEnabled"`
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
@@ -243,7 +244,8 @@ type kubernetesClusterState struct {
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn *string `pulumi:"privateFqdn"`
 	// Deprecated: Deprecated in favour of `private_cluster_enabled`
-	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
+	PrivateLinkEnabled         *bool `pulumi:"privateLinkEnabled"`
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
@@ -320,7 +322,8 @@ type KubernetesClusterState struct {
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn pulumi.StringPtrInput
 	// Deprecated: Deprecated in favour of `private_cluster_enabled`
-	PrivateLinkEnabled pulumi.BoolPtrInput
+	PrivateLinkEnabled         pulumi.BoolPtrInput
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
@@ -387,7 +390,8 @@ type kubernetesClusterArgs struct {
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// Deprecated: Deprecated in favour of `private_cluster_enabled`
-	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
+	PrivateLinkEnabled         *bool `pulumi:"privateLinkEnabled"`
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
@@ -451,7 +455,8 @@ type KubernetesClusterArgs struct {
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// Deprecated: Deprecated in favour of `private_cluster_enabled`
-	PrivateLinkEnabled pulumi.BoolPtrInput
+	PrivateLinkEnabled         pulumi.BoolPtrInput
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.

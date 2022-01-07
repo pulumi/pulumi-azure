@@ -60,21 +60,15 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     namespaceName: exampleNamespace.name,
+ *     namespaceId: exampleNamespace.id,
  *     enablePartitioning: true,
  * });
  * const exampleSubscription = new azure.servicebus.Subscription("exampleSubscription", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     namespaceName: exampleNamespace.name,
- *     topicName: exampleTopic.name,
+ *     topicId: exampleTopic.id,
  *     maxDeliveryCount: 1,
  * });
  * const exampleSubscriptionRule = new azure.servicebus.SubscriptionRule("exampleSubscriptionRule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     namespaceName: exampleNamespace.name,
- *     topicName: exampleTopic.name,
- *     subscriptionName: exampleSubscription.name,
+ *     subscriptionId: exampleSubscription.id,
  *     filterType: "CorrelationFilter",
  *     correlationFilter: {
  *         correlationId: "high",
@@ -142,11 +136,11 @@ export class SubscriptionRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "subscription_id"
      */
     public readonly namespaceName!: pulumi.Output<string>;
     /**
-     * The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "subscription_id"
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -154,11 +148,15 @@ export class SubscriptionRule extends pulumi.CustomResource {
      */
     public readonly sqlFilter!: pulumi.Output<string | undefined>;
     /**
-     * The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
+     * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
+     */
+    public readonly subscriptionId!: pulumi.Output<string>;
+    /**
+     * @deprecated Deprecated in favor of "subscription_id"
      */
     public readonly subscriptionName!: pulumi.Output<string>;
     /**
-     * The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "subscription_id"
      */
     public readonly topicName!: pulumi.Output<string>;
 
@@ -185,24 +183,13 @@ export class SubscriptionRule extends pulumi.CustomResource {
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sqlFilter"] = state ? state.sqlFilter : undefined;
+            inputs["subscriptionId"] = state ? state.subscriptionId : undefined;
             inputs["subscriptionName"] = state ? state.subscriptionName : undefined;
             inputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as SubscriptionRuleArgs | undefined;
             if ((!args || args.filterType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filterType'");
-            }
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'namespaceName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.subscriptionName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subscriptionName'");
-            }
-            if ((!args || args.topicName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'topicName'");
             }
             inputs["action"] = args ? args.action : undefined;
             inputs["correlationFilter"] = args ? args.correlationFilter : undefined;
@@ -211,6 +198,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sqlFilter"] = args ? args.sqlFilter : undefined;
+            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
         }
@@ -242,11 +230,11 @@ export interface SubscriptionRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "subscription_id"
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "subscription_id"
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -254,11 +242,15 @@ export interface SubscriptionRuleState {
      */
     sqlFilter?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
+     * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
+     */
+    subscriptionId?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "subscription_id"
      */
     subscriptionName?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "subscription_id"
      */
     topicName?: pulumi.Input<string>;
 }
@@ -284,23 +276,27 @@ export interface SubscriptionRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "subscription_id"
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
-     * The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "subscription_id"
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
     sqlFilter?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
+     * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      */
-    subscriptionName: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "subscription_id"
      */
-    topicName: pulumi.Input<string>;
+    subscriptionName?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "subscription_id"
+     */
+    topicName?: pulumi.Input<string>;
 }

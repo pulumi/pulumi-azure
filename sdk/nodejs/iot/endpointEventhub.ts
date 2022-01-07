@@ -107,6 +107,9 @@ export class EndpointEventhub extends pulumi.CustomResource {
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
+     */
     public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
@@ -170,6 +173,9 @@ export interface EndpointEventhubState {
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
+     */
     resourceGroupName?: pulumi.Input<string>;
 }
 
@@ -195,5 +201,8 @@ export interface EndpointEventhubArgs {
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
+     */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -40,7 +40,7 @@ class ReplicatedVMArgs:
         :param pulumi.Input[str] target_recovery_protection_container_id: Id of protection container where the VM replication should be created when a failover is done.
         :param pulumi.Input[str] target_resource_group_id: Id of resource group where the VM should be created when a failover is done.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]] managed_disks: One or more `managed_disk` block.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the replication for the replicated VM.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` block.
         :param pulumi.Input[str] target_availability_set_id: Id of availability set that the new VM should belong to when a failover is done.
         :param pulumi.Input[str] target_network_id: Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
@@ -186,7 +186,7 @@ class ReplicatedVMArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network mapping.
+        The name of the replication for the replicated VM.
         """
         return pulumi.get(self, "name")
 
@@ -251,7 +251,7 @@ class _ReplicatedVMState:
         """
         Input properties used for looking up and filtering ReplicatedVM resources.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]] managed_disks: One or more `managed_disk` block.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the replication for the replicated VM.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` block.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
@@ -309,7 +309,7 @@ class _ReplicatedVMState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network mapping.
+        The name of the replication for the replicated VM.
         """
         return pulumi.get(self, "name")
 
@@ -623,7 +623,7 @@ class ReplicatedVM(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]] managed_disks: One or more `managed_disk` block.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the replication for the replicated VM.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` block.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
@@ -888,7 +888,7 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]] managed_disks: One or more `managed_disk` block.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the replication for the replicated VM.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` block.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
@@ -933,7 +933,7 @@ class ReplicatedVM(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the network mapping.
+        The name of the replication for the replicated VM.
         """
         return pulumi.get(self, "name")
 

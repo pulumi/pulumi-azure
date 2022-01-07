@@ -91,6 +91,15 @@ namespace Pulumi.Azure.Iot
         [Output("connectionString")]
         public Output<string> ConnectionString { get; private set; } = null!;
 
+        /// <summary>
+        /// The IoTHub ID for the endpoint.
+        /// </summary>
+        [Output("iothubId")]
+        public Output<string> IothubId { get; private set; } = null!;
+
+        /// <summary>
+        /// The IoTHub name for the endpoint.
+        /// </summary>
         [Output("iothubName")]
         public Output<string> IothubName { get; private set; } = null!;
 
@@ -100,6 +109,9 @@ namespace Pulumi.Azure.Iot
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -155,8 +167,17 @@ namespace Pulumi.Azure.Iot
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
-        [Input("iothubName", required: true)]
-        public Input<string> IothubName { get; set; } = null!;
+        /// <summary>
+        /// The IoTHub ID for the endpoint.
+        /// </summary>
+        [Input("iothubId")]
+        public Input<string>? IothubId { get; set; }
+
+        /// <summary>
+        /// The IoTHub name for the endpoint.
+        /// </summary>
+        [Input("iothubName")]
+        public Input<string>? IothubName { get; set; }
 
         /// <summary>
         /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -164,6 +185,9 @@ namespace Pulumi.Azure.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
@@ -180,6 +204,15 @@ namespace Pulumi.Azure.Iot
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
 
+        /// <summary>
+        /// The IoTHub ID for the endpoint.
+        /// </summary>
+        [Input("iothubId")]
+        public Input<string>? IothubId { get; set; }
+
+        /// <summary>
+        /// The IoTHub name for the endpoint.
+        /// </summary>
         [Input("iothubName")]
         public Input<string>? IothubName { get; set; }
 
@@ -189,6 +222,9 @@ namespace Pulumi.Azure.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 

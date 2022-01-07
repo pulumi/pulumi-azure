@@ -13,8 +13,6 @@ __all__ = ['TopicArgs', 'Topic']
 @pulumi.input_type
 class TopicArgs:
     def __init__(__self__, *,
-                 namespace_name: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
                  duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
@@ -24,277 +22,14 @@ class TopicArgs:
                  max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 support_ordering: Optional[pulumi.Input[bool]] = None):
-        """
-        The set of arguments for constructing a Topic resource.
-        :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create
-               this topic in. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the
-               Topic is automatically deleted, minimum of 5 minutes.
-        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-               TTL value is set on the message itself.
-        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which
-               duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side
-               batched operations are enabled. Defaults to false.
-        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities
-               are enabled. An express topic holds a message in memory temporarily before writing
-               it to persistent storage. Defaults to false.
-        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
-               the topic to be partitioned across multiple message brokers. Defaults to false.
-               Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
-               a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
-               memory allocated for the topic. For supported values see the "Queue/topic size"
-               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
-        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether
-               the Topic requires duplicate detection. Defaults to false. Changing this forces
-               a new resource to be created.
-        :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
-        :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
-               supports ordering. Defaults to false.
-        """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if auto_delete_on_idle is not None:
-            pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
-        if default_message_ttl is not None:
-            pulumi.set(__self__, "default_message_ttl", default_message_ttl)
-        if duplicate_detection_history_time_window is not None:
-            pulumi.set(__self__, "duplicate_detection_history_time_window", duplicate_detection_history_time_window)
-        if enable_batched_operations is not None:
-            pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
-        if enable_express is not None:
-            pulumi.set(__self__, "enable_express", enable_express)
-        if enable_partitioning is not None:
-            pulumi.set(__self__, "enable_partitioning", enable_partitioning)
-        if max_message_size_in_kilobytes is not None:
-            pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
-        if max_size_in_megabytes is not None:
-            pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if requires_duplicate_detection is not None:
-            pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if support_ordering is not None:
-            pulumi.set(__self__, "support_ordering", support_ordering)
-
-    @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Input[str]:
-        """
-        The name of the ServiceBus Namespace to create
-        this topic in. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource group in which to
-        create the namespace. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="autoDeleteOnIdle")
-    def auto_delete_on_idle(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ISO 8601 timespan duration of the idle interval after which the
-        Topic is automatically deleted, minimum of 5 minutes.
-        """
-        return pulumi.get(self, "auto_delete_on_idle")
-
-    @auto_delete_on_idle.setter
-    def auto_delete_on_idle(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "auto_delete_on_idle", value)
-
-    @property
-    @pulumi.getter(name="defaultMessageTtl")
-    def default_message_ttl(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-        TTL value is set on the message itself.
-        """
-        return pulumi.get(self, "default_message_ttl")
-
-    @default_message_ttl.setter
-    def default_message_ttl(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "default_message_ttl", value)
-
-    @property
-    @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
-    def duplicate_detection_history_time_window(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ISO 8601 timespan duration during which
-        duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-        """
-        return pulumi.get(self, "duplicate_detection_history_time_window")
-
-    @duplicate_detection_history_time_window.setter
-    def duplicate_detection_history_time_window(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "duplicate_detection_history_time_window", value)
-
-    @property
-    @pulumi.getter(name="enableBatchedOperations")
-    def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which controls if server-side
-        batched operations are enabled. Defaults to false.
-        """
-        return pulumi.get(self, "enable_batched_operations")
-
-    @enable_batched_operations.setter
-    def enable_batched_operations(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_batched_operations", value)
-
-    @property
-    @pulumi.getter(name="enableExpress")
-    def enable_express(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which controls whether Express Entities
-        are enabled. An express topic holds a message in memory temporarily before writing
-        it to persistent storage. Defaults to false.
-        """
-        return pulumi.get(self, "enable_express")
-
-    @enable_express.setter
-    def enable_express(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_express", value)
-
-    @property
-    @pulumi.getter(name="enablePartitioning")
-    def enable_partitioning(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which controls whether to enable
-        the topic to be partitioned across multiple message brokers. Defaults to false.
-        Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "enable_partitioning")
-
-    @enable_partitioning.setter
-    def enable_partitioning(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_partitioning", value)
-
-    @property
-    @pulumi.getter(name="maxMessageSizeInKilobytes")
-    def max_message_size_in_kilobytes(self) -> Optional[pulumi.Input[int]]:
-        """
-        Integer value which controls the maximum size of
-        a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
-        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
-        """
-        return pulumi.get(self, "max_message_size_in_kilobytes")
-
-    @max_message_size_in_kilobytes.setter
-    def max_message_size_in_kilobytes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "max_message_size_in_kilobytes", value)
-
-    @property
-    @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> Optional[pulumi.Input[int]]:
-        """
-        Integer value which controls the size of
-        memory allocated for the topic. For supported values see the "Queue/topic size"
-        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
-        """
-        return pulumi.get(self, "max_size_in_megabytes")
-
-    @max_size_in_megabytes.setter
-    def max_size_in_megabytes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "max_size_in_megabytes", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the name of the ServiceBus Topic resource. Changing this forces a
-        new resource to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="requiresDuplicateDetection")
-    def requires_duplicate_detection(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which controls whether
-        the Topic requires duplicate detection. Defaults to false. Changing this forces
-        a new resource to be created.
-        """
-        return pulumi.get(self, "requires_duplicate_detection")
-
-    @requires_duplicate_detection.setter
-    def requires_duplicate_detection(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "requires_duplicate_detection", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter(name="supportOrdering")
-    def support_ordering(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean flag which controls whether the Topic
-        supports ordering. Defaults to false.
-        """
-        return pulumi.get(self, "support_ordering")
-
-    @support_ordering.setter
-    def support_ordering(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "support_ordering", value)
-
-
-@pulumi.input_type
-class _TopicState:
-    def __init__(__self__, *,
-                 auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
-                 default_message_ttl: Optional[pulumi.Input[str]] = None,
-                 duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
-                 enable_batched_operations: Optional[pulumi.Input[bool]] = None,
-                 enable_express: Optional[pulumi.Input[bool]] = None,
-                 enable_partitioning: Optional[pulumi.Input[bool]] = None,
-                 max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
-                 max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_id: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None):
         """
-        Input properties used for looking up and filtering Topic resources.
+        The set of arguments for constructing a Topic resource.
         :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the
                Topic is automatically deleted, minimum of 5 minutes.
         :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no
@@ -317,13 +52,11 @@ class _TopicState:
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
                this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
                supports ordering. Defaults to false.
@@ -346,10 +79,18 @@ class _TopicState:
             pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if namespace_id is not None:
+            pulumi.set(__self__, "namespace_id", namespace_id)
+        if namespace_name is not None:
+            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
+            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
         if requires_duplicate_detection is not None:
             pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
+        if resource_group_name is not None:
+            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if status is not None:
@@ -479,12 +220,21 @@ class _TopicState:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the ServiceBus Namespace to create
+        The ID of the ServiceBus Namespace to create
         this topic in. Changing this forces a new resource to be created.
         """
+        return pulumi.get(self, "namespace_id")
+
+    @namespace_id.setter
+    def namespace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace_id", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
@@ -508,10 +258,286 @@ class _TopicState:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the namespace. Changing this forces a new resource to be created.
+        The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="supportOrdering")
+    def support_ordering(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls whether the Topic
+        supports ordering. Defaults to false.
+        """
+        return pulumi.get(self, "support_ordering")
+
+    @support_ordering.setter
+    def support_ordering(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "support_ordering", value)
+
+
+@pulumi.input_type
+class _TopicState:
+    def __init__(__self__, *,
+                 auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 default_message_ttl: Optional[pulumi.Input[str]] = None,
+                 duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
+                 enable_batched_operations: Optional[pulumi.Input[bool]] = None,
+                 enable_express: Optional[pulumi.Input[bool]] = None,
+                 enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
+                 max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_id: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 support_ordering: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering Topic resources.
+        :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the
+               Topic is automatically deleted, minimum of 5 minutes.
+        :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no
+               TTL value is set on the message itself.
+        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which
+               duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls if server-side
+               batched operations are enabled. Defaults to false.
+        :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities
+               are enabled. An express topic holds a message in memory temporarily before writing
+               it to persistent storage. Defaults to false.
+        :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
+               the topic to be partitioned across multiple message brokers. Defaults to false.
+               Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of
+               a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
+               memory allocated for the topic. For supported values see the "Queue/topic size"
+               section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
+               new resource to be created.
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
+               this topic in. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether
+               the Topic requires duplicate detection. Defaults to false. Changing this forces
+               a new resource to be created.
+        :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
+        :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
+               supports ordering. Defaults to false.
+        """
+        if auto_delete_on_idle is not None:
+            pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+        if default_message_ttl is not None:
+            pulumi.set(__self__, "default_message_ttl", default_message_ttl)
+        if duplicate_detection_history_time_window is not None:
+            pulumi.set(__self__, "duplicate_detection_history_time_window", duplicate_detection_history_time_window)
+        if enable_batched_operations is not None:
+            pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
+        if enable_express is not None:
+            pulumi.set(__self__, "enable_express", enable_express)
+        if enable_partitioning is not None:
+            pulumi.set(__self__, "enable_partitioning", enable_partitioning)
+        if max_message_size_in_kilobytes is not None:
+            pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
+        if max_size_in_megabytes is not None:
+            pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace_id is not None:
+            pulumi.set(__self__, "namespace_id", namespace_id)
+        if namespace_name is not None:
+            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
+            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
+        if namespace_name is not None:
+            pulumi.set(__self__, "namespace_name", namespace_name)
+        if requires_duplicate_detection is not None:
+            pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
+        if resource_group_name is not None:
+            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if support_ordering is not None:
+            pulumi.set(__self__, "support_ordering", support_ordering)
+
+    @property
+    @pulumi.getter(name="autoDeleteOnIdle")
+    def auto_delete_on_idle(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ISO 8601 timespan duration of the idle interval after which the
+        Topic is automatically deleted, minimum of 5 minutes.
+        """
+        return pulumi.get(self, "auto_delete_on_idle")
+
+    @auto_delete_on_idle.setter
+    def auto_delete_on_idle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_delete_on_idle", value)
+
+    @property
+    @pulumi.getter(name="defaultMessageTtl")
+    def default_message_ttl(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ISO 8601 timespan duration of TTL of messages sent to this topic if no
+        TTL value is set on the message itself.
+        """
+        return pulumi.get(self, "default_message_ttl")
+
+    @default_message_ttl.setter
+    def default_message_ttl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_message_ttl", value)
+
+    @property
+    @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
+    def duplicate_detection_history_time_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ISO 8601 timespan duration during which
+        duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+        """
+        return pulumi.get(self, "duplicate_detection_history_time_window")
+
+    @duplicate_detection_history_time_window.setter
+    def duplicate_detection_history_time_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "duplicate_detection_history_time_window", value)
+
+    @property
+    @pulumi.getter(name="enableBatchedOperations")
+    def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls if server-side
+        batched operations are enabled. Defaults to false.
+        """
+        return pulumi.get(self, "enable_batched_operations")
+
+    @enable_batched_operations.setter
+    def enable_batched_operations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_batched_operations", value)
+
+    @property
+    @pulumi.getter(name="enableExpress")
+    def enable_express(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls whether Express Entities
+        are enabled. An express topic holds a message in memory temporarily before writing
+        it to persistent storage. Defaults to false.
+        """
+        return pulumi.get(self, "enable_express")
+
+    @enable_express.setter
+    def enable_express(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_express", value)
+
+    @property
+    @pulumi.getter(name="enablePartitioning")
+    def enable_partitioning(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls whether to enable
+        the topic to be partitioned across multiple message brokers. Defaults to false.
+        Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "enable_partitioning")
+
+    @enable_partitioning.setter
+    def enable_partitioning(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_partitioning", value)
+
+    @property
+    @pulumi.getter(name="maxMessageSizeInKilobytes")
+    def max_message_size_in_kilobytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Integer value which controls the maximum size of
+        a message allowed on the topic for Premium SKU. For supported values see the "Large messages support"
+        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
+        """
+        return pulumi.get(self, "max_message_size_in_kilobytes")
+
+    @max_message_size_in_kilobytes.setter
+    def max_message_size_in_kilobytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_message_size_in_kilobytes", value)
+
+    @property
+    @pulumi.getter(name="maxSizeInMegabytes")
+    def max_size_in_megabytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Integer value which controls the size of
+        memory allocated for the topic. For supported values see the "Queue/topic size"
+        section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+        """
+        return pulumi.get(self, "max_size_in_megabytes")
+
+    @max_size_in_megabytes.setter
+    def max_size_in_megabytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_size_in_megabytes", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the ServiceBus Topic resource. Changing this forces a
+        new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the ServiceBus Namespace to create
+        this topic in. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_id")
+
+    @namespace_id.setter
+    def namespace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace_id", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="requiresDuplicateDetection")
+    def requires_duplicate_detection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls whether
+        the Topic requires duplicate detection. Defaults to false. Changing this forces
+        a new resource to be created.
+        """
+        return pulumi.get(self, "requires_duplicate_detection")
+
+    @requires_duplicate_detection.setter
+    def requires_duplicate_detection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "requires_duplicate_detection", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -558,6 +584,7 @@ class Topic(pulumi.CustomResource):
                  max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 namespace_id: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -584,8 +611,7 @@ class Topic(pulumi.CustomResource):
                 "source": "example",
             })
         example_topic = azure.servicebus.Topic("exampleTopic",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_namespace.name,
+            namespace_id=example_namespace.id,
             enable_partitioning=True)
         ```
 
@@ -621,13 +647,11 @@ class Topic(pulumi.CustomResource):
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
                this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
                supports ordering. Defaults to false.
@@ -636,7 +660,7 @@ class Topic(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TopicArgs,
+                 args: Optional[TopicArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Topic.
@@ -658,8 +682,7 @@ class Topic(pulumi.CustomResource):
                 "source": "example",
             })
         example_topic = azure.servicebus.Topic("exampleTopic",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_namespace.name,
+            namespace_id=example_namespace.id,
             enable_partitioning=True)
         ```
 
@@ -695,6 +718,7 @@ class Topic(pulumi.CustomResource):
                  max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 namespace_id: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -721,12 +745,15 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["max_message_size_in_kilobytes"] = max_message_size_in_kilobytes
             __props__.__dict__["max_size_in_megabytes"] = max_size_in_megabytes
             __props__.__dict__["name"] = name
-            if namespace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'namespace_name'")
+            __props__.__dict__["namespace_id"] = namespace_id
+            if namespace_name is not None and not opts.urn:
+                warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
+                pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
             __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["requires_duplicate_detection"] = requires_duplicate_detection
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
+            if resource_group_name is not None and not opts.urn:
+                warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
+                pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["status"] = status
             __props__.__dict__["support_ordering"] = support_ordering
@@ -751,6 +778,7 @@ class Topic(pulumi.CustomResource):
             max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
             max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            namespace_id: Optional[pulumi.Input[str]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
             requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -785,13 +813,11 @@ class Topic(pulumi.CustomResource):
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create
                this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
                supports ordering. Defaults to false.
@@ -809,6 +835,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["max_message_size_in_kilobytes"] = max_message_size_in_kilobytes
         __props__.__dict__["max_size_in_megabytes"] = max_size_in_megabytes
         __props__.__dict__["name"] = name
+        __props__.__dict__["namespace_id"] = namespace_id
         __props__.__dict__["namespace_name"] = namespace_name
         __props__.__dict__["requires_duplicate_detection"] = requires_duplicate_detection
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -902,12 +929,17 @@ class Topic(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> pulumi.Output[str]:
         """
-        The name of the ServiceBus Namespace to create
+        The ID of the ServiceBus Namespace to create
         this topic in. Changing this forces a new resource to be created.
         """
+        return pulumi.get(self, "namespace_id")
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -923,10 +955,6 @@ class Topic(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the resource group in which to
-        create the namespace. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "resource_group_name")
 
     @property

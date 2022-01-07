@@ -153,8 +153,10 @@ import (
 type SpringCloudCertificate struct {
 	pulumi.CustomResourceState
 
+	// The content of uploaded certificate. Changing this forces a new resource to be created.
+	CertificateContent pulumi.StringPtrOutput `pulumi:"certificateContent"`
 	// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
-	KeyVaultCertificateId pulumi.StringOutput `pulumi:"keyVaultCertificateId"`
+	KeyVaultCertificateId pulumi.StringPtrOutput `pulumi:"keyVaultCertificateId"`
 	// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -172,9 +174,6 @@ func NewSpringCloudCertificate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.KeyVaultCertificateId == nil {
-		return nil, errors.New("invalid value for required argument 'KeyVaultCertificateId'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -203,6 +202,8 @@ func GetSpringCloudCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudCertificate resources.
 type springCloudCertificateState struct {
+	// The content of uploaded certificate. Changing this forces a new resource to be created.
+	CertificateContent *string `pulumi:"certificateContent"`
 	// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
 	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
 	// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -216,6 +217,8 @@ type springCloudCertificateState struct {
 }
 
 type SpringCloudCertificateState struct {
+	// The content of uploaded certificate. Changing this forces a new resource to be created.
+	CertificateContent pulumi.StringPtrInput
 	// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
 	KeyVaultCertificateId pulumi.StringPtrInput
 	// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -233,8 +236,10 @@ func (SpringCloudCertificateState) ElementType() reflect.Type {
 }
 
 type springCloudCertificateArgs struct {
+	// The content of uploaded certificate. Changing this forces a new resource to be created.
+	CertificateContent *string `pulumi:"certificateContent"`
 	// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
-	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
+	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
 	// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -245,8 +250,10 @@ type springCloudCertificateArgs struct {
 
 // The set of arguments for constructing a SpringCloudCertificate resource.
 type SpringCloudCertificateArgs struct {
+	// The content of uploaded certificate. Changing this forces a new resource to be created.
+	CertificateContent pulumi.StringPtrInput
 	// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
-	KeyVaultCertificateId pulumi.StringInput
+	KeyVaultCertificateId pulumi.StringPtrInput
 	// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.

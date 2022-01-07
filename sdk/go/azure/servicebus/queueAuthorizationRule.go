@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,20 +43,17 @@ import (
 // 			return err
 // 		}
 // 		exampleQueue, err := servicebus.NewQueue(ctx, "exampleQueue", &servicebus.QueueArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			NamespaceName:      exampleNamespace.Name,
+// 			NamespaceId:        exampleNamespace.ID(),
 // 			EnablePartitioning: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = servicebus.NewQueueAuthorizationRule(ctx, "exampleQueueAuthorizationRule", &servicebus.QueueAuthorizationRuleArgs{
-// 			NamespaceName:     exampleNamespace.Name,
-// 			QueueName:         exampleQueue.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Listen:            pulumi.Bool(true),
-// 			Send:              pulumi.Bool(true),
-// 			Manage:            pulumi.Bool(false),
+// 			QueueId: exampleQueue.ID(),
+// 			Listen:  pulumi.Bool(true),
+// 			Send:    pulumi.Bool(true),
+// 			Manage:  pulumi.Bool(false),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -83,7 +79,7 @@ type QueueAuthorizationRule struct {
 	Manage pulumi.BoolPtrOutput `pulumi:"manage"`
 	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "queue_id"
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The Primary Connection String for the Authorization Rule.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
@@ -91,9 +87,11 @@ type QueueAuthorizationRule struct {
 	PrimaryConnectionStringAlias pulumi.StringOutput `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the Authorization Rule.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
-	// Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+	// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+	QueueId pulumi.StringOutput `pulumi:"queueId"`
+	// Deprecated: Deprecated in favor of "queue_id"
 	QueueName pulumi.StringOutput `pulumi:"queueName"`
-	// The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "queue_id"
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the Authorization Rule.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
@@ -109,18 +107,9 @@ type QueueAuthorizationRule struct {
 func NewQueueAuthorizationRule(ctx *pulumi.Context,
 	name string, args *QueueAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*QueueAuthorizationRule, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &QueueAuthorizationRuleArgs{}
 	}
 
-	if args.NamespaceName == nil {
-		return nil, errors.New("invalid value for required argument 'NamespaceName'")
-	}
-	if args.QueueName == nil {
-		return nil, errors.New("invalid value for required argument 'QueueName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule"),
@@ -155,7 +144,7 @@ type queueAuthorizationRuleState struct {
 	Manage *bool `pulumi:"manage"`
 	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "queue_id"
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The Primary Connection String for the Authorization Rule.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
@@ -163,9 +152,11 @@ type queueAuthorizationRuleState struct {
 	PrimaryConnectionStringAlias *string `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the Authorization Rule.
 	PrimaryKey *string `pulumi:"primaryKey"`
-	// Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+	// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+	QueueId *string `pulumi:"queueId"`
+	// Deprecated: Deprecated in favor of "queue_id"
 	QueueName *string `pulumi:"queueName"`
-	// The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "queue_id"
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the Authorization Rule.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
@@ -184,7 +175,7 @@ type QueueAuthorizationRuleState struct {
 	Manage pulumi.BoolPtrInput
 	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "queue_id"
 	NamespaceName pulumi.StringPtrInput
 	// The Primary Connection String for the Authorization Rule.
 	PrimaryConnectionString pulumi.StringPtrInput
@@ -192,9 +183,11 @@ type QueueAuthorizationRuleState struct {
 	PrimaryConnectionStringAlias pulumi.StringPtrInput
 	// The Primary Key for the Authorization Rule.
 	PrimaryKey pulumi.StringPtrInput
-	// Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+	// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+	QueueId pulumi.StringPtrInput
+	// Deprecated: Deprecated in favor of "queue_id"
 	QueueName pulumi.StringPtrInput
-	// The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "queue_id"
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Connection String for the Authorization Rule.
 	SecondaryConnectionString pulumi.StringPtrInput
@@ -217,12 +210,14 @@ type queueAuthorizationRuleArgs struct {
 	Manage *bool `pulumi:"manage"`
 	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
-	NamespaceName string `pulumi:"namespaceName"`
-	// Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
-	QueueName string `pulumi:"queueName"`
-	// The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Deprecated: Deprecated in favor of "queue_id"
+	NamespaceName *string `pulumi:"namespaceName"`
+	// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+	QueueId *string `pulumi:"queueId"`
+	// Deprecated: Deprecated in favor of "queue_id"
+	QueueName *string `pulumi:"queueName"`
+	// Deprecated: Deprecated in favor of "queue_id"
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
 	Send *bool `pulumi:"send"`
 }
@@ -235,12 +230,14 @@ type QueueAuthorizationRuleArgs struct {
 	Manage pulumi.BoolPtrInput
 	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
-	NamespaceName pulumi.StringInput
-	// Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
-	QueueName pulumi.StringInput
-	// The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
+	// Deprecated: Deprecated in favor of "queue_id"
+	NamespaceName pulumi.StringPtrInput
+	// Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+	QueueId pulumi.StringPtrInput
+	// Deprecated: Deprecated in favor of "queue_id"
+	QueueName pulumi.StringPtrInput
+	// Deprecated: Deprecated in favor of "queue_id"
+	ResourceGroupName pulumi.StringPtrInput
 	// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
 	Send pulumi.BoolPtrInput
 }

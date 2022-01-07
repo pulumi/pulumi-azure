@@ -38,11 +38,6 @@ namespace Pulumi.Azure.Network
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///         });
-    ///         var exampleDdosProtectionPlan = new Azure.Network.DdosProtectionPlan("exampleDdosProtectionPlan", new Azure.Network.DdosProtectionPlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
     ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
     ///         {
     ///             Location = exampleResourceGroup.Location,
@@ -56,11 +51,6 @@ namespace Pulumi.Azure.Network
     ///                 "10.0.0.4",
     ///                 "10.0.0.5",
     ///             },
-    ///             DdosProtectionPlan = new Azure.Network.Inputs.VirtualNetworkDdosProtectionPlanArgs
-    ///             {
-    ///                 Id = exampleDdosProtectionPlan.Id,
-    ///                 Enable = true,
-    ///             },
     ///             Subnets = 
     ///             {
     ///                 new Azure.Network.Inputs.VirtualNetworkSubnetArgs
@@ -72,11 +62,6 @@ namespace Pulumi.Azure.Network
     ///                 {
     ///                     Name = "subnet2",
     ///                     AddressPrefix = "10.0.2.0/24",
-    ///                 },
-    ///                 new Azure.Network.Inputs.VirtualNetworkSubnetArgs
-    ///                 {
-    ///                     Name = "subnet3",
-    ///                     AddressPrefix = "10.0.3.0/24",
     ///                     SecurityGroup = exampleNetworkSecurityGroup.Id,
     ///                 },
     ///             },
