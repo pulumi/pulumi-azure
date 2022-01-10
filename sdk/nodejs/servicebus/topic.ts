@@ -25,8 +25,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     namespaceName: exampleNamespace.name,
+ *     namespaceId: exampleNamespace.id,
  *     enablePartitioning: true,
  * });
  * ```
@@ -117,8 +116,12 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the ServiceBus Namespace to create
+     * The ID of the ServiceBus Namespace to create
      * this topic in. Changing this forces a new resource to be created.
+     */
+    public readonly namespaceId!: pulumi.Output<string>;
+    /**
+     * @deprecated Deprecated in favor of "namespace_id"
      */
     public readonly namespaceName!: pulumi.Output<string>;
     /**
@@ -128,8 +131,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly requiresDuplicateDetection!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the resource group in which to
-     * create the namespace. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "namespace_id"
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -149,7 +151,7 @@ export class Topic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TopicArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: TopicArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TopicArgs | TopicState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -164,6 +166,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["maxMessageSizeInKilobytes"] = state ? state.maxMessageSizeInKilobytes : undefined;
             inputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["namespaceId"] = state ? state.namespaceId : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["requiresDuplicateDetection"] = state ? state.requiresDuplicateDetection : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -171,12 +174,6 @@ export class Topic extends pulumi.CustomResource {
             inputs["supportOrdering"] = state ? state.supportOrdering : undefined;
         } else {
             const args = argsOrState as TopicArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'namespaceName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
             inputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
             inputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
@@ -186,6 +183,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
             inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["namespaceId"] = args ? args.namespaceId : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -255,8 +253,12 @@ export interface TopicState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Namespace to create
+     * The ID of the ServiceBus Namespace to create
      * this topic in. Changing this forces a new resource to be created.
+     */
+    namespaceId?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "namespace_id"
      */
     namespaceName?: pulumi.Input<string>;
     /**
@@ -266,8 +268,7 @@ export interface TopicState {
      */
     requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to
-     * create the namespace. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "namespace_id"
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -335,10 +336,14 @@ export interface TopicArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Namespace to create
+     * The ID of the ServiceBus Namespace to create
      * this topic in. Changing this forces a new resource to be created.
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "namespace_id"
+     */
+    namespaceName?: pulumi.Input<string>;
     /**
      * Boolean flag which controls whether
      * the Topic requires duplicate detection. Defaults to false. Changing this forces
@@ -346,10 +351,9 @@ export interface TopicArgs {
      */
     requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to
-     * create the namespace. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "namespace_id"
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
      */

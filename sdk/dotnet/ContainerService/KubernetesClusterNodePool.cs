@@ -184,6 +184,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> ProximityPlacementGroupId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        /// </summary>
+        [Output("scaleDownMode")]
+        public Output<string?> ScaleDownMode { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         /// </summary>
         [Output("spotMaxPrice")]
@@ -218,6 +224,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("vnetSubnetId")]
         public Output<string?> VnetSubnetId { get; private set; } = null!;
+
+        /// <summary>
+        /// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        /// </summary>
+        [Output("workloadRuntime")]
+        public Output<string?> WorkloadRuntime { get; private set; } = null!;
 
 
         /// <summary>
@@ -446,6 +458,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
+        /// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        /// </summary>
+        [Input("scaleDownMode")]
+        public Input<string>? ScaleDownMode { get; set; }
+
+        /// <summary>
         /// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         /// </summary>
         [Input("spotMaxPrice")]
@@ -486,6 +504,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("vnetSubnetId")]
         public Input<string>? VnetSubnetId { get; set; }
+
+        /// <summary>
+        /// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        /// </summary>
+        [Input("workloadRuntime")]
+        public Input<string>? WorkloadRuntime { get; set; }
 
         public KubernetesClusterNodePoolArgs()
         {
@@ -675,6 +699,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
+        /// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        /// </summary>
+        [Input("scaleDownMode")]
+        public Input<string>? ScaleDownMode { get; set; }
+
+        /// <summary>
         /// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         /// </summary>
         [Input("spotMaxPrice")]
@@ -715,6 +745,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("vnetSubnetId")]
         public Input<string>? VnetSubnetId { get; set; }
+
+        /// <summary>
+        /// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        /// </summary>
+        [Input("workloadRuntime")]
+        public Input<string>? WorkloadRuntime { get; set; }
 
         public KubernetesClusterNodePoolState()
         {

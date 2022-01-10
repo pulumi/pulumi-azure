@@ -14,17 +14,27 @@ __all__ = ['EndpointServicebusQueueArgs', 'EndpointServicebusQueue']
 class EndpointServicebusQueueArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
-                 iothub_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 iothub_id: Optional[pulumi.Input[str]] = None,
+                 iothub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EndpointServicebusQueue resource.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
+        :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         """
         pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "iothub_name", iothub_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if iothub_id is not None:
+            pulumi.set(__self__, "iothub_id", iothub_id)
+        if iothub_name is not None:
+            warnings.warn("""Deprecated in favour of `iothub_id`""", DeprecationWarning)
+            pulumi.log.warn("""iothub_name is deprecated: Deprecated in favour of `iothub_id`""")
+        if iothub_name is not None:
+            pulumi.set(__self__, "iothub_name", iothub_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -41,22 +51,40 @@ class EndpointServicebusQueueArgs:
         pulumi.set(self, "connection_string", value)
 
     @property
-    @pulumi.getter(name="iothubName")
-    def iothub_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "iothub_name")
-
-    @iothub_name.setter
-    def iothub_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "iothub_name", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="iothubId")
+    def iothub_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IoTHub ID for the endpoint.
+        """
+        return pulumi.get(self, "iothub_id")
+
+    @iothub_id.setter
+    def iothub_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iothub_id", value)
+
+    @property
+    @pulumi.getter(name="iothubName")
+    def iothub_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IoTHub name for the endpoint.
+        """
+        return pulumi.get(self, "iothub_name")
+
+    @iothub_name.setter
+    def iothub_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iothub_name", value)
 
     @property
     @pulumi.getter
@@ -75,16 +103,25 @@ class EndpointServicebusQueueArgs:
 class _EndpointServicebusQueueState:
     def __init__(__self__, *,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 iothub_id: Optional[pulumi.Input[str]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EndpointServicebusQueue resources.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
+        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
+        :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
         """
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if iothub_id is not None:
+            pulumi.set(__self__, "iothub_id", iothub_id)
+        if iothub_name is not None:
+            warnings.warn("""Deprecated in favour of `iothub_id`""", DeprecationWarning)
+            pulumi.log.warn("""iothub_name is deprecated: Deprecated in favour of `iothub_id`""")
         if iothub_name is not None:
             pulumi.set(__self__, "iothub_name", iothub_name)
         if name is not None:
@@ -105,8 +142,23 @@ class _EndpointServicebusQueueState:
         pulumi.set(self, "connection_string", value)
 
     @property
+    @pulumi.getter(name="iothubId")
+    def iothub_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IoTHub ID for the endpoint.
+        """
+        return pulumi.get(self, "iothub_id")
+
+    @iothub_id.setter
+    def iothub_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iothub_id", value)
+
+    @property
     @pulumi.getter(name="iothubName")
     def iothub_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IoTHub name for the endpoint.
+        """
         return pulumi.get(self, "iothub_name")
 
     @iothub_name.setter
@@ -128,6 +180,9 @@ class _EndpointServicebusQueueState:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -141,6 +196,7 @@ class EndpointServicebusQueue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 iothub_id: Optional[pulumi.Input[str]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -199,7 +255,10 @@ class EndpointServicebusQueue(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
+        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
+        :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -274,6 +333,7 @@ class EndpointServicebusQueue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 iothub_id: Optional[pulumi.Input[str]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -292,8 +352,10 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             if connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_string'")
             __props__.__dict__["connection_string"] = connection_string
-            if iothub_name is None and not opts.urn:
-                raise TypeError("Missing required property 'iothub_name'")
+            __props__.__dict__["iothub_id"] = iothub_id
+            if iothub_name is not None and not opts.urn:
+                warnings.warn("""Deprecated in favour of `iothub_id`""", DeprecationWarning)
+                pulumi.log.warn("""iothub_name is deprecated: Deprecated in favour of `iothub_id`""")
             __props__.__dict__["iothub_name"] = iothub_name
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -310,6 +372,7 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             connection_string: Optional[pulumi.Input[str]] = None,
+            iothub_id: Optional[pulumi.Input[str]] = None,
             iothub_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'EndpointServicebusQueue':
@@ -321,13 +384,17 @@ class EndpointServicebusQueue(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
+        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
+        :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _EndpointServicebusQueueState.__new__(_EndpointServicebusQueueState)
 
         __props__.__dict__["connection_string"] = connection_string
+        __props__.__dict__["iothub_id"] = iothub_id
         __props__.__dict__["iothub_name"] = iothub_name
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -342,8 +409,19 @@ class EndpointServicebusQueue(pulumi.CustomResource):
         return pulumi.get(self, "connection_string")
 
     @property
+    @pulumi.getter(name="iothubId")
+    def iothub_id(self) -> pulumi.Output[str]:
+        """
+        The IoTHub ID for the endpoint.
+        """
+        return pulumi.get(self, "iothub_id")
+
+    @property
     @pulumi.getter(name="iothubName")
     def iothub_name(self) -> pulumi.Output[str]:
+        """
+        The IoTHub name for the endpoint.
+        """
         return pulumi.get(self, "iothub_name")
 
     @property
@@ -357,5 +435,8 @@ class EndpointServicebusQueue(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
+        """
+        The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 

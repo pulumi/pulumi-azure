@@ -37,8 +37,7 @@ import * as utilities from "../utilities";
  *     serviceEndpoints: ["Microsoft.ServiceBus"],
  * });
  * const exampleNamespaceNetworkRuleSet = new azure.servicebus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", {
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     namespaceId: exampleNamespace.id,
  *     defaultAction: "Deny",
  *     networkRules: [{
  *         subnetId: exampleSubnet.id,
@@ -93,7 +92,11 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     public readonly ipRules!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+     * Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+     */
+    public readonly namespaceId!: pulumi.Output<string>;
+    /**
+     * @deprecated Deprecated in favor of "namespace_id"
      */
     public readonly namespaceName!: pulumi.Output<string>;
     /**
@@ -101,7 +104,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     public readonly networkRules!: pulumi.Output<outputs.servicebus.NamespaceNetworkRuleSetNetworkRule[] | undefined>;
     /**
-     * Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "namespace_id"
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -116,7 +119,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NamespaceNetworkRuleSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: NamespaceNetworkRuleSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamespaceNetworkRuleSetArgs | NamespaceNetworkRuleSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -124,20 +127,16 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             const state = argsOrState as NamespaceNetworkRuleSetState | undefined;
             inputs["defaultAction"] = state ? state.defaultAction : undefined;
             inputs["ipRules"] = state ? state.ipRules : undefined;
+            inputs["namespaceId"] = state ? state.namespaceId : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["networkRules"] = state ? state.networkRules : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["trustedServicesAllowed"] = state ? state.trustedServicesAllowed : undefined;
         } else {
             const args = argsOrState as NamespaceNetworkRuleSetArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'namespaceName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
             inputs["ipRules"] = args ? args.ipRules : undefined;
+            inputs["namespaceId"] = args ? args.namespaceId : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["networkRules"] = args ? args.networkRules : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -163,7 +162,11 @@ export interface NamespaceNetworkRuleSetState {
      */
     ipRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+     * Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+     */
+    namespaceId?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "namespace_id"
      */
     namespaceName?: pulumi.Input<string>;
     /**
@@ -171,7 +174,7 @@ export interface NamespaceNetworkRuleSetState {
      */
     networkRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NamespaceNetworkRuleSetNetworkRule>[]>;
     /**
-     * Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "namespace_id"
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -193,17 +196,21 @@ export interface NamespaceNetworkRuleSetArgs {
      */
     ipRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+     * Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "namespace_id"
+     */
+    namespaceName?: pulumi.Input<string>;
     /**
      * One or more `networkRules` blocks as defined below.
      */
     networkRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NamespaceNetworkRuleSetNetworkRule>[]>;
     /**
-     * Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "namespace_id"
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
      */

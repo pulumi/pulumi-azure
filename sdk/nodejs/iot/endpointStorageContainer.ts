@@ -104,7 +104,13 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
      */
     public readonly fileNameFormat!: pulumi.Output<string | undefined>;
     /**
-     * The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+     * The IoTHub ID for the endpoint.
+     */
+    public readonly iothubId!: pulumi.Output<string>;
+    /**
+     * The IoTHub name for the endpoint.
+     *
+     * @deprecated Deprecated in favour of `iothub_id`
      */
     public readonly iothubName!: pulumi.Output<string>;
     /**
@@ -116,7 +122,7 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+     * The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
 
@@ -138,6 +144,7 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
             inputs["containerName"] = state ? state.containerName : undefined;
             inputs["encoding"] = state ? state.encoding : undefined;
             inputs["fileNameFormat"] = state ? state.fileNameFormat : undefined;
+            inputs["iothubId"] = state ? state.iothubId : undefined;
             inputs["iothubName"] = state ? state.iothubName : undefined;
             inputs["maxChunkSizeInBytes"] = state ? state.maxChunkSizeInBytes : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -150,9 +157,6 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
             if ((!args || args.containerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.iothubName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'iothubName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -161,6 +165,7 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
             inputs["containerName"] = args ? args.containerName : undefined;
             inputs["encoding"] = args ? args.encoding : undefined;
             inputs["fileNameFormat"] = args ? args.fileNameFormat : undefined;
+            inputs["iothubId"] = args ? args.iothubId : undefined;
             inputs["iothubName"] = args ? args.iothubName : undefined;
             inputs["maxChunkSizeInBytes"] = args ? args.maxChunkSizeInBytes : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -199,7 +204,13 @@ export interface EndpointStorageContainerState {
      */
     fileNameFormat?: pulumi.Input<string>;
     /**
-     * The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+     * The IoTHub ID for the endpoint.
+     */
+    iothubId?: pulumi.Input<string>;
+    /**
+     * The IoTHub name for the endpoint.
+     *
+     * @deprecated Deprecated in favour of `iothub_id`
      */
     iothubName?: pulumi.Input<string>;
     /**
@@ -211,7 +222,7 @@ export interface EndpointStorageContainerState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+     * The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
 }
@@ -242,9 +253,15 @@ export interface EndpointStorageContainerArgs {
      */
     fileNameFormat?: pulumi.Input<string>;
     /**
-     * The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+     * The IoTHub ID for the endpoint.
      */
-    iothubName: pulumi.Input<string>;
+    iothubId?: pulumi.Input<string>;
+    /**
+     * The IoTHub name for the endpoint.
+     *
+     * @deprecated Deprecated in favour of `iothub_id`
+     */
+    iothubName?: pulumi.Input<string>;
     /**
      * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
      */
@@ -254,7 +271,7 @@ export interface EndpointStorageContainerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+     * The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
 }

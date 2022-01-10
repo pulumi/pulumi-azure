@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PublicCertificate{}
 	case "azure:appservice/slot:Slot":
 		r = &Slot{}
+	case "azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding":
+		r = &SlotCustomHostnameBinding{}
 	case "azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection":
 		r = &SlotVirtualNetworkSwiftConnection{}
 	case "azure:appservice/sourceCodeToken:SourceCodeToken":
@@ -147,6 +149,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appservice/slot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/slotCustomHostnameBinding",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

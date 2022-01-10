@@ -153,13 +153,19 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.ManagedDiskEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
 
         /// <summary>
+        /// ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        /// </summary>
+        [Output("galleryImageReferenceId")]
+        public Output<string?> GalleryImageReferenceId { get; private set; } = null!;
+
+        /// <summary>
         /// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("hyperVGeneration")]
         public Output<string?> HyperVGeneration { get; private set; } = null!;
 
         /// <summary>
-        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
         /// </summary>
         [Output("imageReferenceId")]
         public Output<string?> ImageReferenceId { get; private set; } = null!;
@@ -367,13 +373,19 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ManagedDiskEncryptionSettingsArgs>? EncryptionSettings { get; set; }
 
         /// <summary>
+        /// ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        /// </summary>
+        [Input("galleryImageReferenceId")]
+        public Input<string>? GalleryImageReferenceId { get; set; }
+
+        /// <summary>
         /// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hyperVGeneration")]
         public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
-        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
         /// </summary>
         [Input("imageReferenceId")]
         public Input<string>? ImageReferenceId { get; set; }
@@ -548,13 +560,19 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ManagedDiskEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }
 
         /// <summary>
+        /// ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        /// </summary>
+        [Input("galleryImageReferenceId")]
+        public Input<string>? GalleryImageReferenceId { get; set; }
+
+        /// <summary>
         /// The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hyperVGeneration")]
         public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
-        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
         /// </summary>
         [Input("imageReferenceId")]
         public Input<string>? ImageReferenceId { get; set; }

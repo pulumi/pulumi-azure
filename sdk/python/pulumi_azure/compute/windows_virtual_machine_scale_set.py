@@ -59,6 +59,7 @@ class WindowsVirtualMachineScaleSetArgs:
                  terminate_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs']] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
@@ -109,6 +110,7 @@ class WindowsVirtualMachineScaleSetArgs:
         :param pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs'] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -195,6 +197,8 @@ class WindowsVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "timezone", timezone)
         if upgrade_mode is not None:
             pulumi.set(__self__, "upgrade_mode", upgrade_mode)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
         if vtpm_enabled is not None:
             pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if winrm_listeners is not None:
@@ -733,6 +737,18 @@ class WindowsVirtualMachineScaleSetArgs:
         pulumi.set(self, "upgrade_mode", value)
 
     @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
+
+    @property
     @pulumi.getter(name="vtpmEnabled")
     def vtpm_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -829,6 +845,7 @@ class _WindowsVirtualMachineScaleSetState:
                  timezone: Optional[pulumi.Input[str]] = None,
                  unique_id: Optional[pulumi.Input[str]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
@@ -880,6 +897,7 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] unique_id: The Unique ID for this Windows Virtual Machine Scale Set.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -975,6 +993,8 @@ class _WindowsVirtualMachineScaleSetState:
             pulumi.set(__self__, "unique_id", unique_id)
         if upgrade_mode is not None:
             pulumi.set(__self__, "upgrade_mode", upgrade_mode)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
         if vtpm_enabled is not None:
             pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if winrm_listeners is not None:
@@ -1525,6 +1545,18 @@ class _WindowsVirtualMachineScaleSetState:
         pulumi.set(self, "upgrade_mode", value)
 
     @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
+
+    @property
     @pulumi.getter(name="vtpmEnabled")
     def vtpm_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1622,6 +1654,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  terminate_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminateNotificationArgs']]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
@@ -1737,6 +1770,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminateNotificationArgs']] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -1871,6 +1905,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  terminate_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminateNotificationArgs']]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
@@ -1945,6 +1980,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["terminate_notification"] = terminate_notification
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["upgrade_mode"] = upgrade_mode
+            __props__.__dict__["user_data"] = user_data
             __props__.__dict__["vtpm_enabled"] = vtpm_enabled
             __props__.__dict__["winrm_listeners"] = winrm_listeners
             __props__.__dict__["zone_balance"] = zone_balance
@@ -2005,6 +2041,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             timezone: Optional[pulumi.Input[str]] = None,
             unique_id: Optional[pulumi.Input[str]] = None,
             upgrade_mode: Optional[pulumi.Input[str]] = None,
+            user_data: Optional[pulumi.Input[str]] = None,
             vtpm_enabled: Optional[pulumi.Input[bool]] = None,
             winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]]] = None,
             zone_balance: Optional[pulumi.Input[bool]] = None,
@@ -2061,6 +2098,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] unique_id: The Unique ID for this Windows Virtual Machine Scale Set.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] vtpm_enabled: Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -2115,6 +2153,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["timezone"] = timezone
         __props__.__dict__["unique_id"] = unique_id
         __props__.__dict__["upgrade_mode"] = upgrade_mode
+        __props__.__dict__["user_data"] = user_data
         __props__.__dict__["vtpm_enabled"] = vtpm_enabled
         __props__.__dict__["winrm_listeners"] = winrm_listeners
         __props__.__dict__["zone_balance"] = zone_balance
@@ -2480,6 +2519,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
         """
         return pulumi.get(self, "upgrade_mode")
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "user_data")
 
     @property
     @pulumi.getter(name="vtpmEnabled")

@@ -190,7 +190,7 @@ class ShareDirectory(pulumi.CustomResource):
         Directories within an Azure Storage File Share can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/shareDirectory:ShareDirectory net/share1/directory1
+         $ pulumi import azure:storage/shareDirectory:ShareDirectory example https://tomdevsa20.file.core.windows.net/share1/directory1
         ```
 
         :param str resource_name: The name of the resource.
@@ -234,7 +234,7 @@ class ShareDirectory(pulumi.CustomResource):
         Directories within an Azure Storage File Share can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/shareDirectory:ShareDirectory net/share1/directory1
+         $ pulumi import azure:storage/shareDirectory:ShareDirectory example https://tomdevsa20.file.core.windows.net/share1/directory1
         ```
 
         :param str resource_name: The name of the resource.

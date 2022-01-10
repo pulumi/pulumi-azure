@@ -29,6 +29,7 @@ export * from "./managedCertificate";
 export * from "./plan";
 export * from "./publicCertificate";
 export * from "./slot";
+export * from "./slotCustomHostnameBinding";
 export * from "./slotVirtualNetworkSwiftConnection";
 export * from "./sourceCodeToken";
 export * from "./staticSite";
@@ -55,6 +56,7 @@ import { ManagedCertificate } from "./managedCertificate";
 import { Plan } from "./plan";
 import { PublicCertificate } from "./publicCertificate";
 import { Slot } from "./slot";
+import { SlotCustomHostnameBinding } from "./slotCustomHostnameBinding";
 import { SlotVirtualNetworkSwiftConnection } from "./slotVirtualNetworkSwiftConnection";
 import { SourceCodeToken } from "./sourceCodeToken";
 import { StaticSite } from "./staticSite";
@@ -95,6 +97,8 @@ const _module = {
                 return new PublicCertificate(name, <any>undefined, { urn })
             case "azure:appservice/slot:Slot":
                 return new Slot(name, <any>undefined, { urn })
+            case "azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding":
+                return new SlotCustomHostnameBinding(name, <any>undefined, { urn })
             case "azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection":
                 return new SlotVirtualNetworkSwiftConnection(name, <any>undefined, { urn })
             case "azure:appservice/sourceCodeToken:SourceCodeToken":
@@ -125,6 +129,7 @@ pulumi.runtime.registerResourceModule("azure", "appservice/managedCertificate", 
 pulumi.runtime.registerResourceModule("azure", "appservice/plan", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/publicCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/slot", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/slotCustomHostnameBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/slotVirtualNetworkSwiftConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/sourceCodeToken", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/staticSite", _module)

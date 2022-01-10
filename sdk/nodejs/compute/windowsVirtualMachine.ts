@@ -261,6 +261,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
     /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine.
+     */
+    public readonly userData!: pulumi.Output<string | undefined>;
+    /**
      * A 128-bit identifier which uniquely identifies this Virtual Machine.
      */
     public /*out*/ readonly virtualMachineId!: pulumi.Output<string>;
@@ -333,6 +337,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["timezone"] = state ? state.timezone : undefined;
+            inputs["userData"] = state ? state.userData : undefined;
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
             inputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
             inputs["vtpmEnabled"] = state ? state.vtpmEnabled : undefined;
@@ -393,6 +398,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
+            inputs["userData"] = args ? args.userData : undefined;
             inputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
             inputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
             inputs["winrmListeners"] = args ? args.winrmListeners : undefined;
@@ -571,6 +577,10 @@ export interface WindowsVirtualMachineState {
      */
     timezone?: pulumi.Input<string>;
     /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine.
+     */
+    userData?: pulumi.Input<string>;
+    /**
      * A 128-bit identifier which uniquely identifies this Virtual Machine.
      */
     virtualMachineId?: pulumi.Input<string>;
@@ -736,6 +746,10 @@ export interface WindowsVirtualMachineArgs {
      * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
     timezone?: pulumi.Input<string>;
+    /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine.
+     */
+    userData?: pulumi.Input<string>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
      */

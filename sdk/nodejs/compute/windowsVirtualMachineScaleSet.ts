@@ -281,6 +281,10 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly upgradeMode!: pulumi.Output<string | undefined>;
     /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     */
+    public readonly userData!: pulumi.Output<string | undefined>;
+    /**
      * Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
     public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
@@ -355,6 +359,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["timezone"] = state ? state.timezone : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
             inputs["upgradeMode"] = state ? state.upgradeMode : undefined;
+            inputs["userData"] = state ? state.userData : undefined;
             inputs["vtpmEnabled"] = state ? state.vtpmEnabled : undefined;
             inputs["winrmListeners"] = state ? state.winrmListeners : undefined;
             inputs["zoneBalance"] = state ? state.zoneBalance : undefined;
@@ -426,6 +431,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["terminateNotification"] = args ? args.terminateNotification : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
             inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
+            inputs["userData"] = args ? args.userData : undefined;
             inputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
             inputs["winrmListeners"] = args ? args.winrmListeners : undefined;
             inputs["zoneBalance"] = args ? args.zoneBalance : undefined;
@@ -624,6 +630,10 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     upgradeMode?: pulumi.Input<string>;
     /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     */
+    userData?: pulumi.Input<string>;
+    /**
      * Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
     vtpmEnabled?: pulumi.Input<boolean>;
@@ -821,6 +831,10 @@ export interface WindowsVirtualMachineScaleSetArgs {
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
      */
     upgradeMode?: pulumi.Input<string>;
+    /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     */
+    userData?: pulumi.Input<string>;
     /**
      * Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */

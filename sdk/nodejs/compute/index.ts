@@ -13,6 +13,7 @@ export * from "./dedicatedHost";
 export * from "./dedicatedHostGroup";
 export * from "./diskAccess";
 export * from "./diskEncryptionSet";
+export * from "./diskPool";
 export * from "./extension";
 export * from "./getAvailabilitySet";
 export * from "./getDedicatedHost";
@@ -56,6 +57,7 @@ import { DedicatedHost } from "./dedicatedHost";
 import { DedicatedHostGroup } from "./dedicatedHostGroup";
 import { DiskAccess } from "./diskAccess";
 import { DiskEncryptionSet } from "./diskEncryptionSet";
+import { DiskPool } from "./diskPool";
 import { Extension } from "./extension";
 import { Image } from "./image";
 import { LinuxVirtualMachine } from "./linuxVirtualMachine";
@@ -93,6 +95,8 @@ const _module = {
                 return new DiskAccess(name, <any>undefined, { urn })
             case "azure:compute/diskEncryptionSet:DiskEncryptionSet":
                 return new DiskEncryptionSet(name, <any>undefined, { urn })
+            case "azure:compute/diskPool:DiskPool":
+                return new DiskPool(name, <any>undefined, { urn })
             case "azure:compute/extension:Extension":
                 return new Extension(name, <any>undefined, { urn })
             case "azure:compute/image:Image":
@@ -138,6 +142,7 @@ pulumi.runtime.registerResourceModule("azure", "compute/dedicatedHost", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/dedicatedHostGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/diskAccess", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/diskEncryptionSet", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/diskPool", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/extension", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/image", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/linuxVirtualMachine", _module)

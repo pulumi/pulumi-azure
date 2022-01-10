@@ -211,6 +211,8 @@ type LinuxVirtualMachineScaleSet struct {
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrOutput `pulumi:"upgradeMode"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -352,6 +354,8 @@ type linuxVirtualMachineScaleSetState struct {
 	UniqueId *string `pulumi:"uniqueId"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode *string `pulumi:"upgradeMode"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserData *string `pulumi:"userData"`
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -447,6 +451,8 @@ type LinuxVirtualMachineScaleSetState struct {
 	UniqueId pulumi.StringPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrInput
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserData pulumi.StringPtrInput
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -544,6 +550,8 @@ type linuxVirtualMachineScaleSetArgs struct {
 	TerminateNotification *LinuxVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode *string `pulumi:"upgradeMode"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserData *string `pulumi:"userData"`
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
@@ -638,6 +646,8 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrInput
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserData pulumi.StringPtrInput
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.

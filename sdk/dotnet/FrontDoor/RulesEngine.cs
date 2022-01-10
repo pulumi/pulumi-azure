@@ -87,6 +87,14 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Azure Front Door Rules Engine's can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:frontdoor/rulesEngine:RulesEngine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/frontdoors/frontdoor1/rulesengines/rule1
+    /// ```
     /// </summary>
     [AzureResourceType("azure:frontdoor/rulesEngine:RulesEngine")]
     public partial class RulesEngine : Pulumi.CustomResource

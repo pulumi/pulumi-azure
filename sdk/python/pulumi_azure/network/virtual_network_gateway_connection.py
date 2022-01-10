@@ -19,6 +19,7 @@ class VirtualNetworkGatewayConnectionArgs:
                  type: pulumi.Input[str],
                  virtual_network_gateway_id: pulumi.Input[str],
                  authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_mode: Optional[pulumi.Input[str]] = None,
                  connection_protocol: Optional[pulumi.Input[str]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
@@ -50,10 +51,13 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
+        :param pulumi.Input[str] connection_mode: Connection mode to use. Possible
+               values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+               Changing this value will force a resource to be created.
         :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible
                values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
                Changing this value will force a resource to be created.
-               > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+               > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
@@ -91,6 +95,8 @@ class VirtualNetworkGatewayConnectionArgs:
         pulumi.set(__self__, "virtual_network_gateway_id", virtual_network_gateway_id)
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
+        if connection_mode is not None:
+            pulumi.set(__self__, "connection_mode", connection_mode)
         if connection_protocol is not None:
             pulumi.set(__self__, "connection_protocol", connection_protocol)
         if dpd_timeout_seconds is not None:
@@ -182,13 +188,27 @@ class VirtualNetworkGatewayConnectionArgs:
         pulumi.set(self, "authorization_key", value)
 
     @property
+    @pulumi.getter(name="connectionMode")
+    def connection_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Connection mode to use. Possible
+        values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+        Changing this value will force a resource to be created.
+        """
+        return pulumi.get(self, "connection_mode")
+
+    @connection_mode.setter
+    def connection_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_mode", value)
+
+    @property
     @pulumi.getter(name="connectionProtocol")
     def connection_protocol(self) -> Optional[pulumi.Input[str]]:
         """
         The IKE protocol version to use. Possible
         values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
         Changing this value will force a resource to be created.
-        > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+        > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         """
         return pulumi.get(self, "connection_protocol")
 
@@ -397,6 +417,7 @@ class VirtualNetworkGatewayConnectionArgs:
 class _VirtualNetworkGatewayConnectionState:
     def __init__(__self__, *,
                  authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_mode: Optional[pulumi.Input[str]] = None,
                  connection_protocol: Optional[pulumi.Input[str]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
@@ -421,10 +442,13 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
+        :param pulumi.Input[str] connection_mode: Connection mode to use. Possible
+               values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+               Changing this value will force a resource to be created.
         :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible
                values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
                Changing this value will force a resource to be created.
-               > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+               > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
@@ -469,6 +493,8 @@ class _VirtualNetworkGatewayConnectionState:
         """
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
+        if connection_mode is not None:
+            pulumi.set(__self__, "connection_mode", connection_mode)
         if connection_protocol is not None:
             pulumi.set(__self__, "connection_protocol", connection_protocol)
         if dpd_timeout_seconds is not None:
@@ -523,13 +549,27 @@ class _VirtualNetworkGatewayConnectionState:
         pulumi.set(self, "authorization_key", value)
 
     @property
+    @pulumi.getter(name="connectionMode")
+    def connection_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Connection mode to use. Possible
+        values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+        Changing this value will force a resource to be created.
+        """
+        return pulumi.get(self, "connection_mode")
+
+    @connection_mode.setter
+    def connection_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_mode", value)
+
+    @property
     @pulumi.getter(name="connectionProtocol")
     def connection_protocol(self) -> Optional[pulumi.Input[str]]:
         """
         The IKE protocol version to use. Possible
         values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
         Changing this value will force a resource to be created.
-        > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+        > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         """
         return pulumi.get(self, "connection_protocol")
 
@@ -783,6 +823,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_mode: Optional[pulumi.Input[str]] = None,
                  connection_protocol: Optional[pulumi.Input[str]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
@@ -941,10 +982,13 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
+        :param pulumi.Input[str] connection_mode: Connection mode to use. Possible
+               values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+               Changing this value will force a resource to be created.
         :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible
                values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
                Changing this value will force a resource to be created.
-               > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+               > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
@@ -1142,6 +1186,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_mode: Optional[pulumi.Input[str]] = None,
                  connection_protocol: Optional[pulumi.Input[str]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
@@ -1174,6 +1219,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__ = VirtualNetworkGatewayConnectionArgs.__new__(VirtualNetworkGatewayConnectionArgs)
 
             __props__.__dict__["authorization_key"] = authorization_key
+            __props__.__dict__["connection_mode"] = connection_mode
             __props__.__dict__["connection_protocol"] = connection_protocol
             __props__.__dict__["dpd_timeout_seconds"] = dpd_timeout_seconds
             __props__.__dict__["enable_bgp"] = enable_bgp
@@ -1210,6 +1256,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authorization_key: Optional[pulumi.Input[str]] = None,
+            connection_mode: Optional[pulumi.Input[str]] = None,
             connection_protocol: Optional[pulumi.Input[str]] = None,
             dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
             enable_bgp: Optional[pulumi.Input[bool]] = None,
@@ -1239,10 +1286,13 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
+        :param pulumi.Input[str] connection_mode: Connection mode to use. Possible
+               values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+               Changing this value will force a resource to be created.
         :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible
                values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
                Changing this value will force a resource to be created.
-               > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+               > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
@@ -1290,6 +1340,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         __props__ = _VirtualNetworkGatewayConnectionState.__new__(_VirtualNetworkGatewayConnectionState)
 
         __props__.__dict__["authorization_key"] = authorization_key
+        __props__.__dict__["connection_mode"] = connection_mode
         __props__.__dict__["connection_protocol"] = connection_protocol
         __props__.__dict__["dpd_timeout_seconds"] = dpd_timeout_seconds
         __props__.__dict__["enable_bgp"] = enable_bgp
@@ -1322,13 +1373,23 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         return pulumi.get(self, "authorization_key")
 
     @property
+    @pulumi.getter(name="connectionMode")
+    def connection_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Connection mode to use. Possible
+        values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
+        Changing this value will force a resource to be created.
+        """
+        return pulumi.get(self, "connection_mode")
+
+    @property
     @pulumi.getter(name="connectionProtocol")
     def connection_protocol(self) -> pulumi.Output[str]:
         """
         The IKE protocol version to use. Possible
         values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
         Changing this value will force a resource to be created.
-        > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+        > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         """
         return pulumi.get(self, "connection_protocol")
 

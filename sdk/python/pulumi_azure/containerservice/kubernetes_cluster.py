@@ -40,6 +40,7 @@ class KubernetesClusterArgs:
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  role_based_access_control: Optional[pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs']] = None,
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
@@ -128,6 +129,8 @@ class KubernetesClusterArgs:
             pulumi.log.warn("""private_link_enabled is deprecated: Deprecated in favour of `private_cluster_enabled`""")
         if private_link_enabled is not None:
             pulumi.set(__self__, "private_link_enabled", private_link_enabled)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if role_based_access_control is not None:
             pulumi.set(__self__, "role_based_access_control", role_based_access_control)
         if service_principal is not None:
@@ -434,6 +437,15 @@ class KubernetesClusterArgs:
         pulumi.set(self, "private_link_enabled", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="roleBasedAccessControl")
     def role_based_access_control(self) -> Optional[pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs']]:
         """
@@ -529,6 +541,7 @@ class _KubernetesClusterState:
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  private_fqdn: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control: Optional[pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs']] = None,
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
@@ -639,6 +652,8 @@ class _KubernetesClusterState:
             pulumi.log.warn("""private_link_enabled is deprecated: Deprecated in favour of `private_cluster_enabled`""")
         if private_link_enabled is not None:
             pulumi.set(__self__, "private_link_enabled", private_link_enabled)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if role_based_access_control is not None:
@@ -1019,6 +1034,15 @@ class _KubernetesClusterState:
         pulumi.set(self, "private_link_enabled", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1121,6 +1145,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']]] = None,
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
@@ -1283,6 +1308,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']]] = None,
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
@@ -1330,6 +1356,7 @@ class KubernetesCluster(pulumi.CustomResource):
                 warnings.warn("""Deprecated in favour of `private_cluster_enabled`""", DeprecationWarning)
                 pulumi.log.warn("""private_link_enabled is deprecated: Deprecated in favour of `private_cluster_enabled`""")
             __props__.__dict__["private_link_enabled"] = private_link_enabled
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1386,6 +1413,7 @@ class KubernetesCluster(pulumi.CustomResource):
             private_dns_zone_id: Optional[pulumi.Input[str]] = None,
             private_fqdn: Optional[pulumi.Input[str]] = None,
             private_link_enabled: Optional[pulumi.Input[bool]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']]] = None,
             service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
@@ -1471,6 +1499,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
         __props__.__dict__["private_fqdn"] = private_fqdn
         __props__.__dict__["private_link_enabled"] = private_link_enabled
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["role_based_access_control"] = role_based_access_control
         __props__.__dict__["service_principal"] = service_principal
@@ -1720,6 +1749,11 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="privateLinkEnabled")
     def private_link_enabled(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "private_link_enabled")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

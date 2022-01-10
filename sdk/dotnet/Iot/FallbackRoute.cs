@@ -126,6 +126,12 @@ namespace Pulumi.Azure.Iot
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+        /// </summary>
+        [Output("source")]
+        public Output<string?> Source { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a FallbackRoute resource with the given unique name, arguments, and options.
@@ -202,6 +208,12 @@ namespace Pulumi.Azure.Iot
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+        /// </summary>
+        [Input("source")]
+        public Input<string>? Source { get; set; }
+
         public FallbackRouteArgs()
         {
         }
@@ -238,6 +250,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+        /// </summary>
+        [Input("source")]
+        public Input<string>? Source { get; set; }
 
         public FallbackRouteState()
         {

@@ -12,6 +12,9 @@ namespace Pulumi.Azure.DataBricks.Inputs
 
     public sealed class WorkspaceCustomParametersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("machineLearningWorkspaceId")]
         public Input<string>? MachineLearningWorkspaceId { get; set; }
 

@@ -10,6 +10,337 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type EndpointCustomDomainCdnManagedHttps struct {
+	// The type of HTTPS certificate. Possible values are `Shared` and `Dedicated`.
+	CertificateType string `pulumi:"certificateType"`
+	// The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
+	ProtocolType string `pulumi:"protocolType"`
+	// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+	TlsVersion *string `pulumi:"tlsVersion"`
+}
+
+// EndpointCustomDomainCdnManagedHttpsInput is an input type that accepts EndpointCustomDomainCdnManagedHttpsArgs and EndpointCustomDomainCdnManagedHttpsOutput values.
+// You can construct a concrete instance of `EndpointCustomDomainCdnManagedHttpsInput` via:
+//
+//          EndpointCustomDomainCdnManagedHttpsArgs{...}
+type EndpointCustomDomainCdnManagedHttpsInput interface {
+	pulumi.Input
+
+	ToEndpointCustomDomainCdnManagedHttpsOutput() EndpointCustomDomainCdnManagedHttpsOutput
+	ToEndpointCustomDomainCdnManagedHttpsOutputWithContext(context.Context) EndpointCustomDomainCdnManagedHttpsOutput
+}
+
+type EndpointCustomDomainCdnManagedHttpsArgs struct {
+	// The type of HTTPS certificate. Possible values are `Shared` and `Dedicated`.
+	CertificateType pulumi.StringInput `pulumi:"certificateType"`
+	// The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
+	ProtocolType pulumi.StringInput `pulumi:"protocolType"`
+	// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+	TlsVersion pulumi.StringPtrInput `pulumi:"tlsVersion"`
+}
+
+func (EndpointCustomDomainCdnManagedHttpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointCustomDomainCdnManagedHttps)(nil)).Elem()
+}
+
+func (i EndpointCustomDomainCdnManagedHttpsArgs) ToEndpointCustomDomainCdnManagedHttpsOutput() EndpointCustomDomainCdnManagedHttpsOutput {
+	return i.ToEndpointCustomDomainCdnManagedHttpsOutputWithContext(context.Background())
+}
+
+func (i EndpointCustomDomainCdnManagedHttpsArgs) ToEndpointCustomDomainCdnManagedHttpsOutputWithContext(ctx context.Context) EndpointCustomDomainCdnManagedHttpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDomainCdnManagedHttpsOutput)
+}
+
+func (i EndpointCustomDomainCdnManagedHttpsArgs) ToEndpointCustomDomainCdnManagedHttpsPtrOutput() EndpointCustomDomainCdnManagedHttpsPtrOutput {
+	return i.ToEndpointCustomDomainCdnManagedHttpsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointCustomDomainCdnManagedHttpsArgs) ToEndpointCustomDomainCdnManagedHttpsPtrOutputWithContext(ctx context.Context) EndpointCustomDomainCdnManagedHttpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDomainCdnManagedHttpsOutput).ToEndpointCustomDomainCdnManagedHttpsPtrOutputWithContext(ctx)
+}
+
+// EndpointCustomDomainCdnManagedHttpsPtrInput is an input type that accepts EndpointCustomDomainCdnManagedHttpsArgs, EndpointCustomDomainCdnManagedHttpsPtr and EndpointCustomDomainCdnManagedHttpsPtrOutput values.
+// You can construct a concrete instance of `EndpointCustomDomainCdnManagedHttpsPtrInput` via:
+//
+//          EndpointCustomDomainCdnManagedHttpsArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointCustomDomainCdnManagedHttpsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointCustomDomainCdnManagedHttpsPtrOutput() EndpointCustomDomainCdnManagedHttpsPtrOutput
+	ToEndpointCustomDomainCdnManagedHttpsPtrOutputWithContext(context.Context) EndpointCustomDomainCdnManagedHttpsPtrOutput
+}
+
+type endpointCustomDomainCdnManagedHttpsPtrType EndpointCustomDomainCdnManagedHttpsArgs
+
+func EndpointCustomDomainCdnManagedHttpsPtr(v *EndpointCustomDomainCdnManagedHttpsArgs) EndpointCustomDomainCdnManagedHttpsPtrInput {
+	return (*endpointCustomDomainCdnManagedHttpsPtrType)(v)
+}
+
+func (*endpointCustomDomainCdnManagedHttpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointCustomDomainCdnManagedHttps)(nil)).Elem()
+}
+
+func (i *endpointCustomDomainCdnManagedHttpsPtrType) ToEndpointCustomDomainCdnManagedHttpsPtrOutput() EndpointCustomDomainCdnManagedHttpsPtrOutput {
+	return i.ToEndpointCustomDomainCdnManagedHttpsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointCustomDomainCdnManagedHttpsPtrType) ToEndpointCustomDomainCdnManagedHttpsPtrOutputWithContext(ctx context.Context) EndpointCustomDomainCdnManagedHttpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDomainCdnManagedHttpsPtrOutput)
+}
+
+type EndpointCustomDomainCdnManagedHttpsOutput struct{ *pulumi.OutputState }
+
+func (EndpointCustomDomainCdnManagedHttpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointCustomDomainCdnManagedHttps)(nil)).Elem()
+}
+
+func (o EndpointCustomDomainCdnManagedHttpsOutput) ToEndpointCustomDomainCdnManagedHttpsOutput() EndpointCustomDomainCdnManagedHttpsOutput {
+	return o
+}
+
+func (o EndpointCustomDomainCdnManagedHttpsOutput) ToEndpointCustomDomainCdnManagedHttpsOutputWithContext(ctx context.Context) EndpointCustomDomainCdnManagedHttpsOutput {
+	return o
+}
+
+func (o EndpointCustomDomainCdnManagedHttpsOutput) ToEndpointCustomDomainCdnManagedHttpsPtrOutput() EndpointCustomDomainCdnManagedHttpsPtrOutput {
+	return o.ToEndpointCustomDomainCdnManagedHttpsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointCustomDomainCdnManagedHttpsOutput) ToEndpointCustomDomainCdnManagedHttpsPtrOutputWithContext(ctx context.Context) EndpointCustomDomainCdnManagedHttpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointCustomDomainCdnManagedHttps) *EndpointCustomDomainCdnManagedHttps {
+		return &v
+	}).(EndpointCustomDomainCdnManagedHttpsPtrOutput)
+}
+
+// The type of HTTPS certificate. Possible values are `Shared` and `Dedicated`.
+func (o EndpointCustomDomainCdnManagedHttpsOutput) CertificateType() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointCustomDomainCdnManagedHttps) string { return v.CertificateType }).(pulumi.StringOutput)
+}
+
+// The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
+func (o EndpointCustomDomainCdnManagedHttpsOutput) ProtocolType() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointCustomDomainCdnManagedHttps) string { return v.ProtocolType }).(pulumi.StringOutput)
+}
+
+// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+func (o EndpointCustomDomainCdnManagedHttpsOutput) TlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointCustomDomainCdnManagedHttps) *string { return v.TlsVersion }).(pulumi.StringPtrOutput)
+}
+
+type EndpointCustomDomainCdnManagedHttpsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointCustomDomainCdnManagedHttpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointCustomDomainCdnManagedHttps)(nil)).Elem()
+}
+
+func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) ToEndpointCustomDomainCdnManagedHttpsPtrOutput() EndpointCustomDomainCdnManagedHttpsPtrOutput {
+	return o
+}
+
+func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) ToEndpointCustomDomainCdnManagedHttpsPtrOutputWithContext(ctx context.Context) EndpointCustomDomainCdnManagedHttpsPtrOutput {
+	return o
+}
+
+func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) Elem() EndpointCustomDomainCdnManagedHttpsOutput {
+	return o.ApplyT(func(v *EndpointCustomDomainCdnManagedHttps) EndpointCustomDomainCdnManagedHttps {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointCustomDomainCdnManagedHttps
+		return ret
+	}).(EndpointCustomDomainCdnManagedHttpsOutput)
+}
+
+// The type of HTTPS certificate. Possible values are `Shared` and `Dedicated`.
+func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) CertificateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointCustomDomainCdnManagedHttps) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
+func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) ProtocolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointCustomDomainCdnManagedHttps) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProtocolType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) TlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointCustomDomainCdnManagedHttps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointCustomDomainUserManagedHttps struct {
+	// The ID of the Key Vault Certificate that contains the HTTPS certificate.
+	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
+	// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+	TlsVersion *string `pulumi:"tlsVersion"`
+}
+
+// EndpointCustomDomainUserManagedHttpsInput is an input type that accepts EndpointCustomDomainUserManagedHttpsArgs and EndpointCustomDomainUserManagedHttpsOutput values.
+// You can construct a concrete instance of `EndpointCustomDomainUserManagedHttpsInput` via:
+//
+//          EndpointCustomDomainUserManagedHttpsArgs{...}
+type EndpointCustomDomainUserManagedHttpsInput interface {
+	pulumi.Input
+
+	ToEndpointCustomDomainUserManagedHttpsOutput() EndpointCustomDomainUserManagedHttpsOutput
+	ToEndpointCustomDomainUserManagedHttpsOutputWithContext(context.Context) EndpointCustomDomainUserManagedHttpsOutput
+}
+
+type EndpointCustomDomainUserManagedHttpsArgs struct {
+	// The ID of the Key Vault Certificate that contains the HTTPS certificate.
+	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
+	// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+	TlsVersion pulumi.StringPtrInput `pulumi:"tlsVersion"`
+}
+
+func (EndpointCustomDomainUserManagedHttpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointCustomDomainUserManagedHttps)(nil)).Elem()
+}
+
+func (i EndpointCustomDomainUserManagedHttpsArgs) ToEndpointCustomDomainUserManagedHttpsOutput() EndpointCustomDomainUserManagedHttpsOutput {
+	return i.ToEndpointCustomDomainUserManagedHttpsOutputWithContext(context.Background())
+}
+
+func (i EndpointCustomDomainUserManagedHttpsArgs) ToEndpointCustomDomainUserManagedHttpsOutputWithContext(ctx context.Context) EndpointCustomDomainUserManagedHttpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDomainUserManagedHttpsOutput)
+}
+
+func (i EndpointCustomDomainUserManagedHttpsArgs) ToEndpointCustomDomainUserManagedHttpsPtrOutput() EndpointCustomDomainUserManagedHttpsPtrOutput {
+	return i.ToEndpointCustomDomainUserManagedHttpsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointCustomDomainUserManagedHttpsArgs) ToEndpointCustomDomainUserManagedHttpsPtrOutputWithContext(ctx context.Context) EndpointCustomDomainUserManagedHttpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDomainUserManagedHttpsOutput).ToEndpointCustomDomainUserManagedHttpsPtrOutputWithContext(ctx)
+}
+
+// EndpointCustomDomainUserManagedHttpsPtrInput is an input type that accepts EndpointCustomDomainUserManagedHttpsArgs, EndpointCustomDomainUserManagedHttpsPtr and EndpointCustomDomainUserManagedHttpsPtrOutput values.
+// You can construct a concrete instance of `EndpointCustomDomainUserManagedHttpsPtrInput` via:
+//
+//          EndpointCustomDomainUserManagedHttpsArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointCustomDomainUserManagedHttpsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointCustomDomainUserManagedHttpsPtrOutput() EndpointCustomDomainUserManagedHttpsPtrOutput
+	ToEndpointCustomDomainUserManagedHttpsPtrOutputWithContext(context.Context) EndpointCustomDomainUserManagedHttpsPtrOutput
+}
+
+type endpointCustomDomainUserManagedHttpsPtrType EndpointCustomDomainUserManagedHttpsArgs
+
+func EndpointCustomDomainUserManagedHttpsPtr(v *EndpointCustomDomainUserManagedHttpsArgs) EndpointCustomDomainUserManagedHttpsPtrInput {
+	return (*endpointCustomDomainUserManagedHttpsPtrType)(v)
+}
+
+func (*endpointCustomDomainUserManagedHttpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointCustomDomainUserManagedHttps)(nil)).Elem()
+}
+
+func (i *endpointCustomDomainUserManagedHttpsPtrType) ToEndpointCustomDomainUserManagedHttpsPtrOutput() EndpointCustomDomainUserManagedHttpsPtrOutput {
+	return i.ToEndpointCustomDomainUserManagedHttpsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointCustomDomainUserManagedHttpsPtrType) ToEndpointCustomDomainUserManagedHttpsPtrOutputWithContext(ctx context.Context) EndpointCustomDomainUserManagedHttpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDomainUserManagedHttpsPtrOutput)
+}
+
+type EndpointCustomDomainUserManagedHttpsOutput struct{ *pulumi.OutputState }
+
+func (EndpointCustomDomainUserManagedHttpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointCustomDomainUserManagedHttps)(nil)).Elem()
+}
+
+func (o EndpointCustomDomainUserManagedHttpsOutput) ToEndpointCustomDomainUserManagedHttpsOutput() EndpointCustomDomainUserManagedHttpsOutput {
+	return o
+}
+
+func (o EndpointCustomDomainUserManagedHttpsOutput) ToEndpointCustomDomainUserManagedHttpsOutputWithContext(ctx context.Context) EndpointCustomDomainUserManagedHttpsOutput {
+	return o
+}
+
+func (o EndpointCustomDomainUserManagedHttpsOutput) ToEndpointCustomDomainUserManagedHttpsPtrOutput() EndpointCustomDomainUserManagedHttpsPtrOutput {
+	return o.ToEndpointCustomDomainUserManagedHttpsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointCustomDomainUserManagedHttpsOutput) ToEndpointCustomDomainUserManagedHttpsPtrOutputWithContext(ctx context.Context) EndpointCustomDomainUserManagedHttpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointCustomDomainUserManagedHttps) *EndpointCustomDomainUserManagedHttps {
+		return &v
+	}).(EndpointCustomDomainUserManagedHttpsPtrOutput)
+}
+
+// The ID of the Key Vault Certificate that contains the HTTPS certificate.
+func (o EndpointCustomDomainUserManagedHttpsOutput) KeyVaultCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointCustomDomainUserManagedHttps) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
+}
+
+// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+func (o EndpointCustomDomainUserManagedHttpsOutput) TlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointCustomDomainUserManagedHttps) *string { return v.TlsVersion }).(pulumi.StringPtrOutput)
+}
+
+type EndpointCustomDomainUserManagedHttpsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointCustomDomainUserManagedHttpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointCustomDomainUserManagedHttps)(nil)).Elem()
+}
+
+func (o EndpointCustomDomainUserManagedHttpsPtrOutput) ToEndpointCustomDomainUserManagedHttpsPtrOutput() EndpointCustomDomainUserManagedHttpsPtrOutput {
+	return o
+}
+
+func (o EndpointCustomDomainUserManagedHttpsPtrOutput) ToEndpointCustomDomainUserManagedHttpsPtrOutputWithContext(ctx context.Context) EndpointCustomDomainUserManagedHttpsPtrOutput {
+	return o
+}
+
+func (o EndpointCustomDomainUserManagedHttpsPtrOutput) Elem() EndpointCustomDomainUserManagedHttpsOutput {
+	return o.ApplyT(func(v *EndpointCustomDomainUserManagedHttps) EndpointCustomDomainUserManagedHttps {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointCustomDomainUserManagedHttps
+		return ret
+	}).(EndpointCustomDomainUserManagedHttpsOutput)
+}
+
+// The ID of the Key Vault Certificate that contains the HTTPS certificate.
+func (o EndpointCustomDomainUserManagedHttpsPtrOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointCustomDomainUserManagedHttps) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultCertificateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1) and `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
+func (o EndpointCustomDomainUserManagedHttpsPtrOutput) TlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointCustomDomainUserManagedHttps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointDeliveryRule struct {
 	// A `cacheExpirationAction` block as defined above.
 	CacheExpirationAction *EndpointDeliveryRuleCacheExpirationAction `pulumi:"cacheExpirationAction"`
@@ -4602,6 +4933,10 @@ func (o EndpointOriginArrayOutput) Index(i pulumi.IntInput) EndpointOriginOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainCdnManagedHttpsInput)(nil)).Elem(), EndpointCustomDomainCdnManagedHttpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainCdnManagedHttpsPtrInput)(nil)).Elem(), EndpointCustomDomainCdnManagedHttpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainUserManagedHttpsInput)(nil)).Elem(), EndpointCustomDomainUserManagedHttpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainUserManagedHttpsPtrInput)(nil)).Elem(), EndpointCustomDomainUserManagedHttpsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeliveryRuleInput)(nil)).Elem(), EndpointDeliveryRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeliveryRuleArrayInput)(nil)).Elem(), EndpointDeliveryRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeliveryRuleCacheExpirationActionInput)(nil)).Elem(), EndpointDeliveryRuleCacheExpirationActionArgs{})
@@ -4662,6 +4997,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput)(nil)).Elem(), EndpointGlobalDeliveryRuleUrlRewriteActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOriginInput)(nil)).Elem(), EndpointOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOriginArrayInput)(nil)).Elem(), EndpointOriginArray{})
+	pulumi.RegisterOutputType(EndpointCustomDomainCdnManagedHttpsOutput{})
+	pulumi.RegisterOutputType(EndpointCustomDomainCdnManagedHttpsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointCustomDomainUserManagedHttpsOutput{})
+	pulumi.RegisterOutputType(EndpointCustomDomainUserManagedHttpsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointDeliveryRuleOutput{})
 	pulumi.RegisterOutputType(EndpointDeliveryRuleArrayOutput{})
 	pulumi.RegisterOutputType(EndpointDeliveryRuleCacheExpirationActionOutput{})

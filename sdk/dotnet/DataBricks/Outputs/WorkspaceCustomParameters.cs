@@ -13,6 +13,9 @@ namespace Pulumi.Azure.DataBricks.Outputs
     [OutputType]
     public sealed class WorkspaceCustomParameters
     {
+        /// <summary>
+        /// The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? MachineLearningWorkspaceId;
         /// <summary>
         /// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.

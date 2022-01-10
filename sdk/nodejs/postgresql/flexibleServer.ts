@@ -122,6 +122,10 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
+     * Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     */
+    public readonly geoRedundantBackupEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `highAvailability` block as defined below.
      */
     public readonly highAvailability!: pulumi.Output<outputs.postgresql.FlexibleServerHighAvailability | undefined>;
@@ -199,6 +203,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             inputs["createMode"] = state ? state.createMode : undefined;
             inputs["delegatedSubnetId"] = state ? state.delegatedSubnetId : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
+            inputs["geoRedundantBackupEnabled"] = state ? state.geoRedundantBackupEnabled : undefined;
             inputs["highAvailability"] = state ? state.highAvailability : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
@@ -223,6 +228,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             inputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
             inputs["createMode"] = args ? args.createMode : undefined;
             inputs["delegatedSubnetId"] = args ? args.delegatedSubnetId : undefined;
+            inputs["geoRedundantBackupEnabled"] = args ? args.geoRedundantBackupEnabled : undefined;
             inputs["highAvailability"] = args ? args.highAvailability : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
@@ -281,6 +287,10 @@ export interface FlexibleServerState {
      * The FQDN of the PostgreSQL Flexible Server.
      */
     fqdn?: pulumi.Input<string>;
+    /**
+     * Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     */
+    geoRedundantBackupEnabled?: pulumi.Input<boolean>;
     /**
      * A `highAvailability` block as defined below.
      */
@@ -364,6 +374,10 @@ export interface FlexibleServerArgs {
      * The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     delegatedSubnetId?: pulumi.Input<string>;
+    /**
+     * Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     */
+    geoRedundantBackupEnabled?: pulumi.Input<boolean>;
     /**
      * A `highAvailability` block as defined below.
      */

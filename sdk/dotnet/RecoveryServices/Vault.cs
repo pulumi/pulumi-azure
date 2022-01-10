@@ -86,6 +86,12 @@ namespace Pulumi.Azure.RecoveryServices
         public Output<bool?> SoftDeleteEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        /// </summary>
+        [Output("storageModeType")]
+        public Output<string?> StorageModeType { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -173,6 +179,12 @@ namespace Pulumi.Azure.RecoveryServices
         [Input("softDeleteEnabled")]
         public Input<bool>? SoftDeleteEnabled { get; set; }
 
+        /// <summary>
+        /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        /// </summary>
+        [Input("storageModeType")]
+        public Input<string>? StorageModeType { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -227,6 +239,12 @@ namespace Pulumi.Azure.RecoveryServices
         /// </summary>
         [Input("softDeleteEnabled")]
         public Input<bool>? SoftDeleteEnabled { get; set; }
+
+        /// <summary>
+        /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
+        /// </summary>
+        [Input("storageModeType")]
+        public Input<string>? StorageModeType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -8,6 +8,7 @@ import typing
 from .application import *
 from .application_group import *
 from .host_pool import *
+from .scaling_plan import *
 from .workspace import *
 from .workspace_application_group_association import *
 from ._inputs import *

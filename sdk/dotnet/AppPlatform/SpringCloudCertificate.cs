@@ -151,10 +151,16 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudCertificate : Pulumi.CustomResource
     {
         /// <summary>
+        /// The content of uploaded certificate. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("certificateContent")]
+        public Output<string?> CertificateContent { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keyVaultCertificateId")]
-        public Output<string> KeyVaultCertificateId { get; private set; } = null!;
+        public Output<string?> KeyVaultCertificateId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -227,10 +233,16 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The content of uploaded certificate. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("certificateContent")]
+        public Input<string>? CertificateContent { get; set; }
+
+        /// <summary>
         /// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("keyVaultCertificateId", required: true)]
-        public Input<string> KeyVaultCertificateId { get; set; } = null!;
+        [Input("keyVaultCertificateId")]
+        public Input<string>? KeyVaultCertificateId { get; set; }
 
         /// <summary>
         /// Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -257,6 +269,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudCertificateState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The content of uploaded certificate. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("certificateContent")]
+        public Input<string>? CertificateContent { get; set; }
+
         /// <summary>
         /// Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         /// </summary>

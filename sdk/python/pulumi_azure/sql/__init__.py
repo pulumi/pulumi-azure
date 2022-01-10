@@ -12,6 +12,7 @@ from .failover_group import *
 from .firewall_rule import *
 from .get_database import *
 from .get_server import *
+from .get_sql_managed_instance import *
 from .managed_database import *
 from .managed_instance import *
 from .managed_instance_active_directory_administrator import *

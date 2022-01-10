@@ -24,6 +24,7 @@ class IoTHubArgs:
                  event_hub_retention_in_days: Optional[pulumi.Input[int]] = None,
                  fallback_route: Optional[pulumi.Input['IoTHubFallbackRouteArgs']] = None,
                  file_upload: Optional[pulumi.Input['IoTHubFileUploadArgs']] = None,
+                 identity: Optional[pulumi.Input['IoTHubIdentityArgs']] = None,
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubIpFilterRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,7 @@ class IoTHubArgs:
         :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
         :param pulumi.Input['IoTHubFallbackRouteArgs'] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         :param pulumi.Input['IoTHubFileUploadArgs'] file_upload: A `file_upload` block as defined below.
+        :param pulumi.Input['IoTHubIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubIpFilterRuleArgs']]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -66,6 +68,8 @@ class IoTHubArgs:
             pulumi.set(__self__, "fallback_route", fallback_route)
         if file_upload is not None:
             pulumi.set(__self__, "file_upload", file_upload)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if ip_filter_rules is not None:
             pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
         if location is not None:
@@ -190,6 +194,18 @@ class IoTHubArgs:
         pulumi.set(self, "file_upload", value)
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IoTHubIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IoTHubIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
     @pulumi.getter(name="ipFilterRules")
     def ip_filter_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubIpFilterRuleArgs']]]]:
         """
@@ -289,6 +305,7 @@ class _IoTHubState:
                  fallback_route: Optional[pulumi.Input['IoTHubFallbackRouteArgs']] = None,
                  file_upload: Optional[pulumi.Input['IoTHubFileUploadArgs']] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['IoTHubIdentityArgs']] = None,
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubIpFilterRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
@@ -314,6 +331,7 @@ class _IoTHubState:
         :param pulumi.Input['IoTHubFallbackRouteArgs'] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         :param pulumi.Input['IoTHubFileUploadArgs'] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
+        :param pulumi.Input['IoTHubIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubIpFilterRuleArgs']]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -350,6 +368,8 @@ class _IoTHubState:
             pulumi.set(__self__, "file_upload", file_upload)
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if ip_filter_rules is not None:
             pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
         if location is not None:
@@ -518,6 +538,18 @@ class _IoTHubState:
         pulumi.set(self, "hostname", value)
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IoTHubIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IoTHubIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
     @pulumi.getter(name="ipFilterRules")
     def ip_filter_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubIpFilterRuleArgs']]]]:
         """
@@ -662,6 +694,7 @@ class IoTHub(pulumi.CustomResource):
                  event_hub_retention_in_days: Optional[pulumi.Input[int]] = None,
                  fallback_route: Optional[pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']]] = None,
                  file_upload: Optional[pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']]] = None,
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
@@ -791,6 +824,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
         :param pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
+        :param pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -939,6 +973,7 @@ class IoTHub(pulumi.CustomResource):
                  event_hub_retention_in_days: Optional[pulumi.Input[int]] = None,
                  fallback_route: Optional[pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']]] = None,
                  file_upload: Optional[pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']]] = None,
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
@@ -967,6 +1002,7 @@ class IoTHub(pulumi.CustomResource):
             __props__.__dict__["event_hub_retention_in_days"] = event_hub_retention_in_days
             __props__.__dict__["fallback_route"] = fallback_route
             __props__.__dict__["file_upload"] = file_upload
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["ip_filter_rules"] = ip_filter_rules
             __props__.__dict__["location"] = location
             __props__.__dict__["min_tls_version"] = min_tls_version
@@ -1009,6 +1045,7 @@ class IoTHub(pulumi.CustomResource):
             fallback_route: Optional[pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']]] = None,
             file_upload: Optional[pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']]] = None,
             ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             min_tls_version: Optional[pulumi.Input[str]] = None,
@@ -1039,6 +1076,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
+        :param pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
@@ -1067,6 +1105,7 @@ class IoTHub(pulumi.CustomResource):
         __props__.__dict__["fallback_route"] = fallback_route
         __props__.__dict__["file_upload"] = file_upload
         __props__.__dict__["hostname"] = hostname
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["ip_filter_rules"] = ip_filter_rules
         __props__.__dict__["location"] = location
         __props__.__dict__["min_tls_version"] = min_tls_version
@@ -1175,6 +1214,14 @@ class IoTHub(pulumi.CustomResource):
         The hostname of the IotHub Resource.
         """
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IoTHubIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="ipFilterRules")

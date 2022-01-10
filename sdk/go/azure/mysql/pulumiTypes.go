@@ -700,7 +700,7 @@ type ServerStorageProfile struct {
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// Deprecated: this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.
 	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
-	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
 	//
 	// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
 	StorageMb *int `pulumi:"storageMb"`
@@ -726,7 +726,7 @@ type ServerStorageProfileArgs struct {
 	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
 	// Deprecated: this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.
 	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
-	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
 	//
 	// Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
 	StorageMb pulumi.IntPtrInput `pulumi:"storageMb"`
@@ -826,7 +826,7 @@ func (o ServerStorageProfileOutput) GeoRedundantBackup() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ServerStorageProfile) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
 }
 
-// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
 //
 // Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
 func (o ServerStorageProfileOutput) StorageMb() pulumi.IntPtrOutput {
@@ -889,7 +889,7 @@ func (o ServerStorageProfilePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
 //
 // Deprecated: this has been moved to the top level and will be removed in version 3.0 of the provider.
 func (o ServerStorageProfilePtrOutput) StorageMb() pulumi.IntPtrOutput {

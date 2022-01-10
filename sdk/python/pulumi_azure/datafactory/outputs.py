@@ -70,6 +70,7 @@ __all__ = [
     'LinkedServiceAzureSqlDatabaseKeyVaultConnectionString',
     'LinkedServiceAzureSqlDatabaseKeyVaultPassword',
     'LinkedServiceOdataBasicAuthentication',
+    'LinkedServiceOdbcBasicAuthentication',
     'LinkedServiceSnowflakeKeyVaultPassword',
     'LinkedServiceSqlServerKeyVaultConnectionString',
     'LinkedServiceSqlServerKeyVaultPassword',
@@ -3575,6 +3576,35 @@ class LinkedServiceOdataBasicAuthentication(dict):
     def username(self) -> str:
         """
         The username which can be used to authenticate to the OData endpoint.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class LinkedServiceOdbcBasicAuthentication(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        :param str password: The password associated with the username, which can be used to authenticate to the ODBC endpoint.
+        :param str username: The username which can be used to authenticate to the ODBC endpoint.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password associated with the username, which can be used to authenticate to the ODBC endpoint.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The username which can be used to authenticate to the ODBC endpoint.
         """
         return pulumi.get(self, "username")
 

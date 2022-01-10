@@ -2327,6 +2327,118 @@ func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentity
 	}).(GetServerIdentityOutput)
 }
 
+type GetSqlManagedInstanceIdentity struct {
+	PrincipalId            string `pulumi:"principalId"`
+	TenantId               string `pulumi:"tenantId"`
+	Type                   string `pulumi:"type"`
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+}
+
+// GetSqlManagedInstanceIdentityInput is an input type that accepts GetSqlManagedInstanceIdentityArgs and GetSqlManagedInstanceIdentityOutput values.
+// You can construct a concrete instance of `GetSqlManagedInstanceIdentityInput` via:
+//
+//          GetSqlManagedInstanceIdentityArgs{...}
+type GetSqlManagedInstanceIdentityInput interface {
+	pulumi.Input
+
+	ToGetSqlManagedInstanceIdentityOutput() GetSqlManagedInstanceIdentityOutput
+	ToGetSqlManagedInstanceIdentityOutputWithContext(context.Context) GetSqlManagedInstanceIdentityOutput
+}
+
+type GetSqlManagedInstanceIdentityArgs struct {
+	PrincipalId            pulumi.StringInput `pulumi:"principalId"`
+	TenantId               pulumi.StringInput `pulumi:"tenantId"`
+	Type                   pulumi.StringInput `pulumi:"type"`
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (GetSqlManagedInstanceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSqlManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (i GetSqlManagedInstanceIdentityArgs) ToGetSqlManagedInstanceIdentityOutput() GetSqlManagedInstanceIdentityOutput {
+	return i.ToGetSqlManagedInstanceIdentityOutputWithContext(context.Background())
+}
+
+func (i GetSqlManagedInstanceIdentityArgs) ToGetSqlManagedInstanceIdentityOutputWithContext(ctx context.Context) GetSqlManagedInstanceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSqlManagedInstanceIdentityOutput)
+}
+
+// GetSqlManagedInstanceIdentityArrayInput is an input type that accepts GetSqlManagedInstanceIdentityArray and GetSqlManagedInstanceIdentityArrayOutput values.
+// You can construct a concrete instance of `GetSqlManagedInstanceIdentityArrayInput` via:
+//
+//          GetSqlManagedInstanceIdentityArray{ GetSqlManagedInstanceIdentityArgs{...} }
+type GetSqlManagedInstanceIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetSqlManagedInstanceIdentityArrayOutput() GetSqlManagedInstanceIdentityArrayOutput
+	ToGetSqlManagedInstanceIdentityArrayOutputWithContext(context.Context) GetSqlManagedInstanceIdentityArrayOutput
+}
+
+type GetSqlManagedInstanceIdentityArray []GetSqlManagedInstanceIdentityInput
+
+func (GetSqlManagedInstanceIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSqlManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (i GetSqlManagedInstanceIdentityArray) ToGetSqlManagedInstanceIdentityArrayOutput() GetSqlManagedInstanceIdentityArrayOutput {
+	return i.ToGetSqlManagedInstanceIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetSqlManagedInstanceIdentityArray) ToGetSqlManagedInstanceIdentityArrayOutputWithContext(ctx context.Context) GetSqlManagedInstanceIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSqlManagedInstanceIdentityArrayOutput)
+}
+
+type GetSqlManagedInstanceIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetSqlManagedInstanceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSqlManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (o GetSqlManagedInstanceIdentityOutput) ToGetSqlManagedInstanceIdentityOutput() GetSqlManagedInstanceIdentityOutput {
+	return o
+}
+
+func (o GetSqlManagedInstanceIdentityOutput) ToGetSqlManagedInstanceIdentityOutputWithContext(ctx context.Context) GetSqlManagedInstanceIdentityOutput {
+	return o
+}
+
+func (o GetSqlManagedInstanceIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSqlManagedInstanceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetSqlManagedInstanceIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSqlManagedInstanceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o GetSqlManagedInstanceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSqlManagedInstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o GetSqlManagedInstanceIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSqlManagedInstanceIdentity) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
+}
+
+type GetSqlManagedInstanceIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSqlManagedInstanceIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSqlManagedInstanceIdentity)(nil)).Elem()
+}
+
+func (o GetSqlManagedInstanceIdentityArrayOutput) ToGetSqlManagedInstanceIdentityArrayOutput() GetSqlManagedInstanceIdentityArrayOutput {
+	return o
+}
+
+func (o GetSqlManagedInstanceIdentityArrayOutput) ToGetSqlManagedInstanceIdentityArrayOutputWithContext(ctx context.Context) GetSqlManagedInstanceIdentityArrayOutput {
+	return o
+}
+
+func (o GetSqlManagedInstanceIdentityArrayOutput) Index(i pulumi.IntInput) GetSqlManagedInstanceIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSqlManagedInstanceIdentity {
+		return vs[0].([]GetSqlManagedInstanceIdentity)[vs[1].(int)]
+	}).(GetSqlManagedInstanceIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseExtendedAuditingPolicyInput)(nil)).Elem(), DatabaseExtendedAuditingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseExtendedAuditingPolicyPtrInput)(nil)).Elem(), DatabaseExtendedAuditingPolicyArgs{})
@@ -2354,6 +2466,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlServerThreatDetectionPolicyPtrInput)(nil)).Elem(), SqlServerThreatDetectionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityInput)(nil)).Elem(), GetServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSqlManagedInstanceIdentityInput)(nil)).Elem(), GetSqlManagedInstanceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSqlManagedInstanceIdentityArrayInput)(nil)).Elem(), GetSqlManagedInstanceIdentityArray{})
 	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyOutput{})
 	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseImportOutput{})
@@ -2380,4 +2494,6 @@ func init() {
 	pulumi.RegisterOutputType(SqlServerThreatDetectionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetSqlManagedInstanceIdentityOutput{})
+	pulumi.RegisterOutputType(GetSqlManagedInstanceIdentityArrayOutput{})
 }

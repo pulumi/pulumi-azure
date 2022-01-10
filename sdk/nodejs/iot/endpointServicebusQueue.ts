@@ -92,11 +92,23 @@ export class EndpointServicebusQueue extends pulumi.CustomResource {
      * The connection string for the endpoint.
      */
     public readonly connectionString!: pulumi.Output<string>;
+    /**
+     * The IoTHub ID for the endpoint.
+     */
+    public readonly iothubId!: pulumi.Output<string>;
+    /**
+     * The IoTHub name for the endpoint.
+     *
+     * @deprecated Deprecated in favour of `iothub_id`
+     */
     public readonly iothubName!: pulumi.Output<string>;
     /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
+     */
     public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
@@ -113,6 +125,7 @@ export class EndpointServicebusQueue extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EndpointServicebusQueueState | undefined;
             inputs["connectionString"] = state ? state.connectionString : undefined;
+            inputs["iothubId"] = state ? state.iothubId : undefined;
             inputs["iothubName"] = state ? state.iothubName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -121,13 +134,11 @@ export class EndpointServicebusQueue extends pulumi.CustomResource {
             if ((!args || args.connectionString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            if ((!args || args.iothubName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'iothubName'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["connectionString"] = args ? args.connectionString : undefined;
+            inputs["iothubId"] = args ? args.iothubId : undefined;
             inputs["iothubName"] = args ? args.iothubName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -147,11 +158,23 @@ export interface EndpointServicebusQueueState {
      * The connection string for the endpoint.
      */
     connectionString?: pulumi.Input<string>;
+    /**
+     * The IoTHub ID for the endpoint.
+     */
+    iothubId?: pulumi.Input<string>;
+    /**
+     * The IoTHub name for the endpoint.
+     *
+     * @deprecated Deprecated in favour of `iothub_id`
+     */
     iothubName?: pulumi.Input<string>;
     /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
+     */
     resourceGroupName?: pulumi.Input<string>;
 }
 
@@ -163,10 +186,22 @@ export interface EndpointServicebusQueueArgs {
      * The connection string for the endpoint.
      */
     connectionString: pulumi.Input<string>;
-    iothubName: pulumi.Input<string>;
+    /**
+     * The IoTHub ID for the endpoint.
+     */
+    iothubId?: pulumi.Input<string>;
+    /**
+     * The IoTHub name for the endpoint.
+     *
+     * @deprecated Deprecated in favour of `iothub_id`
+     */
+    iothubName?: pulumi.Input<string>;
     /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
+     */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -265,7 +265,7 @@ type ReplicatedVM struct {
 
 	// One or more `managedDisk` block.
 	ManagedDisks ReplicatedVMManagedDiskArrayOutput `pulumi:"managedDisks"`
-	// The name of the network mapping.
+	// The name of the replication for the replicated VM.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `networkInterface` block.
 	NetworkInterfaces           ReplicatedVMNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
@@ -350,7 +350,7 @@ func GetReplicatedVM(ctx *pulumi.Context,
 type replicatedVMState struct {
 	// One or more `managedDisk` block.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`
-	// The name of the network mapping.
+	// The name of the replication for the replicated VM.
 	Name *string `pulumi:"name"`
 	// One or more `networkInterface` block.
 	NetworkInterfaces           []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
@@ -380,7 +380,7 @@ type replicatedVMState struct {
 type ReplicatedVMState struct {
 	// One or more `managedDisk` block.
 	ManagedDisks ReplicatedVMManagedDiskArrayInput
-	// The name of the network mapping.
+	// The name of the replication for the replicated VM.
 	Name pulumi.StringPtrInput
 	// One or more `networkInterface` block.
 	NetworkInterfaces           ReplicatedVMNetworkInterfaceArrayInput
@@ -414,7 +414,7 @@ func (ReplicatedVMState) ElementType() reflect.Type {
 type replicatedVMArgs struct {
 	// One or more `managedDisk` block.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`
-	// The name of the network mapping.
+	// The name of the replication for the replicated VM.
 	Name *string `pulumi:"name"`
 	// One or more `networkInterface` block.
 	NetworkInterfaces           []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
@@ -445,7 +445,7 @@ type replicatedVMArgs struct {
 type ReplicatedVMArgs struct {
 	// One or more `managedDisk` block.
 	ManagedDisks ReplicatedVMManagedDiskArrayInput
-	// The name of the network mapping.
+	// The name of the replication for the replicated VM.
 	Name pulumi.StringPtrInput
 	// One or more `networkInterface` block.
 	NetworkInterfaces           ReplicatedVMNetworkInterfaceArrayInput

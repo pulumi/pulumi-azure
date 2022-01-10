@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -91,6 +92,10 @@ export class EndpointCustomDomain extends pulumi.CustomResource {
      */
     public readonly cdnEndpointId!: pulumi.Output<string>;
     /**
+     * A `cdnManagedHttps` block as defined below.
+     */
+    public readonly cdnManagedHttps!: pulumi.Output<outputs.cdn.EndpointCustomDomainCdnManagedHttps | undefined>;
+    /**
      * The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
     public readonly hostName!: pulumi.Output<string>;
@@ -98,6 +103,10 @@ export class EndpointCustomDomain extends pulumi.CustomResource {
      * The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A `userManagedHttps` block as defined below.
+     */
+    public readonly userManagedHttps!: pulumi.Output<outputs.cdn.EndpointCustomDomainUserManagedHttps | undefined>;
 
     /**
      * Create a EndpointCustomDomain resource with the given unique name, arguments, and options.
@@ -113,8 +122,10 @@ export class EndpointCustomDomain extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EndpointCustomDomainState | undefined;
             inputs["cdnEndpointId"] = state ? state.cdnEndpointId : undefined;
+            inputs["cdnManagedHttps"] = state ? state.cdnManagedHttps : undefined;
             inputs["hostName"] = state ? state.hostName : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["userManagedHttps"] = state ? state.userManagedHttps : undefined;
         } else {
             const args = argsOrState as EndpointCustomDomainArgs | undefined;
             if ((!args || args.cdnEndpointId === undefined) && !opts.urn) {
@@ -124,8 +135,10 @@ export class EndpointCustomDomain extends pulumi.CustomResource {
                 throw new Error("Missing required property 'hostName'");
             }
             inputs["cdnEndpointId"] = args ? args.cdnEndpointId : undefined;
+            inputs["cdnManagedHttps"] = args ? args.cdnManagedHttps : undefined;
             inputs["hostName"] = args ? args.hostName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["userManagedHttps"] = args ? args.userManagedHttps : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -143,6 +156,10 @@ export interface EndpointCustomDomainState {
      */
     cdnEndpointId?: pulumi.Input<string>;
     /**
+     * A `cdnManagedHttps` block as defined below.
+     */
+    cdnManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainCdnManagedHttps>;
+    /**
      * The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
     hostName?: pulumi.Input<string>;
@@ -150,6 +167,10 @@ export interface EndpointCustomDomainState {
      * The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `userManagedHttps` block as defined below.
+     */
+    userManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainUserManagedHttps>;
 }
 
 /**
@@ -161,6 +182,10 @@ export interface EndpointCustomDomainArgs {
      */
     cdnEndpointId: pulumi.Input<string>;
     /**
+     * A `cdnManagedHttps` block as defined below.
+     */
+    cdnManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainCdnManagedHttps>;
+    /**
      * The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
     hostName: pulumi.Input<string>;
@@ -168,4 +193,8 @@ export interface EndpointCustomDomainArgs {
      * The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `userManagedHttps` block as defined below.
+     */
+    userManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainUserManagedHttps>;
 }

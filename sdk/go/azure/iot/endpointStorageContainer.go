@@ -101,13 +101,17 @@ type EndpointStorageContainer struct {
 	Encoding pulumi.StringPtrOutput `pulumi:"encoding"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrOutput `pulumi:"fileNameFormat"`
-	// The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+	// The IoTHub ID for the endpoint.
+	IothubId pulumi.StringOutput `pulumi:"iothubId"`
+	// The IoTHub name for the endpoint.
+	//
+	// Deprecated: Deprecated in favour of `iothub_id`
 	IothubName pulumi.StringOutput `pulumi:"iothubName"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes pulumi.IntPtrOutput `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+	// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
@@ -123,9 +127,6 @@ func NewEndpointStorageContainer(ctx *pulumi.Context,
 	}
 	if args.ContainerName == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerName'")
-	}
-	if args.IothubName == nil {
-		return nil, errors.New("invalid value for required argument 'IothubName'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -163,13 +164,17 @@ type endpointStorageContainerState struct {
 	Encoding *string `pulumi:"encoding"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
-	// The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+	// The IoTHub ID for the endpoint.
+	IothubId *string `pulumi:"iothubId"`
+	// The IoTHub name for the endpoint.
+	//
+	// Deprecated: Deprecated in favour of `iothub_id`
 	IothubName *string `pulumi:"iothubName"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name *string `pulumi:"name"`
-	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+	// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
@@ -185,13 +190,17 @@ type EndpointStorageContainerState struct {
 	Encoding pulumi.StringPtrInput
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrInput
-	// The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+	// The IoTHub ID for the endpoint.
+	IothubId pulumi.StringPtrInput
+	// The IoTHub name for the endpoint.
+	//
+	// Deprecated: Deprecated in favour of `iothub_id`
 	IothubName pulumi.StringPtrInput
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes pulumi.IntPtrInput
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name pulumi.StringPtrInput
-	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+	// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 }
 
@@ -211,13 +220,17 @@ type endpointStorageContainerArgs struct {
 	Encoding *string `pulumi:"encoding"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
-	// The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
-	IothubName string `pulumi:"iothubName"`
+	// The IoTHub ID for the endpoint.
+	IothubId *string `pulumi:"iothubId"`
+	// The IoTHub name for the endpoint.
+	//
+	// Deprecated: Deprecated in favour of `iothub_id`
+	IothubName *string `pulumi:"iothubName"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name *string `pulumi:"name"`
-	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+	// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -234,13 +247,17 @@ type EndpointStorageContainerArgs struct {
 	Encoding pulumi.StringPtrInput
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrInput
-	// The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
-	IothubName pulumi.StringInput
+	// The IoTHub ID for the endpoint.
+	IothubId pulumi.StringPtrInput
+	// The IoTHub name for the endpoint.
+	//
+	// Deprecated: Deprecated in favour of `iothub_id`
+	IothubName pulumi.StringPtrInput
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 	MaxChunkSizeInBytes pulumi.IntPtrInput
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name pulumi.StringPtrInput
-	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+	// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 }
 

@@ -49,6 +49,7 @@ class LinuxVirtualMachineArgs:
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
@@ -88,6 +89,7 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -155,6 +157,8 @@ class LinuxVirtualMachineArgs:
             pulumi.set(__self__, "source_image_reference", source_image_reference)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
         if vtpm_enabled is not None:
@@ -571,6 +575,18 @@ class LinuxVirtualMachineArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64-Encoded User Data which should be used for this Virtual Machine.
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
+
+    @property
     @pulumi.getter(name="virtualMachineScaleSetId")
     def virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -648,6 +664,7 @@ class _LinuxVirtualMachineState:
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
@@ -692,6 +709,7 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -773,6 +791,8 @@ class _LinuxVirtualMachineState:
             pulumi.set(__self__, "source_image_reference", source_image_reference)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
         if virtual_machine_id is not None:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if virtual_machine_scale_set_id is not None:
@@ -1239,6 +1259,18 @@ class _LinuxVirtualMachineState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64-Encoded User Data which should be used for this Virtual Machine.
+        """
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
+
+    @property
     @pulumi.getter(name="virtualMachineId")
     def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1326,6 +1358,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
@@ -1436,6 +1469,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -1565,6 +1599,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
@@ -1624,6 +1659,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["source_image_id"] = source_image_id
             __props__.__dict__["source_image_reference"] = source_image_reference
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["user_data"] = user_data
             __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
             __props__.__dict__["vtpm_enabled"] = vtpm_enabled
             __props__.__dict__["zone"] = zone
@@ -1680,6 +1716,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             source_image_id: Optional[pulumi.Input[str]] = None,
             source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            user_data: Optional[pulumi.Input[str]] = None,
             virtual_machine_id: Optional[pulumi.Input[str]] = None,
             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
             vtpm_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1729,6 +1766,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -1776,6 +1814,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["source_image_id"] = source_image_id
         __props__.__dict__["source_image_reference"] = source_image_reference
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["user_data"] = user_data
         __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
         __props__.__dict__["vtpm_enabled"] = vtpm_enabled
@@ -2085,6 +2124,14 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         A mapping of tags which should be assigned to this Virtual Machine.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Base64-Encoded User Data which should be used for this Virtual Machine.
+        """
+        return pulumi.get(self, "user_data")
 
     @property
     @pulumi.getter(name="virtualMachineId")

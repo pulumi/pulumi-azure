@@ -119,6 +119,8 @@ type FallbackRoute struct {
 	IothubName pulumi.StringOutput `pulumi:"iothubName"`
 	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+	Source pulumi.StringPtrOutput `pulumi:"source"`
 }
 
 // NewFallbackRoute registers a new resource with the given unique name, arguments, and options.
@@ -172,6 +174,8 @@ type fallbackRouteState struct {
 	IothubName *string `pulumi:"iothubName"`
 	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+	Source *string `pulumi:"source"`
 }
 
 type FallbackRouteState struct {
@@ -185,6 +189,8 @@ type FallbackRouteState struct {
 	IothubName pulumi.StringPtrInput
 	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+	Source pulumi.StringPtrInput
 }
 
 func (FallbackRouteState) ElementType() reflect.Type {
@@ -202,6 +208,8 @@ type fallbackRouteArgs struct {
 	IothubName string `pulumi:"iothubName"`
 	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+	Source *string `pulumi:"source"`
 }
 
 // The set of arguments for constructing a FallbackRoute resource.
@@ -216,6 +224,8 @@ type FallbackRouteArgs struct {
 	IothubName pulumi.StringInput
 	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+	Source pulumi.StringPtrInput
 }
 
 func (FallbackRouteArgs) ElementType() reflect.Type {

@@ -23,14 +23,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleQueue = new azure.servicebus.Queue("exampleQueue", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     namespaceName: exampleNamespace.name,
+ *     namespaceId: exampleNamespace.id,
  *     enablePartitioning: true,
  * });
  * const exampleQueueAuthorizationRule = new azure.servicebus.QueueAuthorizationRule("exampleQueueAuthorizationRule", {
- *     namespaceName: exampleNamespace.name,
- *     queueName: exampleQueue.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     queueId: exampleQueue.id,
  *     listen: true,
  *     send: true,
  *     manage: false,
@@ -86,7 +83,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "queue_id"
      */
     public readonly namespaceName!: pulumi.Output<string>;
     /**
@@ -102,11 +99,15 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
-     * Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+     * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+     */
+    public readonly queueId!: pulumi.Output<string>;
+    /**
+     * @deprecated Deprecated in favor of "queue_id"
      */
     public readonly queueName!: pulumi.Output<string>;
     /**
-     * The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "queue_id"
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -133,7 +134,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: QueueAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: QueueAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: QueueAuthorizationRuleArgs | QueueAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -146,6 +147,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
             inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             inputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
             inputs["primaryKey"] = state ? state.primaryKey : undefined;
+            inputs["queueId"] = state ? state.queueId : undefined;
             inputs["queueName"] = state ? state.queueName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
@@ -154,19 +156,11 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
             inputs["send"] = state ? state.send : undefined;
         } else {
             const args = argsOrState as QueueAuthorizationRuleArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'namespaceName'");
-            }
-            if ((!args || args.queueName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'queueName'");
-            }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             inputs["listen"] = args ? args.listen : undefined;
             inputs["manage"] = args ? args.manage : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
+            inputs["queueId"] = args ? args.queueId : undefined;
             inputs["queueName"] = args ? args.queueName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["send"] = args ? args.send : undefined;
@@ -203,7 +197,7 @@ export interface QueueAuthorizationRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "queue_id"
      */
     namespaceName?: pulumi.Input<string>;
     /**
@@ -219,11 +213,15 @@ export interface QueueAuthorizationRuleState {
      */
     primaryKey?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+     * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
+     */
+    queueId?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "queue_id"
      */
     queueName?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "queue_id"
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -261,17 +259,21 @@ export interface QueueAuthorizationRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "queue_id"
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+     * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
      */
-    queueName: pulumi.Input<string>;
+    queueId?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated Deprecated in favor of "queue_id"
      */
-    resourceGroupName: pulumi.Input<string>;
+    queueName?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of "queue_id"
+     */
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
      */

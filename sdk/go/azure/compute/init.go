@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DiskAccess{}
 	case "azure:compute/diskEncryptionSet:DiskEncryptionSet":
 		r = &DiskEncryptionSet{}
+	case "azure:compute/diskPool:DiskPool":
+		r = &DiskPool{}
 	case "azure:compute/extension:Extension":
 		r = &Extension{}
 	case "azure:compute/image:Image":
@@ -120,6 +122,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/diskEncryptionSet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/diskPool",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

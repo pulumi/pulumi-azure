@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,19 +43,16 @@ import (
 // 			return err
 // 		}
 // 		exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			NamespaceName:     exampleNamespace.Name,
+// 			NamespaceId: exampleNamespace.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = servicebus.NewTopicAuthorizationRule(ctx, "exampleTopicAuthorizationRule", &servicebus.TopicAuthorizationRuleArgs{
-// 			NamespaceName:     exampleNamespace.Name,
-// 			TopicName:         exampleTopic.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Listen:            pulumi.Bool(true),
-// 			Send:              pulumi.Bool(false),
-// 			Manage:            pulumi.Bool(false),
+// 			TopicId: exampleTopic.ID(),
+// 			Listen:  pulumi.Bool(true),
+// 			Send:    pulumi.Bool(false),
+// 			Manage:  pulumi.Bool(false),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -84,7 +80,7 @@ type TopicAuthorizationRule struct {
 	Manage pulumi.BoolPtrOutput `pulumi:"manage"`
 	// Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "topic_id"
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The Primary Connection String for the ServiceBus Topic authorization Rule.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
@@ -92,7 +88,7 @@ type TopicAuthorizationRule struct {
 	PrimaryConnectionStringAlias pulumi.StringOutput `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the ServiceBus Topic authorization Rule.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
-	// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "topic_id"
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the ServiceBus Topic authorization Rule.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
@@ -102,7 +98,9 @@ type TopicAuthorizationRule struct {
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send pulumi.BoolPtrOutput `pulumi:"send"`
-	// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+	// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+	TopicId pulumi.StringOutput `pulumi:"topicId"`
+	// Deprecated: Deprecated in favor of "topic_id"
 	TopicName pulumi.StringOutput `pulumi:"topicName"`
 }
 
@@ -110,18 +108,9 @@ type TopicAuthorizationRule struct {
 func NewTopicAuthorizationRule(ctx *pulumi.Context,
 	name string, args *TopicAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*TopicAuthorizationRule, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &TopicAuthorizationRuleArgs{}
 	}
 
-	if args.NamespaceName == nil {
-		return nil, errors.New("invalid value for required argument 'NamespaceName'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.TopicName == nil {
-		return nil, errors.New("invalid value for required argument 'TopicName'")
-	}
 	var resource TopicAuthorizationRule
 	err := ctx.RegisterResource("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {
@@ -150,7 +139,7 @@ type topicAuthorizationRuleState struct {
 	Manage *bool `pulumi:"manage"`
 	// Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "topic_id"
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The Primary Connection String for the ServiceBus Topic authorization Rule.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
@@ -158,7 +147,7 @@ type topicAuthorizationRuleState struct {
 	PrimaryConnectionStringAlias *string `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the ServiceBus Topic authorization Rule.
 	PrimaryKey *string `pulumi:"primaryKey"`
-	// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "topic_id"
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the ServiceBus Topic authorization Rule.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
@@ -168,7 +157,9 @@ type topicAuthorizationRuleState struct {
 	SecondaryKey *string `pulumi:"secondaryKey"`
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send *bool `pulumi:"send"`
-	// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+	// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+	TopicId *string `pulumi:"topicId"`
+	// Deprecated: Deprecated in favor of "topic_id"
 	TopicName *string `pulumi:"topicName"`
 }
 
@@ -179,7 +170,7 @@ type TopicAuthorizationRuleState struct {
 	Manage pulumi.BoolPtrInput
 	// Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "topic_id"
 	NamespaceName pulumi.StringPtrInput
 	// The Primary Connection String for the ServiceBus Topic authorization Rule.
 	PrimaryConnectionString pulumi.StringPtrInput
@@ -187,7 +178,7 @@ type TopicAuthorizationRuleState struct {
 	PrimaryConnectionStringAlias pulumi.StringPtrInput
 	// The Primary Key for the ServiceBus Topic authorization Rule.
 	PrimaryKey pulumi.StringPtrInput
-	// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+	// Deprecated: Deprecated in favor of "topic_id"
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Connection String for the ServiceBus Topic authorization Rule.
 	SecondaryConnectionString pulumi.StringPtrInput
@@ -197,7 +188,9 @@ type TopicAuthorizationRuleState struct {
 	SecondaryKey pulumi.StringPtrInput
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send pulumi.BoolPtrInput
-	// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+	// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+	TopicId pulumi.StringPtrInput
+	// Deprecated: Deprecated in favor of "topic_id"
 	TopicName pulumi.StringPtrInput
 }
 
@@ -212,14 +205,16 @@ type topicAuthorizationRuleArgs struct {
 	Manage *bool `pulumi:"manage"`
 	// Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-	NamespaceName string `pulumi:"namespaceName"`
-	// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Deprecated: Deprecated in favor of "topic_id"
+	NamespaceName *string `pulumi:"namespaceName"`
+	// Deprecated: Deprecated in favor of "topic_id"
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send *bool `pulumi:"send"`
-	// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
-	TopicName string `pulumi:"topicName"`
+	// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+	TopicId *string `pulumi:"topicId"`
+	// Deprecated: Deprecated in favor of "topic_id"
+	TopicName *string `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a TopicAuthorizationRule resource.
@@ -230,14 +225,16 @@ type TopicAuthorizationRuleArgs struct {
 	Manage pulumi.BoolPtrInput
 	// Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-	NamespaceName pulumi.StringInput
-	// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
+	// Deprecated: Deprecated in favor of "topic_id"
+	NamespaceName pulumi.StringPtrInput
+	// Deprecated: Deprecated in favor of "topic_id"
+	ResourceGroupName pulumi.StringPtrInput
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send pulumi.BoolPtrInput
-	// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
-	TopicName pulumi.StringInput
+	// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
+	TopicId pulumi.StringPtrInput
+	// Deprecated: Deprecated in favor of "topic_id"
+	TopicName pulumi.StringPtrInput
 }
 
 func (TopicAuthorizationRuleArgs) ElementType() reflect.Type {

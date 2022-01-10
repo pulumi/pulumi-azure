@@ -181,9 +181,373 @@ func (o HostPoolRegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ScalingPlanHostPool struct {
+	// The ID of the HostPool to assign the Scaling Plan to.
+	HostpoolId string `pulumi:"hostpoolId"`
+	// Specifies if the scaling plan is enabled or disabled for the HostPool.
+	ScalingPlanEnabled bool `pulumi:"scalingPlanEnabled"`
+}
+
+// ScalingPlanHostPoolInput is an input type that accepts ScalingPlanHostPoolArgs and ScalingPlanHostPoolOutput values.
+// You can construct a concrete instance of `ScalingPlanHostPoolInput` via:
+//
+//          ScalingPlanHostPoolArgs{...}
+type ScalingPlanHostPoolInput interface {
+	pulumi.Input
+
+	ToScalingPlanHostPoolOutput() ScalingPlanHostPoolOutput
+	ToScalingPlanHostPoolOutputWithContext(context.Context) ScalingPlanHostPoolOutput
+}
+
+type ScalingPlanHostPoolArgs struct {
+	// The ID of the HostPool to assign the Scaling Plan to.
+	HostpoolId pulumi.StringInput `pulumi:"hostpoolId"`
+	// Specifies if the scaling plan is enabled or disabled for the HostPool.
+	ScalingPlanEnabled pulumi.BoolInput `pulumi:"scalingPlanEnabled"`
+}
+
+func (ScalingPlanHostPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPlanHostPool)(nil)).Elem()
+}
+
+func (i ScalingPlanHostPoolArgs) ToScalingPlanHostPoolOutput() ScalingPlanHostPoolOutput {
+	return i.ToScalingPlanHostPoolOutputWithContext(context.Background())
+}
+
+func (i ScalingPlanHostPoolArgs) ToScalingPlanHostPoolOutputWithContext(ctx context.Context) ScalingPlanHostPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanHostPoolOutput)
+}
+
+// ScalingPlanHostPoolArrayInput is an input type that accepts ScalingPlanHostPoolArray and ScalingPlanHostPoolArrayOutput values.
+// You can construct a concrete instance of `ScalingPlanHostPoolArrayInput` via:
+//
+//          ScalingPlanHostPoolArray{ ScalingPlanHostPoolArgs{...} }
+type ScalingPlanHostPoolArrayInput interface {
+	pulumi.Input
+
+	ToScalingPlanHostPoolArrayOutput() ScalingPlanHostPoolArrayOutput
+	ToScalingPlanHostPoolArrayOutputWithContext(context.Context) ScalingPlanHostPoolArrayOutput
+}
+
+type ScalingPlanHostPoolArray []ScalingPlanHostPoolInput
+
+func (ScalingPlanHostPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPlanHostPool)(nil)).Elem()
+}
+
+func (i ScalingPlanHostPoolArray) ToScalingPlanHostPoolArrayOutput() ScalingPlanHostPoolArrayOutput {
+	return i.ToScalingPlanHostPoolArrayOutputWithContext(context.Background())
+}
+
+func (i ScalingPlanHostPoolArray) ToScalingPlanHostPoolArrayOutputWithContext(ctx context.Context) ScalingPlanHostPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanHostPoolArrayOutput)
+}
+
+type ScalingPlanHostPoolOutput struct{ *pulumi.OutputState }
+
+func (ScalingPlanHostPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPlanHostPool)(nil)).Elem()
+}
+
+func (o ScalingPlanHostPoolOutput) ToScalingPlanHostPoolOutput() ScalingPlanHostPoolOutput {
+	return o
+}
+
+func (o ScalingPlanHostPoolOutput) ToScalingPlanHostPoolOutputWithContext(ctx context.Context) ScalingPlanHostPoolOutput {
+	return o
+}
+
+// The ID of the HostPool to assign the Scaling Plan to.
+func (o ScalingPlanHostPoolOutput) HostpoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPlanHostPool) string { return v.HostpoolId }).(pulumi.StringOutput)
+}
+
+// Specifies if the scaling plan is enabled or disabled for the HostPool.
+func (o ScalingPlanHostPoolOutput) ScalingPlanEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ScalingPlanHostPool) bool { return v.ScalingPlanEnabled }).(pulumi.BoolOutput)
+}
+
+type ScalingPlanHostPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (ScalingPlanHostPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPlanHostPool)(nil)).Elem()
+}
+
+func (o ScalingPlanHostPoolArrayOutput) ToScalingPlanHostPoolArrayOutput() ScalingPlanHostPoolArrayOutput {
+	return o
+}
+
+func (o ScalingPlanHostPoolArrayOutput) ToScalingPlanHostPoolArrayOutputWithContext(ctx context.Context) ScalingPlanHostPoolArrayOutput {
+	return o
+}
+
+func (o ScalingPlanHostPoolArrayOutput) Index(i pulumi.IntInput) ScalingPlanHostPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingPlanHostPool {
+		return vs[0].([]ScalingPlanHostPool)[vs[1].(int)]
+	}).(ScalingPlanHostPoolOutput)
+}
+
+type ScalingPlanSchedule struct {
+	// A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// The name of the schedule.
+	Name string `pulumi:"name"`
+	// The load Balancing Algorithm to use during Off-Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
+	OffPeakLoadBalancingAlgorithm string `pulumi:"offPeakLoadBalancingAlgorithm"`
+	// The time at which Off-Peak scaling will begin. This is also the end-time for the Ramp-Down period. The time must be specified in "HH:MM" format.
+	OffPeakStartTime string `pulumi:"offPeakStartTime"`
+	// The load Balancing Algorithm to use during Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
+	PeakLoadBalancingAlgorithm string `pulumi:"peakLoadBalancingAlgorithm"`
+	// The time at which Peak scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
+	PeakStartTime string `pulumi:"peakStartTime"`
+	// This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+	RampDownCapacityThresholdPercent int `pulumi:"rampDownCapacityThresholdPercent"`
+	// Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible
+	RampDownForceLogoffUsers bool `pulumi:"rampDownForceLogoffUsers"`
+	// The load Balancing Algorithm to use during the Ramp-Down period. Possible values are `DepthFirst` and `BreadthFirst`.
+	RampDownLoadBalancingAlgorithm string `pulumi:"rampDownLoadBalancingAlgorithm"`
+	// The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+	RampDownMinimumHostsPercent int `pulumi:"rampDownMinimumHostsPercent"`
+	// The notification message to send to users during Ramp-Down period when they are required to log-off.
+	RampDownNotificationMessage string `pulumi:"rampDownNotificationMessage"`
+	// The time at which Ramp-Down scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
+	RampDownStartTime string `pulumi:"rampDownStartTime"`
+	// Controls Session Host shutdown behaviour during Ramp-Down period. Session Hosts can either be shutdown when all sessions on the Session Host have ended, or when there are no Active sessions left on the Session Host. Possible values are `ZeroSessions` and `ZeroActiveSessions`.
+	RampDownStopHostsWhen string `pulumi:"rampDownStopHostsWhen"`
+	// The number of minutes during Ramp-Down period that autoscale will wait after setting the session host VMs to drain mode, notifying any currently signed in users to save their work before forcing the users to logoff. Once all user sessions on the session host VM have been logged off, Autoscale will shut down the VM.
+	RampDownWaitTimeMinutes int `pulumi:"rampDownWaitTimeMinutes"`
+	// Specify minimum percentage of session host virtual machines to start for ramp-up and peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+	RampUpCapacityThresholdPercent *int `pulumi:"rampUpCapacityThresholdPercent"`
+	// The load Balancing Algorithm to use during the Ramp-Up period. Possible values are `DepthFirst` and `BreadthFirst`.
+	RampUpLoadBalancingAlgorithm string `pulumi:"rampUpLoadBalancingAlgorithm"`
+	// This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+	RampUpMinimumHostsPercent *int `pulumi:"rampUpMinimumHostsPercent"`
+	// The time at which Ramp-Up scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
+	RampUpStartTime string `pulumi:"rampUpStartTime"`
+}
+
+// ScalingPlanScheduleInput is an input type that accepts ScalingPlanScheduleArgs and ScalingPlanScheduleOutput values.
+// You can construct a concrete instance of `ScalingPlanScheduleInput` via:
+//
+//          ScalingPlanScheduleArgs{...}
+type ScalingPlanScheduleInput interface {
+	pulumi.Input
+
+	ToScalingPlanScheduleOutput() ScalingPlanScheduleOutput
+	ToScalingPlanScheduleOutputWithContext(context.Context) ScalingPlanScheduleOutput
+}
+
+type ScalingPlanScheduleArgs struct {
+	// A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// The name of the schedule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The load Balancing Algorithm to use during Off-Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
+	OffPeakLoadBalancingAlgorithm pulumi.StringInput `pulumi:"offPeakLoadBalancingAlgorithm"`
+	// The time at which Off-Peak scaling will begin. This is also the end-time for the Ramp-Down period. The time must be specified in "HH:MM" format.
+	OffPeakStartTime pulumi.StringInput `pulumi:"offPeakStartTime"`
+	// The load Balancing Algorithm to use during Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
+	PeakLoadBalancingAlgorithm pulumi.StringInput `pulumi:"peakLoadBalancingAlgorithm"`
+	// The time at which Peak scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
+	PeakStartTime pulumi.StringInput `pulumi:"peakStartTime"`
+	// This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+	RampDownCapacityThresholdPercent pulumi.IntInput `pulumi:"rampDownCapacityThresholdPercent"`
+	// Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible
+	RampDownForceLogoffUsers pulumi.BoolInput `pulumi:"rampDownForceLogoffUsers"`
+	// The load Balancing Algorithm to use during the Ramp-Down period. Possible values are `DepthFirst` and `BreadthFirst`.
+	RampDownLoadBalancingAlgorithm pulumi.StringInput `pulumi:"rampDownLoadBalancingAlgorithm"`
+	// The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+	RampDownMinimumHostsPercent pulumi.IntInput `pulumi:"rampDownMinimumHostsPercent"`
+	// The notification message to send to users during Ramp-Down period when they are required to log-off.
+	RampDownNotificationMessage pulumi.StringInput `pulumi:"rampDownNotificationMessage"`
+	// The time at which Ramp-Down scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
+	RampDownStartTime pulumi.StringInput `pulumi:"rampDownStartTime"`
+	// Controls Session Host shutdown behaviour during Ramp-Down period. Session Hosts can either be shutdown when all sessions on the Session Host have ended, or when there are no Active sessions left on the Session Host. Possible values are `ZeroSessions` and `ZeroActiveSessions`.
+	RampDownStopHostsWhen pulumi.StringInput `pulumi:"rampDownStopHostsWhen"`
+	// The number of minutes during Ramp-Down period that autoscale will wait after setting the session host VMs to drain mode, notifying any currently signed in users to save their work before forcing the users to logoff. Once all user sessions on the session host VM have been logged off, Autoscale will shut down the VM.
+	RampDownWaitTimeMinutes pulumi.IntInput `pulumi:"rampDownWaitTimeMinutes"`
+	// Specify minimum percentage of session host virtual machines to start for ramp-up and peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+	RampUpCapacityThresholdPercent pulumi.IntPtrInput `pulumi:"rampUpCapacityThresholdPercent"`
+	// The load Balancing Algorithm to use during the Ramp-Up period. Possible values are `DepthFirst` and `BreadthFirst`.
+	RampUpLoadBalancingAlgorithm pulumi.StringInput `pulumi:"rampUpLoadBalancingAlgorithm"`
+	// This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+	RampUpMinimumHostsPercent pulumi.IntPtrInput `pulumi:"rampUpMinimumHostsPercent"`
+	// The time at which Ramp-Up scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
+	RampUpStartTime pulumi.StringInput `pulumi:"rampUpStartTime"`
+}
+
+func (ScalingPlanScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPlanSchedule)(nil)).Elem()
+}
+
+func (i ScalingPlanScheduleArgs) ToScalingPlanScheduleOutput() ScalingPlanScheduleOutput {
+	return i.ToScalingPlanScheduleOutputWithContext(context.Background())
+}
+
+func (i ScalingPlanScheduleArgs) ToScalingPlanScheduleOutputWithContext(ctx context.Context) ScalingPlanScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanScheduleOutput)
+}
+
+// ScalingPlanScheduleArrayInput is an input type that accepts ScalingPlanScheduleArray and ScalingPlanScheduleArrayOutput values.
+// You can construct a concrete instance of `ScalingPlanScheduleArrayInput` via:
+//
+//          ScalingPlanScheduleArray{ ScalingPlanScheduleArgs{...} }
+type ScalingPlanScheduleArrayInput interface {
+	pulumi.Input
+
+	ToScalingPlanScheduleArrayOutput() ScalingPlanScheduleArrayOutput
+	ToScalingPlanScheduleArrayOutputWithContext(context.Context) ScalingPlanScheduleArrayOutput
+}
+
+type ScalingPlanScheduleArray []ScalingPlanScheduleInput
+
+func (ScalingPlanScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPlanSchedule)(nil)).Elem()
+}
+
+func (i ScalingPlanScheduleArray) ToScalingPlanScheduleArrayOutput() ScalingPlanScheduleArrayOutput {
+	return i.ToScalingPlanScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ScalingPlanScheduleArray) ToScalingPlanScheduleArrayOutputWithContext(ctx context.Context) ScalingPlanScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanScheduleArrayOutput)
+}
+
+type ScalingPlanScheduleOutput struct{ *pulumi.OutputState }
+
+func (ScalingPlanScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPlanSchedule)(nil)).Elem()
+}
+
+func (o ScalingPlanScheduleOutput) ToScalingPlanScheduleOutput() ScalingPlanScheduleOutput {
+	return o
+}
+
+func (o ScalingPlanScheduleOutput) ToScalingPlanScheduleOutputWithContext(ctx context.Context) ScalingPlanScheduleOutput {
+	return o
+}
+
+// A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+func (o ScalingPlanScheduleOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// The name of the schedule.
+func (o ScalingPlanScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The load Balancing Algorithm to use during Off-Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
+func (o ScalingPlanScheduleOutput) OffPeakLoadBalancingAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) string { return v.OffPeakLoadBalancingAlgorithm }).(pulumi.StringOutput)
+}
+
+// The time at which Off-Peak scaling will begin. This is also the end-time for the Ramp-Down period. The time must be specified in "HH:MM" format.
+func (o ScalingPlanScheduleOutput) OffPeakStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) string { return v.OffPeakStartTime }).(pulumi.StringOutput)
+}
+
+// The load Balancing Algorithm to use during Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
+func (o ScalingPlanScheduleOutput) PeakLoadBalancingAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) string { return v.PeakLoadBalancingAlgorithm }).(pulumi.StringOutput)
+}
+
+// The time at which Peak scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
+func (o ScalingPlanScheduleOutput) PeakStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) string { return v.PeakStartTime }).(pulumi.StringOutput)
+}
+
+// This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+func (o ScalingPlanScheduleOutput) RampDownCapacityThresholdPercent() pulumi.IntOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) int { return v.RampDownCapacityThresholdPercent }).(pulumi.IntOutput)
+}
+
+// Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible
+func (o ScalingPlanScheduleOutput) RampDownForceLogoffUsers() pulumi.BoolOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) bool { return v.RampDownForceLogoffUsers }).(pulumi.BoolOutput)
+}
+
+// The load Balancing Algorithm to use during the Ramp-Down period. Possible values are `DepthFirst` and `BreadthFirst`.
+func (o ScalingPlanScheduleOutput) RampDownLoadBalancingAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) string { return v.RampDownLoadBalancingAlgorithm }).(pulumi.StringOutput)
+}
+
+// The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+func (o ScalingPlanScheduleOutput) RampDownMinimumHostsPercent() pulumi.IntOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) int { return v.RampDownMinimumHostsPercent }).(pulumi.IntOutput)
+}
+
+// The notification message to send to users during Ramp-Down period when they are required to log-off.
+func (o ScalingPlanScheduleOutput) RampDownNotificationMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) string { return v.RampDownNotificationMessage }).(pulumi.StringOutput)
+}
+
+// The time at which Ramp-Down scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
+func (o ScalingPlanScheduleOutput) RampDownStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) string { return v.RampDownStartTime }).(pulumi.StringOutput)
+}
+
+// Controls Session Host shutdown behaviour during Ramp-Down period. Session Hosts can either be shutdown when all sessions on the Session Host have ended, or when there are no Active sessions left on the Session Host. Possible values are `ZeroSessions` and `ZeroActiveSessions`.
+func (o ScalingPlanScheduleOutput) RampDownStopHostsWhen() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) string { return v.RampDownStopHostsWhen }).(pulumi.StringOutput)
+}
+
+// The number of minutes during Ramp-Down period that autoscale will wait after setting the session host VMs to drain mode, notifying any currently signed in users to save their work before forcing the users to logoff. Once all user sessions on the session host VM have been logged off, Autoscale will shut down the VM.
+func (o ScalingPlanScheduleOutput) RampDownWaitTimeMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) int { return v.RampDownWaitTimeMinutes }).(pulumi.IntOutput)
+}
+
+// Specify minimum percentage of session host virtual machines to start for ramp-up and peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+func (o ScalingPlanScheduleOutput) RampUpCapacityThresholdPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) *int { return v.RampUpCapacityThresholdPercent }).(pulumi.IntPtrOutput)
+}
+
+// The load Balancing Algorithm to use during the Ramp-Up period. Possible values are `DepthFirst` and `BreadthFirst`.
+func (o ScalingPlanScheduleOutput) RampUpLoadBalancingAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) string { return v.RampUpLoadBalancingAlgorithm }).(pulumi.StringOutput)
+}
+
+// This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+func (o ScalingPlanScheduleOutput) RampUpMinimumHostsPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) *int { return v.RampUpMinimumHostsPercent }).(pulumi.IntPtrOutput)
+}
+
+// The time at which Ramp-Up scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
+func (o ScalingPlanScheduleOutput) RampUpStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPlanSchedule) string { return v.RampUpStartTime }).(pulumi.StringOutput)
+}
+
+type ScalingPlanScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ScalingPlanScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPlanSchedule)(nil)).Elem()
+}
+
+func (o ScalingPlanScheduleArrayOutput) ToScalingPlanScheduleArrayOutput() ScalingPlanScheduleArrayOutput {
+	return o
+}
+
+func (o ScalingPlanScheduleArrayOutput) ToScalingPlanScheduleArrayOutputWithContext(ctx context.Context) ScalingPlanScheduleArrayOutput {
+	return o
+}
+
+func (o ScalingPlanScheduleArrayOutput) Index(i pulumi.IntInput) ScalingPlanScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingPlanSchedule {
+		return vs[0].([]ScalingPlanSchedule)[vs[1].(int)]
+	}).(ScalingPlanScheduleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolRegistrationInfoInput)(nil)).Elem(), HostPoolRegistrationInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolRegistrationInfoPtrInput)(nil)).Elem(), HostPoolRegistrationInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanHostPoolInput)(nil)).Elem(), ScalingPlanHostPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanHostPoolArrayInput)(nil)).Elem(), ScalingPlanHostPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScheduleInput)(nil)).Elem(), ScalingPlanScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScheduleArrayInput)(nil)).Elem(), ScalingPlanScheduleArray{})
 	pulumi.RegisterOutputType(HostPoolRegistrationInfoOutput{})
 	pulumi.RegisterOutputType(HostPoolRegistrationInfoPtrOutput{})
+	pulumi.RegisterOutputType(ScalingPlanHostPoolOutput{})
+	pulumi.RegisterOutputType(ScalingPlanHostPoolArrayOutput{})
+	pulumi.RegisterOutputType(ScalingPlanScheduleOutput{})
+	pulumi.RegisterOutputType(ScalingPlanScheduleArrayOutput{})
 }

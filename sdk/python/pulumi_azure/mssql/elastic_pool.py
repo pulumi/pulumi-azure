@@ -416,9 +416,9 @@ class ElasticPool(pulumi.CustomResource):
             license_type="LicenseIncluded",
             max_size_gb=756,
             sku=azure.mssql.ElasticPoolSkuArgs(
-                name="GP_Gen5",
-                tier="GeneralPurpose",
-                family="Gen5",
+                name="BasicPool",
+                tier="Basic",
+                family="Gen4",
                 capacity=4,
             ),
             per_database_settings=azure.mssql.ElasticPoolPerDatabaseSettingsArgs(
@@ -478,9 +478,9 @@ class ElasticPool(pulumi.CustomResource):
             license_type="LicenseIncluded",
             max_size_gb=756,
             sku=azure.mssql.ElasticPoolSkuArgs(
-                name="GP_Gen5",
-                tier="GeneralPurpose",
-                family="Gen5",
+                name="BasicPool",
+                tier="Basic",
+                family="Gen4",
                 capacity=4,
             ),
             per_database_settings=azure.mssql.ElasticPoolPerDatabaseSettingsArgs(

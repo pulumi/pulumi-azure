@@ -238,7 +238,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<ImmutableArray<Outputs.ReplicatedVMManagedDisk>> ManagedDisks { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the network mapping.
+        /// The name of the replication for the replicated VM.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -371,7 +371,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
 
         /// <summary>
-        /// The name of the network mapping.
+        /// The name of the replication for the replicated VM.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -471,7 +471,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
 
         /// <summary>
-        /// The name of the network mapping.
+        /// The name of the replication for the replicated VM.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

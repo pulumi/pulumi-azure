@@ -196,7 +196,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
      */
     public readonly managedDisks!: pulumi.Output<outputs.siterecovery.ReplicatedVMManagedDisk[] | undefined>;
     /**
-     * The name of the network mapping.
+     * The name of the replication for the replicated VM.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -332,7 +332,7 @@ export interface ReplicatedVMState {
      */
     managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
     /**
-     * The name of the network mapping.
+     * The name of the replication for the replicated VM.
      */
     name?: pulumi.Input<string>;
     /**
@@ -391,7 +391,7 @@ export interface ReplicatedVMArgs {
      */
     managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
     /**
-     * The name of the network mapping.
+     * The name of the replication for the replicated VM.
      */
     name?: pulumi.Input<string>;
     /**

@@ -50,9 +50,9 @@ import (
 // 			LicenseType:       pulumi.String("LicenseIncluded"),
 // 			MaxSizeGb:         pulumi.Float64(756),
 // 			Sku: &mssql.ElasticPoolSkuArgs{
-// 				Name:     pulumi.String("GP_Gen5"),
-// 				Tier:     pulumi.String("GeneralPurpose"),
-// 				Family:   pulumi.String("Gen5"),
+// 				Name:     pulumi.String("BasicPool"),
+// 				Tier:     pulumi.String("Basic"),
+// 				Family:   pulumi.String("Gen4"),
 // 				Capacity: pulumi.Int(4),
 // 			},
 // 			PerDatabaseSettings: &mssql.ElasticPoolPerDatabaseSettingsArgs{

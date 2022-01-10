@@ -38,15 +38,12 @@ namespace Pulumi.Azure.EventHub
     ///         });
     ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
+    ///             NamespaceId = exampleNamespace.Id,
     ///             EnablePartitioning = true,
     ///         });
     ///         var exampleSubscription = new Azure.ServiceBus.Subscription("exampleSubscription", new Azure.ServiceBus.SubscriptionArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             TopicName = exampleTopic.Name,
+    ///             TopicId = exampleTopic.Id,
     ///             MaxDeliveryCount = 1,
     ///         });
     ///     }
@@ -109,7 +106,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string?> ForwardTo { get; private set; } = null!;
 
         /// <summary>
-        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
+        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         /// </summary>
         [Output("lockDuration")]
         public Output<string> LockDuration { get; private set; } = null!;
@@ -126,9 +123,6 @@ namespace Pulumi.Azure.EventHub
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
@@ -138,9 +132,6 @@ namespace Pulumi.Azure.EventHub
         [Output("requiresSession")]
         public Output<bool?> RequiresSession { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -151,8 +142,11 @@ namespace Pulumi.Azure.EventHub
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+        /// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         /// </summary>
+        [Output("topicId")]
+        public Output<string> TopicId { get; private set; } = null!;
+
         [Output("topicName")]
         public Output<string> TopicName { get; private set; } = null!;
 
@@ -245,7 +239,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? ForwardTo { get; set; }
 
         /// <summary>
-        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
+        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         /// </summary>
         [Input("lockDuration")]
         public Input<string>? LockDuration { get; set; }
@@ -262,11 +256,8 @@ namespace Pulumi.Azure.EventHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
@@ -274,11 +265,8 @@ namespace Pulumi.Azure.EventHub
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
@@ -287,10 +275,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+        /// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("topicName", required: true)]
-        public Input<string> TopicName { get; set; } = null!;
+        [Input("topicId")]
+        public Input<string>? TopicId { get; set; }
+
+        [Input("topicName")]
+        public Input<string>? TopicName { get; set; }
 
         public SubscriptionArgs()
         {
@@ -342,7 +333,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? ForwardTo { get; set; }
 
         /// <summary>
-        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `PT1M`.
+        /// The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         /// </summary>
         [Input("lockDuration")]
         public Input<string>? LockDuration { get; set; }
@@ -359,9 +350,6 @@ namespace Pulumi.Azure.EventHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
@@ -371,9 +359,6 @@ namespace Pulumi.Azure.EventHub
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
@@ -384,8 +369,11 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+        /// The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         /// </summary>
+        [Input("topicId")]
+        public Input<string>? TopicId { get; set; }
+
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }
 

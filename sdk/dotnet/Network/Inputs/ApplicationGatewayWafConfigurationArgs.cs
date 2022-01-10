@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? RuleSetType { get; set; }
 
         /// <summary>
-        /// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
+        /// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
         /// </summary>
         [Input("ruleSetVersion", required: true)]
         public Input<string> RuleSetVersion { get; set; } = null!;

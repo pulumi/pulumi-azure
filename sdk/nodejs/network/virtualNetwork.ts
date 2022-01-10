@@ -26,10 +26,6 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleDdosProtectionPlan = new azure.network.DdosProtectionPlan("exampleDdosProtectionPlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -38,10 +34,6 @@ import * as utilities from "../utilities";
  *         "10.0.0.4",
  *         "10.0.0.5",
  *     ],
- *     ddosProtectionPlan: {
- *         id: exampleDdosProtectionPlan.id,
- *         enable: true,
- *     },
  *     subnets: [
  *         {
  *             name: "subnet1",
@@ -50,10 +42,6 @@ import * as utilities from "../utilities";
  *         {
  *             name: "subnet2",
  *             addressPrefix: "10.0.2.0/24",
- *         },
- *         {
- *             name: "subnet3",
- *             addressPrefix: "10.0.3.0/24",
  *             securityGroup: exampleNetworkSecurityGroup.id,
  *         },
  *     ],

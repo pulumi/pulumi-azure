@@ -62,7 +62,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<int> ApplicationConsistentSnapshotFrequencyInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the network mapping.
+        /// The name of the replication policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<int> ApplicationConsistentSnapshotFrequencyInMinutes { get; set; } = null!;
 
         /// <summary>
-        /// The name of the network mapping.
+        /// The name of the replication policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<int>? ApplicationConsistentSnapshotFrequencyInMinutes { get; set; }
 
         /// <summary>
-        /// The name of the network mapping.
+        /// The name of the replication policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

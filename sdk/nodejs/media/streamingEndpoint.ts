@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  * Streaming Endpoints can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:media/streamingEndpoint:StreamingEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/mediaservices/service1/streamingendpoints/endpoint1
+ *  $ pulumi import azure:media/streamingEndpoint:StreamingEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/service1/streamingendpoints/endpoint1
  * ```
  */
 export class StreamingEndpoint extends pulumi.CustomResource {

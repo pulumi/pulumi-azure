@@ -130,11 +130,15 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly encryptionSettings!: pulumi.Output<outputs.compute.ManagedDiskEncryptionSettings | undefined>;
     /**
+     * ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
+     */
+    public readonly galleryImageReferenceId!: pulumi.Output<string | undefined>;
+    /**
      * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
      */
     public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
     /**
-     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
+     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified.
      */
     public readonly imageReferenceId!: pulumi.Output<string | undefined>;
     /**
@@ -228,6 +232,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["diskMbpsReadWrite"] = state ? state.diskMbpsReadWrite : undefined;
             inputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
             inputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
+            inputs["galleryImageReferenceId"] = state ? state.galleryImageReferenceId : undefined;
             inputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
             inputs["imageReferenceId"] = state ? state.imageReferenceId : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -267,6 +272,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["diskMbpsReadWrite"] = args ? args.diskMbpsReadWrite : undefined;
             inputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
             inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
+            inputs["galleryImageReferenceId"] = args ? args.galleryImageReferenceId : undefined;
             inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
             inputs["imageReferenceId"] = args ? args.imageReferenceId : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -335,11 +341,15 @@ export interface ManagedDiskState {
      */
     encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
     /**
+     * ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
+     */
+    galleryImageReferenceId?: pulumi.Input<string>;
+    /**
      * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
      */
     hyperVGeneration?: pulumi.Input<string>;
     /**
-     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
+     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified.
      */
     imageReferenceId?: pulumi.Input<string>;
     /**
@@ -453,11 +463,15 @@ export interface ManagedDiskArgs {
      */
     encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
     /**
+     * ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified.
+     */
+    galleryImageReferenceId?: pulumi.Input<string>;
+    /**
      * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
      */
     hyperVGeneration?: pulumi.Input<string>;
     /**
-     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
+     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified.
      */
     imageReferenceId?: pulumi.Input<string>;
     /**

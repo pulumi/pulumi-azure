@@ -10,6 +10,7 @@ export * from "./provider";
 export * from "./util";
 
 // Export sub-modules:
+import * as aadb2c from "./aadb2c";
 import * as advisor from "./advisor";
 import * as analysisservices from "./analysisservices";
 import * as apimanagement from "./apimanagement";
@@ -35,7 +36,6 @@ import * as consumption from "./consumption";
 import * as containerservice from "./containerservice";
 import * as core from "./core";
 import * as cosmosdb from "./cosmosdb";
-import * as costmanagement from "./costmanagement";
 import * as dashboard from "./dashboard";
 import * as databasemigration from "./databasemigration";
 import * as databoxedge from "./databoxedge";
@@ -63,6 +63,7 @@ import * as keyvault from "./keyvault";
 import * as kusto from "./kusto";
 import * as lb from "./lb";
 import * as lighthouse from "./lighthouse";
+import * as loadtest from "./loadtest";
 import * as loganalytics from "./loganalytics";
 import * as logicapps from "./logicapps";
 import * as machinelearning from "./machinelearning";
@@ -114,6 +115,7 @@ import * as videoanalyzer from "./videoanalyzer";
 import * as waf from "./waf";
 
 export {
+    aadb2c,
     advisor,
     analysisservices,
     apimanagement,
@@ -139,7 +141,6 @@ export {
     containerservice,
     core,
     cosmosdb,
-    costmanagement,
     dashboard,
     databasemigration,
     databoxedge,
@@ -167,6 +168,7 @@ export {
     kusto,
     lb,
     lighthouse,
+    loadtest,
     loganalytics,
     logicapps,
     machinelearning,

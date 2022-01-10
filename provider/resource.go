@@ -45,6 +45,7 @@ const (
 	azurePkg = "azure"
 	// modules; in general, we took naming inspiration from the Azure SDK for Go:
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
+	aadb2c                     = "AadB2C"                // Advisor
 	advisor                    = "Advisor"               // Advisor
 	azureAnalysisServices      = "AnalysisServices"      // Analysis Services
 	azureAPIManagement         = "ApiManagement"         // API Management
@@ -97,6 +98,7 @@ const (
 	azureLogAnalytics          = "LogAnalytics"          // Log Analytics
 	azureLogicApps             = "LogicApps"             // Logic Apps
 	azureLB                    = "Lb"                    // Load Balancer
+	azureLoadTest              = "LoadTest"              // Load Test
 	azureMariaDB               = "MariaDB"               // MariaDB
 	azureEventGrid             = "EventGrid"             // Event Grid
 	azureEventHub              = "EventHub"              // Event Hub
@@ -299,6 +301,11 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
+			// Azure Active Directory Business to Consumer
+			"azurerm_aadb2c_directory": {
+				Tok: azureResource(aadb2c, "Directory"),
+			},
+
 			// ActiveDirectoryDomainService
 			"azurerm_active_directory_domain_service": {
 				Tok: azureResource(azureDomainServices, "Service"),
@@ -493,11 +500,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_slot_virtual_network_swift_connection": {
 				Tok: azureResource(azureAppService, "SlotVirtualNetworkSwiftConnection"),
 			},
-			"azurerm_app_service_certificate_binding": {Tok: azureResource(azureAppService, "CertificateBinding")},
-			"azurerm_app_service_environment_v3":      {Tok: azureResource(azureAppService, "EnvironmentV3")},
-			"azurerm_static_site":                     {Tok: azureResource(azureAppService, "StaticSite")},
-			"azurerm_static_site_custom_domain":       {Tok: azureResource(azureAppService, "StaticSiteCustomDomain")},
-			"azurerm_app_service_public_certificate":  {Tok: azureResource(azureAppService, "PublicCertificate")},
+			"azurerm_app_service_certificate_binding":          {Tok: azureResource(azureAppService, "CertificateBinding")},
+			"azurerm_app_service_environment_v3":               {Tok: azureResource(azureAppService, "EnvironmentV3")},
+			"azurerm_static_site":                              {Tok: azureResource(azureAppService, "StaticSite")},
+			"azurerm_static_site_custom_domain":                {Tok: azureResource(azureAppService, "StaticSiteCustomDomain")},
+			"azurerm_app_service_public_certificate":           {Tok: azureResource(azureAppService, "PublicCertificate")},
+			"azurerm_app_service_slot_custom_hostname_binding": {Tok: azureResource(azureAppService, "SlotCustomHostnameBinding")},
 
 			// AppPlatform
 			"azurerm_spring_cloud_service":                  {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
@@ -746,6 +754,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_disk_access":        {Tok: azureResource(azureCompute, "DiskAccess")},
 			"azurerm_ssh_public_key":     {Tok: azureResource(azureCompute, "SshPublicKey")},
 			"azurerm_linux_function_app": {Tok: azureResource(azureCompute, "LinuxFunctionApp")},
+			"azurerm_disk_pool":          {Tok: azureResource(azureCompute, "DiskPool")},
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
@@ -839,6 +848,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_trigger_tumbling_window":          {Tok: azureResource(azureDataFactory, "TriggerTumblingWindow")},
 			"azurerm_data_factory_data_flow":                        {Tok: azureResource(azureDataFactory, "DataFlow")},
 			"azurerm_data_factory_linked_service_cosmosdb_mongoapi": {Tok: azureResource(azureDataFactory, "LinkedServiceCosmosDbMongoApi")},
+			"azurerm_data_factory_linked_service_odbc":              {Tok: azureResource(azureDataFactory, "LinkedServiceOdbc")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":          {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -1032,6 +1042,9 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_lb_backend_address_pool_address": {Tok: azureResource(azureLB, "BackendAddressPoolAddress")},
+
+			// Load Test
+			"azurerm_load_test": {Tok: azureResource(azureLoadTest, "LoadTest")},
 
 			// Log Analytics
 			"azurerm_log_analytics_linked_service": {Tok: azureResource(azureLogAnalytics, "LinkedService")},
@@ -2002,9 +2015,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_desktop_workspace_application_group_association": {
 				Tok: azureResource(azureDesktopVirtualization, "WorkspaceApplicationGroupAssociation"),
 			},
-			"azurerm_virtual_desktop_host_pool":   {Tok: azureResource(azureDesktopVirtualization, "HostPool")},
-			"azurerm_virtual_desktop_workspace":   {Tok: azureResource(azureDesktopVirtualization, "Workspace")},
-			"azurerm_virtual_desktop_application": {Tok: azureResource(azureDesktopVirtualization, "Application")},
+			"azurerm_virtual_desktop_host_pool":    {Tok: azureResource(azureDesktopVirtualization, "HostPool")},
+			"azurerm_virtual_desktop_workspace":    {Tok: azureResource(azureDesktopVirtualization, "Workspace")},
+			"azurerm_virtual_desktop_application":  {Tok: azureResource(azureDesktopVirtualization, "Application")},
+			"azurerm_virtual_desktop_scaling_plan": {Tok: azureResource(azureDesktopVirtualization, "ScalingPlan")},
 
 			// DigitalTwins
 			"azurerm_digital_twins_instance":            {Tok: azureResource(azureDigitalTwins, "Instance")},
@@ -2039,6 +2053,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_consumption_budget_management_group": {Tok: azureResource(azureConsumption, "BudgetManagementGroup")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
+			"azurerm_aadb2c_directory": {Tok: azureDataSource(aadb2c, "getDirectory")},
+
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
 			"azurerm_api_management": {
 				Tok: azureDataSource(azureAPIManagement, "getService"),
@@ -2222,8 +2238,11 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_sql_server":                         {Tok: azureDataSource(azureSQL, "getServer")},
-			"azurerm_sql_database":                       {Tok: azureDataSource(azureSQL, "getDatabase")},
+
+			"azurerm_sql_server":           {Tok: azureDataSource(azureSQL, "getServer")},
+			"azurerm_sql_database":         {Tok: azureDataSource(azureSQL, "getDatabase")},
+			"azurerm_sql_managed_instance": {Tok: azureDataSource(azureSQL, "getSqlManagedInstance")},
+
 			"azurerm_virtual_network_gateway_connection": {Tok: azureDataSource(azureNetwork, "getGatewayConnection")},
 			"azurerm_firewall":                           {Tok: azureDataSource(azureNetwork, "getFirewall")},
 			"azurerm_subscription":                       {Tok: azureDataSource(azureCore, "getSubscription")},

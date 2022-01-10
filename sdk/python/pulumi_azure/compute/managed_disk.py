@@ -26,6 +26,7 @@ class ManagedDiskArgs:
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
+                 gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  image_reference_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -56,8 +57,9 @@ class ManagedDiskArgs:
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] logical_sector_size: Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
@@ -93,6 +95,8 @@ class ManagedDiskArgs:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if encryption_settings is not None:
             pulumi.set(__self__, "encryption_settings", encryption_settings)
+        if gallery_image_reference_id is not None:
+            pulumi.set(__self__, "gallery_image_reference_id", gallery_image_reference_id)
         if hyper_v_generation is not None:
             pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
         if image_reference_id is not None:
@@ -261,6 +265,18 @@ class ManagedDiskArgs:
         pulumi.set(self, "encryption_settings", value)
 
     @property
+    @pulumi.getter(name="galleryImageReferenceId")
+    def gallery_image_reference_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        """
+        return pulumi.get(self, "gallery_image_reference_id")
+
+    @gallery_image_reference_id.setter
+    def gallery_image_reference_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gallery_image_reference_id", value)
+
+    @property
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> Optional[pulumi.Input[str]]:
         """
@@ -276,7 +292,7 @@ class ManagedDiskArgs:
     @pulumi.getter(name="imageReferenceId")
     def image_reference_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
         """
         return pulumi.get(self, "image_reference_id")
 
@@ -477,6 +493,7 @@ class _ManagedDiskState:
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
+                 gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  image_reference_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -507,8 +524,9 @@ class _ManagedDiskState:
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] logical_sector_size: Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
@@ -545,6 +563,8 @@ class _ManagedDiskState:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if encryption_settings is not None:
             pulumi.set(__self__, "encryption_settings", encryption_settings)
+        if gallery_image_reference_id is not None:
+            pulumi.set(__self__, "gallery_image_reference_id", gallery_image_reference_id)
         if hyper_v_generation is not None:
             pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
         if image_reference_id is not None:
@@ -693,6 +713,18 @@ class _ManagedDiskState:
         pulumi.set(self, "encryption_settings", value)
 
     @property
+    @pulumi.getter(name="galleryImageReferenceId")
+    def gallery_image_reference_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        """
+        return pulumi.get(self, "gallery_image_reference_id")
+
+    @gallery_image_reference_id.setter
+    def gallery_image_reference_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gallery_image_reference_id", value)
+
+    @property
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> Optional[pulumi.Input[str]]:
         """
@@ -708,7 +740,7 @@ class _ManagedDiskState:
     @pulumi.getter(name="imageReferenceId")
     def image_reference_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
         """
         return pulumi.get(self, "image_reference_id")
 
@@ -935,6 +967,7 @@ class ManagedDisk(pulumi.CustomResource):
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
+                 gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  image_reference_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1023,8 +1056,9 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] logical_sector_size: Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
@@ -1130,6 +1164,7 @@ class ManagedDisk(pulumi.CustomResource):
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
+                 gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  image_reference_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1172,6 +1207,7 @@ class ManagedDisk(pulumi.CustomResource):
             __props__.__dict__["disk_mbps_read_write"] = disk_mbps_read_write
             __props__.__dict__["disk_size_gb"] = disk_size_gb
             __props__.__dict__["encryption_settings"] = encryption_settings
+            __props__.__dict__["gallery_image_reference_id"] = gallery_image_reference_id
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
             __props__.__dict__["image_reference_id"] = image_reference_id
             __props__.__dict__["location"] = location
@@ -1214,6 +1250,7 @@ class ManagedDisk(pulumi.CustomResource):
             disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
             disk_size_gb: Optional[pulumi.Input[int]] = None,
             encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
+            gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
             hyper_v_generation: Optional[pulumi.Input[str]] = None,
             image_reference_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1249,8 +1286,9 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] logical_sector_size: Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
@@ -1282,6 +1320,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__.__dict__["disk_mbps_read_write"] = disk_mbps_read_write
         __props__.__dict__["disk_size_gb"] = disk_size_gb
         __props__.__dict__["encryption_settings"] = encryption_settings
+        __props__.__dict__["gallery_image_reference_id"] = gallery_image_reference_id
         __props__.__dict__["hyper_v_generation"] = hyper_v_generation
         __props__.__dict__["image_reference_id"] = image_reference_id
         __props__.__dict__["location"] = location
@@ -1376,6 +1415,14 @@ class ManagedDisk(pulumi.CustomResource):
         return pulumi.get(self, "encryption_settings")
 
     @property
+    @pulumi.getter(name="galleryImageReferenceId")
+    def gallery_image_reference_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        """
+        return pulumi.get(self, "gallery_image_reference_id")
+
+    @property
     @pulumi.getter(name="hyperVGeneration")
     def hyper_v_generation(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1387,7 +1434,7 @@ class ManagedDisk(pulumi.CustomResource):
     @pulumi.getter(name="imageReferenceId")
     def image_reference_id(self) -> pulumi.Output[Optional[str]]:
         """
-        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
         """
         return pulumi.get(self, "image_reference_id")
 

@@ -98,6 +98,12 @@ namespace Pulumi.Azure.Cdn
         public Output<string> CdnEndpointId { get; private set; } = null!;
 
         /// <summary>
+        /// A `cdn_managed_https` block as defined below.
+        /// </summary>
+        [Output("cdnManagedHttps")]
+        public Output<Outputs.EndpointCustomDomainCdnManagedHttps?> CdnManagedHttps { get; private set; } = null!;
+
+        /// <summary>
         /// The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         /// </summary>
         [Output("hostName")]
@@ -108,6 +114,12 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// A `user_managed_https` block as defined below.
+        /// </summary>
+        [Output("userManagedHttps")]
+        public Output<Outputs.EndpointCustomDomainUserManagedHttps?> UserManagedHttps { get; private set; } = null!;
 
 
         /// <summary>
@@ -162,6 +174,12 @@ namespace Pulumi.Azure.Cdn
         public Input<string> CdnEndpointId { get; set; } = null!;
 
         /// <summary>
+        /// A `cdn_managed_https` block as defined below.
+        /// </summary>
+        [Input("cdnManagedHttps")]
+        public Input<Inputs.EndpointCustomDomainCdnManagedHttpsArgs>? CdnManagedHttps { get; set; }
+
+        /// <summary>
         /// The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         /// </summary>
         [Input("hostName", required: true)]
@@ -172,6 +190,12 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `user_managed_https` block as defined below.
+        /// </summary>
+        [Input("userManagedHttps")]
+        public Input<Inputs.EndpointCustomDomainUserManagedHttpsArgs>? UserManagedHttps { get; set; }
 
         public EndpointCustomDomainArgs()
         {
@@ -187,6 +211,12 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? CdnEndpointId { get; set; }
 
         /// <summary>
+        /// A `cdn_managed_https` block as defined below.
+        /// </summary>
+        [Input("cdnManagedHttps")]
+        public Input<Inputs.EndpointCustomDomainCdnManagedHttpsGetArgs>? CdnManagedHttps { get; set; }
+
+        /// <summary>
         /// The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         /// </summary>
         [Input("hostName")]
@@ -197,6 +227,12 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `user_managed_https` block as defined below.
+        /// </summary>
+        [Input("userManagedHttps")]
+        public Input<Inputs.EndpointCustomDomainUserManagedHttpsGetArgs>? UserManagedHttps { get; set; }
 
         public EndpointCustomDomainState()
         {

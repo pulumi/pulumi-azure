@@ -151,6 +151,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
     /**
+     * Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+     */
+    public readonly scaleDownMode!: pulumi.Output<string | undefined>;
+    /**
      * The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      */
     public readonly spotMaxPrice!: pulumi.Output<number | undefined>;
@@ -174,6 +178,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      * The ID of the Subnet where this Node Pool should exist.
      */
     public readonly vnetSubnetId!: pulumi.Output<string | undefined>;
+    /**
+     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+     */
+    public readonly workloadRuntime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a KubernetesClusterNodePool resource with the given unique name, arguments, and options.
@@ -215,12 +223,14 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["podSubnetId"] = state ? state.podSubnetId : undefined;
             inputs["priority"] = state ? state.priority : undefined;
             inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
+            inputs["scaleDownMode"] = state ? state.scaleDownMode : undefined;
             inputs["spotMaxPrice"] = state ? state.spotMaxPrice : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["ultraSsdEnabled"] = state ? state.ultraSsdEnabled : undefined;
             inputs["upgradeSettings"] = state ? state.upgradeSettings : undefined;
             inputs["vmSize"] = state ? state.vmSize : undefined;
             inputs["vnetSubnetId"] = state ? state.vnetSubnetId : undefined;
+            inputs["workloadRuntime"] = state ? state.workloadRuntime : undefined;
         } else {
             const args = argsOrState as KubernetesClusterNodePoolArgs | undefined;
             if ((!args || args.kubernetesClusterId === undefined) && !opts.urn) {
@@ -256,12 +266,14 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["podSubnetId"] = args ? args.podSubnetId : undefined;
             inputs["priority"] = args ? args.priority : undefined;
             inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
+            inputs["scaleDownMode"] = args ? args.scaleDownMode : undefined;
             inputs["spotMaxPrice"] = args ? args.spotMaxPrice : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ultraSsdEnabled"] = args ? args.ultraSsdEnabled : undefined;
             inputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["vnetSubnetId"] = args ? args.vnetSubnetId : undefined;
+            inputs["workloadRuntime"] = args ? args.workloadRuntime : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -383,6 +395,10 @@ export interface KubernetesClusterNodePoolState {
      */
     proximityPlacementGroupId?: pulumi.Input<string>;
     /**
+     * Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+     */
+    scaleDownMode?: pulumi.Input<string>;
+    /**
      * The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      */
     spotMaxPrice?: pulumi.Input<number>;
@@ -406,6 +422,10 @@ export interface KubernetesClusterNodePoolState {
      * The ID of the Subnet where this Node Pool should exist.
      */
     vnetSubnetId?: pulumi.Input<string>;
+    /**
+     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+     */
+    workloadRuntime?: pulumi.Input<string>;
 }
 
 /**
@@ -521,6 +541,10 @@ export interface KubernetesClusterNodePoolArgs {
      */
     proximityPlacementGroupId?: pulumi.Input<string>;
     /**
+     * Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+     */
+    scaleDownMode?: pulumi.Input<string>;
+    /**
      * The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      */
     spotMaxPrice?: pulumi.Input<number>;
@@ -544,4 +568,8 @@ export interface KubernetesClusterNodePoolArgs {
      * The ID of the Subnet where this Node Pool should exist.
      */
     vnetSubnetId?: pulumi.Input<string>;
+    /**
+     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+     */
+    workloadRuntime?: pulumi.Input<string>;
 }

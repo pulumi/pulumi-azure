@@ -194,10 +194,22 @@ namespace Pulumi.Azure.Network
         public Output<bool?> EnableHttp2 { get; private set; } = null!;
 
         /// <summary>
+        /// Is FIPS enabled on the Application Gateway?
+        /// </summary>
+        [Output("fipsEnabled")]
+        public Output<bool?> FipsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Web Application Firewall Policy.
         /// </summary>
         [Output("firewallPolicyId")]
         public Output<string?> FirewallPolicyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Is the Firewall Policy associated with the Application Gateway?
+        /// </summary>
+        [Output("forceFirewallPolicyAssociation")]
+        public Output<bool?> ForceFirewallPolicyAssociation { get; private set; } = null!;
 
         /// <summary>
         /// One or more `frontend_ip_configuration` blocks as defined below.
@@ -450,10 +462,22 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnableHttp2 { get; set; }
 
         /// <summary>
+        /// Is FIPS enabled on the Application Gateway?
+        /// </summary>
+        [Input("fipsEnabled")]
+        public Input<bool>? FipsEnabled { get; set; }
+
+        /// <summary>
         /// The ID of the Web Application Firewall Policy.
         /// </summary>
         [Input("firewallPolicyId")]
         public Input<string>? FirewallPolicyId { get; set; }
+
+        /// <summary>
+        /// Is the Firewall Policy associated with the Application Gateway?
+        /// </summary>
+        [Input("forceFirewallPolicyAssociation")]
+        public Input<bool>? ForceFirewallPolicyAssociation { get; set; }
 
         [Input("frontendIpConfigurations", required: true)]
         private InputList<Inputs.ApplicationGatewayFrontendIpConfigurationArgs>? _frontendIpConfigurations;
@@ -763,10 +787,22 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnableHttp2 { get; set; }
 
         /// <summary>
+        /// Is FIPS enabled on the Application Gateway?
+        /// </summary>
+        [Input("fipsEnabled")]
+        public Input<bool>? FipsEnabled { get; set; }
+
+        /// <summary>
         /// The ID of the Web Application Firewall Policy.
         /// </summary>
         [Input("firewallPolicyId")]
         public Input<string>? FirewallPolicyId { get; set; }
+
+        /// <summary>
+        /// Is the Firewall Policy associated with the Application Gateway?
+        /// </summary>
+        [Input("forceFirewallPolicyAssociation")]
+        public Input<bool>? ForceFirewallPolicyAssociation { get; set; }
 
         [Input("frontendIpConfigurations")]
         private InputList<Inputs.ApplicationGatewayFrontendIpConfigurationGetArgs>? _frontendIpConfigurations;

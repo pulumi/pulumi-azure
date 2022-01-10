@@ -110,10 +110,14 @@ type EndpointCustomDomain struct {
 
 	// The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	CdnEndpointId pulumi.StringOutput `pulumi:"cdnEndpointId"`
+	// A `cdnManagedHttps` block as defined below.
+	CdnManagedHttps EndpointCustomDomainCdnManagedHttpsPtrOutput `pulumi:"cdnManagedHttps"`
 	// The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A `userManagedHttps` block as defined below.
+	UserManagedHttps EndpointCustomDomainUserManagedHttpsPtrOutput `pulumi:"userManagedHttps"`
 }
 
 // NewEndpointCustomDomain registers a new resource with the given unique name, arguments, and options.
@@ -153,19 +157,27 @@ func GetEndpointCustomDomain(ctx *pulumi.Context,
 type endpointCustomDomainState struct {
 	// The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	CdnEndpointId *string `pulumi:"cdnEndpointId"`
+	// A `cdnManagedHttps` block as defined below.
+	CdnManagedHttps *EndpointCustomDomainCdnManagedHttps `pulumi:"cdnManagedHttps"`
 	// The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	HostName *string `pulumi:"hostName"`
 	// The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	Name *string `pulumi:"name"`
+	// A `userManagedHttps` block as defined below.
+	UserManagedHttps *EndpointCustomDomainUserManagedHttps `pulumi:"userManagedHttps"`
 }
 
 type EndpointCustomDomainState struct {
 	// The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	CdnEndpointId pulumi.StringPtrInput
+	// A `cdnManagedHttps` block as defined below.
+	CdnManagedHttps EndpointCustomDomainCdnManagedHttpsPtrInput
 	// The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	HostName pulumi.StringPtrInput
 	// The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	Name pulumi.StringPtrInput
+	// A `userManagedHttps` block as defined below.
+	UserManagedHttps EndpointCustomDomainUserManagedHttpsPtrInput
 }
 
 func (EndpointCustomDomainState) ElementType() reflect.Type {
@@ -175,20 +187,28 @@ func (EndpointCustomDomainState) ElementType() reflect.Type {
 type endpointCustomDomainArgs struct {
 	// The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	CdnEndpointId string `pulumi:"cdnEndpointId"`
+	// A `cdnManagedHttps` block as defined below.
+	CdnManagedHttps *EndpointCustomDomainCdnManagedHttps `pulumi:"cdnManagedHttps"`
 	// The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	HostName string `pulumi:"hostName"`
 	// The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	Name *string `pulumi:"name"`
+	// A `userManagedHttps` block as defined below.
+	UserManagedHttps *EndpointCustomDomainUserManagedHttps `pulumi:"userManagedHttps"`
 }
 
 // The set of arguments for constructing a EndpointCustomDomain resource.
 type EndpointCustomDomainArgs struct {
 	// The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	CdnEndpointId pulumi.StringInput
+	// A `cdnManagedHttps` block as defined below.
+	CdnManagedHttps EndpointCustomDomainCdnManagedHttpsPtrInput
 	// The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	HostName pulumi.StringInput
 	// The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
 	Name pulumi.StringPtrInput
+	// A `userManagedHttps` block as defined below.
+	UserManagedHttps EndpointCustomDomainUserManagedHttpsPtrInput
 }
 
 func (EndpointCustomDomainArgs) ElementType() reflect.Type {

@@ -135,9 +135,13 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
     }
 
     /**
+     * The content of uploaded certificate. Changing this forces a new resource to be created.
+     */
+    public readonly certificateContent!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
      */
-    public readonly keyVaultCertificateId!: pulumi.Output<string>;
+    public readonly keyVaultCertificateId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
      */
@@ -168,6 +172,7 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudCertificateState | undefined;
+            inputs["certificateContent"] = state ? state.certificateContent : undefined;
             inputs["keyVaultCertificateId"] = state ? state.keyVaultCertificateId : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -175,15 +180,13 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
             inputs["thumbprint"] = state ? state.thumbprint : undefined;
         } else {
             const args = argsOrState as SpringCloudCertificateArgs | undefined;
-            if ((!args || args.keyVaultCertificateId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyVaultCertificateId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["certificateContent"] = args ? args.certificateContent : undefined;
             inputs["keyVaultCertificateId"] = args ? args.keyVaultCertificateId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -201,6 +204,10 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SpringCloudCertificate resources.
  */
 export interface SpringCloudCertificateState {
+    /**
+     * The content of uploaded certificate. Changing this forces a new resource to be created.
+     */
+    certificateContent?: pulumi.Input<string>;
     /**
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
      */
@@ -228,9 +235,13 @@ export interface SpringCloudCertificateState {
  */
 export interface SpringCloudCertificateArgs {
     /**
+     * The content of uploaded certificate. Changing this forces a new resource to be created.
+     */
+    certificateContent?: pulumi.Input<string>;
+    /**
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
      */
-    keyVaultCertificateId: pulumi.Input<string>;
+    keyVaultCertificateId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
      */

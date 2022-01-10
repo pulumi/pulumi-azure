@@ -21,6 +21,7 @@ class FlexibleServerArgs:
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
+                 geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  high_availability: Optional[pulumi.Input['FlexibleServerHighAvailabilityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['FlexibleServerMaintenanceWindowArgs']] = None,
@@ -41,6 +42,7 @@ class FlexibleServerArgs:
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[bool] geo_redundant_backup_enabled: Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input['FlexibleServerHighAvailabilityArgs'] high_availability: A `high_availability` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input['FlexibleServerMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
@@ -66,6 +68,8 @@ class FlexibleServerArgs:
             pulumi.set(__self__, "create_mode", create_mode)
         if delegated_subnet_id is not None:
             pulumi.set(__self__, "delegated_subnet_id", delegated_subnet_id)
+        if geo_redundant_backup_enabled is not None:
+            pulumi.set(__self__, "geo_redundant_backup_enabled", geo_redundant_backup_enabled)
         if high_availability is not None:
             pulumi.set(__self__, "high_availability", high_availability)
         if location is not None:
@@ -162,6 +166,18 @@ class FlexibleServerArgs:
     @delegated_subnet_id.setter
     def delegated_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delegated_subnet_id", value)
+
+    @property
+    @pulumi.getter(name="geoRedundantBackupEnabled")
+    def geo_redundant_backup_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        """
+        return pulumi.get(self, "geo_redundant_backup_enabled")
+
+    @geo_redundant_backup_enabled.setter
+    def geo_redundant_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "geo_redundant_backup_enabled", value)
 
     @property
     @pulumi.getter(name="highAvailability")
@@ -319,6 +335,7 @@ class _FlexibleServerState:
                  create_mode: Optional[pulumi.Input[str]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
+                 geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  high_availability: Optional[pulumi.Input['FlexibleServerHighAvailabilityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['FlexibleServerMaintenanceWindowArgs']] = None,
@@ -342,6 +359,7 @@ class _FlexibleServerState:
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the PostgreSQL Flexible Server.
+        :param pulumi.Input[bool] geo_redundant_backup_enabled: Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input['FlexibleServerHighAvailabilityArgs'] high_availability: A `high_availability` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input['FlexibleServerMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
@@ -375,6 +393,8 @@ class _FlexibleServerState:
             pulumi.set(__self__, "delegated_subnet_id", delegated_subnet_id)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
+        if geo_redundant_backup_enabled is not None:
+            pulumi.set(__self__, "geo_redundant_backup_enabled", geo_redundant_backup_enabled)
         if high_availability is not None:
             pulumi.set(__self__, "high_availability", high_availability)
         if location is not None:
@@ -487,6 +507,18 @@ class _FlexibleServerState:
     @fqdn.setter
     def fqdn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter(name="geoRedundantBackupEnabled")
+    def geo_redundant_backup_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        """
+        return pulumi.get(self, "geo_redundant_backup_enabled")
+
+    @geo_redundant_backup_enabled.setter
+    def geo_redundant_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "geo_redundant_backup_enabled", value)
 
     @property
     @pulumi.getter(name="highAvailability")
@@ -668,6 +700,7 @@ class FlexibleServer(pulumi.CustomResource):
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
+                 geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  high_availability: Optional[pulumi.Input[pulumi.InputType['FlexibleServerHighAvailabilityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']]] = None,
@@ -742,6 +775,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
+        :param pulumi.Input[bool] geo_redundant_backup_enabled: Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[pulumi.InputType['FlexibleServerHighAvailabilityArgs']] high_availability: A `high_availability` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
@@ -836,6 +870,7 @@ class FlexibleServer(pulumi.CustomResource):
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  delegated_subnet_id: Optional[pulumi.Input[str]] = None,
+                 geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  high_availability: Optional[pulumi.Input[pulumi.InputType['FlexibleServerHighAvailabilityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']]] = None,
@@ -866,6 +901,7 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["backup_retention_days"] = backup_retention_days
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["delegated_subnet_id"] = delegated_subnet_id
+            __props__.__dict__["geo_redundant_backup_enabled"] = geo_redundant_backup_enabled
             __props__.__dict__["high_availability"] = high_availability
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_window"] = maintenance_window
@@ -901,6 +937,7 @@ class FlexibleServer(pulumi.CustomResource):
             create_mode: Optional[pulumi.Input[str]] = None,
             delegated_subnet_id: Optional[pulumi.Input[str]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
+            geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
             high_availability: Optional[pulumi.Input[pulumi.InputType['FlexibleServerHighAvailabilityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             maintenance_window: Optional[pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']]] = None,
@@ -929,6 +966,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default` and `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the PostgreSQL Flexible Server.
+        :param pulumi.Input[bool] geo_redundant_backup_enabled: Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[pulumi.InputType['FlexibleServerHighAvailabilityArgs']] high_availability: A `high_availability` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[pulumi.InputType['FlexibleServerMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
@@ -956,6 +994,7 @@ class FlexibleServer(pulumi.CustomResource):
         __props__.__dict__["create_mode"] = create_mode
         __props__.__dict__["delegated_subnet_id"] = delegated_subnet_id
         __props__.__dict__["fqdn"] = fqdn
+        __props__.__dict__["geo_redundant_backup_enabled"] = geo_redundant_backup_enabled
         __props__.__dict__["high_availability"] = high_availability
         __props__.__dict__["location"] = location
         __props__.__dict__["maintenance_window"] = maintenance_window
@@ -1027,6 +1066,14 @@ class FlexibleServer(pulumi.CustomResource):
         The FQDN of the PostgreSQL Flexible Server.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="geoRedundantBackupEnabled")
+    def geo_redundant_backup_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        """
+        return pulumi.get(self, "geo_redundant_backup_enabled")
 
     @property
     @pulumi.getter(name="highAvailability")

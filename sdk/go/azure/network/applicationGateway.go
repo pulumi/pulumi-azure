@@ -161,8 +161,12 @@ type ApplicationGateway struct {
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayOutput `pulumi:"customErrorConfigurations"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrOutput `pulumi:"enableHttp2"`
+	// Is FIPS enabled on the Application Gateway?
+	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
 	// The ID of the Web Application Firewall Policy.
 	FirewallPolicyId pulumi.StringPtrOutput `pulumi:"firewallPolicyId"`
+	// Is the Firewall Policy associated with the Application Gateway?
+	ForceFirewallPolicyAssociation pulumi.BoolPtrOutput `pulumi:"forceFirewallPolicyAssociation"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations ApplicationGatewayFrontendIpConfigurationArrayOutput `pulumi:"frontendIpConfigurations"`
 	// One or more `frontendPort` blocks as defined below.
@@ -281,8 +285,12 @@ type applicationGatewayState struct {
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
+	// Is FIPS enabled on the Application Gateway?
+	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// The ID of the Web Application Firewall Policy.
 	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
+	// Is the Firewall Policy associated with the Application Gateway?
+	ForceFirewallPolicyAssociation *bool `pulumi:"forceFirewallPolicyAssociation"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations []ApplicationGatewayFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
 	// One or more `frontendPort` blocks as defined below.
@@ -346,8 +354,12 @@ type ApplicationGatewayState struct {
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayInput
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrInput
+	// Is FIPS enabled on the Application Gateway?
+	FipsEnabled pulumi.BoolPtrInput
 	// The ID of the Web Application Firewall Policy.
 	FirewallPolicyId pulumi.StringPtrInput
+	// Is the Firewall Policy associated with the Application Gateway?
+	ForceFirewallPolicyAssociation pulumi.BoolPtrInput
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations ApplicationGatewayFrontendIpConfigurationArrayInput
 	// One or more `frontendPort` blocks as defined below.
@@ -415,8 +427,12 @@ type applicationGatewayArgs struct {
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
+	// Is FIPS enabled on the Application Gateway?
+	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// The ID of the Web Application Firewall Policy.
 	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
+	// Is the Firewall Policy associated with the Application Gateway?
+	ForceFirewallPolicyAssociation *bool `pulumi:"forceFirewallPolicyAssociation"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations []ApplicationGatewayFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
 	// One or more `frontendPort` blocks as defined below.
@@ -479,8 +495,12 @@ type ApplicationGatewayArgs struct {
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayInput
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrInput
+	// Is FIPS enabled on the Application Gateway?
+	FipsEnabled pulumi.BoolPtrInput
 	// The ID of the Web Application Firewall Policy.
 	FirewallPolicyId pulumi.StringPtrInput
+	// Is the Firewall Policy associated with the Application Gateway?
+	ForceFirewallPolicyAssociation pulumi.BoolPtrInput
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations ApplicationGatewayFrontendIpConfigurationArrayInput
 	// One or more `frontendPort` blocks as defined below.

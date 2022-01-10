@@ -19,13 +19,13 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<int>? AllocationWeight { get; set; }
 
         /// <summary>
-        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
         /// </summary>
         [Input("applyAllocationPolicy")]
         public Input<bool>? ApplyAllocationPolicy { get; set; }
 
         /// <summary>
-        /// The connection string to connect to the IoT Hub. Changing this forces a new resource.
+        /// The connection string to connect to the IoT Hub.
         /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// The location of the IoT hub. Changing this forces a new resource.
+        /// The location of the IoT hub.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;

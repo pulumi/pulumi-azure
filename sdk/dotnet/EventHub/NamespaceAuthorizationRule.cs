@@ -38,8 +38,7 @@ namespace Pulumi.Azure.EventHub
     ///         });
     ///         var exampleNamespaceAuthorizationRule = new Azure.ServiceBus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", new Azure.ServiceBus.NamespaceAuthorizationRuleArgs
     ///         {
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             NamespaceId = exampleNamespace.Id,
     ///             Listen = true,
     ///             Send = true,
     ///             Manage = false,
@@ -80,8 +79,11 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+        /// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         /// </summary>
+        [Output("namespaceId")]
+        public Output<string> NamespaceId { get; private set; } = null!;
+
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
@@ -103,9 +105,6 @@ namespace Pulumi.Azure.EventHub
         [Output("primaryKey")]
         public Output<string> PrimaryKey { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -141,7 +140,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public NamespaceAuthorizationRule(string name, NamespaceAuthorizationRuleArgs args, CustomResourceOptions? options = null)
+        public NamespaceAuthorizationRule(string name, NamespaceAuthorizationRuleArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, args ?? new NamespaceAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -198,16 +197,16 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+        /// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
+
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// Grants send access to this this Authorization Rule. Defaults to `false`.
@@ -241,8 +240,11 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+        /// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         /// </summary>
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
+
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
@@ -264,9 +266,6 @@ namespace Pulumi.Azure.EventHub
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 

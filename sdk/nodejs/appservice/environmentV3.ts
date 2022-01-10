@@ -6,56 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages a 3rd Generation (v3) App Service Environment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     addressSpaces: ["10.0.0.0/16"],
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
- *     delegations: [{
- *         name: "delegation",
- *         serviceDelegation: {
- *             name: "Microsoft.Web/hostingEnvironments",
- *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
- *         },
- *     }],
- * });
- * const exampleEnvironmentV3 = new azure.appservice.EnvironmentV3("exampleEnvironmentV3", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     subnetId: exampleSubnet.id,
- *     clusterSettings: [
- *         {
- *             name: "DisableTls1.0",
- *             value: "1",
- *         },
- *         {
- *             name: "InternalEncryption",
- *             value: "true",
- *         },
- *         {
- *             name: "FrontEndSSLCipherSuiteOrder",
- *             value: "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
- *         },
- *     ],
- *     tags: {
- *         env: "production",
- *         terraformed: "true",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * A 3rd Generation (v3) App Service Environment can be imported using the `resource id`, e.g.
@@ -101,7 +51,7 @@ export class EnvironmentV3 extends pulumi.CustomResource {
      */
     public readonly clusterSettings!: pulumi.Output<outputs.appservice.EnvironmentV3ClusterSetting[]>;
     /**
-     * This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+     * This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
      */
     public readonly dedicatedHostCount!: pulumi.Output<number | undefined>;
     /**
@@ -160,6 +110,9 @@ export class EnvironmentV3 extends pulumi.CustomResource {
      * Outbound addresses of Windows based Apps in this App Service Environment V3.
      */
     public /*out*/ readonly windowsOutboundIpAddresses!: pulumi.Output<string[]>;
+    /**
+     * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/en-us/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+     */
     public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -240,7 +193,7 @@ export interface EnvironmentV3State {
      */
     clusterSettings?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentV3ClusterSetting>[]>;
     /**
-     * This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+     * This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
      */
     dedicatedHostCount?: pulumi.Input<number>;
     /**
@@ -299,6 +252,9 @@ export interface EnvironmentV3State {
      * Outbound addresses of Windows based Apps in this App Service Environment V3.
      */
     windowsOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/en-us/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+     */
     zoneRedundant?: pulumi.Input<boolean>;
 }
 
@@ -315,7 +271,7 @@ export interface EnvironmentV3Args {
      */
     clusterSettings?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentV3ClusterSetting>[]>;
     /**
-     * This ASEv3 should use dedicated Hosts. Possible vales are `2`. Changing this forces a new resource to be created.
+     * This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
      */
     dedicatedHostCount?: pulumi.Input<number>;
     /**
@@ -338,5 +294,8 @@ export interface EnvironmentV3Args {
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/en-us/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+     */
     zoneRedundant?: pulumi.Input<boolean>;
 }

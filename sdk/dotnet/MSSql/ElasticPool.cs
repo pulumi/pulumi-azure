@@ -43,9 +43,9 @@ namespace Pulumi.Azure.MSSql
     ///             MaxSizeGb = 756,
     ///             Sku = new Azure.MSSql.Inputs.ElasticPoolSkuArgs
     ///             {
-    ///                 Name = "GP_Gen5",
-    ///                 Tier = "GeneralPurpose",
-    ///                 Family = "Gen5",
+    ///                 Name = "BasicPool",
+    ///                 Tier = "Basic",
+    ///                 Family = "Gen4",
     ///                 Capacity = 4,
     ///             },
     ///             PerDatabaseSettings = new Azure.MSSql.Inputs.ElasticPoolPerDatabaseSettingsArgs

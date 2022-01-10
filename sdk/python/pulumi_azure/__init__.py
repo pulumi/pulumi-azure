@@ -10,6 +10,8 @@ from ._inputs import *
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure.aadb2c as __aadb2c
+    aadb2c = __aadb2c
     import pulumi_azure.advisor as __advisor
     advisor = __advisor
     import pulumi_azure.analysisservices as __analysisservices
@@ -60,8 +62,6 @@ if typing.TYPE_CHECKING:
     core = __core
     import pulumi_azure.cosmosdb as __cosmosdb
     cosmosdb = __cosmosdb
-    import pulumi_azure.costmanagement as __costmanagement
-    costmanagement = __costmanagement
     import pulumi_azure.dashboard as __dashboard
     dashboard = __dashboard
     import pulumi_azure.databasemigration as __databasemigration
@@ -116,6 +116,8 @@ if typing.TYPE_CHECKING:
     lb = __lb
     import pulumi_azure.lighthouse as __lighthouse
     lighthouse = __lighthouse
+    import pulumi_azure.loadtest as __loadtest
+    loadtest = __loadtest
     import pulumi_azure.loganalytics as __loganalytics
     loganalytics = __loganalytics
     import pulumi_azure.logicapps as __logicapps
@@ -213,6 +215,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure.waf as __waf
     waf = __waf
 else:
+    aadb2c = _utilities.lazy_import('pulumi_azure.aadb2c')
     advisor = _utilities.lazy_import('pulumi_azure.advisor')
     analysisservices = _utilities.lazy_import('pulumi_azure.analysisservices')
     apimanagement = _utilities.lazy_import('pulumi_azure.apimanagement')
@@ -238,7 +241,6 @@ else:
     containerservice = _utilities.lazy_import('pulumi_azure.containerservice')
     core = _utilities.lazy_import('pulumi_azure.core')
     cosmosdb = _utilities.lazy_import('pulumi_azure.cosmosdb')
-    costmanagement = _utilities.lazy_import('pulumi_azure.costmanagement')
     dashboard = _utilities.lazy_import('pulumi_azure.dashboard')
     databasemigration = _utilities.lazy_import('pulumi_azure.databasemigration')
     databoxedge = _utilities.lazy_import('pulumi_azure.databoxedge')
@@ -266,6 +268,7 @@ else:
     kusto = _utilities.lazy_import('pulumi_azure.kusto')
     lb = _utilities.lazy_import('pulumi_azure.lb')
     lighthouse = _utilities.lazy_import('pulumi_azure.lighthouse')
+    loadtest = _utilities.lazy_import('pulumi_azure.loadtest')
     loganalytics = _utilities.lazy_import('pulumi_azure.loganalytics')
     logicapps = _utilities.lazy_import('pulumi_azure.logicapps')
     machinelearning = _utilities.lazy_import('pulumi_azure.machinelearning')
@@ -318,6 +321,14 @@ else:
 _utilities.register(
     resource_modules="""
 [
+ {
+  "pkg": "azure",
+  "mod": "aadb2c/directory",
+  "fqn": "pulumi_azure.aadb2c",
+  "classes": {
+   "azure:aadb2c/directory:Directory": "Directory"
+  }
+ },
  {
   "pkg": "azure",
   "mod": "analysisservices/server",
@@ -912,6 +923,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appservice/slotCustomHostnameBinding",
+  "fqn": "pulumi_azure.appservice",
+  "classes": {
+   "azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding": "SlotCustomHostnameBinding"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appservice/slotVirtualNetworkSwiftConnection",
   "fqn": "pulumi_azure.appservice",
   "classes": {
@@ -1464,6 +1483,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "compute/diskPool",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/diskPool:DiskPool": "DiskPool"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "compute/extension",
   "fqn": "pulumi_azure.compute",
   "classes": {
@@ -1928,14 +1955,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "costmanagement/resourceGroupExport",
-  "fqn": "pulumi_azure.costmanagement",
-  "classes": {
-   "azure:costmanagement/resourceGroupExport:ResourceGroupExport": "ResourceGroupExport"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "dashboard/dashboard",
   "fqn": "pulumi_azure.dashboard",
   "classes": {
@@ -2256,6 +2275,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/linkedServiceOdbc",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc": "LinkedServiceOdbc"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/linkedServicePostgresql",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -2532,6 +2559,14 @@ _utilities.register(
   "fqn": "pulumi_azure.desktopvirtualization",
   "classes": {
    "azure:desktopvirtualization/hostPool:HostPool": "HostPool"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "desktopvirtualization/scalingPlan",
+  "fqn": "pulumi_azure.desktopvirtualization",
+  "classes": {
+   "azure:desktopvirtualization/scalingPlan:ScalingPlan": "ScalingPlan"
   }
  },
  {
@@ -3532,6 +3567,14 @@ _utilities.register(
   "fqn": "pulumi_azure.lighthouse",
   "classes": {
    "azure:lighthouse/definition:Definition": "Definition"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "loadtest/loadTest",
+  "fqn": "pulumi_azure.loadtest",
+  "classes": {
+   "azure:loadtest/loadTest:LoadTest": "LoadTest"
   }
  },
  {

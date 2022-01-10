@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  *
  * > **NOTE** Azure only allows `one` DDoS Protection Plan per region.
  *
+ * > **NOTE** The DDoS Protection Plan is a [high-cost service](https://azure.microsoft.com/en-us/pricing/details/ddos-protection/#pricing). Please keep this in mind while testing and learning.
+ *
  * ## Example Usage
  *
  * ```typescript

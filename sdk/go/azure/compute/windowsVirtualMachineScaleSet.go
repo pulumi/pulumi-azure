@@ -202,6 +202,8 @@ type WindowsVirtualMachineScaleSet struct {
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrOutput `pulumi:"upgradeMode"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
@@ -352,6 +354,8 @@ type windowsVirtualMachineScaleSetState struct {
 	UniqueId *string `pulumi:"uniqueId"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode *string `pulumi:"upgradeMode"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserData *string `pulumi:"userData"`
 	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
@@ -453,6 +457,8 @@ type WindowsVirtualMachineScaleSetState struct {
 	UniqueId pulumi.StringPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrInput
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserData pulumi.StringPtrInput
 	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
 	// One or more `winrmListener` blocks as defined below.
@@ -556,6 +562,8 @@ type windowsVirtualMachineScaleSetArgs struct {
 	Timezone *string `pulumi:"timezone"`
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode *string `pulumi:"upgradeMode"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserData *string `pulumi:"userData"`
 	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below.
@@ -656,6 +664,8 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	Timezone pulumi.StringPtrInput
 	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
 	UpgradeMode pulumi.StringPtrInput
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserData pulumi.StringPtrInput
 	// Specifies if vTPM (Virtual Trusted Plaform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
 	// One or more `winrmListener` blocks as defined below.

@@ -2900,30 +2900,23 @@ class ApplicationGatewayTrustedClientCertificateArgs:
 @pulumi.input_type
 class ApplicationGatewayTrustedRootCertificateArgs:
     def __init__(__self__, *,
-                 data: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 id: Optional[pulumi.Input[str]] = None):
+                 data: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 key_vault_secret_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] data: The contents of the Trusted Root Certificate which should be used.
         :param pulumi.Input[str] name: The Name of the Trusted Root Certificate to use.
+        :param pulumi.Input[str] data: The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
+        :param pulumi.Input[str] key_vault_secret_id: The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
         """
-        pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "name", name)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
         if id is not None:
             pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def data(self) -> pulumi.Input[str]:
-        """
-        The contents of the Trusted Root Certificate which should be used.
-        """
-        return pulumi.get(self, "data")
-
-    @data.setter
-    def data(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data", value)
+        if key_vault_secret_id is not None:
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
 
     @property
     @pulumi.getter
@@ -2939,6 +2932,18 @@ class ApplicationGatewayTrustedRootCertificateArgs:
 
     @property
     @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Rewrite Rule Set
@@ -2948,6 +2953,18 @@ class ApplicationGatewayTrustedRootCertificateArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @key_vault_secret_id.setter
+    def key_vault_secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_secret_id", value)
 
 
 @pulumi.input_type
@@ -3339,7 +3356,7 @@ class ApplicationGatewayWafConfigurationArgs:
         """
         :param pulumi.Input[bool] enabled: Is the Web Application Firewall be enabled?
         :param pulumi.Input[str] firewall_mode: The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
-        :param pulumi.Input[str] rule_set_version: The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
+        :param pulumi.Input[str] rule_set_version: The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]] disabled_rule_groups: one or more `disabled_rule_group` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]] exclusions: one or more `exclusion` blocks as defined below.
         :param pulumi.Input[int] file_upload_limit_mb: The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
@@ -3391,7 +3408,7 @@ class ApplicationGatewayWafConfigurationArgs:
     @pulumi.getter(name="ruleSetVersion")
     def rule_set_version(self) -> pulumi.Input[str]:
         """
-        The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
+        The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
         """
         return pulumi.get(self, "rule_set_version")
 

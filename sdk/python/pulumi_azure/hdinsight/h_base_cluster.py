@@ -25,6 +25,7 @@ class HBaseClusterArgs:
                  metastores: Optional[pulumi.Input['HBaseClusterMetastoresArgs']] = None,
                  monitor: Optional[pulumi.Input['HBaseClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input['HBaseClusterNetworkArgs']] = None,
                  security_profile: Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']] = None,
                  storage_account_gen2: Optional[pulumi.Input['HBaseClusterStorageAccountGen2Args']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]] = None,
@@ -42,6 +43,7 @@ class HBaseClusterArgs:
         :param pulumi.Input['HBaseClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
         :param pulumi.Input['HBaseClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input['HBaseClusterNetworkArgs'] network: A `network` block as defined below.
         :param pulumi.Input['HBaseClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below.
         :param pulumi.Input['HBaseClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
@@ -61,6 +63,8 @@ class HBaseClusterArgs:
             pulumi.set(__self__, "monitor", monitor)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
         if security_profile is not None:
             pulumi.set(__self__, "security_profile", security_profile)
         if storage_account_gen2 is not None:
@@ -193,6 +197,18 @@ class HBaseClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['HBaseClusterNetworkArgs']]:
+        """
+        A `network` block as defined below.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['HBaseClusterNetworkArgs']]):
+        pulumi.set(self, "network", value)
+
+    @property
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']]:
         """
@@ -261,6 +277,7 @@ class _HBaseClusterState:
                  metastores: Optional[pulumi.Input['HBaseClusterMetastoresArgs']] = None,
                  monitor: Optional[pulumi.Input['HBaseClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input['HBaseClusterNetworkArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input['HBaseClusterRolesArgs']] = None,
                  security_profile: Optional[pulumi.Input['HBaseClusterSecurityProfileArgs']] = None,
@@ -280,6 +297,7 @@ class _HBaseClusterState:
         :param pulumi.Input['HBaseClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
         :param pulumi.Input['HBaseClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input['HBaseClusterNetworkArgs'] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['HBaseClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input['HBaseClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below.
@@ -305,6 +323,8 @@ class _HBaseClusterState:
             pulumi.set(__self__, "monitor", monitor)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if roles is not None:
@@ -419,6 +439,18 @@ class _HBaseClusterState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['HBaseClusterNetworkArgs']]:
+        """
+        A `network` block as defined below.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['HBaseClusterNetworkArgs']]):
+        pulumi.set(self, "network", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -538,6 +570,7 @@ class HBaseCluster(pulumi.CustomResource):
                  metastores: Optional[pulumi.Input[pulumi.InputType['HBaseClusterMetastoresArgs']]] = None,
                  monitor: Optional[pulumi.Input[pulumi.InputType['HBaseClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['HBaseClusterNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']]] = None,
@@ -620,6 +653,7 @@ class HBaseCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['HBaseClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
         :param pulumi.Input[pulumi.InputType['HBaseClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['HBaseClusterNetworkArgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below.
@@ -720,6 +754,7 @@ class HBaseCluster(pulumi.CustomResource):
                  metastores: Optional[pulumi.Input[pulumi.InputType['HBaseClusterMetastoresArgs']]] = None,
                  monitor: Optional[pulumi.Input[pulumi.InputType['HBaseClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['HBaseClusterNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']]] = None,
@@ -753,6 +788,7 @@ class HBaseCluster(pulumi.CustomResource):
             __props__.__dict__["metastores"] = metastores
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["name"] = name
+            __props__.__dict__["network"] = network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -787,6 +823,7 @@ class HBaseCluster(pulumi.CustomResource):
             metastores: Optional[pulumi.Input[pulumi.InputType['HBaseClusterMetastoresArgs']]] = None,
             monitor: Optional[pulumi.Input[pulumi.InputType['HBaseClusterMonitorArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network: Optional[pulumi.Input[pulumi.InputType['HBaseClusterNetworkArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']]] = None,
             security_profile: Optional[pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']]] = None,
@@ -811,6 +848,7 @@ class HBaseCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['HBaseClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
         :param pulumi.Input[pulumi.InputType['HBaseClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['HBaseClusterNetworkArgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below.
@@ -832,6 +870,7 @@ class HBaseCluster(pulumi.CustomResource):
         __props__.__dict__["metastores"] = metastores
         __props__.__dict__["monitor"] = monitor
         __props__.__dict__["name"] = name
+        __props__.__dict__["network"] = network
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["roles"] = roles
         __props__.__dict__["security_profile"] = security_profile
@@ -906,6 +945,14 @@ class HBaseCluster(pulumi.CustomResource):
         Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def network(self) -> pulumi.Output[Optional['outputs.HBaseClusterNetwork']]:
+        """
+        A `network` block as defined below.
+        """
+        return pulumi.get(self, "network")
 
     @property
     @pulumi.getter(name="resourceGroupName")

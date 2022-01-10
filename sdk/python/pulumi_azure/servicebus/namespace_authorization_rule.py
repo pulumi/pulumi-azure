@@ -13,55 +13,41 @@ __all__ = ['NamespaceAuthorizationRuleArgs', 'NamespaceAuthorizationRule']
 @pulumi.input_type
 class NamespaceAuthorizationRuleArgs:
     def __init__(__self__, *,
-                 namespace_name: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 namespace_id: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a NamespaceAuthorizationRule resource.
-        :param pulumi.Input[str] namespace_name: Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if listen is not None:
             pulumi.set(__self__, "listen", listen)
         if manage is not None:
             pulumi.set(__self__, "manage", manage)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if namespace_id is not None:
+            pulumi.set(__self__, "namespace_id", namespace_id)
+        if namespace_name is not None:
+            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
+            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
+        if namespace_name is not None:
+            pulumi.set(__self__, "namespace_name", namespace_name)
+        if resource_group_name is not None:
+            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if send is not None:
             pulumi.set(__self__, "send", send)
-
-    @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Input[str]:
-        """
-        Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter
@@ -100,6 +86,36 @@ class NamespaceAuthorizationRuleArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_id")
+
+    @namespace_id.setter
+    def namespace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace_id", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
     @pulumi.getter
     def send(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -118,6 +134,7 @@ class _NamespaceAuthorizationRuleState:
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 namespace_id: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  primary_connection_string: Optional[pulumi.Input[str]] = None,
                  primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
@@ -132,11 +149,10 @@ class _NamespaceAuthorizationRuleState:
         :param pulumi.Input[bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] namespace_name: Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_connection_string: The Primary Connection String for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[str] primary_connection_string_alias: The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
         :param pulumi.Input[str] primary_key: The Primary Key for the ServiceBus Namespace authorization Rule.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string: The Secondary Connection String for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[str] secondary_connection_string_alias: The alias Secondary Connection String for the ServiceBus Namespace
         :param pulumi.Input[str] secondary_key: The Secondary Key for the ServiceBus Namespace authorization Rule.
@@ -148,6 +164,11 @@ class _NamespaceAuthorizationRuleState:
             pulumi.set(__self__, "manage", manage)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if namespace_id is not None:
+            pulumi.set(__self__, "namespace_id", namespace_id)
+        if namespace_name is not None:
+            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
+            pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
         if primary_connection_string is not None:
@@ -156,6 +177,9 @@ class _NamespaceAuthorizationRuleState:
             pulumi.set(__self__, "primary_connection_string_alias", primary_connection_string_alias)
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
+        if resource_group_name is not None:
+            warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_connection_string is not None:
@@ -204,11 +228,20 @@ class _NamespaceAuthorizationRuleState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_id")
+
+    @namespace_id.setter
+    def namespace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace_id", value)
+
+    @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
@@ -254,9 +287,6 @@ class _NamespaceAuthorizationRuleState:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -320,6 +350,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 namespace_id: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[bool]] = None,
@@ -342,8 +373,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                 "source": "example",
             })
         example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
-            namespace_name=example_namespace.name,
-            resource_group_name=example_resource_group.name,
+            namespace_id=example_namespace.id,
             listen=True,
             send=True,
             manage=False)
@@ -362,15 +392,14 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] namespace_name: Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NamespaceAuthorizationRuleArgs,
+                 args: Optional[NamespaceAuthorizationRuleArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
@@ -390,8 +419,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                 "source": "example",
             })
         example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
-            namespace_name=example_namespace.name,
-            resource_group_name=example_resource_group.name,
+            namespace_id=example_namespace.id,
             listen=True,
             send=True,
             manage=False)
@@ -423,6 +451,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 namespace_id: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[bool]] = None,
@@ -441,11 +470,14 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["listen"] = listen
             __props__.__dict__["manage"] = manage
             __props__.__dict__["name"] = name
-            if namespace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'namespace_name'")
+            __props__.__dict__["namespace_id"] = namespace_id
+            if namespace_name is not None and not opts.urn:
+                warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
+                pulumi.log.warn("""namespace_name is deprecated: Deprecated in favor of \"namespace_id\"""")
             __props__.__dict__["namespace_name"] = namespace_name
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
+            if resource_group_name is not None and not opts.urn:
+                warnings.warn("""Deprecated in favor of \"namespace_id\"""", DeprecationWarning)
+                pulumi.log.warn("""resource_group_name is deprecated: Deprecated in favor of \"namespace_id\"""")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["send"] = send
             __props__.__dict__["primary_connection_string"] = None
@@ -469,6 +501,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             listen: Optional[pulumi.Input[bool]] = None,
             manage: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            namespace_id: Optional[pulumi.Input[str]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
             primary_connection_string: Optional[pulumi.Input[str]] = None,
             primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
@@ -488,11 +521,10 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] namespace_name: Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_connection_string: The Primary Connection String for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[str] primary_connection_string_alias: The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
         :param pulumi.Input[str] primary_key: The Primary Key for the ServiceBus Namespace authorization Rule.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string: The Secondary Connection String for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[str] secondary_connection_string_alias: The alias Secondary Connection String for the ServiceBus Namespace
         :param pulumi.Input[str] secondary_key: The Secondary Key for the ServiceBus Namespace authorization Rule.
@@ -505,6 +537,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         __props__.__dict__["listen"] = listen
         __props__.__dict__["manage"] = manage
         __props__.__dict__["name"] = name
+        __props__.__dict__["namespace_id"] = namespace_id
         __props__.__dict__["namespace_name"] = namespace_name
         __props__.__dict__["primary_connection_string"] = primary_connection_string
         __props__.__dict__["primary_connection_string_alias"] = primary_connection_string_alias
@@ -541,11 +574,16 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> pulumi.Output[str]:
+        """
+        Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_id")
+
+    @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Output[str]:
-        """
-        Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "namespace_name")
 
     @property
@@ -575,9 +613,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "resource_group_name")
 
     @property

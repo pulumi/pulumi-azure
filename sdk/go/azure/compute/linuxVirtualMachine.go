@@ -210,6 +210,8 @@ type LinuxVirtualMachine struct {
 	SourceImageReference LinuxVirtualMachineSourceImageReferencePtrOutput `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine.
+	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
@@ -340,6 +342,8 @@ type linuxVirtualMachineState struct {
 	SourceImageReference *LinuxVirtualMachineSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine.
+	UserData *string `pulumi:"userData"`
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
@@ -427,6 +431,8 @@ type LinuxVirtualMachineState struct {
 	SourceImageReference LinuxVirtualMachineSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapInput
+	// The Base64-Encoded User Data which should be used for this Virtual Machine.
+	UserData pulumi.StringPtrInput
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringPtrInput
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
@@ -510,6 +516,8 @@ type linuxVirtualMachineArgs struct {
 	SourceImageReference *LinuxVirtualMachineSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine.
+	UserData *string `pulumi:"userData"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -588,6 +596,8 @@ type LinuxVirtualMachineArgs struct {
 	SourceImageReference LinuxVirtualMachineSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapInput
+	// The Base64-Encoded User Data which should be used for this Virtual Machine.
+	UserData pulumi.StringPtrInput
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
 	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.

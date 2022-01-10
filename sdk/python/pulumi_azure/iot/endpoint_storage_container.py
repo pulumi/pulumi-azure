@@ -15,11 +15,12 @@ class EndpointStorageContainerArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  container_name: pulumi.Input[str],
-                 iothub_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
                  file_name_format: Optional[pulumi.Input[str]] = None,
+                 iothub_id: Optional[pulumi.Input[str]] = None,
+                 iothub_name: Optional[pulumi.Input[str]] = None,
                  max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -27,17 +28,17 @@ class EndpointStorageContainerArgs:
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
         :param pulumi.Input[str] container_name: The name of storage container in the storage account.
                *
-        :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
+        :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "iothub_name", iothub_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if batch_frequency_in_seconds is not None:
             pulumi.set(__self__, "batch_frequency_in_seconds", batch_frequency_in_seconds)
@@ -45,6 +46,13 @@ class EndpointStorageContainerArgs:
             pulumi.set(__self__, "encoding", encoding)
         if file_name_format is not None:
             pulumi.set(__self__, "file_name_format", file_name_format)
+        if iothub_id is not None:
+            pulumi.set(__self__, "iothub_id", iothub_id)
+        if iothub_name is not None:
+            warnings.warn("""Deprecated in favour of `iothub_id`""", DeprecationWarning)
+            pulumi.log.warn("""iothub_name is deprecated: Deprecated in favour of `iothub_id`""")
+        if iothub_name is not None:
+            pulumi.set(__self__, "iothub_name", iothub_name)
         if max_chunk_size_in_bytes is not None:
             pulumi.set(__self__, "max_chunk_size_in_bytes", max_chunk_size_in_bytes)
         if name is not None:
@@ -76,22 +84,10 @@ class EndpointStorageContainerArgs:
         pulumi.set(self, "container_name", value)
 
     @property
-    @pulumi.getter(name="iothubName")
-    def iothub_name(self) -> pulumi.Input[str]:
-        """
-        The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "iothub_name")
-
-    @iothub_name.setter
-    def iothub_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "iothub_name", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+        The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -136,6 +132,30 @@ class EndpointStorageContainerArgs:
         pulumi.set(self, "file_name_format", value)
 
     @property
+    @pulumi.getter(name="iothubId")
+    def iothub_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IoTHub ID for the endpoint.
+        """
+        return pulumi.get(self, "iothub_id")
+
+    @iothub_id.setter
+    def iothub_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iothub_id", value)
+
+    @property
+    @pulumi.getter(name="iothubName")
+    def iothub_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IoTHub name for the endpoint.
+        """
+        return pulumi.get(self, "iothub_name")
+
+    @iothub_name.setter
+    def iothub_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iothub_name", value)
+
+    @property
     @pulumi.getter(name="maxChunkSizeInBytes")
     def max_chunk_size_in_bytes(self) -> Optional[pulumi.Input[int]]:
         """
@@ -168,6 +188,7 @@ class _EndpointStorageContainerState:
                  container_name: Optional[pulumi.Input[str]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
                  file_name_format: Optional[pulumi.Input[str]] = None,
+                 iothub_id: Optional[pulumi.Input[str]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
                  max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -180,10 +201,11 @@ class _EndpointStorageContainerState:
                *
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
-        :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
+        :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         """
         if batch_frequency_in_seconds is not None:
             pulumi.set(__self__, "batch_frequency_in_seconds", batch_frequency_in_seconds)
@@ -195,6 +217,11 @@ class _EndpointStorageContainerState:
             pulumi.set(__self__, "encoding", encoding)
         if file_name_format is not None:
             pulumi.set(__self__, "file_name_format", file_name_format)
+        if iothub_id is not None:
+            pulumi.set(__self__, "iothub_id", iothub_id)
+        if iothub_name is not None:
+            warnings.warn("""Deprecated in favour of `iothub_id`""", DeprecationWarning)
+            pulumi.log.warn("""iothub_name is deprecated: Deprecated in favour of `iothub_id`""")
         if iothub_name is not None:
             pulumi.set(__self__, "iothub_name", iothub_name)
         if max_chunk_size_in_bytes is not None:
@@ -266,10 +293,22 @@ class _EndpointStorageContainerState:
         pulumi.set(self, "file_name_format", value)
 
     @property
+    @pulumi.getter(name="iothubId")
+    def iothub_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IoTHub ID for the endpoint.
+        """
+        return pulumi.get(self, "iothub_id")
+
+    @iothub_id.setter
+    def iothub_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iothub_id", value)
+
+    @property
     @pulumi.getter(name="iothubName")
     def iothub_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+        The IoTHub name for the endpoint.
         """
         return pulumi.get(self, "iothub_name")
 
@@ -305,7 +344,7 @@ class _EndpointStorageContainerState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+        The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -324,6 +363,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
                  container_name: Optional[pulumi.Input[str]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
                  file_name_format: Optional[pulumi.Input[str]] = None,
+                 iothub_id: Optional[pulumi.Input[str]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
                  max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -383,10 +423,11 @@ class EndpointStorageContainer(pulumi.CustomResource):
                *
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
-        :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
+        :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -460,6 +501,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
                  container_name: Optional[pulumi.Input[str]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
                  file_name_format: Optional[pulumi.Input[str]] = None,
+                 iothub_id: Optional[pulumi.Input[str]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
                  max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -485,8 +527,10 @@ class EndpointStorageContainer(pulumi.CustomResource):
             __props__.__dict__["container_name"] = container_name
             __props__.__dict__["encoding"] = encoding
             __props__.__dict__["file_name_format"] = file_name_format
-            if iothub_name is None and not opts.urn:
-                raise TypeError("Missing required property 'iothub_name'")
+            __props__.__dict__["iothub_id"] = iothub_id
+            if iothub_name is not None and not opts.urn:
+                warnings.warn("""Deprecated in favour of `iothub_id`""", DeprecationWarning)
+                pulumi.log.warn("""iothub_name is deprecated: Deprecated in favour of `iothub_id`""")
             __props__.__dict__["iothub_name"] = iothub_name
             __props__.__dict__["max_chunk_size_in_bytes"] = max_chunk_size_in_bytes
             __props__.__dict__["name"] = name
@@ -508,6 +552,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
             container_name: Optional[pulumi.Input[str]] = None,
             encoding: Optional[pulumi.Input[str]] = None,
             file_name_format: Optional[pulumi.Input[str]] = None,
+            iothub_id: Optional[pulumi.Input[str]] = None,
             iothub_name: Optional[pulumi.Input[str]] = None,
             max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -525,10 +570,11 @@ class EndpointStorageContainer(pulumi.CustomResource):
                *
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
-        :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
+        :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -539,6 +585,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
         __props__.__dict__["container_name"] = container_name
         __props__.__dict__["encoding"] = encoding
         __props__.__dict__["file_name_format"] = file_name_format
+        __props__.__dict__["iothub_id"] = iothub_id
         __props__.__dict__["iothub_name"] = iothub_name
         __props__.__dict__["max_chunk_size_in_bytes"] = max_chunk_size_in_bytes
         __props__.__dict__["name"] = name
@@ -587,10 +634,18 @@ class EndpointStorageContainer(pulumi.CustomResource):
         return pulumi.get(self, "file_name_format")
 
     @property
+    @pulumi.getter(name="iothubId")
+    def iothub_id(self) -> pulumi.Output[str]:
+        """
+        The IoTHub ID for the endpoint.
+        """
+        return pulumi.get(self, "iothub_id")
+
+    @property
     @pulumi.getter(name="iothubName")
     def iothub_name(self) -> pulumi.Output[str]:
         """
-        The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+        The IoTHub name for the endpoint.
         """
         return pulumi.get(self, "iothub_name")
 
@@ -614,7 +669,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+        The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

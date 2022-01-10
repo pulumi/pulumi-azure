@@ -130,6 +130,8 @@ type FlexibleServer struct {
 	DelegatedSubnetId pulumi.StringPtrOutput `pulumi:"delegatedSubnetId"`
 	// The FQDN of the PostgreSQL Flexible Server.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+	// Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	GeoRedundantBackupEnabled pulumi.BoolPtrOutput `pulumi:"geoRedundantBackupEnabled"`
 	// A `highAvailability` block as defined below.
 	HighAvailability FlexibleServerHighAvailabilityPtrOutput `pulumi:"highAvailability"`
 	// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -209,6 +211,8 @@ type flexibleServerState struct {
 	DelegatedSubnetId *string `pulumi:"delegatedSubnetId"`
 	// The FQDN of the PostgreSQL Flexible Server.
 	Fqdn *string `pulumi:"fqdn"`
+	// Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	GeoRedundantBackupEnabled *bool `pulumi:"geoRedundantBackupEnabled"`
 	// A `highAvailability` block as defined below.
 	HighAvailability *FlexibleServerHighAvailability `pulumi:"highAvailability"`
 	// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -257,6 +261,8 @@ type FlexibleServerState struct {
 	DelegatedSubnetId pulumi.StringPtrInput
 	// The FQDN of the PostgreSQL Flexible Server.
 	Fqdn pulumi.StringPtrInput
+	// Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	GeoRedundantBackupEnabled pulumi.BoolPtrInput
 	// A `highAvailability` block as defined below.
 	HighAvailability FlexibleServerHighAvailabilityPtrInput
 	// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -303,6 +309,8 @@ type flexibleServerArgs struct {
 	CreateMode *string `pulumi:"createMode"`
 	// The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
 	DelegatedSubnetId *string `pulumi:"delegatedSubnetId"`
+	// Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	GeoRedundantBackupEnabled *bool `pulumi:"geoRedundantBackupEnabled"`
 	// A `highAvailability` block as defined below.
 	HighAvailability *FlexibleServerHighAvailability `pulumi:"highAvailability"`
 	// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
@@ -344,6 +352,8 @@ type FlexibleServerArgs struct {
 	CreateMode pulumi.StringPtrInput
 	// The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
 	DelegatedSubnetId pulumi.StringPtrInput
+	// Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	GeoRedundantBackupEnabled pulumi.BoolPtrInput
 	// A `highAvailability` block as defined below.
 	HighAvailability FlexibleServerHighAvailabilityPtrInput
 	// The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.

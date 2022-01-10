@@ -24,7 +24,7 @@ class ReplicationPolicyArgs:
         :param pulumi.Input[int] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the replication policy.
         """
         pulumi.set(__self__, "application_consistent_snapshot_frequency_in_minutes", application_consistent_snapshot_frequency_in_minutes)
         pulumi.set(__self__, "recovery_point_retention_in_minutes", recovery_point_retention_in_minutes)
@@ -85,7 +85,7 @@ class ReplicationPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network mapping.
+        The name of the replication policy.
         """
         return pulumi.get(self, "name")
 
@@ -105,7 +105,7 @@ class _ReplicationPolicyState:
         """
         Input properties used for looking up and filtering ReplicationPolicy resources.
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the replication policy.
         :param pulumi.Input[int] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
@@ -137,7 +137,7 @@ class _ReplicationPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network mapping.
+        The name of the replication policy.
         """
         return pulumi.get(self, "name")
 
@@ -225,7 +225,7 @@ class ReplicationPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the replication policy.
         :param pulumi.Input[int] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
@@ -333,7 +333,7 @@ class ReplicationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] name: The name of the replication policy.
         :param pulumi.Input[int] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
@@ -361,7 +361,7 @@ class ReplicationPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the network mapping.
+        The name of the replication policy.
         """
         return pulumi.get(self, "name")
 

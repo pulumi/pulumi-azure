@@ -68,7 +68,7 @@ export class ReplicationPolicy extends pulumi.CustomResource {
      */
     public readonly applicationConsistentSnapshotFrequencyInMinutes!: pulumi.Output<number>;
     /**
-     * The name of the network mapping.
+     * The name of the replication policy.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -138,7 +138,7 @@ export interface ReplicationPolicyState {
      */
     applicationConsistentSnapshotFrequencyInMinutes?: pulumi.Input<number>;
     /**
-     * The name of the network mapping.
+     * The name of the replication policy.
      */
     name?: pulumi.Input<string>;
     /**
@@ -164,7 +164,7 @@ export interface ReplicationPolicyArgs {
      */
     applicationConsistentSnapshotFrequencyInMinutes: pulumi.Input<number>;
     /**
-     * The name of the network mapping.
+     * The name of the replication policy.
      */
     name?: pulumi.Input<string>;
     /**

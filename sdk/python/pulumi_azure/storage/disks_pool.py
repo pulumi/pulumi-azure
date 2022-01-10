@@ -22,12 +22,12 @@ class DisksPoolArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DisksPool resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] sku_name: The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the Disk Pool. Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] location: The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] name: The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
+        :param pulumi.Input[str] location: The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] name: The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Disks Pool.
         """
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -45,7 +45,7 @@ class DisksPoolArgs:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
+        Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -57,7 +57,7 @@ class DisksPoolArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+        The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -69,7 +69,7 @@ class DisksPoolArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+        The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -93,7 +93,7 @@ class DisksPoolArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+        The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "location")
 
@@ -105,7 +105,7 @@ class DisksPoolArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
+        The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "name")
 
@@ -138,11 +138,11 @@ class _DisksPoolState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DisksPool resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] location: The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] name: The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] location: The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] name: The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] sku_name: The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the Disk Pool. Changing this forces a new Disks Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Disks Pool.
         """
@@ -165,7 +165,7 @@ class _DisksPoolState:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
+        Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -177,7 +177,7 @@ class _DisksPoolState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+        The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "location")
 
@@ -189,7 +189,7 @@ class _DisksPoolState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
+        The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "name")
 
@@ -201,7 +201,7 @@ class _DisksPoolState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+        The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -213,7 +213,7 @@ class _DisksPoolState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+        The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -260,7 +260,9 @@ class DisksPool(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a Disks Pool.
+        Manages a Disk Pool.
+
+        !> **Note:** This resource has been deprecated in favour of `compute.DiskPool` and will be removed in version 3.0 of the Azure Provider.
 
         ## Example Usage
 
@@ -297,7 +299,7 @@ class DisksPool(pulumi.CustomResource):
 
         ## Import
 
-        Disks Pool can be imported using the `resource id`, e.g.
+        Disk Pools can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:storage/disksPool:DisksPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/disksPool1
@@ -305,11 +307,11 @@ class DisksPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] location: The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] name: The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] location: The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] name: The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] sku_name: The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the Disk Pool. Changing this forces a new Disks Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Disks Pool.
         """
@@ -320,7 +322,9 @@ class DisksPool(pulumi.CustomResource):
                  args: DisksPoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Disks Pool.
+        Manages a Disk Pool.
+
+        !> **Note:** This resource has been deprecated in favour of `compute.DiskPool` and will be removed in version 3.0 of the Azure Provider.
 
         ## Example Usage
 
@@ -357,7 +361,7 @@ class DisksPool(pulumi.CustomResource):
 
         ## Import
 
-        Disks Pool can be imported using the `resource id`, e.g.
+        Disk Pools can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:storage/disksPool:DisksPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/disksPool1
@@ -436,11 +440,11 @@ class DisksPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] location: The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] name: The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
-        :param pulumi.Input[str] sku_name: The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] location: The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] name: The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
+        :param pulumi.Input[str] sku_name: The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the Disk Pool. Changing this forces a new Disks Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Disks Pool.
         """
@@ -461,7 +465,7 @@ class DisksPool(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Sequence[str]]:
         """
-        Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disks Pool to be created.
+        Specifies a list of logical zone (e.g. `["1"]`). Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -469,7 +473,7 @@ class DisksPool(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The Azure Region where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+        The Azure Region where the Disks Pool should exist. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "location")
 
@@ -477,7 +481,7 @@ class DisksPool(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disks Pool to be created.
+        The name of the Disks Pool. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens, and length should be in the range [7 - 30]. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "name")
 
@@ -485,7 +489,7 @@ class DisksPool(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group where the Disks Pool should exist. Changing this forces a new Disks Pool to be created.
+        The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -493,7 +497,7 @@ class DisksPool(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1".
+        The sku name of the Disk Pool. Possible values are "Basic_B1", "Standard_S1" and "Premium_P1". Changing this forces a new Disk Pool to be created.
         """
         return pulumi.get(self, "sku_name")
 

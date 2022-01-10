@@ -228,7 +228,7 @@ class ServerStorageProfileArgs:
                  storage_mb: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
-        :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+        :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
         """
         if auto_grow is not None:
             warnings.warn("""this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
@@ -285,7 +285,7 @@ class ServerStorageProfileArgs:
     @pulumi.getter(name="storageMb")
     def storage_mb(self) -> Optional[pulumi.Input[int]]:
         """
-        Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+        Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
         """
         return pulumi.get(self, "storage_mb")
 

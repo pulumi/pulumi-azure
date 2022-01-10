@@ -43,11 +43,13 @@ class KubernetesClusterNodePoolArgs:
                  pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 scale_down_mode: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
                  upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
-                 vnet_subnet_id: Optional[pulumi.Input[str]] = None):
+                 vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 workload_runtime: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a KubernetesClusterNodePool resource.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
@@ -78,11 +80,13 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
         :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
+        :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         """
         pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -138,6 +142,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "priority", priority)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if scale_down_mode is not None:
+            pulumi.set(__self__, "scale_down_mode", scale_down_mode)
         if spot_max_price is not None:
             pulumi.set(__self__, "spot_max_price", spot_max_price)
         if tags is not None:
@@ -148,6 +154,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+        if workload_runtime is not None:
+            pulumi.set(__self__, "workload_runtime", workload_runtime)
 
     @property
     @pulumi.getter(name="kubernetesClusterId")
@@ -486,6 +494,18 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @property
+    @pulumi.getter(name="scaleDownMode")
+    def scale_down_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        """
+        return pulumi.get(self, "scale_down_mode")
+
+    @scale_down_mode.setter
+    def scale_down_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scale_down_mode", value)
+
+    @property
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[pulumi.Input[float]]:
         """
@@ -545,6 +565,18 @@ class KubernetesClusterNodePoolArgs:
     def vnet_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_subnet_id", value)
 
+    @property
+    @pulumi.getter(name="workloadRuntime")
+    def workload_runtime(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        """
+        return pulumi.get(self, "workload_runtime")
+
+    @workload_runtime.setter
+    def workload_runtime(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workload_runtime", value)
+
 
 @pulumi.input_type
 class _KubernetesClusterNodePoolState:
@@ -576,12 +608,14 @@ class _KubernetesClusterNodePoolState:
                  pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 scale_down_mode: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
                  upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
-                 vnet_subnet_id: Optional[pulumi.Input[str]] = None):
+                 vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 workload_runtime: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering KubernetesClusterNodePool resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
@@ -611,12 +645,14 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
         :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
+        :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         """
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
@@ -672,6 +708,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "priority", priority)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if scale_down_mode is not None:
+            pulumi.set(__self__, "scale_down_mode", scale_down_mode)
         if spot_max_price is not None:
             pulumi.set(__self__, "spot_max_price", spot_max_price)
         if tags is not None:
@@ -684,6 +722,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "vm_size", vm_size)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+        if workload_runtime is not None:
+            pulumi.set(__self__, "workload_runtime", workload_runtime)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -1010,6 +1050,18 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @property
+    @pulumi.getter(name="scaleDownMode")
+    def scale_down_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        """
+        return pulumi.get(self, "scale_down_mode")
+
+    @scale_down_mode.setter
+    def scale_down_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scale_down_mode", value)
+
+    @property
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[pulumi.Input[float]]:
         """
@@ -1081,6 +1133,18 @@ class _KubernetesClusterNodePoolState:
     def vnet_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_subnet_id", value)
 
+    @property
+    @pulumi.getter(name="workloadRuntime")
+    def workload_runtime(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        """
+        return pulumi.get(self, "workload_runtime")
+
+    @workload_runtime.setter
+    def workload_runtime(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workload_runtime", value)
+
 
 class KubernetesClusterNodePool(pulumi.CustomResource):
     @overload
@@ -1114,12 +1178,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 scale_down_mode: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
                  upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 workload_runtime: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         ## Import
@@ -1159,12 +1225,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
+        :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         """
         ...
     @overload
@@ -1223,12 +1291,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  pod_subnet_id: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 scale_down_mode: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
                  upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 workload_runtime: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -1270,6 +1340,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["pod_subnet_id"] = pod_subnet_id
             __props__.__dict__["priority"] = priority
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
+            __props__.__dict__["scale_down_mode"] = scale_down_mode
             __props__.__dict__["spot_max_price"] = spot_max_price
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ultra_ssd_enabled"] = ultra_ssd_enabled
@@ -1278,6 +1349,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vm_size'")
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
+            __props__.__dict__["workload_runtime"] = workload_runtime
         super(KubernetesClusterNodePool, __self__).__init__(
             'azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool',
             resource_name,
@@ -1315,12 +1387,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             pod_subnet_id: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[str]] = None,
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+            scale_down_mode: Optional[pulumi.Input[str]] = None,
             spot_max_price: Optional[pulumi.Input[float]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
             upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
             vm_size: Optional[pulumi.Input[str]] = None,
-            vnet_subnet_id: Optional[pulumi.Input[str]] = None) -> 'KubernetesClusterNodePool':
+            vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+            workload_runtime: Optional[pulumi.Input[str]] = None) -> 'KubernetesClusterNodePool':
         """
         Get an existing KubernetesClusterNodePool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1355,12 +1429,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/en-us/azure/aks/use-ultra-disks) for more information.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
+        :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1393,12 +1469,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["pod_subnet_id"] = pod_subnet_id
         __props__.__dict__["priority"] = priority
         __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
+        __props__.__dict__["scale_down_mode"] = scale_down_mode
         __props__.__dict__["spot_max_price"] = spot_max_price
         __props__.__dict__["tags"] = tags
         __props__.__dict__["ultra_ssd_enabled"] = ultra_ssd_enabled
         __props__.__dict__["upgrade_settings"] = upgrade_settings
         __props__.__dict__["vm_size"] = vm_size
         __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
+        __props__.__dict__["workload_runtime"] = workload_runtime
         return KubernetesClusterNodePool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1618,6 +1696,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         return pulumi.get(self, "proximity_placement_group_id")
 
     @property
+    @pulumi.getter(name="scaleDownMode")
+    def scale_down_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        """
+        return pulumi.get(self, "scale_down_mode")
+
+    @property
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> pulumi.Output[Optional[float]]:
         """
@@ -1664,4 +1750,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         The ID of the Subnet where this Node Pool should exist.
         """
         return pulumi.get(self, "vnet_subnet_id")
+
+    @property
+    @pulumi.getter(name="workloadRuntime")
+    def workload_runtime(self) -> pulumi.Output[Optional[str]]:
+        """
+        Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        """
+        return pulumi.get(self, "workload_runtime")
 

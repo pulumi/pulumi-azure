@@ -151,6 +151,12 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
+        /// Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// </summary>
+        [Output("geoRedundantBackupEnabled")]
+        public Output<bool?> GeoRedundantBackupEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `high_availability` block as defined below.
         /// </summary>
         [Output("highAvailability")]
@@ -312,6 +318,12 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? DelegatedSubnetId { get; set; }
 
         /// <summary>
+        /// Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// </summary>
+        [Input("geoRedundantBackupEnabled")]
+        public Input<bool>? GeoRedundantBackupEnabled { get; set; }
+
+        /// <summary>
         /// A `high_availability` block as defined below.
         /// </summary>
         [Input("highAvailability")]
@@ -444,6 +456,12 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
+
+        /// <summary>
+        /// Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// </summary>
+        [Input("geoRedundantBackupEnabled")]
+        public Input<bool>? GeoRedundantBackupEnabled { get; set; }
 
         /// <summary>
         /// A `high_availability` block as defined below.
