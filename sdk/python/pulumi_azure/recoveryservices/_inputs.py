@@ -9,8 +9,62 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'VaultEncryptionArgs',
     'VaultIdentityArgs',
 ]
+
+@pulumi.input_type
+class VaultEncryptionArgs:
+    def __init__(__self__, *,
+                 infrastructure_encryption_enabled: pulumi.Input[bool],
+                 key_id: pulumi.Input[str],
+                 use_system_assigned_identity: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] infrastructure_encryption_enabled: Enabling/Disabling the Double Encryption state.
+        :param pulumi.Input[str] key_id: The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
+        :param pulumi.Input[bool] use_system_assigned_identity: Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+        """
+        pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+        pulumi.set(__self__, "key_id", key_id)
+        if use_system_assigned_identity is not None:
+            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+
+    @property
+    @pulumi.getter(name="infrastructureEncryptionEnabled")
+    def infrastructure_encryption_enabled(self) -> pulumi.Input[bool]:
+        """
+        Enabling/Disabling the Double Encryption state.
+        """
+        return pulumi.get(self, "infrastructure_encryption_enabled")
+
+    @infrastructure_encryption_enabled.setter
+    def infrastructure_encryption_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "infrastructure_encryption_enabled", value)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Input[str]:
+        """
+        The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_id", value)
+
+    @property
+    @pulumi.getter(name="useSystemAssignedIdentity")
+    def use_system_assigned_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+        """
+        return pulumi.get(self, "use_system_assigned_identity")
+
+    @use_system_assigned_identity.setter
+    def use_system_assigned_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_system_assigned_identity", value)
+
 
 @pulumi.input_type
 class VaultIdentityArgs:

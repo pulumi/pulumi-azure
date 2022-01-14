@@ -53,11 +53,11 @@ type Directory struct {
 
 	// The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
 	BillingType pulumi.StringOutput `pulumi:"billingType"`
-	// Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+	// Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
 	CountryCode pulumi.StringOutput `pulumi:"countryCode"`
 	// Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
 	DataResidencyLocation pulumi.StringOutput `pulumi:"dataResidencyLocation"`
-	// The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+	// The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
@@ -80,14 +80,8 @@ func NewDirectory(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CountryCode == nil {
-		return nil, errors.New("invalid value for required argument 'CountryCode'")
-	}
 	if args.DataResidencyLocation == nil {
 		return nil, errors.New("invalid value for required argument 'DataResidencyLocation'")
-	}
-	if args.DisplayName == nil {
-		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
@@ -122,11 +116,11 @@ func GetDirectory(ctx *pulumi.Context,
 type directoryState struct {
 	// The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
 	BillingType *string `pulumi:"billingType"`
-	// Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+	// Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
 	CountryCode *string `pulumi:"countryCode"`
 	// Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
 	DataResidencyLocation *string `pulumi:"dataResidencyLocation"`
-	// The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+	// The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
 	DisplayName *string `pulumi:"displayName"`
 	// Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
 	DomainName *string `pulumi:"domainName"`
@@ -145,11 +139,11 @@ type directoryState struct {
 type DirectoryState struct {
 	// The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
 	BillingType pulumi.StringPtrInput
-	// Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+	// Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
 	CountryCode pulumi.StringPtrInput
 	// Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
 	DataResidencyLocation pulumi.StringPtrInput
-	// The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+	// The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
 	DisplayName pulumi.StringPtrInput
 	// Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
 	DomainName pulumi.StringPtrInput
@@ -170,12 +164,12 @@ func (DirectoryState) ElementType() reflect.Type {
 }
 
 type directoryArgs struct {
-	// Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
-	CountryCode string `pulumi:"countryCode"`
+	// Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
+	CountryCode *string `pulumi:"countryCode"`
 	// Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
 	DataResidencyLocation string `pulumi:"dataResidencyLocation"`
-	// The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
-	DisplayName string `pulumi:"displayName"`
+	// The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
+	DisplayName *string `pulumi:"displayName"`
 	// Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
 	DomainName string `pulumi:"domainName"`
 	// The name of the Resource Group where the AAD B2C Directory should exist. Changing this forces a new AAD B2C Directory to be created.
@@ -188,12 +182,12 @@ type directoryArgs struct {
 
 // The set of arguments for constructing a Directory resource.
 type DirectoryArgs struct {
-	// Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
-	CountryCode pulumi.StringInput
+	// Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
+	CountryCode pulumi.StringPtrInput
 	// Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
 	DataResidencyLocation pulumi.StringInput
-	// The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
-	DisplayName pulumi.StringInput
+	// The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
+	DisplayName pulumi.StringPtrInput
 	// Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
 	DomainName pulumi.StringInput
 	// The name of the Resource Group where the AAD B2C Directory should exist. Changing this forces a new AAD B2C Directory to be created.

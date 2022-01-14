@@ -21,6 +21,7 @@ class EventGridTopicArgs:
                  input_mapping_default_values: Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs']] = None,
                  input_mapping_fields: Optional[pulumi.Input['EventGridTopicInputMappingFieldsArgs']] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -33,6 +34,7 @@ class EventGridTopicArgs:
         :param pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input['EventGridTopicInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -49,6 +51,8 @@ class EventGridTopicArgs:
             pulumi.set(__self__, "input_mapping_fields", input_mapping_fields)
         if input_schema is not None:
             pulumi.set(__self__, "input_schema", input_schema)
+        if local_auth_enabled is not None:
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -131,6 +135,18 @@ class EventGridTopicArgs:
         pulumi.set(self, "input_schema", value)
 
     @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_auth_enabled")
+
+    @local_auth_enabled.setter
+    def local_auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_auth_enabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -188,6 +204,7 @@ class _EventGridTopicState:
                  input_mapping_default_values: Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs']] = None,
                  input_mapping_fields: Optional[pulumi.Input['EventGridTopicInputMappingFieldsArgs']] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_access_key: Optional[pulumi.Input[str]] = None,
@@ -203,6 +220,7 @@ class _EventGridTopicState:
         :param pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input['EventGridTopicInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The Primary Shared Access Key associated with the EventGrid Topic.
@@ -223,6 +241,8 @@ class _EventGridTopicState:
             pulumi.set(__self__, "input_mapping_fields", input_mapping_fields)
         if input_schema is not None:
             pulumi.set(__self__, "input_schema", input_schema)
+        if local_auth_enabled is not None:
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -309,6 +329,18 @@ class _EventGridTopicState:
     @input_schema.setter
     def input_schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "input_schema", value)
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_auth_enabled")
+
+    @local_auth_enabled.setter
+    def local_auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_auth_enabled", value)
 
     @property
     @pulumi.getter
@@ -410,6 +442,7 @@ class EventGridTopic(pulumi.CustomResource):
                  input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']]] = None,
                  input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']]] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -451,6 +484,7 @@ class EventGridTopic(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -511,6 +545,7 @@ class EventGridTopic(pulumi.CustomResource):
                  input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']]] = None,
                  input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']]] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -534,6 +569,7 @@ class EventGridTopic(pulumi.CustomResource):
             __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
             __props__.__dict__["input_mapping_fields"] = input_mapping_fields
             __props__.__dict__["input_schema"] = input_schema
+            __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -560,6 +596,7 @@ class EventGridTopic(pulumi.CustomResource):
             input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']]] = None,
             input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']]] = None,
             input_schema: Optional[pulumi.Input[str]] = None,
+            local_auth_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
@@ -580,6 +617,7 @@ class EventGridTopic(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The Primary Shared Access Key associated with the EventGrid Topic.
@@ -598,6 +636,7 @@ class EventGridTopic(pulumi.CustomResource):
         __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
         __props__.__dict__["input_mapping_fields"] = input_mapping_fields
         __props__.__dict__["input_schema"] = input_schema
+        __props__.__dict__["local_auth_enabled"] = local_auth_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["primary_access_key"] = primary_access_key
@@ -654,6 +693,14 @@ class EventGridTopic(pulumi.CustomResource):
         Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_schema")
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_auth_enabled")
 
     @property
     @pulumi.getter

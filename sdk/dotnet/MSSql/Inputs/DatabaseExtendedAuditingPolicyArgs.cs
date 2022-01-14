@@ -33,6 +33,9 @@ namespace Pulumi.Azure.MSSql.Inputs
         [Input("storageAccountAccessKeyIsSecondary")]
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
 
+        [Input("storageAccountSubscriptionId")]
+        public Input<string>? StorageAccountSubscriptionId { get; set; }
+
         /// <summary>
         /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
         /// </summary>

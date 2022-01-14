@@ -19,6 +19,7 @@ class AnalyticsWorkspaceArgs:
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -30,7 +31,7 @@ class AnalyticsWorkspaceArgs:
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] reservation_capcity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -46,6 +47,11 @@ class AnalyticsWorkspaceArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if reservation_capacity_in_gb_per_day is not None:
+            pulumi.set(__self__, "reservation_capacity_in_gb_per_day", reservation_capacity_in_gb_per_day)
+        if reservation_capcity_in_gb_per_day is not None:
+            warnings.warn("""As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.""", DeprecationWarning)
+            pulumi.log.warn("""reservation_capcity_in_gb_per_day is deprecated: As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.""")
         if reservation_capcity_in_gb_per_day is not None:
             pulumi.set(__self__, "reservation_capcity_in_gb_per_day", reservation_capcity_in_gb_per_day)
         if retention_in_days is not None:
@@ -125,11 +131,20 @@ class AnalyticsWorkspaceArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="reservationCapcityInGbPerDay")
-    def reservation_capcity_in_gb_per_day(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="reservationCapacityInGbPerDay")
+    def reservation_capacity_in_gb_per_day(self) -> Optional[pulumi.Input[int]]:
         """
         The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         """
+        return pulumi.get(self, "reservation_capacity_in_gb_per_day")
+
+    @reservation_capacity_in_gb_per_day.setter
+    def reservation_capacity_in_gb_per_day(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "reservation_capacity_in_gb_per_day", value)
+
+    @property
+    @pulumi.getter(name="reservationCapcityInGbPerDay")
+    def reservation_capcity_in_gb_per_day(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "reservation_capcity_in_gb_per_day")
 
     @reservation_capcity_in_gb_per_day.setter
@@ -183,6 +198,7 @@ class _AnalyticsWorkspaceState:
                  name: Optional[pulumi.Input[str]] = None,
                  portal_url: Optional[pulumi.Input[str]] = None,
                  primary_shared_key: Optional[pulumi.Input[str]] = None,
+                 reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -197,7 +213,7 @@ class _AnalyticsWorkspaceState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[int] reservation_capcity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] secondary_shared_key: The Secondary shared key for the Log Analytics Workspace.
@@ -222,6 +238,11 @@ class _AnalyticsWorkspaceState:
             pulumi.set(__self__, "portal_url", portal_url)
         if primary_shared_key is not None:
             pulumi.set(__self__, "primary_shared_key", primary_shared_key)
+        if reservation_capacity_in_gb_per_day is not None:
+            pulumi.set(__self__, "reservation_capacity_in_gb_per_day", reservation_capacity_in_gb_per_day)
+        if reservation_capcity_in_gb_per_day is not None:
+            warnings.warn("""As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.""", DeprecationWarning)
+            pulumi.log.warn("""reservation_capcity_in_gb_per_day is deprecated: As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.""")
         if reservation_capcity_in_gb_per_day is not None:
             pulumi.set(__self__, "reservation_capcity_in_gb_per_day", reservation_capcity_in_gb_per_day)
         if resource_group_name is not None:
@@ -316,11 +337,20 @@ class _AnalyticsWorkspaceState:
         pulumi.set(self, "primary_shared_key", value)
 
     @property
-    @pulumi.getter(name="reservationCapcityInGbPerDay")
-    def reservation_capcity_in_gb_per_day(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="reservationCapacityInGbPerDay")
+    def reservation_capacity_in_gb_per_day(self) -> Optional[pulumi.Input[int]]:
         """
         The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         """
+        return pulumi.get(self, "reservation_capacity_in_gb_per_day")
+
+    @reservation_capacity_in_gb_per_day.setter
+    def reservation_capacity_in_gb_per_day(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "reservation_capacity_in_gb_per_day", value)
+
+    @property
+    @pulumi.getter(name="reservationCapcityInGbPerDay")
+    def reservation_capcity_in_gb_per_day(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "reservation_capcity_in_gb_per_day")
 
     @reservation_capcity_in_gb_per_day.setter
@@ -410,6 +440,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -447,7 +478,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] reservation_capcity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
@@ -504,6 +535,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -526,6 +558,10 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             __props__.__dict__["internet_query_enabled"] = internet_query_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["reservation_capacity_in_gb_per_day"] = reservation_capacity_in_gb_per_day
+            if reservation_capcity_in_gb_per_day is not None and not opts.urn:
+                warnings.warn("""As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.""", DeprecationWarning)
+                pulumi.log.warn("""reservation_capcity_in_gb_per_day is deprecated: As this property name contained a typo originally, please switch to using 'reservation_capacity_in_gb_per_day' instead.""")
             __props__.__dict__["reservation_capcity_in_gb_per_day"] = reservation_capcity_in_gb_per_day
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -554,6 +590,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             portal_url: Optional[pulumi.Input[str]] = None,
             primary_shared_key: Optional[pulumi.Input[str]] = None,
+            reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
             reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -573,7 +610,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[int] reservation_capcity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] secondary_shared_key: The Secondary shared key for the Log Analytics Workspace.
@@ -592,6 +629,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["portal_url"] = portal_url
         __props__.__dict__["primary_shared_key"] = primary_shared_key
+        __props__.__dict__["reservation_capacity_in_gb_per_day"] = reservation_capacity_in_gb_per_day
         __props__.__dict__["reservation_capcity_in_gb_per_day"] = reservation_capcity_in_gb_per_day
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["retention_in_days"] = retention_in_days
@@ -652,11 +690,16 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         return pulumi.get(self, "primary_shared_key")
 
     @property
-    @pulumi.getter(name="reservationCapcityInGbPerDay")
-    def reservation_capcity_in_gb_per_day(self) -> pulumi.Output[Optional[int]]:
+    @pulumi.getter(name="reservationCapacityInGbPerDay")
+    def reservation_capacity_in_gb_per_day(self) -> pulumi.Output[int]:
         """
         The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         """
+        return pulumi.get(self, "reservation_capacity_in_gb_per_day")
+
+    @property
+    @pulumi.getter(name="reservationCapcityInGbPerDay")
+    def reservation_capcity_in_gb_per_day(self) -> pulumi.Output[int]:
         return pulumi.get(self, "reservation_capcity_in_gb_per_day")
 
     @property

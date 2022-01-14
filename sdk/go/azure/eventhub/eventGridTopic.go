@@ -73,6 +73,8 @@ type EventGridTopic struct {
 	InputMappingFields EventGridTopicInputMappingFieldsPtrOutput `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrOutput `pulumi:"inputSchema"`
+	// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
@@ -133,6 +135,8 @@ type eventGridTopicState struct {
 	InputMappingFields *EventGridTopicInputMappingFields `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema *string `pulumi:"inputSchema"`
+	// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
@@ -162,6 +166,8 @@ type EventGridTopicState struct {
 	InputMappingFields EventGridTopicInputMappingFieldsPtrInput
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrInput
+	// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
@@ -193,6 +199,8 @@ type eventGridTopicArgs struct {
 	InputMappingFields *EventGridTopicInputMappingFields `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema *string `pulumi:"inputSchema"`
+	// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
@@ -217,6 +225,8 @@ type EventGridTopicArgs struct {
 	InputMappingFields EventGridTopicInputMappingFieldsPtrInput
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrInput
+	// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.

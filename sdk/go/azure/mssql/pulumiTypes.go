@@ -17,7 +17,8 @@ type DatabaseExtendedAuditingPolicyType struct {
 	// Specifies the access key to use for the auditing storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
+	StorageAccountAccessKeyIsSecondary *bool   `pulumi:"storageAccountAccessKeyIsSecondary"`
+	StorageAccountSubscriptionId       *string `pulumi:"storageAccountSubscriptionId"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
 	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
@@ -40,7 +41,8 @@ type DatabaseExtendedAuditingPolicyTypeArgs struct {
 	// Specifies the access key to use for the auditing storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
 	// Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput `pulumi:"storageAccountAccessKeyIsSecondary"`
+	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput   `pulumi:"storageAccountAccessKeyIsSecondary"`
+	StorageAccountSubscriptionId       pulumi.StringPtrInput `pulumi:"storageAccountSubscriptionId"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
 	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
 }
@@ -141,6 +143,10 @@ func (o DatabaseExtendedAuditingPolicyTypeOutput) StorageAccountAccessKeyIsSecon
 	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
 }
 
+func (o DatabaseExtendedAuditingPolicyTypeOutput) StorageAccountSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) *string { return v.StorageAccountSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
 func (o DatabaseExtendedAuditingPolicyTypeOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
@@ -207,6 +213,15 @@ func (o DatabaseExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKeyIsSe
 		}
 		return v.StorageAccountAccessKeyIsSecondary
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DatabaseExtendedAuditingPolicyTypePtrOutput) StorageAccountSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicyType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountSubscriptionId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
@@ -1737,6 +1752,7 @@ type ServerExtendedAuditingPolicyType struct {
 	RetentionInDays                    *int    `pulumi:"retentionInDays"`
 	StorageAccountAccessKey            *string `pulumi:"storageAccountAccessKey"`
 	StorageAccountAccessKeyIsSecondary *bool   `pulumi:"storageAccountAccessKeyIsSecondary"`
+	StorageAccountSubscriptionId       *string `pulumi:"storageAccountSubscriptionId"`
 	StorageEndpoint                    *string `pulumi:"storageEndpoint"`
 }
 
@@ -1756,6 +1772,7 @@ type ServerExtendedAuditingPolicyTypeArgs struct {
 	RetentionInDays                    pulumi.IntPtrInput    `pulumi:"retentionInDays"`
 	StorageAccountAccessKey            pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput   `pulumi:"storageAccountAccessKeyIsSecondary"`
+	StorageAccountSubscriptionId       pulumi.StringPtrInput `pulumi:"storageAccountSubscriptionId"`
 	StorageEndpoint                    pulumi.StringPtrInput `pulumi:"storageEndpoint"`
 }
 
@@ -1852,6 +1869,10 @@ func (o ServerExtendedAuditingPolicyTypeOutput) StorageAccountAccessKeyIsSeconda
 	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
 }
 
+func (o ServerExtendedAuditingPolicyTypeOutput) StorageAccountSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *string { return v.StorageAccountSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
 func (o ServerExtendedAuditingPolicyTypeOutput) StorageEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -1914,6 +1935,15 @@ func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKeyIsSeco
 		}
 		return v.StorageAccountAccessKeyIsSecondary
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageAccountSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountSubscriptionId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageEndpoint() pulumi.StringPtrOutput {

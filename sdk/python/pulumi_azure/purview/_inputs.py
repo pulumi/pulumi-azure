@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'AccountIdentityArgs',
+    'AccountManagedResourceArgs',
 ]
 
 @pulumi.input_type
@@ -65,5 +66,60 @@ class AccountIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class AccountManagedResourceArgs:
+    def __init__(__self__, *,
+                 event_hub_namespace_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] event_hub_namespace_id: The ID of the managed event hub namespace.
+        :param pulumi.Input[str] resource_group_id: The ID of the managed resource group.
+        :param pulumi.Input[str] storage_account_id: The ID of the managed storage account.
+        """
+        if event_hub_namespace_id is not None:
+            pulumi.set(__self__, "event_hub_namespace_id", event_hub_namespace_id)
+        if resource_group_id is not None:
+            pulumi.set(__self__, "resource_group_id", resource_group_id)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="eventHubNamespaceId")
+    def event_hub_namespace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the managed event hub namespace.
+        """
+        return pulumi.get(self, "event_hub_namespace_id")
+
+    @event_hub_namespace_id.setter
+    def event_hub_namespace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_namespace_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupId")
+    def resource_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the managed resource group.
+        """
+        return pulumi.get(self, "resource_group_id")
+
+    @resource_group_id.setter
+    def resource_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_id", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the managed storage account.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
 
 

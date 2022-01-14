@@ -16,11 +16,14 @@ __all__ = ['DomainArgs', 'Domain']
 class DomainArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
+                 auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['DomainIdentityArgs']] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']] = None,
                  input_mapping_fields: Optional[pulumi.Input['DomainInputMappingFieldsArgs']] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -28,17 +31,24 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        :param pulumi.Input[bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
         :param pulumi.Input['DomainIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input['DomainInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input['DomainInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if auto_create_topic_with_first_subscription is not None:
+            pulumi.set(__self__, "auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
+        if auto_delete_topic_with_last_subscription is not None:
+            pulumi.set(__self__, "auto_delete_topic_with_last_subscription", auto_delete_topic_with_last_subscription)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules is not None:
@@ -49,6 +59,8 @@ class DomainArgs:
             pulumi.set(__self__, "input_mapping_fields", input_mapping_fields)
         if input_schema is not None:
             pulumi.set(__self__, "input_schema", input_schema)
+        if local_auth_enabled is not None:
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -69,6 +81,30 @@ class DomainArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="autoCreateTopicWithFirstSubscription")
+    def auto_create_topic_with_first_subscription(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_create_topic_with_first_subscription")
+
+    @auto_create_topic_with_first_subscription.setter
+    def auto_create_topic_with_first_subscription(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_create_topic_with_first_subscription", value)
+
+    @property
+    @pulumi.getter(name="autoDeleteTopicWithLastSubscription")
+    def auto_delete_topic_with_last_subscription(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_delete_topic_with_last_subscription")
+
+    @auto_delete_topic_with_last_subscription.setter
+    def auto_delete_topic_with_last_subscription(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_delete_topic_with_last_subscription", value)
 
     @property
     @pulumi.getter
@@ -131,6 +167,18 @@ class DomainArgs:
         pulumi.set(self, "input_schema", value)
 
     @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_auth_enabled")
+
+    @local_auth_enabled.setter
+    def local_auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_auth_enabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -182,12 +230,15 @@ class DomainArgs:
 @pulumi.input_type
 class _DomainState:
     def __init__(__self__, *,
+                 auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
+                 auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['DomainIdentityArgs']] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']] = None,
                  input_mapping_fields: Optional[pulumi.Input['DomainInputMappingFieldsArgs']] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_access_key: Optional[pulumi.Input[str]] = None,
@@ -197,12 +248,15 @@ class _DomainState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
+        :param pulumi.Input[bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        :param pulumi.Input[bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
         :param pulumi.Input[str] endpoint: The Endpoint associated with the EventGrid Domain.
         :param pulumi.Input['DomainIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input['DomainInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input['DomainInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The Primary Shared Access Key associated with the EventGrid Domain.
@@ -211,6 +265,10 @@ class _DomainState:
         :param pulumi.Input[str] secondary_access_key: The Secondary Shared Access Key associated with the EventGrid Domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        if auto_create_topic_with_first_subscription is not None:
+            pulumi.set(__self__, "auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
+        if auto_delete_topic_with_last_subscription is not None:
+            pulumi.set(__self__, "auto_delete_topic_with_last_subscription", auto_delete_topic_with_last_subscription)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if identity is not None:
@@ -223,6 +281,8 @@ class _DomainState:
             pulumi.set(__self__, "input_mapping_fields", input_mapping_fields)
         if input_schema is not None:
             pulumi.set(__self__, "input_schema", input_schema)
+        if local_auth_enabled is not None:
+            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -237,6 +297,30 @@ class _DomainState:
             pulumi.set(__self__, "secondary_access_key", secondary_access_key)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="autoCreateTopicWithFirstSubscription")
+    def auto_create_topic_with_first_subscription(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_create_topic_with_first_subscription")
+
+    @auto_create_topic_with_first_subscription.setter
+    def auto_create_topic_with_first_subscription(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_create_topic_with_first_subscription", value)
+
+    @property
+    @pulumi.getter(name="autoDeleteTopicWithLastSubscription")
+    def auto_delete_topic_with_last_subscription(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_delete_topic_with_last_subscription")
+
+    @auto_delete_topic_with_last_subscription.setter
+    def auto_delete_topic_with_last_subscription(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_delete_topic_with_last_subscription", value)
 
     @property
     @pulumi.getter
@@ -309,6 +393,18 @@ class _DomainState:
     @input_schema.setter
     def input_schema(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "input_schema", value)
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_auth_enabled")
+
+    @local_auth_enabled.setter
+    def local_auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_auth_enabled", value)
 
     @property
     @pulumi.getter
@@ -405,11 +501,14 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
+                 auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DomainIdentityArgs']]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']]] = None,
                  input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']]] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -444,11 +543,14 @@ class Domain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        :param pulumi.Input[bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['DomainIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -502,11 +604,14 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
+                 auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DomainIdentityArgs']]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]]] = None,
                  input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']]] = None,
                  input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']]] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
+                 local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -525,11 +630,14 @@ class Domain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainArgs.__new__(DomainArgs)
 
+            __props__.__dict__["auto_create_topic_with_first_subscription"] = auto_create_topic_with_first_subscription
+            __props__.__dict__["auto_delete_topic_with_last_subscription"] = auto_delete_topic_with_last_subscription
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
             __props__.__dict__["input_mapping_fields"] = input_mapping_fields
             __props__.__dict__["input_schema"] = input_schema
+            __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -550,12 +658,15 @@ class Domain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
+            auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['DomainIdentityArgs']]] = None,
             inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]]] = None,
             input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']]] = None,
             input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']]] = None,
             input_schema: Optional[pulumi.Input[str]] = None,
+            local_auth_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
@@ -570,12 +681,15 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        :param pulumi.Input[bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
         :param pulumi.Input[str] endpoint: The Endpoint associated with the EventGrid Domain.
         :param pulumi.Input[pulumi.InputType['DomainIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
         :param pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The Primary Shared Access Key associated with the EventGrid Domain.
@@ -588,12 +702,15 @@ class Domain(pulumi.CustomResource):
 
         __props__ = _DomainState.__new__(_DomainState)
 
+        __props__.__dict__["auto_create_topic_with_first_subscription"] = auto_create_topic_with_first_subscription
+        __props__.__dict__["auto_delete_topic_with_last_subscription"] = auto_delete_topic_with_last_subscription
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["identity"] = identity
         __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
         __props__.__dict__["input_mapping_default_values"] = input_mapping_default_values
         __props__.__dict__["input_mapping_fields"] = input_mapping_fields
         __props__.__dict__["input_schema"] = input_schema
+        __props__.__dict__["local_auth_enabled"] = local_auth_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["primary_access_key"] = primary_access_key
@@ -602,6 +719,22 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["secondary_access_key"] = secondary_access_key
         __props__.__dict__["tags"] = tags
         return Domain(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoCreateTopicWithFirstSubscription")
+    def auto_create_topic_with_first_subscription(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_create_topic_with_first_subscription")
+
+    @property
+    @pulumi.getter(name="autoDeleteTopicWithLastSubscription")
+    def auto_delete_topic_with_last_subscription(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_delete_topic_with_last_subscription")
 
     @property
     @pulumi.getter
@@ -650,6 +783,14 @@ class Domain(pulumi.CustomResource):
         Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_schema")
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_auth_enabled")
 
     @property
     @pulumi.getter

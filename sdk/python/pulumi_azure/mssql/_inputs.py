@@ -39,6 +39,7 @@ class DatabaseExtendedAuditingPolicyArgs:
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
+                 storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] retention_in_days: Specifies the number of days to retain logs for in the storage account.
@@ -54,6 +55,8 @@ class DatabaseExtendedAuditingPolicyArgs:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_access_key_is_secondary is not None:
             pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+        if storage_account_subscription_id is not None:
+            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
         if storage_endpoint is not None:
             pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
@@ -101,6 +104,15 @@ class DatabaseExtendedAuditingPolicyArgs:
     @storage_account_access_key_is_secondary.setter
     def storage_account_access_key_is_secondary(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "storage_account_access_key_is_secondary", value)
+
+    @property
+    @pulumi.getter(name="storageAccountSubscriptionId")
+    def storage_account_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "storage_account_subscription_id")
+
+    @storage_account_subscription_id.setter
+    def storage_account_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_subscription_id", value)
 
     @property
     @pulumi.getter(name="storageEndpoint")
@@ -637,6 +649,7 @@ class ServerExtendedAuditingPolicyArgs:
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
+                 storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         if log_monitoring_enabled is not None:
             pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
@@ -646,6 +659,8 @@ class ServerExtendedAuditingPolicyArgs:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_access_key_is_secondary is not None:
             pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+        if storage_account_subscription_id is not None:
+            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
         if storage_endpoint is not None:
             pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
@@ -684,6 +699,15 @@ class ServerExtendedAuditingPolicyArgs:
     @storage_account_access_key_is_secondary.setter
     def storage_account_access_key_is_secondary(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "storage_account_access_key_is_secondary", value)
+
+    @property
+    @pulumi.getter(name="storageAccountSubscriptionId")
+    def storage_account_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "storage_account_subscription_id")
+
+    @storage_account_subscription_id.setter
+    def storage_account_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_subscription_id", value)
 
     @property
     @pulumi.getter(name="storageEndpoint")

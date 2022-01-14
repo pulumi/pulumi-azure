@@ -140,6 +140,7 @@ class _AccountState:
                  identities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountIdentityArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+                 managed_resources: Optional[pulumi.Input[Sequence[pulumi.Input['AccountManagedResourceArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -155,6 +156,7 @@ class _AccountState:
         :param pulumi.Input[Sequence[pulumi.Input['AccountIdentityArgs']]] identities: A `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountManagedResourceArgs']]] managed_resources: A `managed_resources` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
@@ -175,6 +177,8 @@ class _AccountState:
             pulumi.set(__self__, "location", location)
         if managed_resource_group_name is not None:
             pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+        if managed_resources is not None:
+            pulumi.set(__self__, "managed_resources", managed_resources)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_network_enabled is not None:
@@ -274,6 +278,18 @@ class _AccountState:
     @managed_resource_group_name.setter
     def managed_resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "managed_resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="managedResources")
+    def managed_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountManagedResourceArgs']]]]:
+        """
+        A `managed_resources` block as defined below.
+        """
+        return pulumi.get(self, "managed_resources")
+
+    @managed_resources.setter
+    def managed_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountManagedResourceArgs']]]]):
+        pulumi.set(self, "managed_resources", value)
 
     @property
     @pulumi.getter
@@ -470,6 +486,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["catalog_endpoint"] = None
             __props__.__dict__["guardian_endpoint"] = None
             __props__.__dict__["identities"] = None
+            __props__.__dict__["managed_resources"] = None
             __props__.__dict__["scan_endpoint"] = None
         super(Account, __self__).__init__(
             'azure:purview/account:Account',
@@ -488,6 +505,7 @@ class Account(pulumi.CustomResource):
             identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+            managed_resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountManagedResourceArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_network_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -508,6 +526,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]]] identities: A `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountManagedResourceArgs']]]] managed_resources: A `managed_resources` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
@@ -525,6 +544,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["identities"] = identities
         __props__.__dict__["location"] = location
         __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
+        __props__.__dict__["managed_resources"] = managed_resources
         __props__.__dict__["name"] = name
         __props__.__dict__["public_network_enabled"] = public_network_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -588,6 +608,14 @@ class Account(pulumi.CustomResource):
         The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
         """
         return pulumi.get(self, "managed_resource_group_name")
+
+    @property
+    @pulumi.getter(name="managedResources")
+    def managed_resources(self) -> pulumi.Output[Sequence['outputs.AccountManagedResource']]:
+        """
+        A `managed_resources` block as defined below.
+        """
+        return pulumi.get(self, "managed_resources")
 
     @property
     @pulumi.getter

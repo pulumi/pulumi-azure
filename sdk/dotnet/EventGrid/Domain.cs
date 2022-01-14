@@ -52,6 +52,18 @@ namespace Pulumi.Azure.EventGrid
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        /// </summary>
+        [Output("autoCreateTopicWithFirstSubscription")]
+        public Output<bool?> AutoCreateTopicWithFirstSubscription { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        /// </summary>
+        [Output("autoDeleteTopicWithLastSubscription")]
+        public Output<bool?> AutoDeleteTopicWithLastSubscription { get; private set; } = null!;
+
+        /// <summary>
         /// The Endpoint associated with the EventGrid Domain.
         /// </summary>
         [Output("endpoint")]
@@ -86,6 +98,12 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Output("inputSchema")]
         public Output<string?> InputSchema { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+        /// </summary>
+        [Output("localAuthEnabled")]
+        public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -180,6 +198,18 @@ namespace Pulumi.Azure.EventGrid
     public sealed class DomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        /// </summary>
+        [Input("autoCreateTopicWithFirstSubscription")]
+        public Input<bool>? AutoCreateTopicWithFirstSubscription { get; set; }
+
+        /// <summary>
+        /// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        /// </summary>
+        [Input("autoDeleteTopicWithLastSubscription")]
+        public Input<bool>? AutoDeleteTopicWithLastSubscription { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
@@ -214,6 +244,12 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("inputSchema")]
         public Input<string>? InputSchema { get; set; }
+
+        /// <summary>
+        /// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -259,6 +295,18 @@ namespace Pulumi.Azure.EventGrid
     public sealed class DomainState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        /// </summary>
+        [Input("autoCreateTopicWithFirstSubscription")]
+        public Input<bool>? AutoCreateTopicWithFirstSubscription { get; set; }
+
+        /// <summary>
+        /// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        /// </summary>
+        [Input("autoDeleteTopicWithLastSubscription")]
+        public Input<bool>? AutoDeleteTopicWithLastSubscription { get; set; }
+
+        /// <summary>
         /// The Endpoint associated with the EventGrid Domain.
         /// </summary>
         [Input("endpoint")]
@@ -299,6 +347,12 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("inputSchema")]
         public Input<string>? InputSchema { get; set; }
+
+        /// <summary>
+        /// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

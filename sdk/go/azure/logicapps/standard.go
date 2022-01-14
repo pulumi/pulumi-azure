@@ -51,8 +51,8 @@ import (
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku: &appservice.PlanSkuArgs{
-// 				Tier: pulumi.String("ElasticPremium"),
-// 				Size: pulumi.String("EP1"),
+// 				Tier: pulumi.String("WorkflowStandard"),
+// 				Size: pulumi.String("WS1"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -110,8 +110,8 @@ import (
 // 			Kind:              pulumi.Any("Linux"),
 // 			Reserved:          pulumi.Bool(true),
 // 			Sku: &appservice.PlanSkuArgs{
-// 				Tier: pulumi.String("ElasticPremium"),
-// 				Size: pulumi.String("EP1"),
+// 				Tier: pulumi.String("WorkflowStandard"),
+// 				Size: pulumi.String("WS1"),
 // 			},
 // 		})
 // 		if err != nil {

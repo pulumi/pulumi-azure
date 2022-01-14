@@ -13,6 +13,7 @@ from .api_operation_tag import *
 from .api_policy import *
 from .api_release import *
 from .api_schema import *
+from .api_tag import *
 from .api_version_set import *
 from .authorization_server import *
 from .backend import *

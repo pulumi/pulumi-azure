@@ -79,6 +79,13 @@ import (
 // 					UseCommonAlertSchema: pulumi.Bool(true),
 // 				},
 // 			},
+// 			EventHubReceivers: monitoring.ActionGroupEventHubReceiverArray{
+// 				&monitoring.ActionGroupEventHubReceiverArgs{
+// 					Name:                 pulumi.String("sendtoeventhub"),
+// 					EventHubId:           pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1"),
+// 					UseCommonAlertSchema: pulumi.Bool(false),
+// 				},
+// 			},
 // 			ItsmReceivers: monitoring.ActionGroupItsmReceiverArray{
 // 				&monitoring.ActionGroupItsmReceiverArgs{
 // 					Name:                pulumi.String("createorupdateticket"),
@@ -148,6 +155,8 @@ type ActionGroup struct {
 	EmailReceivers ActionGroupEmailReceiverArrayOutput `pulumi:"emailReceivers"`
 	// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// One or more `eventHubReceiver` blocks as defined below.
+	EventHubReceivers ActionGroupEventHubReceiverArrayOutput `pulumi:"eventHubReceivers"`
 	// One or more `itsmReceiver` blocks as defined below.
 	ItsmReceivers ActionGroupItsmReceiverArrayOutput `pulumi:"itsmReceivers"`
 	// One or more `logicAppReceiver` blocks as defined below.
@@ -215,6 +224,8 @@ type actionGroupState struct {
 	EmailReceivers []ActionGroupEmailReceiver `pulumi:"emailReceivers"`
 	// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// One or more `eventHubReceiver` blocks as defined below.
+	EventHubReceivers []ActionGroupEventHubReceiver `pulumi:"eventHubReceivers"`
 	// One or more `itsmReceiver` blocks as defined below.
 	ItsmReceivers []ActionGroupItsmReceiver `pulumi:"itsmReceivers"`
 	// One or more `logicAppReceiver` blocks as defined below.
@@ -248,6 +259,8 @@ type ActionGroupState struct {
 	EmailReceivers ActionGroupEmailReceiverArrayInput
 	// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// One or more `eventHubReceiver` blocks as defined below.
+	EventHubReceivers ActionGroupEventHubReceiverArrayInput
 	// One or more `itsmReceiver` blocks as defined below.
 	ItsmReceivers ActionGroupItsmReceiverArrayInput
 	// One or more `logicAppReceiver` blocks as defined below.
@@ -285,6 +298,8 @@ type actionGroupArgs struct {
 	EmailReceivers []ActionGroupEmailReceiver `pulumi:"emailReceivers"`
 	// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// One or more `eventHubReceiver` blocks as defined below.
+	EventHubReceivers []ActionGroupEventHubReceiver `pulumi:"eventHubReceivers"`
 	// One or more `itsmReceiver` blocks as defined below.
 	ItsmReceivers []ActionGroupItsmReceiver `pulumi:"itsmReceivers"`
 	// One or more `logicAppReceiver` blocks as defined below.
@@ -319,6 +334,8 @@ type ActionGroupArgs struct {
 	EmailReceivers ActionGroupEmailReceiverArrayInput
 	// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// One or more `eventHubReceiver` blocks as defined below.
+	EventHubReceivers ActionGroupEventHubReceiverArrayInput
 	// One or more `itsmReceiver` blocks as defined below.
 	ItsmReceivers ActionGroupItsmReceiverArrayInput
 	// One or more `logicAppReceiver` blocks as defined below.

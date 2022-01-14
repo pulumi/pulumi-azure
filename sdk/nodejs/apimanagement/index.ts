@@ -13,6 +13,7 @@ export * from "./apiOperationTag";
 export * from "./apiPolicy";
 export * from "./apiRelease";
 export * from "./apiSchema";
+export * from "./apiTag";
 export * from "./apiVersionSet";
 export * from "./authorizationServer";
 export * from "./backend";
@@ -63,6 +64,7 @@ import { ApiOperationTag } from "./apiOperationTag";
 import { ApiPolicy } from "./apiPolicy";
 import { ApiRelease } from "./apiRelease";
 import { ApiSchema } from "./apiSchema";
+import { ApiTag } from "./apiTag";
 import { ApiVersionSet } from "./apiVersionSet";
 import { AuthorizationServer } from "./authorizationServer";
 import { Backend } from "./backend";
@@ -117,6 +119,8 @@ const _module = {
                 return new ApiRelease(name, <any>undefined, { urn })
             case "azure:apimanagement/apiSchema:ApiSchema":
                 return new ApiSchema(name, <any>undefined, { urn })
+            case "azure:apimanagement/apiTag:ApiTag":
+                return new ApiTag(name, <any>undefined, { urn })
             case "azure:apimanagement/apiVersionSet:ApiVersionSet":
                 return new ApiVersionSet(name, <any>undefined, { urn })
             case "azure:apimanagement/authorizationServer:AuthorizationServer":
@@ -196,6 +200,7 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/apiOperationTag", 
 pulumi.runtime.registerResourceModule("azure", "apimanagement/apiPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/apiRelease", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/apiSchema", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/apiTag", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/apiVersionSet", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/authorizationServer", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/backend", _module)

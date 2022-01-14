@@ -382,6 +382,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_tag":                          {Tok: azureResource(azureAPIManagement, "Tag")},
 			"azurerm_api_management_notification_recipient_email": {Tok: azureResource(azureAPIManagement, "NotificationRecipientEmail")},
 			"azurerm_api_management_notification_recipient_user":  {Tok: azureResource(azureAPIManagement, "NotificationRecipientUser")},
+			"azurerm_api_management_api_tag":                      {Tok: azureResource(azureAPIManagement, "ApiTag")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -751,10 +752,11 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_disk_access":        {Tok: azureResource(azureCompute, "DiskAccess")},
-			"azurerm_ssh_public_key":     {Tok: azureResource(azureCompute, "SshPublicKey")},
-			"azurerm_linux_function_app": {Tok: azureResource(azureCompute, "LinuxFunctionApp")},
-			"azurerm_disk_pool":          {Tok: azureResource(azureCompute, "DiskPool")},
+			"azurerm_disk_access":                       {Tok: azureResource(azureCompute, "DiskAccess")},
+			"azurerm_ssh_public_key":                    {Tok: azureResource(azureCompute, "SshPublicKey")},
+			"azurerm_linux_function_app":                {Tok: azureResource(azureCompute, "LinuxFunctionApp")},
+			"azurerm_disk_pool":                         {Tok: azureResource(azureCompute, "DiskPool")},
+			"azurerm_disk_pool_managed_disk_attachment": {Tok: azureResource(azureCompute, "DiskPoolManagedDiskAttachment")},
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},

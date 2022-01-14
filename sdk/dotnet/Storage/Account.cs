@@ -179,6 +179,12 @@ namespace Pulumi.Azure.Storage
         public Output<Outputs.AccountIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        /// </summary>
+        [Output("infrastructureEncryptionEnabled")]
+        public Output<bool?> InfrastructureEncryptionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         /// </summary>
         [Output("isHnsEnabled")]
@@ -571,6 +577,12 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        /// </summary>
+        [Input("infrastructureEncryptionEnabled")]
+        public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
+
+        /// <summary>
         /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         /// </summary>
         [Input("isHnsEnabled")]
@@ -736,6 +748,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        /// </summary>
+        [Input("infrastructureEncryptionEnabled")]
+        public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
 
         /// <summary>
         /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.

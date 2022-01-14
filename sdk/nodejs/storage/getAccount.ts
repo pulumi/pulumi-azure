@@ -92,6 +92,12 @@ export interface GetAccountResult {
      */
     readonly id: string;
     /**
+     * Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable/)
+     * for more information.
+     * ---
+     */
+    readonly infrastructureEncryptionEnabled: boolean;
+    /**
      * Is Hierarchical Namespace enabled?
      */
     readonly isHnsEnabled: boolean;

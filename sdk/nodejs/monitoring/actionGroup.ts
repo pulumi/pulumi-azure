@@ -54,6 +54,11 @@ import * as utilities from "../utilities";
  *             useCommonAlertSchema: true,
  *         },
  *     ],
+ *     eventHubReceivers: [{
+ *         name: "sendtoeventhub",
+ *         eventHubId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1",
+ *         useCommonAlertSchema: false,
+ *     }],
  *     itsmReceivers: [{
  *         name: "createorupdateticket",
  *         workspaceId: "6eee3a18-aac3-40e4-b98e-1f309f329816",
@@ -146,6 +151,10 @@ export class ActionGroup extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * One or more `eventHubReceiver` blocks as defined below.
+     */
+    public readonly eventHubReceivers!: pulumi.Output<outputs.monitoring.ActionGroupEventHubReceiver[] | undefined>;
+    /**
      * One or more `itsmReceiver` blocks as defined below.
      */
     public readonly itsmReceivers!: pulumi.Output<outputs.monitoring.ActionGroupItsmReceiver[] | undefined>;
@@ -201,6 +210,7 @@ export class ActionGroup extends pulumi.CustomResource {
             inputs["azureFunctionReceivers"] = state ? state.azureFunctionReceivers : undefined;
             inputs["emailReceivers"] = state ? state.emailReceivers : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["eventHubReceivers"] = state ? state.eventHubReceivers : undefined;
             inputs["itsmReceivers"] = state ? state.itsmReceivers : undefined;
             inputs["logicAppReceivers"] = state ? state.logicAppReceivers : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -224,6 +234,7 @@ export class ActionGroup extends pulumi.CustomResource {
             inputs["azureFunctionReceivers"] = args ? args.azureFunctionReceivers : undefined;
             inputs["emailReceivers"] = args ? args.emailReceivers : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["eventHubReceivers"] = args ? args.eventHubReceivers : undefined;
             inputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
             inputs["logicAppReceivers"] = args ? args.logicAppReceivers : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -269,6 +280,10 @@ export interface ActionGroupState {
      * Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * One or more `eventHubReceiver` blocks as defined below.
+     */
+    eventHubReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEventHubReceiver>[]>;
     /**
      * One or more `itsmReceiver` blocks as defined below.
      */
@@ -335,6 +350,10 @@ export interface ActionGroupArgs {
      * Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * One or more `eventHubReceiver` blocks as defined below.
+     */
+    eventHubReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEventHubReceiver>[]>;
     /**
      * One or more `itsmReceiver` blocks as defined below.
      */

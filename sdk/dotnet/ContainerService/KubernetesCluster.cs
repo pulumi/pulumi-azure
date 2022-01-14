@@ -140,13 +140,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        /// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         /// </summary>
         [Output("kubeAdminConfigRaw")]
         public Output<string> KubeAdminConfigRaw { get; private set; } = null!;
 
         /// <summary>
-        /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         /// </summary>
         [Output("kubeAdminConfigs")]
         public Output<ImmutableArray<Outputs.KubernetesClusterKubeAdminConfig>> KubeAdminConfigs { get; private set; } = null!;
@@ -615,7 +615,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        /// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         /// </summary>
         [Input("kubeAdminConfigRaw")]
         public Input<string>? KubeAdminConfigRaw { get; set; }
@@ -624,7 +624,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.KubernetesClusterKubeAdminConfigGetArgs>? _kubeAdminConfigs;
 
         /// <summary>
-        /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         /// </summary>
         public InputList<Inputs.KubernetesClusterKubeAdminConfigGetArgs> KubeAdminConfigs
         {

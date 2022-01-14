@@ -19113,6 +19113,25 @@ export namespace monitoring {
         useCommonAlertSchema?: pulumi.Input<boolean>;
     }
 
+    export interface ActionGroupEventHubReceiver {
+        /**
+         * The resource ID of the respective Event Hub.
+         */
+        eventHubId: pulumi.Input<string>;
+        /**
+         * The name of the EventHub Receiver, must be unique within action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the subscription containing this Event Hub.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema?: pulumi.Input<boolean>;
+    }
+
     export interface ActionGroupItsmReceiver {
         /**
          * The unique connection identifier of the ITSM connection.
@@ -19825,6 +19844,44 @@ export namespace monitoring {
         enabled: pulumi.Input<boolean>;
     }
 
+    export interface GetActionGroupEventHubReceiverArgs {
+        /**
+         * The resource ID of the respective Event Hub.
+         */
+        eventHubId: pulumi.Input<string>;
+        /**
+         * Specifies the name of the Action Group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the subscription containing this Event Hub.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema?: pulumi.Input<boolean>;
+    }
+
+    export interface GetActionGroupEventHubReceiver {
+        /**
+         * The resource ID of the respective Event Hub.
+         */
+        eventHubId: string;
+        /**
+         * Specifies the name of the Action Group.
+         */
+        name: string;
+        /**
+         * The Tenant ID for the subscription containing this Event Hub.
+         */
+        tenantId?: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema?: boolean;
+    }
+
     export interface LogProfileRetentionPolicy {
         /**
          * The number of days for the retention policy. Defaults to 0.
@@ -20108,7 +20165,6 @@ export namespace monitoring {
          */
         webhookPayload?: pulumi.Input<string>;
     }
-
 }
 
 export namespace mssql {
@@ -20126,6 +20182,7 @@ export namespace mssql {
          * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
          */
         storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+        storageAccountSubscriptionId?: pulumi.Input<string>;
         /**
          * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
@@ -20280,6 +20337,7 @@ export namespace mssql {
         retentionInDays?: pulumi.Input<number>;
         storageAccountAccessKey?: pulumi.Input<string>;
         storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+        storageAccountSubscriptionId?: pulumi.Input<string>;
         storageEndpoint?: pulumi.Input<string>;
     }
 
@@ -24195,9 +24253,39 @@ export namespace purview {
          */
         type?: pulumi.Input<string>;
     }
+
+    export interface AccountManagedResource {
+        /**
+         * The ID of the managed event hub namespace.
+         */
+        eventHubNamespaceId?: pulumi.Input<string>;
+        /**
+         * The ID of the managed resource group.
+         */
+        resourceGroupId?: pulumi.Input<string>;
+        /**
+         * The ID of the managed storage account.
+         */
+        storageAccountId?: pulumi.Input<string>;
+    }
 }
 
 export namespace recoveryservices {
+    export interface VaultEncryption {
+        /**
+         * Enabling/Disabling the Double Encryption state.
+         */
+        infrastructureEncryptionEnabled: pulumi.Input<boolean>;
+        /**
+         * The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
+         */
+        keyId: pulumi.Input<string>;
+        /**
+         * Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+         */
+        useSystemAssignedIdentity?: pulumi.Input<boolean>;
+    }
+
     export interface VaultIdentity {
         principalId?: pulumi.Input<string>;
         tenantId?: pulumi.Input<string>;

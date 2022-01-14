@@ -136,6 +136,8 @@ export class CustomDomain extends pulumi.CustomResource {
     public readonly portals!: pulumi.Output<outputs.apimanagement.CustomDomainPortal[] | undefined>;
     /**
      * One or more `proxy` blocks as defined below.
+     *
+     * @deprecated `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
      */
     public readonly proxies!: pulumi.Output<outputs.apimanagement.CustomDomainProxy[] | undefined>;
     /**
@@ -203,6 +205,8 @@ export interface CustomDomainState {
     portals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainPortal>[]>;
     /**
      * One or more `proxy` blocks as defined below.
+     *
+     * @deprecated `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
      */
     proxies?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainProxy>[]>;
     /**
@@ -233,6 +237,8 @@ export interface CustomDomainArgs {
     portals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainPortal>[]>;
     /**
      * One or more `proxy` blocks as defined below.
+     *
+     * @deprecated `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
      */
     proxies?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainProxy>[]>;
     /**

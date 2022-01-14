@@ -38,6 +38,9 @@ class CustomDomainArgs:
         if portals is not None:
             pulumi.set(__self__, "portals", portals)
         if proxies is not None:
+            warnings.warn("""`proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""proxies is deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider""")
+        if proxies is not None:
             pulumi.set(__self__, "proxies", proxies)
         if scms is not None:
             pulumi.set(__self__, "scms", scms)
@@ -141,6 +144,9 @@ class _CustomDomainState:
             pulumi.set(__self__, "managements", managements)
         if portals is not None:
             pulumi.set(__self__, "portals", portals)
+        if proxies is not None:
+            warnings.warn("""`proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""proxies is deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider""")
         if proxies is not None:
             pulumi.set(__self__, "proxies", proxies)
         if scms is not None:
@@ -449,6 +455,9 @@ class CustomDomain(pulumi.CustomResource):
             __props__.__dict__["developer_portals"] = developer_portals
             __props__.__dict__["managements"] = managements
             __props__.__dict__["portals"] = portals
+            if proxies is not None and not opts.urn:
+                warnings.warn("""`proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider""", DeprecationWarning)
+                pulumi.log.warn("""proxies is deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider""")
             __props__.__dict__["proxies"] = proxies
             __props__.__dict__["scms"] = scms
         super(CustomDomain, __self__).__init__(

@@ -43,8 +43,8 @@ namespace Pulumi.Azure.LogicApps
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///             {
-    ///                 Tier = "ElasticPremium",
-    ///                 Size = "EP1",
+    ///                 Tier = "WorkflowStandard",
+    ///                 Size = "WS1",
     ///             },
     ///         });
     ///         var exampleStandard = new Azure.LogicApps.Standard("exampleStandard", new Azure.LogicApps.StandardArgs
@@ -90,8 +90,8 @@ namespace Pulumi.Azure.LogicApps
     ///             Reserved = true,
     ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///             {
-    ///                 Tier = "ElasticPremium",
-    ///                 Size = "EP1",
+    ///                 Tier = "WorkflowStandard",
+    ///                 Size = "WS1",
     ///             },
     ///         });
     ///         var exampleStandard = new Azure.LogicApps.Standard("exampleStandard", new Azure.LogicApps.StandardArgs

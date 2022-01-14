@@ -24,6 +24,9 @@ namespace Pulumi.Azure.MSSql.Inputs
         [Input("storageAccountAccessKeyIsSecondary")]
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
 
+        [Input("storageAccountSubscriptionId")]
+        public Input<string>? StorageAccountSubscriptionId { get; set; }
+
         [Input("storageEndpoint")]
         public Input<string>? StorageEndpoint { get; set; }
 

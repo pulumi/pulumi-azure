@@ -47,6 +47,8 @@ func LookupActionGroup(ctx *pulumi.Context, args *LookupActionGroupArgs, opts ..
 
 // A collection of arguments for invoking getActionGroup.
 type LookupActionGroupArgs struct {
+	// One or more `eventHubReceiver` blocks as defined below.
+	EventHubReceivers []GetActionGroupEventHubReceiver `pulumi:"eventHubReceivers"`
 	// Specifies the name of the Action Group.
 	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Action Group is located in.
@@ -67,6 +69,8 @@ type LookupActionGroupResult struct {
 	EmailReceivers []GetActionGroupEmailReceiver `pulumi:"emailReceivers"`
 	// Whether this action group is enabled.
 	Enabled bool `pulumi:"enabled"`
+	// One or more `eventHubReceiver` blocks as defined below.
+	EventHubReceivers []GetActionGroupEventHubReceiver `pulumi:"eventHubReceivers"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// One or more `itsmReceiver` blocks as defined below.
@@ -97,6 +101,8 @@ func LookupActionGroupOutput(ctx *pulumi.Context, args LookupActionGroupOutputAr
 
 // A collection of arguments for invoking getActionGroup.
 type LookupActionGroupOutputArgs struct {
+	// One or more `eventHubReceiver` blocks as defined below.
+	EventHubReceivers GetActionGroupEventHubReceiverArrayInput `pulumi:"eventHubReceivers"`
 	// Specifies the name of the Action Group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the resource group the Action Group is located in.
@@ -152,6 +158,11 @@ func (o LookupActionGroupResultOutput) EmailReceivers() GetActionGroupEmailRecei
 // Whether this action group is enabled.
 func (o LookupActionGroupResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupActionGroupResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// One or more `eventHubReceiver` blocks as defined below.
+func (o LookupActionGroupResultOutput) EventHubReceivers() GetActionGroupEventHubReceiverArrayOutput {
+	return o.ApplyT(func(v LookupActionGroupResult) []GetActionGroupEventHubReceiver { return v.EventHubReceivers }).(GetActionGroupEventHubReceiverArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

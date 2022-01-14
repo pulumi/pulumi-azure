@@ -64,7 +64,7 @@ export class Directory extends pulumi.CustomResource {
      */
     public /*out*/ readonly billingType!: pulumi.Output<string>;
     /**
-     * Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+     * Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      */
     public readonly countryCode!: pulumi.Output<string>;
     /**
@@ -72,7 +72,7 @@ export class Directory extends pulumi.CustomResource {
      */
     public readonly dataResidencyLocation!: pulumi.Output<string>;
     /**
-     * The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+     * The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -125,14 +125,8 @@ export class Directory extends pulumi.CustomResource {
             inputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
-            if ((!args || args.countryCode === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'countryCode'");
-            }
             if ((!args || args.dataResidencyLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataResidencyLocation'");
-            }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'displayName'");
             }
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
@@ -170,7 +164,7 @@ export interface DirectoryState {
      */
     billingType?: pulumi.Input<string>;
     /**
-     * Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+     * Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      */
     countryCode?: pulumi.Input<string>;
     /**
@@ -178,7 +172,7 @@ export interface DirectoryState {
      */
     dataResidencyLocation?: pulumi.Input<string>;
     /**
-     * The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+     * The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -212,17 +206,17 @@ export interface DirectoryState {
  */
 export interface DirectoryArgs {
     /**
-     * Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+     * Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      */
-    countryCode: pulumi.Input<string>;
+    countryCode?: pulumi.Input<string>;
     /**
      * Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
      */
     dataResidencyLocation: pulumi.Input<string>;
     /**
-     * The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+     * The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      */
-    displayName: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
      */

@@ -776,8 +776,8 @@ class Standard(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku=azure.appservice.PlanSkuArgs(
-                tier="ElasticPremium",
-                size="EP1",
+                tier="WorkflowStandard",
+                size="WS1",
             ))
         example_standard = azure.logicapps.Standard("exampleStandard",
             location=example_resource_group.location,
@@ -806,8 +806,8 @@ class Standard(pulumi.CustomResource):
             kind="Linux",
             reserved=True,
             sku=azure.appservice.PlanSkuArgs(
-                tier="ElasticPremium",
-                size="EP1",
+                tier="WorkflowStandard",
+                size="WS1",
             ))
         example_standard = azure.logicapps.Standard("exampleStandard",
             location=example_resource_group.location,
@@ -884,8 +884,8 @@ class Standard(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku=azure.appservice.PlanSkuArgs(
-                tier="ElasticPremium",
-                size="EP1",
+                tier="WorkflowStandard",
+                size="WS1",
             ))
         example_standard = azure.logicapps.Standard("exampleStandard",
             location=example_resource_group.location,
@@ -914,8 +914,8 @@ class Standard(pulumi.CustomResource):
             kind="Linux",
             reserved=True,
             sku=azure.appservice.PlanSkuArgs(
-                tier="ElasticPremium",
-                size="EP1",
+                tier="WorkflowStandard",
+                size="WS1",
             ))
         example_standard = azure.logicapps.Standard("exampleStandard",
             location=example_resource_group.location,

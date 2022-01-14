@@ -149,6 +149,8 @@ type Account struct {
 	EnableHttpsTrafficOnly pulumi.BoolPtrOutput `pulumi:"enableHttpsTrafficOnly"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityOutput `pulumi:"identity"`
+	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	IsHnsEnabled pulumi.BoolPtrOutput `pulumi:"isHnsEnabled"`
 	// Is Large File Share Enabled?
@@ -305,6 +307,8 @@ type accountState struct {
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
+	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
 	// Is Large File Share Enabled?
@@ -424,6 +428,8 @@ type AccountState struct {
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
+	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	IsHnsEnabled pulumi.BoolPtrInput
 	// Is Large File Share Enabled?
@@ -547,6 +553,8 @@ type accountArgs struct {
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
+	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
 	// Is Large File Share Enabled?
@@ -603,6 +611,8 @@ type AccountArgs struct {
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
+	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	IsHnsEnabled pulumi.BoolPtrInput
 	// Is Large File Share Enabled?

@@ -806,6 +806,130 @@ func (o ActionGroupEmailReceiverArrayOutput) Index(i pulumi.IntInput) ActionGrou
 	}).(ActionGroupEmailReceiverOutput)
 }
 
+type ActionGroupEventHubReceiver struct {
+	// The resource ID of the respective Event Hub.
+	EventHubId string `pulumi:"eventHubId"`
+	// The name of the EventHub Receiver, must be unique within action group.
+	Name string `pulumi:"name"`
+	// The Tenant ID for the subscription containing this Event Hub.
+	TenantId *string `pulumi:"tenantId"`
+	// Indicates whether to use common alert schema.
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+}
+
+// ActionGroupEventHubReceiverInput is an input type that accepts ActionGroupEventHubReceiverArgs and ActionGroupEventHubReceiverOutput values.
+// You can construct a concrete instance of `ActionGroupEventHubReceiverInput` via:
+//
+//          ActionGroupEventHubReceiverArgs{...}
+type ActionGroupEventHubReceiverInput interface {
+	pulumi.Input
+
+	ToActionGroupEventHubReceiverOutput() ActionGroupEventHubReceiverOutput
+	ToActionGroupEventHubReceiverOutputWithContext(context.Context) ActionGroupEventHubReceiverOutput
+}
+
+type ActionGroupEventHubReceiverArgs struct {
+	// The resource ID of the respective Event Hub.
+	EventHubId pulumi.StringInput `pulumi:"eventHubId"`
+	// The name of the EventHub Receiver, must be unique within action group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Tenant ID for the subscription containing this Event Hub.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Indicates whether to use common alert schema.
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
+}
+
+func (ActionGroupEventHubReceiverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroupEventHubReceiver)(nil)).Elem()
+}
+
+func (i ActionGroupEventHubReceiverArgs) ToActionGroupEventHubReceiverOutput() ActionGroupEventHubReceiverOutput {
+	return i.ToActionGroupEventHubReceiverOutputWithContext(context.Background())
+}
+
+func (i ActionGroupEventHubReceiverArgs) ToActionGroupEventHubReceiverOutputWithContext(ctx context.Context) ActionGroupEventHubReceiverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupEventHubReceiverOutput)
+}
+
+// ActionGroupEventHubReceiverArrayInput is an input type that accepts ActionGroupEventHubReceiverArray and ActionGroupEventHubReceiverArrayOutput values.
+// You can construct a concrete instance of `ActionGroupEventHubReceiverArrayInput` via:
+//
+//          ActionGroupEventHubReceiverArray{ ActionGroupEventHubReceiverArgs{...} }
+type ActionGroupEventHubReceiverArrayInput interface {
+	pulumi.Input
+
+	ToActionGroupEventHubReceiverArrayOutput() ActionGroupEventHubReceiverArrayOutput
+	ToActionGroupEventHubReceiverArrayOutputWithContext(context.Context) ActionGroupEventHubReceiverArrayOutput
+}
+
+type ActionGroupEventHubReceiverArray []ActionGroupEventHubReceiverInput
+
+func (ActionGroupEventHubReceiverArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionGroupEventHubReceiver)(nil)).Elem()
+}
+
+func (i ActionGroupEventHubReceiverArray) ToActionGroupEventHubReceiverArrayOutput() ActionGroupEventHubReceiverArrayOutput {
+	return i.ToActionGroupEventHubReceiverArrayOutputWithContext(context.Background())
+}
+
+func (i ActionGroupEventHubReceiverArray) ToActionGroupEventHubReceiverArrayOutputWithContext(ctx context.Context) ActionGroupEventHubReceiverArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupEventHubReceiverArrayOutput)
+}
+
+type ActionGroupEventHubReceiverOutput struct{ *pulumi.OutputState }
+
+func (ActionGroupEventHubReceiverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroupEventHubReceiver)(nil)).Elem()
+}
+
+func (o ActionGroupEventHubReceiverOutput) ToActionGroupEventHubReceiverOutput() ActionGroupEventHubReceiverOutput {
+	return o
+}
+
+func (o ActionGroupEventHubReceiverOutput) ToActionGroupEventHubReceiverOutputWithContext(ctx context.Context) ActionGroupEventHubReceiverOutput {
+	return o
+}
+
+// The resource ID of the respective Event Hub.
+func (o ActionGroupEventHubReceiverOutput) EventHubId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionGroupEventHubReceiver) string { return v.EventHubId }).(pulumi.StringOutput)
+}
+
+// The name of the EventHub Receiver, must be unique within action group.
+func (o ActionGroupEventHubReceiverOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionGroupEventHubReceiver) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the subscription containing this Event Hub.
+func (o ActionGroupEventHubReceiverOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionGroupEventHubReceiver) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to use common alert schema.
+func (o ActionGroupEventHubReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActionGroupEventHubReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
+}
+
+type ActionGroupEventHubReceiverArrayOutput struct{ *pulumi.OutputState }
+
+func (ActionGroupEventHubReceiverArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionGroupEventHubReceiver)(nil)).Elem()
+}
+
+func (o ActionGroupEventHubReceiverArrayOutput) ToActionGroupEventHubReceiverArrayOutput() ActionGroupEventHubReceiverArrayOutput {
+	return o
+}
+
+func (o ActionGroupEventHubReceiverArrayOutput) ToActionGroupEventHubReceiverArrayOutputWithContext(ctx context.Context) ActionGroupEventHubReceiverArrayOutput {
+	return o
+}
+
+func (o ActionGroupEventHubReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupEventHubReceiverOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupEventHubReceiver {
+		return vs[0].([]ActionGroupEventHubReceiver)[vs[1].(int)]
+	}).(ActionGroupEventHubReceiverOutput)
+}
+
 type ActionGroupItsmReceiver struct {
 	// The unique connection identifier of the ITSM connection.
 	ConnectionId string `pulumi:"connectionId"`
@@ -10803,6 +10927,130 @@ func (o GetActionGroupEmailReceiverArrayOutput) Index(i pulumi.IntInput) GetActi
 	}).(GetActionGroupEmailReceiverOutput)
 }
 
+type GetActionGroupEventHubReceiver struct {
+	// The resource ID of the respective Event Hub.
+	EventHubId string `pulumi:"eventHubId"`
+	// Specifies the name of the Action Group.
+	Name string `pulumi:"name"`
+	// The Tenant ID for the subscription containing this Event Hub.
+	TenantId string `pulumi:"tenantId"`
+	// Indicates whether to use common alert schema.
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+}
+
+// GetActionGroupEventHubReceiverInput is an input type that accepts GetActionGroupEventHubReceiverArgs and GetActionGroupEventHubReceiverOutput values.
+// You can construct a concrete instance of `GetActionGroupEventHubReceiverInput` via:
+//
+//          GetActionGroupEventHubReceiverArgs{...}
+type GetActionGroupEventHubReceiverInput interface {
+	pulumi.Input
+
+	ToGetActionGroupEventHubReceiverOutput() GetActionGroupEventHubReceiverOutput
+	ToGetActionGroupEventHubReceiverOutputWithContext(context.Context) GetActionGroupEventHubReceiverOutput
+}
+
+type GetActionGroupEventHubReceiverArgs struct {
+	// The resource ID of the respective Event Hub.
+	EventHubId pulumi.StringInput `pulumi:"eventHubId"`
+	// Specifies the name of the Action Group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Tenant ID for the subscription containing this Event Hub.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Indicates whether to use common alert schema.
+	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
+}
+
+func (GetActionGroupEventHubReceiverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionGroupEventHubReceiver)(nil)).Elem()
+}
+
+func (i GetActionGroupEventHubReceiverArgs) ToGetActionGroupEventHubReceiverOutput() GetActionGroupEventHubReceiverOutput {
+	return i.ToGetActionGroupEventHubReceiverOutputWithContext(context.Background())
+}
+
+func (i GetActionGroupEventHubReceiverArgs) ToGetActionGroupEventHubReceiverOutputWithContext(ctx context.Context) GetActionGroupEventHubReceiverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupEventHubReceiverOutput)
+}
+
+// GetActionGroupEventHubReceiverArrayInput is an input type that accepts GetActionGroupEventHubReceiverArray and GetActionGroupEventHubReceiverArrayOutput values.
+// You can construct a concrete instance of `GetActionGroupEventHubReceiverArrayInput` via:
+//
+//          GetActionGroupEventHubReceiverArray{ GetActionGroupEventHubReceiverArgs{...} }
+type GetActionGroupEventHubReceiverArrayInput interface {
+	pulumi.Input
+
+	ToGetActionGroupEventHubReceiverArrayOutput() GetActionGroupEventHubReceiverArrayOutput
+	ToGetActionGroupEventHubReceiverArrayOutputWithContext(context.Context) GetActionGroupEventHubReceiverArrayOutput
+}
+
+type GetActionGroupEventHubReceiverArray []GetActionGroupEventHubReceiverInput
+
+func (GetActionGroupEventHubReceiverArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionGroupEventHubReceiver)(nil)).Elem()
+}
+
+func (i GetActionGroupEventHubReceiverArray) ToGetActionGroupEventHubReceiverArrayOutput() GetActionGroupEventHubReceiverArrayOutput {
+	return i.ToGetActionGroupEventHubReceiverArrayOutputWithContext(context.Background())
+}
+
+func (i GetActionGroupEventHubReceiverArray) ToGetActionGroupEventHubReceiverArrayOutputWithContext(ctx context.Context) GetActionGroupEventHubReceiverArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupEventHubReceiverArrayOutput)
+}
+
+type GetActionGroupEventHubReceiverOutput struct{ *pulumi.OutputState }
+
+func (GetActionGroupEventHubReceiverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetActionGroupEventHubReceiver)(nil)).Elem()
+}
+
+func (o GetActionGroupEventHubReceiverOutput) ToGetActionGroupEventHubReceiverOutput() GetActionGroupEventHubReceiverOutput {
+	return o
+}
+
+func (o GetActionGroupEventHubReceiverOutput) ToGetActionGroupEventHubReceiverOutputWithContext(ctx context.Context) GetActionGroupEventHubReceiverOutput {
+	return o
+}
+
+// The resource ID of the respective Event Hub.
+func (o GetActionGroupEventHubReceiverOutput) EventHubId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionGroupEventHubReceiver) string { return v.EventHubId }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Action Group.
+func (o GetActionGroupEventHubReceiverOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionGroupEventHubReceiver) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the subscription containing this Event Hub.
+func (o GetActionGroupEventHubReceiverOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionGroupEventHubReceiver) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Indicates whether to use common alert schema.
+func (o GetActionGroupEventHubReceiverOutput) UseCommonAlertSchema() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetActionGroupEventHubReceiver) *bool { return v.UseCommonAlertSchema }).(pulumi.BoolPtrOutput)
+}
+
+type GetActionGroupEventHubReceiverArrayOutput struct{ *pulumi.OutputState }
+
+func (GetActionGroupEventHubReceiverArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetActionGroupEventHubReceiver)(nil)).Elem()
+}
+
+func (o GetActionGroupEventHubReceiverArrayOutput) ToGetActionGroupEventHubReceiverArrayOutput() GetActionGroupEventHubReceiverArrayOutput {
+	return o
+}
+
+func (o GetActionGroupEventHubReceiverArrayOutput) ToGetActionGroupEventHubReceiverArrayOutputWithContext(ctx context.Context) GetActionGroupEventHubReceiverArrayOutput {
+	return o
+}
+
+func (o GetActionGroupEventHubReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupEventHubReceiverOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupEventHubReceiver {
+		return vs[0].([]GetActionGroupEventHubReceiver)[vs[1].(int)]
+	}).(GetActionGroupEventHubReceiverOutput)
+}
+
 type GetActionGroupItsmReceiver struct {
 	// The unique connection identifier of the ITSM connection.
 	ConnectionId string `pulumi:"connectionId"`
@@ -11414,7 +11662,8 @@ func (o GetActionGroupWebhookReceiverArrayOutput) Index(i pulumi.IntInput) GetAc
 type GetActionGroupWebhookReceiverAadAuth struct {
 	IdentifierUri string `pulumi:"identifierUri"`
 	ObjectId      string `pulumi:"objectId"`
-	TenantId      string `pulumi:"tenantId"`
+	// The Tenant ID for the subscription containing this Event Hub.
+	TenantId string `pulumi:"tenantId"`
 }
 
 // GetActionGroupWebhookReceiverAadAuthInput is an input type that accepts GetActionGroupWebhookReceiverAadAuthArgs and GetActionGroupWebhookReceiverAadAuthOutput values.
@@ -11431,7 +11680,8 @@ type GetActionGroupWebhookReceiverAadAuthInput interface {
 type GetActionGroupWebhookReceiverAadAuthArgs struct {
 	IdentifierUri pulumi.StringInput `pulumi:"identifierUri"`
 	ObjectId      pulumi.StringInput `pulumi:"objectId"`
-	TenantId      pulumi.StringInput `pulumi:"tenantId"`
+	// The Tenant ID for the subscription containing this Event Hub.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
 
 func (GetActionGroupWebhookReceiverAadAuthArgs) ElementType() reflect.Type {
@@ -11493,6 +11743,7 @@ func (o GetActionGroupWebhookReceiverAadAuthOutput) ObjectId() pulumi.StringOutp
 	return o.ApplyT(func(v GetActionGroupWebhookReceiverAadAuth) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
+// The Tenant ID for the subscription containing this Event Hub.
 func (o GetActionGroupWebhookReceiverAadAuthOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionGroupWebhookReceiverAadAuth) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -12207,6 +12458,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupAzureFunctionReceiverArrayInput)(nil)).Elem(), ActionGroupAzureFunctionReceiverArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupEmailReceiverInput)(nil)).Elem(), ActionGroupEmailReceiverArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupEmailReceiverArrayInput)(nil)).Elem(), ActionGroupEmailReceiverArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupEventHubReceiverInput)(nil)).Elem(), ActionGroupEventHubReceiverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupEventHubReceiverArrayInput)(nil)).Elem(), ActionGroupEventHubReceiverArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupItsmReceiverInput)(nil)).Elem(), ActionGroupItsmReceiverArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupItsmReceiverArrayInput)(nil)).Elem(), ActionGroupItsmReceiverArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionGroupLogicAppReceiverInput)(nil)).Elem(), ActionGroupLogicAppReceiverArgs{})
@@ -12334,6 +12587,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupAzureFunctionReceiverArrayInput)(nil)).Elem(), GetActionGroupAzureFunctionReceiverArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupEmailReceiverInput)(nil)).Elem(), GetActionGroupEmailReceiverArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupEmailReceiverArrayInput)(nil)).Elem(), GetActionGroupEmailReceiverArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupEventHubReceiverInput)(nil)).Elem(), GetActionGroupEventHubReceiverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupEventHubReceiverArrayInput)(nil)).Elem(), GetActionGroupEventHubReceiverArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupItsmReceiverInput)(nil)).Elem(), GetActionGroupItsmReceiverArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupItsmReceiverArrayInput)(nil)).Elem(), GetActionGroupItsmReceiverArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupLogicAppReceiverInput)(nil)).Elem(), GetActionGroupLogicAppReceiverArgs{})
@@ -12371,6 +12626,8 @@ func init() {
 	pulumi.RegisterOutputType(ActionGroupAzureFunctionReceiverArrayOutput{})
 	pulumi.RegisterOutputType(ActionGroupEmailReceiverOutput{})
 	pulumi.RegisterOutputType(ActionGroupEmailReceiverArrayOutput{})
+	pulumi.RegisterOutputType(ActionGroupEventHubReceiverOutput{})
+	pulumi.RegisterOutputType(ActionGroupEventHubReceiverArrayOutput{})
 	pulumi.RegisterOutputType(ActionGroupItsmReceiverOutput{})
 	pulumi.RegisterOutputType(ActionGroupItsmReceiverArrayOutput{})
 	pulumi.RegisterOutputType(ActionGroupLogicAppReceiverOutput{})
@@ -12498,6 +12755,8 @@ func init() {
 	pulumi.RegisterOutputType(GetActionGroupAzureFunctionReceiverArrayOutput{})
 	pulumi.RegisterOutputType(GetActionGroupEmailReceiverOutput{})
 	pulumi.RegisterOutputType(GetActionGroupEmailReceiverArrayOutput{})
+	pulumi.RegisterOutputType(GetActionGroupEventHubReceiverOutput{})
+	pulumi.RegisterOutputType(GetActionGroupEventHubReceiverArrayOutput{})
 	pulumi.RegisterOutputType(GetActionGroupItsmReceiverOutput{})
 	pulumi.RegisterOutputType(GetActionGroupItsmReceiverArrayOutput{})
 	pulumi.RegisterOutputType(GetActionGroupLogicAppReceiverOutput{})

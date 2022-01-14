@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'AccountIdentity',
+    'AccountManagedResource',
 ]
 
 @pulumi.output_type
@@ -72,5 +73,69 @@ class AccountIdentity(dict):
         The type of Managed Identity assigned to this Purview Account.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AccountManagedResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventHubNamespaceId":
+            suggest = "event_hub_namespace_id"
+        elif key == "resourceGroupId":
+            suggest = "resource_group_id"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountManagedResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountManagedResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountManagedResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_hub_namespace_id: Optional[str] = None,
+                 resource_group_id: Optional[str] = None,
+                 storage_account_id: Optional[str] = None):
+        """
+        :param str event_hub_namespace_id: The ID of the managed event hub namespace.
+        :param str resource_group_id: The ID of the managed resource group.
+        :param str storage_account_id: The ID of the managed storage account.
+        """
+        if event_hub_namespace_id is not None:
+            pulumi.set(__self__, "event_hub_namespace_id", event_hub_namespace_id)
+        if resource_group_id is not None:
+            pulumi.set(__self__, "resource_group_id", resource_group_id)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="eventHubNamespaceId")
+    def event_hub_namespace_id(self) -> Optional[str]:
+        """
+        The ID of the managed event hub namespace.
+        """
+        return pulumi.get(self, "event_hub_namespace_id")
+
+    @property
+    @pulumi.getter(name="resourceGroupId")
+    def resource_group_id(self) -> Optional[str]:
+        """
+        The ID of the managed resource group.
+        """
+        return pulumi.get(self, "resource_group_id")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[str]:
+        """
+        The ID of the managed storage account.
+        """
+        return pulumi.get(self, "storage_account_id")
 
 

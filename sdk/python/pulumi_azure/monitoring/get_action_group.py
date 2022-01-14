@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetActionGroupResult',
@@ -21,7 +22,7 @@ class GetActionGroupResult:
     """
     A collection of values returned by getActionGroup.
     """
-    def __init__(__self__, arm_role_receivers=None, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, id=None, itsm_receivers=None, logic_app_receivers=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, voice_receivers=None, webhook_receivers=None):
+    def __init__(__self__, arm_role_receivers=None, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, event_hub_receivers=None, id=None, itsm_receivers=None, logic_app_receivers=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, voice_receivers=None, webhook_receivers=None):
         if arm_role_receivers and not isinstance(arm_role_receivers, list):
             raise TypeError("Expected argument 'arm_role_receivers' to be a list")
         pulumi.set(__self__, "arm_role_receivers", arm_role_receivers)
@@ -40,6 +41,9 @@ class GetActionGroupResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if event_hub_receivers and not isinstance(event_hub_receivers, list):
+            raise TypeError("Expected argument 'event_hub_receivers' to be a list")
+        pulumi.set(__self__, "event_hub_receivers", event_hub_receivers)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -115,6 +119,14 @@ class GetActionGroupResult:
         Whether this action group is enabled.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="eventHubReceivers")
+    def event_hub_receivers(self) -> Optional[Sequence['outputs.GetActionGroupEventHubReceiverResult']]:
+        """
+        One or more `event_hub_receiver` blocks as defined below.
+        """
+        return pulumi.get(self, "event_hub_receivers")
 
     @property
     @pulumi.getter
@@ -198,6 +210,7 @@ class AwaitableGetActionGroupResult(GetActionGroupResult):
             azure_function_receivers=self.azure_function_receivers,
             email_receivers=self.email_receivers,
             enabled=self.enabled,
+            event_hub_receivers=self.event_hub_receivers,
             id=self.id,
             itsm_receivers=self.itsm_receivers,
             logic_app_receivers=self.logic_app_receivers,
@@ -209,7 +222,8 @@ class AwaitableGetActionGroupResult(GetActionGroupResult):
             webhook_receivers=self.webhook_receivers)
 
 
-def get_action_group(name: Optional[str] = None,
+def get_action_group(event_hub_receivers: Optional[Sequence[pulumi.InputType['GetActionGroupEventHubReceiverArgs']]] = None,
+                     name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionGroupResult:
     """
@@ -227,10 +241,12 @@ def get_action_group(name: Optional[str] = None,
     ```
 
 
+    :param Sequence[pulumi.InputType['GetActionGroupEventHubReceiverArgs']] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
     :param str name: Specifies the name of the Action Group.
     :param str resource_group_name: Specifies the name of the resource group the Action Group is located in.
     """
     __args__ = dict()
+    __args__['eventHubReceivers'] = event_hub_receivers
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -246,6 +262,7 @@ def get_action_group(name: Optional[str] = None,
         azure_function_receivers=__ret__.azure_function_receivers,
         email_receivers=__ret__.email_receivers,
         enabled=__ret__.enabled,
+        event_hub_receivers=__ret__.event_hub_receivers,
         id=__ret__.id,
         itsm_receivers=__ret__.itsm_receivers,
         logic_app_receivers=__ret__.logic_app_receivers,
@@ -258,7 +275,8 @@ def get_action_group(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_action_group)
-def get_action_group_output(name: Optional[pulumi.Input[str]] = None,
+def get_action_group_output(event_hub_receivers: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetActionGroupEventHubReceiverArgs']]]]] = None,
+                            name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionGroupResult]:
     """
@@ -276,6 +294,7 @@ def get_action_group_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
+    :param Sequence[pulumi.InputType['GetActionGroupEventHubReceiverArgs']] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
     :param str name: Specifies the name of the Action Group.
     :param str resource_group_name: Specifies the name of the resource group the Action Group is located in.
     """

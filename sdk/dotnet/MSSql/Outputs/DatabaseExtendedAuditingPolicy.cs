@@ -26,6 +26,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// Specifies whether `storage_account_access_key` value is the storage's secondary key.
         /// </summary>
         public readonly bool? StorageAccountAccessKeyIsSecondary;
+        public readonly string? StorageAccountSubscriptionId;
         /// <summary>
         /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
         /// </summary>
@@ -41,12 +42,15 @@ namespace Pulumi.Azure.MSSql.Outputs
 
             bool? storageAccountAccessKeyIsSecondary,
 
+            string? storageAccountSubscriptionId,
+
             string? storageEndpoint)
         {
             LogMonitoringEnabled = logMonitoringEnabled;
             RetentionInDays = retentionInDays;
             StorageAccountAccessKey = storageAccountAccessKey;
             StorageAccountAccessKeyIsSecondary = storageAccountAccessKeyIsSecondary;
+            StorageAccountSubscriptionId = storageAccountSubscriptionId;
             StorageEndpoint = storageEndpoint;
         }
     }

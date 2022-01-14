@@ -10,6 +10,181 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type VaultEncryption struct {
+	// Enabling/Disabling the Double Encryption state.
+	InfrastructureEncryptionEnabled bool `pulumi:"infrastructureEncryptionEnabled"`
+	// The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
+	KeyId string `pulumi:"keyId"`
+	// Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+	UseSystemAssignedIdentity *bool `pulumi:"useSystemAssignedIdentity"`
+}
+
+// VaultEncryptionInput is an input type that accepts VaultEncryptionArgs and VaultEncryptionOutput values.
+// You can construct a concrete instance of `VaultEncryptionInput` via:
+//
+//          VaultEncryptionArgs{...}
+type VaultEncryptionInput interface {
+	pulumi.Input
+
+	ToVaultEncryptionOutput() VaultEncryptionOutput
+	ToVaultEncryptionOutputWithContext(context.Context) VaultEncryptionOutput
+}
+
+type VaultEncryptionArgs struct {
+	// Enabling/Disabling the Double Encryption state.
+	InfrastructureEncryptionEnabled pulumi.BoolInput `pulumi:"infrastructureEncryptionEnabled"`
+	// The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+	UseSystemAssignedIdentity pulumi.BoolPtrInput `pulumi:"useSystemAssignedIdentity"`
+}
+
+func (VaultEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultEncryption)(nil)).Elem()
+}
+
+func (i VaultEncryptionArgs) ToVaultEncryptionOutput() VaultEncryptionOutput {
+	return i.ToVaultEncryptionOutputWithContext(context.Background())
+}
+
+func (i VaultEncryptionArgs) ToVaultEncryptionOutputWithContext(ctx context.Context) VaultEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultEncryptionOutput)
+}
+
+func (i VaultEncryptionArgs) ToVaultEncryptionPtrOutput() VaultEncryptionPtrOutput {
+	return i.ToVaultEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i VaultEncryptionArgs) ToVaultEncryptionPtrOutputWithContext(ctx context.Context) VaultEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultEncryptionOutput).ToVaultEncryptionPtrOutputWithContext(ctx)
+}
+
+// VaultEncryptionPtrInput is an input type that accepts VaultEncryptionArgs, VaultEncryptionPtr and VaultEncryptionPtrOutput values.
+// You can construct a concrete instance of `VaultEncryptionPtrInput` via:
+//
+//          VaultEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type VaultEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToVaultEncryptionPtrOutput() VaultEncryptionPtrOutput
+	ToVaultEncryptionPtrOutputWithContext(context.Context) VaultEncryptionPtrOutput
+}
+
+type vaultEncryptionPtrType VaultEncryptionArgs
+
+func VaultEncryptionPtr(v *VaultEncryptionArgs) VaultEncryptionPtrInput {
+	return (*vaultEncryptionPtrType)(v)
+}
+
+func (*vaultEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultEncryption)(nil)).Elem()
+}
+
+func (i *vaultEncryptionPtrType) ToVaultEncryptionPtrOutput() VaultEncryptionPtrOutput {
+	return i.ToVaultEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *vaultEncryptionPtrType) ToVaultEncryptionPtrOutputWithContext(ctx context.Context) VaultEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultEncryptionPtrOutput)
+}
+
+type VaultEncryptionOutput struct{ *pulumi.OutputState }
+
+func (VaultEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultEncryption)(nil)).Elem()
+}
+
+func (o VaultEncryptionOutput) ToVaultEncryptionOutput() VaultEncryptionOutput {
+	return o
+}
+
+func (o VaultEncryptionOutput) ToVaultEncryptionOutputWithContext(ctx context.Context) VaultEncryptionOutput {
+	return o
+}
+
+func (o VaultEncryptionOutput) ToVaultEncryptionPtrOutput() VaultEncryptionPtrOutput {
+	return o.ToVaultEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o VaultEncryptionOutput) ToVaultEncryptionPtrOutputWithContext(ctx context.Context) VaultEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultEncryption) *VaultEncryption {
+		return &v
+	}).(VaultEncryptionPtrOutput)
+}
+
+// Enabling/Disabling the Double Encryption state.
+func (o VaultEncryptionOutput) InfrastructureEncryptionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v VaultEncryption) bool { return v.InfrastructureEncryptionEnabled }).(pulumi.BoolOutput)
+}
+
+// The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
+func (o VaultEncryptionOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultEncryption) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+func (o VaultEncryptionOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VaultEncryption) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
+}
+
+type VaultEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (VaultEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VaultEncryption)(nil)).Elem()
+}
+
+func (o VaultEncryptionPtrOutput) ToVaultEncryptionPtrOutput() VaultEncryptionPtrOutput {
+	return o
+}
+
+func (o VaultEncryptionPtrOutput) ToVaultEncryptionPtrOutputWithContext(ctx context.Context) VaultEncryptionPtrOutput {
+	return o
+}
+
+func (o VaultEncryptionPtrOutput) Elem() VaultEncryptionOutput {
+	return o.ApplyT(func(v *VaultEncryption) VaultEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret VaultEncryption
+		return ret
+	}).(VaultEncryptionOutput)
+}
+
+// Enabling/Disabling the Double Encryption state.
+func (o VaultEncryptionPtrOutput) InfrastructureEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VaultEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.InfrastructureEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
+func (o VaultEncryptionPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+func (o VaultEncryptionPtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VaultEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseSystemAssignedIdentity
+	}).(pulumi.BoolPtrOutput)
+}
+
 type VaultIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	TenantId    *string `pulumi:"tenantId"`
@@ -178,8 +353,12 @@ func (o VaultIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultEncryptionInput)(nil)).Elem(), VaultEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultEncryptionPtrInput)(nil)).Elem(), VaultEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultIdentityInput)(nil)).Elem(), VaultIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultIdentityPtrInput)(nil)).Elem(), VaultIdentityArgs{})
+	pulumi.RegisterOutputType(VaultEncryptionOutput{})
+	pulumi.RegisterOutputType(VaultEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(VaultIdentityOutput{})
 	pulumi.RegisterOutputType(VaultIdentityPtrOutput{})
 }

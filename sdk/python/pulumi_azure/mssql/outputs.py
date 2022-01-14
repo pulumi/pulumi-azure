@@ -48,6 +48,8 @@ class DatabaseExtendedAuditingPolicy(dict):
             suggest = "storage_account_access_key"
         elif key == "storageAccountAccessKeyIsSecondary":
             suggest = "storage_account_access_key_is_secondary"
+        elif key == "storageAccountSubscriptionId":
+            suggest = "storage_account_subscription_id"
         elif key == "storageEndpoint":
             suggest = "storage_endpoint"
 
@@ -67,6 +69,7 @@ class DatabaseExtendedAuditingPolicy(dict):
                  retention_in_days: Optional[int] = None,
                  storage_account_access_key: Optional[str] = None,
                  storage_account_access_key_is_secondary: Optional[bool] = None,
+                 storage_account_subscription_id: Optional[str] = None,
                  storage_endpoint: Optional[str] = None):
         """
         :param int retention_in_days: Specifies the number of days to retain logs for in the storage account.
@@ -82,6 +85,8 @@ class DatabaseExtendedAuditingPolicy(dict):
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_access_key_is_secondary is not None:
             pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+        if storage_account_subscription_id is not None:
+            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
         if storage_endpoint is not None:
             pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
@@ -113,6 +118,11 @@ class DatabaseExtendedAuditingPolicy(dict):
         Specifies whether `storage_account_access_key` value is the storage's secondary key.
         """
         return pulumi.get(self, "storage_account_access_key_is_secondary")
+
+    @property
+    @pulumi.getter(name="storageAccountSubscriptionId")
+    def storage_account_subscription_id(self) -> Optional[str]:
+        return pulumi.get(self, "storage_account_subscription_id")
 
     @property
     @pulumi.getter(name="storageEndpoint")
@@ -660,6 +670,8 @@ class ServerExtendedAuditingPolicy(dict):
             suggest = "storage_account_access_key"
         elif key == "storageAccountAccessKeyIsSecondary":
             suggest = "storage_account_access_key_is_secondary"
+        elif key == "storageAccountSubscriptionId":
+            suggest = "storage_account_subscription_id"
         elif key == "storageEndpoint":
             suggest = "storage_endpoint"
 
@@ -679,6 +691,7 @@ class ServerExtendedAuditingPolicy(dict):
                  retention_in_days: Optional[int] = None,
                  storage_account_access_key: Optional[str] = None,
                  storage_account_access_key_is_secondary: Optional[bool] = None,
+                 storage_account_subscription_id: Optional[str] = None,
                  storage_endpoint: Optional[str] = None):
         if log_monitoring_enabled is not None:
             pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
@@ -688,6 +701,8 @@ class ServerExtendedAuditingPolicy(dict):
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_access_key_is_secondary is not None:
             pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+        if storage_account_subscription_id is not None:
+            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
         if storage_endpoint is not None:
             pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
@@ -710,6 +725,11 @@ class ServerExtendedAuditingPolicy(dict):
     @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
     def storage_account_access_key_is_secondary(self) -> Optional[bool]:
         return pulumi.get(self, "storage_account_access_key_is_secondary")
+
+    @property
+    @pulumi.getter(name="storageAccountSubscriptionId")
+    def storage_account_subscription_id(self) -> Optional[str]:
+        return pulumi.get(self, "storage_account_subscription_id")
 
     @property
     @pulumi.getter(name="storageEndpoint")

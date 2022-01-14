@@ -193,6 +193,12 @@ namespace Pulumi.Azure.Iot
         public Output<string> EventHubEventsEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The EventHub namespace for events data
+        /// </summary>
+        [Output("eventHubEventsNamespace")]
+        public Output<string> EventHubEventsNamespace { get; private set; } = null!;
+
+        /// <summary>
         /// The EventHub compatible path for events data
         /// </summary>
         [Output("eventHubEventsPath")]
@@ -532,6 +538,12 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("eventHubEventsEndpoint")]
         public Input<string>? EventHubEventsEndpoint { get; set; }
+
+        /// <summary>
+        /// The EventHub namespace for events data
+        /// </summary>
+        [Input("eventHubEventsNamespace")]
+        public Input<string>? EventHubEventsNamespace { get; set; }
 
         /// <summary>
         /// The EventHub compatible path for events data

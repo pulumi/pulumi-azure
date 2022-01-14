@@ -87,6 +87,10 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly inputSchema!: pulumi.Output<string | undefined>;
     /**
+     * Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+     */
+    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -134,6 +138,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["inputMappingDefaultValues"] = state ? state.inputMappingDefaultValues : undefined;
             inputs["inputMappingFields"] = state ? state.inputMappingFields : undefined;
             inputs["inputSchema"] = state ? state.inputSchema : undefined;
+            inputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
@@ -151,6 +156,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["inputMappingDefaultValues"] = args ? args.inputMappingDefaultValues : undefined;
             inputs["inputMappingFields"] = args ? args.inputMappingFields : undefined;
             inputs["inputSchema"] = args ? args.inputSchema : undefined;
+            inputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
@@ -197,6 +203,10 @@ export interface TopicState {
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
     inputSchema?: pulumi.Input<string>;
+    /**
+     * Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -251,6 +261,10 @@ export interface TopicArgs {
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
     inputSchema?: pulumi.Input<string>;
+    /**
+     * Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

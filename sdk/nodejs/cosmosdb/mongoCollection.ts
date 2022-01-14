@@ -29,6 +29,10 @@ import * as utilities from "../utilities";
  *     defaultTtlSeconds: "777",
  *     shardKey: "uniqueKey",
  *     throughput: 400,
+ *     indices: [{
+ *         keys: ["_id"],
+ *         unique: true,
+ *     }],
  * });
  * ```
  *

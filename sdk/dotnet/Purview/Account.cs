@@ -90,6 +90,12 @@ namespace Pulumi.Azure.Purview
         public Output<string> ManagedResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// A `managed_resources` block as defined below.
+        /// </summary>
+        [Output("managedResources")]
+        public Output<ImmutableArray<Outputs.AccountManagedResource>> ManagedResources { get; private set; } = null!;
+
+        /// <summary>
         /// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         /// </summary>
         [Output("name")]
@@ -267,6 +273,18 @@ namespace Pulumi.Azure.Purview
         /// </summary>
         [Input("managedResourceGroupName")]
         public Input<string>? ManagedResourceGroupName { get; set; }
+
+        [Input("managedResources")]
+        private InputList<Inputs.AccountManagedResourceGetArgs>? _managedResources;
+
+        /// <summary>
+        /// A `managed_resources` block as defined below.
+        /// </summary>
+        public InputList<Inputs.AccountManagedResourceGetArgs> ManagedResources
+        {
+            get => _managedResources ?? (_managedResources = new InputList<Inputs.AccountManagedResourceGetArgs>());
+            set => _managedResources = value;
+        }
 
         /// <summary>
         /// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.

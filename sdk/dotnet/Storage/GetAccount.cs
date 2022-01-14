@@ -168,6 +168,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable/)
+        /// for more information.
+        /// ---
+        /// </summary>
+        public readonly bool InfrastructureEncryptionEnabled;
+        /// <summary>
         /// Is Hierarchical Namespace enabled?
         /// </summary>
         public readonly bool IsHnsEnabled;
@@ -343,6 +349,8 @@ namespace Pulumi.Azure.Storage
 
             string id,
 
+            bool infrastructureEncryptionEnabled,
+
             bool isHnsEnabled,
 
             string location,
@@ -431,6 +439,7 @@ namespace Pulumi.Azure.Storage
             CustomDomains = customDomains;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             Id = id;
+            InfrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
             IsHnsEnabled = isHnsEnabled;
             Location = location;
             MinTlsVersion = minTlsVersion;

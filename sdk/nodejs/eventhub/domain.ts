@@ -64,6 +64,14 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /**
+     * Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+     */
+    public readonly autoCreateTopicWithFirstSubscription!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+     */
+    public readonly autoDeleteTopicWithLastSubscription!: pulumi.Output<boolean | undefined>;
+    /**
      * The Endpoint associated with the EventGrid Domain.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
@@ -87,6 +95,10 @@ export class Domain extends pulumi.CustomResource {
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
      */
     public readonly inputSchema!: pulumi.Output<string | undefined>;
+    /**
+     * Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+     */
+    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -132,12 +144,15 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
+            inputs["autoCreateTopicWithFirstSubscription"] = state ? state.autoCreateTopicWithFirstSubscription : undefined;
+            inputs["autoDeleteTopicWithLastSubscription"] = state ? state.autoDeleteTopicWithLastSubscription : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["inboundIpRules"] = state ? state.inboundIpRules : undefined;
             inputs["inputMappingDefaultValues"] = state ? state.inputMappingDefaultValues : undefined;
             inputs["inputMappingFields"] = state ? state.inputMappingFields : undefined;
             inputs["inputSchema"] = state ? state.inputSchema : undefined;
+            inputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
@@ -150,11 +165,14 @@ export class Domain extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["autoCreateTopicWithFirstSubscription"] = args ? args.autoCreateTopicWithFirstSubscription : undefined;
+            inputs["autoDeleteTopicWithLastSubscription"] = args ? args.autoDeleteTopicWithLastSubscription : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             inputs["inputMappingDefaultValues"] = args ? args.inputMappingDefaultValues : undefined;
             inputs["inputMappingFields"] = args ? args.inputMappingFields : undefined;
             inputs["inputSchema"] = args ? args.inputSchema : undefined;
+            inputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
@@ -175,6 +193,14 @@ export class Domain extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Domain resources.
  */
 export interface DomainState {
+    /**
+     * Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+     */
+    autoCreateTopicWithFirstSubscription?: pulumi.Input<boolean>;
+    /**
+     * Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+     */
+    autoDeleteTopicWithLastSubscription?: pulumi.Input<boolean>;
     /**
      * The Endpoint associated with the EventGrid Domain.
      */
@@ -199,6 +225,10 @@ export interface DomainState {
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
      */
     inputSchema?: pulumi.Input<string>;
+    /**
+     * Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -234,6 +264,14 @@ export interface DomainState {
  */
 export interface DomainArgs {
     /**
+     * Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+     */
+    autoCreateTopicWithFirstSubscription?: pulumi.Input<boolean>;
+    /**
+     * Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+     */
+    autoDeleteTopicWithLastSubscription?: pulumi.Input<boolean>;
+    /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.eventhub.DomainIdentity>;
@@ -253,6 +291,10 @@ export interface DomainArgs {
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
      */
     inputSchema?: pulumi.Input<string>;
+    /**
+     * Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

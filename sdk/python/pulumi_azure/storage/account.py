@@ -26,6 +26,7 @@ class AccountArgs:
                  custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
+                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
                  large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -55,6 +56,7 @@ class AccountArgs:
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -89,6 +91,8 @@ class AccountArgs:
             pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if infrastructure_encryption_enabled is not None:
+            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if is_hns_enabled is not None:
             pulumi.set(__self__, "is_hns_enabled", is_hns_enabled)
         if large_file_share_enabled is not None:
@@ -252,6 +256,18 @@ class AccountArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="infrastructureEncryptionEnabled")
+    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        """
+        return pulumi.get(self, "infrastructure_encryption_enabled")
+
+    @infrastructure_encryption_enabled.setter
+    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "infrastructure_encryption_enabled", value)
 
     @property
     @pulumi.getter(name="isHnsEnabled")
@@ -444,6 +460,7 @@ class _AccountState:
                  custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
+                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
                  large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -505,6 +522,7 @@ class _AccountState:
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -573,6 +591,8 @@ class _AccountState:
             pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if infrastructure_encryption_enabled is not None:
+            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if is_hns_enabled is not None:
             pulumi.set(__self__, "is_hns_enabled", is_hns_enabled)
         if large_file_share_enabled is not None:
@@ -790,6 +810,18 @@ class _AccountState:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="infrastructureEncryptionEnabled")
+    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        """
+        return pulumi.get(self, "infrastructure_encryption_enabled")
+
+    @infrastructure_encryption_enabled.setter
+    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "infrastructure_encryption_enabled", value)
 
     @property
     @pulumi.getter(name="isHnsEnabled")
@@ -1380,6 +1412,7 @@ class Account(pulumi.CustomResource):
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
+                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
                  large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1471,6 +1504,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -1579,6 +1613,7 @@ class Account(pulumi.CustomResource):
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
+                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
                  large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1621,6 +1656,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["custom_domain"] = custom_domain
             __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
             __props__.__dict__["is_hns_enabled"] = is_hns_enabled
             __props__.__dict__["large_file_share_enabled"] = large_file_share_enabled
             __props__.__dict__["location"] = location
@@ -1691,6 +1727,7 @@ class Account(pulumi.CustomResource):
             custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
             enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
+            infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             is_hns_enabled: Optional[pulumi.Input[bool]] = None,
             large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1757,6 +1794,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -1819,6 +1857,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["custom_domain"] = custom_domain
         __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
         __props__.__dict__["is_hns_enabled"] = is_hns_enabled
         __props__.__dict__["large_file_share_enabled"] = large_file_share_enabled
         __props__.__dict__["location"] = location
@@ -1949,6 +1988,14 @@ class Account(pulumi.CustomResource):
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="infrastructureEncryptionEnabled")
+    def infrastructure_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        """
+        return pulumi.get(self, "infrastructure_encryption_enabled")
 
     @property
     @pulumi.getter(name="isHnsEnabled")

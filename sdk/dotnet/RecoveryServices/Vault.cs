@@ -50,6 +50,12 @@ namespace Pulumi.Azure.RecoveryServices
     public partial class Vault : Pulumi.CustomResource
     {
         /// <summary>
+        /// An `encryption` block as defined below. Required with `identity`.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.VaultEncryption?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -144,6 +150,12 @@ namespace Pulumi.Azure.RecoveryServices
     public sealed class VaultArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `encryption` block as defined below. Required with `identity`.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.VaultEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
@@ -204,6 +216,12 @@ namespace Pulumi.Azure.RecoveryServices
 
     public sealed class VaultState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `encryption` block as defined below. Required with `identity`.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.VaultEncryptionGetArgs>? Encryption { get; set; }
+
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>

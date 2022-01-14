@@ -125,9 +125,128 @@ func (o AccountIdentityArrayOutput) Index(i pulumi.IntInput) AccountIdentityOutp
 	}).(AccountIdentityOutput)
 }
 
+type AccountManagedResource struct {
+	// The ID of the managed event hub namespace.
+	EventHubNamespaceId *string `pulumi:"eventHubNamespaceId"`
+	// The ID of the managed resource group.
+	ResourceGroupId *string `pulumi:"resourceGroupId"`
+	// The ID of the managed storage account.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+}
+
+// AccountManagedResourceInput is an input type that accepts AccountManagedResourceArgs and AccountManagedResourceOutput values.
+// You can construct a concrete instance of `AccountManagedResourceInput` via:
+//
+//          AccountManagedResourceArgs{...}
+type AccountManagedResourceInput interface {
+	pulumi.Input
+
+	ToAccountManagedResourceOutput() AccountManagedResourceOutput
+	ToAccountManagedResourceOutputWithContext(context.Context) AccountManagedResourceOutput
+}
+
+type AccountManagedResourceArgs struct {
+	// The ID of the managed event hub namespace.
+	EventHubNamespaceId pulumi.StringPtrInput `pulumi:"eventHubNamespaceId"`
+	// The ID of the managed resource group.
+	ResourceGroupId pulumi.StringPtrInput `pulumi:"resourceGroupId"`
+	// The ID of the managed storage account.
+	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
+}
+
+func (AccountManagedResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountManagedResource)(nil)).Elem()
+}
+
+func (i AccountManagedResourceArgs) ToAccountManagedResourceOutput() AccountManagedResourceOutput {
+	return i.ToAccountManagedResourceOutputWithContext(context.Background())
+}
+
+func (i AccountManagedResourceArgs) ToAccountManagedResourceOutputWithContext(ctx context.Context) AccountManagedResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountManagedResourceOutput)
+}
+
+// AccountManagedResourceArrayInput is an input type that accepts AccountManagedResourceArray and AccountManagedResourceArrayOutput values.
+// You can construct a concrete instance of `AccountManagedResourceArrayInput` via:
+//
+//          AccountManagedResourceArray{ AccountManagedResourceArgs{...} }
+type AccountManagedResourceArrayInput interface {
+	pulumi.Input
+
+	ToAccountManagedResourceArrayOutput() AccountManagedResourceArrayOutput
+	ToAccountManagedResourceArrayOutputWithContext(context.Context) AccountManagedResourceArrayOutput
+}
+
+type AccountManagedResourceArray []AccountManagedResourceInput
+
+func (AccountManagedResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountManagedResource)(nil)).Elem()
+}
+
+func (i AccountManagedResourceArray) ToAccountManagedResourceArrayOutput() AccountManagedResourceArrayOutput {
+	return i.ToAccountManagedResourceArrayOutputWithContext(context.Background())
+}
+
+func (i AccountManagedResourceArray) ToAccountManagedResourceArrayOutputWithContext(ctx context.Context) AccountManagedResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountManagedResourceArrayOutput)
+}
+
+type AccountManagedResourceOutput struct{ *pulumi.OutputState }
+
+func (AccountManagedResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountManagedResource)(nil)).Elem()
+}
+
+func (o AccountManagedResourceOutput) ToAccountManagedResourceOutput() AccountManagedResourceOutput {
+	return o
+}
+
+func (o AccountManagedResourceOutput) ToAccountManagedResourceOutputWithContext(ctx context.Context) AccountManagedResourceOutput {
+	return o
+}
+
+// The ID of the managed event hub namespace.
+func (o AccountManagedResourceOutput) EventHubNamespaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountManagedResource) *string { return v.EventHubNamespaceId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the managed resource group.
+func (o AccountManagedResourceOutput) ResourceGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountManagedResource) *string { return v.ResourceGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the managed storage account.
+func (o AccountManagedResourceOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountManagedResource) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+type AccountManagedResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountManagedResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountManagedResource)(nil)).Elem()
+}
+
+func (o AccountManagedResourceArrayOutput) ToAccountManagedResourceArrayOutput() AccountManagedResourceArrayOutput {
+	return o
+}
+
+func (o AccountManagedResourceArrayOutput) ToAccountManagedResourceArrayOutputWithContext(ctx context.Context) AccountManagedResourceArrayOutput {
+	return o
+}
+
+func (o AccountManagedResourceArrayOutput) Index(i pulumi.IntInput) AccountManagedResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountManagedResource {
+		return vs[0].([]AccountManagedResource)[vs[1].(int)]
+	}).(AccountManagedResourceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityArrayInput)(nil)).Elem(), AccountIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountManagedResourceInput)(nil)).Elem(), AccountManagedResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountManagedResourceArrayInput)(nil)).Elem(), AccountManagedResourceArray{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityArrayOutput{})
+	pulumi.RegisterOutputType(AccountManagedResourceOutput{})
+	pulumi.RegisterOutputType(AccountManagedResourceArrayOutput{})
 }

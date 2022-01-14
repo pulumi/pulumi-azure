@@ -86,6 +86,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly managedResourceGroupName!: pulumi.Output<string>;
     /**
+     * A `managedResources` block as defined below.
+     */
+    public /*out*/ readonly managedResources!: pulumi.Output<outputs.purview.AccountManagedResource[]>;
+    /**
      * The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -130,6 +134,7 @@ export class Account extends pulumi.CustomResource {
             inputs["identities"] = state ? state.identities : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
+            inputs["managedResources"] = state ? state.managedResources : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["publicNetworkEnabled"] = state ? state.publicNetworkEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -153,6 +158,7 @@ export class Account extends pulumi.CustomResource {
             inputs["catalogEndpoint"] = undefined /*out*/;
             inputs["guardianEndpoint"] = undefined /*out*/;
             inputs["identities"] = undefined /*out*/;
+            inputs["managedResources"] = undefined /*out*/;
             inputs["scanEndpoint"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -194,6 +200,10 @@ export interface AccountState {
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      */
     managedResourceGroupName?: pulumi.Input<string>;
+    /**
+     * A `managedResources` block as defined below.
+     */
+    managedResources?: pulumi.Input<pulumi.Input<inputs.purview.AccountManagedResource>[]>;
     /**
      * The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
      */

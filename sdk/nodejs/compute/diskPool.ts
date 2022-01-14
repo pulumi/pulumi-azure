@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleDisksPool = new azure.storage.DisksPool("exampleDisksPool", {
+ * const exampleDiskPool = new azure.compute.DiskPool("exampleDiskPool", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     skuName: "Basic_B1",

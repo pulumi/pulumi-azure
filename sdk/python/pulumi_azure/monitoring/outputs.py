@@ -17,6 +17,7 @@ __all__ = [
     'ActionGroupAzureAppPushReceiver',
     'ActionGroupAzureFunctionReceiver',
     'ActionGroupEmailReceiver',
+    'ActionGroupEventHubReceiver',
     'ActionGroupItsmReceiver',
     'ActionGroupLogicAppReceiver',
     'ActionGroupSmsReceiver',
@@ -82,6 +83,7 @@ __all__ = [
     'GetActionGroupAzureAppPushReceiverResult',
     'GetActionGroupAzureFunctionReceiverResult',
     'GetActionGroupEmailReceiverResult',
+    'GetActionGroupEventHubReceiverResult',
     'GetActionGroupItsmReceiverResult',
     'GetActionGroupLogicAppReceiverResult',
     'GetActionGroupSmsReceiverResult',
@@ -545,6 +547,80 @@ class ActionGroupEmailReceiver(dict):
     def use_common_alert_schema(self) -> Optional[bool]:
         """
         Enables or disables the common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class ActionGroupEventHubReceiver(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventHubId":
+            suggest = "event_hub_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupEventHubReceiver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupEventHubReceiver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupEventHubReceiver.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_hub_id: str,
+                 name: str,
+                 tenant_id: Optional[str] = None,
+                 use_common_alert_schema: Optional[bool] = None):
+        """
+        :param str event_hub_id: The resource ID of the respective Event Hub.
+        :param str name: The name of the EventHub Receiver, must be unique within action group.
+        :param str tenant_id: The Tenant ID for the subscription containing this Event Hub.
+        :param bool use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "event_hub_id", event_hub_id)
+        pulumi.set(__self__, "name", name)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="eventHubId")
+    def event_hub_id(self) -> str:
+        """
+        The resource ID of the respective Event Hub.
+        """
+        return pulumi.get(self, "event_hub_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the EventHub Receiver, must be unique within action group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID for the subscription containing this Event Hub.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[bool]:
+        """
+        Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
 
@@ -4204,6 +4280,58 @@ class GetActionGroupEmailReceiverResult(dict):
 
 
 @pulumi.output_type
+class GetActionGroupEventHubReceiverResult(dict):
+    def __init__(__self__, *,
+                 event_hub_id: str,
+                 name: str,
+                 tenant_id: str,
+                 use_common_alert_schema: Optional[bool] = None):
+        """
+        :param str event_hub_id: The resource ID of the respective Event Hub.
+        :param str name: Specifies the name of the Action Group.
+        :param str tenant_id: The Tenant ID for the subscription containing this Event Hub.
+        :param bool use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "event_hub_id", event_hub_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="eventHubId")
+    def event_hub_id(self) -> str:
+        """
+        The resource ID of the respective Event Hub.
+        """
+        return pulumi.get(self, "event_hub_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Action Group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID for the subscription containing this Event Hub.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[bool]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
 class GetActionGroupItsmReceiverResult(dict):
     def __init__(__self__, *,
                  connection_id: str,
@@ -4449,6 +4577,9 @@ class GetActionGroupWebhookReceiverAadAuthResult(dict):
                  identifier_uri: str,
                  object_id: str,
                  tenant_id: str):
+        """
+        :param str tenant_id: The Tenant ID for the subscription containing this Event Hub.
+        """
         pulumi.set(__self__, "identifier_uri", identifier_uri)
         pulumi.set(__self__, "object_id", object_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -4466,6 +4597,9 @@ class GetActionGroupWebhookReceiverAadAuthResult(dict):
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
+        """
+        The Tenant ID for the subscription containing this Event Hub.
+        """
         return pulumi.get(self, "tenant_id")
 
 
