@@ -95,9 +95,9 @@ type KubernetesCluster struct {
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrOutput `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
-	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigRaw pulumi.StringOutput `pulumi:"kubeAdminConfigRaw"`
-	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigs KubernetesClusterKubeAdminConfigArrayOutput `pulumi:"kubeAdminConfigs"`
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
 	KubeConfigRaw pulumi.StringOutput `pulumi:"kubeConfigRaw"`
@@ -207,9 +207,9 @@ type kubernetesClusterState struct {
 	HttpProxyConfig *KubernetesClusterHttpProxyConfig `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
-	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigRaw *string `pulumi:"kubeAdminConfigRaw"`
-	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigs []KubernetesClusterKubeAdminConfig `pulumi:"kubeAdminConfigs"`
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
 	KubeConfigRaw *string `pulumi:"kubeConfigRaw"`
@@ -285,9 +285,9 @@ type KubernetesClusterState struct {
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrInput
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrInput
-	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigRaw pulumi.StringPtrInput
-	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
 	KubeAdminConfigs KubernetesClusterKubeAdminConfigArrayInput
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
 	KubeConfigRaw pulumi.StringPtrInput

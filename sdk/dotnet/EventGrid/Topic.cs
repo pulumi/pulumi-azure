@@ -90,6 +90,12 @@ namespace Pulumi.Azure.EventGrid
         public Output<string?> InputSchema { get; private set; } = null!;
 
         /// <summary>
+        /// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+        /// </summary>
+        [Output("localAuthEnabled")]
+        public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -218,6 +224,12 @@ namespace Pulumi.Azure.EventGrid
         public Input<string>? InputSchema { get; set; }
 
         /// <summary>
+        /// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -301,6 +313,12 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("inputSchema")]
         public Input<string>? InputSchema { get; set; }
+
+        /// <summary>
+        /// Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

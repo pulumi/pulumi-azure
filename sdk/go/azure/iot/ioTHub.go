@@ -181,6 +181,8 @@ type IoTHub struct {
 	Enrichments IoTHubEnrichmentArrayOutput `pulumi:"enrichments"`
 	// The EventHub compatible endpoint for events data
 	EventHubEventsEndpoint pulumi.StringOutput `pulumi:"eventHubEventsEndpoint"`
+	// The EventHub namespace for events data
+	EventHubEventsNamespace pulumi.StringOutput `pulumi:"eventHubEventsNamespace"`
 	// The EventHub compatible path for events data
 	EventHubEventsPath pulumi.StringOutput `pulumi:"eventHubEventsPath"`
 	// The EventHub compatible endpoint for operational data
@@ -266,6 +268,8 @@ type ioTHubState struct {
 	Enrichments []IoTHubEnrichment `pulumi:"enrichments"`
 	// The EventHub compatible endpoint for events data
 	EventHubEventsEndpoint *string `pulumi:"eventHubEventsEndpoint"`
+	// The EventHub namespace for events data
+	EventHubEventsNamespace *string `pulumi:"eventHubEventsNamespace"`
 	// The EventHub compatible path for events data
 	EventHubEventsPath *string `pulumi:"eventHubEventsPath"`
 	// The EventHub compatible endpoint for operational data
@@ -317,6 +321,8 @@ type IoTHubState struct {
 	Enrichments IoTHubEnrichmentArrayInput
 	// The EventHub compatible endpoint for events data
 	EventHubEventsEndpoint pulumi.StringPtrInput
+	// The EventHub namespace for events data
+	EventHubEventsNamespace pulumi.StringPtrInput
 	// The EventHub compatible path for events data
 	EventHubEventsPath pulumi.StringPtrInput
 	// The EventHub compatible endpoint for operational data

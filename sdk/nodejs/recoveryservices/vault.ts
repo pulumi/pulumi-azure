@@ -60,6 +60,10 @@ export class Vault extends pulumi.CustomResource {
     }
 
     /**
+     * An `encryption` block as defined below. Required with `identity`.
+     */
+    public readonly encryption!: pulumi.Output<outputs.recoveryservices.VaultEncryption | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.recoveryservices.VaultIdentity | undefined>;
@@ -105,6 +109,7 @@ export class Vault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultState | undefined;
+            inputs["encryption"] = state ? state.encryption : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -121,6 +126,7 @@ export class Vault extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -141,6 +147,10 @@ export class Vault extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Vault resources.
  */
 export interface VaultState {
+    /**
+     * An `encryption` block as defined below. Required with `identity`.
+     */
+    encryption?: pulumi.Input<inputs.recoveryservices.VaultEncryption>;
     /**
      * An `identity` block as defined below.
      */
@@ -179,6 +189,10 @@ export interface VaultState {
  * The set of arguments for constructing a Vault resource.
  */
 export interface VaultArgs {
+    /**
+     * An `encryption` block as defined below. Required with `identity`.
+     */
+    encryption?: pulumi.Input<inputs.recoveryservices.VaultEncryption>;
     /**
      * An `identity` block as defined below.
      */

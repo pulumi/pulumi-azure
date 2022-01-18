@@ -166,6 +166,10 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly eventHubEventsEndpoint!: pulumi.Output<string>;
     /**
+     * The EventHub namespace for events data
+     */
+    public /*out*/ readonly eventHubEventsNamespace!: pulumi.Output<string>;
+    /**
      * The EventHub compatible path for events data
      */
     public /*out*/ readonly eventHubEventsPath!: pulumi.Output<string>;
@@ -263,6 +267,7 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["endpoints"] = state ? state.endpoints : undefined;
             inputs["enrichments"] = state ? state.enrichments : undefined;
             inputs["eventHubEventsEndpoint"] = state ? state.eventHubEventsEndpoint : undefined;
+            inputs["eventHubEventsNamespace"] = state ? state.eventHubEventsNamespace : undefined;
             inputs["eventHubEventsPath"] = state ? state.eventHubEventsPath : undefined;
             inputs["eventHubOperationsEndpoint"] = state ? state.eventHubOperationsEndpoint : undefined;
             inputs["eventHubOperationsPath"] = state ? state.eventHubOperationsPath : undefined;
@@ -309,6 +314,7 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["eventHubEventsEndpoint"] = undefined /*out*/;
+            inputs["eventHubEventsNamespace"] = undefined /*out*/;
             inputs["eventHubEventsPath"] = undefined /*out*/;
             inputs["eventHubOperationsEndpoint"] = undefined /*out*/;
             inputs["eventHubOperationsPath"] = undefined /*out*/;
@@ -343,6 +349,10 @@ export interface IoTHubState {
      * The EventHub compatible endpoint for events data
      */
     eventHubEventsEndpoint?: pulumi.Input<string>;
+    /**
+     * The EventHub namespace for events data
+     */
+    eventHubEventsNamespace?: pulumi.Input<string>;
     /**
      * The EventHub compatible path for events data
      */

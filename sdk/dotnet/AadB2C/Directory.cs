@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AadB2C
         public Output<string> BillingType { get; private set; } = null!;
 
         /// <summary>
-        /// Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+        /// Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         /// </summary>
         [Output("countryCode")]
         public Output<string> CountryCode { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.AadB2C
         public Output<string> DataResidencyLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+        /// The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -154,10 +154,10 @@ namespace Pulumi.Azure.AadB2C
     public sealed class DirectoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+        /// Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         /// </summary>
-        [Input("countryCode", required: true)]
-        public Input<string> CountryCode { get; set; } = null!;
+        [Input("countryCode")]
+        public Input<string>? CountryCode { get; set; }
 
         /// <summary>
         /// Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
@@ -166,10 +166,10 @@ namespace Pulumi.Azure.AadB2C
         public Input<string> DataResidencyLocation { get; set; } = null!;
 
         /// <summary>
-        /// The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+        /// The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         /// </summary>
-        [Input("displayName", required: true)]
-        public Input<string> DisplayName { get; set; } = null!;
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.AadB2C
         public Input<string>? BillingType { get; set; }
 
         /// <summary>
-        /// Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+        /// Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         /// </summary>
         [Input("countryCode")]
         public Input<string>? CountryCode { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.AadB2C
         public Input<string>? DataResidencyLocation { get; set; }
 
         /// <summary>
-        /// The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+        /// The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

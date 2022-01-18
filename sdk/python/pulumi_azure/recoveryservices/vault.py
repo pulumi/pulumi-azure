@@ -17,6 +17,7 @@ class VaultArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input[str],
+                 encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -27,6 +28,7 @@ class VaultArgs:
         The set of arguments for constructing a Vault resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
+        :param pulumi.Input['VaultEncryptionArgs'] encryption: An `encryption` block as defined below. Required with `identity`.
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
@@ -36,6 +38,8 @@ class VaultArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -72,6 +76,18 @@ class VaultArgs:
     @sku.setter
     def sku(self, value: pulumi.Input[str]):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['VaultEncryptionArgs']]:
+        """
+        An `encryption` block as defined below. Required with `identity`.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['VaultEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter
@@ -149,6 +165,7 @@ class VaultArgs:
 @pulumi.input_type
 class _VaultState:
     def __init__(__self__, *,
+                 encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -159,6 +176,7 @@ class _VaultState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Vault resources.
+        :param pulumi.Input['VaultEncryptionArgs'] encryption: An `encryption` block as defined below. Required with `identity`.
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
@@ -168,6 +186,8 @@ class _VaultState:
         :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant` and `LocallyRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -184,6 +204,18 @@ class _VaultState:
             pulumi.set(__self__, "storage_mode_type", storage_mode_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['VaultEncryptionArgs']]:
+        """
+        An `encryption` block as defined below. Required with `identity`.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['VaultEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter
@@ -287,6 +319,7 @@ class Vault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -323,6 +356,7 @@ class Vault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['VaultEncryptionArgs']] encryption: An `encryption` block as defined below. Required with `identity`.
         :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
@@ -378,6 +412,7 @@ class Vault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -398,6 +433,7 @@ class Vault(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VaultArgs.__new__(VaultArgs)
 
+            __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -420,6 +456,7 @@ class Vault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArgs']]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -435,6 +472,7 @@ class Vault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['VaultEncryptionArgs']] encryption: An `encryption` block as defined below. Required with `identity`.
         :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
@@ -448,6 +486,7 @@ class Vault(pulumi.CustomResource):
 
         __props__ = _VaultState.__new__(_VaultState)
 
+        __props__.__dict__["encryption"] = encryption
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -457,6 +496,14 @@ class Vault(pulumi.CustomResource):
         __props__.__dict__["storage_mode_type"] = storage_mode_type
         __props__.__dict__["tags"] = tags
         return Vault(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.VaultEncryption']]:
+        """
+        An `encryption` block as defined below. Required with `identity`.
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter

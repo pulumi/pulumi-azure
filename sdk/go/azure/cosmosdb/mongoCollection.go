@@ -46,6 +46,14 @@ import (
 // 			DefaultTtlSeconds: pulumi.Int(777),
 // 			ShardKey:          pulumi.String("uniqueKey"),
 // 			Throughput:        pulumi.Int(400),
+// 			Indices: cosmosdb.MongoCollectionIndexArray{
+// 				&cosmosdb.MongoCollectionIndexArgs{
+// 					Keys: pulumi.StringArray{
+// 						pulumi.String("_id"),
+// 					},
+// 					Unique: pulumi.Bool(true),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

@@ -59,6 +59,10 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
+	// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+	AutoCreateTopicWithFirstSubscription pulumi.BoolPtrOutput `pulumi:"autoCreateTopicWithFirstSubscription"`
+	// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+	AutoDeleteTopicWithLastSubscription pulumi.BoolPtrOutput `pulumi:"autoDeleteTopicWithLastSubscription"`
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// An `identity` block as defined below.
@@ -71,6 +75,8 @@ type Domain struct {
 	InputMappingFields DomainInputMappingFieldsPtrOutput `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrOutput `pulumi:"inputSchema"`
+	// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
@@ -119,6 +125,10 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
+	// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+	AutoCreateTopicWithFirstSubscription *bool `pulumi:"autoCreateTopicWithFirstSubscription"`
+	// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+	AutoDeleteTopicWithLastSubscription *bool `pulumi:"autoDeleteTopicWithLastSubscription"`
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint *string `pulumi:"endpoint"`
 	// An `identity` block as defined below.
@@ -131,6 +141,8 @@ type domainState struct {
 	InputMappingFields *DomainInputMappingFields `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
 	InputSchema *string `pulumi:"inputSchema"`
+	// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
@@ -148,6 +160,10 @@ type domainState struct {
 }
 
 type DomainState struct {
+	// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+	AutoCreateTopicWithFirstSubscription pulumi.BoolPtrInput
+	// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+	AutoDeleteTopicWithLastSubscription pulumi.BoolPtrInput
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -160,6 +176,8 @@ type DomainState struct {
 	InputMappingFields DomainInputMappingFieldsPtrInput
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrInput
+	// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
@@ -181,6 +199,10 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
+	// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+	AutoCreateTopicWithFirstSubscription *bool `pulumi:"autoCreateTopicWithFirstSubscription"`
+	// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+	AutoDeleteTopicWithLastSubscription *bool `pulumi:"autoDeleteTopicWithLastSubscription"`
 	// An `identity` block as defined below.
 	Identity *DomainIdentity `pulumi:"identity"`
 	// One or more `inboundIpRule` blocks as defined below.
@@ -191,6 +213,8 @@ type domainArgs struct {
 	InputMappingFields *DomainInputMappingFields `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
 	InputSchema *string `pulumi:"inputSchema"`
+	// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
@@ -205,6 +229,10 @@ type domainArgs struct {
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
+	// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+	AutoCreateTopicWithFirstSubscription pulumi.BoolPtrInput
+	// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+	AutoDeleteTopicWithLastSubscription pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity DomainIdentityPtrInput
 	// One or more `inboundIpRule` blocks as defined below.
@@ -215,6 +243,8 @@ type DomainArgs struct {
 	InputMappingFields DomainInputMappingFieldsPtrInput
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrInput
+	// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.

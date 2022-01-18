@@ -22158,6 +22158,25 @@ export namespace monitoring {
         useCommonAlertSchema?: boolean;
     }
 
+    export interface ActionGroupEventHubReceiver {
+        /**
+         * The resource ID of the respective Event Hub.
+         */
+        eventHubId: string;
+        /**
+         * The name of the EventHub Receiver, must be unique within action group.
+         */
+        name: string;
+        /**
+         * The Tenant ID for the subscription containing this Event Hub.
+         */
+        tenantId: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema?: boolean;
+    }
+
     export interface ActionGroupItsmReceiver {
         /**
          * The unique connection identifier of the ITSM connection.
@@ -22965,6 +22984,25 @@ export namespace monitoring {
         useCommonAlertSchema: boolean;
     }
 
+    export interface GetActionGroupEventHubReceiver {
+        /**
+         * The resource ID of the respective Event Hub.
+         */
+        eventHubId: string;
+        /**
+         * Specifies the name of the Action Group.
+         */
+        name: string;
+        /**
+         * The Tenant ID for the subscription containing this Event Hub.
+         */
+        tenantId: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema?: boolean;
+    }
+
     export interface GetActionGroupItsmReceiver {
         /**
          * The unique connection identifier of the ITSM connection.
@@ -23056,6 +23094,9 @@ export namespace monitoring {
     export interface GetActionGroupWebhookReceiverAadAuth {
         identifierUri: string;
         objectId: string;
+        /**
+         * The Tenant ID for the subscription containing this Event Hub.
+         */
         tenantId: string;
     }
 
@@ -23419,7 +23460,6 @@ export namespace monitoring {
          */
         webhookPayload?: string;
     }
-
 }
 
 export namespace mssql {
@@ -23437,6 +23477,7 @@ export namespace mssql {
          * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
          */
         storageAccountAccessKeyIsSecondary?: boolean;
+        storageAccountSubscriptionId?: string;
         /**
          * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
@@ -23629,6 +23670,7 @@ export namespace mssql {
         retentionInDays?: number;
         storageAccountAccessKey?: string;
         storageAccountAccessKeyIsSecondary?: boolean;
+        storageAccountSubscriptionId?: string;
         storageEndpoint?: string;
     }
 
@@ -28481,9 +28523,39 @@ export namespace purview {
         type: string;
     }
 
+    export interface AccountManagedResource {
+        /**
+         * The ID of the managed event hub namespace.
+         */
+        eventHubNamespaceId: string;
+        /**
+         * The ID of the managed resource group.
+         */
+        resourceGroupId: string;
+        /**
+         * The ID of the managed storage account.
+         */
+        storageAccountId: string;
+    }
+
 }
 
 export namespace recoveryservices {
+    export interface VaultEncryption {
+        /**
+         * Enabling/Disabling the Double Encryption state.
+         */
+        infrastructureEncryptionEnabled: boolean;
+        /**
+         * The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
+         */
+        keyId: string;
+        /**
+         * Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
+         */
+        useSystemAssignedIdentity?: boolean;
+    }
+
     export interface VaultIdentity {
         principalId: string;
         tenantId: string;

@@ -18,6 +18,7 @@ class ServerExtendedAuditingPolicyInitArgs:
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
+                 storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerExtendedAuditingPolicy resource.
@@ -26,6 +27,7 @@ class ServerExtendedAuditingPolicyInitArgs:
         :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
+        :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """
         pulumi.set(__self__, "server_id", server_id)
@@ -37,6 +39,8 @@ class ServerExtendedAuditingPolicyInitArgs:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_access_key_is_secondary is not None:
             pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+        if storage_account_subscription_id is not None:
+            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
         if storage_endpoint is not None:
             pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
@@ -101,6 +105,18 @@ class ServerExtendedAuditingPolicyInitArgs:
         pulumi.set(self, "storage_account_access_key_is_secondary", value)
 
     @property
+    @pulumi.getter(name="storageAccountSubscriptionId")
+    def storage_account_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subscription containing the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_subscription_id")
+
+    @storage_account_subscription_id.setter
+    def storage_account_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_subscription_id", value)
+
+    @property
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -121,6 +137,7 @@ class _ServerExtendedAuditingPolicyState:
                  server_id: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
+                 storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServerExtendedAuditingPolicy resources.
@@ -129,6 +146,7 @@ class _ServerExtendedAuditingPolicyState:
         :param pulumi.Input[str] server_id: The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
+        :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """
         if log_monitoring_enabled is not None:
@@ -141,6 +159,8 @@ class _ServerExtendedAuditingPolicyState:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_account_access_key_is_secondary is not None:
             pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+        if storage_account_subscription_id is not None:
+            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
         if storage_endpoint is not None:
             pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
@@ -205,6 +225,18 @@ class _ServerExtendedAuditingPolicyState:
         pulumi.set(self, "storage_account_access_key_is_secondary", value)
 
     @property
+    @pulumi.getter(name="storageAccountSubscriptionId")
+    def storage_account_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subscription containing the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_subscription_id")
+
+    @storage_account_subscription_id.setter
+    def storage_account_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_subscription_id", value)
+
+    @property
     @pulumi.getter(name="storageEndpoint")
     def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -227,6 +259,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                  server_id: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
+                 storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -257,6 +290,77 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key_is_secondary=False,
             retention_in_days=6)
         ```
+        ### With Storage Account Behind VNet And Firewall
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example_client_config = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            service_endpoints=[
+                "Microsoft.Sql",
+                "Microsoft.Storage",
+            ],
+            enforce_private_link_endpoint_network_policies=True)
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="AdminPassword123!",
+            minimum_tls_version="1.2",
+            identity=azure.mssql.ServerIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            scope=primary.id,
+            role_definition_name="Storage Blob Data Contributor",
+            principal_id=example_server.identity.principal_id)
+        sqlvnetrule = azure.sql.VirtualNetworkRule("sqlvnetrule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            subnet_id=example_subnet.id)
+        example_firewall_rule = azure.sql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address="0.0.0.0",
+            end_ip_address="0.0.0.0")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="StorageV2",
+            allow_blob_public_access=False,
+            network_rules=azure.storage.AccountNetworkRulesArgs(
+                default_action="Deny",
+                ip_rules=["127.0.0.1"],
+                virtual_network_subnet_ids=[example_subnet.id],
+                bypasses=["AzureServices"],
+            ),
+            identity=azure.storage.AccountIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
+            storage_endpoint=example_account.primary_blob_endpoint,
+            server_id=example_server.id,
+            retention_in_days=6,
+            log_monitoring_enabled=False,
+            storage_account_subscription_id=azurerm_subscription["primary"]["subscription_id"],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_assignment,
+                    example_account,
+                ]))
+        ```
 
         ## Import
 
@@ -273,6 +377,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
+        :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """
         ...
@@ -309,6 +414,77 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key_is_secondary=False,
             retention_in_days=6)
         ```
+        ### With Storage Account Behind VNet And Firewall
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example_client_config = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            service_endpoints=[
+                "Microsoft.Sql",
+                "Microsoft.Storage",
+            ],
+            enforce_private_link_endpoint_network_policies=True)
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="AdminPassword123!",
+            minimum_tls_version="1.2",
+            identity=azure.mssql.ServerIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            scope=primary.id,
+            role_definition_name="Storage Blob Data Contributor",
+            principal_id=example_server.identity.principal_id)
+        sqlvnetrule = azure.sql.VirtualNetworkRule("sqlvnetrule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            subnet_id=example_subnet.id)
+        example_firewall_rule = azure.sql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address="0.0.0.0",
+            end_ip_address="0.0.0.0")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="StorageV2",
+            allow_blob_public_access=False,
+            network_rules=azure.storage.AccountNetworkRulesArgs(
+                default_action="Deny",
+                ip_rules=["127.0.0.1"],
+                virtual_network_subnet_ids=[example_subnet.id],
+                bypasses=["AzureServices"],
+            ),
+            identity=azure.storage.AccountIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
+            storage_endpoint=example_account.primary_blob_endpoint,
+            server_id=example_server.id,
+            retention_in_days=6,
+            log_monitoring_enabled=False,
+            storage_account_subscription_id=azurerm_subscription["primary"]["subscription_id"],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_assignment,
+                    example_account,
+                ]))
+        ```
 
         ## Import
 
@@ -338,6 +514,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                  server_id: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
+                 storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -358,6 +535,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             __props__.__dict__["server_id"] = server_id
             __props__.__dict__["storage_account_access_key"] = storage_account_access_key
             __props__.__dict__["storage_account_access_key_is_secondary"] = storage_account_access_key_is_secondary
+            __props__.__dict__["storage_account_subscription_id"] = storage_account_subscription_id
             __props__.__dict__["storage_endpoint"] = storage_endpoint
         super(ServerExtendedAuditingPolicy, __self__).__init__(
             'azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy',
@@ -374,6 +552,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             server_id: Optional[pulumi.Input[str]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
             storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
+            storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
             storage_endpoint: Optional[pulumi.Input[str]] = None) -> 'ServerExtendedAuditingPolicy':
         """
         Get an existing ServerExtendedAuditingPolicy resource's state with the given name, id, and optional extra
@@ -387,6 +566,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
+        :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -398,6 +578,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         __props__.__dict__["server_id"] = server_id
         __props__.__dict__["storage_account_access_key"] = storage_account_access_key
         __props__.__dict__["storage_account_access_key_is_secondary"] = storage_account_access_key_is_secondary
+        __props__.__dict__["storage_account_subscription_id"] = storage_account_subscription_id
         __props__.__dict__["storage_endpoint"] = storage_endpoint
         return ServerExtendedAuditingPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -440,6 +621,14 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         Is `storage_account_access_key` value the storage's secondary key?
         """
         return pulumi.get(self, "storage_account_access_key_is_secondary")
+
+    @property
+    @pulumi.getter(name="storageAccountSubscriptionId")
+    def storage_account_subscription_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Subscription containing the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_subscription_id")
 
     @property
     @pulumi.getter(name="storageEndpoint")

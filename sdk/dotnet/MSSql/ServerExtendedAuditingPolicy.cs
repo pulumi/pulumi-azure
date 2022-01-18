@@ -53,6 +53,125 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// }
     /// ```
+    /// ### With Storage Account Behind VNet And Firewall
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var primary = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
+    ///         var exampleClientConfig = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
+    ///             ServiceEndpoints = 
+    ///             {
+    ///                 "Microsoft.Sql",
+    ///                 "Microsoft.Storage",
+    ///             },
+    ///             EnforcePrivateLinkEndpointNetworkPolicies = true,
+    ///         });
+    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Version = "12.0",
+    ///             AdministratorLogin = "missadministrator",
+    ///             AdministratorLoginPassword = "AdminPassword123!",
+    ///             MinimumTlsVersion = "1.2",
+    ///             Identity = new Azure.MSSql.Inputs.ServerIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
+    ///         {
+    ///             Scope = primary.Apply(primary =&gt; primary.Id),
+    ///             RoleDefinitionName = "Storage Blob Data Contributor",
+    ///             PrincipalId = exampleServer.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         });
+    ///         var sqlvnetrule = new Azure.Sql.VirtualNetworkRule("sqlvnetrule", new Azure.Sql.VirtualNetworkRuleArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServerName = exampleServer.Name,
+    ///             SubnetId = exampleSubnet.Id,
+    ///         });
+    ///         var exampleFirewallRule = new Azure.Sql.FirewallRule("exampleFirewallRule", new Azure.Sql.FirewallRuleArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServerName = exampleServer.Name,
+    ///             StartIpAddress = "0.0.0.0",
+    ///             EndIpAddress = "0.0.0.0",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///             AccountKind = "StorageV2",
+    ///             AllowBlobPublicAccess = false,
+    ///             NetworkRules = new Azure.Storage.Inputs.AccountNetworkRulesArgs
+    ///             {
+    ///                 DefaultAction = "Deny",
+    ///                 IpRules = 
+    ///                 {
+    ///                     "127.0.0.1",
+    ///                 },
+    ///                 VirtualNetworkSubnetIds = 
+    ///                 {
+    ///                     exampleSubnet.Id,
+    ///                 },
+    ///                 Bypasses = 
+    ///                 {
+    ///                     "AzureServices",
+    ///                 },
+    ///             },
+    ///             Identity = new Azure.Storage.Inputs.AccountIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var exampleServerExtendedAuditingPolicy = new Azure.MSSql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", new Azure.MSSql.ServerExtendedAuditingPolicyArgs
+    ///         {
+    ///             StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
+    ///             ServerId = exampleServer.Id,
+    ///             RetentionInDays = 6,
+    ///             LogMonitoringEnabled = false,
+    ///             StorageAccountSubscriptionId = azurerm_subscription.Primary.Subscription_id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleAssignment,
+    ///                 exampleAccount,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -94,6 +213,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("storageAccountAccessKeyIsSecondary")]
         public Output<bool?> StorageAccountAccessKeyIsSecondary { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Subscription containing the Storage Account.
+        /// </summary>
+        [Output("storageAccountSubscriptionId")]
+        public Output<string?> StorageAccountSubscriptionId { get; private set; } = null!;
 
         /// <summary>
         /// The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
@@ -178,6 +303,12 @@ namespace Pulumi.Azure.MSSql
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
 
         /// <summary>
+        /// The ID of the Subscription containing the Storage Account.
+        /// </summary>
+        [Input("storageAccountSubscriptionId")]
+        public Input<string>? StorageAccountSubscriptionId { get; set; }
+
+        /// <summary>
         /// The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         /// </summary>
         [Input("storageEndpoint")]
@@ -219,6 +350,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("storageAccountAccessKeyIsSecondary")]
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
+
+        /// <summary>
+        /// The ID of the Subscription containing the Storage Account.
+        /// </summary>
+        [Input("storageAccountSubscriptionId")]
+        public Input<string>? StorageAccountSubscriptionId { get; set; }
 
         /// <summary>
         /// The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.

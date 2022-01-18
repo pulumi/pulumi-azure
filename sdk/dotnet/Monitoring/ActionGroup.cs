@@ -85,6 +85,15 @@ namespace Pulumi.Azure.Monitoring
     ///                     UseCommonAlertSchema = true,
     ///                 },
     ///             },
+    ///             EventHubReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupEventHubReceiverArgs
+    ///                 {
+    ///                     Name = "sendtoeventhub",
+    ///                     EventHubId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1",
+    ///                     UseCommonAlertSchema = false,
+    ///                 },
+    ///             },
     ///             ItsmReceivers = 
     ///             {
     ///                 new Azure.Monitoring.Inputs.ActionGroupItsmReceiverArgs
@@ -185,6 +194,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `event_hub_receiver` blocks as defined below.
+        /// </summary>
+        [Output("eventHubReceivers")]
+        public Output<ImmutableArray<Outputs.ActionGroupEventHubReceiver>> EventHubReceivers { get; private set; } = null!;
 
         /// <summary>
         /// One or more `itsm_receiver` blocks as defined below.
@@ -352,6 +367,18 @@ namespace Pulumi.Azure.Monitoring
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("eventHubReceivers")]
+        private InputList<Inputs.ActionGroupEventHubReceiverArgs>? _eventHubReceivers;
+
+        /// <summary>
+        /// One or more `event_hub_receiver` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ActionGroupEventHubReceiverArgs> EventHubReceivers
+        {
+            get => _eventHubReceivers ?? (_eventHubReceivers = new InputList<Inputs.ActionGroupEventHubReceiverArgs>());
+            set => _eventHubReceivers = value;
+        }
+
         [Input("itsmReceivers")]
         private InputList<Inputs.ActionGroupItsmReceiverArgs>? _itsmReceivers;
 
@@ -514,6 +541,18 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("eventHubReceivers")]
+        private InputList<Inputs.ActionGroupEventHubReceiverGetArgs>? _eventHubReceivers;
+
+        /// <summary>
+        /// One or more `event_hub_receiver` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ActionGroupEventHubReceiverGetArgs> EventHubReceivers
+        {
+            get => _eventHubReceivers ?? (_eventHubReceivers = new InputList<Inputs.ActionGroupEventHubReceiverGetArgs>());
+            set => _eventHubReceivers = value;
+        }
 
         [Input("itsmReceivers")]
         private InputList<Inputs.ActionGroupItsmReceiverGetArgs>? _itsmReceivers;

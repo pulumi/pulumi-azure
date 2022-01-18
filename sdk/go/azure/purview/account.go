@@ -68,6 +68,8 @@ type Account struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	ManagedResourceGroupName pulumi.StringOutput `pulumi:"managedResourceGroupName"`
+	// A `managedResources` block as defined below.
+	ManagedResources AccountManagedResourceArrayOutput `pulumi:"managedResources"`
 	// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Should the Purview Account be visible to the public network? Defaults to `true`.
@@ -128,6 +130,8 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
+	// A `managedResources` block as defined below.
+	ManagedResources []AccountManagedResource `pulumi:"managedResources"`
 	// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
 	Name *string `pulumi:"name"`
 	// Should the Purview Account be visible to the public network? Defaults to `true`.
@@ -157,6 +161,8 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	ManagedResourceGroupName pulumi.StringPtrInput
+	// A `managedResources` block as defined below.
+	ManagedResources AccountManagedResourceArrayInput
 	// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
 	Name pulumi.StringPtrInput
 	// Should the Purview Account be visible to the public network? Defaults to `true`.

@@ -40,6 +40,17 @@ namespace Pulumi.Azure.CosmosDB
     ///             DefaultTtlSeconds = 777,
     ///             ShardKey = "uniqueKey",
     ///             Throughput = 400,
+    ///             Indices = 
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.MongoCollectionIndexArgs
+    ///                 {
+    ///                     Keys = 
+    ///                     {
+    ///                         "_id",
+    ///                     },
+    ///                     Unique = true,
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 

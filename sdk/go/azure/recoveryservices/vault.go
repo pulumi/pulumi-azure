@@ -56,6 +56,8 @@ import (
 type Vault struct {
 	pulumi.CustomResourceState
 
+	// An `encryption` block as defined below. Required with `identity`.
+	Encryption VaultEncryptionPtrOutput `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -109,6 +111,8 @@ func GetVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vault resources.
 type vaultState struct {
+	// An `encryption` block as defined below. Required with `identity`.
+	Encryption *VaultEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *VaultIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -128,6 +132,8 @@ type vaultState struct {
 }
 
 type VaultState struct {
+	// An `encryption` block as defined below. Required with `identity`.
+	Encryption VaultEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -151,6 +157,8 @@ func (VaultState) ElementType() reflect.Type {
 }
 
 type vaultArgs struct {
+	// An `encryption` block as defined below. Required with `identity`.
+	Encryption *VaultEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *VaultIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -171,6 +179,8 @@ type vaultArgs struct {
 
 // The set of arguments for constructing a Vault resource.
 type VaultArgs struct {
+	// An `encryption` block as defined below. Required with `identity`.
+	Encryption VaultEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

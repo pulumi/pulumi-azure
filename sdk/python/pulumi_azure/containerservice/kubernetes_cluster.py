@@ -561,8 +561,8 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
         :param pulumi.Input['KubernetesClusterHttpProxyConfigArgs'] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
-        :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArgs']]] kube_configs: A `kube_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
@@ -812,7 +812,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="kubeAdminConfigRaw")
     def kube_admin_config_raw(self) -> Optional[pulumi.Input[str]]:
         """
-        Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         """
         return pulumi.get(self, "kube_admin_config_raw")
 
@@ -824,7 +824,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="kubeAdminConfigs")
     def kube_admin_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]]]:
         """
-        A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         """
         return pulumi.get(self, "kube_admin_configs")
 
@@ -1438,8 +1438,8 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
-        :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeConfigArgs']]]] kube_configs: A `kube_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
@@ -1605,7 +1605,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="kubeAdminConfigRaw")
     def kube_admin_config_raw(self) -> pulumi.Output[str]:
         """
-        Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         """
         return pulumi.get(self, "kube_admin_config_raw")
 
@@ -1613,7 +1613,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="kubeAdminConfigs")
     def kube_admin_configs(self) -> pulumi.Output[Sequence['outputs.KubernetesClusterKubeAdminConfig']]:
         """
-        A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         """
         return pulumi.get(self, "kube_admin_configs")
 

@@ -13,43 +13,33 @@ __all__ = ['DirectoryArgs', 'Directory']
 @pulumi.input_type
 class DirectoryArgs:
     def __init__(__self__, *,
-                 country_code: pulumi.Input[str],
                  data_residency_location: pulumi.Input[str],
-                 display_name: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
+                 country_code: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Directory resource.
-        :param pulumi.Input[str] country_code: Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] data_residency_location: Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
-        :param pulumi.Input[str] display_name: The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] domain_name: Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the AAD B2C Directory should exist. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] sku_name: Billing SKU for the B2C tenant. Must be one of: `PremiumP1` or `PremiumP2` (`Standard` is not supported). See [official docs](https://aka.ms/b2cBilling) for more information.
+        :param pulumi.Input[str] country_code: Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
+        :param pulumi.Input[str] display_name: The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AAD B2C Directory.
         """
-        pulumi.set(__self__, "country_code", country_code)
         pulumi.set(__self__, "data_residency_location", data_residency_location)
-        pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
+        if country_code is not None:
+            pulumi.set(__self__, "country_code", country_code)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="countryCode")
-    def country_code(self) -> pulumi.Input[str]:
-        """
-        Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
-        """
-        return pulumi.get(self, "country_code")
-
-    @country_code.setter
-    def country_code(self, value: pulumi.Input[str]):
-        pulumi.set(self, "country_code", value)
 
     @property
     @pulumi.getter(name="dataResidencyLocation")
@@ -62,18 +52,6 @@ class DirectoryArgs:
     @data_residency_location.setter
     def data_residency_location(self, value: pulumi.Input[str]):
         pulumi.set(self, "data_residency_location", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[str]:
-        """
-        The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "display_name", value)
 
     @property
     @pulumi.getter(name="domainName")
@@ -112,6 +90,30 @@ class DirectoryArgs:
         pulumi.set(self, "sku_name", value)
 
     @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
+        """
+        return pulumi.get(self, "country_code")
+
+    @country_code.setter
+    def country_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "country_code", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -140,9 +142,9 @@ class _DirectoryState:
         """
         Input properties used for looking up and filtering Directory resources.
         :param pulumi.Input[str] billing_type: The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
-        :param pulumi.Input[str] country_code: Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+        :param pulumi.Input[str] country_code: Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] data_residency_location: Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
-        :param pulumi.Input[str] display_name: The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+        :param pulumi.Input[str] display_name: The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] domain_name: Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] effective_start_date: The date from which the billing type took effect. May not be populated until after the first billing cycle.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the AAD B2C Directory should exist. Changing this forces a new AAD B2C Directory to be created.
@@ -187,7 +189,7 @@ class _DirectoryState:
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[str]]:
         """
-        Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+        Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         """
         return pulumi.get(self, "country_code")
 
@@ -211,7 +213,7 @@ class _DirectoryState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+        The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         """
         return pulumi.get(self, "display_name")
 
@@ -333,9 +335,9 @@ class Directory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] country_code: Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+        :param pulumi.Input[str] country_code: Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] data_residency_location: Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
-        :param pulumi.Input[str] display_name: The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+        :param pulumi.Input[str] display_name: The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] domain_name: Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the AAD B2C Directory should exist. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] sku_name: Billing SKU for the B2C tenant. Must be one of: `PremiumP1` or `PremiumP2` (`Standard` is not supported). See [official docs](https://aka.ms/b2cBilling) for more information.
@@ -407,14 +409,10 @@ class Directory(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DirectoryArgs.__new__(DirectoryArgs)
 
-            if country_code is None and not opts.urn:
-                raise TypeError("Missing required property 'country_code'")
             __props__.__dict__["country_code"] = country_code
             if data_residency_location is None and not opts.urn:
                 raise TypeError("Missing required property 'data_residency_location'")
             __props__.__dict__["data_residency_location"] = data_residency_location
-            if display_name is None and not opts.urn:
-                raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
@@ -457,9 +455,9 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_type: The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
-        :param pulumi.Input[str] country_code: Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+        :param pulumi.Input[str] country_code: Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] data_residency_location: Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created.
-        :param pulumi.Input[str] display_name: The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+        :param pulumi.Input[str] display_name: The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] domain_name: Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[str] effective_start_date: The date from which the billing type took effect. May not be populated until after the first billing cycle.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the AAD B2C Directory should exist. Changing this forces a new AAD B2C Directory to be created.
@@ -495,7 +493,7 @@ class Directory(pulumi.CustomResource):
     @pulumi.getter(name="countryCode")
     def country_code(self) -> pulumi.Output[str]:
         """
-        Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Changing this forces a new AAD B2C Directory to be created.
+        Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         """
         return pulumi.get(self, "country_code")
 
@@ -511,7 +509,7 @@ class Directory(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
-        The initial display name of the B2C tenant. Changing this forces a new AAD B2C Directory to be created.
+        The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         """
         return pulumi.get(self, "display_name")
 

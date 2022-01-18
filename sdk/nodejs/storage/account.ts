@@ -140,6 +140,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.storage.AccountIdentity>;
     /**
+     * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+     */
+    public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
     public readonly isHnsEnabled!: pulumi.Output<boolean | undefined>;
@@ -352,6 +356,7 @@ export class Account extends pulumi.CustomResource {
             inputs["customDomain"] = state ? state.customDomain : undefined;
             inputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
             inputs["isHnsEnabled"] = state ? state.isHnsEnabled : undefined;
             inputs["largeFileShareEnabled"] = state ? state.largeFileShareEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -421,6 +426,7 @@ export class Account extends pulumi.CustomResource {
             inputs["customDomain"] = args ? args.customDomain : undefined;
             inputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
             inputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
             inputs["largeFileShareEnabled"] = args ? args.largeFileShareEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -522,6 +528,10 @@ export interface AccountState {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.storage.AccountIdentity>;
+    /**
+     * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+     */
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
@@ -758,6 +768,10 @@ export interface AccountArgs {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.storage.AccountIdentity>;
+    /**
+     * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+     */
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */

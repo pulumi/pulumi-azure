@@ -82,6 +82,18 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class GetActionGroupArgs : Pulumi.InvokeArgs
     {
+        [Input("eventHubReceivers")]
+        private List<Inputs.GetActionGroupEventHubReceiverArgs>? _eventHubReceivers;
+
+        /// <summary>
+        /// One or more `event_hub_receiver` blocks as defined below.
+        /// </summary>
+        public List<Inputs.GetActionGroupEventHubReceiverArgs> EventHubReceivers
+        {
+            get => _eventHubReceivers ?? (_eventHubReceivers = new List<Inputs.GetActionGroupEventHubReceiverArgs>());
+            set => _eventHubReceivers = value;
+        }
+
         /// <summary>
         /// Specifies the name of the Action Group.
         /// </summary>
@@ -101,6 +113,18 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class GetActionGroupInvokeArgs : Pulumi.InvokeArgs
     {
+        [Input("eventHubReceivers")]
+        private InputList<Inputs.GetActionGroupEventHubReceiverInputArgs>? _eventHubReceivers;
+
+        /// <summary>
+        /// One or more `event_hub_receiver` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.GetActionGroupEventHubReceiverInputArgs> EventHubReceivers
+        {
+            get => _eventHubReceivers ?? (_eventHubReceivers = new InputList<Inputs.GetActionGroupEventHubReceiverInputArgs>());
+            set => _eventHubReceivers = value;
+        }
+
         /// <summary>
         /// Specifies the name of the Action Group.
         /// </summary>
@@ -146,6 +170,10 @@ namespace Pulumi.Azure.Monitoring
         /// Whether this action group is enabled.
         /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// One or more `event_hub_receiver` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetActionGroupEventHubReceiverResult> EventHubReceivers;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -194,6 +222,8 @@ namespace Pulumi.Azure.Monitoring
 
             bool enabled,
 
+            ImmutableArray<Outputs.GetActionGroupEventHubReceiverResult> eventHubReceivers,
+
             string id,
 
             ImmutableArray<Outputs.GetActionGroupItsmReceiverResult> itsmReceivers,
@@ -218,6 +248,7 @@ namespace Pulumi.Azure.Monitoring
             AzureFunctionReceivers = azureFunctionReceivers;
             EmailReceivers = emailReceivers;
             Enabled = enabled;
+            EventHubReceivers = eventHubReceivers;
             Id = id;
             ItsmReceivers = itsmReceivers;
             LogicAppReceivers = logicAppReceivers;

@@ -262,6 +262,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// One or more `proxy` blocks as defined below.
         /// </summary>
+        [Obsolete(@"`proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider")]
         public InputList<Inputs.CustomDomainProxyArgs> Proxies
         {
             get => _proxies ?? (_proxies = new InputList<Inputs.CustomDomainProxyArgs>());
@@ -335,6 +336,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// One or more `proxy` blocks as defined below.
         /// </summary>
+        [Obsolete(@"`proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider")]
         public InputList<Inputs.CustomDomainProxyGetArgs> Proxies
         {
             get => _proxies ?? (_proxies = new InputList<Inputs.CustomDomainProxyGetArgs>());

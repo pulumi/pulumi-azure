@@ -88,8 +88,11 @@ namespace Pulumi.Azure.OperationalInsights
         /// <summary>
         /// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         /// </summary>
+        [Output("reservationCapacityInGbPerDay")]
+        public Output<int> ReservationCapacityInGbPerDay { get; private set; } = null!;
+
         [Output("reservationCapcityInGbPerDay")]
-        public Output<int?> ReservationCapcityInGbPerDay { get; private set; } = null!;
+        public Output<int> ReservationCapcityInGbPerDay { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
@@ -203,6 +206,9 @@ namespace Pulumi.Azure.OperationalInsights
         /// <summary>
         /// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         /// </summary>
+        [Input("reservationCapacityInGbPerDay")]
+        public Input<int>? ReservationCapacityInGbPerDay { get; set; }
+
         [Input("reservationCapcityInGbPerDay")]
         public Input<int>? ReservationCapcityInGbPerDay { get; set; }
 
@@ -282,6 +288,9 @@ namespace Pulumi.Azure.OperationalInsights
         /// <summary>
         /// The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
         /// </summary>
+        [Input("reservationCapacityInGbPerDay")]
+        public Input<int>? ReservationCapacityInGbPerDay { get; set; }
+
         [Input("reservationCapcityInGbPerDay")]
         public Input<int>? ReservationCapcityInGbPerDay { get; set; }
 

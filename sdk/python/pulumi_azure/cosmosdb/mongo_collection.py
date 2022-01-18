@@ -389,7 +389,11 @@ class MongoCollection(pulumi.CustomResource):
             database_name=example_mongo_database.name,
             default_ttl_seconds=777,
             shard_key="uniqueKey",
-            throughput=400)
+            throughput=400,
+            indices=[azure.cosmosdb.MongoCollectionIndexArgs(
+                keys=["_id"],
+                unique=True,
+            )])
         ```
 
         ## Import
@@ -438,7 +442,11 @@ class MongoCollection(pulumi.CustomResource):
             database_name=example_mongo_database.name,
             default_ttl_seconds=777,
             shard_key="uniqueKey",
-            throughput=400)
+            throughput=400,
+            indices=[azure.cosmosdb.MongoCollectionIndexArgs(
+                keys=["_id"],
+                unique=True,
+            )])
         ```
 
         ## Import

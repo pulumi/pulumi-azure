@@ -17,6 +17,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         public readonly int? RetentionInDays;
         public readonly string? StorageAccountAccessKey;
         public readonly bool? StorageAccountAccessKeyIsSecondary;
+        public readonly string? StorageAccountSubscriptionId;
         public readonly string? StorageEndpoint;
 
         [OutputConstructor]
@@ -29,12 +30,15 @@ namespace Pulumi.Azure.MSSql.Outputs
 
             bool? storageAccountAccessKeyIsSecondary,
 
+            string? storageAccountSubscriptionId,
+
             string? storageEndpoint)
         {
             LogMonitoringEnabled = logMonitoringEnabled;
             RetentionInDays = retentionInDays;
             StorageAccountAccessKey = storageAccountAccessKey;
             StorageAccountAccessKeyIsSecondary = storageAccountAccessKeyIsSecondary;
+            StorageAccountSubscriptionId = storageAccountSubscriptionId;
             StorageEndpoint = storageEndpoint;
         }
     }

@@ -15,6 +15,9 @@ namespace Pulumi.Azure.Monitoring.Outputs
     {
         public readonly string IdentifierUri;
         public readonly string ObjectId;
+        /// <summary>
+        /// The Tenant ID for the subscription containing this Event Hub.
+        /// </summary>
         public readonly string TenantId;
 
         [OutputConstructor]

@@ -297,6 +297,7 @@ class _IoTHubState:
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]]] = None,
                  enrichments: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]] = None,
                  event_hub_events_endpoint: Optional[pulumi.Input[str]] = None,
+                 event_hub_events_namespace: Optional[pulumi.Input[str]] = None,
                  event_hub_events_path: Optional[pulumi.Input[str]] = None,
                  event_hub_operations_endpoint: Optional[pulumi.Input[str]] = None,
                  event_hub_operations_path: Optional[pulumi.Input[str]] = None,
@@ -323,6 +324,7 @@ class _IoTHubState:
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]] endpoints: An `endpoint` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
+        :param pulumi.Input[str] event_hub_events_namespace: The EventHub namespace for events data
         :param pulumi.Input[str] event_hub_events_path: The EventHub compatible path for events data
         :param pulumi.Input[str] event_hub_operations_endpoint: The EventHub compatible endpoint for operational data
         :param pulumi.Input[str] event_hub_operations_path: The EventHub compatible path for operational data
@@ -352,6 +354,8 @@ class _IoTHubState:
             pulumi.set(__self__, "enrichments", enrichments)
         if event_hub_events_endpoint is not None:
             pulumi.set(__self__, "event_hub_events_endpoint", event_hub_events_endpoint)
+        if event_hub_events_namespace is not None:
+            pulumi.set(__self__, "event_hub_events_namespace", event_hub_events_namespace)
         if event_hub_events_path is not None:
             pulumi.set(__self__, "event_hub_events_path", event_hub_events_path)
         if event_hub_operations_endpoint is not None:
@@ -440,6 +444,18 @@ class _IoTHubState:
     @event_hub_events_endpoint.setter
     def event_hub_events_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_hub_events_endpoint", value)
+
+    @property
+    @pulumi.getter(name="eventHubEventsNamespace")
+    def event_hub_events_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The EventHub namespace for events data
+        """
+        return pulumi.get(self, "event_hub_events_namespace")
+
+    @event_hub_events_namespace.setter
+    def event_hub_events_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_events_namespace", value)
 
     @property
     @pulumi.getter(name="eventHubEventsPath")
@@ -1017,6 +1033,7 @@ class IoTHub(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["event_hub_events_endpoint"] = None
+            __props__.__dict__["event_hub_events_namespace"] = None
             __props__.__dict__["event_hub_events_path"] = None
             __props__.__dict__["event_hub_operations_endpoint"] = None
             __props__.__dict__["event_hub_operations_path"] = None
@@ -1037,6 +1054,7 @@ class IoTHub(pulumi.CustomResource):
             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
             enrichments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]]] = None,
             event_hub_events_endpoint: Optional[pulumi.Input[str]] = None,
+            event_hub_events_namespace: Optional[pulumi.Input[str]] = None,
             event_hub_events_path: Optional[pulumi.Input[str]] = None,
             event_hub_operations_endpoint: Optional[pulumi.Input[str]] = None,
             event_hub_operations_path: Optional[pulumi.Input[str]] = None,
@@ -1068,6 +1086,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEnrichmentArgs']]]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
+        :param pulumi.Input[str] event_hub_events_namespace: The EventHub namespace for events data
         :param pulumi.Input[str] event_hub_events_path: The EventHub compatible path for events data
         :param pulumi.Input[str] event_hub_operations_endpoint: The EventHub compatible endpoint for operational data
         :param pulumi.Input[str] event_hub_operations_path: The EventHub compatible path for operational data
@@ -1097,6 +1116,7 @@ class IoTHub(pulumi.CustomResource):
         __props__.__dict__["endpoints"] = endpoints
         __props__.__dict__["enrichments"] = enrichments
         __props__.__dict__["event_hub_events_endpoint"] = event_hub_events_endpoint
+        __props__.__dict__["event_hub_events_namespace"] = event_hub_events_namespace
         __props__.__dict__["event_hub_events_path"] = event_hub_events_path
         __props__.__dict__["event_hub_operations_endpoint"] = event_hub_operations_endpoint
         __props__.__dict__["event_hub_operations_path"] = event_hub_operations_path
@@ -1150,6 +1170,14 @@ class IoTHub(pulumi.CustomResource):
         The EventHub compatible endpoint for events data
         """
         return pulumi.get(self, "event_hub_events_endpoint")
+
+    @property
+    @pulumi.getter(name="eventHubEventsNamespace")
+    def event_hub_events_namespace(self) -> pulumi.Output[str]:
+        """
+        The EventHub namespace for events data
+        """
+        return pulumi.get(self, "event_hub_events_namespace")
 
     @property
     @pulumi.getter(name="eventHubEventsPath")

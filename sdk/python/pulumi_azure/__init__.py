@@ -403,6 +403,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/apiTag",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/apiTag:ApiTag": "ApiTag"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/apiVersionSet",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
@@ -1487,6 +1495,14 @@ _utilities.register(
   "fqn": "pulumi_azure.compute",
   "classes": {
    "azure:compute/diskPool:DiskPool": "DiskPool"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "compute/diskPoolManagedDiskAttachment",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment": "DiskPoolManagedDiskAttachment"
   }
  },
  {

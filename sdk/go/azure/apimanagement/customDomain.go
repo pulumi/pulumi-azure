@@ -137,6 +137,8 @@ type CustomDomain struct {
 	// One or more `portal` blocks as defined below.
 	Portals CustomDomainPortalArrayOutput `pulumi:"portals"`
 	// One or more `proxy` blocks as defined below.
+	//
+	// Deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
 	Proxies CustomDomainProxyArrayOutput `pulumi:"proxies"`
 	// One or more `scm` blocks as defined below.
 	Scms CustomDomainScmArrayOutput `pulumi:"scms"`
@@ -183,6 +185,8 @@ type customDomainState struct {
 	// One or more `portal` blocks as defined below.
 	Portals []CustomDomainPortal `pulumi:"portals"`
 	// One or more `proxy` blocks as defined below.
+	//
+	// Deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
 	Proxies []CustomDomainProxy `pulumi:"proxies"`
 	// One or more `scm` blocks as defined below.
 	Scms []CustomDomainScm `pulumi:"scms"`
@@ -198,6 +202,8 @@ type CustomDomainState struct {
 	// One or more `portal` blocks as defined below.
 	Portals CustomDomainPortalArrayInput
 	// One or more `proxy` blocks as defined below.
+	//
+	// Deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
 	Proxies CustomDomainProxyArrayInput
 	// One or more `scm` blocks as defined below.
 	Scms CustomDomainScmArrayInput
@@ -217,6 +223,8 @@ type customDomainArgs struct {
 	// One or more `portal` blocks as defined below.
 	Portals []CustomDomainPortal `pulumi:"portals"`
 	// One or more `proxy` blocks as defined below.
+	//
+	// Deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
 	Proxies []CustomDomainProxy `pulumi:"proxies"`
 	// One or more `scm` blocks as defined below.
 	Scms []CustomDomainScm `pulumi:"scms"`
@@ -233,6 +241,8 @@ type CustomDomainArgs struct {
 	// One or more `portal` blocks as defined below.
 	Portals CustomDomainPortalArrayInput
 	// One or more `proxy` blocks as defined below.
+	//
+	// Deprecated: `proxy` is deprecated and will be renamed to `gateway` in version 3.0 of the AzureRM provider
 	Proxies CustomDomainProxyArrayInput
 	// One or more `scm` blocks as defined below.
 	Scms CustomDomainScmArrayInput

@@ -29,8 +29,8 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
- *         tier: "ElasticPremium",
- *         size: "EP1",
+ *         tier: "WorkflowStandard",
+ *         size: "WS1",
  *     },
  * });
  * const exampleStandard = new azure.logicapps.Standard("exampleStandard", {
@@ -62,8 +62,8 @@ import * as utilities from "../utilities";
  *     kind: "Linux",
  *     reserved: true,
  *     sku: {
- *         tier: "ElasticPremium",
- *         size: "EP1",
+ *         tier: "WorkflowStandard",
+ *         size: "WS1",
  *     },
  * });
  * const exampleStandard = new azure.logicapps.Standard("exampleStandard", {

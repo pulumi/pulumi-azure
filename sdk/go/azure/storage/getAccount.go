@@ -75,6 +75,10 @@ type LookupAccountResult struct {
 	EnableHttpsTrafficOnly bool `pulumi:"enableHttpsTrafficOnly"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable/)
+	// for more information.
+	// ---
+	InfrastructureEncryptionEnabled bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Is Hierarchical Namespace enabled?
 	IsHnsEnabled bool `pulumi:"isHnsEnabled"`
 	// The Azure location where the Storage Account exists
@@ -233,6 +237,13 @@ func (o LookupAccountResultOutput) EnableHttpsTrafficOnly() pulumi.BoolOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable/)
+// for more information.
+// ---
+func (o LookupAccountResultOutput) InfrastructureEncryptionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.InfrastructureEncryptionEnabled }).(pulumi.BoolOutput)
 }
 
 // Is Hierarchical Namespace enabled?

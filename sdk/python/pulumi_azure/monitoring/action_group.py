@@ -23,6 +23,7 @@ class ActionGroupArgs:
                  azure_function_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupAzureFunctionReceiverArgs']]]] = None,
                  email_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupEmailReceiverArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupEventHubReceiverArgs']]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupItsmReceiverArgs']]]] = None,
                  logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupLogicAppReceiverArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -40,6 +41,7 @@ class ActionGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupAzureFunctionReceiverArgs']]] azure_function_receivers: One or more `azure_function_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupEmailReceiverArgs']]] email_receivers: One or more `email_receiver` blocks as defined below.
         :param pulumi.Input[bool] enabled: Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['ActionGroupEventHubReceiverArgs']]] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupItsmReceiverArgs']]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupLogicAppReceiverArgs']]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[str] name: The name of the Action Group. Changing this forces a new resource to be created.
@@ -62,6 +64,8 @@ class ActionGroupArgs:
             pulumi.set(__self__, "email_receivers", email_receivers)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if event_hub_receivers is not None:
+            pulumi.set(__self__, "event_hub_receivers", event_hub_receivers)
         if itsm_receivers is not None:
             pulumi.set(__self__, "itsm_receivers", itsm_receivers)
         if logic_app_receivers is not None:
@@ -174,6 +178,18 @@ class ActionGroupArgs:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter(name="eventHubReceivers")
+    def event_hub_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupEventHubReceiverArgs']]]]:
+        """
+        One or more `event_hub_receiver` blocks as defined below.
+        """
+        return pulumi.get(self, "event_hub_receivers")
+
+    @event_hub_receivers.setter
+    def event_hub_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupEventHubReceiverArgs']]]]):
+        pulumi.set(self, "event_hub_receivers", value)
+
+    @property
     @pulumi.getter(name="itsmReceivers")
     def itsm_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupItsmReceiverArgs']]]]:
         """
@@ -267,6 +283,7 @@ class _ActionGroupState:
                  azure_function_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupAzureFunctionReceiverArgs']]]] = None,
                  email_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupEmailReceiverArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupEventHubReceiverArgs']]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupItsmReceiverArgs']]]] = None,
                  logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupLogicAppReceiverArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -284,6 +301,7 @@ class _ActionGroupState:
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupAzureFunctionReceiverArgs']]] azure_function_receivers: One or more `azure_function_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupEmailReceiverArgs']]] email_receivers: One or more `email_receiver` blocks as defined below.
         :param pulumi.Input[bool] enabled: Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['ActionGroupEventHubReceiverArgs']]] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupItsmReceiverArgs']]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ActionGroupLogicAppReceiverArgs']]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[str] name: The name of the Action Group. Changing this forces a new resource to be created.
@@ -306,6 +324,8 @@ class _ActionGroupState:
             pulumi.set(__self__, "email_receivers", email_receivers)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if event_hub_receivers is not None:
+            pulumi.set(__self__, "event_hub_receivers", event_hub_receivers)
         if itsm_receivers is not None:
             pulumi.set(__self__, "itsm_receivers", itsm_receivers)
         if logic_app_receivers is not None:
@@ -396,6 +416,18 @@ class _ActionGroupState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="eventHubReceivers")
+    def event_hub_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupEventHubReceiverArgs']]]]:
+        """
+        One or more `event_hub_receiver` blocks as defined below.
+        """
+        return pulumi.get(self, "event_hub_receivers")
+
+    @event_hub_receivers.setter
+    def event_hub_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupEventHubReceiverArgs']]]]):
+        pulumi.set(self, "event_hub_receivers", value)
 
     @property
     @pulumi.getter(name="itsmReceivers")
@@ -517,6 +549,7 @@ class ActionGroup(pulumi.CustomResource):
                  azure_function_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupAzureFunctionReceiverArgs']]]]] = None,
                  email_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEmailReceiverArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEventHubReceiverArgs']]]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupItsmReceiverArgs']]]]] = None,
                  logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupLogicAppReceiverArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -576,6 +609,11 @@ class ActionGroup(pulumi.CustomResource):
                     use_common_alert_schema=True,
                 ),
             ],
+            event_hub_receivers=[azure.monitoring.ActionGroupEventHubReceiverArgs(
+                name="sendtoeventhub",
+                event_hub_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1",
+                use_common_alert_schema=False,
+            )],
             itsm_receivers=[azure.monitoring.ActionGroupItsmReceiverArgs(
                 name="createorupdateticket",
                 workspace_id="6eee3a18-aac3-40e4-b98e-1f309f329816",
@@ -622,6 +660,7 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupAzureFunctionReceiverArgs']]]] azure_function_receivers: One or more `azure_function_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEmailReceiverArgs']]]] email_receivers: One or more `email_receiver` blocks as defined below.
         :param pulumi.Input[bool] enabled: Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEventHubReceiverArgs']]]] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupItsmReceiverArgs']]]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupLogicAppReceiverArgs']]]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[str] name: The name of the Action Group. Changing this forces a new resource to be created.
@@ -687,6 +726,11 @@ class ActionGroup(pulumi.CustomResource):
                     use_common_alert_schema=True,
                 ),
             ],
+            event_hub_receivers=[azure.monitoring.ActionGroupEventHubReceiverArgs(
+                name="sendtoeventhub",
+                event_hub_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1",
+                use_common_alert_schema=False,
+            )],
             itsm_receivers=[azure.monitoring.ActionGroupItsmReceiverArgs(
                 name="createorupdateticket",
                 workspace_id="6eee3a18-aac3-40e4-b98e-1f309f329816",
@@ -746,6 +790,7 @@ class ActionGroup(pulumi.CustomResource):
                  azure_function_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupAzureFunctionReceiverArgs']]]]] = None,
                  email_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEmailReceiverArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEventHubReceiverArgs']]]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupItsmReceiverArgs']]]]] = None,
                  logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupLogicAppReceiverArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -773,6 +818,7 @@ class ActionGroup(pulumi.CustomResource):
             __props__.__dict__["azure_function_receivers"] = azure_function_receivers
             __props__.__dict__["email_receivers"] = email_receivers
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["event_hub_receivers"] = event_hub_receivers
             __props__.__dict__["itsm_receivers"] = itsm_receivers
             __props__.__dict__["logic_app_receivers"] = logic_app_receivers
             __props__.__dict__["name"] = name
@@ -802,6 +848,7 @@ class ActionGroup(pulumi.CustomResource):
             azure_function_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupAzureFunctionReceiverArgs']]]]] = None,
             email_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEmailReceiverArgs']]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEventHubReceiverArgs']]]]] = None,
             itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupItsmReceiverArgs']]]]] = None,
             logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupLogicAppReceiverArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -824,6 +871,7 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupAzureFunctionReceiverArgs']]]] azure_function_receivers: One or more `azure_function_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEmailReceiverArgs']]]] email_receivers: One or more `email_receiver` blocks as defined below.
         :param pulumi.Input[bool] enabled: Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupEventHubReceiverArgs']]]] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupItsmReceiverArgs']]]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActionGroupLogicAppReceiverArgs']]]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[str] name: The name of the Action Group. Changing this forces a new resource to be created.
@@ -844,6 +892,7 @@ class ActionGroup(pulumi.CustomResource):
         __props__.__dict__["azure_function_receivers"] = azure_function_receivers
         __props__.__dict__["email_receivers"] = email_receivers
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["event_hub_receivers"] = event_hub_receivers
         __props__.__dict__["itsm_receivers"] = itsm_receivers
         __props__.__dict__["logic_app_receivers"] = logic_app_receivers
         __props__.__dict__["name"] = name
@@ -902,6 +951,14 @@ class ActionGroup(pulumi.CustomResource):
         Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="eventHubReceivers")
+    def event_hub_receivers(self) -> pulumi.Output[Optional[Sequence['outputs.ActionGroupEventHubReceiver']]]:
+        """
+        One or more `event_hub_receiver` blocks as defined below.
+        """
+        return pulumi.get(self, "event_hub_receivers")
 
     @property
     @pulumi.getter(name="itsmReceivers")
