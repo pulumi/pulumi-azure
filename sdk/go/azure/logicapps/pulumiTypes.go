@@ -4114,6 +4114,127 @@ func (o WorkflowIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetWorkflowIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+	TenantId string `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to this Logic App Workflow.
+	Type string `pulumi:"type"`
+}
+
+// GetWorkflowIdentityInput is an input type that accepts GetWorkflowIdentityArgs and GetWorkflowIdentityOutput values.
+// You can construct a concrete instance of `GetWorkflowIdentityInput` via:
+//
+//          GetWorkflowIdentityArgs{...}
+type GetWorkflowIdentityInput interface {
+	pulumi.Input
+
+	ToGetWorkflowIdentityOutput() GetWorkflowIdentityOutput
+	ToGetWorkflowIdentityOutputWithContext(context.Context) GetWorkflowIdentityOutput
+}
+
+type GetWorkflowIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to this Logic App Workflow.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetWorkflowIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkflowIdentity)(nil)).Elem()
+}
+
+func (i GetWorkflowIdentityArgs) ToGetWorkflowIdentityOutput() GetWorkflowIdentityOutput {
+	return i.ToGetWorkflowIdentityOutputWithContext(context.Background())
+}
+
+func (i GetWorkflowIdentityArgs) ToGetWorkflowIdentityOutputWithContext(ctx context.Context) GetWorkflowIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkflowIdentityOutput)
+}
+
+// GetWorkflowIdentityArrayInput is an input type that accepts GetWorkflowIdentityArray and GetWorkflowIdentityArrayOutput values.
+// You can construct a concrete instance of `GetWorkflowIdentityArrayInput` via:
+//
+//          GetWorkflowIdentityArray{ GetWorkflowIdentityArgs{...} }
+type GetWorkflowIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkflowIdentityArrayOutput() GetWorkflowIdentityArrayOutput
+	ToGetWorkflowIdentityArrayOutputWithContext(context.Context) GetWorkflowIdentityArrayOutput
+}
+
+type GetWorkflowIdentityArray []GetWorkflowIdentityInput
+
+func (GetWorkflowIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkflowIdentity)(nil)).Elem()
+}
+
+func (i GetWorkflowIdentityArray) ToGetWorkflowIdentityArrayOutput() GetWorkflowIdentityArrayOutput {
+	return i.ToGetWorkflowIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkflowIdentityArray) ToGetWorkflowIdentityArrayOutputWithContext(ctx context.Context) GetWorkflowIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkflowIdentityArrayOutput)
+}
+
+type GetWorkflowIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetWorkflowIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkflowIdentity)(nil)).Elem()
+}
+
+func (o GetWorkflowIdentityOutput) ToGetWorkflowIdentityOutput() GetWorkflowIdentityOutput {
+	return o
+}
+
+func (o GetWorkflowIdentityOutput) ToGetWorkflowIdentityOutputWithContext(ctx context.Context) GetWorkflowIdentityOutput {
+	return o
+}
+
+func (o GetWorkflowIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWorkflowIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+func (o GetWorkflowIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkflowIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+func (o GetWorkflowIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkflowIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The Type of Managed Identity assigned to this Logic App Workflow.
+func (o GetWorkflowIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkflowIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetWorkflowIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkflowIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkflowIdentity)(nil)).Elem()
+}
+
+func (o GetWorkflowIdentityArrayOutput) ToGetWorkflowIdentityArrayOutput() GetWorkflowIdentityArrayOutput {
+	return o
+}
+
+func (o GetWorkflowIdentityArrayOutput) ToGetWorkflowIdentityArrayOutputWithContext(ctx context.Context) GetWorkflowIdentityArrayOutput {
+	return o
+}
+
+func (o GetWorkflowIdentityArrayOutput) Index(i pulumi.IntInput) GetWorkflowIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkflowIdentity {
+		return vs[0].([]GetWorkflowIdentity)[vs[1].(int)]
+	}).(GetWorkflowIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpRunAfterInput)(nil)).Elem(), ActionHttpRunAfterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionHttpRunAfterArrayInput)(nil)).Elem(), ActionHttpRunAfterArray{})
@@ -4165,6 +4286,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowAccessControlWorkflowManagementPtrInput)(nil)).Elem(), WorkflowAccessControlWorkflowManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowIdentityInput)(nil)).Elem(), WorkflowIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowIdentityPtrInput)(nil)).Elem(), WorkflowIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkflowIdentityInput)(nil)).Elem(), GetWorkflowIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkflowIdentityArrayInput)(nil)).Elem(), GetWorkflowIdentityArray{})
 	pulumi.RegisterOutputType(ActionHttpRunAfterOutput{})
 	pulumi.RegisterOutputType(ActionHttpRunAfterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountAgreementGuestIdentityOutput{})
@@ -4215,4 +4338,6 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowAccessControlWorkflowManagementPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowIdentityOutput{})
 	pulumi.RegisterOutputType(WorkflowIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GetWorkflowIdentityOutput{})
+	pulumi.RegisterOutputType(GetWorkflowIdentityArrayOutput{})
 }

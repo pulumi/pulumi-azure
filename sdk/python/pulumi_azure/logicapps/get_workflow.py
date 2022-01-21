@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWorkflowResult',
@@ -20,7 +21,7 @@ class GetWorkflowResult:
     """
     A collection of values returned by getWorkflow.
     """
-    def __init__(__self__, access_endpoint=None, connector_endpoint_ip_addresses=None, connector_outbound_ip_addresses=None, id=None, location=None, logic_app_integration_account_id=None, name=None, parameters=None, resource_group_name=None, tags=None, workflow_endpoint_ip_addresses=None, workflow_outbound_ip_addresses=None, workflow_schema=None, workflow_version=None):
+    def __init__(__self__, access_endpoint=None, connector_endpoint_ip_addresses=None, connector_outbound_ip_addresses=None, id=None, identities=None, location=None, logic_app_integration_account_id=None, name=None, parameters=None, resource_group_name=None, tags=None, workflow_endpoint_ip_addresses=None, workflow_outbound_ip_addresses=None, workflow_schema=None, workflow_version=None):
         if access_endpoint and not isinstance(access_endpoint, str):
             raise TypeError("Expected argument 'access_endpoint' to be a str")
         pulumi.set(__self__, "access_endpoint", access_endpoint)
@@ -33,6 +34,9 @@ class GetWorkflowResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -95,6 +99,14 @@ class GetWorkflowResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetWorkflowIdentityResult']:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter
@@ -181,6 +193,7 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             connector_endpoint_ip_addresses=self.connector_endpoint_ip_addresses,
             connector_outbound_ip_addresses=self.connector_outbound_ip_addresses,
             id=self.id,
+            identities=self.identities,
             location=self.location,
             logic_app_integration_account_id=self.logic_app_integration_account_id,
             name=self.name,
@@ -228,6 +241,7 @@ def get_workflow(name: Optional[str] = None,
         connector_endpoint_ip_addresses=__ret__.connector_endpoint_ip_addresses,
         connector_outbound_ip_addresses=__ret__.connector_outbound_ip_addresses,
         id=__ret__.id,
+        identities=__ret__.identities,
         location=__ret__.location,
         logic_app_integration_account_id=__ret__.logic_app_integration_account_id,
         name=__ret__.name,

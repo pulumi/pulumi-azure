@@ -75,6 +75,10 @@ export class ShareFile extends pulumi.CustomResource {
      */
     public readonly contentEncoding!: pulumi.Output<string | undefined>;
     /**
+     * The length in bytes of the file content
+     */
+    public /*out*/ readonly contentLength!: pulumi.Output<number>;
+    /**
      * The MD5 sum of the file contents. Changing this forces a new resource to be created.
      */
     public readonly contentMd5!: pulumi.Output<string | undefined>;
@@ -118,6 +122,7 @@ export class ShareFile extends pulumi.CustomResource {
             const state = argsOrState as ShareFileState | undefined;
             inputs["contentDisposition"] = state ? state.contentDisposition : undefined;
             inputs["contentEncoding"] = state ? state.contentEncoding : undefined;
+            inputs["contentLength"] = state ? state.contentLength : undefined;
             inputs["contentMd5"] = state ? state.contentMd5 : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
@@ -139,6 +144,7 @@ export class ShareFile extends pulumi.CustomResource {
             inputs["path"] = args ? args.path : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["storageShareId"] = args ? args.storageShareId : undefined;
+            inputs["contentLength"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -159,6 +165,10 @@ export interface ShareFileState {
      * Specifies which content encodings have been applied to the file.
      */
     contentEncoding?: pulumi.Input<string>;
+    /**
+     * The length in bytes of the file content
+     */
+    contentLength?: pulumi.Input<number>;
     /**
      * The MD5 sum of the file contents. Changing this forces a new resource to be created.
      */

@@ -389,6 +389,39 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         """
         Manages an API Management Azure AD B2C Identity Provider.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@terraform.io",
+            sku_name="Developer_1")
+        example_application = azuread.Application("exampleApplication",
+            oauth2_allow_implicit_flow=True,
+            reply_urls=[f"https://{azurerm_api_management['test']['name']}.developer.azure-api.net/signin"])
+        example_application_password = azuread.ApplicationPassword("exampleApplicationPassword",
+            application_object_id=azuread_application["test"]["object_id"],
+            end_date_relative="36h",
+            value="P@55w0rD!%[7]s")
+        example_identity_provider_aadb2c = azure.apimanagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c",
+            api_management_name=example_service.name,
+            client_id=example_application.application_id,
+            client_secret="P@55w0rD!%[7]s",
+            allowed_tenant="myb2ctenant.onmicrosoft.com",
+            signin_tenant="myb2ctenant.onmicrosoft.com",
+            authority="myb2ctenant.b2clogin.com",
+            signin_policy="B2C_1_Login",
+            signup_policy="B2C_1_Signup",
+            opts=pulumi.ResourceOptions(depends_on=[example_application_password]))
+        ```
+
         ## Import
 
         API Management Azure AD B2C Identity Providers can be imported using the `resource id`, e.g.
@@ -419,6 +452,39 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Azure AD B2C Identity Provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@terraform.io",
+            sku_name="Developer_1")
+        example_application = azuread.Application("exampleApplication",
+            oauth2_allow_implicit_flow=True,
+            reply_urls=[f"https://{azurerm_api_management['test']['name']}.developer.azure-api.net/signin"])
+        example_application_password = azuread.ApplicationPassword("exampleApplicationPassword",
+            application_object_id=azuread_application["test"]["object_id"],
+            end_date_relative="36h",
+            value="P@55w0rD!%[7]s")
+        example_identity_provider_aadb2c = azure.apimanagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c",
+            api_management_name=example_service.name,
+            client_id=example_application.application_id,
+            client_secret="P@55w0rD!%[7]s",
+            allowed_tenant="myb2ctenant.onmicrosoft.com",
+            signin_tenant="myb2ctenant.onmicrosoft.com",
+            authority="myb2ctenant.b2clogin.com",
+            signin_policy="B2C_1_Login",
+            signup_policy="B2C_1_Signup",
+            opts=pulumi.ResourceOptions(depends_on=[example_application_password]))
+        ```
 
         ## Import
 

@@ -139,6 +139,10 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWorkflowIdentityResult> Identities;
+        /// <summary>
         /// The Azure location where the Logic App Workflow exists.
         /// </summary>
         public readonly string Location;
@@ -183,6 +187,8 @@ namespace Pulumi.Azure.LogicApps
 
             string id,
 
+            ImmutableArray<Outputs.GetWorkflowIdentityResult> identities,
+
             string location,
 
             string logicAppIntegrationAccountId,
@@ -207,6 +213,7 @@ namespace Pulumi.Azure.LogicApps
             ConnectorEndpointIpAddresses = connectorEndpointIpAddresses;
             ConnectorOutboundIpAddresses = connectorOutboundIpAddresses;
             Id = id;
+            Identities = identities;
             Location = location;
             LogicAppIntegrationAccountId = logicAppIntegrationAccountId;
             Name = name;

@@ -57,6 +57,9 @@ namespace Pulumi.Azure.AppService
         [Output("defaultHostName")]
         public Output<string> DefaultHostName { get; private set; } = null!;
 
+        [Output("identity")]
+        public Output<Outputs.StaticSiteIdentity?> Identity { get; private set; } = null!;
+
         /// <summary>
         /// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         /// </summary>
@@ -139,6 +142,9 @@ namespace Pulumi.Azure.AppService
 
     public sealed class StaticSiteArgs : Pulumi.ResourceArgs
     {
+        [Input("identity")]
+        public Input<Inputs.StaticSiteIdentityArgs>? Identity { get; set; }
+
         /// <summary>
         /// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         /// </summary>
@@ -199,6 +205,9 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("defaultHostName")]
         public Input<string>? DefaultHostName { get; set; }
+
+        [Input("identity")]
+        public Input<Inputs.StaticSiteIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.

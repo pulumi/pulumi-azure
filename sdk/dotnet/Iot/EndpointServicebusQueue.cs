@@ -86,10 +86,34 @@ namespace Pulumi.Azure.Iot
     public partial class EndpointServicebusQueue : Pulumi.CustomResource
     {
         /// <summary>
-        /// The connection string for the endpoint.
+        /// Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        /// </summary>
+        [Output("authenticationType")]
+        public Output<string?> AuthenticationType { get; private set; } = null!;
+
+        /// <summary>
+        /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         /// </summary>
         [Output("connectionString")]
-        public Output<string> ConnectionString { get; private set; } = null!;
+        public Output<string?> ConnectionString { get; private set; } = null!;
+
+        /// <summary>
+        /// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// </summary>
+        [Output("endpointUri")]
+        public Output<string?> EndpointUri { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// </summary>
+        [Output("entityPath")]
+        public Output<string?> EntityPath { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+        /// </summary>
+        [Output("identityId")]
+        public Output<string?> IdentityId { get; private set; } = null!;
 
         /// <summary>
         /// The IoTHub ID for the endpoint.
@@ -162,10 +186,34 @@ namespace Pulumi.Azure.Iot
     public sealed class EndpointServicebusQueueArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The connection string for the endpoint.
+        /// Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
+        [Input("authenticationType")]
+        public Input<string>? AuthenticationType { get; set; }
+
+        /// <summary>
+        /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+        /// </summary>
+        [Input("connectionString")]
+        public Input<string>? ConnectionString { get; set; }
+
+        /// <summary>
+        /// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// </summary>
+        [Input("endpointUri")]
+        public Input<string>? EndpointUri { get; set; }
+
+        /// <summary>
+        /// Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// </summary>
+        [Input("entityPath")]
+        public Input<string>? EntityPath { get; set; }
+
+        /// <summary>
+        /// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+        /// </summary>
+        [Input("identityId")]
+        public Input<string>? IdentityId { get; set; }
 
         /// <summary>
         /// The IoTHub ID for the endpoint.
@@ -199,10 +247,34 @@ namespace Pulumi.Azure.Iot
     public sealed class EndpointServicebusQueueState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The connection string for the endpoint.
+        /// Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        /// </summary>
+        [Input("authenticationType")]
+        public Input<string>? AuthenticationType { get; set; }
+
+        /// <summary>
+        /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
+
+        /// <summary>
+        /// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// </summary>
+        [Input("endpointUri")]
+        public Input<string>? EndpointUri { get; set; }
+
+        /// <summary>
+        /// Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// </summary>
+        [Input("entityPath")]
+        public Input<string>? EntityPath { get; set; }
+
+        /// <summary>
+        /// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+        /// </summary>
+        [Input("identityId")]
+        public Input<string>? IdentityId { get; set; }
 
         /// <summary>
         /// The IoTHub ID for the endpoint.

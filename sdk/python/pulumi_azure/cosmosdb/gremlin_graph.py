@@ -35,7 +35,7 @@ class GremlinGraphArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphConflictResolutionPolicyArgs']]] conflict_resolution_policies: A `conflict_resolution_policy` blocks as defined below.
         :param pulumi.Input[int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
-        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyArgs']]] index_policies: The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyArgs']]] index_policies: The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
         :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[int] throughput: The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
@@ -147,7 +147,7 @@ class GremlinGraphArgs:
     @pulumi.getter(name="indexPolicies")
     def index_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyArgs']]]]:
         """
-        The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
+        The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         """
         return pulumi.get(self, "index_policies")
 
@@ -225,7 +225,7 @@ class _GremlinGraphState:
         :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphConflictResolutionPolicyArgs']]] conflict_resolution_policies: A `conflict_resolution_policy` blocks as defined below.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
-        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyArgs']]] index_policies: The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyArgs']]] index_policies: The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
@@ -319,7 +319,7 @@ class _GremlinGraphState:
     @pulumi.getter(name="indexPolicies")
     def index_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyArgs']]]]:
         """
-        The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
+        The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         """
         return pulumi.get(self, "index_policies")
 
@@ -472,7 +472,7 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']]]] conflict_resolution_policies: A `conflict_resolution_policy` blocks as defined below.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GremlinGraphIndexPolicyArgs']]]] index_policies: The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GremlinGraphIndexPolicyArgs']]]] index_policies: The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
@@ -626,7 +626,7 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']]]] conflict_resolution_policies: A `conflict_resolution_policy` blocks as defined below.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GremlinGraphIndexPolicyArgs']]]] index_policies: The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GremlinGraphIndexPolicyArgs']]]] index_policies: The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
@@ -693,7 +693,7 @@ class GremlinGraph(pulumi.CustomResource):
     @pulumi.getter(name="indexPolicies")
     def index_policies(self) -> pulumi.Output[Sequence['outputs.GremlinGraphIndexPolicy']]:
         """
-        The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
+        The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         """
         return pulumi.get(self, "index_policies")
 

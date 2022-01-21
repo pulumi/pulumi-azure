@@ -121,7 +121,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int> DefaultTtl { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
+        /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         /// </summary>
         [Output("indexPolicies")]
         public Output<ImmutableArray<Outputs.GremlinGraphIndexPolicy>> IndexPolicies { get; private set; } = null!;
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.GremlinGraphIndexPolicyArgs>? _indexPolicies;
 
         /// <summary>
-        /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
+        /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.GremlinGraphIndexPolicyArgs> IndexPolicies
         {
@@ -339,7 +339,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.GremlinGraphIndexPolicyGetArgs>? _indexPolicies;
 
         /// <summary>
-        /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
+        /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.GremlinGraphIndexPolicyGetArgs> IndexPolicies
         {

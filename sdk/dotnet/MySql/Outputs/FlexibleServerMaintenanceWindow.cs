@@ -18,7 +18,7 @@ namespace Pulumi.Azure.MySql.Outputs
         /// </summary>
         public readonly int? DayOfWeek;
         /// <summary>
-        /// The day of week for maintenance window. Defaults to `0`.
+        /// The start hour for maintenance window. Defaults to `0`.
         /// </summary>
         public readonly int? StartHour;
         /// <summary>

@@ -2071,6 +2071,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_user":            {Tok: azureDataSource(azureAPIManagement, "getUser")},
 			"azurerm_api_management_api_version_set": {Tok: azureDataSource(azureAPIManagement, "getApiVersionSet")},
 			"azurerm_api_management_gateway":         {Tok: azureDataSource(azureAPIManagement, "getGateway")},
+
 			"azurerm_app_service": {
 				Tok: azureDataSource(azureAppService, "getAppService"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2085,6 +2086,8 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
+			"azurerm_windows_function_app": {Tok: azureDataSource(azureAutomation, "getWindowsFunctionApp")},
+
 			"azurerm_automation_variable_bool":     {Tok: azureDataSource(azureAutomation, "getBoolVariable")},
 			"azurerm_automation_variable_datetime": {Tok: azureDataSource(azureAutomation, "getDateTimeVariable")},
 			"azurerm_automation_variable_int":      {Tok: azureDataSource(azureAutomation, "getIntVariable")},
@@ -2374,7 +2377,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_databricks_workspace_private_endpoint_connection": {
 				Tok: azureDataSource(azureDataBricks, "getWorkspacePrivateEndpointConnection"),
 			},
-			"azurerm_mysql_server":                      {Tok: azureDataSource(azureMySQL, "getServer")},
+
+			"azurerm_mysql_server":          {Tok: azureDataSource(azureMySQL, "getServer")},
+			"azurerm_mysql_flexible_server": {Tok: azureDataSource(azureMySQL, "getFlexibleServer")},
+
 			"azurerm_cognitive_account":                 {Tok: azureDataSource(azureCognitive, "getAccount")},
 			"azurerm_digital_twins_instance":            {Tok: azureDataSource(azureDigitalTwins, "getInstance")},
 			"azurerm_search_service":                    {Tok: azureDataSource(azureSearch, "getService")},

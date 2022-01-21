@@ -35,6 +35,7 @@ __all__ = [
     'WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim',
     'WorkflowAccessControlWorkflowManagement',
     'WorkflowIdentity',
+    'GetWorkflowIdentityResult',
 ]
 
 @pulumi.output_type
@@ -1545,5 +1546,52 @@ class WorkflowIdentity(dict):
         The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class GetWorkflowIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        :param str type: The Type of Managed Identity assigned to this Logic App Workflow.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Type of Managed Identity assigned to this Logic App Workflow.
+        """
+        return pulumi.get(self, "type")
 
 

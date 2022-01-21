@@ -90,17 +90,22 @@ import (
 type EndpointStorageContainer struct {
 	pulumi.CustomResourceState
 
+	// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType pulumi.StringPtrOutput `pulumi:"authenticationType"`
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
 	BatchFrequencyInSeconds pulumi.IntPtrOutput `pulumi:"batchFrequencyInSeconds"`
-	// The connection string for the endpoint.
-	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
+	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
 	// The name of storage container in the storage account.
-	// *
 	ContainerName pulumi.StringOutput `pulumi:"containerName"`
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding pulumi.StringPtrOutput `pulumi:"encoding"`
+	// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri pulumi.StringPtrOutput `pulumi:"endpointUri"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrOutput `pulumi:"fileNameFormat"`
+	// ID of the User Managed Identity used to authenticate against the storage endpoint.
+	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
 	// The IoTHub name for the endpoint.
@@ -122,9 +127,6 @@ func NewEndpointStorageContainer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionString == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionString'")
-	}
 	if args.ContainerName == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerName'")
 	}
@@ -153,17 +155,22 @@ func GetEndpointStorageContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointStorageContainer resources.
 type endpointStorageContainerState struct {
+	// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType *string `pulumi:"authenticationType"`
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
 	BatchFrequencyInSeconds *int `pulumi:"batchFrequencyInSeconds"`
-	// The connection string for the endpoint.
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The name of storage container in the storage account.
-	// *
 	ContainerName *string `pulumi:"containerName"`
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding *string `pulumi:"encoding"`
+	// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri *string `pulumi:"endpointUri"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
+	// ID of the User Managed Identity used to authenticate against the storage endpoint.
+	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId *string `pulumi:"iothubId"`
 	// The IoTHub name for the endpoint.
@@ -179,17 +186,22 @@ type endpointStorageContainerState struct {
 }
 
 type EndpointStorageContainerState struct {
+	// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType pulumi.StringPtrInput
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
 	BatchFrequencyInSeconds pulumi.IntPtrInput
-	// The connection string for the endpoint.
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
 	ConnectionString pulumi.StringPtrInput
 	// The name of storage container in the storage account.
-	// *
 	ContainerName pulumi.StringPtrInput
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding pulumi.StringPtrInput
+	// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri pulumi.StringPtrInput
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrInput
+	// ID of the User Managed Identity used to authenticate against the storage endpoint.
+	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringPtrInput
 	// The IoTHub name for the endpoint.
@@ -209,17 +221,22 @@ func (EndpointStorageContainerState) ElementType() reflect.Type {
 }
 
 type endpointStorageContainerArgs struct {
+	// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType *string `pulumi:"authenticationType"`
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
 	BatchFrequencyInSeconds *int `pulumi:"batchFrequencyInSeconds"`
-	// The connection string for the endpoint.
-	ConnectionString string `pulumi:"connectionString"`
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
+	ConnectionString *string `pulumi:"connectionString"`
 	// The name of storage container in the storage account.
-	// *
 	ContainerName string `pulumi:"containerName"`
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding *string `pulumi:"encoding"`
+	// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri *string `pulumi:"endpointUri"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
+	// ID of the User Managed Identity used to authenticate against the storage endpoint.
+	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId *string `pulumi:"iothubId"`
 	// The IoTHub name for the endpoint.
@@ -236,17 +253,22 @@ type endpointStorageContainerArgs struct {
 
 // The set of arguments for constructing a EndpointStorageContainer resource.
 type EndpointStorageContainerArgs struct {
+	// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType pulumi.StringPtrInput
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
 	BatchFrequencyInSeconds pulumi.IntPtrInput
-	// The connection string for the endpoint.
-	ConnectionString pulumi.StringInput
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
+	ConnectionString pulumi.StringPtrInput
 	// The name of storage container in the storage account.
-	// *
 	ContainerName pulumi.StringInput
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding pulumi.StringPtrInput
+	// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri pulumi.StringPtrInput
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrInput
+	// ID of the User Managed Identity used to authenticate against the storage endpoint.
+	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringPtrInput
 	// The IoTHub name for the endpoint.

@@ -13,6 +13,75 @@ import (
 
 // Manages an API Management Azure AD B2C Identity Provider.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			PublisherName:     pulumi.String("My Company"),
+// 			PublisherEmail:    pulumi.String("company@terraform.io"),
+// 			SkuName:           pulumi.String("Developer_1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleApplication, err := azuread.NewApplication(ctx, "exampleApplication", &azuread.ApplicationArgs{
+// 			Oauth2AllowImplicitFlow: pulumi.Bool(true),
+// 			ReplyUrls: pulumi.StringArray{
+// 				pulumi.String(fmt.Sprintf("%v%v%v", "https://", azurerm_api_management.Test.Name, ".developer.azure-api.net/signin")),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleApplicationPassword, err := azuread.NewApplicationPassword(ctx, "exampleApplicationPassword", &azuread.ApplicationPasswordArgs{
+// 			ApplicationObjectId: pulumi.Any(azuread_application.Test.Object_id),
+// 			EndDateRelative:     pulumi.String("36h"),
+// 			Value:               pulumi.String(fmt.Sprintf("%v%v%v", "P@55w0rD!", "%", "[7]s")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apimanagement.NewIdentityProviderAadb2c(ctx, "exampleIdentityProviderAadb2c", &apimanagement.IdentityProviderAadb2cArgs{
+// 			ApiManagementName: exampleService.Name,
+// 			ClientId:          exampleApplication.ApplicationId,
+// 			ClientSecret:      pulumi.String(fmt.Sprintf("%v%v%v", "P@55w0rD!", "%", "[7]s")),
+// 			AllowedTenant:     pulumi.String("myb2ctenant.onmicrosoft.com"),
+// 			SigninTenant:      pulumi.String("myb2ctenant.onmicrosoft.com"),
+// 			Authority:         pulumi.String("myb2ctenant.b2clogin.com"),
+// 			SigninPolicy:      pulumi.String("B2C_1_Login"),
+// 			SignupPolicy:      pulumi.String("B2C_1_Signup"),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleApplicationPassword,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // API Management Azure AD B2C Identity Providers can be imported using the `resource id`, e.g.

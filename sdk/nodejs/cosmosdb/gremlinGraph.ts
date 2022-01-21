@@ -103,7 +103,7 @@ export class GremlinGraph extends pulumi.CustomResource {
      */
     public readonly defaultTtl!: pulumi.Output<number>;
     /**
-     * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
+     * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      */
     public readonly indexPolicies!: pulumi.Output<outputs.cosmosdb.GremlinGraphIndexPolicy[]>;
     /**
@@ -212,7 +212,7 @@ export interface GremlinGraphState {
      */
     defaultTtl?: pulumi.Input<number>;
     /**
-     * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
+     * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      */
     indexPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>[]>;
     /**
@@ -263,7 +263,7 @@ export interface GremlinGraphArgs {
      */
     defaultTtl?: pulumi.Input<number>;
     /**
-     * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
+     * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      */
     indexPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>[]>;
     /**

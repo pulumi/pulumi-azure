@@ -81,16 +81,34 @@ namespace Pulumi.Azure.Compute
     public partial class BastionHost : Pulumi.CustomResource
     {
         /// <summary>
+        /// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
+        /// </summary>
+        [Output("copyPasteEnabled")]
+        public Output<bool?> CopyPasteEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The FQDN for the Bastion Host.
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
+        /// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+        /// </summary>
+        [Output("fileCopyEnabled")]
+        public Output<bool?> FileCopyEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `ip_configuration` block as defined below.
         /// </summary>
         [Output("ipConfiguration")]
         public Output<Outputs.BastionHostIpConfiguration?> IpConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+        /// </summary>
+        [Output("ipConnectEnabled")]
+        public Output<bool?> IpConnectEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
@@ -111,6 +129,18 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        /// </summary>
+        [Output("scaleUnits")]
+        public Output<int?> ScaleUnits { get; private set; } = null!;
+
+        /// <summary>
+        /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+        /// </summary>
+        [Output("shareableLinkEnabled")]
+        public Output<bool?> ShareableLinkEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         /// </summary>
         [Output("sku")]
@@ -121,6 +151,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+        /// </summary>
+        [Output("tunnelingEnabled")]
+        public Output<bool?> TunnelingEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -169,10 +205,28 @@ namespace Pulumi.Azure.Compute
     public sealed class BastionHostArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
+        /// </summary>
+        [Input("copyPasteEnabled")]
+        public Input<bool>? CopyPasteEnabled { get; set; }
+
+        /// <summary>
+        /// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+        /// </summary>
+        [Input("fileCopyEnabled")]
+        public Input<bool>? FileCopyEnabled { get; set; }
+
+        /// <summary>
         /// A `ip_configuration` block as defined below.
         /// </summary>
         [Input("ipConfiguration")]
         public Input<Inputs.BastionHostIpConfigurationArgs>? IpConfiguration { get; set; }
+
+        /// <summary>
+        /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+        /// </summary>
+        [Input("ipConnectEnabled")]
+        public Input<bool>? IpConnectEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
@@ -193,6 +247,18 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        /// </summary>
+        [Input("scaleUnits")]
+        public Input<int>? ScaleUnits { get; set; }
+
+        /// <summary>
+        /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+        /// </summary>
+        [Input("shareableLinkEnabled")]
+        public Input<bool>? ShareableLinkEnabled { get; set; }
+
+        /// <summary>
         /// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         /// </summary>
         [Input("sku")]
@@ -210,6 +276,12 @@ namespace Pulumi.Azure.Compute
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+        /// </summary>
+        [Input("tunnelingEnabled")]
+        public Input<bool>? TunnelingEnabled { get; set; }
+
         public BastionHostArgs()
         {
         }
@@ -218,16 +290,34 @@ namespace Pulumi.Azure.Compute
     public sealed class BastionHostState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
+        /// </summary>
+        [Input("copyPasteEnabled")]
+        public Input<bool>? CopyPasteEnabled { get; set; }
+
+        /// <summary>
         /// The FQDN for the Bastion Host.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
 
         /// <summary>
+        /// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+        /// </summary>
+        [Input("fileCopyEnabled")]
+        public Input<bool>? FileCopyEnabled { get; set; }
+
+        /// <summary>
         /// A `ip_configuration` block as defined below.
         /// </summary>
         [Input("ipConfiguration")]
         public Input<Inputs.BastionHostIpConfigurationGetArgs>? IpConfiguration { get; set; }
+
+        /// <summary>
+        /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+        /// </summary>
+        [Input("ipConnectEnabled")]
+        public Input<bool>? IpConnectEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
@@ -248,6 +338,18 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
+        /// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        /// </summary>
+        [Input("scaleUnits")]
+        public Input<int>? ScaleUnits { get; set; }
+
+        /// <summary>
+        /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+        /// </summary>
+        [Input("shareableLinkEnabled")]
+        public Input<bool>? ShareableLinkEnabled { get; set; }
+
+        /// <summary>
         /// The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         /// </summary>
         [Input("sku")]
@@ -264,6 +366,12 @@ namespace Pulumi.Azure.Compute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+        /// </summary>
+        [Input("tunnelingEnabled")]
+        public Input<bool>? TunnelingEnabled { get; set; }
 
         public BastionHostState()
         {

@@ -310,7 +310,7 @@ func (o AutomationActionArrayOutput) Index(i pulumi.IntInput) AutomationActionOu
 }
 
 type AutomationSource struct {
-	// Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `SecureScoreControls`, `SecureScores` or `SubAssessments`. Note. assessments are also referred to as recommendations
+	// Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
 	EventSource string `pulumi:"eventSource"`
 	// A set of rules which evaluate upon event and data interception. This is defined in one or more `ruleSet` blocks as defined below.
 	RuleSets []AutomationSourceRuleSet `pulumi:"ruleSets"`
@@ -328,7 +328,7 @@ type AutomationSourceInput interface {
 }
 
 type AutomationSourceArgs struct {
-	// Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `SecureScoreControls`, `SecureScores` or `SubAssessments`. Note. assessments are also referred to as recommendations
+	// Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
 	EventSource pulumi.StringInput `pulumi:"eventSource"`
 	// A set of rules which evaluate upon event and data interception. This is defined in one or more `ruleSet` blocks as defined below.
 	RuleSets AutomationSourceRuleSetArrayInput `pulumi:"ruleSets"`
@@ -385,7 +385,7 @@ func (o AutomationSourceOutput) ToAutomationSourceOutputWithContext(ctx context.
 	return o
 }
 
-// Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `SecureScoreControls`, `SecureScores` or `SubAssessments`. Note. assessments are also referred to as recommendations
+// Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
 func (o AutomationSourceOutput) EventSource() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationSource) string { return v.EventSource }).(pulumi.StringOutput)
 }

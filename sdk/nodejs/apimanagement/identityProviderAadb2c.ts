@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     value: `P@55w0rD!%[7]s`,
  * });
  * const exampleIdentityProviderAadb2c = new azure.apimanagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c", {
- *     apiManagementId: exampleService.id,
+ *     apiManagementName: exampleService.name,
  *     clientId: exampleApplication.applicationId,
  *     clientSecret: `P@55w0rD!%[7]s`,
  *     allowedTenant: "myb2ctenant.onmicrosoft.com",

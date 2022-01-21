@@ -39,6 +39,7 @@ import * as utilities from "../utilities";
  * const exampleNamespaceNetworkRuleSet = new azure.servicebus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", {
  *     namespaceId: exampleNamespace.id,
  *     defaultAction: "Deny",
+ *     publicNetworkAccessEnabled: true,
  *     networkRules: [{
  *         subnetId: exampleSubnet.id,
  *         ignoreMissingVnetServiceEndpoint: false,
@@ -104,6 +105,10 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     public readonly networkRules!: pulumi.Output<outputs.servicebus.NamespaceNetworkRuleSetNetworkRule[] | undefined>;
     /**
+     * Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * @deprecated Deprecated in favor of "namespace_id"
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -130,6 +135,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             inputs["namespaceId"] = state ? state.namespaceId : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["networkRules"] = state ? state.networkRules : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["trustedServicesAllowed"] = state ? state.trustedServicesAllowed : undefined;
         } else {
@@ -139,6 +145,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             inputs["namespaceId"] = args ? args.namespaceId : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["networkRules"] = args ? args.networkRules : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["trustedServicesAllowed"] = args ? args.trustedServicesAllowed : undefined;
         }
@@ -174,6 +181,10 @@ export interface NamespaceNetworkRuleSetState {
      */
     networkRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NamespaceNetworkRuleSetNetworkRule>[]>;
     /**
+     * Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * @deprecated Deprecated in favor of "namespace_id"
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -207,6 +218,10 @@ export interface NamespaceNetworkRuleSetArgs {
      * One or more `networkRules` blocks as defined below.
      */
     networkRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NamespaceNetworkRuleSetNetworkRule>[]>;
+    /**
+     * Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * @deprecated Deprecated in favor of "namespace_id"
      */

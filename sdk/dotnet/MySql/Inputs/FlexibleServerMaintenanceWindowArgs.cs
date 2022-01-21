@@ -19,7 +19,7 @@ namespace Pulumi.Azure.MySql.Inputs
         public Input<int>? DayOfWeek { get; set; }
 
         /// <summary>
-        /// The day of week for maintenance window. Defaults to `0`.
+        /// The start hour for maintenance window. Defaults to `0`.
         /// </summary>
         [Input("startHour")]
         public Input<int>? StartHour { get; set; }

@@ -301,16 +301,24 @@ func (o IoTHubCloudToDeviceFeedbackArrayOutput) Index(i pulumi.IntInput) IoTHubC
 }
 
 type IoTHubEndpoint struct {
+	// Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType *string `pulumi:"authenticationType"`
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	BatchFrequencyInSeconds *int `pulumi:"batchFrequencyInSeconds"`
-	// The connection string for the endpoint.
-	ConnectionString string `pulumi:"connectionString"`
+	// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
+	ConnectionString *string `pulumi:"connectionString"`
 	// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
 	ContainerName *string `pulumi:"containerName"`
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
 	Encoding *string `pulumi:"encoding"`
+	// URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+	EndpointUri *string `pulumi:"endpointUri"`
+	// Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+	EntityPath *string `pulumi:"entityPath"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
+	// ID of the User Managed Identity used to authenticate against the endpoint.
+	IdentityId *string `pulumi:"identityId"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -333,16 +341,24 @@ type IoTHubEndpointInput interface {
 }
 
 type IoTHubEndpointArgs struct {
+	// Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	BatchFrequencyInSeconds pulumi.IntPtrInput `pulumi:"batchFrequencyInSeconds"`
-	// The connection string for the endpoint.
-	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
+	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
 	// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
 	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	// URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
+	// Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	FileNameFormat pulumi.StringPtrInput `pulumi:"fileNameFormat"`
+	// ID of the User Managed Identity used to authenticate against the endpoint.
+	IdentityId pulumi.StringPtrInput `pulumi:"identityId"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -404,14 +420,19 @@ func (o IoTHubEndpointOutput) ToIoTHubEndpointOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+func (o IoTHubEndpointOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
+}
+
 // Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 func (o IoTHubEndpointOutput) BatchFrequencyInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *int { return v.BatchFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The connection string for the endpoint.
-func (o IoTHubEndpointOutput) ConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func(v IoTHubEndpoint) string { return v.ConnectionString }).(pulumi.StringOutput)
+// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
+func (o IoTHubEndpointOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
 // The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
@@ -424,9 +445,24 @@ func (o IoTHubEndpointOutput) Encoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
+// URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+func (o IoTHubEndpointOutput) EndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+func (o IoTHubEndpointOutput) EntityPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
+}
+
 // File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 func (o IoTHubEndpointOutput) FileNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.FileNameFormat }).(pulumi.StringPtrOutput)
+}
+
+// ID of the User Managed Identity used to authenticate against the endpoint.
+func (o IoTHubEndpointOutput) IdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.IdentityId }).(pulumi.StringPtrOutput)
 }
 
 // Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.

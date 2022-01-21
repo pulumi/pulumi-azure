@@ -16013,6 +16013,192 @@ func (o SlotSiteCredentialArrayOutput) Index(i pulumi.IntInput) SlotSiteCredenti
 	}).(SlotSiteCredentialOutput)
 }
 
+type StaticSiteIdentity struct {
+	// A list of Managed Identity ID's which should be assigned to this Static Site resource.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned` and `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// StaticSiteIdentityInput is an input type that accepts StaticSiteIdentityArgs and StaticSiteIdentityOutput values.
+// You can construct a concrete instance of `StaticSiteIdentityInput` via:
+//
+//          StaticSiteIdentityArgs{...}
+type StaticSiteIdentityInput interface {
+	pulumi.Input
+
+	ToStaticSiteIdentityOutput() StaticSiteIdentityOutput
+	ToStaticSiteIdentityOutputWithContext(context.Context) StaticSiteIdentityOutput
+}
+
+type StaticSiteIdentityArgs struct {
+	// A list of Managed Identity ID's which should be assigned to this Static Site resource.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned` and `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StaticSiteIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteIdentity)(nil)).Elem()
+}
+
+func (i StaticSiteIdentityArgs) ToStaticSiteIdentityOutput() StaticSiteIdentityOutput {
+	return i.ToStaticSiteIdentityOutputWithContext(context.Background())
+}
+
+func (i StaticSiteIdentityArgs) ToStaticSiteIdentityOutputWithContext(ctx context.Context) StaticSiteIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteIdentityOutput)
+}
+
+func (i StaticSiteIdentityArgs) ToStaticSiteIdentityPtrOutput() StaticSiteIdentityPtrOutput {
+	return i.ToStaticSiteIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i StaticSiteIdentityArgs) ToStaticSiteIdentityPtrOutputWithContext(ctx context.Context) StaticSiteIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteIdentityOutput).ToStaticSiteIdentityPtrOutputWithContext(ctx)
+}
+
+// StaticSiteIdentityPtrInput is an input type that accepts StaticSiteIdentityArgs, StaticSiteIdentityPtr and StaticSiteIdentityPtrOutput values.
+// You can construct a concrete instance of `StaticSiteIdentityPtrInput` via:
+//
+//          StaticSiteIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type StaticSiteIdentityPtrInput interface {
+	pulumi.Input
+
+	ToStaticSiteIdentityPtrOutput() StaticSiteIdentityPtrOutput
+	ToStaticSiteIdentityPtrOutputWithContext(context.Context) StaticSiteIdentityPtrOutput
+}
+
+type staticSiteIdentityPtrType StaticSiteIdentityArgs
+
+func StaticSiteIdentityPtr(v *StaticSiteIdentityArgs) StaticSiteIdentityPtrInput {
+	return (*staticSiteIdentityPtrType)(v)
+}
+
+func (*staticSiteIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticSiteIdentity)(nil)).Elem()
+}
+
+func (i *staticSiteIdentityPtrType) ToStaticSiteIdentityPtrOutput() StaticSiteIdentityPtrOutput {
+	return i.ToStaticSiteIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *staticSiteIdentityPtrType) ToStaticSiteIdentityPtrOutputWithContext(ctx context.Context) StaticSiteIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteIdentityPtrOutput)
+}
+
+type StaticSiteIdentityOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteIdentity)(nil)).Elem()
+}
+
+func (o StaticSiteIdentityOutput) ToStaticSiteIdentityOutput() StaticSiteIdentityOutput {
+	return o
+}
+
+func (o StaticSiteIdentityOutput) ToStaticSiteIdentityOutputWithContext(ctx context.Context) StaticSiteIdentityOutput {
+	return o
+}
+
+func (o StaticSiteIdentityOutput) ToStaticSiteIdentityPtrOutput() StaticSiteIdentityPtrOutput {
+	return o.ToStaticSiteIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o StaticSiteIdentityOutput) ToStaticSiteIdentityPtrOutputWithContext(ctx context.Context) StaticSiteIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticSiteIdentity) *StaticSiteIdentity {
+		return &v
+	}).(StaticSiteIdentityPtrOutput)
+}
+
+// A list of Managed Identity ID's which should be assigned to this Static Site resource.
+func (o StaticSiteIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StaticSiteIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o StaticSiteIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o StaticSiteIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned` and `UserAssigned`.
+func (o StaticSiteIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type StaticSiteIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticSiteIdentity)(nil)).Elem()
+}
+
+func (o StaticSiteIdentityPtrOutput) ToStaticSiteIdentityPtrOutput() StaticSiteIdentityPtrOutput {
+	return o
+}
+
+func (o StaticSiteIdentityPtrOutput) ToStaticSiteIdentityPtrOutputWithContext(ctx context.Context) StaticSiteIdentityPtrOutput {
+	return o
+}
+
+func (o StaticSiteIdentityPtrOutput) Elem() StaticSiteIdentityOutput {
+	return o.ApplyT(func(v *StaticSiteIdentity) StaticSiteIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret StaticSiteIdentity
+		return ret
+	}).(StaticSiteIdentityOutput)
+}
+
+// A list of Managed Identity ID's which should be assigned to this Static Site resource.
+func (o StaticSiteIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StaticSiteIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StaticSiteIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StaticSiteIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned` and `UserAssigned`.
+func (o StaticSiteIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetAppServiceConnectionString struct {
 	// The name of the App Service.
 	Name string `pulumi:"name"`
@@ -19176,6 +19362,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotSiteConfigScmIpRestrictionHeadersPtrInput)(nil)).Elem(), SlotSiteConfigScmIpRestrictionHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotSiteCredentialInput)(nil)).Elem(), SlotSiteCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotSiteCredentialArrayInput)(nil)).Elem(), SlotSiteCredentialArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteIdentityInput)(nil)).Elem(), StaticSiteIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteIdentityPtrInput)(nil)).Elem(), StaticSiteIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppServiceConnectionStringInput)(nil)).Elem(), GetAppServiceConnectionStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppServiceConnectionStringArrayInput)(nil)).Elem(), GetAppServiceConnectionStringArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppServiceEnvironmentClusterSettingInput)(nil)).Elem(), GetAppServiceEnvironmentClusterSettingArgs{})
@@ -19382,6 +19570,8 @@ func init() {
 	pulumi.RegisterOutputType(SlotSiteConfigScmIpRestrictionHeadersPtrOutput{})
 	pulumi.RegisterOutputType(SlotSiteCredentialOutput{})
 	pulumi.RegisterOutputType(SlotSiteCredentialArrayOutput{})
+	pulumi.RegisterOutputType(StaticSiteIdentityOutput{})
+	pulumi.RegisterOutputType(StaticSiteIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetAppServiceConnectionStringOutput{})
 	pulumi.RegisterOutputType(GetAppServiceConnectionStringArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceEnvironmentClusterSettingOutput{})

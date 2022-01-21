@@ -13,21 +13,38 @@ __all__ = ['EndpointServicebusQueueArgs', 'EndpointServicebusQueue']
 @pulumi.input_type
 class EndpointServicebusQueueArgs:
     def __init__(__self__, *,
-                 connection_string: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 connection_string: Optional[pulumi.Input[str]] = None,
+                 endpoint_uri: Optional[pulumi.Input[str]] = None,
+                 entity_path: Optional[pulumi.Input[str]] = None,
+                 identity_id: Optional[pulumi.Input[str]] = None,
                  iothub_id: Optional[pulumi.Input[str]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EndpointServicebusQueue resource.
-        :param pulumi.Input[str] connection_string: The connection string for the endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] authentication_type: Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        :param pulumi.Input[str] connection_string: The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+        :param pulumi.Input[str] endpoint_uri: URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        :param pulumi.Input[str] entity_path: Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
         :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if endpoint_uri is not None:
+            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        if entity_path is not None:
+            pulumi.set(__self__, "entity_path", entity_path)
+        if identity_id is not None:
+            pulumi.set(__self__, "identity_id", identity_id)
         if iothub_id is not None:
             pulumi.set(__self__, "iothub_id", iothub_id)
         if iothub_name is not None:
@@ -37,18 +54,6 @@ class EndpointServicebusQueueArgs:
             pulumi.set(__self__, "iothub_name", iothub_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> pulumi.Input[str]:
-        """
-        The connection string for the endpoint.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @connection_string.setter
-    def connection_string(self, value: pulumi.Input[str]):
-        pulumi.set(self, "connection_string", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -61,6 +66,66 @@ class EndpointServicebusQueueArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        """
+        return pulumi.get(self, "endpoint_uri")
+
+    @endpoint_uri.setter
+    def endpoint_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_uri", value)
+
+    @property
+    @pulumi.getter(name="entityPath")
+    def entity_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        """
+        return pulumi.get(self, "entity_path")
+
+    @entity_path.setter
+    def entity_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_path", value)
+
+    @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @identity_id.setter
+    def identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_id", value)
 
     @property
     @pulumi.getter(name="iothubId")
@@ -102,21 +167,37 @@ class EndpointServicebusQueueArgs:
 @pulumi.input_type
 class _EndpointServicebusQueueState:
     def __init__(__self__, *,
+                 authentication_type: Optional[pulumi.Input[str]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 endpoint_uri: Optional[pulumi.Input[str]] = None,
+                 entity_path: Optional[pulumi.Input[str]] = None,
+                 identity_id: Optional[pulumi.Input[str]] = None,
                  iothub_id: Optional[pulumi.Input[str]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EndpointServicebusQueue resources.
-        :param pulumi.Input[str] connection_string: The connection string for the endpoint.
+        :param pulumi.Input[str] authentication_type: Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        :param pulumi.Input[str] connection_string: The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+        :param pulumi.Input[str] endpoint_uri: URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        :param pulumi.Input[str] entity_path: Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
         :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
         """
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if endpoint_uri is not None:
+            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        if entity_path is not None:
+            pulumi.set(__self__, "entity_path", entity_path)
+        if identity_id is not None:
+            pulumi.set(__self__, "identity_id", identity_id)
         if iothub_id is not None:
             pulumi.set(__self__, "iothub_id", iothub_id)
         if iothub_name is not None:
@@ -130,16 +211,64 @@ class _EndpointServicebusQueueState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The connection string for the endpoint.
+        The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         """
         return pulumi.get(self, "connection_string")
 
     @connection_string.setter
     def connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        """
+        return pulumi.get(self, "endpoint_uri")
+
+    @endpoint_uri.setter
+    def endpoint_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_uri", value)
+
+    @property
+    @pulumi.getter(name="entityPath")
+    def entity_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        """
+        return pulumi.get(self, "entity_path")
+
+    @entity_path.setter
+    def entity_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_path", value)
+
+    @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @identity_id.setter
+    def identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_id", value)
 
     @property
     @pulumi.getter(name="iothubId")
@@ -195,7 +324,11 @@ class EndpointServicebusQueue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication_type: Optional[pulumi.Input[str]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 endpoint_uri: Optional[pulumi.Input[str]] = None,
+                 entity_path: Optional[pulumi.Input[str]] = None,
+                 identity_id: Optional[pulumi.Input[str]] = None,
                  iothub_id: Optional[pulumi.Input[str]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -254,7 +387,11 @@ class EndpointServicebusQueue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connection_string: The connection string for the endpoint.
+        :param pulumi.Input[str] authentication_type: Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        :param pulumi.Input[str] connection_string: The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+        :param pulumi.Input[str] endpoint_uri: URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        :param pulumi.Input[str] entity_path: Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
         :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -332,7 +469,11 @@ class EndpointServicebusQueue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication_type: Optional[pulumi.Input[str]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 endpoint_uri: Optional[pulumi.Input[str]] = None,
+                 entity_path: Optional[pulumi.Input[str]] = None,
+                 identity_id: Optional[pulumi.Input[str]] = None,
                  iothub_id: Optional[pulumi.Input[str]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -349,9 +490,11 @@ class EndpointServicebusQueue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointServicebusQueueArgs.__new__(EndpointServicebusQueueArgs)
 
-            if connection_string is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_string'")
+            __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["connection_string"] = connection_string
+            __props__.__dict__["endpoint_uri"] = endpoint_uri
+            __props__.__dict__["entity_path"] = entity_path
+            __props__.__dict__["identity_id"] = identity_id
             __props__.__dict__["iothub_id"] = iothub_id
             if iothub_name is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `iothub_id`""", DeprecationWarning)
@@ -371,7 +514,11 @@ class EndpointServicebusQueue(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_type: Optional[pulumi.Input[str]] = None,
             connection_string: Optional[pulumi.Input[str]] = None,
+            endpoint_uri: Optional[pulumi.Input[str]] = None,
+            entity_path: Optional[pulumi.Input[str]] = None,
+            identity_id: Optional[pulumi.Input[str]] = None,
             iothub_id: Optional[pulumi.Input[str]] = None,
             iothub_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -383,7 +530,11 @@ class EndpointServicebusQueue(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connection_string: The connection string for the endpoint.
+        :param pulumi.Input[str] authentication_type: Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        :param pulumi.Input[str] connection_string: The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+        :param pulumi.Input[str] endpoint_uri: URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        :param pulumi.Input[str] entity_path: Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
         :param pulumi.Input[str] iothub_id: The IoTHub ID for the endpoint.
         :param pulumi.Input[str] iothub_name: The IoTHub name for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -393,7 +544,11 @@ class EndpointServicebusQueue(pulumi.CustomResource):
 
         __props__ = _EndpointServicebusQueueState.__new__(_EndpointServicebusQueueState)
 
+        __props__.__dict__["authentication_type"] = authentication_type
         __props__.__dict__["connection_string"] = connection_string
+        __props__.__dict__["endpoint_uri"] = endpoint_uri
+        __props__.__dict__["entity_path"] = entity_path
+        __props__.__dict__["identity_id"] = identity_id
         __props__.__dict__["iothub_id"] = iothub_id
         __props__.__dict__["iothub_name"] = iothub_name
         __props__.__dict__["name"] = name
@@ -401,12 +556,44 @@ class EndpointServicebusQueue(pulumi.CustomResource):
         return EndpointServicebusQueue(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The connection string for the endpoint.
+        Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> pulumi.Output[Optional[str]]:
+        """
+        The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         """
         return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> pulumi.Output[Optional[str]]:
+        """
+        URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        """
+        return pulumi.get(self, "endpoint_uri")
+
+    @property
+    @pulumi.getter(name="entityPath")
+    def entity_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        """
+        return pulumi.get(self, "entity_path")
+
+    @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+        """
+        return pulumi.get(self, "identity_id")
 
     @property
     @pulumi.getter(name="iothubId")

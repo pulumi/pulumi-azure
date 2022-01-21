@@ -13,7 +13,7 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
     public sealed class AutomationSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `SecureScoreControls`, `SecureScores` or `SubAssessments`. Note. assessments are also referred to as recommendations
+        /// Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
         /// </summary>
         [Input("eventSource", required: true)]
         public Input<string> EventSource { get; set; } = null!;

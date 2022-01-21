@@ -15,6 +15,9 @@ __all__ = [
     'ServerIdentity',
     'ServerStorageProfile',
     'ServerThreatDetectionPolicy',
+    'GetFlexibleServerHighAvailabilityResult',
+    'GetFlexibleServerMaintenanceWindowResult',
+    'GetFlexibleServerStorageResult',
     'GetServerIdentityResult',
     'GetServerThreatDetectionPolicyResult',
 ]
@@ -95,7 +98,7 @@ class FlexibleServerMaintenanceWindow(dict):
                  start_minute: Optional[int] = None):
         """
         :param int day_of_week: The day of week for maintenance window. Defaults to `0`.
-        :param int start_hour: The day of week for maintenance window. Defaults to `0`.
+        :param int start_hour: The start hour for maintenance window. Defaults to `0`.
         :param int start_minute: The start minute for maintenance window. Defaults to `0`.
         """
         if day_of_week is not None:
@@ -117,7 +120,7 @@ class FlexibleServerMaintenanceWindow(dict):
     @pulumi.getter(name="startHour")
     def start_hour(self) -> Optional[int]:
         """
-        The day of week for maintenance window. Defaults to `0`.
+        The start hour for maintenance window. Defaults to `0`.
         """
         return pulumi.get(self, "start_hour")
 
@@ -439,6 +442,115 @@ class ServerThreatDetectionPolicy(dict):
         Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         return pulumi.get(self, "storage_endpoint")
+
+
+@pulumi.output_type
+class GetFlexibleServerHighAvailabilityResult(dict):
+    def __init__(__self__, *,
+                 mode: str,
+                 standby_availability_zone: str):
+        """
+        :param str mode: The high availability mode of the MySQL Flexible Server.
+        :param str standby_availability_zone: The availability zone of the standby Flexible Server.
+        """
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The high availability mode of the MySQL Flexible Server.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="standbyAvailabilityZone")
+    def standby_availability_zone(self) -> str:
+        """
+        The availability zone of the standby Flexible Server.
+        """
+        return pulumi.get(self, "standby_availability_zone")
+
+
+@pulumi.output_type
+class GetFlexibleServerMaintenanceWindowResult(dict):
+    def __init__(__self__, *,
+                 day_of_week: int,
+                 start_hour: int,
+                 start_minute: int):
+        """
+        :param int day_of_week: The day of week of the maintenance window.
+        :param int start_hour: The start hour of the maintenance window.
+        :param int start_minute: The start minute of the maintenance window.
+        """
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "start_hour", start_hour)
+        pulumi.set(__self__, "start_minute", start_minute)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> int:
+        """
+        The day of week of the maintenance window.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> int:
+        """
+        The start hour of the maintenance window.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @property
+    @pulumi.getter(name="startMinute")
+    def start_minute(self) -> int:
+        """
+        The start minute of the maintenance window.
+        """
+        return pulumi.get(self, "start_minute")
+
+
+@pulumi.output_type
+class GetFlexibleServerStorageResult(dict):
+    def __init__(__self__, *,
+                 auto_grow_enabled: bool,
+                 iops: int,
+                 size_gb: int):
+        """
+        :param bool auto_grow_enabled: Is Storage Auto Grow enabled?
+        :param int iops: The storage IOPS of the MySQL Flexible Server.
+        :param int size_gb: The max storage allowed for the MySQL Flexible Server.
+        """
+        pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
+        pulumi.set(__self__, "iops", iops)
+        pulumi.set(__self__, "size_gb", size_gb)
+
+    @property
+    @pulumi.getter(name="autoGrowEnabled")
+    def auto_grow_enabled(self) -> bool:
+        """
+        Is Storage Auto Grow enabled?
+        """
+        return pulumi.get(self, "auto_grow_enabled")
+
+    @property
+    @pulumi.getter
+    def iops(self) -> int:
+        """
+        The storage IOPS of the MySQL Flexible Server.
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="sizeGb")
+    def size_gb(self) -> int:
+        """
+        The max storage allowed for the MySQL Flexible Server.
+        """
+        return pulumi.get(self, "size_gb")
 
 
 @pulumi.output_type
