@@ -1,6 +1,8 @@
 ﻿// Copyright 2016-2019, Pulumi Corporation.  All rights reserved.
 
+using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
 using Pulumi;
@@ -52,6 +54,7 @@ class Program
 
             var app = new AppService("app", new AppServiceArgs
             {
+                Name = "pulumi" + getRandomString(10),
                 ResourceGroupName = resourceGroup.Name,
                 AppServicePlanId = appServicePlan.Id,
                 AppSettings =
@@ -66,5 +69,17 @@ class Program
             };
 
         });
+    }
+    
+    private static string getRandomString(int stringLength)
+    {
+        StringBuilder sb = new StringBuilder();
+        int numGuidsToConcat = (((stringLength - 1) / 32) + 1);
+        for(int i = 1; i <= numGuidsToConcat; i++)
+        {
+            sb.Append(Guid.NewGuid().ToString("N"));
+        }
+
+        return sb.ToString(0, stringLength);
     }
 }
