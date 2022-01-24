@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -65,6 +66,7 @@ export class StaticSite extends pulumi.CustomResource {
      * The default host name of the Static Web App.
      */
     public /*out*/ readonly defaultHostName!: pulumi.Output<string>;
+    public readonly identity!: pulumi.Output<outputs.appservice.StaticSiteIdentity | undefined>;
     /**
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
@@ -105,6 +107,7 @@ export class StaticSite extends pulumi.CustomResource {
             const state = argsOrState as StaticSiteState | undefined;
             inputs["apiKey"] = state ? state.apiKey : undefined;
             inputs["defaultHostName"] = state ? state.defaultHostName : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -116,6 +119,7 @@ export class StaticSite extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -144,6 +148,7 @@ export interface StaticSiteState {
      * The default host name of the Static Web App.
      */
     defaultHostName?: pulumi.Input<string>;
+    identity?: pulumi.Input<inputs.appservice.StaticSiteIdentity>;
     /**
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
@@ -174,6 +179,7 @@ export interface StaticSiteState {
  * The set of arguments for constructing a StaticSite resource.
  */
 export interface StaticSiteArgs {
+    identity?: pulumi.Input<inputs.appservice.StaticSiteIdentity>;
     /**
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */

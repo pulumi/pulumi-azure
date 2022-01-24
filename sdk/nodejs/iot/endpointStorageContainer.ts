@@ -83,16 +83,19 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
     }
 
     /**
+     * Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+     */
+    public readonly authenticationType!: pulumi.Output<string | undefined>;
+    /**
      * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      */
     public readonly batchFrequencyInSeconds!: pulumi.Output<number | undefined>;
     /**
-     * The connection string for the endpoint.
+     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      */
-    public readonly connectionString!: pulumi.Output<string>;
+    public readonly connectionString!: pulumi.Output<string | undefined>;
     /**
      * The name of storage container in the storage account.
-     * *
      */
     public readonly containerName!: pulumi.Output<string>;
     /**
@@ -100,9 +103,17 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
      */
     public readonly encoding!: pulumi.Output<string | undefined>;
     /**
+     * URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+     */
+    public readonly endpointUri!: pulumi.Output<string | undefined>;
+    /**
      * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
      */
     public readonly fileNameFormat!: pulumi.Output<string | undefined>;
+    /**
+     * ID of the User Managed Identity used to authenticate against the storage endpoint.
+     */
+    public readonly identityId!: pulumi.Output<string | undefined>;
     /**
      * The IoTHub ID for the endpoint.
      */
@@ -139,11 +150,14 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointStorageContainerState | undefined;
+            inputs["authenticationType"] = state ? state.authenticationType : undefined;
             inputs["batchFrequencyInSeconds"] = state ? state.batchFrequencyInSeconds : undefined;
             inputs["connectionString"] = state ? state.connectionString : undefined;
             inputs["containerName"] = state ? state.containerName : undefined;
             inputs["encoding"] = state ? state.encoding : undefined;
+            inputs["endpointUri"] = state ? state.endpointUri : undefined;
             inputs["fileNameFormat"] = state ? state.fileNameFormat : undefined;
+            inputs["identityId"] = state ? state.identityId : undefined;
             inputs["iothubId"] = state ? state.iothubId : undefined;
             inputs["iothubName"] = state ? state.iothubName : undefined;
             inputs["maxChunkSizeInBytes"] = state ? state.maxChunkSizeInBytes : undefined;
@@ -151,20 +165,20 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as EndpointStorageContainerArgs | undefined;
-            if ((!args || args.connectionString === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'connectionString'");
-            }
             if ((!args || args.containerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["authenticationType"] = args ? args.authenticationType : undefined;
             inputs["batchFrequencyInSeconds"] = args ? args.batchFrequencyInSeconds : undefined;
             inputs["connectionString"] = args ? args.connectionString : undefined;
             inputs["containerName"] = args ? args.containerName : undefined;
             inputs["encoding"] = args ? args.encoding : undefined;
+            inputs["endpointUri"] = args ? args.endpointUri : undefined;
             inputs["fileNameFormat"] = args ? args.fileNameFormat : undefined;
+            inputs["identityId"] = args ? args.identityId : undefined;
             inputs["iothubId"] = args ? args.iothubId : undefined;
             inputs["iothubName"] = args ? args.iothubName : undefined;
             inputs["maxChunkSizeInBytes"] = args ? args.maxChunkSizeInBytes : undefined;
@@ -183,16 +197,19 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
  */
 export interface EndpointStorageContainerState {
     /**
+     * Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+     */
+    authenticationType?: pulumi.Input<string>;
+    /**
      * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      */
     batchFrequencyInSeconds?: pulumi.Input<number>;
     /**
-     * The connection string for the endpoint.
+     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      */
     connectionString?: pulumi.Input<string>;
     /**
      * The name of storage container in the storage account.
-     * *
      */
     containerName?: pulumi.Input<string>;
     /**
@@ -200,9 +217,17 @@ export interface EndpointStorageContainerState {
      */
     encoding?: pulumi.Input<string>;
     /**
+     * URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+     */
+    endpointUri?: pulumi.Input<string>;
+    /**
      * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
      */
     fileNameFormat?: pulumi.Input<string>;
+    /**
+     * ID of the User Managed Identity used to authenticate against the storage endpoint.
+     */
+    identityId?: pulumi.Input<string>;
     /**
      * The IoTHub ID for the endpoint.
      */
@@ -232,16 +257,19 @@ export interface EndpointStorageContainerState {
  */
 export interface EndpointStorageContainerArgs {
     /**
+     * Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+     */
+    authenticationType?: pulumi.Input<string>;
+    /**
      * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      */
     batchFrequencyInSeconds?: pulumi.Input<number>;
     /**
-     * The connection string for the endpoint.
+     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      */
-    connectionString: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string>;
     /**
      * The name of storage container in the storage account.
-     * *
      */
     containerName: pulumi.Input<string>;
     /**
@@ -249,9 +277,17 @@ export interface EndpointStorageContainerArgs {
      */
     encoding?: pulumi.Input<string>;
     /**
+     * URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+     */
+    endpointUri?: pulumi.Input<string>;
+    /**
      * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
      */
     fileNameFormat?: pulumi.Input<string>;
+    /**
+     * ID of the User Managed Identity used to authenticate against the storage endpoint.
+     */
+    identityId?: pulumi.Input<string>;
     /**
      * The IoTHub ID for the endpoint.
      */

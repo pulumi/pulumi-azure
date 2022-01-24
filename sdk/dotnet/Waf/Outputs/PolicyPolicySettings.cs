@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly int? MaxRequestBodySizeInKb;
         /// <summary>
-        /// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
+        /// Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
         /// </summary>
         public readonly string? Mode;
         /// <summary>

@@ -88,9 +88,25 @@ export class EndpointServicebusTopic extends pulumi.CustomResource {
     }
 
     /**
-     * The connection string for the endpoint.
+     * Type used to authenticate against the Service Bus Topic endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
      */
-    public readonly connectionString!: pulumi.Output<string>;
+    public readonly authenticationType!: pulumi.Output<string | undefined>;
+    /**
+     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
+     */
+    public readonly connectionString!: pulumi.Output<string | undefined>;
+    /**
+     * URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+     */
+    public readonly endpointUri!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+     */
+    public readonly entityPath!: pulumi.Output<string | undefined>;
+    /**
+     * ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
+     */
+    public readonly identityId!: pulumi.Output<string | undefined>;
     /**
      * The IoTHub ID for the endpoint.
      */
@@ -123,20 +139,25 @@ export class EndpointServicebusTopic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointServicebusTopicState | undefined;
+            inputs["authenticationType"] = state ? state.authenticationType : undefined;
             inputs["connectionString"] = state ? state.connectionString : undefined;
+            inputs["endpointUri"] = state ? state.endpointUri : undefined;
+            inputs["entityPath"] = state ? state.entityPath : undefined;
+            inputs["identityId"] = state ? state.identityId : undefined;
             inputs["iothubId"] = state ? state.iothubId : undefined;
             inputs["iothubName"] = state ? state.iothubName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as EndpointServicebusTopicArgs | undefined;
-            if ((!args || args.connectionString === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'connectionString'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["authenticationType"] = args ? args.authenticationType : undefined;
             inputs["connectionString"] = args ? args.connectionString : undefined;
+            inputs["endpointUri"] = args ? args.endpointUri : undefined;
+            inputs["entityPath"] = args ? args.entityPath : undefined;
+            inputs["identityId"] = args ? args.identityId : undefined;
             inputs["iothubId"] = args ? args.iothubId : undefined;
             inputs["iothubName"] = args ? args.iothubName : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -154,9 +175,25 @@ export class EndpointServicebusTopic extends pulumi.CustomResource {
  */
 export interface EndpointServicebusTopicState {
     /**
-     * The connection string for the endpoint.
+     * Type used to authenticate against the Service Bus Topic endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+     */
+    authenticationType?: pulumi.Input<string>;
+    /**
+     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      */
     connectionString?: pulumi.Input<string>;
+    /**
+     * URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+     */
+    endpointUri?: pulumi.Input<string>;
+    /**
+     * Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+     */
+    entityPath?: pulumi.Input<string>;
+    /**
+     * ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
+     */
+    identityId?: pulumi.Input<string>;
     /**
      * The IoTHub ID for the endpoint.
      */
@@ -182,9 +219,25 @@ export interface EndpointServicebusTopicState {
  */
 export interface EndpointServicebusTopicArgs {
     /**
-     * The connection string for the endpoint.
+     * Type used to authenticate against the Service Bus Topic endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
      */
-    connectionString: pulumi.Input<string>;
+    authenticationType?: pulumi.Input<string>;
+    /**
+     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
+     */
+    connectionString?: pulumi.Input<string>;
+    /**
+     * URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+     */
+    endpointUri?: pulumi.Input<string>;
+    /**
+     * Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+     */
+    entityPath?: pulumi.Input<string>;
+    /**
+     * ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
+     */
+    identityId?: pulumi.Input<string>;
     /**
      * The IoTHub ID for the endpoint.
      */

@@ -14,13 +14,17 @@ namespace Pulumi.Azure.Iot.Outputs
     public sealed class IoTHubEndpoint
     {
         /// <summary>
+        /// Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        /// </summary>
+        public readonly string? AuthenticationType;
+        /// <summary>
         /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         /// </summary>
         public readonly int? BatchFrequencyInSeconds;
         /// <summary>
-        /// The connection string for the endpoint.
+        /// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
         /// </summary>
-        public readonly string ConnectionString;
+        public readonly string? ConnectionString;
         /// <summary>
         /// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
         /// </summary>
@@ -30,9 +34,21 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string? Encoding;
         /// <summary>
+        /// URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        /// </summary>
+        public readonly string? EndpointUri;
+        /// <summary>
+        /// Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        /// </summary>
+        public readonly string? EntityPath;
+        /// <summary>
         /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         /// </summary>
         public readonly string? FileNameFormat;
+        /// <summary>
+        /// ID of the User Managed Identity used to authenticate against the endpoint.
+        /// </summary>
+        public readonly string? IdentityId;
         /// <summary>
         /// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         /// </summary>
@@ -52,15 +68,23 @@ namespace Pulumi.Azure.Iot.Outputs
 
         [OutputConstructor]
         private IoTHubEndpoint(
+            string? authenticationType,
+
             int? batchFrequencyInSeconds,
 
-            string connectionString,
+            string? connectionString,
 
             string? containerName,
 
             string? encoding,
 
+            string? endpointUri,
+
+            string? entityPath,
+
             string? fileNameFormat,
+
+            string? identityId,
 
             int? maxChunkSizeInBytes,
 
@@ -70,11 +94,15 @@ namespace Pulumi.Azure.Iot.Outputs
 
             string type)
         {
+            AuthenticationType = authenticationType;
             BatchFrequencyInSeconds = batchFrequencyInSeconds;
             ConnectionString = connectionString;
             ContainerName = containerName;
             Encoding = encoding;
+            EndpointUri = endpointUri;
+            EntityPath = entityPath;
             FileNameFormat = fileNameFormat;
+            IdentityId = identityId;
             MaxChunkSizeInBytes = maxChunkSizeInBytes;
             Name = name;
             ResourceGroupName = resourceGroupName;

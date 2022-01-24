@@ -63,6 +63,8 @@ type LookupWorkflowResult struct {
 	ConnectorOutboundIpAddresses []string `pulumi:"connectorOutboundIpAddresses"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// An `identity` block as defined below.
+	Identities []GetWorkflowIdentity `pulumi:"identities"`
 	// The Azure location where the Logic App Workflow exists.
 	Location string `pulumi:"location"`
 	// The ID of the integration account linked by this Logic App Workflow.
@@ -137,6 +139,11 @@ func (o LookupWorkflowResultOutput) ConnectorOutboundIpAddresses() pulumi.String
 // The provider-assigned unique ID for this managed resource.
 func (o LookupWorkflowResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below.
+func (o LookupWorkflowResultOutput) Identities() GetWorkflowIdentityArrayOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) []GetWorkflowIdentity { return v.Identities }).(GetWorkflowIdentityArrayOutput)
 }
 
 // The Azure location where the Logic App Workflow exists.

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -68,6 +69,10 @@ export interface GetWorkflowResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identities: outputs.logicapps.GetWorkflowIdentity[];
     /**
      * The Azure location where the Logic App Workflow exists.
      */

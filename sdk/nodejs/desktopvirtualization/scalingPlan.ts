@@ -95,7 +95,7 @@ import * as utilities from "../utilities";
  *         offPeakStartTime: "22:00",
  *         offPeakLoadBalancingAlgorithm: "DepthFirst",
  *     }],
- *     hostpoolReference: [{
+ *     hostPools: [{
  *         hostpoolId: exampleHostPool.id,
  *         scalingPlanEnabled: true,
  *     }],

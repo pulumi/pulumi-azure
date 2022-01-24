@@ -16,31 +16,55 @@ __all__ = ['BastionHostArgs', 'BastionHost']
 class BastionHostArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
+                 file_copy_enabled: Optional[pulumi.Input[bool]] = None,
                  ip_configuration: Optional[pulumi.Input['BastionHostIpConfigurationArgs']] = None,
+                 ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 scale_units: Optional[pulumi.Input[int]] = None,
+                 shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tunneling_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a BastionHost resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host.
+        :param pulumi.Input[bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
+        :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input['BastionHostIpConfigurationArgs'] ip_configuration: A `ip_configuration` block as defined below.
+        :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if copy_paste_enabled is not None:
+            pulumi.set(__self__, "copy_paste_enabled", copy_paste_enabled)
+        if file_copy_enabled is not None:
+            pulumi.set(__self__, "file_copy_enabled", file_copy_enabled)
         if ip_configuration is not None:
             pulumi.set(__self__, "ip_configuration", ip_configuration)
+        if ip_connect_enabled is not None:
+            pulumi.set(__self__, "ip_connect_enabled", ip_connect_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if scale_units is not None:
+            pulumi.set(__self__, "scale_units", scale_units)
+        if shareable_link_enabled is not None:
+            pulumi.set(__self__, "shareable_link_enabled", shareable_link_enabled)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tunneling_enabled is not None:
+            pulumi.set(__self__, "tunneling_enabled", tunneling_enabled)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -55,6 +79,30 @@ class BastionHostArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="copyPasteEnabled")
+    def copy_paste_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
+        """
+        return pulumi.get(self, "copy_paste_enabled")
+
+    @copy_paste_enabled.setter
+    def copy_paste_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_paste_enabled", value)
+
+    @property
+    @pulumi.getter(name="fileCopyEnabled")
+    def file_copy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+        """
+        return pulumi.get(self, "file_copy_enabled")
+
+    @file_copy_enabled.setter
+    def file_copy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "file_copy_enabled", value)
+
+    @property
     @pulumi.getter(name="ipConfiguration")
     def ip_configuration(self) -> Optional[pulumi.Input['BastionHostIpConfigurationArgs']]:
         """
@@ -65,6 +113,18 @@ class BastionHostArgs:
     @ip_configuration.setter
     def ip_configuration(self, value: Optional[pulumi.Input['BastionHostIpConfigurationArgs']]):
         pulumi.set(self, "ip_configuration", value)
+
+    @property
+    @pulumi.getter(name="ipConnectEnabled")
+    def ip_connect_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+        """
+        return pulumi.get(self, "ip_connect_enabled")
+
+    @ip_connect_enabled.setter
+    def ip_connect_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ip_connect_enabled", value)
 
     @property
     @pulumi.getter
@@ -91,6 +151,30 @@ class BastionHostArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="scaleUnits")
+    def scale_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        """
+        return pulumi.get(self, "scale_units")
+
+    @scale_units.setter
+    def scale_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scale_units", value)
+
+    @property
+    @pulumi.getter(name="shareableLinkEnabled")
+    def shareable_link_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+        """
+        return pulumi.get(self, "shareable_link_enabled")
+
+    @shareable_link_enabled.setter
+    def shareable_link_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "shareable_link_enabled", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
@@ -114,41 +198,89 @@ class BastionHostArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tunnelingEnabled")
+    def tunneling_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+        """
+        return pulumi.get(self, "tunneling_enabled")
+
+    @tunneling_enabled.setter
+    def tunneling_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tunneling_enabled", value)
+
 
 @pulumi.input_type
 class _BastionHostState:
     def __init__(__self__, *,
+                 copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
+                 file_copy_enabled: Optional[pulumi.Input[bool]] = None,
                  ip_configuration: Optional[pulumi.Input['BastionHostIpConfigurationArgs']] = None,
+                 ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scale_units: Optional[pulumi.Input[int]] = None,
+                 shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tunneling_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering BastionHost resources.
+        :param pulumi.Input[bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
         :param pulumi.Input[str] dns_name: The FQDN for the Bastion Host.
+        :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input['BastionHostIpConfigurationArgs'] ip_configuration: A `ip_configuration` block as defined below.
+        :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host.
+        :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
         """
+        if copy_paste_enabled is not None:
+            pulumi.set(__self__, "copy_paste_enabled", copy_paste_enabled)
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
+        if file_copy_enabled is not None:
+            pulumi.set(__self__, "file_copy_enabled", file_copy_enabled)
         if ip_configuration is not None:
             pulumi.set(__self__, "ip_configuration", ip_configuration)
+        if ip_connect_enabled is not None:
+            pulumi.set(__self__, "ip_connect_enabled", ip_connect_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if scale_units is not None:
+            pulumi.set(__self__, "scale_units", scale_units)
+        if shareable_link_enabled is not None:
+            pulumi.set(__self__, "shareable_link_enabled", shareable_link_enabled)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tunneling_enabled is not None:
+            pulumi.set(__self__, "tunneling_enabled", tunneling_enabled)
+
+    @property
+    @pulumi.getter(name="copyPasteEnabled")
+    def copy_paste_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
+        """
+        return pulumi.get(self, "copy_paste_enabled")
+
+    @copy_paste_enabled.setter
+    def copy_paste_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_paste_enabled", value)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -163,6 +295,18 @@ class _BastionHostState:
         pulumi.set(self, "dns_name", value)
 
     @property
+    @pulumi.getter(name="fileCopyEnabled")
+    def file_copy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+        """
+        return pulumi.get(self, "file_copy_enabled")
+
+    @file_copy_enabled.setter
+    def file_copy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "file_copy_enabled", value)
+
+    @property
     @pulumi.getter(name="ipConfiguration")
     def ip_configuration(self) -> Optional[pulumi.Input['BastionHostIpConfigurationArgs']]:
         """
@@ -173,6 +317,18 @@ class _BastionHostState:
     @ip_configuration.setter
     def ip_configuration(self, value: Optional[pulumi.Input['BastionHostIpConfigurationArgs']]):
         pulumi.set(self, "ip_configuration", value)
+
+    @property
+    @pulumi.getter(name="ipConnectEnabled")
+    def ip_connect_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+        """
+        return pulumi.get(self, "ip_connect_enabled")
+
+    @ip_connect_enabled.setter
+    def ip_connect_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ip_connect_enabled", value)
 
     @property
     @pulumi.getter
@@ -211,6 +367,30 @@ class _BastionHostState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="scaleUnits")
+    def scale_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        """
+        return pulumi.get(self, "scale_units")
+
+    @scale_units.setter
+    def scale_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scale_units", value)
+
+    @property
+    @pulumi.getter(name="shareableLinkEnabled")
+    def shareable_link_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+        """
+        return pulumi.get(self, "shareable_link_enabled")
+
+    @shareable_link_enabled.setter
+    def shareable_link_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "shareable_link_enabled", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
@@ -234,18 +414,36 @@ class _BastionHostState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tunnelingEnabled")
+    def tunneling_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+        """
+        return pulumi.get(self, "tunneling_enabled")
+
+    @tunneling_enabled.setter
+    def tunneling_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tunneling_enabled", value)
+
 
 class BastionHost(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
+                 file_copy_enabled: Optional[pulumi.Input[bool]] = None,
                  ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
+                 ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scale_units: Optional[pulumi.Input[int]] = None,
+                 shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tunneling_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a Bastion Host.
@@ -292,12 +490,18 @@ class BastionHost(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
+        :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']] ip_configuration: A `ip_configuration` block as defined below.
+        :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host.
+        :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
         """
         ...
     @overload
@@ -363,12 +567,18 @@ class BastionHost(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
+                 file_copy_enabled: Optional[pulumi.Input[bool]] = None,
                  ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
+                 ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scale_units: Optional[pulumi.Input[int]] = None,
+                 shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tunneling_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -381,14 +591,20 @@ class BastionHost(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BastionHostArgs.__new__(BastionHostArgs)
 
+            __props__.__dict__["copy_paste_enabled"] = copy_paste_enabled
+            __props__.__dict__["file_copy_enabled"] = file_copy_enabled
             __props__.__dict__["ip_configuration"] = ip_configuration
+            __props__.__dict__["ip_connect_enabled"] = ip_connect_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scale_units"] = scale_units
+            __props__.__dict__["shareable_link_enabled"] = shareable_link_enabled
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tunneling_enabled"] = tunneling_enabled
             __props__.__dict__["dns_name"] = None
         super(BastionHost, __self__).__init__(
             'azure:compute/bastionHost:BastionHost',
@@ -400,13 +616,19 @@ class BastionHost(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
+            file_copy_enabled: Optional[pulumi.Input[bool]] = None,
             ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
+            ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            scale_units: Optional[pulumi.Input[int]] = None,
+            shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
             sku: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'BastionHost':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tunneling_enabled: Optional[pulumi.Input[bool]] = None) -> 'BastionHost':
         """
         Get an existing BastionHost resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -414,26 +636,46 @@ class BastionHost(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
         :param pulumi.Input[str] dns_name: The FQDN for the Bastion Host.
+        :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']] ip_configuration: A `ip_configuration` block as defined below.
+        :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host.
+        :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _BastionHostState.__new__(_BastionHostState)
 
+        __props__.__dict__["copy_paste_enabled"] = copy_paste_enabled
         __props__.__dict__["dns_name"] = dns_name
+        __props__.__dict__["file_copy_enabled"] = file_copy_enabled
         __props__.__dict__["ip_configuration"] = ip_configuration
+        __props__.__dict__["ip_connect_enabled"] = ip_connect_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["scale_units"] = scale_units
+        __props__.__dict__["shareable_link_enabled"] = shareable_link_enabled
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tunneling_enabled"] = tunneling_enabled
         return BastionHost(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="copyPasteEnabled")
+    def copy_paste_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
+        """
+        return pulumi.get(self, "copy_paste_enabled")
 
     @property
     @pulumi.getter(name="dnsName")
@@ -444,12 +686,28 @@ class BastionHost(pulumi.CustomResource):
         return pulumi.get(self, "dns_name")
 
     @property
+    @pulumi.getter(name="fileCopyEnabled")
+    def file_copy_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+        """
+        return pulumi.get(self, "file_copy_enabled")
+
+    @property
     @pulumi.getter(name="ipConfiguration")
     def ip_configuration(self) -> pulumi.Output[Optional['outputs.BastionHostIpConfiguration']]:
         """
         A `ip_configuration` block as defined below.
         """
         return pulumi.get(self, "ip_configuration")
+
+    @property
+    @pulumi.getter(name="ipConnectEnabled")
+    def ip_connect_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+        """
+        return pulumi.get(self, "ip_connect_enabled")
 
     @property
     @pulumi.getter
@@ -476,6 +734,22 @@ class BastionHost(pulumi.CustomResource):
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="scaleUnits")
+    def scale_units(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        """
+        return pulumi.get(self, "scale_units")
+
+    @property
+    @pulumi.getter(name="shareableLinkEnabled")
+    def shareable_link_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+        """
+        return pulumi.get(self, "shareable_link_enabled")
+
+    @property
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
@@ -490,4 +764,12 @@ class BastionHost(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tunnelingEnabled")
+    def tunneling_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+        """
+        return pulumi.get(self, "tunneling_enabled")
 

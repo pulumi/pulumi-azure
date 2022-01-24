@@ -143,53 +143,58 @@ class IoTHubCloudToDeviceFeedbackArgs:
 @pulumi.input_type
 class IoTHubEndpointArgs:
     def __init__(__self__, *,
-                 connection_string: pulumi.Input[str],
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 authentication_type: Optional[pulumi.Input[str]] = None,
                  batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
+                 connection_string: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
+                 endpoint_uri: Optional[pulumi.Input[str]] = None,
+                 entity_path: Optional[pulumi.Input[str]] = None,
                  file_name_format: Optional[pulumi.Input[str]] = None,
+                 identity_id: Optional[pulumi.Input[str]] = None,
                  max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] connection_string: The connection string for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         :param pulumi.Input[str] type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        :param pulumi.Input[str] authentication_type: Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         :param pulumi.Input[int] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+        :param pulumi.Input[str] connection_string: The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
         :param pulumi.Input[str] container_name: The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] endpoint_uri: URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        :param pulumi.Input[str] entity_path: Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+        :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the endpoint.
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         :param pulumi.Input[str] resource_group_name: The resource group in which the endpoint will be created.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if batch_frequency_in_seconds is not None:
             pulumi.set(__self__, "batch_frequency_in_seconds", batch_frequency_in_seconds)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
         if encoding is not None:
             pulumi.set(__self__, "encoding", encoding)
+        if endpoint_uri is not None:
+            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        if entity_path is not None:
+            pulumi.set(__self__, "entity_path", entity_path)
         if file_name_format is not None:
             pulumi.set(__self__, "file_name_format", file_name_format)
+        if identity_id is not None:
+            pulumi.set(__self__, "identity_id", identity_id)
         if max_chunk_size_in_bytes is not None:
             pulumi.set(__self__, "max_chunk_size_in_bytes", max_chunk_size_in_bytes)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> pulumi.Input[str]:
-        """
-        The connection string for the endpoint.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @connection_string.setter
-    def connection_string(self, value: pulumi.Input[str]):
-        pulumi.set(self, "connection_string", value)
 
     @property
     @pulumi.getter
@@ -216,6 +221,18 @@ class IoTHubEndpointArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
     @pulumi.getter(name="batchFrequencyInSeconds")
     def batch_frequency_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
@@ -226,6 +243,18 @@ class IoTHubEndpointArgs:
     @batch_frequency_in_seconds.setter
     def batch_frequency_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "batch_frequency_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_string", value)
 
     @property
     @pulumi.getter(name="containerName")
@@ -252,6 +281,30 @@ class IoTHubEndpointArgs:
         pulumi.set(self, "encoding", value)
 
     @property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        """
+        return pulumi.get(self, "endpoint_uri")
+
+    @endpoint_uri.setter
+    def endpoint_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_uri", value)
+
+    @property
+    @pulumi.getter(name="entityPath")
+    def entity_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        """
+        return pulumi.get(self, "entity_path")
+
+    @entity_path.setter
+    def entity_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_path", value)
+
+    @property
     @pulumi.getter(name="fileNameFormat")
     def file_name_format(self) -> Optional[pulumi.Input[str]]:
         """
@@ -262,6 +315,18 @@ class IoTHubEndpointArgs:
     @file_name_format.setter
     def file_name_format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_name_format", value)
+
+    @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the User Managed Identity used to authenticate against the endpoint.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @identity_id.setter
+    def identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_id", value)
 
     @property
     @pulumi.getter(name="maxChunkSizeInBytes")

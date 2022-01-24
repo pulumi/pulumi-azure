@@ -885,7 +885,7 @@ type PolicyPolicySettings struct {
 	FileUploadLimitInMb *int `pulumi:"fileUploadLimitInMb"`
 	// The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `2000`. Defaults to `128`.
 	MaxRequestBodySizeInKb *int `pulumi:"maxRequestBodySizeInKb"`
-	// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
+	// Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
 	Mode *string `pulumi:"mode"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
 	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
@@ -909,7 +909,7 @@ type PolicyPolicySettingsArgs struct {
 	FileUploadLimitInMb pulumi.IntPtrInput `pulumi:"fileUploadLimitInMb"`
 	// The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `2000`. Defaults to `128`.
 	MaxRequestBodySizeInKb pulumi.IntPtrInput `pulumi:"maxRequestBodySizeInKb"`
-	// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
+	// Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
 	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
@@ -1007,7 +1007,7 @@ func (o PolicyPolicySettingsOutput) MaxRequestBodySizeInKb() pulumi.IntPtrOutput
 	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.MaxRequestBodySizeInKb }).(pulumi.IntPtrOutput)
 }
 
-// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
+// Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
 func (o PolicyPolicySettingsOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -1071,7 +1071,7 @@ func (o PolicyPolicySettingsPtrOutput) MaxRequestBodySizeInKb() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
+// Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
 func (o PolicyPolicySettingsPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPolicySettings) *string {
 		if v == nil {

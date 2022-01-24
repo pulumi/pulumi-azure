@@ -3685,6 +3685,19 @@ export namespace appservice {
         username?: pulumi.Input<string>;
     }
 
+    export interface StaticSiteIdentity {
+        /**
+         * A list of Managed Identity ID's which should be assigned to this Static Site resource.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned` and `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
 }
 
 export namespace authorization {
@@ -16495,13 +16508,17 @@ export namespace iot {
 
     export interface IoTHubEndpoint {
         /**
+         * Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+         */
+        authenticationType?: pulumi.Input<string>;
+        /**
          * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
          */
         batchFrequencyInSeconds?: pulumi.Input<number>;
         /**
-         * The connection string for the endpoint.
+         * The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
          */
-        connectionString: pulumi.Input<string>;
+        connectionString?: pulumi.Input<string>;
         /**
          * The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
          */
@@ -16511,9 +16528,21 @@ export namespace iot {
          */
         encoding?: pulumi.Input<string>;
         /**
+         * URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+         */
+        endpointUri?: pulumi.Input<string>;
+        /**
+         * Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+         */
+        entityPath?: pulumi.Input<string>;
+        /**
          * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
          */
         fileNameFormat?: pulumi.Input<string>;
+        /**
+         * ID of the User Managed Identity used to authenticate against the endpoint.
+         */
+        identityId?: pulumi.Input<string>;
         /**
          * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
          */
@@ -20535,7 +20564,7 @@ export namespace mysql {
          */
         dayOfWeek?: pulumi.Input<number>;
         /**
-         * The day of week for maintenance window. Defaults to `0`.
+         * The start hour for maintenance window. Defaults to `0`.
          */
         startHour?: pulumi.Input<number>;
         /**
@@ -24463,7 +24492,7 @@ export namespace securitycenter {
 
     export interface AutomationSource {
         /**
-         * Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `SecureScoreControls`, `SecureScores` or `SubAssessments`. Note. assessments are also referred to as recommendations
+         * Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
          */
         eventSource: pulumi.Input<string>;
         /**
@@ -27059,7 +27088,7 @@ export namespace waf {
          */
         maxRequestBodySizeInKb?: pulumi.Input<number>;
         /**
-         * Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
+         * Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
          */
         mode?: pulumi.Input<string>;
         /**

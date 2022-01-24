@@ -78,20 +78,25 @@ namespace Pulumi.Azure.Iot
     public partial class EndpointStorageContainer : Pulumi.CustomResource
     {
         /// <summary>
+        /// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        /// </summary>
+        [Output("authenticationType")]
+        public Output<string?> AuthenticationType { get; private set; } = null!;
+
+        /// <summary>
         /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         /// </summary>
         [Output("batchFrequencyInSeconds")]
         public Output<int?> BatchFrequencyInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// The connection string for the endpoint.
+        /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         /// </summary>
         [Output("connectionString")]
-        public Output<string> ConnectionString { get; private set; } = null!;
+        public Output<string?> ConnectionString { get; private set; } = null!;
 
         /// <summary>
         /// The name of storage container in the storage account.
-        /// *
         /// </summary>
         [Output("containerName")]
         public Output<string> ContainerName { get; private set; } = null!;
@@ -103,10 +108,22 @@ namespace Pulumi.Azure.Iot
         public Output<string?> Encoding { get; private set; } = null!;
 
         /// <summary>
+        /// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// </summary>
+        [Output("endpointUri")]
+        public Output<string?> EndpointUri { get; private set; } = null!;
+
+        /// <summary>
         /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
         /// </summary>
         [Output("fileNameFormat")]
         public Output<string?> FileNameFormat { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the User Managed Identity used to authenticate against the storage endpoint.
+        /// </summary>
+        [Output("identityId")]
+        public Output<string?> IdentityId { get; private set; } = null!;
 
         /// <summary>
         /// The IoTHub ID for the endpoint.
@@ -185,20 +202,25 @@ namespace Pulumi.Azure.Iot
     public sealed class EndpointStorageContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        /// </summary>
+        [Input("authenticationType")]
+        public Input<string>? AuthenticationType { get; set; }
+
+        /// <summary>
         /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         /// </summary>
         [Input("batchFrequencyInSeconds")]
         public Input<int>? BatchFrequencyInSeconds { get; set; }
 
         /// <summary>
-        /// The connection string for the endpoint.
+        /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
+        [Input("connectionString")]
+        public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
         /// The name of storage container in the storage account.
-        /// *
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
@@ -210,10 +232,22 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Encoding { get; set; }
 
         /// <summary>
+        /// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// </summary>
+        [Input("endpointUri")]
+        public Input<string>? EndpointUri { get; set; }
+
+        /// <summary>
         /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
         /// </summary>
         [Input("fileNameFormat")]
         public Input<string>? FileNameFormat { get; set; }
+
+        /// <summary>
+        /// ID of the User Managed Identity used to authenticate against the storage endpoint.
+        /// </summary>
+        [Input("identityId")]
+        public Input<string>? IdentityId { get; set; }
 
         /// <summary>
         /// The IoTHub ID for the endpoint.
@@ -253,20 +287,25 @@ namespace Pulumi.Azure.Iot
     public sealed class EndpointStorageContainerState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        /// </summary>
+        [Input("authenticationType")]
+        public Input<string>? AuthenticationType { get; set; }
+
+        /// <summary>
         /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         /// </summary>
         [Input("batchFrequencyInSeconds")]
         public Input<int>? BatchFrequencyInSeconds { get; set; }
 
         /// <summary>
-        /// The connection string for the endpoint.
+        /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
         /// The name of storage container in the storage account.
-        /// *
         /// </summary>
         [Input("containerName")]
         public Input<string>? ContainerName { get; set; }
@@ -278,10 +317,22 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Encoding { get; set; }
 
         /// <summary>
+        /// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// </summary>
+        [Input("endpointUri")]
+        public Input<string>? EndpointUri { get; set; }
+
+        /// <summary>
         /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
         /// </summary>
         [Input("fileNameFormat")]
         public Input<string>? FileNameFormat { get; set; }
+
+        /// <summary>
+        /// ID of the User Managed Identity used to authenticate against the storage endpoint.
+        /// </summary>
+        [Input("identityId")]
+        public Input<string>? IdentityId { get; set; }
 
         /// <summary>
         /// The IoTHub ID for the endpoint.

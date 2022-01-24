@@ -64,6 +64,7 @@ namespace Pulumi.Azure.ServiceBus
     ///         {
     ///             NamespaceId = exampleNamespace.Id,
     ///             DefaultAction = "Deny",
+    ///             PublicNetworkAccessEnabled = true,
     ///             NetworkRules = 
     ///             {
     ///                 new Azure.ServiceBus.Inputs.NamespaceNetworkRuleSetNetworkRuleArgs
@@ -119,6 +120,12 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Output("networkRules")]
         public Output<ImmutableArray<Outputs.NamespaceNetworkRuleSetNetworkRule>> NetworkRules { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -214,6 +221,12 @@ namespace Pulumi.Azure.ServiceBus
             set => _networkRules = value;
         }
 
+        /// <summary>
+        /// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
@@ -268,6 +281,12 @@ namespace Pulumi.Azure.ServiceBus
             get => _networkRules ?? (_networkRules = new InputList<Inputs.NamespaceNetworkRuleSetNetworkRuleGetArgs>());
             set => _networkRules = value;
         }
+
+        /// <summary>
+        /// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

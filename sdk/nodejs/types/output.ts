@@ -4601,6 +4601,20 @@ export namespace appservice {
          */
         username: string;
     }
+
+    export interface StaticSiteIdentity {
+        /**
+         * A list of Managed Identity ID's which should be assigned to this Static Site resource.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned` and `UserAssigned`.
+         */
+        type: string;
+    }
+
 }
 
 export namespace authorization {
@@ -19246,13 +19260,17 @@ export namespace iot {
 
     export interface IoTHubEndpoint {
         /**
+         * Type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+         */
+        authenticationType?: string;
+        /**
          * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
          */
         batchFrequencyInSeconds?: number;
         /**
-         * The connection string for the endpoint.
+         * The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
          */
-        connectionString: string;
+        connectionString?: string;
         /**
          * The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
          */
@@ -19262,9 +19280,21 @@ export namespace iot {
          */
         encoding?: string;
         /**
+         * URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+         */
+        endpointUri?: string;
+        /**
+         * Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+         */
+        entityPath?: string;
+        /**
          * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
          */
         fileNameFormat?: string;
+        /**
+         * ID of the User Managed Identity used to authenticate against the endpoint.
+         */
+        identityId?: string;
         /**
          * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
          */
@@ -20532,6 +20562,22 @@ export namespace logicapps {
          * Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
          */
         actionResult: string;
+    }
+
+    export interface GetWorkflowIdentity {
+        identityIds: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+         */
+        tenantId: string;
+        /**
+         * The Type of Managed Identity assigned to this Logic App Workflow.
+         */
+        type: string;
     }
 
     export interface IntegrationAccountAgreementGuestIdentity {
@@ -23867,7 +23913,7 @@ export namespace mysql {
          */
         dayOfWeek?: number;
         /**
-         * The day of week for maintenance window. Defaults to `0`.
+         * The start hour for maintenance window. Defaults to `0`.
          */
         startHour?: number;
         /**
@@ -23887,6 +23933,47 @@ export namespace mysql {
         iops: number;
         /**
          * The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
+         */
+        sizeGb: number;
+    }
+
+    export interface GetFlexibleServerHighAvailability {
+        /**
+         * The high availability mode of the MySQL Flexible Server.
+         */
+        mode: string;
+        /**
+         * The availability zone of the standby Flexible Server.
+         */
+        standbyAvailabilityZone: string;
+    }
+
+    export interface GetFlexibleServerMaintenanceWindow {
+        /**
+         * The day of week of the maintenance window.
+         */
+        dayOfWeek: number;
+        /**
+         * The start hour of the maintenance window.
+         */
+        startHour: number;
+        /**
+         * The start minute of the maintenance window.
+         */
+        startMinute: number;
+    }
+
+    export interface GetFlexibleServerStorage {
+        /**
+         * Is Storage Auto Grow enabled?
+         */
+        autoGrowEnabled: boolean;
+        /**
+         * The storage IOPS of the MySQL Flexible Server.
+         */
+        iops: number;
+        /**
+         * The max storage allowed for the MySQL Flexible Server.
          */
         sizeGb: number;
     }
@@ -28827,7 +28914,7 @@ export namespace securitycenter {
 
     export interface AutomationSource {
         /**
-         * Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `SecureScoreControls`, `SecureScores` or `SubAssessments`. Note. assessments are also referred to as recommendations
+         * Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
          */
         eventSource: string;
         /**
@@ -31526,7 +31613,7 @@ export namespace waf {
          */
         maxRequestBodySizeInKb?: number;
         /**
-         * Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
+         * Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
          */
         mode?: string;
         /**

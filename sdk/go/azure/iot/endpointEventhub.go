@@ -100,8 +100,16 @@ import (
 type EndpointEventhub struct {
 	pulumi.CustomResourceState
 
-	// The connection string for the endpoint.
-	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+	// Type used to authenticate against the Event Hub endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType pulumi.StringPtrOutput `pulumi:"authenticationType"`
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
+	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
+	// URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri pulumi.StringPtrOutput `pulumi:"endpointUri"`
+	// Name of the Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EntityPath pulumi.StringPtrOutput `pulumi:"entityPath"`
+	// ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
 	// The IoTHub name for the endpoint.
@@ -121,9 +129,6 @@ func NewEndpointEventhub(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionString == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionString'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -149,8 +154,16 @@ func GetEndpointEventhub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointEventhub resources.
 type endpointEventhubState struct {
-	// The connection string for the endpoint.
+	// Type used to authenticate against the Event Hub endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType *string `pulumi:"authenticationType"`
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
 	ConnectionString *string `pulumi:"connectionString"`
+	// URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri *string `pulumi:"endpointUri"`
+	// Name of the Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EntityPath *string `pulumi:"entityPath"`
+	// ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId *string `pulumi:"iothubId"`
 	// The IoTHub name for the endpoint.
@@ -164,8 +177,16 @@ type endpointEventhubState struct {
 }
 
 type EndpointEventhubState struct {
-	// The connection string for the endpoint.
+	// Type used to authenticate against the Event Hub endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType pulumi.StringPtrInput
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
 	ConnectionString pulumi.StringPtrInput
+	// URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri pulumi.StringPtrInput
+	// Name of the Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EntityPath pulumi.StringPtrInput
+	// ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringPtrInput
 	// The IoTHub name for the endpoint.
@@ -183,8 +204,16 @@ func (EndpointEventhubState) ElementType() reflect.Type {
 }
 
 type endpointEventhubArgs struct {
-	// The connection string for the endpoint.
-	ConnectionString string `pulumi:"connectionString"`
+	// Type used to authenticate against the Event Hub endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType *string `pulumi:"authenticationType"`
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
+	ConnectionString *string `pulumi:"connectionString"`
+	// URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri *string `pulumi:"endpointUri"`
+	// Name of the Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EntityPath *string `pulumi:"entityPath"`
+	// ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId *string `pulumi:"iothubId"`
 	// The IoTHub name for the endpoint.
@@ -199,8 +228,16 @@ type endpointEventhubArgs struct {
 
 // The set of arguments for constructing a EndpointEventhub resource.
 type EndpointEventhubArgs struct {
-	// The connection string for the endpoint.
-	ConnectionString pulumi.StringInput
+	// Type used to authenticate against the Event Hub endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType pulumi.StringPtrInput
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
+	ConnectionString pulumi.StringPtrInput
+	// URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri pulumi.StringPtrInput
+	// Name of the Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EntityPath pulumi.StringPtrInput
+	// ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
+	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringPtrInput
 	// The IoTHub name for the endpoint.

@@ -99,8 +99,16 @@ import (
 type EndpointServicebusQueue struct {
 	pulumi.CustomResourceState
 
-	// The connection string for the endpoint.
-	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+	// Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType pulumi.StringPtrOutput `pulumi:"authenticationType"`
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
+	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
+	// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri pulumi.StringPtrOutput `pulumi:"endpointUri"`
+	// Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EntityPath pulumi.StringPtrOutput `pulumi:"entityPath"`
+	// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
 	// The IoTHub name for the endpoint.
@@ -120,9 +128,6 @@ func NewEndpointServicebusQueue(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionString == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionString'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -148,8 +153,16 @@ func GetEndpointServicebusQueue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointServicebusQueue resources.
 type endpointServicebusQueueState struct {
-	// The connection string for the endpoint.
+	// Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType *string `pulumi:"authenticationType"`
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
 	ConnectionString *string `pulumi:"connectionString"`
+	// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri *string `pulumi:"endpointUri"`
+	// Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EntityPath *string `pulumi:"entityPath"`
+	// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId *string `pulumi:"iothubId"`
 	// The IoTHub name for the endpoint.
@@ -163,8 +176,16 @@ type endpointServicebusQueueState struct {
 }
 
 type EndpointServicebusQueueState struct {
-	// The connection string for the endpoint.
+	// Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType pulumi.StringPtrInput
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
 	ConnectionString pulumi.StringPtrInput
+	// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri pulumi.StringPtrInput
+	// Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EntityPath pulumi.StringPtrInput
+	// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringPtrInput
 	// The IoTHub name for the endpoint.
@@ -182,8 +203,16 @@ func (EndpointServicebusQueueState) ElementType() reflect.Type {
 }
 
 type endpointServicebusQueueArgs struct {
-	// The connection string for the endpoint.
-	ConnectionString string `pulumi:"connectionString"`
+	// Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType *string `pulumi:"authenticationType"`
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
+	ConnectionString *string `pulumi:"connectionString"`
+	// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri *string `pulumi:"endpointUri"`
+	// Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EntityPath *string `pulumi:"entityPath"`
+	// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint.
 	IothubId *string `pulumi:"iothubId"`
 	// The IoTHub name for the endpoint.
@@ -198,8 +227,16 @@ type endpointServicebusQueueArgs struct {
 
 // The set of arguments for constructing a EndpointServicebusQueue resource.
 type EndpointServicebusQueueArgs struct {
-	// The connection string for the endpoint.
-	ConnectionString pulumi.StringInput
+	// Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+	AuthenticationType pulumi.StringPtrInput
+	// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
+	ConnectionString pulumi.StringPtrInput
+	// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EndpointUri pulumi.StringPtrInput
+	// Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	EntityPath pulumi.StringPtrInput
+	// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
+	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint.
 	IothubId pulumi.StringPtrInput
 	// The IoTHub name for the endpoint.

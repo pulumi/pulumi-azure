@@ -166,6 +166,7 @@ class _ShareFileState:
     def __init__(__self__, *,
                  content_disposition: Optional[pulumi.Input[str]] = None,
                  content_encoding: Optional[pulumi.Input[str]] = None,
+                 content_length: Optional[pulumi.Input[int]] = None,
                  content_md5: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -177,6 +178,7 @@ class _ShareFileState:
         Input properties used for looking up and filtering ShareFile resources.
         :param pulumi.Input[str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[str] content_encoding: Specifies which content encodings have been applied to the file.
+        :param pulumi.Input[int] content_length: The length in bytes of the file content
         :param pulumi.Input[str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
@@ -189,6 +191,8 @@ class _ShareFileState:
             pulumi.set(__self__, "content_disposition", content_disposition)
         if content_encoding is not None:
             pulumi.set(__self__, "content_encoding", content_encoding)
+        if content_length is not None:
+            pulumi.set(__self__, "content_length", content_length)
         if content_md5 is not None:
             pulumi.set(__self__, "content_md5", content_md5)
         if content_type is not None:
@@ -227,6 +231,18 @@ class _ShareFileState:
     @content_encoding.setter
     def content_encoding(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_encoding", value)
+
+    @property
+    @pulumi.getter(name="contentLength")
+    def content_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The length in bytes of the file content
+        """
+        return pulumi.get(self, "content_length")
+
+    @content_length.setter
+    def content_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "content_length", value)
 
     @property
     @pulumi.getter(name="contentMd5")
@@ -455,6 +471,7 @@ class ShareFile(pulumi.CustomResource):
             if storage_share_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_share_id'")
             __props__.__dict__["storage_share_id"] = storage_share_id
+            __props__.__dict__["content_length"] = None
         super(ShareFile, __self__).__init__(
             'azure:storage/shareFile:ShareFile',
             resource_name,
@@ -467,6 +484,7 @@ class ShareFile(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             content_disposition: Optional[pulumi.Input[str]] = None,
             content_encoding: Optional[pulumi.Input[str]] = None,
+            content_length: Optional[pulumi.Input[int]] = None,
             content_md5: Optional[pulumi.Input[str]] = None,
             content_type: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -483,6 +501,7 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[str] content_encoding: Specifies which content encodings have been applied to the file.
+        :param pulumi.Input[int] content_length: The length in bytes of the file content
         :param pulumi.Input[str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
@@ -497,6 +516,7 @@ class ShareFile(pulumi.CustomResource):
 
         __props__.__dict__["content_disposition"] = content_disposition
         __props__.__dict__["content_encoding"] = content_encoding
+        __props__.__dict__["content_length"] = content_length
         __props__.__dict__["content_md5"] = content_md5
         __props__.__dict__["content_type"] = content_type
         __props__.__dict__["metadata"] = metadata
@@ -521,6 +541,14 @@ class ShareFile(pulumi.CustomResource):
         Specifies which content encodings have been applied to the file.
         """
         return pulumi.get(self, "content_encoding")
+
+    @property
+    @pulumi.getter(name="contentLength")
+    def content_length(self) -> pulumi.Output[int]:
+        """
+        The length in bytes of the file content
+        """
+        return pulumi.get(self, "content_length")
 
     @property
     @pulumi.getter(name="contentMd5")

@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<int>? MaxRequestBodySizeInKb { get; set; }
 
         /// <summary>
-        /// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
+        /// Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

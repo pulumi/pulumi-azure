@@ -169,7 +169,7 @@ func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulum
 type FlexibleServerMaintenanceWindow struct {
 	// The day of week for maintenance window. Defaults to `0`.
 	DayOfWeek *int `pulumi:"dayOfWeek"`
-	// The day of week for maintenance window. Defaults to `0`.
+	// The start hour for maintenance window. Defaults to `0`.
 	StartHour *int `pulumi:"startHour"`
 	// The start minute for maintenance window. Defaults to `0`.
 	StartMinute *int `pulumi:"startMinute"`
@@ -189,7 +189,7 @@ type FlexibleServerMaintenanceWindowInput interface {
 type FlexibleServerMaintenanceWindowArgs struct {
 	// The day of week for maintenance window. Defaults to `0`.
 	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
-	// The day of week for maintenance window. Defaults to `0`.
+	// The start hour for maintenance window. Defaults to `0`.
 	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
 	// The start minute for maintenance window. Defaults to `0`.
 	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
@@ -277,7 +277,7 @@ func (o FlexibleServerMaintenanceWindowOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
 }
 
-// The day of week for maintenance window. Defaults to `0`.
+// The start hour for maintenance window. Defaults to `0`.
 func (o FlexibleServerMaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.StartHour }).(pulumi.IntPtrOutput)
 }
@@ -321,7 +321,7 @@ func (o FlexibleServerMaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The day of week for maintenance window. Defaults to `0`.
+// The start hour for maintenance window. Defaults to `0`.
 func (o FlexibleServerMaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) *int {
 		if v == nil {
@@ -1152,6 +1152,342 @@ func (o ServerThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetFlexibleServerHighAvailability struct {
+	// The high availability mode of the MySQL Flexible Server.
+	Mode string `pulumi:"mode"`
+	// The availability zone of the standby Flexible Server.
+	StandbyAvailabilityZone string `pulumi:"standbyAvailabilityZone"`
+}
+
+// GetFlexibleServerHighAvailabilityInput is an input type that accepts GetFlexibleServerHighAvailabilityArgs and GetFlexibleServerHighAvailabilityOutput values.
+// You can construct a concrete instance of `GetFlexibleServerHighAvailabilityInput` via:
+//
+//          GetFlexibleServerHighAvailabilityArgs{...}
+type GetFlexibleServerHighAvailabilityInput interface {
+	pulumi.Input
+
+	ToGetFlexibleServerHighAvailabilityOutput() GetFlexibleServerHighAvailabilityOutput
+	ToGetFlexibleServerHighAvailabilityOutputWithContext(context.Context) GetFlexibleServerHighAvailabilityOutput
+}
+
+type GetFlexibleServerHighAvailabilityArgs struct {
+	// The high availability mode of the MySQL Flexible Server.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// The availability zone of the standby Flexible Server.
+	StandbyAvailabilityZone pulumi.StringInput `pulumi:"standbyAvailabilityZone"`
+}
+
+func (GetFlexibleServerHighAvailabilityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (i GetFlexibleServerHighAvailabilityArgs) ToGetFlexibleServerHighAvailabilityOutput() GetFlexibleServerHighAvailabilityOutput {
+	return i.ToGetFlexibleServerHighAvailabilityOutputWithContext(context.Background())
+}
+
+func (i GetFlexibleServerHighAvailabilityArgs) ToGetFlexibleServerHighAvailabilityOutputWithContext(ctx context.Context) GetFlexibleServerHighAvailabilityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerHighAvailabilityOutput)
+}
+
+// GetFlexibleServerHighAvailabilityArrayInput is an input type that accepts GetFlexibleServerHighAvailabilityArray and GetFlexibleServerHighAvailabilityArrayOutput values.
+// You can construct a concrete instance of `GetFlexibleServerHighAvailabilityArrayInput` via:
+//
+//          GetFlexibleServerHighAvailabilityArray{ GetFlexibleServerHighAvailabilityArgs{...} }
+type GetFlexibleServerHighAvailabilityArrayInput interface {
+	pulumi.Input
+
+	ToGetFlexibleServerHighAvailabilityArrayOutput() GetFlexibleServerHighAvailabilityArrayOutput
+	ToGetFlexibleServerHighAvailabilityArrayOutputWithContext(context.Context) GetFlexibleServerHighAvailabilityArrayOutput
+}
+
+type GetFlexibleServerHighAvailabilityArray []GetFlexibleServerHighAvailabilityInput
+
+func (GetFlexibleServerHighAvailabilityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (i GetFlexibleServerHighAvailabilityArray) ToGetFlexibleServerHighAvailabilityArrayOutput() GetFlexibleServerHighAvailabilityArrayOutput {
+	return i.ToGetFlexibleServerHighAvailabilityArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlexibleServerHighAvailabilityArray) ToGetFlexibleServerHighAvailabilityArrayOutputWithContext(ctx context.Context) GetFlexibleServerHighAvailabilityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerHighAvailabilityArrayOutput)
+}
+
+type GetFlexibleServerHighAvailabilityOutput struct{ *pulumi.OutputState }
+
+func (GetFlexibleServerHighAvailabilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (o GetFlexibleServerHighAvailabilityOutput) ToGetFlexibleServerHighAvailabilityOutput() GetFlexibleServerHighAvailabilityOutput {
+	return o
+}
+
+func (o GetFlexibleServerHighAvailabilityOutput) ToGetFlexibleServerHighAvailabilityOutputWithContext(ctx context.Context) GetFlexibleServerHighAvailabilityOutput {
+	return o
+}
+
+// The high availability mode of the MySQL Flexible Server.
+func (o GetFlexibleServerHighAvailabilityOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlexibleServerHighAvailability) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The availability zone of the standby Flexible Server.
+func (o GetFlexibleServerHighAvailabilityOutput) StandbyAvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFlexibleServerHighAvailability) string { return v.StandbyAvailabilityZone }).(pulumi.StringOutput)
+}
+
+type GetFlexibleServerHighAvailabilityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlexibleServerHighAvailabilityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlexibleServerHighAvailability)(nil)).Elem()
+}
+
+func (o GetFlexibleServerHighAvailabilityArrayOutput) ToGetFlexibleServerHighAvailabilityArrayOutput() GetFlexibleServerHighAvailabilityArrayOutput {
+	return o
+}
+
+func (o GetFlexibleServerHighAvailabilityArrayOutput) ToGetFlexibleServerHighAvailabilityArrayOutputWithContext(ctx context.Context) GetFlexibleServerHighAvailabilityArrayOutput {
+	return o
+}
+
+func (o GetFlexibleServerHighAvailabilityArrayOutput) Index(i pulumi.IntInput) GetFlexibleServerHighAvailabilityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlexibleServerHighAvailability {
+		return vs[0].([]GetFlexibleServerHighAvailability)[vs[1].(int)]
+	}).(GetFlexibleServerHighAvailabilityOutput)
+}
+
+type GetFlexibleServerMaintenanceWindow struct {
+	// The day of week of the maintenance window.
+	DayOfWeek int `pulumi:"dayOfWeek"`
+	// The start hour of the maintenance window.
+	StartHour int `pulumi:"startHour"`
+	// The start minute of the maintenance window.
+	StartMinute int `pulumi:"startMinute"`
+}
+
+// GetFlexibleServerMaintenanceWindowInput is an input type that accepts GetFlexibleServerMaintenanceWindowArgs and GetFlexibleServerMaintenanceWindowOutput values.
+// You can construct a concrete instance of `GetFlexibleServerMaintenanceWindowInput` via:
+//
+//          GetFlexibleServerMaintenanceWindowArgs{...}
+type GetFlexibleServerMaintenanceWindowInput interface {
+	pulumi.Input
+
+	ToGetFlexibleServerMaintenanceWindowOutput() GetFlexibleServerMaintenanceWindowOutput
+	ToGetFlexibleServerMaintenanceWindowOutputWithContext(context.Context) GetFlexibleServerMaintenanceWindowOutput
+}
+
+type GetFlexibleServerMaintenanceWindowArgs struct {
+	// The day of week of the maintenance window.
+	DayOfWeek pulumi.IntInput `pulumi:"dayOfWeek"`
+	// The start hour of the maintenance window.
+	StartHour pulumi.IntInput `pulumi:"startHour"`
+	// The start minute of the maintenance window.
+	StartMinute pulumi.IntInput `pulumi:"startMinute"`
+}
+
+func (GetFlexibleServerMaintenanceWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlexibleServerMaintenanceWindow)(nil)).Elem()
+}
+
+func (i GetFlexibleServerMaintenanceWindowArgs) ToGetFlexibleServerMaintenanceWindowOutput() GetFlexibleServerMaintenanceWindowOutput {
+	return i.ToGetFlexibleServerMaintenanceWindowOutputWithContext(context.Background())
+}
+
+func (i GetFlexibleServerMaintenanceWindowArgs) ToGetFlexibleServerMaintenanceWindowOutputWithContext(ctx context.Context) GetFlexibleServerMaintenanceWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerMaintenanceWindowOutput)
+}
+
+// GetFlexibleServerMaintenanceWindowArrayInput is an input type that accepts GetFlexibleServerMaintenanceWindowArray and GetFlexibleServerMaintenanceWindowArrayOutput values.
+// You can construct a concrete instance of `GetFlexibleServerMaintenanceWindowArrayInput` via:
+//
+//          GetFlexibleServerMaintenanceWindowArray{ GetFlexibleServerMaintenanceWindowArgs{...} }
+type GetFlexibleServerMaintenanceWindowArrayInput interface {
+	pulumi.Input
+
+	ToGetFlexibleServerMaintenanceWindowArrayOutput() GetFlexibleServerMaintenanceWindowArrayOutput
+	ToGetFlexibleServerMaintenanceWindowArrayOutputWithContext(context.Context) GetFlexibleServerMaintenanceWindowArrayOutput
+}
+
+type GetFlexibleServerMaintenanceWindowArray []GetFlexibleServerMaintenanceWindowInput
+
+func (GetFlexibleServerMaintenanceWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlexibleServerMaintenanceWindow)(nil)).Elem()
+}
+
+func (i GetFlexibleServerMaintenanceWindowArray) ToGetFlexibleServerMaintenanceWindowArrayOutput() GetFlexibleServerMaintenanceWindowArrayOutput {
+	return i.ToGetFlexibleServerMaintenanceWindowArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlexibleServerMaintenanceWindowArray) ToGetFlexibleServerMaintenanceWindowArrayOutputWithContext(ctx context.Context) GetFlexibleServerMaintenanceWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerMaintenanceWindowArrayOutput)
+}
+
+type GetFlexibleServerMaintenanceWindowOutput struct{ *pulumi.OutputState }
+
+func (GetFlexibleServerMaintenanceWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlexibleServerMaintenanceWindow)(nil)).Elem()
+}
+
+func (o GetFlexibleServerMaintenanceWindowOutput) ToGetFlexibleServerMaintenanceWindowOutput() GetFlexibleServerMaintenanceWindowOutput {
+	return o
+}
+
+func (o GetFlexibleServerMaintenanceWindowOutput) ToGetFlexibleServerMaintenanceWindowOutputWithContext(ctx context.Context) GetFlexibleServerMaintenanceWindowOutput {
+	return o
+}
+
+// The day of week of the maintenance window.
+func (o GetFlexibleServerMaintenanceWindowOutput) DayOfWeek() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFlexibleServerMaintenanceWindow) int { return v.DayOfWeek }).(pulumi.IntOutput)
+}
+
+// The start hour of the maintenance window.
+func (o GetFlexibleServerMaintenanceWindowOutput) StartHour() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFlexibleServerMaintenanceWindow) int { return v.StartHour }).(pulumi.IntOutput)
+}
+
+// The start minute of the maintenance window.
+func (o GetFlexibleServerMaintenanceWindowOutput) StartMinute() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFlexibleServerMaintenanceWindow) int { return v.StartMinute }).(pulumi.IntOutput)
+}
+
+type GetFlexibleServerMaintenanceWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlexibleServerMaintenanceWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlexibleServerMaintenanceWindow)(nil)).Elem()
+}
+
+func (o GetFlexibleServerMaintenanceWindowArrayOutput) ToGetFlexibleServerMaintenanceWindowArrayOutput() GetFlexibleServerMaintenanceWindowArrayOutput {
+	return o
+}
+
+func (o GetFlexibleServerMaintenanceWindowArrayOutput) ToGetFlexibleServerMaintenanceWindowArrayOutputWithContext(ctx context.Context) GetFlexibleServerMaintenanceWindowArrayOutput {
+	return o
+}
+
+func (o GetFlexibleServerMaintenanceWindowArrayOutput) Index(i pulumi.IntInput) GetFlexibleServerMaintenanceWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlexibleServerMaintenanceWindow {
+		return vs[0].([]GetFlexibleServerMaintenanceWindow)[vs[1].(int)]
+	}).(GetFlexibleServerMaintenanceWindowOutput)
+}
+
+type GetFlexibleServerStorage struct {
+	// Is Storage Auto Grow enabled?
+	AutoGrowEnabled bool `pulumi:"autoGrowEnabled"`
+	// The storage IOPS of the MySQL Flexible Server.
+	Iops int `pulumi:"iops"`
+	// The max storage allowed for the MySQL Flexible Server.
+	SizeGb int `pulumi:"sizeGb"`
+}
+
+// GetFlexibleServerStorageInput is an input type that accepts GetFlexibleServerStorageArgs and GetFlexibleServerStorageOutput values.
+// You can construct a concrete instance of `GetFlexibleServerStorageInput` via:
+//
+//          GetFlexibleServerStorageArgs{...}
+type GetFlexibleServerStorageInput interface {
+	pulumi.Input
+
+	ToGetFlexibleServerStorageOutput() GetFlexibleServerStorageOutput
+	ToGetFlexibleServerStorageOutputWithContext(context.Context) GetFlexibleServerStorageOutput
+}
+
+type GetFlexibleServerStorageArgs struct {
+	// Is Storage Auto Grow enabled?
+	AutoGrowEnabled pulumi.BoolInput `pulumi:"autoGrowEnabled"`
+	// The storage IOPS of the MySQL Flexible Server.
+	Iops pulumi.IntInput `pulumi:"iops"`
+	// The max storage allowed for the MySQL Flexible Server.
+	SizeGb pulumi.IntInput `pulumi:"sizeGb"`
+}
+
+func (GetFlexibleServerStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlexibleServerStorage)(nil)).Elem()
+}
+
+func (i GetFlexibleServerStorageArgs) ToGetFlexibleServerStorageOutput() GetFlexibleServerStorageOutput {
+	return i.ToGetFlexibleServerStorageOutputWithContext(context.Background())
+}
+
+func (i GetFlexibleServerStorageArgs) ToGetFlexibleServerStorageOutputWithContext(ctx context.Context) GetFlexibleServerStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerStorageOutput)
+}
+
+// GetFlexibleServerStorageArrayInput is an input type that accepts GetFlexibleServerStorageArray and GetFlexibleServerStorageArrayOutput values.
+// You can construct a concrete instance of `GetFlexibleServerStorageArrayInput` via:
+//
+//          GetFlexibleServerStorageArray{ GetFlexibleServerStorageArgs{...} }
+type GetFlexibleServerStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetFlexibleServerStorageArrayOutput() GetFlexibleServerStorageArrayOutput
+	ToGetFlexibleServerStorageArrayOutputWithContext(context.Context) GetFlexibleServerStorageArrayOutput
+}
+
+type GetFlexibleServerStorageArray []GetFlexibleServerStorageInput
+
+func (GetFlexibleServerStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlexibleServerStorage)(nil)).Elem()
+}
+
+func (i GetFlexibleServerStorageArray) ToGetFlexibleServerStorageArrayOutput() GetFlexibleServerStorageArrayOutput {
+	return i.ToGetFlexibleServerStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetFlexibleServerStorageArray) ToGetFlexibleServerStorageArrayOutputWithContext(ctx context.Context) GetFlexibleServerStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFlexibleServerStorageArrayOutput)
+}
+
+type GetFlexibleServerStorageOutput struct{ *pulumi.OutputState }
+
+func (GetFlexibleServerStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFlexibleServerStorage)(nil)).Elem()
+}
+
+func (o GetFlexibleServerStorageOutput) ToGetFlexibleServerStorageOutput() GetFlexibleServerStorageOutput {
+	return o
+}
+
+func (o GetFlexibleServerStorageOutput) ToGetFlexibleServerStorageOutputWithContext(ctx context.Context) GetFlexibleServerStorageOutput {
+	return o
+}
+
+// Is Storage Auto Grow enabled?
+func (o GetFlexibleServerStorageOutput) AutoGrowEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFlexibleServerStorage) bool { return v.AutoGrowEnabled }).(pulumi.BoolOutput)
+}
+
+// The storage IOPS of the MySQL Flexible Server.
+func (o GetFlexibleServerStorageOutput) Iops() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFlexibleServerStorage) int { return v.Iops }).(pulumi.IntOutput)
+}
+
+// The max storage allowed for the MySQL Flexible Server.
+func (o GetFlexibleServerStorageOutput) SizeGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFlexibleServerStorage) int { return v.SizeGb }).(pulumi.IntOutput)
+}
+
+type GetFlexibleServerStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFlexibleServerStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFlexibleServerStorage)(nil)).Elem()
+}
+
+func (o GetFlexibleServerStorageArrayOutput) ToGetFlexibleServerStorageArrayOutput() GetFlexibleServerStorageArrayOutput {
+	return o
+}
+
+func (o GetFlexibleServerStorageArrayOutput) ToGetFlexibleServerStorageArrayOutputWithContext(ctx context.Context) GetFlexibleServerStorageArrayOutput {
+	return o
+}
+
+func (o GetFlexibleServerStorageArrayOutput) Index(i pulumi.IntInput) GetFlexibleServerStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFlexibleServerStorage {
+		return vs[0].([]GetFlexibleServerStorage)[vs[1].(int)]
+	}).(GetFlexibleServerStorageOutput)
+}
+
 type GetServerIdentity struct {
 	// The Client ID of the Service Principal assigned to this MySQL Server.
 	PrincipalId string `pulumi:"principalId"`
@@ -1434,6 +1770,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerStorageProfilePtrInput)(nil)).Elem(), ServerStorageProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerThreatDetectionPolicyInput)(nil)).Elem(), ServerThreatDetectionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerThreatDetectionPolicyPtrInput)(nil)).Elem(), ServerThreatDetectionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlexibleServerHighAvailabilityInput)(nil)).Elem(), GetFlexibleServerHighAvailabilityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlexibleServerHighAvailabilityArrayInput)(nil)).Elem(), GetFlexibleServerHighAvailabilityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlexibleServerMaintenanceWindowInput)(nil)).Elem(), GetFlexibleServerMaintenanceWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlexibleServerMaintenanceWindowArrayInput)(nil)).Elem(), GetFlexibleServerMaintenanceWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlexibleServerStorageInput)(nil)).Elem(), GetFlexibleServerStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFlexibleServerStorageArrayInput)(nil)).Elem(), GetFlexibleServerStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityInput)(nil)).Elem(), GetServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerThreatDetectionPolicyInput)(nil)).Elem(), GetServerThreatDetectionPolicyArgs{})
@@ -1450,6 +1792,12 @@ func init() {
 	pulumi.RegisterOutputType(ServerStorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(ServerThreatDetectionPolicyOutput{})
 	pulumi.RegisterOutputType(ServerThreatDetectionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(GetFlexibleServerHighAvailabilityOutput{})
+	pulumi.RegisterOutputType(GetFlexibleServerHighAvailabilityArrayOutput{})
+	pulumi.RegisterOutputType(GetFlexibleServerMaintenanceWindowOutput{})
+	pulumi.RegisterOutputType(GetFlexibleServerMaintenanceWindowArrayOutput{})
+	pulumi.RegisterOutputType(GetFlexibleServerStorageOutput{})
+	pulumi.RegisterOutputType(GetFlexibleServerStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetServerThreatDetectionPolicyOutput{})

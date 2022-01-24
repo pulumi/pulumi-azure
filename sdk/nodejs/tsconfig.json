@@ -758,6 +758,7 @@
         "mysql/flexibleServer.ts",
         "mysql/flexibleServerConfiguration.ts",
         "mysql/flexibleServerFirewallRule.ts",
+        "mysql/getFlexibleServer.ts",
         "mysql/getServer.ts",
         "mysql/index.ts",
         "mysql/server.ts",

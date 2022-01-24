@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['StaticSiteArgs', 'StaticSite']
 
@@ -14,6 +16,7 @@ __all__ = ['StaticSiteArgs', 'StaticSite']
 class StaticSiteArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['StaticSiteIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
@@ -29,6 +32,8 @@ class StaticSiteArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -51,6 +56,15 @@ class StaticSiteArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['StaticSiteIdentityArgs']]:
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['StaticSiteIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -118,6 +132,7 @@ class _StaticSiteState:
     def __init__(__self__, *,
                  api_key: Optional[pulumi.Input[str]] = None,
                  default_host_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['StaticSiteIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -139,6 +154,8 @@ class _StaticSiteState:
             pulumi.set(__self__, "api_key", api_key)
         if default_host_name is not None:
             pulumi.set(__self__, "default_host_name", default_host_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -175,6 +192,15 @@ class _StaticSiteState:
     @default_host_name.setter
     def default_host_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_host_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['StaticSiteIdentityArgs']]:
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['StaticSiteIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -254,6 +280,7 @@ class StaticSite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['StaticSiteIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -339,6 +366,7 @@ class StaticSite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['StaticSiteIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -357,6 +385,7 @@ class StaticSite(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StaticSiteArgs.__new__(StaticSiteArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -379,6 +408,7 @@ class StaticSite(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key: Optional[pulumi.Input[str]] = None,
             default_host_name: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['StaticSiteIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -407,6 +437,7 @@ class StaticSite(pulumi.CustomResource):
 
         __props__.__dict__["api_key"] = api_key
         __props__.__dict__["default_host_name"] = default_host_name
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -430,6 +461,11 @@ class StaticSite(pulumi.CustomResource):
         The default host name of the Static Web App.
         """
         return pulumi.get(self, "default_host_name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.StaticSiteIdentity']]:
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

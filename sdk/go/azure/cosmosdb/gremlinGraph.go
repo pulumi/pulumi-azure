@@ -101,7 +101,7 @@ type GremlinGraph struct {
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
 	DefaultTtl pulumi.IntOutput `pulumi:"defaultTtl"`
-	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
+	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
 	IndexPolicies GremlinGraphIndexPolicyArrayOutput `pulumi:"indexPolicies"`
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -167,7 +167,7 @@ type gremlinGraphState struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
 	DefaultTtl *int `pulumi:"defaultTtl"`
-	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
+	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
 	IndexPolicies []GremlinGraphIndexPolicy `pulumi:"indexPolicies"`
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -193,7 +193,7 @@ type GremlinGraphState struct {
 	DatabaseName pulumi.StringPtrInput
 	// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
 	DefaultTtl pulumi.IntPtrInput
-	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
+	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
 	IndexPolicies GremlinGraphIndexPolicyArrayInput
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -223,7 +223,7 @@ type gremlinGraphArgs struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
 	DefaultTtl *int `pulumi:"defaultTtl"`
-	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
+	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
 	IndexPolicies []GremlinGraphIndexPolicy `pulumi:"indexPolicies"`
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -250,7 +250,7 @@ type GremlinGraphArgs struct {
 	DatabaseName pulumi.StringInput
 	// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
 	DefaultTtl pulumi.IntPtrInput
-	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
+	// The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
 	IndexPolicies GremlinGraphIndexPolicyArrayInput
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

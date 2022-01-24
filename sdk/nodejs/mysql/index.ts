@@ -13,6 +13,7 @@ export * from "./flexibleDatabase";
 export * from "./flexibleServer";
 export * from "./flexibleServerConfiguration";
 export * from "./flexibleServerFirewallRule";
+export * from "./getFlexibleServer";
 export * from "./getServer";
 export * from "./server";
 export * from "./serverKey";
