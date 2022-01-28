@@ -236,7 +236,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> PrivateClusterPublicFqdnEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
+        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
         /// </summary>
         [Output("privateDnsZoneId")]
         public Output<string> PrivateDnsZoneId { get; private set; } = null!;
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? PrivateClusterPublicFqdnEnabled { get; set; }
 
         /// <summary>
-        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
+        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }
@@ -729,7 +729,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? PrivateClusterPublicFqdnEnabled { get; set; }
 
         /// <summary>
-        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
+        /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }

@@ -142,6 +142,7 @@ const (
 	azureSynapse               = "Synapse"               // Synapse
 	azureVideoAnalyzer         = "VideoAnalyzer"         // Video Analyzer
 	azureWaf                   = "Waf"                   // WAF
+	azureWebPubSub             = "WebPubSub"             // Web PubSub
 
 	// Legacy Module Names
 	azureLegacyRole             = "Role"               // Azure Role (Legacy)
@@ -2017,10 +2018,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_desktop_workspace_application_group_association": {
 				Tok: azureResource(azureDesktopVirtualization, "WorkspaceApplicationGroupAssociation"),
 			},
-			"azurerm_virtual_desktop_host_pool":    {Tok: azureResource(azureDesktopVirtualization, "HostPool")},
-			"azurerm_virtual_desktop_workspace":    {Tok: azureResource(azureDesktopVirtualization, "Workspace")},
-			"azurerm_virtual_desktop_application":  {Tok: azureResource(azureDesktopVirtualization, "Application")},
-			"azurerm_virtual_desktop_scaling_plan": {Tok: azureResource(azureDesktopVirtualization, "ScalingPlan")},
+			"azurerm_virtual_desktop_host_pool":                   {Tok: azureResource(azureDesktopVirtualization, "HostPool")},
+			"azurerm_virtual_desktop_workspace":                   {Tok: azureResource(azureDesktopVirtualization, "Workspace")},
+			"azurerm_virtual_desktop_application":                 {Tok: azureResource(azureDesktopVirtualization, "Application")},
+			"azurerm_virtual_desktop_scaling_plan":                {Tok: azureResource(azureDesktopVirtualization, "ScalingPlan")},
+			"azurerm_virtual_desktop_host_pool_registration_info": {Tok: azureResource(azureDesktopVirtualization, "getHostPoolRegistrationInfo")},
 
 			// DigitalTwins
 			"azurerm_digital_twins_instance":            {Tok: azureResource(azureDigitalTwins, "Instance")},
@@ -2053,6 +2055,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_consumption_budget_resource_group":   {Tok: azureResource(azureConsumption, "BudgetResourceGroup")},
 			"azurerm_consumption_budget_subscription":     {Tok: azureResource(azureConsumption, "BudgetSubscription")},
 			"azurerm_consumption_budget_management_group": {Tok: azureResource(azureConsumption, "BudgetManagementGroup")},
+
+			// Web PubSub
+			"azurerm_web_pubsub":     {Tok: azureResource(azureWebPubSub, "Service")}, // Per the upstream docs, property "name" is described as the name of the service, ergo this resource describes a service.
+			"azurerm_web_pubsub_hub": {Tok: azureResource(azureWebPubSub, "Hub")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_aadb2c_directory": {Tok: azureDataSource(aadb2c, "getDirectory")},
@@ -2093,7 +2099,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_automation_variable_int":      {Tok: azureDataSource(azureAutomation, "getIntVariable")},
 			"azurerm_automation_variable_string":   {Tok: azureDataSource(azureAutomation, "getStringVariable")},
 			"azurerm_automation_account":           {Tok: azureDataSource(azureAutomation, "getAccount")},
-			"azurerm_availability_set":             {Tok: azureDataSource(azureCompute, "getAvailabilitySet")},
 			"azurerm_batch_account":                {Tok: azureDataSource(azureBatch, "getAccount")},
 			"azurerm_batch_certificate":            {Tok: azureDataSource(azureBatch, "getCertificate")},
 			"azurerm_batch_pool": {
@@ -2130,11 +2135,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_share_dataset_kusto_database":     {Tok: azureDataSource(azureDataShare, "getDatasetKustoDatabase")},
 			"azurerm_dev_test_lab":                          {Tok: azureDataSource(azureDevTest, "getLab")},
 			"azurerm_dev_test_virtual_network":              {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
-			"azurerm_image":                                 {Tok: azureDataSource(azureCompute, "getImage")},
-			"azurerm_images":                                {Tok: azureDataSource(azureCompute, "getImages")},
-			"azurerm_shared_image":                          {Tok: azureDataSource(azureCompute, "getSharedImage")},
-			"azurerm_shared_image_gallery":                  {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
-			"azurerm_shared_image_version":                  {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
+
+			"azurerm_availability_set":     {Tok: azureDataSource(azureCompute, "getAvailabilitySet")},
+			"azurerm_image":                {Tok: azureDataSource(azureCompute, "getImage")},
+			"azurerm_images":               {Tok: azureDataSource(azureCompute, "getImages")},
+			"azurerm_shared_image":         {Tok: azureDataSource(azureCompute, "getSharedImage")},
+			"azurerm_shared_image_gallery": {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
+			"azurerm_shared_image_version": {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
+			"azurerm_linux_function_app":   {Tok: azureDataSource(azureCompute, "getLinuxFunctionApp")},
+
 			"azurerm_lb": {
 				Tok: azureDataSource(azureLB, "getLB"),
 				Docs: &tfbridge.DocInfo{
@@ -2393,6 +2402,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_share":                     {Tok: azureDataSource(azureStorage, "getShare")},
 			"azurerm_consumption_budget_resource_group": {Tok: azureDataSource(azureConsumption, "getBudgetResourceGroup")},
 			"azurerm_consumption_budget_subscription":   {Tok: azureDataSource(azureConsumption, "getBudgetSubscription")},
+
+			// Web PubSub
+			"azurerm_web_pubsub":     {Tok: azureDataSource(azureWebPubSub, "getService")},
+			"azurerm_web_pubsub_hub": {Tok: azureDataSource(azureWebPubSub, "getHub")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

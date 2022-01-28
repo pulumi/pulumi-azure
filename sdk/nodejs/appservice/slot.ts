@@ -217,6 +217,10 @@ export class Slot extends pulumi.CustomResource {
      */
     public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.SlotSiteCredential[]>;
     /**
+     * One or more `storageAccount` blocks as defined below.
+     */
+    public readonly storageAccounts!: pulumi.Output<outputs.appservice.SlotStorageAccount[]>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -251,6 +255,7 @@ export class Slot extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
             inputs["siteCredentials"] = state ? state.siteCredentials : undefined;
+            inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SlotArgs | undefined;
@@ -278,6 +283,7 @@ export class Slot extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
+            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["defaultSiteHostname"] = undefined /*out*/;
             inputs["siteCredentials"] = undefined /*out*/;
@@ -362,6 +368,10 @@ export interface SlotState {
      */
     siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.SlotSiteCredential>[]>;
     /**
+     * One or more `storageAccount` blocks as defined below.
+     */
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.SlotStorageAccount>[]>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -431,6 +441,10 @@ export interface SlotArgs {
      * A `siteConfig` object as defined below.
      */
     siteConfig?: pulumi.Input<inputs.appservice.SlotSiteConfig>;
+    /**
+     * One or more `storageAccount` blocks as defined below.
+     */
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.SlotStorageAccount>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

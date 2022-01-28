@@ -13,10 +13,16 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class KafkaClusterRestProxyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure Active Directory Security Group ID.
+        /// The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityGroupId", required: true)]
         public Input<string> SecurityGroupId { get; set; } = null!;
+
+        /// <summary>
+        /// The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("securityGroupName")]
+        public Input<string>? SecurityGroupName { get; set; }
 
         public KafkaClusterRestProxyArgs()
         {

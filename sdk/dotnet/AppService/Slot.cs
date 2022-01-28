@@ -276,6 +276,12 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.SlotSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `storage_account` blocks as defined below.
+        /// </summary>
+        [Output("storageAccounts")]
+        public Output<ImmutableArray<Outputs.SlotStorageAccount>> StorageAccounts { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -429,6 +435,18 @@ namespace Pulumi.Azure.AppService
         [Input("siteConfig")]
         public Input<Inputs.SlotSiteConfigArgs>? SiteConfig { get; set; }
 
+        [Input("storageAccounts")]
+        private InputList<Inputs.SlotStorageAccountArgs>? _storageAccounts;
+
+        /// <summary>
+        /// One or more `storage_account` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.SlotStorageAccountArgs> StorageAccounts
+        {
+            get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.SlotStorageAccountArgs>());
+            set => _storageAccounts = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -566,6 +584,18 @@ namespace Pulumi.Azure.AppService
         {
             get => _siteCredentials ?? (_siteCredentials = new InputList<Inputs.SlotSiteCredentialGetArgs>());
             set => _siteCredentials = value;
+        }
+
+        [Input("storageAccounts")]
+        private InputList<Inputs.SlotStorageAccountGetArgs>? _storageAccounts;
+
+        /// <summary>
+        /// One or more `storage_account` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.SlotStorageAccountGetArgs> StorageAccounts
+        {
+            get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.SlotStorageAccountGetArgs>());
+            set => _storageAccounts = value;
         }
 
         [Input("tags")]

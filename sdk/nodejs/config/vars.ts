@@ -85,8 +85,7 @@ Object.defineProperty(exports, "disableTerraformPartnerId", {
 });
 
 /**
- * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
- * public.
+ * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
  */
 export declare const environment: string;
 Object.defineProperty(exports, "environment", {
@@ -209,6 +208,17 @@ export declare const tenantId: string | undefined;
 Object.defineProperty(exports, "tenantId", {
     get() {
         return __config.get("tenantId");
+    },
+    enumerable: true,
+});
+
+/**
+ * Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
+ */
+export declare const useMsal: boolean | undefined;
+Object.defineProperty(exports, "useMsal", {
+    get() {
+        return __config.getObject<boolean>("useMsal");
     },
     enumerable: true,
 });

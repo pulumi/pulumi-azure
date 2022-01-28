@@ -358,7 +358,7 @@ type EndpointDeliveryRule struct {
 	ModifyResponseHeaderActions []EndpointDeliveryRuleModifyResponseHeaderAction `pulumi:"modifyResponseHeaderActions"`
 	// The Name which should be used for this Delivery Rule.
 	Name string `pulumi:"name"`
-	// The order used for this rule, which must be larger than 1.
+	// The order used for this rule. The order values should be sequential and begin at `1`.
 	Order int `pulumi:"order"`
 	// A `postArgCondition` block as defined below.
 	PostArgConditions []EndpointDeliveryRulePostArgCondition `pulumi:"postArgConditions"`
@@ -416,7 +416,7 @@ type EndpointDeliveryRuleArgs struct {
 	ModifyResponseHeaderActions EndpointDeliveryRuleModifyResponseHeaderActionArrayInput `pulumi:"modifyResponseHeaderActions"`
 	// The Name which should be used for this Delivery Rule.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The order used for this rule, which must be larger than 1.
+	// The order used for this rule. The order values should be sequential and begin at `1`.
 	Order pulumi.IntInput `pulumi:"order"`
 	// A `postArgCondition` block as defined below.
 	PostArgConditions EndpointDeliveryRulePostArgConditionArrayInput `pulumi:"postArgConditions"`
@@ -547,7 +547,7 @@ func (o EndpointDeliveryRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointDeliveryRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The order used for this rule, which must be larger than 1.
+// The order used for this rule. The order values should be sequential and begin at `1`.
 func (o EndpointDeliveryRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointDeliveryRule) int { return v.Order }).(pulumi.IntOutput)
 }

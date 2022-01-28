@@ -161,7 +161,7 @@ class EndpointDeliveryRuleArgs:
                  url_rewrite_action: Optional[pulumi.Input['EndpointDeliveryRuleUrlRewriteActionArgs']] = None):
         """
         :param pulumi.Input[str] name: The Name which should be used for this Delivery Rule.
-        :param pulumi.Input[int] order: The order used for this rule, which must be larger than 1.
+        :param pulumi.Input[int] order: The order used for this rule. The order values should be sequential and begin at `1`.
         :param pulumi.Input['EndpointDeliveryRuleCacheExpirationActionArgs'] cache_expiration_action: A `cache_expiration_action` block as defined above.
         :param pulumi.Input['EndpointDeliveryRuleCacheKeyQueryStringActionArgs'] cache_key_query_string_action: A `cache_key_query_string_action` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArgs']]] cookies_conditions: A `cookies_condition` block as defined above.
@@ -242,7 +242,7 @@ class EndpointDeliveryRuleArgs:
     @pulumi.getter
     def order(self) -> pulumi.Input[int]:
         """
-        The order used for this rule, which must be larger than 1.
+        The order used for this rule. The order values should be sequential and begin at `1`.
         """
         return pulumi.get(self, "order")
 

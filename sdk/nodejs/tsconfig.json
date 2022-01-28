@@ -429,6 +429,7 @@
         "datashare/share.ts",
         "desktopvirtualization/application.ts",
         "desktopvirtualization/applicationGroup.ts",
+        "desktopvirtualization/getHostPoolRegistrationInfo.ts",
         "desktopvirtualization/hostPool.ts",
         "desktopvirtualization/index.ts",
         "desktopvirtualization/scalingPlan.ts",
@@ -1126,6 +1127,10 @@
         "videoanalyzer/index.ts",
         "waf/getFirewallPolicy.ts",
         "waf/index.ts",
-        "waf/policy.ts"
+        "waf/policy.ts",
+        "webpubsub/getService.ts",
+        "webpubsub/hub.ts",
+        "webpubsub/index.ts",
+        "webpubsub/service.ts"
     ]
 }

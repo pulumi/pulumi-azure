@@ -3685,6 +3685,33 @@ export namespace appservice {
         username?: pulumi.Input<string>;
     }
 
+    export interface SlotStorageAccount {
+        /**
+         * The access key for the storage account.
+         */
+        accessKey: pulumi.Input<string>;
+        /**
+         * The name of the storage account.
+         */
+        accountName: pulumi.Input<string>;
+        /**
+         * The path to mount the storage within the site's runtime environment.
+         */
+        mountPath?: pulumi.Input<string>;
+        /**
+         * The name of the storage account identifier.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The name of the file share (container name, for Blob storage).
+         */
+        shareName: pulumi.Input<string>;
+        /**
+         * The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface StaticSiteIdentity {
         /**
          * A list of Managed Identity ID's which should be assigned to this Static Site resource.
@@ -4359,7 +4386,7 @@ export namespace cdn {
          */
         name: pulumi.Input<string>;
         /**
-         * The order used for this rule, which must be larger than 1.
+         * The order used for this rule. The order values should be sequential and begin at `1`.
          */
         order: pulumi.Input<number>;
         /**
@@ -15113,9 +15140,13 @@ export namespace hdinsight {
 
     export interface KafkaClusterRestProxy {
         /**
-         * The Azure Active Directory Security Group ID.
+         * The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
          */
         securityGroupId: pulumi.Input<string>;
+        /**
+         * The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+         */
+        securityGroupName?: pulumi.Input<string>;
     }
 
     export interface KafkaClusterRoles {
@@ -27095,5 +27126,58 @@ export namespace waf {
          * Is Request Body Inspection enabled? Defaults to `true`.
          */
         requestBodyCheck?: pulumi.Input<boolean>;
+    }
+}
+
+export namespace webpubsub {
+    export interface HubEventHandler {
+        /**
+         * An `auth` block as defined below.
+         */
+        auth?: pulumi.Input<inputs.webpubsub.HubEventHandlerAuth>;
+        /**
+         * Specify the list of system events. Supported values are `connect`, `connected`
+         * and `disconnected`.
+         */
+        systemEvents?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
+         * available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
+         * comes in. Example: `http://example.com/api/{hub}/{event}`.
+         */
+        urlTemplate: pulumi.Input<string>;
+        /**
+         * Specify the matching event names. There are 3 kind of patterns supported:
+         * - `*` matches any event name
+         * - `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
+         * - The single event name, for example `event1`, it matches `event1`.
+         */
+        userEventPattern?: pulumi.Input<string>;
+    }
+
+    export interface HubEventHandlerAuth {
+        /**
+         * Specify the identity ID of the target resource.
+         */
+        managedIdentityId: pulumi.Input<string>;
+    }
+
+    export interface ServiceLiveTrace {
+        /**
+         * Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+         */
+        connectivityLogsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether the live trace is enabled? Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+         */
+        httpRequestLogsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+         */
+        messagingLogsEnabled?: pulumi.Input<boolean>;
     }
 }

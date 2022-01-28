@@ -25,21 +25,15 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     namespaceName: exampleNamespace.name,
+ *     namespaceId: exampleNamespace.id,
  *     enablePartitioning: true,
  * });
  * const exampleSubscription = new azure.servicebus.Subscription("exampleSubscription", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     namespaceName: exampleNamespace.name,
- *     topicName: exampleTopic.name,
+ *     topicId: exampleTopic.id,
  *     maxDeliveryCount: 1,
  * });
  * const exampleSubscriptionRule = new azure.servicebus.SubscriptionRule("exampleSubscriptionRule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     namespaceName: exampleNamespace.name,
- *     topicName: exampleTopic.name,
- *     subscriptionName: exampleSubscription.name,
+ *     subscriptionId: exampleSubscription.id,
  *     filterType: "SqlFilter",
  *     sqlFilter: "colour = 'red'",
  * });

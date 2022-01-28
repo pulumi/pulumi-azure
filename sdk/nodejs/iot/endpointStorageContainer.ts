@@ -103,7 +103,7 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
      */
     public readonly encoding!: pulumi.Output<string | undefined>;
     /**
-     * URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+     * URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      */
     public readonly endpointUri!: pulumi.Output<string | undefined>;
     /**
@@ -217,7 +217,7 @@ export interface EndpointStorageContainerState {
      */
     encoding?: pulumi.Input<string>;
     /**
-     * URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+     * URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      */
     endpointUri?: pulumi.Input<string>;
     /**
@@ -277,7 +277,7 @@ export interface EndpointStorageContainerArgs {
      */
     encoding?: pulumi.Input<string>;
     /**
-     * URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+     * URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      */
     endpointUri?: pulumi.Input<string>;
     /**

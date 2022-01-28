@@ -91,6 +91,7 @@ __all__ = [
     'SlotSiteConfigScmIpRestrictionArgs',
     'SlotSiteConfigScmIpRestrictionHeadersArgs',
     'SlotSiteCredentialArgs',
+    'SlotStorageAccountArgs',
     'StaticSiteIdentityArgs',
 ]
 
@@ -7192,6 +7193,104 @@ class SlotSiteCredentialArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class SlotStorageAccountArgs:
+    def __init__(__self__, *,
+                 access_key: pulumi.Input[str],
+                 account_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 share_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 mount_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_key: The access key for the storage account.
+        :param pulumi.Input[str] account_name: The name of the storage account.
+        :param pulumi.Input[str] name: The name of the storage account identifier.
+        :param pulumi.Input[str] share_name: The name of the file share (container name, for Blob storage).
+        :param pulumi.Input[str] type: The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+        :param pulumi.Input[str] mount_path: The path to mount the storage within the site's runtime environment.
+        """
+        pulumi.set(__self__, "access_key", access_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "type", type)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> pulumi.Input[str]:
+        """
+        The access key for the storage account.
+        """
+        return pulumi.get(self, "access_key")
+
+    @access_key.setter
+    def access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the storage account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the storage account identifier.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[str]:
+        """
+        The name of the file share (container name, for Blob storage).
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "share_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to mount the storage within the site's runtime environment.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_path", value)
 
 
 @pulumi.input_type

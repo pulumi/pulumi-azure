@@ -101,6 +101,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The property the input Event Hub has been partitioned by.
+        /// </summary>
+        [Output("partitionKey")]
+        public Output<string?> PartitionKey { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -201,6 +207,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The property the input Event Hub has been partitioned by.
+        /// </summary>
+        [Input("partitionKey")]
+        public Input<string>? PartitionKey { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -260,6 +272,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The property the input Event Hub has been partitioned by.
+        /// </summary>
+        [Input("partitionKey")]
+        public Input<string>? PartitionKey { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.

@@ -32,6 +32,7 @@ class ProviderArgs:
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_msal: Optional[pulumi.Input[bool]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
@@ -43,8 +44,7 @@ class ProviderArgs:
         :param pulumi.Input[str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         :param pulumi.Input[bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
         :param pulumi.Input[bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
-        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-               public.
+        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         :param pulumi.Input[str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
         :param pulumi.Input[str] metadata_url: Deprecated - replaced by `metadata_host`.
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -56,6 +56,7 @@ class ProviderArgs:
         :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
+        :param pulumi.Input[bool] use_msal: Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
         :param pulumi.Input[bool] use_msi: Allowed Managed Service Identity be used for Authentication.
         """
         if auxiliary_tenant_ids is not None:
@@ -112,6 +113,8 @@ class ProviderArgs:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_msal is not None:
+            pulumi.set(__self__, "use_msal", use_msal)
         if use_msi is not None:
             pulumi.set(__self__, "use_msi", use_msi)
 
@@ -202,8 +205,7 @@ class ProviderArgs:
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[str]]:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-        public.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         """
         return pulumi.get(self, "environment")
 
@@ -331,6 +333,18 @@ class ProviderArgs:
         pulumi.set(self, "tenant_id", value)
 
     @property
+    @pulumi.getter(name="useMsal")
+    def use_msal(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
+        """
+        return pulumi.get(self, "use_msal")
+
+    @use_msal.setter
+    def use_msal(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_msal", value)
+
+    @property
     @pulumi.getter(name="useMsi")
     def use_msi(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -366,6 +380,7 @@ class Provider(pulumi.ProviderResource):
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_msal: Optional[pulumi.Input[bool]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -384,8 +399,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         :param pulumi.Input[bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
         :param pulumi.Input[bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
-        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-               public.
+        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         :param pulumi.Input[str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
         :param pulumi.Input[str] metadata_url: Deprecated - replaced by `metadata_host`.
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -397,6 +411,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
+        :param pulumi.Input[bool] use_msal: Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
         :param pulumi.Input[bool] use_msi: Allowed Managed Service Identity be used for Authentication.
         """
         ...
@@ -444,6 +459,7 @@ class Provider(pulumi.ProviderResource):
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_msal: Optional[pulumi.Input[bool]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -493,6 +509,7 @@ class Provider(pulumi.ProviderResource):
                 subscription_id = (_utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["use_msal"] = pulumi.Output.from_input(use_msal).apply(pulumi.runtime.to_json) if use_msal is not None else None
             __props__.__dict__["use_msi"] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
         super(Provider, __self__).__init__(
             'azure',
@@ -538,8 +555,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def environment(self) -> pulumi.Output[Optional[str]]:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-        public.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         """
         return pulumi.get(self, "environment")
 

@@ -14,14 +14,22 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class KafkaClusterRestProxy
     {
         /// <summary>
-        /// The Azure Active Directory Security Group ID.
+        /// The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string SecurityGroupId;
+        /// <summary>
+        /// The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? SecurityGroupName;
 
         [OutputConstructor]
-        private KafkaClusterRestProxy(string securityGroupId)
+        private KafkaClusterRestProxy(
+            string securityGroupId,
+
+            string? securityGroupName)
         {
             SecurityGroupId = securityGroupId;
+            SecurityGroupName = securityGroupName;
         }
     }
 }

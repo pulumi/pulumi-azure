@@ -76,7 +76,7 @@ type EventHub struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
-	// Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+	// Specifies the current number of shards on the Event Hub.
 	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds pulumi.StringArrayOutput `pulumi:"partitionIds"`
@@ -135,7 +135,7 @@ type eventHubState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName *string `pulumi:"namespaceName"`
-	// Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+	// Specifies the current number of shards on the Event Hub.
 	PartitionCount *int `pulumi:"partitionCount"`
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds []string `pulumi:"partitionIds"`
@@ -154,7 +154,7 @@ type EventHubState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringPtrInput
-	// Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+	// Specifies the current number of shards on the Event Hub.
 	PartitionCount pulumi.IntPtrInput
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds pulumi.StringArrayInput
@@ -177,7 +177,7 @@ type eventHubArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName string `pulumi:"namespaceName"`
-	// Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+	// Specifies the current number of shards on the Event Hub.
 	PartitionCount int `pulumi:"partitionCount"`
 	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -195,7 +195,7 @@ type EventHubArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringInput
-	// Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+	// Specifies the current number of shards on the Event Hub.
 	PartitionCount pulumi.IntInput
 	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

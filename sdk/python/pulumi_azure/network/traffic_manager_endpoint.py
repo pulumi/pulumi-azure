@@ -1001,7 +1001,7 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointStatus")
-    def endpoint_status(self) -> pulumi.Output[str]:
+    def endpoint_status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the Endpoint, can be set to
         either `Enabled` or `Disabled`. Defaults to `Enabled`.

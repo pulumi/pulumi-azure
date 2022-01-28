@@ -103,6 +103,8 @@ type StreamInputEventHub struct {
 	EventhubName pulumi.StringOutput `pulumi:"eventhubName"`
 	// The name of the Stream Input EventHub. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The property the input Event Hub has been partitioned by.
+	PartitionKey pulumi.StringPtrOutput `pulumi:"partitionKey"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
@@ -173,6 +175,8 @@ type streamInputEventHubState struct {
 	EventhubName *string `pulumi:"eventhubName"`
 	// The name of the Stream Input EventHub. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The property the input Event Hub has been partitioned by.
+	PartitionKey *string `pulumi:"partitionKey"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
@@ -194,6 +198,8 @@ type StreamInputEventHubState struct {
 	EventhubName pulumi.StringPtrInput
 	// The name of the Stream Input EventHub. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The property the input Event Hub has been partitioned by.
+	PartitionKey pulumi.StringPtrInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `serialization` block as defined below.
@@ -219,6 +225,8 @@ type streamInputEventHubArgs struct {
 	EventhubName string `pulumi:"eventhubName"`
 	// The name of the Stream Input EventHub. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The property the input Event Hub has been partitioned by.
+	PartitionKey *string `pulumi:"partitionKey"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
@@ -241,6 +249,8 @@ type StreamInputEventHubArgs struct {
 	EventhubName pulumi.StringInput
 	// The name of the Stream Input EventHub. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The property the input Event Hub has been partitioned by.
+	PartitionKey pulumi.StringPtrInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `serialization` block as defined below.

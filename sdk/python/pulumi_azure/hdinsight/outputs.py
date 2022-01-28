@@ -4202,6 +4202,8 @@ class KafkaClusterRestProxy(dict):
         suggest = None
         if key == "securityGroupId":
             suggest = "security_group_id"
+        elif key == "securityGroupName":
+            suggest = "security_group_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KafkaClusterRestProxy. Access the value via the '{suggest}' property getter instead.")
@@ -4215,19 +4217,31 @@ class KafkaClusterRestProxy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 security_group_id: str):
+                 security_group_id: str,
+                 security_group_name: Optional[str] = None):
         """
-        :param str security_group_id: The Azure Active Directory Security Group ID.
+        :param str security_group_id: The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
+        :param str security_group_name: The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "security_group_id", security_group_id)
+        if security_group_name is not None:
+            pulumi.set(__self__, "security_group_name", security_group_name)
 
     @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> str:
         """
-        The Azure Active Directory Security Group ID.
+        The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_group_id")
+
+    @property
+    @pulumi.getter(name="securityGroupName")
+    def security_group_name(self) -> Optional[str]:
+        """
+        The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_group_name")
 
 
 @pulumi.output_type

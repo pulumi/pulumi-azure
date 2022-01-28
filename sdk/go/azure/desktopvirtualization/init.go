@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Application{}
 	case "azure:desktopvirtualization/applicationGroup:ApplicationGroup":
 		r = &ApplicationGroup{}
+	case "azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo":
+		r = &GetHostPoolRegistrationInfo{}
 	case "azure:desktopvirtualization/hostPool:HostPool":
 		r = &HostPool{}
 	case "azure:desktopvirtualization/scalingPlan:ScalingPlan":
@@ -54,6 +56,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"desktopvirtualization/applicationGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"desktopvirtualization/getHostPoolRegistrationInfo",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

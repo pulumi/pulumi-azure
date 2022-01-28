@@ -75,7 +75,8 @@ type ClusterPrincipalAssignment struct {
 
 	// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	Name        pulumi.StringOutput `pulumi:"name"`
+	// The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The object id of the principal. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// The name of the principal.
@@ -141,7 +142,8 @@ func GetClusterPrincipalAssignment(ctx *pulumi.Context,
 type clusterPrincipalAssignmentState struct {
 	// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
 	ClusterName *string `pulumi:"clusterName"`
-	Name        *string `pulumi:"name"`
+	// The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
 	// The object id of the principal. Changing this forces a new resource to be created.
 	PrincipalId *string `pulumi:"principalId"`
 	// The name of the principal.
@@ -161,7 +163,8 @@ type clusterPrincipalAssignmentState struct {
 type ClusterPrincipalAssignmentState struct {
 	// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
+	// The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
 	// The object id of the principal. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringPtrInput
 	// The name of the principal.
@@ -184,8 +187,9 @@ func (ClusterPrincipalAssignmentState) ElementType() reflect.Type {
 
 type clusterPrincipalAssignmentArgs struct {
 	// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
-	ClusterName string  `pulumi:"clusterName"`
-	Name        *string `pulumi:"name"`
+	ClusterName string `pulumi:"clusterName"`
+	// The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
 	// The object id of the principal. Changing this forces a new resource to be created.
 	PrincipalId string `pulumi:"principalId"`
 	// The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
@@ -202,7 +206,8 @@ type clusterPrincipalAssignmentArgs struct {
 type ClusterPrincipalAssignmentArgs struct {
 	// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringInput
-	Name        pulumi.StringPtrInput
+	// The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
 	// The object id of the principal. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringInput
 	// The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.

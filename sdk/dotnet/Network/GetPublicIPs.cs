@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Network
         ///     {
         ///         var example = Output.Create(Azure.Network.GetPublicIPs.InvokeAsync(new Azure.Network.GetPublicIPsArgs
         ///         {
-        ///             Attached = false,
+        ///             AttachmentStatus = "Attached",
         ///             ResourceGroupName = "pip-test",
         ///         }));
         ///     }
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Network
         ///     {
         ///         var example = Output.Create(Azure.Network.GetPublicIPs.InvokeAsync(new Azure.Network.GetPublicIPsArgs
         ///         {
-        ///             Attached = false,
+        ///             AttachmentStatus = "Attached",
         ///             ResourceGroupName = "pip-test",
         ///         }));
         ///     }

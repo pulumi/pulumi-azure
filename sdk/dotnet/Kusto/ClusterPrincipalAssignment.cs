@@ -68,6 +68,9 @@ namespace Pulumi.Azure.Kusto
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -165,6 +168,9 @@ namespace Pulumi.Azure.Kusto
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -211,6 +217,9 @@ namespace Pulumi.Azure.Kusto
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
+        /// <summary>
+        /// The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

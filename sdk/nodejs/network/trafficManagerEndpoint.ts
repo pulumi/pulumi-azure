@@ -102,7 +102,7 @@ export class TrafficManagerEndpoint extends pulumi.CustomResource {
      * The status of the Endpoint, can be set to
      * either `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
-    public readonly endpointStatus!: pulumi.Output<string>;
+    public readonly endpointStatus!: pulumi.Output<string | undefined>;
     /**
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
      */

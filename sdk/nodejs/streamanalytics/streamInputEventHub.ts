@@ -102,6 +102,10 @@ export class StreamInputEventHub extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The property the input Event Hub has been partitioned by.
+     */
+    public readonly partitionKey!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -142,6 +146,7 @@ export class StreamInputEventHub extends pulumi.CustomResource {
             inputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["partitionKey"] = state ? state.partitionKey : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serialization"] = state ? state.serialization : undefined;
             inputs["servicebusNamespace"] = state ? state.servicebusNamespace : undefined;
@@ -174,6 +179,7 @@ export class StreamInputEventHub extends pulumi.CustomResource {
             inputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
             inputs["eventhubName"] = args ? args.eventhubName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["partitionKey"] = args ? args.partitionKey : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serialization"] = args ? args.serialization : undefined;
             inputs["servicebusNamespace"] = args ? args.servicebusNamespace : undefined;
@@ -204,6 +210,10 @@ export interface StreamInputEventHubState {
      * The name of the Stream Input EventHub. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The property the input Event Hub has been partitioned by.
+     */
+    partitionKey?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
@@ -246,6 +256,10 @@ export interface StreamInputEventHubArgs {
      * The name of the Stream Input EventHub. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The property the input Event Hub has been partitioned by.
+     */
+    partitionKey?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */

@@ -73,6 +73,9 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
      * The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
      */
     public readonly clusterName!: pulumi.Output<string>;
+    /**
+     * The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * The object id of the principal. Changing this forces a new resource to be created.
@@ -170,6 +173,9 @@ export interface ClusterPrincipalAssignmentState {
      * The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
      */
     clusterName?: pulumi.Input<string>;
+    /**
+     * The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+     */
     name?: pulumi.Input<string>;
     /**
      * The object id of the principal. Changing this forces a new resource to be created.
@@ -209,6 +215,9 @@ export interface ClusterPrincipalAssignmentArgs {
      * The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
      */
     clusterName: pulumi.Input<string>;
+    /**
+     * The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+     */
     name?: pulumi.Input<string>;
     /**
      * The object id of the principal. Changing this forces a new resource to be created.

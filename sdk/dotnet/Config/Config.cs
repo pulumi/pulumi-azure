@@ -103,8 +103,7 @@ namespace Pulumi.Azure
 
         private static readonly __Value<string?> _environment = new __Value<string?>(() => __config.Get("environment") ?? Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public");
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-        /// public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         /// </summary>
         public static string? Environment
         {
@@ -216,6 +215,16 @@ namespace Pulumi.Azure
         {
             get => _tenantId.Get();
             set => _tenantId.Set(value);
+        }
+
+        private static readonly __Value<bool?> _useMsal = new __Value<bool?>(() => __config.GetBoolean("useMsal"));
+        /// <summary>
+        /// Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
+        /// </summary>
+        public static bool? UseMsal
+        {
+            get => _useMsal.Get();
+            set => _useMsal.Set(value);
         }
 
         private static readonly __Value<bool?> _useMsi = new __Value<bool?>(() => __config.GetBoolean("useMsi"));
