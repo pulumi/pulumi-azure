@@ -4602,6 +4602,33 @@ export namespace appservice {
         username: string;
     }
 
+    export interface SlotStorageAccount {
+        /**
+         * The access key for the storage account.
+         */
+        accessKey: string;
+        /**
+         * The name of the storage account.
+         */
+        accountName: string;
+        /**
+         * The path to mount the storage within the site's runtime environment.
+         */
+        mountPath?: string;
+        /**
+         * The name of the storage account identifier.
+         */
+        name: string;
+        /**
+         * The name of the file share (container name, for Blob storage).
+         */
+        shareName: string;
+        /**
+         * The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+         */
+        type: string;
+    }
+
     export interface StaticSiteIdentity {
         /**
          * A list of Managed Identity ID's which should be assigned to this Static Site resource.
@@ -4614,7 +4641,6 @@ export namespace appservice {
          */
         type: string;
     }
-
 }
 
 export namespace authorization {
@@ -5559,7 +5585,7 @@ export namespace cdn {
          */
         name: string;
         /**
-         * The order used for this rule, which must be larger than 1.
+         * The order used for this rule. The order values should be sequential and begin at `1`.
          */
         order: number;
         /**
@@ -17824,9 +17850,13 @@ export namespace hdinsight {
 
     export interface KafkaClusterRestProxy {
         /**
-         * The Azure Active Directory Security Group ID.
+         * The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
          */
         securityGroupId: string;
+        /**
+         * The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+         */
+        securityGroupName: string;
     }
 
     export interface KafkaClusterRoles {
@@ -31620,6 +31650,60 @@ export namespace waf {
          * Is Request Body Inspection enabled? Defaults to `true`.
          */
         requestBodyCheck?: boolean;
+    }
+
+}
+
+export namespace webpubsub {
+    export interface HubEventHandler {
+        /**
+         * An `auth` block as defined below.
+         */
+        auth?: outputs.webpubsub.HubEventHandlerAuth;
+        /**
+         * Specify the list of system events. Supported values are `connect`, `connected`
+         * and `disconnected`.
+         */
+        systemEvents?: string[];
+        /**
+         * The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
+         * available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
+         * comes in. Example: `http://example.com/api/{hub}/{event}`.
+         */
+        urlTemplate: string;
+        /**
+         * Specify the matching event names. There are 3 kind of patterns supported:
+         * - `*` matches any event name
+         * - `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2`
+         * - The single event name, for example `event1`, it matches `event1`.
+         */
+        userEventPattern?: string;
+    }
+
+    export interface HubEventHandlerAuth {
+        /**
+         * Specify the identity ID of the target resource.
+         */
+        managedIdentityId: string;
+    }
+
+    export interface ServiceLiveTrace {
+        /**
+         * Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+         */
+        connectivityLogsEnabled?: boolean;
+        /**
+         * Whether the live trace is enabled? Defaults to `true`.
+         */
+        enabled?: boolean;
+        /**
+         * Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+         */
+        httpRequestLogsEnabled?: boolean;
+        /**
+         * Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+         */
+        messagingLogsEnabled?: boolean;
     }
 
 }

@@ -44,8 +44,7 @@ func GetDisableTerraformPartnerId(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:disableTerraformPartnerId")
 }
 
-// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-// public.
+// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
 func GetEnvironment(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:environment")
 	if err == nil {
@@ -133,6 +132,11 @@ func GetSubscriptionId(ctx *pulumi.Context) string {
 // The Tenant ID which should be used.
 func GetTenantId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:tenantId")
+}
+
+// Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
+func GetUseMsal(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "azure:useMsal")
 }
 
 // Allowed Managed Service Identity be used for Authentication.

@@ -45,8 +45,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly clientSecret!: pulumi.Output<string | undefined>;
     /**
-     * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-     * public.
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
      */
     public readonly environment!: pulumi.Output<string | undefined>;
     /**
@@ -106,6 +105,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["storageUseAzuread"] = pulumi.output((args ? args.storageUseAzuread : undefined) ?? (<any>utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false)).apply(JSON.stringify);
             inputs["subscriptionId"] = (args ? args.subscriptionId : undefined) ?? (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
             inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["useMsal"] = pulumi.output(args ? args.useMsal : undefined).apply(JSON.stringify);
             inputs["useMsi"] = pulumi.output(args ? args.useMsi : undefined).apply(JSON.stringify);
         }
         if (!opts.version) {
@@ -147,8 +147,7 @@ export interface ProviderArgs {
      */
     disableTerraformPartnerId?: pulumi.Input<boolean>;
     /**
-     * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-     * public.
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
      */
     environment?: pulumi.Input<string>;
     features?: pulumi.Input<inputs.ProviderFeatures>;
@@ -194,6 +193,10 @@ export interface ProviderArgs {
      * The Tenant ID which should be used.
      */
     tenantId?: pulumi.Input<string>;
+    /**
+     * Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
+     */
+    useMsal?: pulumi.Input<boolean>;
     /**
      * Allowed Managed Service Identity be used for Authentication.
      */

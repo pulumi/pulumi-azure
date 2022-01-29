@@ -113,6 +113,7 @@ import * as trafficmanager from "./trafficmanager";
 import * as types from "./types";
 import * as videoanalyzer from "./videoanalyzer";
 import * as waf from "./waf";
+import * as webpubsub from "./webpubsub";
 
 export {
     aadb2c,
@@ -218,6 +219,7 @@ export {
     types,
     videoanalyzer,
     waf,
+    webpubsub,
 };
 
 import { Provider } from "./provider";

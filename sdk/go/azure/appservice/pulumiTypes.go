@@ -16013,6 +16013,148 @@ func (o SlotSiteCredentialArrayOutput) Index(i pulumi.IntInput) SlotSiteCredenti
 	}).(SlotSiteCredentialOutput)
 }
 
+type SlotStorageAccount struct {
+	// The access key for the storage account.
+	AccessKey string `pulumi:"accessKey"`
+	// The name of the storage account.
+	AccountName string `pulumi:"accountName"`
+	// The path to mount the storage within the site's runtime environment.
+	MountPath *string `pulumi:"mountPath"`
+	// The name of the storage account identifier.
+	Name string `pulumi:"name"`
+	// The name of the file share (container name, for Blob storage).
+	ShareName string `pulumi:"shareName"`
+	// The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+	Type string `pulumi:"type"`
+}
+
+// SlotStorageAccountInput is an input type that accepts SlotStorageAccountArgs and SlotStorageAccountOutput values.
+// You can construct a concrete instance of `SlotStorageAccountInput` via:
+//
+//          SlotStorageAccountArgs{...}
+type SlotStorageAccountInput interface {
+	pulumi.Input
+
+	ToSlotStorageAccountOutput() SlotStorageAccountOutput
+	ToSlotStorageAccountOutputWithContext(context.Context) SlotStorageAccountOutput
+}
+
+type SlotStorageAccountArgs struct {
+	// The access key for the storage account.
+	AccessKey pulumi.StringInput `pulumi:"accessKey"`
+	// The name of the storage account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The path to mount the storage within the site's runtime environment.
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+	// The name of the storage account identifier.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the file share (container name, for Blob storage).
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+	// The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SlotStorageAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlotStorageAccount)(nil)).Elem()
+}
+
+func (i SlotStorageAccountArgs) ToSlotStorageAccountOutput() SlotStorageAccountOutput {
+	return i.ToSlotStorageAccountOutputWithContext(context.Background())
+}
+
+func (i SlotStorageAccountArgs) ToSlotStorageAccountOutputWithContext(ctx context.Context) SlotStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotStorageAccountOutput)
+}
+
+// SlotStorageAccountArrayInput is an input type that accepts SlotStorageAccountArray and SlotStorageAccountArrayOutput values.
+// You can construct a concrete instance of `SlotStorageAccountArrayInput` via:
+//
+//          SlotStorageAccountArray{ SlotStorageAccountArgs{...} }
+type SlotStorageAccountArrayInput interface {
+	pulumi.Input
+
+	ToSlotStorageAccountArrayOutput() SlotStorageAccountArrayOutput
+	ToSlotStorageAccountArrayOutputWithContext(context.Context) SlotStorageAccountArrayOutput
+}
+
+type SlotStorageAccountArray []SlotStorageAccountInput
+
+func (SlotStorageAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlotStorageAccount)(nil)).Elem()
+}
+
+func (i SlotStorageAccountArray) ToSlotStorageAccountArrayOutput() SlotStorageAccountArrayOutput {
+	return i.ToSlotStorageAccountArrayOutputWithContext(context.Background())
+}
+
+func (i SlotStorageAccountArray) ToSlotStorageAccountArrayOutputWithContext(ctx context.Context) SlotStorageAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotStorageAccountArrayOutput)
+}
+
+type SlotStorageAccountOutput struct{ *pulumi.OutputState }
+
+func (SlotStorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlotStorageAccount)(nil)).Elem()
+}
+
+func (o SlotStorageAccountOutput) ToSlotStorageAccountOutput() SlotStorageAccountOutput {
+	return o
+}
+
+func (o SlotStorageAccountOutput) ToSlotStorageAccountOutputWithContext(ctx context.Context) SlotStorageAccountOutput {
+	return o
+}
+
+// The access key for the storage account.
+func (o SlotStorageAccountOutput) AccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SlotStorageAccount) string { return v.AccessKey }).(pulumi.StringOutput)
+}
+
+// The name of the storage account.
+func (o SlotStorageAccountOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v SlotStorageAccount) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// The path to mount the storage within the site's runtime environment.
+func (o SlotStorageAccountOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotStorageAccount) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+// The name of the storage account identifier.
+func (o SlotStorageAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SlotStorageAccount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the file share (container name, for Blob storage).
+func (o SlotStorageAccountOutput) ShareName() pulumi.StringOutput {
+	return o.ApplyT(func(v SlotStorageAccount) string { return v.ShareName }).(pulumi.StringOutput)
+}
+
+// The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+func (o SlotStorageAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SlotStorageAccount) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SlotStorageAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (SlotStorageAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlotStorageAccount)(nil)).Elem()
+}
+
+func (o SlotStorageAccountArrayOutput) ToSlotStorageAccountArrayOutput() SlotStorageAccountArrayOutput {
+	return o
+}
+
+func (o SlotStorageAccountArrayOutput) ToSlotStorageAccountArrayOutputWithContext(ctx context.Context) SlotStorageAccountArrayOutput {
+	return o
+}
+
+func (o SlotStorageAccountArrayOutput) Index(i pulumi.IntInput) SlotStorageAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SlotStorageAccount {
+		return vs[0].([]SlotStorageAccount)[vs[1].(int)]
+	}).(SlotStorageAccountOutput)
+}
+
 type StaticSiteIdentity struct {
 	// A list of Managed Identity ID's which should be assigned to this Static Site resource.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -19362,6 +19504,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotSiteConfigScmIpRestrictionHeadersPtrInput)(nil)).Elem(), SlotSiteConfigScmIpRestrictionHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotSiteCredentialInput)(nil)).Elem(), SlotSiteCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotSiteCredentialArrayInput)(nil)).Elem(), SlotSiteCredentialArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlotStorageAccountInput)(nil)).Elem(), SlotStorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlotStorageAccountArrayInput)(nil)).Elem(), SlotStorageAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteIdentityInput)(nil)).Elem(), StaticSiteIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticSiteIdentityPtrInput)(nil)).Elem(), StaticSiteIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppServiceConnectionStringInput)(nil)).Elem(), GetAppServiceConnectionStringArgs{})
@@ -19570,6 +19714,8 @@ func init() {
 	pulumi.RegisterOutputType(SlotSiteConfigScmIpRestrictionHeadersPtrOutput{})
 	pulumi.RegisterOutputType(SlotSiteCredentialOutput{})
 	pulumi.RegisterOutputType(SlotSiteCredentialArrayOutput{})
+	pulumi.RegisterOutputType(SlotStorageAccountOutput{})
+	pulumi.RegisterOutputType(SlotStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(StaticSiteIdentityOutput{})
 	pulumi.RegisterOutputType(StaticSiteIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetAppServiceConnectionStringOutput{})

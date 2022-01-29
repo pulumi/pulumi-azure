@@ -45,8 +45,7 @@ namespace Pulumi.Azure
         public Output<string?> ClientSecret { get; private set; } = null!;
 
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-        /// public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         /// </summary>
         [Output("environment")]
         public Output<string?> Environment { get; private set; } = null!;
@@ -163,8 +162,7 @@ namespace Pulumi.Azure
         public Input<bool>? DisableTerraformPartnerId { get; set; }
 
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-        /// public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }
@@ -227,6 +225,12 @@ namespace Pulumi.Azure
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
+
+        /// <summary>
+        /// Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
+        /// </summary>
+        [Input("useMsal", json: true)]
+        public Input<bool>? UseMsal { get; set; }
 
         /// <summary>
         /// Allowed Managed Service Identity be used for Authentication.

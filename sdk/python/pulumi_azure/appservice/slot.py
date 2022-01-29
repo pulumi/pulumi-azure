@@ -30,6 +30,7 @@ class SlotArgs:
                  logs: Optional[pulumi.Input['SlotLogsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input['SlotSiteConfigArgs']] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Slot resource.
@@ -48,6 +49,7 @@ class SlotArgs:
         :param pulumi.Input['SlotLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input['SlotSiteConfigArgs'] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "app_service_name", app_service_name)
@@ -77,6 +79,8 @@ class SlotArgs:
             pulumi.set(__self__, "name", name)
         if site_config is not None:
             pulumi.set(__self__, "site_config", site_config)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -261,6 +265,18 @@ class SlotArgs:
         pulumi.set(self, "site_config", value)
 
     @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]]:
+        """
+        One or more `storage_account` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -293,6 +309,7 @@ class _SlotState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input['SlotSiteConfigArgs']] = None,
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteCredentialArgs']]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Slot resources.
@@ -313,6 +330,7 @@ class _SlotState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component.
         :param pulumi.Input['SlotSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
+        :param pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if app_service_name is not None:
@@ -349,6 +367,8 @@ class _SlotState:
             pulumi.set(__self__, "site_config", site_config)
         if site_credentials is not None:
             pulumi.set(__self__, "site_credentials", site_credentials)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -557,6 +577,18 @@ class _SlotState:
         pulumi.set(self, "site_credentials", value)
 
     @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]]:
+        """
+        One or more `storage_account` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -589,6 +621,7 @@ class Slot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -715,6 +748,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component.
         :param pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -860,6 +894,7 @@ class Slot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -894,6 +929,7 @@ class Slot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["site_config"] = site_config
+            __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
             __props__.__dict__["default_site_hostname"] = None
             __props__.__dict__["site_credentials"] = None
@@ -924,6 +960,7 @@ class Slot(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             site_config: Optional[pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']]] = None,
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotSiteCredentialArgs']]]]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotStorageAccountArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Slot':
         """
         Get an existing Slot resource's state with the given name, id, and optional extra
@@ -949,6 +986,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component.
         :param pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -972,6 +1010,7 @@ class Slot(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["site_config"] = site_config
         __props__.__dict__["site_credentials"] = site_credentials
+        __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["tags"] = tags
         return Slot(resource_name, opts=opts, __props__=__props__)
 
@@ -1110,6 +1149,14 @@ class Slot(pulumi.CustomResource):
         A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
         """
         return pulumi.get(self, "site_credentials")
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> pulumi.Output[Sequence['outputs.SlotStorageAccount']]:
+        """
+        One or more `storage_account` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
 
     @property
     @pulumi.getter

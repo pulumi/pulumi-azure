@@ -45,29 +45,23 @@ import (
 // 			return err
 // 		}
 // 		exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			NamespaceName:      exampleNamespace.Name,
+// 			NamespaceId:        exampleNamespace.ID(),
 // 			EnablePartitioning: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleSubscription, err := servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			NamespaceName:     exampleNamespace.Name,
-// 			TopicName:         exampleTopic.Name,
-// 			MaxDeliveryCount:  pulumi.Int(1),
+// 			TopicId:          exampleTopic.ID(),
+// 			MaxDeliveryCount: pulumi.Int(1),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = servicebus.NewSubscriptionRule(ctx, "exampleSubscriptionRule", &servicebus.SubscriptionRuleArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			NamespaceName:     exampleNamespace.Name,
-// 			TopicName:         exampleTopic.Name,
-// 			SubscriptionName:  exampleSubscription.Name,
-// 			FilterType:        pulumi.String("SqlFilter"),
-// 			SqlFilter:         pulumi.String("colour = 'red'"),
+// 			SubscriptionId: exampleSubscription.ID(),
+// 			FilterType:     pulumi.String("SqlFilter"),
+// 			SqlFilter:      pulumi.String("colour = 'red'"),
 // 		})
 // 		if err != nil {
 // 			return err

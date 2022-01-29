@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The order used for this rule, which must be larger than 1.
+        /// The order used for this rule. The order values should be sequential and begin at `1`.
         /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;

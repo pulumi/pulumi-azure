@@ -219,6 +219,8 @@ type Slot struct {
 	SiteConfig SlotSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
 	SiteCredentials SlotSiteCredentialArrayOutput `pulumi:"siteCredentials"`
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts SlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -295,6 +297,8 @@ type slotState struct {
 	SiteConfig *SlotSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
 	SiteCredentials []SlotSiteCredential `pulumi:"siteCredentials"`
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts []SlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -334,6 +338,8 @@ type SlotState struct {
 	SiteConfig SlotSiteConfigPtrInput
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
 	SiteCredentials SlotSiteCredentialArrayInput
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts SlotStorageAccountArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -373,6 +379,8 @@ type slotArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *SlotSiteConfig `pulumi:"siteConfig"`
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts []SlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -409,6 +417,8 @@ type SlotArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `siteConfig` object as defined below.
 	SiteConfig SlotSiteConfigPtrInput
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts SlotStorageAccountArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

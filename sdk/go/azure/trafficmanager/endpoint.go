@@ -101,7 +101,7 @@ type Endpoint struct {
 	EndpointMonitorStatus pulumi.StringOutput `pulumi:"endpointMonitorStatus"`
 	// The status of the Endpoint, can be set to
 	// either `Enabled` or `Disabled`. Defaults to `Enabled`.
-	EndpointStatus pulumi.StringOutput `pulumi:"endpointStatus"`
+	EndpointStatus pulumi.StringPtrOutput `pulumi:"endpointStatus"`
 	// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
 	GeoMappings pulumi.StringArrayOutput `pulumi:"geoMappings"`
 	// This argument specifies the minimum number

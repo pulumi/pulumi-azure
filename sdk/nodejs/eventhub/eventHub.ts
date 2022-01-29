@@ -85,7 +85,7 @@ export class EventHub extends pulumi.CustomResource {
      */
     public readonly namespaceName!: pulumi.Output<string>;
     /**
-     * Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+     * Specifies the current number of shards on the Event Hub.
      */
     public readonly partitionCount!: pulumi.Output<number>;
     /**
@@ -173,7 +173,7 @@ export interface EventHubState {
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+     * Specifies the current number of shards on the Event Hub.
      */
     partitionCount?: pulumi.Input<number>;
     /**
@@ -211,7 +211,7 @@ export interface EventHubArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+     * Specifies the current number of shards on the Event Hub.
      */
     partitionCount: pulumi.Input<number>;
     /**

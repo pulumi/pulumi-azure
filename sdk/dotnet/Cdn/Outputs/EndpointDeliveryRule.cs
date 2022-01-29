@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The order used for this rule, which must be larger than 1.
+        /// The order used for this rule. The order values should be sequential and begin at `1`.
         /// </summary>
         public readonly int Order;
         /// <summary>

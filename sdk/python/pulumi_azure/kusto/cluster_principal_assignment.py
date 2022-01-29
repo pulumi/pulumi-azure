@@ -28,6 +28,7 @@ class ClusterPrincipalAssignmentArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role: The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "principal_id", principal_id)
@@ -113,6 +114,9 @@ class ClusterPrincipalAssignmentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -135,6 +139,7 @@ class _ClusterPrincipalAssignmentState:
         """
         Input properties used for looking up and filtering ClusterPrincipalAssignment resources.
         :param pulumi.Input[str] cluster_name: The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_name: The name of the principal.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
@@ -177,6 +182,9 @@ class _ClusterPrincipalAssignmentState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -319,6 +327,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
@@ -448,6 +457,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_name: The name of the principal.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
@@ -482,6 +492,9 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @property

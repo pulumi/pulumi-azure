@@ -11,47 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Virtual Desktop Host Pool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/desktopvirtualization"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = desktopvirtualization.NewHostPool(ctx, "exampleHostPool", &desktopvirtualization.HostPoolArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			FriendlyName:           pulumi.String("pooleddepthfirst"),
-// 			ValidateEnvironment:    pulumi.Bool(true),
-// 			StartVmOnConnect:       pulumi.Bool(true),
-// 			CustomRdpProperties:    pulumi.String("audiocapturemode:i:1;audiomode:i:0;"),
-// 			Description:            pulumi.String("Acceptance Test: A pooled host pool - pooleddepthfirst"),
-// 			Type:                   pulumi.String("Pooled"),
-// 			MaximumSessionsAllowed: pulumi.Int(50),
-// 			LoadBalancerType:       pulumi.String("DepthFirst"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // Virtual Desktop Host Pools can be imported using the `resource id`, e.g.

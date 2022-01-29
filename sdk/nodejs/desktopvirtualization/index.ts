@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./application";
 export * from "./applicationGroup";
+export * from "./getHostPoolRegistrationInfo";
 export * from "./hostPool";
 export * from "./scalingPlan";
 export * from "./workspace";
@@ -15,6 +16,7 @@ export * from "./workspaceApplicationGroupAssociation";
 // Import resources to register:
 import { Application } from "./application";
 import { ApplicationGroup } from "./applicationGroup";
+import { GetHostPoolRegistrationInfo } from "./getHostPoolRegistrationInfo";
 import { HostPool } from "./hostPool";
 import { ScalingPlan } from "./scalingPlan";
 import { Workspace } from "./workspace";
@@ -28,6 +30,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "azure:desktopvirtualization/applicationGroup:ApplicationGroup":
                 return new ApplicationGroup(name, <any>undefined, { urn })
+            case "azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo":
+                return new GetHostPoolRegistrationInfo(name, <any>undefined, { urn })
             case "azure:desktopvirtualization/hostPool:HostPool":
                 return new HostPool(name, <any>undefined, { urn })
             case "azure:desktopvirtualization/scalingPlan:ScalingPlan":
@@ -43,6 +47,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/application", _module)
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/applicationGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/getHostPoolRegistrationInfo", _module)
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/hostPool", _module)
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/scalingPlan", _module)
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/workspace", _module)

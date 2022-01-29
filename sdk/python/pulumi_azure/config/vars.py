@@ -66,8 +66,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def environment(self) -> str:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-        public.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         """
         return __config__.get('environment') or (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
 
@@ -143,6 +142,13 @@ class _ExportableConfig(types.ModuleType):
         The Tenant ID which should be used.
         """
         return __config__.get('tenantId')
+
+    @property
+    def use_msal(self) -> Optional[bool]:
+        """
+        Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
+        """
+        return __config__.get_bool('useMsal')
 
     @property
     def use_msi(self) -> Optional[bool]:

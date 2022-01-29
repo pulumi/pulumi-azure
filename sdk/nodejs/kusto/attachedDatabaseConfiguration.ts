@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *     clusterName: followerCluster.name,
  *     clusterResourceId: followedCluster.id,
  *     databaseName: exampleDatabase.name,
- *     defaultPrincipalModificationsKind: "None",
+ *     defaultPrincipalModificationsKind: "Union",
  *     sharing: {
  *         externalTablesToExcludes: ["ExternalTable2"],
  *         externalTablesToIncludes: ["ExternalTable1"],

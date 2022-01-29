@@ -214,6 +214,8 @@ if typing.TYPE_CHECKING:
     videoanalyzer = __videoanalyzer
     import pulumi_azure.waf as __waf
     waf = __waf
+    import pulumi_azure.webpubsub as __webpubsub
+    webpubsub = __webpubsub
 else:
     aadb2c = _utilities.lazy_import('pulumi_azure.aadb2c')
     advisor = _utilities.lazy_import('pulumi_azure.advisor')
@@ -317,6 +319,7 @@ else:
     trafficmanager = _utilities.lazy_import('pulumi_azure.trafficmanager')
     videoanalyzer = _utilities.lazy_import('pulumi_azure.videoanalyzer')
     waf = _utilities.lazy_import('pulumi_azure.waf')
+    webpubsub = _utilities.lazy_import('pulumi_azure.webpubsub')
 
 _utilities.register(
     resource_modules="""
@@ -2567,6 +2570,14 @@ _utilities.register(
   "fqn": "pulumi_azure.desktopvirtualization",
   "classes": {
    "azure:desktopvirtualization/applicationGroup:ApplicationGroup": "ApplicationGroup"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "desktopvirtualization/getHostPoolRegistrationInfo",
+  "fqn": "pulumi_azure.desktopvirtualization",
+  "classes": {
+   "azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo": "GetHostPoolRegistrationInfo"
   }
  },
  {
@@ -6423,6 +6434,22 @@ _utilities.register(
   "fqn": "pulumi_azure.waf",
   "classes": {
    "azure:waf/policy:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "webpubsub/hub",
+  "fqn": "pulumi_azure.webpubsub",
+  "classes": {
+   "azure:webpubsub/hub:Hub": "Hub"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "webpubsub/service",
+  "fqn": "pulumi_azure.webpubsub",
+  "classes": {
+   "azure:webpubsub/service:Service": "Service"
   }
  }
 ]

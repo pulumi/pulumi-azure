@@ -100,7 +100,7 @@ type EndpointStorageContainer struct {
 	ContainerName pulumi.StringOutput `pulumi:"containerName"`
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding pulumi.StringPtrOutput `pulumi:"encoding"`
-	// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	// URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EndpointUri pulumi.StringPtrOutput `pulumi:"endpointUri"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrOutput `pulumi:"fileNameFormat"`
@@ -165,7 +165,7 @@ type endpointStorageContainerState struct {
 	ContainerName *string `pulumi:"containerName"`
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding *string `pulumi:"encoding"`
-	// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	// URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EndpointUri *string `pulumi:"endpointUri"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
@@ -196,7 +196,7 @@ type EndpointStorageContainerState struct {
 	ContainerName pulumi.StringPtrInput
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding pulumi.StringPtrInput
-	// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	// URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EndpointUri pulumi.StringPtrInput
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrInput
@@ -231,7 +231,7 @@ type endpointStorageContainerArgs struct {
 	ContainerName string `pulumi:"containerName"`
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding *string `pulumi:"encoding"`
-	// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	// URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EndpointUri *string `pulumi:"endpointUri"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
@@ -263,7 +263,7 @@ type EndpointStorageContainerArgs struct {
 	ContainerName pulumi.StringInput
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
 	Encoding pulumi.StringPtrInput
-	// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
+	// URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EndpointUri pulumi.StringPtrInput
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrInput

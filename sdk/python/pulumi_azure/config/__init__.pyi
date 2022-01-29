@@ -45,8 +45,7 @@ This will disable the Terraform Partner ID which is used if a custom `partner_id
 
 environment: str
 """
-The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-public.
+The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
 """
 
 features: Optional[str]
@@ -98,6 +97,11 @@ The Subscription ID which should be used.
 tenantId: Optional[str]
 """
 The Tenant ID which should be used.
+"""
+
+useMsal: Optional[bool]
+"""
+Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
 """
 
 useMsi: Optional[bool]

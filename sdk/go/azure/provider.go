@@ -27,8 +27,7 @@ type Provider struct {
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
-	// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-	// public.
+	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
 	Environment pulumi.StringPtrOutput `pulumi:"environment"`
 	// The Hostname which should be used for the Azure Metadata Service.
 	MetadataHost pulumi.StringPtrOutput `pulumi:"metadataHost"`
@@ -96,8 +95,7 @@ type providerArgs struct {
 	DisableCorrelationRequestId *bool `pulumi:"disableCorrelationRequestId"`
 	// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
 	DisableTerraformPartnerId *bool `pulumi:"disableTerraformPartnerId"`
-	// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-	// public.
+	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
 	Environment *string           `pulumi:"environment"`
 	Features    *ProviderFeatures `pulumi:"features"`
 	// The Hostname which should be used for the Azure Metadata Service.
@@ -124,6 +122,8 @@ type providerArgs struct {
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Tenant ID which should be used.
 	TenantId *string `pulumi:"tenantId"`
+	// Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
+	UseMsal *bool `pulumi:"useMsal"`
 	// Allowed Managed Service Identity be used for Authentication.
 	UseMsi *bool `pulumi:"useMsi"`
 }
@@ -145,8 +145,7 @@ type ProviderArgs struct {
 	DisableCorrelationRequestId pulumi.BoolPtrInput
 	// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
 	DisableTerraformPartnerId pulumi.BoolPtrInput
-	// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
-	// public.
+	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
 	Environment pulumi.StringPtrInput
 	Features    ProviderFeaturesPtrInput
 	// The Hostname which should be used for the Azure Metadata Service.
@@ -173,6 +172,8 @@ type ProviderArgs struct {
 	SubscriptionId pulumi.StringPtrInput
 	// The Tenant ID which should be used.
 	TenantId pulumi.StringPtrInput
+	// Should Terraform obtain MSAL auth tokens and no longer use Azure Active Directory Graph?
+	UseMsal pulumi.BoolPtrInput
 	// Allowed Managed Service Identity be used for Authentication.
 	UseMsi pulumi.BoolPtrInput
 }

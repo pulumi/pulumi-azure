@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = pulumi.output(azure.network.getPublicIPs({
- *     attached: false,
+ *     attachmentStatus: "Attached",
  *     resourceGroupName: "pip-test",
  * }));
  * ```

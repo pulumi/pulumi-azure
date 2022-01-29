@@ -39,23 +39,17 @@ namespace Pulumi.Azure.EventHub
     ///         });
     ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
+    ///             NamespaceId = exampleNamespace.Id,
     ///             EnablePartitioning = true,
     ///         });
     ///         var exampleSubscription = new Azure.ServiceBus.Subscription("exampleSubscription", new Azure.ServiceBus.SubscriptionArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             TopicName = exampleTopic.Name,
+    ///             TopicId = exampleTopic.Id,
     ///             MaxDeliveryCount = 1,
     ///         });
     ///         var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("exampleSubscriptionRule", new Azure.ServiceBus.SubscriptionRuleArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             TopicName = exampleTopic.Name,
-    ///             SubscriptionName = exampleSubscription.Name,
+    ///             SubscriptionId = exampleSubscription.Id,
     ///             FilterType = "SqlFilter",
     ///             SqlFilter = "colour = 'red'",
     ///         });

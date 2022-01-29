@@ -23,7 +23,8 @@ class StreamInputEventHubArgs:
                  shared_access_policy_name: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 partition_key: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StreamInputEventHub resource.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
@@ -35,6 +36,7 @@ class StreamInputEventHubArgs:
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         :param pulumi.Input[str] name: The name of the Stream Input EventHub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partition_key: The property the input Event Hub has been partitioned by.
         """
         pulumi.set(__self__, "eventhub_name", eventhub_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -47,6 +49,8 @@ class StreamInputEventHubArgs:
             pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if partition_key is not None:
+            pulumi.set(__self__, "partition_key", partition_key)
 
     @property
     @pulumi.getter(name="eventhubName")
@@ -156,6 +160,18 @@ class StreamInputEventHubArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="partitionKey")
+    def partition_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The property the input Event Hub has been partitioned by.
+        """
+        return pulumi.get(self, "partition_key")
+
+    @partition_key.setter
+    def partition_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition_key", value)
+
 
 @pulumi.input_type
 class _StreamInputEventHubState:
@@ -163,6 +179,7 @@ class _StreamInputEventHubState:
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partition_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input['StreamInputEventHubSerializationArgs']] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
@@ -174,6 +191,7 @@ class _StreamInputEventHubState:
         :param pulumi.Input[str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Input EventHub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partition_key: The property the input Event Hub has been partitioned by.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input['StreamInputEventHubSerializationArgs'] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
@@ -187,6 +205,8 @@ class _StreamInputEventHubState:
             pulumi.set(__self__, "eventhub_name", eventhub_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if partition_key is not None:
+            pulumi.set(__self__, "partition_key", partition_key)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if serialization is not None:
@@ -235,6 +255,18 @@ class _StreamInputEventHubState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="partitionKey")
+    def partition_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The property the input Event Hub has been partitioned by.
+        """
+        return pulumi.get(self, "partition_key")
+
+    @partition_key.setter
+    def partition_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition_key", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -317,6 +349,7 @@ class StreamInputEventHub(pulumi.CustomResource):
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partition_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[pulumi.InputType['StreamInputEventHubSerializationArgs']]] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
@@ -377,6 +410,7 @@ class StreamInputEventHub(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Input EventHub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partition_key: The property the input Event Hub has been partitioned by.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['StreamInputEventHubSerializationArgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
@@ -456,6 +490,7 @@ class StreamInputEventHub(pulumi.CustomResource):
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partition_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[pulumi.InputType['StreamInputEventHubSerializationArgs']]] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
@@ -479,6 +514,7 @@ class StreamInputEventHub(pulumi.CustomResource):
                 raise TypeError("Missing required property 'eventhub_name'")
             __props__.__dict__["eventhub_name"] = eventhub_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["partition_key"] = partition_key
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -510,6 +546,7 @@ class StreamInputEventHub(pulumi.CustomResource):
             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
             eventhub_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            partition_key: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             serialization: Optional[pulumi.Input[pulumi.InputType['StreamInputEventHubSerializationArgs']]] = None,
             servicebus_namespace: Optional[pulumi.Input[str]] = None,
@@ -526,6 +563,7 @@ class StreamInputEventHub(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub's default consumer group.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Input EventHub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partition_key: The property the input Event Hub has been partitioned by.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['StreamInputEventHubSerializationArgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
@@ -540,6 +578,7 @@ class StreamInputEventHub(pulumi.CustomResource):
         __props__.__dict__["eventhub_consumer_group_name"] = eventhub_consumer_group_name
         __props__.__dict__["eventhub_name"] = eventhub_name
         __props__.__dict__["name"] = name
+        __props__.__dict__["partition_key"] = partition_key
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["serialization"] = serialization
         __props__.__dict__["servicebus_namespace"] = servicebus_namespace
@@ -571,6 +610,14 @@ class StreamInputEventHub(pulumi.CustomResource):
         The name of the Stream Input EventHub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partitionKey")
+    def partition_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The property the input Event Hub has been partitioned by.
+        """
+        return pulumi.get(self, "partition_key")
 
     @property
     @pulumi.getter(name="resourceGroupName")

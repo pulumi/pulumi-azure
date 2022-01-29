@@ -11791,8 +11791,10 @@ func (o KafkaClusterMonitorPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 }
 
 type KafkaClusterRestProxy struct {
-	// The Azure Active Directory Security Group ID.
+	// The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
 	SecurityGroupId string `pulumi:"securityGroupId"`
+	// The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+	SecurityGroupName *string `pulumi:"securityGroupName"`
 }
 
 // KafkaClusterRestProxyInput is an input type that accepts KafkaClusterRestProxyArgs and KafkaClusterRestProxyOutput values.
@@ -11807,8 +11809,10 @@ type KafkaClusterRestProxyInput interface {
 }
 
 type KafkaClusterRestProxyArgs struct {
-	// The Azure Active Directory Security Group ID.
+	// The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
 	SecurityGroupId pulumi.StringInput `pulumi:"securityGroupId"`
+	// The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+	SecurityGroupName pulumi.StringPtrInput `pulumi:"securityGroupName"`
 }
 
 func (KafkaClusterRestProxyArgs) ElementType() reflect.Type {
@@ -11888,9 +11892,14 @@ func (o KafkaClusterRestProxyOutput) ToKafkaClusterRestProxyPtrOutputWithContext
 	}).(KafkaClusterRestProxyPtrOutput)
 }
 
-// The Azure Active Directory Security Group ID.
+// The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
 func (o KafkaClusterRestProxyOutput) SecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterRestProxy) string { return v.SecurityGroupId }).(pulumi.StringOutput)
+}
+
+// The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+func (o KafkaClusterRestProxyOutput) SecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterRestProxy) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
 type KafkaClusterRestProxyPtrOutput struct{ *pulumi.OutputState }
@@ -11917,13 +11926,23 @@ func (o KafkaClusterRestProxyPtrOutput) Elem() KafkaClusterRestProxyOutput {
 	}).(KafkaClusterRestProxyOutput)
 }
 
-// The Azure Active Directory Security Group ID.
+// The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
 func (o KafkaClusterRestProxyPtrOutput) SecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterRestProxy) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.SecurityGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+func (o KafkaClusterRestProxyPtrOutput) SecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterRestProxy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupName
 	}).(pulumi.StringPtrOutput)
 }
 

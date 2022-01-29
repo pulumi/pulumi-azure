@@ -108,7 +108,7 @@ namespace Pulumi.Azure.Iot
         public Output<string?> Encoding { get; private set; } = null!;
 
         /// <summary>
-        /// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         /// </summary>
         [Output("endpointUri")]
         public Output<string?> EndpointUri { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Encoding { get; set; }
 
         /// <summary>
-        /// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         /// </summary>
         [Input("endpointUri")]
         public Input<string>? EndpointUri { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Encoding { get; set; }
 
         /// <summary>
-        /// URI of the Storage Container endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         /// </summary>
         [Input("endpointUri")]
         public Input<string>? EndpointUri { get; set; }

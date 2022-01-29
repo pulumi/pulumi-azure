@@ -374,19 +374,13 @@ class SubscriptionRule(pulumi.CustomResource):
                 "source": "example",
             })
         example_topic = azure.servicebus.Topic("exampleTopic",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_namespace.name,
+            namespace_id=example_namespace.id,
             enable_partitioning=True)
         example_subscription = azure.servicebus.Subscription("exampleSubscription",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_namespace.name,
-            topic_name=example_topic.name,
+            topic_id=example_topic.id,
             max_delivery_count=1)
         example_subscription_rule = azure.servicebus.SubscriptionRule("exampleSubscriptionRule",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_namespace.name,
-            topic_name=example_topic.name,
-            subscription_name=example_subscription.name,
+            subscription_id=example_subscription.id,
             filter_type="SqlFilter",
             sql_filter="colour = 'red'")
         ```
@@ -464,19 +458,13 @@ class SubscriptionRule(pulumi.CustomResource):
                 "source": "example",
             })
         example_topic = azure.servicebus.Topic("exampleTopic",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_namespace.name,
+            namespace_id=example_namespace.id,
             enable_partitioning=True)
         example_subscription = azure.servicebus.Subscription("exampleSubscription",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_namespace.name,
-            topic_name=example_topic.name,
+            topic_id=example_topic.id,
             max_delivery_count=1)
         example_subscription_rule = azure.servicebus.SubscriptionRule("exampleSubscriptionRule",
-            resource_group_name=example_resource_group.name,
-            namespace_name=example_namespace.name,
-            topic_name=example_topic.name,
-            subscription_name=example_subscription.name,
+            subscription_id=example_subscription.id,
             filter_type="SqlFilter",
             sql_filter="colour = 'red'")
         ```

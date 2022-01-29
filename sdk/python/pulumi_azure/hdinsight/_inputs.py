@@ -4186,23 +4186,39 @@ class KafkaClusterMonitorArgs:
 @pulumi.input_type
 class KafkaClusterRestProxyArgs:
     def __init__(__self__, *,
-                 security_group_id: pulumi.Input[str]):
+                 security_group_id: pulumi.Input[str],
+                 security_group_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] security_group_id: The Azure Active Directory Security Group ID.
+        :param pulumi.Input[str] security_group_id: The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] security_group_name: The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "security_group_id", security_group_id)
+        if security_group_name is not None:
+            pulumi.set(__self__, "security_group_name", security_group_name)
 
     @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Input[str]:
         """
-        The Azure Active Directory Security Group ID.
+        The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_group_id")
 
     @security_group_id.setter
     def security_group_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "security_group_id", value)
+
+    @property
+    @pulumi.getter(name="securityGroupName")
+    def security_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_group_name")
+
+    @security_group_name.setter
+    def security_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_name", value)
 
 
 @pulumi.input_type

@@ -10,40 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DesktopVirtualization
 {
     /// <summary>
-    /// Manages a Virtual Desktop Host Pool.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleHostPool = new Azure.DesktopVirtualization.HostPool("exampleHostPool", new Azure.DesktopVirtualization.HostPoolArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FriendlyName = "pooleddepthfirst",
-    ///             ValidateEnvironment = true,
-    ///             StartVmOnConnect = true,
-    ///             CustomRdpProperties = "audiocapturemode:i:1;audiomode:i:0;",
-    ///             Description = "Acceptance Test: A pooled host pool - pooleddepthfirst",
-    ///             Type = "Pooled",
-    ///             MaximumSessionsAllowed = 50,
-    ///             LoadBalancerType = "DepthFirst",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Virtual Desktop Host Pools can be imported using the `resource id`, e.g.

@@ -85,7 +85,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> NamespaceName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        /// Specifies the current number of shards on the Event Hub.
         /// </summary>
         [Output("partitionCount")]
         public Output<int> PartitionCount { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        /// Specifies the current number of shards on the Event Hub.
         /// </summary>
         [Input("partitionCount", required: true)]
         public Input<int> PartitionCount { get; set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
-        /// Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        /// Specifies the current number of shards on the Event Hub.
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }

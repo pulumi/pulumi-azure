@@ -26,7 +26,7 @@ class EventHubArgs:
         The set of arguments for constructing a EventHub resource.
         :param pulumi.Input[int] message_retention: Specifies the number of days to retain the events for this Event Hub.
         :param pulumi.Input[str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] partition_count: Specifies the current number of shards on the Event Hub.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input['EventHubCaptureDescriptionArgs'] capture_description: A `capture_description` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
@@ -71,7 +71,7 @@ class EventHubArgs:
     @pulumi.getter(name="partitionCount")
     def partition_count(self) -> pulumi.Input[int]:
         """
-        Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        Specifies the current number of shards on the Event Hub.
         """
         return pulumi.get(self, "partition_count")
 
@@ -145,7 +145,7 @@ class _EventHubState:
         :param pulumi.Input[int] message_retention: Specifies the number of days to retain the events for this Event Hub.
         :param pulumi.Input[str] name: Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] partition_count: Specifies the current number of shards on the Event Hub.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_ids: The identifiers for partitions created for Event Hubs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
@@ -219,7 +219,7 @@ class _EventHubState:
     @pulumi.getter(name="partitionCount")
     def partition_count(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        Specifies the current number of shards on the Event Hub.
         """
         return pulumi.get(self, "partition_count")
 
@@ -316,7 +316,7 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[int] message_retention: Specifies the number of days to retain the events for this Event Hub.
         :param pulumi.Input[str] name: Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] partition_count: Specifies the current number of shards on the Event Hub.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         """
@@ -438,7 +438,7 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[int] message_retention: Specifies the number of days to retain the events for this Event Hub.
         :param pulumi.Input[str] name: Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] partition_count: Specifies the current number of shards on the Event Hub.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_ids: The identifiers for partitions created for Event Hubs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
@@ -493,7 +493,7 @@ class EventHub(pulumi.CustomResource):
     @pulumi.getter(name="partitionCount")
     def partition_count(self) -> pulumi.Output[int]:
         """
-        Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        Specifies the current number of shards on the Event Hub.
         """
         return pulumi.get(self, "partition_count")
 

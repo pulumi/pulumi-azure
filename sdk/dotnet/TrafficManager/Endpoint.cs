@@ -106,7 +106,7 @@ namespace Pulumi.Azure.TrafficManager
         /// either `Enabled` or `Disabled`. Defaults to `Enabled`.
         /// </summary>
         [Output("endpointStatus")]
-        public Output<string> EndpointStatus { get; private set; } = null!;
+        public Output<string?> EndpointStatus { get; private set; } = null!;
 
         /// <summary>
         /// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
